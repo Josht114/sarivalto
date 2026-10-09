@@ -45,7 +45,10 @@ edge exit to cross to the neighbouring area.
   (shown on the overview map; unlisted locations are unassigned).
 - `HARBOURS` and `FERRY` in `js/data.js`: every harbour is joined to every other by a boat landing on its dock
   (walk onto the boat tile at the end of the dock). `FERRY` gives the position of each harbour's landings.
-- `NPCS` in `js/data.js`: named characters standing in the world (currently Eino and Toivo at Pula Harbour; no dialogue yet).
+- `DOORS` in `js/data.js`: links a door tile on the outside of a building to its interior map (interiors are ordinary entries in `L`
+  with the `interior` theme). Walk onto a door to go in or out. `BLD` holds the exterior look of each building; a feature's 7th
+  value picks its look, so every building can be drawn differently.
+- `NPCS` in `js/data.js`: named characters standing in the world (currently the people of Pula Harbour and Pula Harbour Village; no dialogue yet).
 
 ## Factions
 

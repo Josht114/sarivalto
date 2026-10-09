@@ -4,7 +4,7 @@ const root=path.join(__dirname,'..'),box={};vm.createContext(box);
 vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.HARBOURS=HARBOURS;',box);
 const {L,LINKS,POS,FACTIONS,FACTION_AT,HARBOURS}=box,W=1700,H=820;
 const COL={town:'#f6ecc8',road:'#d6cdb8',site:'#f0cfae',nature:'#c3d4a6',harbour:'#bddcea'};
-const ids=Object.keys(L),pairs=LINKS.map(s=>{const a=s.split(' ');return[a[0],a[2]]});
+const ids=Object.keys(L).filter(i=>POS[i]),pairs=LINKS.map(s=>{const a=s.split(' ');return[a[0],a[2]]});
 const wd=id=>L[id][0].length*7+20,P=id=>POS[id];
 const land=ids.filter(i=>i!='oilrig'),lp=pairs.filter(([a,b])=>a!='oilrig'&&b!='oilrig');
 const pts=land.map(i=>P(i).slice(0,2)).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
