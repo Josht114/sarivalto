@@ -20,13 +20,13 @@ south:['South Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 west:['West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 beach:['Beach',12,22,'sand',[]],
 village:['Pula Harbour Village',24,16,'snow',[[3,3,5,4,'#','Cottage'],[10,3,5,4,'#','Cottage'],[17,3,5,4,'#','Party Hall'],[15,10,5,4,'#','Cottage']]],
-harbour:['Pula Harbour',24,14,'harbour',[[1,1,9,12,'~'],[2,5,10,4,'p','Dock'],[15,2,6,3,'#','Warehouse']]],
+harbour:['Pula Harbour',24,14,'harbour',[[1,1,9,12,'~'],[2,5,10,4,'p'],[2,2,4,2,'b','Fishing Boat'],[2,10,3,2,'b','Fishing Boat'],[6,10,4,2,'b','Fishing Boat'],[13,4,2,2,'k','Fish Pile'],[15,2,6,3,'#','Warehouse']]],
 gated:['Hope Springs Gated Community',26,18,'snow',[[3,3,7,5,'#','Villa'],[17,3,7,5,'#','Villa'],[3,12,7,4,'#','Villa'],[17,12,7,4,'#','Club']]],
 privbeach:['Private Beach',18,12,'sand',[]],
-privharbour:['Private Harbour',18,12,'harbour',[[1,1,8,10,'~'],[2,4,8,3,'p','Private Dock']]],
+privharbour:['Private Harbour',18,12,'harbour',[[1,1,8,10,'~'],[2,4,8,3,'p']]],
 radio:['Radio Tower',18,14,'snow',[[7,2,4,4,'#','Radio Tower'],[2,9,4,3,'#','Transmitter Hut']]],
-kalanharbour:['Kalan Harbour',24,14,'harbour',[[1,1,22,6,'~'],[10,2,4,8,'p','Dock'],[3,8,5,3,'#','Boat Shed'],[16,8,5,3,'#','Fish Market']]],
-savilaharbour:['Savila Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p','Dock'],[2,2,6,3,'#','Customs Shed'],[2,9,6,3,'#','Warehouse']]]};
+kalanharbour:['Kalan Harbour',24,14,'harbour',[[1,1,22,6,'~'],[4,3,12,4,'p'],[3,8,5,3,'#','Boat Shed'],[16,8,5,3,'#','Fish Market']]],
+savilaharbour:['Savila Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p'],[2,2,6,3,'#','Customs Shed'],[2,9,6,3,'#','Warehouse']]]};
 // Links from the sketch: "A side B side". Order of links sets the order of exits along a side.
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano B north T','north R town L','west R town L',
 'mountains B east T','mountains R cathedral L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R shuttle L',
@@ -40,3 +40,18 @@ farm:[1162,380,'nature'],palace:[793,424,'site'],town:[755,487,'town'],colahq:[8
 colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[961,592,'road'],west:[557,532,'road'],
 beach:[334,465,'nature'],village:[367,674,'town'],harbour:[213,674,'harbour'],radio:[500,610,'site'],gated:[758,694,'town'],
 privharbour:[540,700,'harbour'],privbeach:[936,712,'nature']};
+
+// ---- Factions shown on the overview map (used only by tools/build-map.js): id:[name, colour, short badge]
+const FACTIONS={communist:['Communist Party','#c0392b','COM'],democrat:['Democratic Party','#2e86c1','DEM'],royal:['Royal Family','#7d3c98','ROY'],
+cola:['Kelp Cola','#2e9d57','KC'],oil:['Diversified Petroleum','#37474f','DP'],syndicate:['Crime Syndicate','#8d5524','SYN'],church:['Orthodox Church','#e0a100','CH']};
+// Where each faction is based: location id -> faction id. Unlisted locations are unassigned.
+const FACTION_AT={village:'communist',town:'democrat',gated:'syndicate',palace:'royal',cathedral:'church',
+colahq:'cola',colafactory:'cola',shuttle:'cola',oilhq:'oil',oilrig:'oil'};
+
+// ---- Boats between harbours. Every harbour is joined to every other by a boat landing (berth) on its dock.
+const HARBOURS=['harbour','kalanharbour','savilaharbour','privharbour'];
+// FERRY: id:[x, y, stepX, stepY, arriveDX, arriveDY]. One berth per other harbour (in HARBOURS order), stepping from (x,y).
+const FERRY={harbour:[2,5,0,1,1,0],kalanharbour:[4,3,0,1,1,0],savilaharbour:[19,5,0,1,-1,0],privharbour:[2,4,0,1,1,0]};
+// ---- Named characters standing in the world (placeholders: no dialogue yet). dir: 0 down, 1 up, 2 left, 3 right
+const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Eino',role:'Fisherman',body:'#d9a520',hair:'#b5b5b5'},
+{m:'harbour',x:12,y:5,dir:3,name:'Toivo',role:'Fisherman',body:'#2f6f8f',hair:'#5a3a22'}];

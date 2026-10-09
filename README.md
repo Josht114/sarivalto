@@ -28,6 +28,8 @@ edge exit to cross to the neighbouring area.
     js/game.js      map building, rendering, input, movement
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
+    docs/quest-schedule.md  which factions have quests in each of the 19 weeks
+    assets/logos/       Diversified Petroleum logo (light and dark SVG, light PNG)
 
 ## Editing the map
 
@@ -39,6 +41,11 @@ edge exit to cross to the neighbouring area.
 
 - `POS` in `js/data.js`: where each location sits on the overview map (used only by the map generator).
   After changing locations or links, run `node tools/build-map.js` and commit the updated SVG.
+- `FACTIONS` and `FACTION_AT` in `js/data.js`: faction names and colours, and which location each faction is based in
+  (shown on the overview map; unlisted locations are unassigned).
+- `HARBOURS` and `FERRY` in `js/data.js`: every harbour is joined to every other by a boat landing on its dock
+  (walk onto the boat tile at the end of the dock). `FERRY` gives the position of each harbour's landings.
+- `NPCS` in `js/data.js`: named characters standing in the world (currently Eino and Toivo at Pula Harbour; no dialogue yet).
 
 ## Factions
 
