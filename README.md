@@ -26,7 +26,8 @@ edge exit to cross to the neighbouring area.
     css/style.css   page styling
     js/data.js      the island: location sizes, themes, features, and the links between them
     js/game.js      map building, rendering, input, movement
-    js/art.js       detailed pixel-art renderer for the maps listed in ART2 (Pula Fishing Village and West Pula Harbour so far)
+    js/art.js       detailed pixel-art renderer: outdoor maps listed in ART2 (Saltwick, West Saltwick Harbour,
+                    Beach, West Road, Radio Tower) and every building interior (looks set per building in INT)
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
@@ -49,11 +50,13 @@ edge exit to cross to the neighbouring area.
   After changing locations or links, run `node tools/build-map.js` and commit the updated SVG.
 - `FACTIONS` and `FACTION_AT` in `js/data.js`: faction names and colours, and which location each faction is based in
   (shown on the overview map; unlisted locations are unassigned).
-- `BOATS` and `FERRY` in `js/data.js`: boat routes. `BOATS` lists where you can sail from each place (West Pula Harbour, North Kalan Harbour,
-  East Savila Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. South Private Harbour has no
+- `DISTRICTS` and `DISTRICT_OF` in `js/data.js`: the seven districts (name and map colour) and which district each place is in.
+  Every place on the overview map needs one (both generators stop with an error otherwise); interiors take their building's district.
+- `BOATS` and `FERRY` in `js/data.js`: boat routes. `BOATS` lists where you can sail from each place (West Saltwick Harbour, North Frostholm Harbour,
+  Eastbrook Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. South Private Harbour has no
   boat routes at all, by design.
 - `NPCS` in `js/data.js`: named characters. Every NPC needs a `name`, `job`, `faction` (a `FACTIONS` id, or `'none'` if unaligned)
-  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Pula Harbour and Pula Fishing Village; no dialogue yet). An optional `hat` colour gives them a beanie.
+  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Saltwick Harbour and Saltwick; no dialogue yet). An optional `hat` colour gives them a beanie.
 - `PROPS` in `js/data.js`: small objects (lamps, barrels, benches...) placed on a map. They block movement unless listed in `PROP_PASS`.
 
 ## Wiki

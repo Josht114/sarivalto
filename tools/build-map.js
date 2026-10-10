@@ -1,13 +1,15 @@
 // Generates docs/island-map.svg (and the copy at island-map.svg) from js/data.js. Usage: node tools/build-map.js  (no dependencies)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS}=box,W=1700,H=860;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;this.DISTRICTS=DISTRICTS;this.DISTRICT_OF=DISTRICT_OF;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,DISTRICTS,DISTRICT_OF}=box,W=1700,H=860;
 const COL={town:'#f6ecc8',road:'#d6cdb8',site:'#f0cfae',nature:'#c3d4a6',harbour:'#bddcea'};
 const ids=Object.keys(L).filter(i=>POS[i]),pairs=LINKS.map(s=>{const a=s.split(' ');return[a[0],a[2]]});
 const wd=id=>L[id][0].length*7+20,P=id=>POS[id];
 // The coast is the convex hull of every inland place, pushed out by CO pixels. Harbours are not used to shape it: each one is
 // snapped onto the nearest point of the coast (an anchor marks the spot) and its label sits just out to sea.
+// where each district's name is written on the map (picked by hand to sit in open ground)
+const DPOS={central:[870,560],north:[810,318],northeast:[1030,328],northwest:[425,310],southwest:[355,535],south:[690,742],southeast:[1065,690]};
 const CO=52,isH=i=>P(i)[2]=='harbour'&&i!='oilrig';
 const land=ids.filter(i=>i!='oilrig'&&!isH(i)),lp=pairs.filter(([a,b])=>a!='oilrig'&&b!='oilrig');
 const pts=land.map(i=>P(i).slice(0,2)).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
@@ -43,6 +45,21 @@ const boatLines=boats.map(([a,b],k)=>`<path d="M${seaRoute(a,b,CO+26+k*8).map(p=
 const roads=pairs.map(([a,b])=>{const d=`M${r1(RP(a)[0])} ${r1(RP(a)[1])}L${r1(RP(b)[0])} ${r1(RP(b)[1])}`,pipe=a=='oilrig'||b=='oilrig';
   return pipe?`<path d="${d}" stroke="#3a3a3a" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`
   :`<path d="${d}" stroke="#8a7a5a" stroke-width="7" stroke-linecap="round"/><path d="${d}" stroke="#efe6c8" stroke-width="2.5" stroke-dasharray="7 6"/>`}).join('');
+// Districts: each inland place (and harbour landing) gets the patch of island nearer to it than to any other place, coloured by
+// its district and clipped to the coast; dashed lines mark where two districts meet.
+const sites=ids.filter(i=>i!='oilrig').map(i=>({id:i,p:RP(i),d:DISTRICT_OF[i]}));
+sites.forEach(s=>{if(!DISTRICTS[s.d])throw new Error(L[s.id][0]+' ('+s.id+') has no district in DISTRICT_OF')});
+function cell(si){let E=[[[0,0],[W,0],null],[[W,0],[W,H],null],[[W,H],[0,H],null],[[0,H],[0,0],null]];const a=sites[si].p;
+  sites.forEach((o,j)=>{if(j==si)return;const b=o.p,m=[(a[0]+b[0])/2,(a[1]+b[1])/2],d=[b[0]-a[0],b[1]-a[1]],f=q=>(q[0]-m[0])*d[0]+(q[1]-m[1])*d[1];
+    const I=(P,Q)=>{const t=f(P)/(f(P)-f(Q));return[P[0]+(Q[0]-P[0])*t,P[1]+(Q[1]-P[1])*t]},out=[];let ex=null,en=null;
+    E.forEach(([P,Q,tg])=>{const ip=f(P)<=0,iq=f(Q)<=0;if(ip&&iq)out.push([P,Q,tg]);else if(ip){ex=I(P,Q);out.push([P,ex,tg],'X')}else if(iq){en=I(P,Q);out.push([en,Q,tg])}});
+    E=out.map(e=>e=='X'?[ex,en,j]:e)});return E}
+const cells=sites.map((s,i)=>cell(i)),coast=ring(CO).map(p=>r1(p[0])+','+r1(p[1])).join(' ');
+const districtFill=cells.map((E,i)=>{const c=DISTRICTS[sites[i].d][1],pts=E.map(e=>r1(e[0][0])+','+r1(e[0][1])).join(' ');return`<polygon points="${pts}" fill="${c}" stroke="${c}" stroke-width="1.5"/>`}).join('');
+const districtEdges=cells.map((E,i)=>E.filter(e=>e[2]!=null&&e[2]>i&&sites[e[2]].d!=sites[i].d).map(e=>`<path d="M${r1(e[0][0])} ${r1(e[0][1])}L${r1(e[1][0])} ${r1(e[1][1])}"/>`).join('')).join('');
+const dc={};sites.forEach(s=>{(dc[s.d]??=[]).push(P(s.id))});
+const districtNames=Object.entries(dc).map(([d,ps])=>{const[x,y]=DPOS[d]||[ps.reduce((a,p)=>a+p[0],0)/ps.length,ps.reduce((a,p)=>a+p[1],0)/ps.length];
+  return`<text x="${r1(x)}" y="${r1(y)}" text-anchor="middle" font-size="19" font-weight="bold" letter-spacing="5" fill="#5a4630" fill-opacity=".42">${DISTRICTS[d][0].toUpperCase()}</text>`}).join('');
 const anchors=Object.values(HB).map(({c})=>`<g transform="translate(${r1(c[0])},${r1(c[1])})"><circle r="8" fill="#1f6f9a" stroke="#fff" stroke-width="2"/><path d="M0 -4.5V4.5M-3 -1.5H3M-4 1.5Q0 6 4 1.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>`).join('');
 const nodes=ids.map(i=>{const[x,y]=NP(i).map(r1),k=P(i)[2],w=wd(i),f=FACTION_AT[i]&&FACTIONS[FACTION_AT[i]],sw=f?3.5:1.5;
   return(f?`<rect x="${x-w/2-7}" y="${y-22}" width="${w+14}" height="44" rx="12" fill="${f[1]}" fill-opacity=".30"/>`:'')+
@@ -65,6 +82,8 @@ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" font-
 <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4ecf4"/><stop offset="1" stop-color="#a6d0e2"/></linearGradient></defs>
 <rect width="${W}" height="${H}" fill="url(#sea)"/><g stroke="#ffffff" stroke-opacity=".35" stroke-width="1">${grid}</g>
 ${blob(170,'#e3f3f6')}${blob(140,'#cfe6ea')}${blob(112,'#9a8a62')}${blob(104,'#dfe0b4')}
+<defs><clipPath id="isl"><polygon points="${coast}"/></clipPath></defs>
+<g clip-path="url(#isl)" opacity=".75">${districtFill}</g><g clip-path="url(#isl)" stroke="#6b5a3a" stroke-width="2" stroke-dasharray="6 5" opacity=".55" fill="none">${districtEdges}</g>${districtNames}
 <g fill="none">${boatLines}${roads}</g>${anchors}${nodes}
 <text x="60" y="68" font-size="44" font-weight="bold" fill="#2b2118" letter-spacing="6">SARIVALTO</text>
 <text x="62" y="94" font-size="16" font-style="italic" fill="#3d3226">An island north of Finland &#183; early 1980s</text>

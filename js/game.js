@@ -127,7 +127,9 @@ function drawLabels(){
 function draw(t){
   const M=MAPS[P.m],mh=M.length,mw=M[0].length,a2=ART2.has(P.m);
   ctx.fillStyle='#0b120a';ctx.fillRect(0,0,cv.width,cv.height);
-  const cx=cam(P.rx*T+T/2-cv.width/2,mw*T,cv.width),cy=cam(P.ry*T+T/2-cv.height/2,mh*T,cv.height),fw=(t/600)|0;
+  // interiors drawn by art.js have a taller back wall reaching WU pixels above the map; let the camera show it
+  const top=a2&&L[P.m][3]=='interior'?WU:0;
+  const cx=cam(P.rx*T+T/2-cv.width/2,mw*T,cv.width),cy=cam(P.ry*T+T/2-cv.height/2+top,mh*T+top,cv.height)-top,fw=(t/600)|0;
   if(a2)drawWorld2(P.m,cx,cy,t,P.mv?1+P.par:0);
   else{for(let y=0;y<mh;y++)for(let x=0;x<mw;x++){const ch=M[y][x];
       ctx.drawImage(tile(ch,ch=='~'?((x+y+fw)&1):((hash(x,y,3)*4)|0)),x*T-cx,y*T-cy)}

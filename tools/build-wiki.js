@@ -2,11 +2,14 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS}=box.D,NOTES=box.N;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF}=box.D,NOTES=box.N;
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const KIND={town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour or sea',interior:'Interior'};
 const kind=id=>POS[id]?POS[id][2]:'interior',parentOf=id=>{const d=DOORS.find(d=>d[5]==id);return d&&d[0]};
+// district of a place; interiors take the district of the building they are in
+const distOf=id=>id&&(DISTRICT_OF[id]||distOf(parentOf(id)));
+Object.keys(POS).forEach(id=>{if(!DISTRICTS[DISTRICT_OF[id]])throw new Error(L[id][0]+' ('+id+') has no district in DISTRICT_OF')});
 const walk={};LINKS.forEach(s=>{const[a,,b]=s.split(' ');(walk[a]??=[]).push(b);(walk[b]??=[]).push(a)});
 const nid=n=>n.name.toLowerCase(),npcOf=id=>NPCS.find(n=>nid(n)==id);
 // Every NPC must have a name, job, faction, main location and home (a building interior you can enter).
@@ -22,7 +25,7 @@ const info=rows=>'<table class="info">'+rows.filter(Boolean).map(([k,v])=>`<tr><
 const list=a=>a.length?a.join(', '):'—';
 function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac=FACTION_AT[id],people=NPCS.filter(n=>n.m==id||n.loc==id),res=NPCS.filter(n=>n.home==id);
   const labels=[...new Set(fs.filter(f=>f[5]).map(f=>f[5]))],ent=DOORS.filter(d=>d[0]==id);
-  const rows=[['Type',KIND[k]],par&&['Inside',locA(c,par)],fac&&['Faction base',`<span class="sw" style="background:${FACTIONS[fac][1]}"></span>`+facA(c,fac)],['Size',w+' × '+h+' tiles'],
+  const dd=distOf(id),rows=[['Type',KIND[k]],['District',`<span class="sw" style="background:${DISTRICTS[dd][1]}"></span>`+esc(DISTRICTS[dd][0])],par&&['Inside',locA(c,par)],fac&&['Faction base',`<span class="sw" style="background:${FACTIONS[fac][1]}"></span>`+facA(c,fac)],['Size',w+' × '+h+' tiles'],
     walk[id]&&['Walk to',list(walk[id].map(x=>locA(c,x)))],BOATS[id]&&['Boat to',list(BOATS[id].map(x=>locA(c,x)))],
     ent.length&&['Buildings to enter',list(ent.map(d=>locA(c,d[5])))],people.length&&['People',list(people.map(n=>npcA(c,n)))],res.length&&['Residents',list(res.map(n=>npcA(c,n)))]];
   let t=`<h1>${esc(name)}</h1>${info(rows)}<p>${esc((NOTES.locations||{})[id]||name+' is a '+KIND[k].toLowerCase()+' on the island.')}</p>`;
@@ -44,7 +47,8 @@ function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
 const filter='<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">';
 function idxBody(c,k){let t;
   if(k=='locations'){const g={};Object.keys(L).forEach(i=>(g[kind(i)]??=[]).push(i));
-    t='<h1>Locations</h1>'+filter+Object.keys(KIND).filter(x=>g[x]).map(x=>`<h2>${KIND[x]}</h2><ul class="cols">${g[x].map(i=>`<li data-s="${esc((L[i][0]+' '+x).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')}
+    t='<h1>Locations</h1>'+filter+Object.keys(KIND).filter(x=>g[x]).map(x=>`<h2>${KIND[x]}</h2><ul class="cols">${g[x].map(i=>`<li data-s="${esc((L[i][0]+' '+x+' '+DISTRICTS[distOf(i)][0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')+
+      '<h2>By district</h2>'+Object.keys(DISTRICTS).map(d=>`<h3><span class="sw" style="background:${DISTRICTS[d][1]}"></span>${esc(DISTRICTS[d][0])}</h3><ul class="cols">${Object.keys(POS).filter(i=>DISTRICT_OF[i]==d).map(i=>`<li data-s="${esc((L[i][0]+' '+DISTRICTS[d][0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')}
   else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none');t='<h1>Factions</h1>'+filter+'<ul class="cols">'+Object.keys(FACTIONS).map(i=>`<li data-s="${esc(FACTIONS[i][0].toLowerCase())}"><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}<br><small>${esc(FACTIONS[i][3])}</small></li>`).join('')+'</ul>'+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job.toLowerCase())} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
   else t='<h1>People</h1>'+filter+'<ul class="cols">'+NPCS.map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)} · ${locA(c,n.loc)} · lives in ${locA(c,n.home)}</small></li>`).join('')+'</ul>';

@@ -1,7 +1,7 @@
-// ---- Detailed pixel-art renderer (modern 2D pixel style). Only the maps listed in ART2 use it; every other map still
+// ---- Detailed pixel-art renderer (modern 2D pixel style). Only the maps listed in ART2 (every interior included) use it; every other map still
 // uses the placeholder tiles in game.js. Each map is drawn once to a cached canvas (ground, shorelines, buildings); water,
 // boats, trees, props, people, smoke, flags and snowfall are drawn every frame on top.
-const ART2=new Set(['village','harbour']);
+const ART2=new Set(['village','harbour','beach','west','radio',...Object.keys(L).filter(i=>L[i][3]=='interior')]);
 const OUT='#262330',SNOW='#f3f7fa',SNOWD='#d3dfe9';
 const cnv=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
 const RGB={},rgb=h=>RGB[h]??=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
@@ -27,22 +27,35 @@ const ptext=(r,s,x,y,col)=>[...s].forEach((ch,i)=>{const f=FONT[ch];for(let k=0;
 const CLS=ch=>'~b'.includes(ch)?'w':'pF'.includes(ch)?'d':',E'.includes(ch)?'p':'#d'.includes(ch)?'h':'s';
 const land=k=>k=='s'||k=='p'||k=='h';
 const STONE=['#a39d95','#b1aba2','#978f88','#aaa39a'],PLANK=['#9a7049','#8c6542','#a5794f'];
+// Path look per map (default: cobbles). dirt = gravel track, boards = boardwalk.
+const PATHS={west:'dirt',radio:'dirt',beach:'boards'};
+function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return hash(X,Y,3)>.988?'#ccd9e5':nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5'}
+function sandPx(X,Y){const nz=vnoise(X/10,Y/10,1)*.7+vnoise(X/4,Y/4,2)*.3;let c=nz>.62?'#e4d8b4':nz<.38?'#cbbb91':'#d9cba4';
+  if(hash(X,Y,3)>.982)c='#a89a7a';else if(hash(X,Y,4)>.99)c='#f4efe0';
+  const sn=vnoise(X/12,Y/12,5);return sn>.74?mix(c,'#eef3f6',Math.min(.85,(sn-.74)*9)):c}
 function groundLayer(m){
-  const M=MAPS[m],h=M.length,w=M[0].length,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
-  const cl=(x,y)=>CLS(M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))]);
+  // the radio mast stands on open ground, so its footprint is drawn as plain ground rather than a building
+  const M=MAPS[m].map(r=>[...r]);FL[m].forEach(([x,y,w,h,,,st])=>{if(st&&BLD[st]&&BLD[st].kind=='mast')for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)M[j][i]='.'});
+  const h=M.length,w=M[0].length,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
+  const base=TH[L[m][3]][0],ps=PATHS[m]||'cobble',at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],cl=(x,y)=>CLS(at(x,y));
+  const sandy=ch=>ch=='s'||(base=='s'&&!'~b,EpF'.includes(ch)),gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y):snowPx(X,Y);
   for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){
     const k=cl(tx,ty),n=cl(tx,ty-1),s=cl(tx,ty+1),wv=cl(tx-1,ty),e=cl(tx+1,ty),ch=M[ty][tx];
+    const nS=sandy(at(tx,ty-1)),sS=sandy(at(tx,ty+1)),wS=sandy(at(tx-1,ty)),eS=sandy(at(tx+1,ty)),sd=sandy(ch);
     const tuft=ch=='.'&&hash(tx,ty,9)>.86,tox=2+(hash(tx,ty,10)*11|0),toy=4+(hash(tx,ty,11)*9|0);
+    const vert=(n=='p'||s=='p')&&wv!='p'&&e!='p';
     for(let ly=0;ly<16;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,Y=ty*16+ly;let col=null,a=255;
       if(k=='w'){
-        if(land(wv)&&lx<4)col=lx<2?(lx?'#77828e':'#5c6773'):hash(X,Y,4)>(lx==2?.3:.65)?(lx==2?'#e6f3fa':'#bfdcec'):null;
-        if(land(e)&&lx>11)col=lx>13?(lx==15?'#5c6773':'#77828e'):hash(X,Y,4)>(lx==13?.3:.65)?(lx==13?'#e6f3fa':'#bfdcec'):col;
-        if(land(s)&&ly>12)col=ly>13?(ly==15?'#46505b':'#77828e'):hash(X,Y,5)>.35?'#e6f3fa':col;
-        if(land(n)){const fh=4+(vnoise(X/3,0,6)>.55?1:0);
-          if(ly==0)col=SNOWD;else if(ly<fh){const t=hash(X>>2,(Y>>1)+((X>>2)&1),5);col=ly==1?'#8f99a4':t>.6?'#77828e':t>.2?'#5c6773':'#46505b'}
-          else if(ly==fh&&hash(X,7)>.25)col='#e6f3fa';else if(ly==fh+1&&hash(X,8)>.55)col='#bfdcec'}
+        // bank colour d pixels out from a land edge: grey rock, or wet sand with turquoise shallows on beaches
+        const bank=(d,sn)=>{if(sn){if(d==0)return['#a8966c'];if(d<3)return hash(X,Y,4)>(d==1?.2:.55)?['#e6f3fa']:['#7fc3e2',110];if(d<6)return['#7fc3e2',70-d*8];return null}
+          if(d<2)return[d?'#77828e':'#5c6773'];if(d<4)return hash(X,Y,4)>(d==2?.3:.65)?[d==2?'#e6f3fa':'#bfdcec']:null;return null};
+        const put=v=>{if(v){col=v[0];a=v[1]??255}};
+        if(land(wv))put(bank(lx,wS));if(land(e))put(bank(15-lx,eS));if(land(s))put(bank(15-ly,sS));
+        if(land(n)){if(nS)put(bank(ly,true));else{const fh=4+(vnoise(X/3,0,6)>.55?1:0);
+          if(ly==0)col=SNOWD;else if(ly<fh){const t=hash(X>>2,(Y>>1)+((X>>2)&1),5);col=ly==1?'#8f99a4':t>.6?'#77828e':t>.2?'#5c6773':'#46505b';a=255}
+          else if(ly==fh&&hash(X,7)>.25){col='#e6f3fa';a=255}else if(ly==fh+1&&hash(X,8)>.55){col='#bfdcec';a=255}}}
         if(wv=='d'&&lx<3&&!col){col='#0a2236';a=80}
-        if(n=='d'){const pst=lx%12==2||lx%12==3;
+        if(n=='d'){const pst=lx%12==2||lx%12==3;a=255;
           if(ly<3)col=ly==0?'#6e4d30':'#4a321f';else if(pst&&ly<8)col=lx%12==2?'#5a3e27':'#3b2818';else if(ly<7){col='#0a2236';a=85}}}
       else if(k=='d'){const bd=X>>2,sm=(Y+bd*7)%24;
         col=(X&3)==3||sm==0?'#4d3624':PLANK[hash(bd,(Y+bd*7)/24|0,6)*3|0];
@@ -50,16 +63,24 @@ function groundLayer(m){
         else if((X&3)!=3&&sm&&hash(X,Y,12)>.96)col=shade(col,-.08);
         if(hash(X,Y,13)>.993)col='#e8eff5';
         if((n=='w'&&ly==0)||(wv=='w'&&lx==0)||(e=='w'&&lx==15))col='#3b2818'}
-      else if(k=='p'){const row=Y/5|0,ry=Y%5,sx=X+row*3,seg=sx/6|0,l6=sx%6;
-        col=STONE[hash(seg,row,14)*4|0];
-        if(ry==4||l6==5)col=hash(X,Y,15)>.6?'#dde6ee':'#77716b';else if(ry==0)col=shade(col,.15);else if(ry==3||l6==4)col=shade(col,-.1);
-        // snow lying over the path's edges, with a little shadow under the lip
-        const lip=(q,side,dist)=>{const dep=vnoise(q/4,side,16)*3|0;if(dist<dep)col=hash(X,Y,17)>.85?'#ffffff':'#e8eff5';else if(dist==dep)col='#8a857f'};
+      else if(k=='p'&&ps=='boards'){
+        // boardwalk: boards run across the direction of travel, with a dark beam along open sides
+        const u=vert?Y:X,v=vert?lx:ly,bd=u>>2;col=(u&3)==3?'#5a3e27':PLANK[hash(bd,7,24)*3|0];
+        if((u&3)==0)col=shade(col,.08);if((v==2||v==13)&&(u&3)==1)col='#2f2219';if(hash(X,Y,25)>.97)col=shade(col,-.1);
+        const side=vert?[wv,e]:[n,s],o=vert?lx:ly;if((o==0&&side[0]!='p')||(o==15&&side[1]!='p'))col='#3b2818'}
+      else if(k=='p'){
+        if(ps=='dirt'){const nz=vnoise(X/6,Y/6,26);col=nz>.6?'#bcae96':nz<.35?'#9f927c':'#ada08a';
+          if(hash(X,Y,27)>.9)col='#8a7e6a';else if(hash(X,Y,28)>.95)col='#d2c7b4';
+          const sn=vnoise(X/9,Y/9,29);if(sn>.62)col=mix(col,'#e8eff5',Math.min(1,(sn-.62)*6))}
+        else{const row=Y/5|0,ry=Y%5,sx=X+row*3,seg=sx/6|0,l6=sx%6;col=STONE[hash(seg,row,14)*4|0];
+          if(ry==4||l6==5)col=hash(X,Y,15)>.6?'#dde6ee':'#77716b';else if(ry==0)col=shade(col,.15);else if(ry==3||l6==4)col=shade(col,-.1)}
+        // snow (or sand) lying over the path's edges, with a little shadow under the lip
+        const lip=(q,sid,dist,gc)=>{const dep=vnoise(q/4,sid,16)*3|0;if(dist<dep)col=gpx(X,Y,gc);else if(dist==dep)col=sandy(gc)?'#a8977a':'#8a857f'};
         const op=v=>v!='p'&&v!='d';
-        if(op(n))lip(X,1,ly);if(op(s))lip(X,2,15-ly);if(op(wv))lip(Y,3,lx);if(op(e))lip(Y,4,15-lx)}
-      else{const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;
-        col=nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5';if(hash(X,Y,3)>.988)col='#ccd9e5';
-        if(ch=='T')col=mix(col,'#9fb3c6',.3);
+        if(op(n))lip(X,1,ly,at(tx,ty-1));if(op(s))lip(X,2,15-ly,at(tx,ty+1));if(op(wv))lip(Y,3,lx,at(tx-1,ty));if(op(e))lip(Y,4,15-lx,at(tx+1,ty))}
+      else{col=gpx(X,Y,ch);
+        if(ch=='T')col=mix(col,sd?'#9a8c6a':'#9fb3c6',sd?.18:.3);
+        if(sd){const dw=Math.min(n=='w'?ly:99,s=='w'?15-ly:99,wv=='w'?lx:99,e=='w'?15-lx:99);if(dw<6)col=mix(col,'#a8966c',(6-dw)/7)}
         if(n=='h'&&ly<3)col=mix(col,'#b4c4d4',.85-ly*.2);
         if(wv=='h'&&lx<5)col=mix(col,'#b4c4d4',.7-lx*.12);
         if(tuft){const dx=lx-tox,dy=ly-toy;if((dy==0&&(dx==0||dx==2||dx==4))||(dy==-1&&(dx==1||dx==3))||(dy==-2&&dx==2))col=dy==0?'#5e6b45':'#7c8a5c'}
@@ -99,6 +120,7 @@ function bld2(w,h,s,dx){
   if(s.deco=='whs'){const bx=(W>>1)-12;for(let i=0;i<w;i++)if(i*16+15>=bx&&i*16<=bx+24)skip.add(i);
     r('#2b2f3a',bx-1,ry+3,26,1);r('#5d4636',bx,ry+4,24,wh-7);r('#7a5d48',bx,ry+4,24,1);
     for(let k=0;k<wh-7;k++){r('#7a5d48',bx+(k*12/(wh-7)|0),ry+4+k,1,1);r('#7a5d48',bx+23-(k*12/(wh-7)|0),ry+4+k,1,1)}r('#2b2f3a',bx+12,ry+4,1,wh-7)}
+  if(s.deco=='hut')skip.add(1);
   // windows
   const win=(x,y,ww,hh,lit)=>{const gl=lit?'#ffd98a':s.win;
     if(s.sh){r(s.sh,x-4,y-1,2,hh+2);r(s.sh,x+ww+2,y-1,2,hh+2)}
@@ -144,6 +166,9 @@ function bld2(w,h,s,dx){
     an.push({t:'neon',x:bx+7,y:by+2,s:'BAR'})}
   if(s.deco=='shop'){const bx=(W>>1)-14,by=ry-17;r(OUT,bx-1,by-1,30,11);r('#f2f2f2',bx,by,28,9);r(SNOW,bx-1,by-1,30,1);r('#3a3a44',bx+4,by+9,1,6);r('#3a3a44',bx+23,by+9,1,6);
     ptext(r,'FISH',bx+2,by+2,'#2e6f9a');r('#8fa6b8',bx+19,by+3,5,3);r('#8fa6b8',bx+24,by+2,2,5);r(OUT,bx+20,by+4,1,1)}
+  if(s.deco=='hut'){const X=18;r(OUT,X-1,H-18,14,15);r('#7d858e',X,H-17,12,14);r('#9aa3ad',X,H-17,2,14);for(let y=H-14;y<H-4;y+=3)r('#6b737c',X+3,y,6,1);r('#e8c33a',X+9,H-10,2,1);
+    const tx=3*16+3;r(OUT,tx-1,ry+5,12,11);r('#e0a100',tx,ry+6,10,9);r('#2b2f3a',tx+4,ry+8,2,4);r('#2b2f3a',tx+4,ry+13,2,1);
+    r('#5a5f68',W-14,0,1,ry-6);r('#5a5f68',W-17,3,7,1);r('#5a5f68',W-16,6,5,1);r(OUT,10,4,10,7);r('#e8ecef',11,5,8,5);r('#b9c0c7',15,5,4,5);an.push({t:'blink',x:W-14,y:-1})}
   r(OUT,0,0,W,1);r(OUT,0,0,1,H);r(OUT,W-1,0,1,H);
   return{c,an}}
 
@@ -183,7 +208,7 @@ bollard:[9,r=>{r('#3a3d44',5,3,6,6);r('#5a5f68',4,1,8,3);r('#7a808a',5,1,3,1);r(
 rope:[6,r=>{r('#c9a36a',2,0,12,6);r('#a8834a',4,1,8,4);r('#8a6a3a',6,2,4,2);r('#e0c08a',3,0,4,1)}],
 anchor:[12,r=>{r('#4a4f58',7,0,2,10);r('#4a4f58',4,2,8,1);r('#4a4f58',2,8,2,3);r('#4a4f58',12,8,2,3);r('#4a4f58',3,10,10,2);r('#6a707a',7,0,1,10)}],
 sled:[8,r=>{r('#a8323a',1,1,13,4);r('#c94a50',1,1,13,1);r('#3a3a44',0,6,15,1);r('#3a3a44',2,5,1,1);r('#3a3a44',12,5,1,1);r(SNOW,3,0,6,1)}]};
-const PCACHE={},propArt=k=>PCACHE[k]??=mk(16,PA[k][0],PA[k][1]);
+const PCACHE={},propArt=k=>PCACHE[k]??=(k=='rock'?ROCKS[1]:mk(16,PA[k][0],PA[k][1]));
 
 function boatArt(w,h,v){const W=w*16,H=h*16,hc=['#b5402f','#2f5f8f','#3d7a5a'][v*3|0],top=6,bot=H-8,bow=Math.min(12,W/4|0);
   return mk(W,H-1,r=>{
@@ -203,6 +228,40 @@ const fishPile=mk(30,30,r=>{
   [[3,10,0],[7,8,1],[2,6,1],[6,4,0],[9,12,1],[4,13,0],[18,13,0],[22,14,1]].forEach(([x,y,f])=>fish(x,y,f));
   r('#f2f2f2',21,10,5,3);r('#9aa3ad',22,10,3,1);r('#f2f2f2',25,8,2,2);r('#e8b33a',27,9,1,1);r('#e8792a',22,13,1,2);r('#e8792a',24,13,1,2)});
 
+// pixel line (used by the radio mast)
+const pline=(r,x0,y0,x1,y1,col)=>{const n=Math.max(Math.abs(x1-x0),Math.abs(y1-y0))|0;for(let i=0;i<=n;i++){const x=Math.round(x0+(x1-x0)*i/n),y=Math.round(y0+(y1-y0)*i/n);r(typeof col=='function'?col(x,y):col,x,y)}};
+// Radio mast: red and white lattice standing on a concrete pad, rising MAST_UP pixels above its footprint.
+const MAST_UP=44;
+function mastArt(w,h){const W=w*16,H=h*16+MAST_UP,c=cnv(W,H),g=c.getContext('2d'),r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a,b)};
+  const band=(x,y)=>((y/12|0)%2)?'#c0392b':'#eef0f2',cx=W>>1,bt=H-12,lx=x=>x;
+  r(OUT,5,H-12,W-10,10);r('#8a9099',6,H-11,W-12,8);r('#a9b0b8',6,H-11,W-12,2);r(SNOW,6,H-11,W-12,1);r('rgba(30,50,80,.25)',6,H-3,W-10,3);
+  const L0=[10,bt],R0=[W-11,bt],LT=[cx-3,6],RT=[cx+2,6],at=(A,B,t)=>[A[0]+(B[0]-A[0])*t,A[1]+(B[1]-A[1])*t];
+  const lv=[0,.18,.36,.54,.72,.88,1];
+  for(let i=0;i<lv.length-1;i++){const a1=at(L0,LT,lv[i]),b1=at(R0,RT,lv[i]),a2=at(L0,LT,lv[i+1]),b2=at(R0,RT,lv[i+1]);
+    pline(r,a1[0],a1[1],b2[0],b2[1],'#8d959e');pline(r,b1[0],b1[1],a2[0],a2[1],'#8d959e');pline(r,a1[0],a1[1],b1[0],b1[1],band);
+    for(let x=Math.round(a1[0]);x<=b1[0];x+=2)r(SNOW,x,a1[1]-1)}
+  for(const d of[0,1]){pline(r,L0[0]+d,L0[1],LT[0]+d,LT[1],band);pline(r,R0[0]-d,R0[1],RT[0]-d,RT[1],band)}
+  r(OUT,cx-6,5,12,3);r('#5a5f68',cx-5,6,10,1);r('#5a5f68',cx,0,1,6);
+  const dish=(x,y)=>{r(OUT,x-4,y-4,9,9);r('#e8ecef',x-3,y-3,7,7);r('#b9c0c7',x+1,y-3,3,7);r('#5a5f68',x,y,1,1)};
+  dish(cx-9,H-62);dish(cx+8,H-44);
+  return c}
+const rockArt=v=>mk(16,12,r=>{for(let y=0;y<12;y++)for(let x=0;x<16;x++){const q=((x-7.5)/(7.5-v))**2+((y-7)/5.2)**2;if(q>1)continue;
+  let col=x+y<11?'#a3abb3':x+y>17?'#5f666e':'#868e97';if(y<2+((x*5+v)%3==0?1:0)+(v==1?1:0))col=y<1?SNOW:'#dfe8ef';r(col,x,y)}});
+const ROCKS=[0,1,2].map(rockArt);
+Object.assign(PA,{
+driftwood:[8,r=>{r('#8a7a62',0,3,15,4);r('#a8987c',0,3,15,1);r('#6b5d48',0,6,15,1);r('#8a7a62',10,0,2,4);r('#a8987c',10,0,1,3);r('#c9bfae',2,4,1,1);r('#c9bfae',8,5,2,1)}],
+firepit:[9,r=>{for(const[x,y]of[[1,4],[4,6],[8,7],[12,5],[13,2],[2,1]])r('#7a828a',x,y,3,3);r('#3a2a20',4,2,8,4);r('#6b4a2e',3,3,10,2);r('#8a6a45',5,1,6,1)}],
+lifebuoy:[22,r=>{r('#6b4a2e',7,0,2,22);r('#8a6a45',7,0,1,22);r(SNOW,6,0,4,1);for(let y=0;y<9;y++)for(let x=0;x<9;x++){const d=Math.hypot(x-4,y-4);if(d<=4.3&&d>=2)r(Math.atan2(y-4,x-4)*2/Math.PI+4&1?'#e04a3a':'#f2f2f2',x+3,y+5)}}],
+sign:[16,r=>{r('#6b4a2e',3,6,2,10);r('#6b4a2e',11,6,2,10);r('#a8794c',0,1,16,7);r('#c49565',0,1,16,1);r('#8a6038',0,7,16,1);r(SNOW,0,0,16,1);r('#5a3d2a',3,3,10,1);r('#5a3d2a',3,5,7,1)}],
+seaweed:[5,r=>{r('#3d5a2e',1,2,6,2);r('#4f7a3a',3,1,5,2);r('#3d5a2e',8,3,6,2);r('#5e8f48',10,2,3,1);r('#2f4a24',5,4,5,1)}],
+shell:[5,r=>{r('#f0d8c8',5,1,5,4);r('#e0b8a0',6,1,1,4);r('#e0b8a0',8,1,1,4);r('#fff2e8',5,1,5,1);r('#d8d0e0',11,3,3,2)}],
+signpost:[24,r=>{r('#6b4a2e',7,4,2,20);r('#8a6a45',7,4,1,20);r('#c49565',1,3,12,5);r('#a8794c',13,4,2,3);r('#c49565',3,10,12,5);r('#a8794c',1,11,2,3);r(SNOW,1,2,12,1);r(SNOW,3,9,12,1);
+  r('#5a3d2a',3,5,8,1);r('#5a3d2a',5,12,8,1);r(SNOW,6,3,4,1)}],
+fence:[12,r=>{r('#6b4a2e',1,0,2,12);r('#6b4a2e',13,0,2,12);r('#8a6a45',0,3,16,2);r('#8a6a45',0,8,16,2);r('#a8794c',0,3,16,1);r('#a8794c',0,8,16,1);r(SNOW,0,2,16,1);r(SNOW,0,7,16,1);r(SNOW,1,0,2,1);r(SNOW,13,0,2,1)}],
+warn:[18,r=>{r('#5a5f68',7,8,2,10);r('#e0a100',1,0,14,10);r('#f0c040',2,1,12,1);r('#2b2f3a',7,2,2,5);r('#2b2f3a',7,8,2,1);r(SNOW,1,0,14,1)}],
+gen:[14,r=>{r('#3d6b4f',0,2,16,11);r('#4f8a64',0,2,16,2);r('#2f5a40',0,11,16,2);for(let x=2;x<9;x+=2)r('#2a4a36',x,5,1,5);r('#2b2f3a',11,5,3,3);r('#ffd23a',12,6,1,1);r(SNOW,0,1,16,2);r('#3a3a44',13,0,2,2)}],
+spool:[13,r=>{r('#8a6038',0,0,4,13);r('#8a6038',12,0,4,13);r('#3a3a44',4,2,8,9);for(let y=3;y<11;y+=2)r('#555a62',4,y,8,1);r('#a8794c',0,0,4,1);r('#a8794c',12,0,4,1);r(SNOW,0,0,16,1)}],
+dish:[18,r=>{r('#5a5f68',7,10,2,8);r('#5a5f68',4,16,8,2);for(let y=0;y<11;y++)for(let x=0;x<14;x++){if(((x-6.5)/6.5)**2+((y-5)/5)**2<1)r(x>8?'#b9c0c7':'#e8ecef',x+1,y)}r('#5a5f68',7,4,2,2);r(SNOW,3,0,8,1)}]});
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
 const CH={};
 function char2(d,fr,body,hair,stripe,hat){const key=[d,fr,body,hair,stripe,hat].join();if(CH[key])return CH[key];
@@ -229,20 +288,138 @@ function char2(d,fr,body,hair,stripe,hat){const key=[d,fr,body,hair,stripe,hat].
 function person(px,py,d,fr,body,hair,stripe,hat){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);
   ctx.drawImage(char2(d,fr,body,hair,stripe,hat),px-1,py-5)}
 
-// ---- Scene: everything that never changes is baked into one canvas per map.
+// ---- Interiors: a back wall with windows and pictures, a floor per building, and detailed furniture.
+// fl: floor (wood, tile, check, carpet) and its colours f; wall/wall2/pap: wallpaper; deco: [tileX, kind] along the back wall;
+// rug: colour of a rug under the table; quilt: bed cover colour; curtain: window curtains.
+const INT={
+default:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c4b48c',pap:'stripe',deco:[]},
+plant:{fl:'tile',f:['#b4bcc0','#a7b0b5'],wall:'#e4ebee',wall2:'#9fc3d6',pap:'tiles',base:'#4a5058',deco:[[2,'win'],[6,'safety'],[9,'clock'],[12,'win'],[16,'win']]},
+hq:{fl:'carpet',f:['#8e2f2a','#a8433a'],wall:'#e8dcc0',wall2:'#9a7049',pap:'panel',deco:[[2,'win'],[5,'portrait'],[9,'banner'],[10,'banner'],[14,'portrait'],[17,'win']]},
+apartments:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
+bar:{fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#2f4a3a',wall2:'#294232',pap:'stripe',curtain:'#7a2a2a',deco:[[1,'win'],[14,'dart'],[17,'neon'],[18,'win']]},
+barflat:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b48a',wall2:'#bba67c',pap:'stripe',curtain:'#3d6b5a',quilt:'#7a5a8a',deco:[[1,'win'],[5,'pic'],[7,'win']]},
+fishshop:{fl:'check',f:['#e8eef2','#5b8fb9'],wall:'#cfe6ee',wall2:'#a9d4e8',pap:'tiles',base:'#4a5058',deco:[[12,'win'],[1,'poster']]},
+house_tom:{fl:'wood',f:['#b08658','#a37a4e','#bb9062'],wall:'#e8d9a8',wall2:'#d9c690',pap:'flower',rug:'#2e6f9a',quilt:'#c0392b',curtain:'#c0392b',deco:[[2,'win'],[5,'pic']]},
+house_sam:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c8dcc0',wall2:'#b4ccaa',pap:'stripe',rug:'#a33b2f',quilt:'#2e86c1',curtain:'#2e6f9a',deco:[[5,'win'],[8,'clock']]},
+house_bob:{fl:'wood',f:['#b8946a','#aa865c','#c29e72'],wall:'#ecd2c0',wall2:'#dcbea8',pap:'flower',rug:'#3d7a5a',quilt:'#c9822a',curtain:'#3d7a5a',deco:[[4,'win'],[7,'pic'],[8,'win']]},
+house_kate:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d6e0ec',wall2:'#c2cfe0',pap:'flower',rug:'#7d3c98',quilt:'#d86a8a',curtain:'#7d3c98',deco:[[3,'pic'],[8,'win'],[1,'win']]}};
+function floorPx(X,Y,f){
+  if(f.fl=='wood'){const row=Y>>2,sx=X+(hash(row,1,40)*32|0),seg=sx>>5,c=f.f[hash(seg,row,41)*f.f.length|0];
+    return(Y&3)==3||(sx&31)==0?shade(c,-.28):(Y&3)==0?shade(c,.07):hash(X,Y,42)>.94?shade(c,-.1):c}
+  if(f.fl=='tile')return(X&7)==7||(Y&7)==7?'#8a9398':((X>>3)+(Y>>3))&1?f.f[1]:f.f[0];
+  if(f.fl=='check'){const c=((X>>3)+(Y>>3))&1?f.f[1]:f.f[0];return(X&7)==7||(Y&7)==7?shade(c,-.12):c}
+  return(X%6==0&&Y%6==0)||((X+3)%6==0&&(Y+3)%6==0)?f.f[1]:f.f[0]}
+function wallPx(X,fy,f){if(f.pap=='stripe')return(X>>2)&1?f.wall:f.wall2;if(f.pap=='tiles')return(X&3)==3||(fy&3)==3?f.wall2:f.wall;
+  if(f.pap=='flower')return(X%6==2&&fy%6==2)||(X%6==5&&fy%6==5)?f.wall2:f.wall;if(f.pap=='panel'&&fy>5)return fy==6?shade(f.wall2,.2):f.wall2;return f.wall}
+// The back wall is drawn WU pixels taller than its tile row, reaching above the map (game.js lets the camera show it).
+const WU=16;
+function interiorLayer(m){
+  const M=MAPS[m],h=M.length,w=M[0].length,W=w*T,H=h*T+WU,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data,f=INT[m]||INT.default;
+  const at=(x,y)=>(M[y]&&M[y][x])||'W',isW=(x,y)=>at(x,y)=='W',bb=f.base||'#5a3d2a';
+  for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){const ch=M[ty][tx],wall=ch=='W',face=wall&&ty<h-1&&!isW(tx,ty+1),capH=ty==0?0:6;
+    if(ty==0)for(let ly=0;ly<WU;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,col=!face||ly<3?(ly==2&&face?'#54443a':'#3d3029'):shade(wallPx(X,ly-3,f),ly<5?-.2:0),i=(ly*W+X)*4;p.set(rgb(col),i);p[i+3]=255}
+    for(let ly=0;ly<16;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,Y=ty*16+ly;let col;
+      if(wall&&face){if(ly<capH)col=ly==capH-1?'#54443a':'#3d3029';else if(ly>=14)col=ly==14?shade(bb,.18):bb;
+        else{const fy=ty==0?ly+WU-3:ly-capH;col=wallPx(X,fy,f);if(fy<2)col=shade(col,-.2)}}
+      else if(wall){col='#3d3029';if((lx==15&&!isW(tx+1,ty))||(lx==0&&!isW(tx-1,ty))||(ly==0&&!isW(tx,ty-1)))col='#54443a'}
+      else{col=floorPx(X,Y,f);
+        if(isW(tx,ty-1)&&ly<4)col=mix(col,'#000000',.3-ly*.07);if(isW(tx-1,ty)&&lx<3)col=mix(col,'#000000',.22-lx*.07);if(isW(tx+1,ty)&&lx>13)col=mix(col,'#000000',.12);
+        if(ch=='m'&&lx>1&&lx<14&&ly>2&&ly<14)col=lx==2||lx==13||ly==3||ly==13?'#6b3a2a':(ly>>1)&1?'#8a4a3a':'#9a5a44';
+        if(ch=='m'&&ly>13)col=mix(col,'#ffffff',.18)}
+      const i=((Y+WU)*W+X)*4;p.set(rgb(col),i);p[i+3]=255}}
+  g.putImageData(img,0,0);
+  // r draws in map coordinates (the canvas is shifted down by WU)
+  const r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,(y|0)+WU,a,b)};
+  // a rug under the (first) table
+  if(f.rug)FL[m].filter(q=>q[4]=='u').slice(0,1).forEach(([x,y,ww,hh])=>{const X=x*16-6,Y=y*16-4,RW=ww*16+12,RH=hh*16+10;r(shade(f.rug,-.3),X,Y,RW,RH);r(f.rug,X+1,Y+1,RW-2,RH-2);
+    r(shade(f.rug,.35),X+3,Y+3,RW-6,1);r(shade(f.rug,.35),X+3,Y+RH-4,RW-6,1);for(let k=X+2;k<X+RW-2;k+=2){r('#f2e6c8',k,Y-1);r('#f2e6c8',k,Y+RH)}});
+  // back-wall decorations
+  const an=[];
+  f.deco.forEach(([x,k])=>{const X=x*16;
+    if(k=='win'){r(OUT,X+1,-9,14,20);r('#f2efe6',X+2,-8,12,18);r('#9cc6e0',X+3,-7,10,14);r('#cfe6f2',X+3,-7,10,4);r('#ffffff',X+3,4,10,3);r('#2b5c4b',X+4,0,2,4);r('#2b5c4b',X+3,2,4,2);r('#2b5c4b',X+10,-1,2,5);r('#2b5c4b',X+9,2,4,2);
+      r('#f2efe6',X+8,-7,1,14);r('#f2efe6',X+3,-1,10,1);r('#d8d2c0',X,11,16,2);r(SNOW,X+1,11,14,1);if(f.curtain){r(f.curtain,X-1,-10,3,21);r(f.curtain,X+14,-10,3,21);r(shade(f.curtain,.2),X-1,-10,1,21);r(shade(f.curtain,-.2),X-2,-11,20,2)}
+      for(let y=16;y<44;y++){const a=(y-16)/5;g.fillStyle='rgba(255,250,235,.08)';g.fillRect(X+3-a|0,y+WU,10+a*2|0,1)}}
+    if(k=='pic'){r(OUT,X+2,-6,12,11);r('#8a6038',X+3,-5,10,9);r('#9cc6e0',X+4,-4,8,7);r('#5e8f48',X+4,0,8,3);r('#7aa860',X+6,-1,4,1);r('#f2f2f2',X+5,-3,3,1)}
+    if(k=='portrait'){r(OUT,X+3,-8,10,16);r('#c9a040',X+4,-7,8,14);r('#3a2a20',X+5,-6,6,12);r('#e0b080',X+6,-4,4,4);r('#5a3a26',X+6,-5,4,1);r('#2a2a33',X+5,1,6,5);r('#c0392b',X+7,1,2,2)}
+    if(k=='banner'){r('#5a3d2a',X+3,-10,10,1);r('#c0392b',X+4,-9,8,21);r('#a52f24',X+11,-9,1,21);r('#ffd23a',X+7,-5,2,4);r('#ffd23a',X+5,-4,6,2);r(f.wall2,X+7,11,2,1)}
+    if(k=='clock'){r(OUT,X+3,-5,10,10);r('#8a6038',X+4,-4,8,8);r('#f4f4f0',X+5,-3,6,6);r('#2a2a33',X+8,-2,1,3);r('#2a2a33',X+8,0,2,1)}
+    if(k=='safety'){r(OUT,X+2,-6,12,11);r('#2e9d57',X+3,-5,10,9);r('#ffffff',X+7,-4,2,7);r('#ffffff',X+5,-2,6,2)}
+    if(k=='dart'){r(OUT,X+3,-6,10,10);r('#2a2a33',X+4,-5,8,8);r('#c0392b',X+5,-4,6,6);r('#f2e6c8',X+6,-3,4,4);r('#2e9d57',X+7,-2,2,2)}
+    if(k=='poster'){r(OUT,X+2,-9,12,18);r('#f4f4f0',X+3,-8,10,16);r('#c0392b',X+4,-6,8,2);r('#5b8fb9',X+4,-1,6,3);r('#5b8fb9',X+10,-2,2,5);r(OUT,X+5,0,1,1);r('#9cc6e0',X+4,4,8,2)}
+    if(k=='neon'){r('#1a1520',X,-5,16,10);an.push({t:'neon',x:X+2,y:-2,s:'BAR'})}});
+  c.an=an;return c}
+// Furniture for one feature: the outlined picture, how far it reaches above its tiles (oy), and an optional animation.
+function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
+  if(ch=='e'){const q=f.quilt||['#b33333','#2e6f9a','#3d7a5a','#c9822a'][v*4|0],oy=4,TT=H+oy,wd='#6b4a2e';return{oy,c:mk(W,TT,r=>{
+    r(wd,0,0,W,7);r('#8a6a45',1,1,W-2,1);r(wd,0,7,2,TT-7);r(wd,W-2,7,2,TT-7);r('#f2f2f2',2,6,W-4,TT-8);r('#ffffff',3,7,W-6,5);r('#d8dfe6',3,11,W-6,1);
+    r(q,2,13,W-4,TT-15);for(let y=17;y<TT-2;y+=4)r(shade(q,-.15),2,y,W-4,1);r(shade(q,.25),2,13,W-4,2);r(wd,0,TT-2,W,2)})}}
+  if(ch=='u'){const desk=l.includes('desk'),meet=l.includes('meeting'),oy=desk?0:5,TT=H+oy+6,seats=[];for(let x=8;x<W;x+=16)seats.push(x);
+    return{oy,c:mk(W,TT,r=>{const chair=(cx,y,back)=>{if(back){r('#5a3d2a',cx-3,y,6,3);r('#7a5436',cx-3,y,6,1)}r('#8a6a45',cx-3,y+3,6,3);r('#6b4a2e',cx-3,y+5,6,1)};
+      if(!desk)seats.forEach(x=>chair(x,0,true));
+      const tc=desk?'#8a5a36':'#a87a4c';r(tc,0,oy,W,H-4);r(shade(tc,.15),0,oy,W,1);r(shade(tc,-.25),0,oy+H-4,W,2);r('#5a3d2a',1,oy+H-2,2,2);r('#5a3d2a',W-3,oy+H-2,2,2);
+      if(desk){r('#3a3d44',3,oy+3,11,7);r('#555a62',4,oy+4,9,3);for(let x=4;x<13;x+=2)r('#d0d4d8',x,oy+8,1,1);r('#f4f4f0',5,oy+1,7,3);
+        r('#f4f4f0',W-15,oy+4,9,7);r('#d0d4d8',W-14,oy+6,7,1);r('#d0d4d8',W-14,oy+8,6,1);r('#2e6f4a',W-27,oy+2,7,3);r('#5a5f68',W-25,oy+5,2,5);r('#c0392b',(W>>1)-3,oy+5,7,5)}
+      else{seats.forEach(x=>{if(H-4>=10){r('#f2f2f2',x-3,oy+2,6,4);r('#d8dfe6',x-2,oy+3,4,2)}r('#cfe8f0',x+3,oy+2,2,3)});
+        if(meet){for(let x=12;x<W-12;x+=14)r('#f4f4f0',x,oy+(H>>1)-3,6,5);r('#7d838a',W>>1,oy+3,4,3)}
+        else if(W>=32){r('#f4e6c0',(W>>1)-1,oy+(H>>1)-4,2,4);r('#ffd23a',(W>>1)-1,oy+(H>>1)-6,2,2)}}
+      seats.forEach(x=>chair(x,oy+H-1,false))})}}
+  if(ch=='y'){
+    if(l.includes('file')||l.includes('archive')){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{for(let x=0;x<W;x+=16){r('#8d959e',x+1,0,14,TT);r('#a9b0b8',x+1,0,14,2);r('#6b737c',x+13,0,2,TT);
+      for(let y=4;y<TT-4;y+=10){r('#6b737c',x+1,y+8,14,1);r('#d0d4d8',x+5,y+3,6,1);r('#f4f4f0',x+6,y+5,4,2)}}})}}
+    if(l.includes('mailbox')){const oy=10,TT=H+oy-4;return{oy,c:mk(W,TT,r=>{r('#8d959e',0,0,W,TT);r('#a9b0b8',0,0,W,1);
+      for(let y=2;y<TT-6;y+=7)for(let x=2;x<W-6;x+=8){r('#a9b0b8',x,y,7,6);r('#3a3d44',x+1,y+1,5,1);r('#e8c33a',x+5,y+4,1,1)}})}}
+    const oy=12,TT=H+oy-2,kind=l.includes('bottle')?'b':l.includes('shelves')?'c':'k';return{oy,c:mk(W,TT,r=>{r('#5a3d2a',0,0,W,TT);r('#4a3222',1,1,W-2,TT-2);
+      [[1,8],[10,17],[19,TT-3]].forEach(([a,b],ri)=>{for(let x=2;x<W-2;){const k2=hash(x,ri,v*9+3);
+          if(kind=='b'){const col=['#2e7d4a','#8a3a1e','#c9a040','#2e5f8f','#e8e8e8'][k2*5|0],hh=b-a;r(col,x,a+3,2,hh-3);r(col,x,a+1,1,2);r('rgba(255,255,255,.5)',x,a+4,1,2);x+=3}
+          else if(kind=='c'){const col=['#c0392b','#2e86c1','#e0a100','#3d7a5a'][k2*4|0];r(col,x,b-5,3,5);r('#f2f2f2',x,b-4,3,1);x+=4}
+          else if(k2>.85){r('#5e8f48',x,b-6,3,3);r('#a8693a',x,b-3,3,3);x+=4}
+          else{const col=['#a33b2f','#2e6f9a','#3d7a5a','#c9a040','#7d3c98'][k2*5|0],hh=4+(k2*3|0);r(col,x,b-hh,2,hh);r(shade(col,.3),x,b-hh,2,1);x+=k2>.6?3:2}}
+        r('#8a6a45',0,b,W,2);r('#a8855a',0,b,W,1)})})}}
+  if(ch=='c'){
+    if(l.includes('bar')){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#4a2e1e',0,0,W,7);r('#6e4a32',0,0,W,1);r('#5a3a26',0,7,W,TT-7);
+      for(let x=0;x<W;x+=16){r('#6e4a32',x+2,9,12,TT-12);r('#4a2e1e',x+3,10,10,TT-14)}r('#c9a040',0,TT-4,W,1);
+      for(let x=6;x<W-4;x+=11){r('#cfe8f0',x,1,2,4);r('#ffffff',x,1,1,1)}for(let x=20;x<W-20;x+=40)r('#c9a040',x,0,4,3)})}}
+    if(l.includes('packing')){const oy=4,TT=H+oy-2;return{oy,c:mk(W,TT,r=>{r('#b9c0c7',0,4,W,6);r('#dfe4e8',0,4,W,1);r('#7d858e',0,10,W,2);r('#5a5f68',1,12,2,TT-12);r('#5a5f68',W-3,12,2,TT-12);
+      r('#c9a36a',6,0,12,7);r('#a8834a',6,3,12,1);r('#c9a36a',W-22,1,10,6);r('#e8e8e8',W-36,5,8,3)})}}
+    const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#4a5058',0,6,W,TT-6);r('#e8eef2',0,6,W,3);r('#a9d4e8',1,9,W-2,TT-12);r('#e8f6fc',1,TT-6,W-2,3);
+      for(let x=4;x<W-20;x+=8){r('#9fb3c4',x,TT-9,5,2);r('#d8e4ee',x,TT-8,5,1);r('#7d93a6',x+5,TT-9,2,2)}r('rgba(255,255,255,.5)',3,10,1,4);r('rgba(255,255,255,.5)',4,10,1,2);
+      r('#3a3d44',W-15,0,11,8);r('#7fd0a0',W-13,1,7,3);r('#555a62',W-14,5,9,2)})}}
+  if(ch=='x'){const oy=4,TT=H+oy;return{oy,c:mk(W,TT,r=>{
+    if(l.includes('net')){for(let y=0;y<TT;y++)for(let x=0;x<W;x++){const q=((x-W/2)/(W/2))**2+((y-TT*.6)/(TT*.55))**2;if(q<1)r((x+y)%3?(q<.5?'#3d6b5a':'#2f5a48'):'#5e8f78',x,y)}
+      r('#e8792a',W*.3|0,H*.5|0,3,3);r('#e8792a',W*.7|0,H*.6|0,3,3);return}
+    if(l.includes('box')){[[1,10,14,TT-10],[16,12,14,TT-12],[31,8,15,TT-8],[8,1,14,10]].forEach(([x,y,ww,hh])=>{if(x+ww>W)return;r('#c9a36a',x,y,ww,hh);r('#e0bc82',x,y,ww,2);r('#a8834a',x+(ww>>1),y,1,hh);r('#d8c8a0',x,y+3,ww,1)});return}
+    for(let x=0;x<W;x+=16)for(let y=0;y<H;y+=16){const Y=y+oy;r('#a8794c',x+1,Y,14,14);r('#8a6038',x+1,Y+6,14,1);r('#6e4a2a',x+14,Y,1,14);
+      if(l.includes('ice'))for(let k=0;k<5;k++)r(k%2?'#e8f6fc':'#c8e6f4',x+2+k*2,Y-3+(k%2),3,4);
+      else{const sm=l.includes('smoked');for(let k=0;k<3;k++){const fx=x+2+k*4,fy=Y-3+(k%2)*2;r(sm?'#b0763a':'#9fb3c4',fx,fy,5,2);r(sm?'#d8a058':'#d8e4ee',fx,fy+1,5,1);r(sm?'#8a5a2a':'#7d93a6',fx+5,fy,1,2)}}}})}}
+  if(ch=='g'){const oy=4,TT=H+oy,bw=W-30;return{oy,an:{t:'belt',x:0,y:oy+4,w:bw,h:H-8},c:mk(W,TT,r=>{r('#5a5f68',2,TT-4,2,4);r('#5a5f68',bw-4,TT-4,2,4);r('#9aa3ad',0,oy,bw,4);r('#c3cad1',0,oy,bw,1);
+    r('#2b2f3a',0,oy+4,bw,H-8);r('#9aa3ad',0,oy+H-6,bw,3);r('#5b8fb9',bw,0,30,TT);r('#7fb0d0',bw,0,30,2);r('#3d6b8f',W-4,0,4,TT);r('#2b2f3a',bw+6,6,14,8);r('#7fd0a0',bw+8,8,3,2);r('#e8321e',bw+13,8,3,2);r('#e0a100',bw+2,TT-8,26,2)})}}
+  if(ch=='i'){const oy=18,bw=W>16?W-8:12,bx=(W-bw)>>1;return{oy,an:{t:'stove',x:bx+2,y:oy+4,w:bw-4},c:mk(W,H+oy,r=>{r('#3a3d44',bx+(bw>>1)-2,0,4,oy+2);r('#555a62',bx+(bw>>1)-2,0,1,oy+2);
+    r('#2b2f3a',bx,oy+1,bw,12);r('#4a4f58',bx-1,oy,bw+2,3);r('#1a1c22',bx+2,oy+4,bw-4,6);r('#2b2f3a',bx+1,oy+13,2,2);r('#2b2f3a',bx+bw-3,oy+13,2,2)})}}
+  if(ch=='z'){const dn=l.includes('down');return{oy:0,c:mk(W,H,r=>{for(let k=0;k<5;k++){const y=k*3+1,c=shade('#8a6a45',dn?-k*.12:.15-k*.08);r(c,1,y,14,3);r(shade(c,-.3),1,y+2,14,1)}
+    r('#5a3d2a',0,0,1,16);r('#5a3d2a',15,0,1,16)})}}
+  return null}
+
+// ---- Scene: everything that never changes is baked into one canvas per map; ents are the things drawn back to front.
 const SC={};
 function scene(m){if(SC[m])return SC[m];
-  const M=MAPS[m],c=groundLayer(m),g=c.getContext('2d'),an=[],trees=[],boats=[],props=[];
+  const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
+  if(c.an)an.push(...c.an);
+  const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
   FL[m].forEach(([x,y,w,h,ch,lb,st])=>{
+    if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);if(fu.an)an.push({...fu.an,x:x*16+fu.an.x,y:y*16-fu.oy+fu.an.y})}return}
+    if(st&&BLD[st]&&BLD[st].kind=='mast'){put(y+h-1,x*16,y*16-MAST_UP,mastArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-MAST_UP-1});return}
     if(st&&BLD[st]){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
       const b=bld2(w,h,BLD[st],dx);g.drawImage(b.c,x*16,y*16);b.an.forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}))}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
-  M.forEach((row,y)=>[...row].forEach((ch,x)=>{if(ch=='T')trees.push({x,y,c:TREES[hash(x,y,31)*3|0],ox:Math.round(hash(x,y,32)*2-1)})}));
+  if(!inside)M.forEach((row,y)=>[...row].forEach((ch,x)=>{
+    if(ch=='T'){const t=TREES[hash(x,y,31)*3|0];put(y,x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
+    if(ch=='R'){const t=ROCKS[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
-  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k])=>props.push({x,y,k,c:propArt(k)}));
-  return SC[m]={c,an,trees,boats,ferries,props}}
+  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k])=>{const t=propArt(k),pass=PROP_PASS.includes(k);put(pass?y-.5:y,x*16-1,(y+1)*16-t.height+1,t,!pass,x,y);
+    if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
+  return SC[m]={c,an,boats,ferries,ents,inside,top:inside?WU:0}}
 
 // ---- Snowfall and vignette
 let FLAKES=null;  // built on first use, because hash() lives in game.js which loads after this file
@@ -251,41 +428,45 @@ let VIG=null;
 function vignette(){if(VIG&&VIG.width==cv.width&&VIG.height==cv.height)return VIG;VIG=cnv(cv.width,cv.height);const g=VIG.getContext('2d'),w=cv.width,h=cv.height,
   gr=g.createRadialGradient(w/2,h/2,h*.45,w/2,h/2,w*.75);gr.addColorStop(0,'rgba(15,25,50,0)');gr.addColorStop(1,'rgba(15,25,50,.38)');g.fillStyle=gr;g.fillRect(0,0,w,h);return VIG}
 
-// ---- Per-frame drawing. cx, cy: camera offset in pixels. moving: player walking frame (0 idle, 1, 2).
+// ---- Per-frame drawing. cx, cy: camera offset in pixels. frame: player walking frame (0 idle, 1, 2).
 function drawWorld2(m,cx,cy,t,frame){
   const S=scene(m),M=MAPS[m],mh=M.length,mw=M[0].length,vw=cv.width,vh=cv.height,wf=WATER[(t/200|0)%8],px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
-  const x0=Math.max(0,Math.floor(cx/16)),x1=Math.min(mw-1,Math.floor((cx+vw)/16)),y0=Math.max(0,Math.floor(cy/16)),y1=Math.min(mh-1,Math.floor((cy+vh)/16));
-  for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(CLS(M[y][x])=='w')ctx.drawImage(wf,(x*16)&63,(y*16)&63,16,16,x*16-cx,y*16-cy,16,16);
-  ctx.drawImage(S.c,-cx,-cy);
+  if(!S.inside){const x0=Math.max(0,Math.floor(cx/16)),x1=Math.min(mw-1,Math.floor((cx+vw)/16)),y0=Math.max(0,Math.floor(cy/16)),y1=Math.min(mh-1,Math.floor((cy+vh)/16));
+    for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(CLS(M[y][x])=='w')ctx.drawImage(wf,(x*16)&63,(y*16)&63,16,16,x*16-cx,y*16-cy,16,16)}
+  ctx.drawImage(S.c,-cx,-cy-S.top);
   // boats bob on the water, with a little foam at the waterline
   const bob=ph=>Math.round(Math.sin(t/650+ph));
   S.boats.forEach(b=>{const X=b.x*16-cx,Y=b.y*16-cy+bob(b.ph),W=b.c.width-2;
     for(let x=4;x<W-6;x+=2)if(hash(x,(t/250|0),b.x)>.4)px('rgba(230,245,252,.65)',X+x,Y+b.c.height-3,2,1);ctx.drawImage(b.c,X-1,Y-1)});
   S.ferries.forEach(f=>{ctx.drawImage(ferryArt,f.x*16-cx,f.y*16-cy+3+bob(f.ph))});
-  // trees, props and people, back to front
-  const L=[];
-  S.trees.forEach(o=>{const X=o.x*16-cx+o.ox,Y=(o.y+1)*16-cy;if(X<-20||X>vw+4||Y<0||Y-30>vh)return;
-    L.push([o.y,0,()=>{px('rgba(30,50,80,.22)',X+2,Y-3,13,3);ctx.drawImage(o.c,X-1,Y-o.c.height+1)}])});
-  S.props.forEach(o=>{const X=o.x*16-cx,Y=(o.y+1)*16-cy;if(PROP_PASS.includes(o.k))L.push([o.y-.5,0,()=>ctx.drawImage(o.c,X-1,Y-o.c.height+1)]);
-    else L.push([o.y,0,()=>{px('rgba(30,50,80,.22)',X+2,Y-3,13,3);ctx.drawImage(o.c,X-1,Y-o.c.height+1)}])});
-  NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;L.push([n.y,1,()=>person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat)])});
-  L.push([P.ry,1,()=>person(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,'#2a5db0','#4a2e1a','#e8c33a')]);
-  L.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());
-  // smoke, flags and signs
+  // trees, rocks, props, furniture and people, back to front
+  const Ls=[];
+  S.ents.forEach(o=>{const X=o.X-cx,Y=o.Y-cy;if(X>vw||Y>vh||X+o.c.width<0||Y+o.c.height<0)return;
+    Ls.push([o.k,0,()=>{if(o.sh)px('rgba(30,50,80,.22)',o.sx-cx,o.sy-cy,13,3);ctx.drawImage(o.c,X,Y)}])});
+  NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat)])});
+  Ls.push([P.ry,1,()=>person(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,'#2a5db0','#4a2e1a','#e8c33a')]);
+  Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());
+  // smoke, flags, signs, lights, fires and machines
   S.an.forEach(a=>{const X=a.x-cx,Y=a.y-cy;
     if(a.t=='smoke')for(let k=0;k<6;k++){const g=(t/2600+k/6)%1,s=(a.big?3:2)+Math.round(g*3);
       px(`rgba(236,241,246,${(.6*(1-g)).toFixed(2)})`,X+Math.sin(g*5+k)*2+g*10-s/2,Y-g*24-s/2,s,s)}
     if(a.t=='flag')for(let c=0;c<12;c++){const dy=Math.round(Math.sin(t/220-c*.7)*c/8),sh=Math.sin(t/220-c*.7)>.3;
       px(sh?'#a52f24':'#c0392b',X+c,Y+dy,1,8);if(c>=3&&c<=5)px('#ffd23a',X+c,Y+dy+(c==4?2:3),1,c==4?3:1)}
     if(a.t=='neon'){const on=hash(t/90|0,3,7)<.96,col=on?'#ff5fa8':'#5a2a40';
-      if(on){ctx.fillStyle='rgba(255,95,168,.3)';ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}ptext(px,a.s,X,Y,col)}});
-  // seagulls over the harbour
-  if(m=='harbour')for(let i=0;i<2;i++){const an=t/2600+i*Math.PI,X=15*16-cx+Math.cos(an)*70,Y=6*16-cy+Math.sin(an)*30-26,up=(t/170+i*3|0)%2;
-    px('rgba(20,40,60,.18)',X-2,Y+34,5,1);px('#f2f2f2',X-1,Y,3,2);px('#e8b33a',X+(Math.cos(an+Math.PI/2)>0?2:-2),Y,1,1);
-    if(up){px('#f2f2f2',X-3,Y-1,2,1);px('#f2f2f2',X+2,Y-1,2,1);px('#5a5f68',X-4,Y-2,1,1);px('#5a5f68',X+4,Y-2,1,1)}
-    else{px('#f2f2f2',X-4,Y,3,1);px('#f2f2f2',X+2,Y,3,1);px('#5a5f68',X-5,Y+1,1,1);px('#5a5f68',X+5,Y+1,1,1)}}
-  // falling snow
-  const md=(v,n)=>((v%n)+n)%n;
-  flakes().forEach(f=>{const p=f.big?1.2:.6,X=md(f.x*vw+Math.sin(t/1300+f.ph)*6+t*.004-cx*p,vw),Y=md(f.y*vh+t*f.sp*(f.big?1.4:1)-cy*p,vh);
-    px(f.big?'rgba(255,255,255,.7)':'rgba(255,255,255,.85)',X,Y,f.big?2:1,f.big?2:1)});
+      if(on){ctx.fillStyle='rgba(255,95,168,.3)';ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}ptext(px,a.s,X,Y,col)}
+    if(a.t=='blink'){const on=((t+a.x*7)/700|0)%2;if(on){px('rgba(255,80,60,.3)',X-1,Y-1,4,4);px(a.c||'#ff3b2f',X,Y,2,2)}else px('#5a2020',X,Y,2,2)}
+    if(a.t=='fire'){px('rgba(255,160,60,.16)',X-9,Y-10,18,14);for(let k=0;k<5;k++){const hh=2+(hash(k,t/90|0,3)*5|0);px(['#e8321e','#ff8a3a','#ffd23a','#ff8a3a','#e8321e'][k],X-5+k*2,Y-hh,2,hh)}}
+    if(a.t=='stove')for(let k=0;k<a.w;k++){const hh=2+(hash(k,t/110|0,5)*4|0);px('#e8321e',X+k,Y+6-hh,1,hh);if(hh>3)px('#ffb01c',X+k,Y+7-hh,1,hh-3)}
+    if(a.t=='belt'){const off=(t/45|0)%6;for(let x=off;x<a.w;x+=6)px('#3d4250',X+x,Y,1,a.h);
+      for(let i=0;i<a.w/24;i++){const fx=X+((t/35+i*24)%(a.w-4)),fy=Y+3+(i%2)*4;px('#9fb3c4',fx,fy,5,2);px('#d8e4ee',fx,fy+1,5,1)}}});
+  if(!S.inside){
+    // seagulls over the harbour and the beach
+    if(m=='harbour'||m=='beach')for(let i=0;i<2;i++){const an=t/2600+i*Math.PI,ox=m=='beach'?5:15,X=ox*16-cx+Math.cos(an)*70,Y=6*16-cy+Math.sin(an)*30-26,up=(t/170+i*3|0)%2;
+      px('rgba(20,40,60,.18)',X-2,Y+34,5,1);px('#f2f2f2',X-1,Y,3,2);px('#e8b33a',X+(Math.cos(an+Math.PI/2)>0?2:-2),Y,1,1);
+      if(up){px('#f2f2f2',X-3,Y-1,2,1);px('#f2f2f2',X+2,Y-1,2,1);px('#5a5f68',X-4,Y-2,1,1);px('#5a5f68',X+4,Y-2,1,1)}
+      else{px('#f2f2f2',X-4,Y,3,1);px('#f2f2f2',X+2,Y,3,1);px('#5a5f68',X-5,Y+1,1,1);px('#5a5f68',X+5,Y+1,1,1)}}
+    // falling snow
+    const md=(v,n)=>((v%n)+n)%n;
+    flakes().forEach(f=>{const p=f.big?1.2:.6,X=md(f.x*vw+Math.sin(t/1300+f.ph)*6+t*.004-cx*p,vw),Y=md(f.y*vh+t*f.sp*(f.big?1.4:1)-cy*p,vh);
+      px(f.big?'rgba(255,255,255,.7)':'rgba(255,255,255,.85)',X,Y,f.big?2:1,f.big?2:1)})}
   ctx.drawImage(vignette(),0,0)}
