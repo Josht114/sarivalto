@@ -94,7 +94,8 @@ function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;sel.
 go('village');
 sel.onchange=()=>{go(sel.value);sel.blur()};
 const SOLID='#TR~vbkWecuxygi';
-const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)};
+const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
+  PROPS.some(p=>p[0]==m&&p[1]==x&&p[2]==y&&!PROP_PASS.includes(p[3]))};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};
 addEventListener('keydown',e=>{if(e.target==sel)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
 addEventListener('keyup',e=>{const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY)release(KEY[k])});
@@ -124,20 +125,20 @@ function drawLabels(){
     og.fillStyle=k=='x'?'#9fe870':k=='n'?'#ffe9a8':'#ffffff';og.fillText(s,x0,Y)}
   LB=[]}
 function draw(t){
-  const M=MAPS[P.m],mh=M.length,mw=M[0].length;
+  const M=MAPS[P.m],mh=M.length,mw=M[0].length,a2=ART2.has(P.m);
   ctx.fillStyle='#0b120a';ctx.fillRect(0,0,cv.width,cv.height);
   const cx=cam(P.rx*T+T/2-cv.width/2,mw*T,cv.width),cy=cam(P.ry*T+T/2-cv.height/2,mh*T,cv.height),fw=(t/600)|0;
-  for(let y=0;y<mh;y++)for(let x=0;x<mw;x++){const ch=M[y][x];
-    ctx.drawImage(tile(ch,ch=='~'?((x+y+fw)&1):((hash(x,y,3)*4)|0)),x*T-cx,y*T-cy)}
-  FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(st)ctx.drawImage(bldArt(P.m,x,y,w,h,st),x*T-cx,y*T-cy)});
-  NPCS.filter(n=>n.m==P.m).forEach(n=>sprite(n.x*T-cx,n.y*T-cy,n.dir,0,n.body,n.hair,null));
-  sprite(Math.round(P.rx*T-cx),Math.round(P.ry*T-cy),P.dir,P.mv?1+P.par:0);
-  ctx.font='6px monospace';
-  NPCS.filter(n=>n.m==P.m).forEach(n=>tx(n.name,n.x*T-cx+8,n.y*T-cy-2,'center','n'));
+  if(a2)drawWorld2(P.m,cx,cy,t,P.mv?1+P.par:0);
+  else{for(let y=0;y<mh;y++)for(let x=0;x<mw;x++){const ch=M[y][x];
+      ctx.drawImage(tile(ch,ch=='~'?((x+y+fw)&1):((hash(x,y,3)*4)|0)),x*T-cx,y*T-cy)}
+    FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(st)ctx.drawImage(bldArt(P.m,x,y,w,h,st),x*T-cx,y*T-cy)});
+    NPCS.filter(n=>n.m==P.m).forEach(n=>sprite(n.x*T-cx,n.y*T-cy,n.dir,0,n.body,n.hair,null));
+    sprite(Math.round(P.rx*T-cx),Math.round(P.ry*T-cy),P.dir,P.mv?1+P.par:0)}
+  NPCS.filter(n=>n.m==P.m).forEach(n=>tx(n.name,n.x*T-cx+8,n.y*T-cy-(a2?7:2),'center','n'));
   FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(lb)tx(lb,(x+w/2)*T-cx,st?y*T-cy-3:(y+h/2)*T-cy+2,'center',st?'b':'s')});
   EX[P.m].filter(e=>e.s!='O').forEach(e=>{const[ix,iy]=inw(e),s=e.s=='F'?(e.ax>e.x?'L':'R'):e.s,nm=NM[e.to]+(e.s=='F'?' (boat)':''),lb=(s=='R'?'':'\u2192 ')+nm+(s=='R'?' \u2192':'');
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
-  ctx.fillStyle='rgba(100,140,200,.07)';ctx.fillRect(0,0,cv.width,cv.height);
+  if(!a2){ctx.fillStyle='rgba(100,140,200,.07)';ctx.fillRect(0,0,cv.width,cv.height)}
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);

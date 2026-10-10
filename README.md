@@ -4,7 +4,7 @@ A 2D top-down, Pokémon-style game set in the early 1980s Cold War. The player i
 fictional island north of Finland, where the king has just died and the island must not fall to the
 Soviet Union. Seven factions compete for control.
 
-**Current stage:** map prototype only. Walk around all 27 locations (plus building interiors); no characters, dialogue or
+**Current stage:** map prototype only. Walk around all 28 locations (plus building interiors); no characters, dialogue or
 game mechanics yet. Layouts are placeholders.
 
 ![Island map](docs/island-map.svg)
@@ -26,6 +26,7 @@ edge exit to cross to the neighbouring area.
     css/style.css   page styling
     js/data.js      the island: location sizes, themes, features, and the links between them
     js/game.js      map building, rendering, input, movement
+    js/art.js       detailed pixel-art renderer for the maps listed in ART2 (Pula Fishing Village and West Pula Harbour so far)
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
@@ -43,13 +44,17 @@ edge exit to cross to the neighbouring area.
   in the order the links are listed.
 
 - `POS` in `js/data.js`: where each location sits on the overview map (used only by the map generator).
+  The coastline is drawn around the inland places; each harbour is moved onto the nearest bit of coast, and boat routes follow
+  shipping lanes around the island (each route takes the shorter way round).
   After changing locations or links, run `node tools/build-map.js` and commit the updated SVG.
 - `FACTIONS` and `FACTION_AT` in `js/data.js`: faction names and colours, and which location each faction is based in
   (shown on the overview map; unlisted locations are unassigned).
-- `BOATS` and `FERRY` in `js/data.js`: boat routes. `BOATS` lists where you can sail from each place (Pula Harbour, Kalan Harbour,
-  Savila Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. The Private Harbour has no
+- `BOATS` and `FERRY` in `js/data.js`: boat routes. `BOATS` lists where you can sail from each place (West Pula Harbour, North Kalan Harbour,
+  East Savila Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. South Private Harbour has no
   boat routes at all, by design.
-- `NPCS` in `js/data.js`: named characters standing in the world (currently the people of Pula Harbour and Pula Harbour Village; no dialogue yet).
+- `NPCS` in `js/data.js`: named characters. Every NPC needs a `name`, `job`, `faction` (a `FACTIONS` id, or `'none'` if unaligned)
+  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Pula Harbour and Pula Fishing Village; no dialogue yet). An optional `hat` colour gives them a beanie.
+- `PROPS` in `js/data.js`: small objects (lamps, barrels, benches...) placed on a map. They block movement unless listed in `PROP_PASS`.
 
 ## Wiki
 
