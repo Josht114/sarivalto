@@ -4,7 +4,7 @@ A 2D top-down, Pokémon-style game set in the early 1980s Cold War. The player i
 fictional island north of Finland, where the king has just died and the island must not fall to the
 Soviet Union. Seven factions compete for control.
 
-**Current stage:** map prototype only. Walk around all 26 locations; no characters, dialogue or
+**Current stage:** map prototype only. Walk around all 27 locations (plus building interiors); no characters, dialogue or
 game mechanics yet. Layouts are placeholders.
 
 ![Island map](docs/island-map.svg)
@@ -29,6 +29,9 @@ edge exit to cross to the neighbouring area.
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
+    content/notes.js    hand-written wiki text (locations, factions, people)
+    tools/build-wiki.js generates the wiki/ pages from js/data.js and content/notes.js
+    wiki/               wiki-style pages for every location, faction and person (open wiki/index.html)
     assets/logos/       Diversified Petroleum logo (light and dark SVG, light PNG)
 
 ## Editing the map
@@ -43,12 +46,15 @@ edge exit to cross to the neighbouring area.
   After changing locations or links, run `node tools/build-map.js` and commit the updated SVG.
 - `FACTIONS` and `FACTION_AT` in `js/data.js`: faction names and colours, and which location each faction is based in
   (shown on the overview map; unlisted locations are unassigned).
-- `HARBOURS` and `FERRY` in `js/data.js`: every harbour is joined to every other by a boat landing on its dock
-  (walk onto the boat tile at the end of the dock). `FERRY` gives the position of each harbour's landings.
-- `DOORS` in `js/data.js`: links a door tile on the outside of a building to its interior map (interiors are ordinary entries in `L`
-  with the `interior` theme). Walk onto a door to go in or out. `BLD` holds the exterior look of each building; a feature's 7th
-  value picks its look, so every building can be drawn differently.
+- `BOATS` and `FERRY` in `js/data.js`: boat routes. `BOATS` lists where you can sail from each place (Pula Harbour, Kalan Harbour,
+  Savila Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. The Private Harbour has no
+  boat routes at all, by design.
 - `NPCS` in `js/data.js`: named characters standing in the world (currently the people of Pula Harbour and Pula Harbour Village; no dialogue yet).
+
+## Wiki
+
+`node tools/build-wiki.js` regenerates the wiki in `wiki/` from the game data (run `node tools/build-map.js` first if the island changed).
+Open `wiki/index.html`, or `wiki/all-in-one.html` for a single-file version. Add or change text in `content/notes.js`.
 
 ## Factions
 

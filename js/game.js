@@ -14,7 +14,7 @@ for(const id in L){const[name,w,h,th,fs]=L[id],[g,b]=TH[th],cx=w>>1,cy=h>>1;NM[i
     else{for(let k=Math.min(x,cx);k<=Math.max(x,cx);k++)G[y][k]=',';for(let j=Math.min(y,cy);j<=Math.max(y,cy);j++)G[j][cx]=','}
     EX[id].push({x,y,s,to})});
   DOORS.filter(d=>d[5]==id).forEach(d=>{const ix=d[6]??(w>>1),iy=d[7]??(h-1);if(G[iy][ix]!='z')G[iy][ix]='m'});
-  if(FERRY[id]){const[fx,fy,sx,sy,ix,iy]=FERRY[id];HARBOURS.filter(h=>h!=id).forEach((to,i)=>EX[id].push({x:fx+i*sx,y:fy+i*sy,s:'F',to,ax:fx+i*sx+ix,ay:fy+i*sy+iy}))}
+  if(FERRY[id]){const[fx,fy,sx,sy,ix,iy]=FERRY[id];BOATS[id].forEach((to,i)=>EX[id].push({x:fx+i*sx,y:fy+i*sy,s:'F',to,ax:fx+i*sx+ix,ay:fy+i*sy+iy}))}
   EX[id].forEach(e=>G[e.y][e.x]=e.s=='F'?'F':'E');MAPS[id]=G.map(r=>r.join(''))}
 DOORS.forEach(([o,dx,dy,fx,fy,i,ix,iy,iax,iay])=>{const[,w,h]=L[i];ix??=w>>1;iy??=h-1;iax??=0;iay??=-1;
   EX[o].push({x:dx,y:dy,s:'O',to:i,ax:dx+fx,ay:dy+fy});EX[i].push({x:ix,y:iy,s:'O',to:o,ax:ix+iax,ay:iy+iay})});
@@ -43,6 +43,7 @@ function bld(w,h,s,dx){
     g.fillStyle='#ffffff';g.font='bold 7px monospace';g.fillText('FISH CO.',6,ry+wh-5)}
   if(s.deco=='bar'||s.deco=='shop'){const bar=s.deco=='bar';for(let x=0;x<W;x+=8)r(bar?((x/8|0)%2?'#c0392b':'#f2f2f2'):((x/8|0)%2?'#2e86c1':'#f2f2f2'),x,ry,8,9);
     r(bar?'#111111':'#ffffff',W/2-16,12,32,13);g.font='bold 8px monospace';g.fillStyle=bar?'#ff5fa8':'#2e6f9a';g.fillText(bar?'BAR':'FISH',W/2-(bar?9:11),22)}
+  if(s.deco=='mil'){for(let x=8;x<W-10;x+=16)r('rgba(0,0,0,.35)',x,ry/2-3,7,6);r('#3a3320',0,Hh-4,W,4);r('#c9b04a',0,Hh-4,W,1)}
   if(dx>=0){r('#4a3320',dx*T+3,Hh-15,10,15);r('#e8c33a',dx*T+11,Hh-8,1,1);r('#e4edf2',dx*T+1,Hh-2,14,2)}
   return c}
 const bcache={};

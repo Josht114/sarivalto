@@ -44,6 +44,8 @@ harbour:['Pula Harbour',24,14,'harbour',[[1,1,9,12,'~'],[2,5,10,4,'p'],[2,2,4,2,
 gated:['Hope Springs Gated Community',26,18,'snow',[[3,3,7,5,'#','Villa'],[17,3,7,5,'#','Villa'],[3,12,7,4,'#','Villa'],[17,12,7,4,'#','Club']]],
 privbeach:['Private Beach',18,12,'sand',[]],
 privharbour:['Private Harbour',18,12,'harbour',[[1,1,8,10,'~'],[2,4,8,3,'p']]],
+barracks:['Army Barracks',32,22,'snow',[[2,3,10,6,'#','Barracks Block A','barrA'],[20,3,10,6,'#','Barracks Block B','barrB'],[12,1,3,3,'#','Guard Post','gp'],
+[2,13,9,6,'#','Armoury','arm'],[21,13,9,6,'#',"Officers' HQ",'offhq']]],
 radio:['Radio Tower',18,14,'snow',[[7,2,4,4,'#','Radio Tower'],[2,9,4,3,'#','Transmitter Hut']]],
 kalanharbour:['Kalan Harbour',24,14,'harbour',[[1,1,22,6,'~'],[4,3,12,4,'p'],[3,8,5,3,'#','Boat Shed'],[16,8,5,3,'#','Fish Market']]],
 savilaharbour:['Savila Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p'],[2,2,6,3,'#','Customs Shed'],[2,9,6,3,'#','Warehouse']]]};
@@ -51,35 +53,37 @@ savilaharbour:['Savila Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p']
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano B north T','north R town L','west R town L',
 'mountains B east T','mountains R cathedral L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R shuttle L',
 'shuttle R colafactory L','colafactory B second T','south L town R','south R second L','beach R west L','beach B village T',
-'west B village T','village L harbour R','town B gated T','gated R privbeach L','gated L privharbour R','village R radio L','fishing T kalanharbour B','second R savilaharbour L'];
+'west B village T','village L harbour R','town B barracks T','town B gated T','gated R privbeach L','gated L privharbour R','village R radio L','fishing T kalanharbour B','second R savilaharbour L'];
 
 // ---- Overview-map layout (used only by tools/build-map.js): id:[x, y, kind]. Kinds: town, road, site, nature, harbour.
 const POS={oilrig:[169,236,'harbour'],oilhq:[353,239,'site'],fishing:[545,234,'town'],kalanharbour:[545,140,'harbour'],
 volcano:[758,256,'nature'],mountains:[1005,256,'nature'],cathedral:[1159,256,'site'],north:[604,370,'road'],east:[956,377,'road'],
 farm:[1162,380,'nature'],palace:[793,424,'site'],town:[755,487,'town'],colahq:[873,498,'site'],shuttle:[1000,498,'road'],
 colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[961,592,'road'],west:[557,532,'road'],
-beach:[334,465,'nature'],village:[367,674,'town'],harbour:[213,674,'harbour'],radio:[500,610,'site'],gated:[758,694,'town'],
+beach:[334,465,'nature'],village:[367,674,'town'],harbour:[213,674,'harbour'],radio:[500,610,'site'],barracks:[660,600,'site'],gated:[758,694,'town'],
 privharbour:[540,700,'harbour'],privbeach:[936,712,'nature']};
 
 // ---- Factions shown on the overview map (used only by tools/build-map.js): id:[name, colour, short badge]
-const FACTIONS={communist:['Communist Party','#c0392b','COM'],democrat:['Democratic Party','#2e86c1','DEM'],royal:['Royal Family','#7d3c98','ROY'],
-cola:['Kelp Cola','#2e9d57','KC'],oil:['Diversified Petroleum','#37474f','DP'],syndicate:['Crime Syndicate','#8d5524','SYN'],church:['Orthodox Church','#e0a100','CH']};
+const FACTIONS={communist:['Communist Party','#c0392b','COM','Allies of the Soviet Union.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based in the main town.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
+cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.']};
 // Where each faction is based: location id -> faction id. Unlisted locations are unassigned.
 const FACTION_AT={village:'communist',town:'democrat',gated:'syndicate',palace:'royal',cathedral:'church',
 colahq:'cola',colafactory:'cola',shuttle:'cola',oilhq:'oil',oilrig:'oil'};
 
-// ---- Boats between harbours. Every harbour is joined to every other by a boat landing (berth) on its dock.
-const HARBOURS=['harbour','kalanharbour','savilaharbour','privharbour'];
-// FERRY: id:[x, y, stepX, stepY, arriveDX, arriveDY]. One berth per other harbour (in HARBOURS order), stepping from (x,y).
-const FERRY={harbour:[2,5,0,1,1,0],kalanharbour:[4,3,0,1,1,0],savilaharbour:[19,5,0,1,-1,0],privharbour:[2,4,0,1,1,0]};
+// ---- Boat routes. BOATS lists, for each place with boat landings, the places you can sail to (one berth each, in this order).
+// The Private Harbour is deliberately not part of the boat network: nobody can sail to it, and it has no boat landings.
+const BOATS={harbour:['kalanharbour','savilaharbour','oilrig'],kalanharbour:['harbour','savilaharbour','oilrig'],
+savilaharbour:['harbour','kalanharbour','oilrig'],oilrig:['harbour','kalanharbour','savilaharbour']};
+// FERRY: id:[x, y, stepX, stepY, arriveDX, arriveDY]. Berths start at (x,y) and step along; you arrive one tile in.
+const FERRY={harbour:[2,5,0,1,1,0],kalanharbour:[4,3,0,1,1,0],savilaharbour:[19,5,0,1,-1,0],oilrig:[1,3,0,1,1,0]};
 // ---- Named characters standing in the world (placeholders: no dialogue yet). dir: 0 down, 1 up, 2 left, 3 right
 const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Eino',role:'Fisherman',body:'#d9a520',hair:'#b5b5b5'},
 {m:'harbour',x:12,y:5,dir:3,name:'Toivo',role:'Fisherman',body:'#2f6f8f',hair:'#5a3a22'},
 {m:'plant',x:6,y:4,dir:1,name:'Aarne',role:'Fishmonger',body:'#e8e8e8',hair:'#7a5a3a'},
 {m:'plant',x:13,y:4,dir:1,name:'Kerttu',role:'Fishmonger',body:'#5b8fb9',hair:'#caa05a'},
-{m:'apartments',x:4,y:5,dir:0,name:'Aino',role:'Communist',body:'#a33333',hair:'#6b4a2a'},
-{m:'apartments',x:12,y:5,dir:0,name:'Veikko',role:'Communist',body:'#8c2f2f',hair:'#222222'},
-{m:'apartments',x:20,y:5,dir:0,name:'Helmi',role:'Communist',body:'#b84a4a',hair:'#d9c9a0'},
+{m:'apartments',x:4,y:5,dir:0,name:'Aino',role:'Communist',faction:'communist',body:'#a33333',hair:'#6b4a2a'},
+{m:'apartments',x:12,y:5,dir:0,name:'Veikko',role:'Communist',faction:'communist',body:'#8c2f2f',hair:'#222222'},
+{m:'apartments',x:20,y:5,dir:0,name:'Helmi',role:'Communist',faction:'communist',body:'#b84a4a',hair:'#d9c9a0'},
 {m:'bar',x:5,y:2,dir:0,name:'Reino',role:'Bartender',body:'#4a3a2a',hair:'#222222'}];
 
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
@@ -97,4 +101,12 @@ shop:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#e8f4f8',win:'#a9d4e8',de
 h1:{kind:'gable',wall:'#e3c36a',roof:'#8a4b2a',trim:'#ffffff',win:'#bcd9ea',chim:.25},
 h2:{kind:'gable',wall:'#7aa57a',roof:'#3b4f3b',trim:'#e8f0e0',win:'#bcd9ea',chim:.7,sh:'#2f5a2f'},
 h3:{kind:'gable',wall:'#c97b5a',roof:'#555a60',trim:'#f4e2d0',win:'#bcd9ea',chim:.5,attic:1},
+barrA:{kind:'flat',wall:'#6b7a4f',roof:'#4a5438',trim:'#2f3828',win:'#a9c7da',deco:'mil'},
+barrB:{kind:'flat',wall:'#8a8466',roof:'#5d5a44',trim:'#3a382a',win:'#a9c7da',deco:'mil'},
+arm:{kind:'flat',wall:'#5d6068',roof:'#3a3d44',trim:'#25282e',win:'#7d8696',deco:'mil'},
+offhq:{kind:'flat',wall:'#7a8a6a',roof:'#505c42',trim:'#e0dcc0',win:'#f2d16b',deco:'mil'},
+gp:{kind:'gable',wall:'#6b7a4f',roof:'#3a3d44',trim:'#2f3828',win:'#f2d16b'},
 h4:{kind:'gable',wall:'#aebfd0',roof:'#2e5f9a',trim:'#9fb4c4',win:'#bcd9ea',chim:.8,porch:1}};
+
+// ---- Which weeks each faction has quests (see docs/quest-schedule.md)
+const QUEST_WEEKS={communist:[4,8,11,14,18,19],royal:[3,7,11,13,16,19],cola:[2,6,10,13,17,19],oil:[1,5,9,14,17,19],syndicate:[3,6,9,12,15,18],democrat:[2,5,8,12,16,19],church:[1,4,7,10,15,19]};

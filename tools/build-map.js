@@ -1,8 +1,8 @@
 // Generates docs/island-map.svg from js/data.js. Usage: node tools/build-map.js  (no dependencies)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.HARBOURS=HARBOURS;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_AT,HARBOURS}=box,W=1700,H=820;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS}=box,W=1700,H=820;
 const COL={town:'#f6ecc8',road:'#d6cdb8',site:'#f0cfae',nature:'#c3d4a6',harbour:'#bddcea'};
 const ids=Object.keys(L).filter(i=>POS[i]),pairs=LINKS.map(s=>{const a=s.split(' ');return[a[0],a[2]]});
 const wd=id=>L[id][0].length*7+20,P=id=>POS[id];
@@ -13,7 +13,7 @@ const half=ps=>{const h=[];for(const p of ps){while(h.length>1&&cr(h[h.length-2]
 const hp=half(pts).concat(half(pts.slice().reverse())).map(p=>p.join(',')).join(' ');
 const blob=(w,c)=>`<polygon points="${hp}" fill="${c}" stroke="${c}" stroke-width="${w}" stroke-linejoin="round"/>`+lp.map(([a,b])=>`<line x1="${P(a)[0]}" y1="${P(a)[1]}" x2="${P(b)[0]}" y2="${P(b)[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`).join('')+
   land.map(i=>`<circle cx="${P(i)[0]}" cy="${P(i)[1]}" r="${w/2}" fill="${c}"/>`).join('');
-const boats=HARBOURS.flatMap((a,i)=>HARBOURS.slice(i+1).map(b=>[a,b]));
+const boats=[];for(const a in BOATS)BOATS[a].forEach(b=>{if(a<b)boats.push([a,b])});
 const boatLines=boats.map(([a,b])=>`<path d="M${P(a)[0]} ${P(a)[1]}L${P(b)[0]} ${P(b)[1]}" stroke="#1f6f9a" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" opacity=".75"/>`).join('');
 const roads=pairs.map(([a,b])=>{const d=`M${P(a)[0]} ${P(a)[1]}L${P(b)[0]} ${P(b)[1]}`,pipe=a=='oilrig'||b=='oilrig';
   return pipe?`<path d="${d}" stroke="#3a3a3a" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`
