@@ -277,7 +277,7 @@ const fishPile=mk(30,30,r=>{
   r('#f2f2f2',21,10,5,3);r('#9aa3ad',22,10,3,1);r('#f2f2f2',25,8,2,2);r('#e8b33a',27,9,1,1);r('#e8792a',22,13,1,2);r('#e8792a',24,13,1,2)});
 
 // pixel line (used by the radio mast)
-const pline=(r,x0,y0,x1,y1,col)=>{const n=Math.max(Math.abs(x1-x0),Math.abs(y1-y0))|0;for(let i=0;i<=n;i++){const x=Math.round(x0+(x1-x0)*i/n),y=Math.round(y0+(y1-y0)*i/n);r(typeof col=='function'?col(x,y):col,x,y)}};
+const pline=(r,x0,y0,x1,y1,col)=>{const n=Math.max(1,Math.max(Math.abs(x1-x0),Math.abs(y1-y0))|0);for(let i=0;i<=n;i++){const x=Math.round(x0+(x1-x0)*i/n),y=Math.round(y0+(y1-y0)*i/n);r(typeof col=='function'?col(x,y):col,x,y)}};
 // Radio mast: red and white lattice standing on a concrete pad, rising MAST_UP pixels above its footprint.
 const MAST_UP=44;
 function mastArt(w,h){const W=w*16,H=h*16+MAST_UP,c=cnv(W,H),g=c.getContext('2d'),r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a,b)};
@@ -419,6 +419,11 @@ house_mary:{fl:'wood',f:['#b8946a','#aa865c','#c29e72'],wall:'#f2e8d8',wall2:'#e
 house_jack:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#cfe0ea',wall2:'#bcd0dc',pap:'stripe',rug:'#2e6f9a',quilt:'#e0a100',curtain:'#2e6f9a',deco:[[4,'win'],[7,'poster'],[8,'win']]},
 house_sally:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',rug:'#2e6f9a',quilt:'#e07a9a',curtain:'#2e6f9a',deco:[[3,'pic'],[8,'win'],[1,'win']]},
 house_forsale:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#d8d4cc',wall2:'#c8c4bc',pap:'stripe',deco:[[2,'win'],[7,'win']]},
+hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',deco:[[2,'map'],[10,'map'],[13,'clock']]},
+transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap:'tiles',base:'#4a5058',deco:[[6,'onair'],[10,'clock'],[15,'poster']]},
+chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
+crypt:{fl:'stone',f:[],wall:'#6b6458',wall2:'#4a443c',pap:'brick',base:'#3a3530',deco:[[3,'cross'],[7,'rbanner'],[12,'cross']]},
+servants:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#e8e0cc',wall2:'#d8ceb4',pap:'stripe',rug:'#5e2a75',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[3,'win'],[6,'clock'],[9,'pic'],[12,'win']]},
 house_kate:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d6e0ec',wall2:'#c2cfe0',pap:'flower',rug:'#7d3c98',quilt:'#d86a8a',curtain:'#7d3c98',deco:[[3,'pic'],[8,'win'],[1,'win']]}};
 function floorPx(X,Y,f){
   if(f.fl=='wood'){const row=Y>>2,sx=X+(hash(row,1,40)*32|0),seg=sx>>5,c=f.f[hash(seg,row,41)*f.f.length|0];
@@ -470,7 +475,10 @@ function interiorLayer(m){
     if(k=='rbanner'){r('#5a3d2a',X+3,-10,10,1);r('#7d3c98',X+4,-9,8,21);r('#5e2a75',X+11,-9,1,21);r('#ffd23a',X+5,-4,6,3);r('#ffd23a',X+5,-6,1,2);r('#ffd23a',X+7,-6,2,2);r('#ffd23a',X+10,-6,1,2);r(f.wall,X+7,11,2,1)}
     if(k=='cross'){r('#c9a040',X+7,-8,2,16);r('#c9a040',X+4,-4,8,2);r('#e8c860',X+7,-8,1,16)}
     if(k=='listing')for(let i=0;i<4;i++){const x=X+1+(i&1)*7,y=-8+(i>>1)*9;r(OUT,x,y,7,8);r('#f4f4f0',x+1,y+1,5,6);r(['#c88a7a','#9ab8c8','#e8c88a','#b8d0a8'][i],x+2,y+4,3,3);r('#4a4f58',x+2,y+2,3,2)}
-    if(k=='neon'){r('#1a1520',X,-5,16,10);an.push({t:'neon',x:X+2,y:-2,s:'BAR'})}});
+    if(k=='neon'){r('#1a1520',X,-5,16,10);an.push({t:'neon',x:X+2,y:-2,s:'BAR'})}
+    if(k=='onair'){r(OUT,X-6,-6,29,11);r('#1a1520',X-5,-5,27,9);an.push({t:'neon',x:X-3,y:-3,s:'ON AIR',col:'#ff3b2f'})}
+    if(k=='map'){r(OUT,X,-9,16,18);r('#e8dcc0',X+1,-8,14,16);r('#9cc6e0',X+1,-8,14,16);r('#e8eff5',X+3,-6,9,11);r('#d8e3ec',X+4,-3,7,6);
+      r('#c0392b',X+5,-4,2,2);r('#c0392b',X+9,1,2,2);r('#2e6f9a',X+7,-1,2,2);r('#2b2f3a',X+6,-3,4,1);r('#2b2f3a',X+8,-2,1,3);r('#e0a100',X+11,-7,2,2)}});
   c.an=an;return c}
 // Furniture for one feature: the outlined picture, how far it reaches above its tiles (oy), and an optional animation.
 function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
@@ -484,6 +492,22 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       for(let x=6;x<W-24;x+=5)r('#f2e6c8',x,oy+5,3,6)}
     else{for(let k=0;k<4;k++){r('#f2f2f2',6+k*7,oy+5,4,6);r('#c0392b',7+k*7,oy+6,1,1)}r('#c0392b',W-12,oy+H-10,3,2);r('#2e86c1',W-8,oy+H-10,3,2);r('#e0a100',W-10,oy+H-12,3,2)}
     seats.forEach(x=>chair(x,oy+H-1,false))})}}
+  if(ch=='u'&&l.includes('pew')){const oy=5,TT=H+oy;return{oy,c:mk(W,TT,r=>{
+    // a wooden pew: a carved back rail with the seat in front of it
+    r('#5a3d2a',0,0,W,6);r('#7a5436',0,0,W,1);for(let x=3;x<W-2;x+=8)r('#4a3222',x,2,2,3);
+    r('#8a5a36',0,6,W,TT-9);r('#a87a4c',0,6,W,1);r('#6b4a2e',0,TT-4,W,1);r('#4a3222',1,TT-3,2,3);r('#4a3222',W-3,TT-3,2,3)})}}
+  if(ch=='u'&&l.includes('mixing')){const oy=6,TT=H+oy,an=[];const c=mk(W,TT,r=>{
+    // a radio mixing desk: rows of faders and knobs, with VU meters along the back (animated)
+    r('#3a3d44',0,0,W,8);r('#4a4f58',0,0,W,1);r('#2b2f3a',0,8,W,TT-10);r('#5a5f68',0,8,W,1);r('#1a1c22',1,TT-2,2,2);r('#1a1c22',W-3,TT-2,2,2);
+    for(let x=4;x<W-6;x+=12){r('#0e1a14',x,2,8,4);an.push({t:'vu',x,y:2,w:8,h:4})}
+    for(let x=3;x<W-3;x+=4){r('#1a1c22',x+1,11,1,TT-16);r('#d0d4d8',x,11+hash(x,1,v*9)*(TT-18)|0,3,2);r(['#c0392b','#e0a100','#2e86c1'][x%3],x,TT-5,2,2)}});
+    return{oy,c,an}}
+  if(ch=='u'&&l.includes('microphone')){const oy=10,TT=H+oy+6;return{oy,c:mk(W,TT,r=>{
+    // a studio table with a microphone on a boom, headphones, and a chair in front
+    r('#5a3d2a',0,oy,W,H-4);r('#7a5436',0,oy,W,1);r('#4a3222',0,oy+H-4,W,2);
+    const mx=W>>1;r('#5a5f68',mx,2,1,oy+2);r('#5a5f68',mx-8,2,9,1);r('#2b2f3a',mx-11,0,4,7);r('#8d959e',mx-10,1,2,5);r('#1a1c22',mx-2,oy+2,5,2);
+    r('#2b2f3a',6,oy+4,8,2);r('#c0392b',5,oy+3,3,4);r('#c0392b',12,oy+3,3,4);r('#f4f4f0',W-14,oy+3,8,6);r('#d0d4d8',W-13,oy+5,6,1);
+    r('#2b2f3a',mx-4,oy+H-1,8,3);r('#3a3d44',mx-4,oy+H-1,8,1);r('#1a1c22',mx-1,oy+H+2,2,4)})}}
   if(ch=='u'){const desk=l.includes('desk'),meet=l.includes('meeting'),oy=desk?0:5,TT=H+oy+6,seats=[];for(let x=8;x<W;x+=16)seats.push(x);
     return{oy,c:mk(W,TT,r=>{const chair=(cx,y,back)=>{if(back){r('#5a3d2a',cx-3,y,6,3);r('#7a5436',cx-3,y,6,1)}r('#8a6a45',cx-3,y+3,6,3);r('#6b4a2e',cx-3,y+5,6,1)};
       if(!desk)seats.forEach(x=>chair(x,0,true));
@@ -506,7 +530,19 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       r('#c0392b',x+4,6,1,1);r('#e0a100',x+8,7,1,1);r('#2e86c1',x+11,6,1,1);r('#5a0a1a',x+3,13,10,4);r('#9aa3ad',x+14,6,1,6);r('#c0392b',x+13,5,3,2)}an={t:'blink',x:5,y:1,c:'#ffd23a'}}
     else{for(let y=2;y<TT-2;y+=6){r('#6b737c',0,y,W,4);r('#8d959e',0,y,W,1);r('#4a4f58',0,y+3,W,1);for(let x=6;x<W;x+=14){r('#c0392b',x,y-1,3,6)}}}});
     return{oy,c,an}}
-  if(ch=='y'&&l.includes('radio')){const oy=10,TT=H+oy-2;return{oy,an:{t:'blink',x:W-6,y:4,c:'#ff8a3a'},c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
+  if(ch=='q')return furn('y',w,h,'Bookcase',f,v);  // the secret door in Hekki's shack looks like any other bookcase
+  if(ch=='y'&&l.includes('screen')){const oy=14,TT=H+oy-2,an=[];const c=mk(W,TT,r=>{
+    // a rack of CRT monitors, two high, each showing something different (animated)
+    r('#3a3d44',0,0,W,TT);r('#4a4f58',0,0,W,1);
+    for(let x=1;x+14<=W;x+=15)for(const y of[1,(TT>>1)+1]){const hh=(TT>>1)-3;r('#8d959e',x,y,14,hh);r('#b9c0c7',x,y,14,1);r('#0e1a14',x+2,y+2,10,hh-4);an.push({t:'screen',x:x+2,y:y+2,w:10,h:hh-4,k:(x+y)%3})}});
+    return{oy,c,an}}
+  if(ch=='y'&&l.includes('tape')){const oy=12,TT=H+oy-2,an=[];const c=mk(W,TT,r=>{
+    // reel-to-reel tape recorders: two spinning reels above a row of buttons
+    for(let x=0;x+16<=W;x+=16){r('#6b737c',x+1,0,15,TT);r('#8d959e',x+1,0,15,1);
+      for(const cx of[x+5,x+12]){r('#2b2f3a',cx-3,2,7,7);r('#c9ced4',cx-2,3,5,5);an.push({t:'reel',x:cx,y:5})}
+      r('#2b2f3a',x+4,10,10,1);for(let k=0;k<4;k++)r(['#c0392b','#e8e8e8','#e8e8e8','#2e9d57'][k],x+3+k*3,TT-6,2,2)}});
+    return{oy,c,an}}
+  if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:{t:'blink',x:W-6,y:4,c:'#ff8a3a'},c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
     for(let x=2;x<W-4;x+=11){r('#2b2f3a',x,4,9,8);r('#7fd0a0',x+1,5,7,3);r('#d0d4d8',x+2,9,2,2);r('#d0d4d8',x+6,9,2,2)}r('#6b4a2e',0,TT-8,W,8);r('#8a6a45',0,TT-8,W,1);r('#2b2f3a',4,TT-12,6,4);r('#d0d4d8',W-12,TT-13,1,5)})}}
   if(ch=='y'){
     if(l.includes('file')||l.includes('archive')){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{for(let x=0;x<W;x+=16){r('#8d959e',x+1,0,14,TT);r('#a9b0b8',x+1,0,14,2);r('#6b737c',x+13,0,2,TT);
@@ -532,6 +568,13 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#4a5058',0,6,W,TT-6);r('#e8eef2',0,6,W,3);r('#a9d4e8',1,9,W-2,TT-12);r('#e8f6fc',1,TT-6,W-2,3);
       for(let x=4;x<W-20;x+=8){r('#9fb3c4',x,TT-9,5,2);r('#d8e4ee',x,TT-8,5,1);r('#7d93a6',x+5,TT-9,2,2)}r('rgba(255,255,255,.5)',3,10,1,4);r('rgba(255,255,255,.5)',4,10,1,2);
       r('#3a3d44',W-15,0,11,8);r('#7fd0a0',W-13,1,7,3);r('#555a62',W-14,5,9,2)})}}
+  if(ch=='x'&&l.includes('tomb')){const oy=6,TT=H+oy,king=l.includes('king');return{oy,c:mk(W,TT,r=>{
+    // a stone sarcophagus seen from above: a carved lid with a cross (or, for the late king, a purple pall and gold crown)
+    r('#6e6a62',0,4,W,TT-4);r('#5a564f',0,TT-5,W,5);for(let x=3;x<W-3;x+=6)r('#4a463f',x,TT-4,3,3);
+    r('#9a948a',1,0,W-2,TT-7);r('#b1aca2',1,0,W-2,2);r('#7a756c',1,TT-9,W-2,2);
+    if(king){r('#5e2a75',3,3,W-6,TT-13);r('#7d3c98',3,3,W-6,2);r('#c9a040',3,TT-11,W-6,1);
+      const cx=W>>1;r('#c9a040',cx-5,8,10,4);r('#ffd23a',cx-5,6,2,2);r('#ffd23a',cx-1,5,2,3);r('#ffd23a',cx+3,6,2,2);r('#c0392b',cx-1,9,2,2)}
+    else{const cx=W>>1;r('#7a756c',cx-1,4,2,TT-15);r('#7a756c',cx-4,8,8,2)}})}}
   if(ch=='x'){const oy=4,TT=H+oy;return{oy,c:mk(W,TT,r=>{
     if(l.includes('net')){for(let y=0;y<TT;y++)for(let x=0;x<W;x++){const q=((x-W/2)/(W/2))**2+((y-TT*.6)/(TT*.55))**2;if(q<1)r((x+y)%3?(q<.5?'#3d6b5a':'#2f5a48'):'#5e8f78',x,y)}
       r('#e8792a',W*.3|0,H*.5|0,3,3);r('#e8792a',W*.7|0,H*.6|0,3,3);return}
@@ -547,6 +590,12 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     r('#2b2f3a',0,oy+4,bw,H-8);r('#9aa3ad',0,oy+H-6,bw,3);r('#5b8fb9',bw,0,30,TT);r('#7fb0d0',bw,0,30,2);r('#3d6b8f',W-4,0,4,TT);r('#2b2f3a',bw+6,6,14,8);r('#7fd0a0',bw+8,8,3,2);r('#e8321e',bw+13,8,3,2);r('#e0a100',bw+2,TT-8,26,2)})}}
   if(ch=='i'){const oy=18,bw=W>16?W-8:12,bx=(W-bw)>>1;return{oy,an:{t:'stove',x:bx+2,y:oy+4,w:bw-4},c:mk(W,H+oy,r=>{r('#3a3d44',bx+(bw>>1)-2,0,4,oy+2);r('#555a62',bx+(bw>>1)-2,0,1,oy+2);
     r('#2b2f3a',bx,oy+1,bw,12);r('#4a4f58',bx-1,oy,bw+2,3);r('#1a1c22',bx+2,oy+4,bw-4,6);r('#2b2f3a',bx+1,oy+13,2,2);r('#2b2f3a',bx+bw-3,oy+13,2,2)})}}
+  if(ch=='t'&&l.includes('altar')){const oy=12,TT=H+oy;return{oy,an:[4,W-6].map(x=>({t:'candle',x:x+1,y:-1})),c:mk(W,TT,r=>{
+    // an altar under a white cloth with a purple and gold runner, a cross and two tall candles
+    r('#d8d2c0',0,8,W,TT-8);r('#b8b2a0',0,TT-3,W,3);r('#f4f1e8',1,6,W-2,TT-11);r('#ffffff',1,6,W-2,1);
+    const cx=W>>1;r('#5e2a75',cx-5,6,10,TT-9);r('#c9a040',cx-5,TT-6,10,1);r('#c9a040',cx-1,TT-12,2,4);r('#c9a040',cx-2,TT-11,4,1);
+    r('#c9a040',cx-1,0,2,7);r('#c9a040',cx-3,2,6,2);
+    for(const x of[4,W-6]){r('#f2f2f2',x,2,3,6);r('#d8d2c0',x+2,2,1,6);r('#c9a040',x-1,8,5,2)}})}}
   if(ch=='t'){const oy=14,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#c9a040',4,0,W-8,TT-6);r('#e8c860',4,0,2,TT-6);r('#a8323a',7,3,W-14,TT-13);r('#c94a50',7,3,3,TT-13);
     r('#ffd23a',(W>>1)-3,0,6,2);r('#ffd23a',(W>>1)-1,-1+1,2,1);r('#a8323a',3,TT-11,W-6,5);r('#c94a50',3,TT-11,W-6,1);r('#c9a040',1,TT-13,4,9);r('#c9a040',W-5,TT-13,4,9);
     r('#8a6a45',0,TT-4,W,4);r('#a8855a',0,TT-4,W,1)})}}
@@ -563,7 +612,7 @@ function scene(m){if(SC[m])return SC[m];
   if(c.an)an.push(...c.an);
   const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
   FL[m].forEach(([x,y,w,h,ch,lb,st])=>{
-    if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);if(fu.an)an.push({...fu.an,x:x*16+fu.an.x,y:y*16-fu.oy+fu.an.y})}return}
+    if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);[].concat(fu.an||[]).forEach(a=>an.push({...a,x:x*16+a.x,y:y*16-fu.oy+a.y}))}return}
     if(st&&BLD[st]&&BLD[st].kind=='manhole'){g.drawImage(manholeArt,x*16,y*16);return}
     if(st&&BLD[st]&&BLD[st].kind=='tent'){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;g.drawImage(tentArt(w,h,dx),x*16-1,y*16-9);return}
     if(st&&BLD[st]&&BLD[st].kind=='mast'){put(y+h-1,x*16,y*16-MAST_UP,mastArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-MAST_UP-1});return}
@@ -577,6 +626,24 @@ function scene(m){if(SC[m])return SC[m];
       const b=bld2(w,h,BLD[st],dx);g.drawImage(b.c,x*16,y*16);b.an.forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}))}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
+  // cables from a radio mast: armoured cables along the ground to its transmitter hut (and, in their own colour, to any building
+  // whose look names a cable colour), and wires slung from the mast's leg to the hut's roof
+  const mf=!inside&&FL[m].find(f=>BLD[f[6]]?.kind=='mast'),hf=!inside&&FL[m].find(f=>BLD[f[6]]?.deco=='hut');
+  // gcable: three cables lying side by side along the points pts, half buried in snow here and there
+  const gcable=(pts,col,hi)=>{for(let k=0;k<3;k++)for(let s=1;s<pts.length;s++){const[a0,b0]=pts[s-1],[a1,b1]=pts[s],n=Math.max(Math.abs(a1-a0),Math.abs(b1-b0))|0,hz=Math.abs(a1-a0)>=Math.abs(b1-b0);
+    for(let i=0;i<=n;i++){const u=i/Math.max(1,n),w=Math.sin((hz?a0+(a1-a0)*u:b0+(b1-b0)*u)/5+k)*1.2,x=Math.round(a0+(a1-a0)*u+k*3+(hz?0:w)),y=Math.round(b0+(b1-b0)*u+k*3+(hz?w:0));
+      if(vnoise(x/4,y/4,65+k)>.74){g.fillStyle=SNOW;g.fillRect(x-1,y-1,3,3)}else{g.fillStyle=col;g.fillRect(x,y,hz?1:2,hz?2:1);g.fillStyle=hi;g.fillRect(x,y,1,1)}}}};
+  if(mf){const[mx,my,mw,mh]=mf,pad=(my+mh)*16-8;
+    FL[m].filter(f=>BLD[f[6]]?.cable).forEach(([bx,by,bw,bh,,,st])=>{const right=bx>mx,sx=mx*16+(right?mw*16-8:6),ex=right?bx*16+4:(bx+bw)*16-12,ey=(by+bh)*16-2;
+      gcable([[sx,pad],[ex,pad],[ex,ey]],BLD[st].cable,shade(BLD[st].cable,.3))})}
+  if(mf&&hf){const[mx,my,mw,mh]=mf,[hx,hy,hw,hh]=hf,left=hx<mx,MW=mw*16,MH=mh*16+MAST_UP,ox=mx*16,oy=my*16-MAST_UP;
+    const B=left?[10,MH-12]:[MW-11,MH-12],Tp=left?[(MW>>1)-3,6]:[(MW>>1)+2,6],hut=left?(hx+hw)*16-4:hx*16+4,hwh=Math.max(2,Math.round(hh*.45))*16;
+    const wc=cnv(M[0].length*16,M.length*16),wg=wc.getContext('2d'),wr=(col,x,y)=>{wg.fillStyle=col;wg.fillRect(x|0,y|0,1,1)};
+    [.22,.36,.5,.64,.78].forEach((t,i)=>{const S=[ox+B[0]+(Tp[0]-B[0])*t,oy+B[1]+(Tp[1]-B[1])*t],E=[hut-(left?1:-1)*i*7,hy*16+(hh*16-hwh)-12+(i&1)*3],sag=8+i*4,n=Math.ceil(Math.abs(E[0]-S[0])/3)+1;
+      let p=null;for(let k=0;k<=n;k++){const u=k/n,q=[S[0]+(E[0]-S[0])*u,S[1]+(E[1]-S[1])*u+sag*4*u*(1-u)];if(p)pline(wr,p[0],p[1],q[0],q[1],'#22252c');p=q}
+      wr('#e8ecef',E[0],E[1]-1);wr('#e8ecef',S[0],S[1]-1)});
+    ents.push({k:99,X:0,Y:0,c:wc});
+    gcable([[ox+(left?8:MW-8),(my+mh)*16-5],[left?(hx+hw)*16:hx*16,(hy+hh)*16-8]],'#1a1c22','#3a3d44')}
   if(!inside)M.forEach((row,y)=>[...row].forEach((ch,x)=>{
     if(ch=='T'){const t=TREES[hash(x,y,31)*3|0];put(y,x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
     if(ch=='R'){const t=ROCKS[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
@@ -622,6 +689,15 @@ function drawWorld2(m,cx,cy,t,frame){
       // bubbles swell and pop at random spots inside the crater's oval
       const ph=t/1400+hash(k,1,a.x),n=ph|0,g=ph%1,an=hash(k,n,a.y)*6.283,rr=Math.sqrt(hash(k,n+7,a.y))*.7,bx=X+Math.cos(an)*a.rx*rr|0,by=Y+Math.sin(an)*a.ry*rr|0,s=g<.7?1+(g*3|0):3;
       if(g<.85)px(g<.6?'#ffd23a':'#fff2a0',bx,by,s,s);else px('#5a2a20',bx-1,by+1,4,1)}
+    if(a.t=='screen'){const k=a.k;
+      // monitor content: 0 a scrolling waveform, 1 lines of text being typed, 2 a radar sweep
+      if(k==0)for(let x=0;x<a.w;x++)px('#5fe08a',X+x,Y+(a.h>>1)+Math.round(Math.sin(x*.9+t/150)*Math.min(2,a.h/3)),1,1);
+      else if(k==1){const n=(t/400|0)%(a.h+2);for(let y=0;y<Math.min(n,a.h);y+=2)px('#7fd0a0',X+1,Y+y,1+(hash(y,t/2400|0,a.x)*(a.w-2)|0),1)}
+      else{const an=t/600,cx=X+(a.w>>1),cy=Y+(a.h>>1);px('#1f5a3a',cx,Y,1,a.h);px('#1f5a3a',X,cy,a.w,1);
+        for(let r=0;r<4;r++)px('#5fe08a',cx+Math.round(Math.cos(an)*r*a.w/8),cy+Math.round(Math.sin(an)*r*a.h/8),1,1);if(((t/600)|0)%3==0)px('#ff3b2f',cx+2,cy-1,1,1)}}
+    if(a.t=='reel'){const an=t/180;for(const o of[0,2.09,4.19])px('#5a5f68',X+Math.round(Math.cos(an+o)*2),Y+Math.round(Math.sin(an+o)*2),1,1);px('#2b2f3a',X,Y,1,1)}
+    if(a.t=='vu')for(let i=0;i<a.w;i+=2){const hh=1+(hash(i,t/110|0,a.x)*a.h|0);px(hh>=a.h?'#ff3b2f':hh>a.h/2?'#ffd23a':'#5fe08a',X+i,Y+a.h-hh,1,hh)}
+    if(a.t=='candle'){const f=hash(a.x,t/120|0,8);px('rgba(255,200,90,.22)',X-2,Y-3,5,6);px(f>.3?'#ffd23a':'#ff8a3a',X,Y-1,1,2);if(f>.6)px('#fff2a0',X,Y-2,1,1)}
     if(a.t=='bulb')px(((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
     if(a.t=='neon'){const on=hash(t/90|0,3,7)<.96,col=on?(a.col||'#ff5fa8'):'#5a2a40';
       if(on){ctx.fillStyle=a.col?'rgba(255,210,58,.25)':'rgba(255,95,168,.3)';ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}ptext(px,a.s,X,Y,col)}

@@ -20,7 +20,10 @@ NPCS.forEach(n=>{const bad=['name','job','faction','loc','home'].filter(k=>!n[k]
   if(bad.length)throw new Error('NPC '+(n.name||JSON.stringify(n))+' is missing or has a bad: '+bad.join(', '))});
 const A=(c,k,id,t)=>`<a href="${c.single?'#'+k+'-'+id:c.pre+k+'/'+id+'.html'}">${esc(t)}</a>`;
 const home=c=>c.single?'#home':c.pre+'index.html',lst=(c,k)=>c.single?'#'+k:c.pre+k+'/index.html';
-const locA=(c,id)=>A(c,'locations',id,L[id][0]),facA=(c,id)=>id=='none'?'Unaligned':A(c,'factions',id,FACTIONS[id][0]),npcA=(c,n)=>A(c,'npcs',nid(n),n.name);
+// top: the place on the island a building interior stands in (its own id for a place). Homes are linked with that place in brackets.
+const top=id=>POS[id]||!parentOf(id)?id:top(parentOf(id));
+const HOMES=new Set([...NPCS.map(n=>n.home),...Object.keys(L).filter(i=>/^(house|villa|shack|tent)_/.test(i))]);
+const locA=(c,id)=>A(c,'locations',id,L[id][0])+(HOMES.has(id)&&top(id)!=id?' ('+esc(L[top(id)][0])+')':''),facA=(c,id)=>id=='none'?'Unaligned':A(c,'factions',id,FACTIONS[id][0]),npcA=(c,n)=>A(c,'npcs',nid(n),n.name);
 const info=rows=>'<table class="info">'+rows.filter(Boolean).map(([k,v])=>`<tr><th>${esc(k)}</th><td>${v}</td></tr>`).join('')+'</table>';
 const list=a=>a.length?a.join(', '):'—';
 function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac=FACTION_AT[id],people=NPCS.filter(n=>n.m==id||n.loc==id),res=NPCS.filter(n=>n.home==id);
@@ -54,7 +57,7 @@ function idxBody(c,k){let t;
       return`<h2><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h2><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`}).join('')+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
   else{// one section per place on the island; people based inside a building are listed under the place it stands in
-    const top=id=>POS[id]||!parentOf(id)?id:top(parentOf(id)),g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
+    const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
     t='<h1>People</h1>'+filter+Object.keys(L).filter(i=>g[i]).map(i=>`<h2>${locA(c,i)}</h2><ul class="cols">${g[i].map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[i][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)}${n.loc!=i?' · '+locA(c,n.loc):''} · ${n.home=='none'?'no fixed home':'lives in '+locA(c,n.home)}</small></li>`).join('')}</ul>`).join('')}
   return t}
 const svg=fs.readFileSync(path.join(root,'docs/island-map.svg'),'utf8').replace(/<\?xml.*?\?>/,'');
