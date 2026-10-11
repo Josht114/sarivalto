@@ -4,7 +4,7 @@ A 2D top-down, Pokémon-style game set in the early 1980s Cold War. The player i
 fictional island north of Finland, where the king has just died and the island must not fall to the
 Soviet Union. Seven factions compete for control.
 
-**Current stage:** map prototype only. Walk around all 28 locations (plus building interiors); no characters, dialogue or
+**Current stage:** map prototype only. Walk around all 29 locations (plus building interiors); no characters, dialogue or
 game mechanics yet. Layouts are placeholders.
 
 ![Island map](docs/island-map.svg)

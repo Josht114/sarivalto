@@ -28,7 +28,7 @@ const CLS=ch=>'~b'.includes(ch)?'w':'pF'.includes(ch)?'d':',E'.includes(ch)?'p':
 const land=k=>k=='s'||k=='p'||k=='h';
 const STONE=['#a39d95','#b1aba2','#978f88','#aaa39a'],PLANK=['#9a7049','#8c6542','#a5794f'];
 // Path look per map (default: cobbles). dirt = gravel track, boards = boardwalk, steel = the oil rig's deck plating.
-const PATHS={west:'dirt',radio:'dirt',beach:'boards',privbeach:'boards',north:'dirt',east:'dirt',south:'dirt',southwest:'dirt',
+const PATHS={west:'dirt',radio:'dirt',beach:'boards',privbeach:'boards',forest:'dirt',north:'dirt',east:'dirt',south:'dirt',southwest:'dirt',
   volcano:'dirt',mountains:'dirt',farm:'dirt',oilrig:'steel'};
 function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return hash(X,Y,3)>.988?'#ccd9e5':nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5'}
 function sandPx(X,Y){const nz=vnoise(X/10,Y/10,1)*.7+vnoise(X/4,Y/4,2)*.3;let c=nz>.62?'#e4d8b4':nz<.38?'#cbbb91':'#d9cba4';
@@ -98,6 +98,15 @@ function groundLayer(m){
         const lip=(q,sid,dist,gc)=>{const dep=vnoise(q/4,sid,16)*3|0;if(dist<dep)col=gpx(X,Y,gc);else if(dist==dep)col=sandy(gc)?'#a8977a':'#8a857f'};
         const op=v=>v!='p'&&v!='d';
         if(op(n))lip(X,1,ly,at(tx,ty-1));if(op(s))lip(X,2,15-ly,at(tx,ty+1));if(op(wv))lip(Y,3,lx,at(tx-1,ty));if(op(e))lip(Y,4,15-lx,at(tx+1,ty))}
+      else if(ch=='l'){
+        // tram track: grey ballast, wooden sleepers across it, and two steel rails running along it
+        const nz=vnoise(X/3,Y/3,66);col=nz>.6?'#8a857f':nz<.4?'#6e6a64':'#7d7872';if(ly<2||ly>13)col=mix(col,'#e8eff5',.55);
+        if(X%8<3&&ly>1&&ly<14)col=X%8==0?'#6b4a2e':'#5a3e27';if(vnoise(X/7,Y/7,67)>.72&&(ly<4||ly>11||X%8>=3))col='#e8eff5';
+        if(ly==3||ly==11)col='#c9ced4';else if(ly==4||ly==12)col='#6b737c'}
+      else if(ch=='P'){
+        // tram platform: concrete slabs with a yellow safety line along the track edge
+        col=(X&15)==15||(Y&15)==15?'#8a9099':hash(X,Y,68)>.97?'#9aa0a6':'#b1b7be';if(ly>=12&&ly<14)col='#e0a100';if(ly>=14)col='#6b7178';
+        if(vnoise(X/6,Y/6,69)>.7&&ly<12)col=mix(col,'#e8eff5',.7)}
       else if(ch=='v'&&crater(X,Y)<1){
         // volcanic crater (an oval inside its feature): a dark rocky rim, a cooled crust, then molten lava with darker crust veins
         const q=crater(X,Y),d=(1-Math.sqrt(q))*16+(vnoise(X/4,Y/4,58)*3|0),nz=vnoise(X/5,Y/5,59)*.7+vnoise(X/2,Y/2,60)*.3;
@@ -312,14 +321,24 @@ function derrickArt(w,h){const W=w*16,H=h*16+DER_UP,c=cnv(W,H),g=c.getContext('2
   for(let k=0;k<3;k++){r('#8d959e',6,H-14+k*3,18,2);r('#b9c0c7',6,H-14+k*3,18,1)}
   return c}
 // A glass bus shelter with a bench, an advert panel and a bus-stop sign. Drawn 12 pixels taller than its tiles.
-function shelterArt(w,h){const W=w*16,H=h*16+12;return mk(W,H,r=>{
+function shelterArt(w,h,txt='BUS'){const W=w*16,H=h*16+12;return mk(W,H,r=>{
   r('#8a9099',0,H-10,W,9);r('#a9b0b8',0,H-10,W,2);r(SNOW,0,H-10,W,1);
   const x0=6,x1=Math.min(W-22,x0+52);
   r('#9fc6e0',x0,8,x1-x0,H-20);r('#cfe6f2',x0,8,x1-x0,3);for(let k=x0+4;k<x1-6;k+=11){r('#e8f4fa',k,14,1,6);r('#e8f4fa',k+1,13,1,4)}
   r('#7a5232',x0+4,H-19,x1-x0-18,3);r('#946640',x0+4,H-19,x1-x0-18,1);r('#3a3a44',x0+6,H-16,1,4);r('#3a3a44',x1-17,H-16,1,4);
   r('#f2f2f2',x1-12,10,10,H-24);r('#2e9d57',x1-11,12,8,5);ptext(r,'KC',x1-10,19,'#2e9d57');
   r('#3a3d44',x0-2,4,2,H-13);r('#3a3d44',x1,4,2,H-13);r('#2e9d57',x0-4,2,x1-x0+8,5);r('#3d9a5e',x0-4,2,x1-x0+8,1);r(SNOW,x0-4,1,x1-x0+8,2);
-  const sx=W-12;r('#5a5f68',sx,6,2,H-14);r('#2e86c1',sx-6,0,14,9);r('#3d96d1',sx-6,0,14,1);ptext(r,'BUS',sx-5,2,'#ffffff');r(SNOW,sx-6,0,14,1)})}
+  const sx=W-12,bw=txt.length*4+3,bx=Math.min(sx-6,W-bw);r('#5a5f68',sx,6,2,H-14);r('#2e86c1',bx,0,bw,9);r('#3d96d1',bx,0,bw,1);ptext(r,txt,bx+2,2,'#ffffff');r(SNOW,bx,0,bw,1)})}
+// A red and cream tram with a pantograph on its roof, seen from the side. Its wheels sit 13 pixels into its rail row.
+const TRAM_UP=23,tramArt=mk(96,36,r=>{
+  for(let i=0;i<7;i++){r('#3a3d44',42+i,1+i,1,1);r('#3a3d44',53-i,1+i,1,1)}r('#3a3d44',38,0,20,1);r('#3a3d44',44,7,8,1);
+  r('#8d959e',3,8,90,4);r('#b9c0c7',3,8,90,1);r('#6b737c',30,9,8,2);r('#6b737c',58,9,8,2);
+  r('#efe6cf',1,12,94,11);r('#b8322a',1,23,94,10);r('#e04a3a',1,23,94,1);r('#8a2a22',1,31,94,2);
+  for(let x=4;x<90;x+=11){if((x>=12&&x<26)||(x>=70&&x<84))continue;r('#2b2f3a',x,14,9,7);r('#9fc6e0',x+1,15,7,5);r('#cfe6f2',x+1,15,7,1)}
+  for(const dx of[14,74]){r('#2b2f3a',dx,13,10,20);r('#8a2a22',dx+1,14,8,18);r('#9fc6e0',dx+2,15,2,6);r('#9fc6e0',dx+6,15,2,6);r('#c9a040',dx+4,24,1,3)}
+  ptext(r,'KELP COLA',30,26,'#efe6cf');r('#ffe08a',1,25,2,2);r('#ffe08a',93,25,2,2);
+  r('#2b2f3a',6,33,18,3);r('#2b2f3a',72,33,18,3);r('#5a5f68',9,34,3,2);r('#5a5f68',18,34,3,2);r('#5a5f68',75,34,3,2);r('#5a5f68',84,34,3,2)});
+const tramPole=mk(6,30,r=>{r('#5a5f68',2,0,2,30);r('#7d858e',2,0,1,30);r('#3a3d44',0,0,6,2);r(SNOW,0,0,6,1);r('#3a3d44',1,28,4,2)});
 // A cast-iron manhole cover, lightly dusted with snow.
 const manholeArt=mk(14,14,r=>{for(let y=0;y<14;y++)for(let x=0;x<14;x++){const d=Math.hypot(x-6.5,y-6.5);if(d>6.8)continue;
   r(d>5.6?'#3a3d44':((x+y)%3==0?'#2b2f3a':'#555a62'),x,y)}r('#7a808a',4,4,2,1);r(SNOW,2,3,2,1);r(SNOW,9,10,3,1)});
@@ -351,6 +370,8 @@ drum:[14,r=>{r('#2b2f3a',3,1,10,13);r('#3a3f4a',3,1,3,13);r('#e0a100',3,4,10,2);
 pipes:[10,r=>{for(const y of[6,3,0]){const o=y==0?3:y==3?1:0;r('#8d959e',o,y+1,16-o,3);r('#b9c0c7',o,y+1,16-o,1);r('#5a5f68',o,y+3,16-o,1);r('#2b2f3a',o,y+1,2,3)}r(SNOW,3,0,13,1)}],
 cone:[10,r=>{r('#e8792a',6,1,4,7);r('#e8792a',5,4,6,4);r('#f2f2f2',5,4,6,1);r('#f2f2f2',6,2,4,1);r('#2b2f3a',3,8,10,2);r(SNOW,7,0,2,1)}],
 cart:[12,r=>{r('#7a5232',1,2,12,6);r('#946640',1,2,12,1);r('#5a3a22',1,7,12,1);r('#3a3a44',3,8,4,4);r('#5a5f68',4,9,2,2);r('#6b4a2e',13,4,3,1);r(SNOW,2,1,10,2)}],
+buffer:[14,r=>{r('#5a5f68',2,8,12,6);r('#7d858e',2,8,12,1);for(let x=1;x<15;x++)r(((x>>1)&1)?'#c0392b':'#f2f2f2',x,2,1,6);r('#2b2f3a',1,1,14,1);r(SNOW,1,0,14,1);
+  r('#3a3d44',3,4,3,3);r('#3a3d44',10,4,3,3);r('#ffd23a',4,5,1,1);r('#ffd23a',11,5,1,1)}],
 vent:[6,r=>{r('#4a4048',1,1,14,4);r('#2a2028',3,2,10,2);r('#e8501e',6,2,3,1);r('#ff8a3a',7,2,1,1);r('#5a5058',2,0,4,1);r('#5a5058',10,0,4,1)}],
 dish:[18,r=>{r('#5a5f68',7,10,2,8);r('#5a5f68',4,16,8,2);for(let y=0;y<11;y++)for(let x=0;x<14;x++){if(((x-6.5)/6.5)**2+((y-5)/5)**2<1)r(x>8?'#b9c0c7':'#e8ecef',x+1,y)}r('#5a5f68',7,4,2,2);r(SNOW,3,0,8,1)}]});
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
@@ -617,7 +638,7 @@ function scene(m){if(SC[m])return SC[m];
     if(st&&BLD[st]&&BLD[st].kind=='tent'){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;g.drawImage(tentArt(w,h,dx),x*16-1,y*16-9);return}
     if(st&&BLD[st]&&BLD[st].kind=='mast'){put(y+h-1,x*16,y*16-MAST_UP,mastArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-MAST_UP-1});return}
     if(st&&BLD[st]&&BLD[st].kind=='derrick'){put(y+h-1,x*16,y*16-DER_UP,derrickArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-DER_UP+2});return}
-    if(st&&BLD[st]&&BLD[st].kind=='shelter'){g.drawImage(shelterArt(w,h),x*16-1,y*16-13);return}
+    if(st&&BLD[st]&&BLD[st].kind=='shelter'){g.drawImage(shelterArt(w,h,BLD[st].stop),x*16-1,y*16-13);return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
     if(st&&BLD[st]){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
       // buildings you can't go into still get a (locked) front door, unless their look already has a big door
@@ -647,10 +668,17 @@ function scene(m){if(SC[m])return SC[m];
   if(!inside)M.forEach((row,y)=>[...row].forEach((ch,x)=>{
     if(ch=='T'){const t=TREES[hash(x,y,31)*3|0];put(y,x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
     if(ch=='R'){const t=ROCKS[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
+  // tram lines: each row with a run of track gets overhead-wire poles along its far side and a wire for the tram's pantograph.
+  // The tram stops level with the middle of the platform beside the track; a line that ends inside the map is a terminus.
+  const trams=[];if(!inside)M.forEach((row,y)=>{const a=row.indexOf('l'),b=row.lastIndexOf('l');if(a<0||b-a<6)return;
+    const pl=[...(M[y-1]||'')].map((c,i)=>c=='P'?i:-1).filter(i=>i>=0),mid=pl.length?(pl[0]+pl[pl.length-1]+1)*8:(a+b+1)*8;
+    trams.push({y,a:a*16,b:(b+1)*16,stop:mid-48,from:a>0?'R':'L',through:a==0&&b==row.length-1})});
+  trams.forEach(({y:ty,a,b})=>{const wc=cnv(b,ty*16),wg=wc.getContext('2d');wg.fillStyle='#2b2f3a';wg.fillRect(a,ty*16-TRAM_UP,b-a,1);ents.push({k:99,X:0,Y:0,c:wc});
+    for(let x=a/16+1;x<b/16;x+=5)if(!'#T'.includes(M[ty-1][x]))put(ty-1,x*16+5,ty*16-30,tramPole,0,x,ty-1)});
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
   PROPS.filter(p=>p[0]==m).forEach(([,x,y,k])=>{const t=propArt(k),pass=PROP_PASS.includes(k);put(pass?y-.5:y,x*16-1,(y+1)*16-t.height+1,t,!pass,x,y);
     if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});if(k=='vent')an.push({t:'smoke',x:x*16+7,y:y*16+8});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
-  return SC[m]={c,an,boats,ferries,ents,inside,top:inside?WU:0}}
+  return SC[m]={c,an,boats,ferries,trams,ents,inside,top:inside?WU:0}}
 
 // ---- Snowfall and vignette
 let FLAKES=null;  // built on first use, because hash() lives in game.js which loads after this file
@@ -676,6 +704,10 @@ function drawWorld2(m,cx,cy,t,frame){
   const Ls=[];
   S.ents.forEach(o=>{const X=o.X-cx,Y=o.Y-cy;if(X>vw||Y>vh||X+o.c.width<0||Y+o.c.height<0)return;
     Ls.push([o.k,0,()=>{if(o.sh)px('rgba(30,50,80,.22)',o.sx-cx,o.sy-cy,13,3);ctx.drawImage(o.c,X,Y)}])});
+  // the tram runs in, waits at the platform, then carries on out the far side; at a terminus it goes back the way it came (an 18 second loop)
+  S.trams.forEach(({y:ty,stop,from,through})=>{const MW=mw*16,p=t%18000,inX=from=='L'?-110:MW+10,outX=through?MW+10:inX;let x=null;
+    if(p<4000){const u=p/4000;x=inX+(stop-inX)*(1-(1-u)**2)}else if(p<10000)x=stop;else if(p<14000){const u=(p-10000)/4000;x=stop+(outX-stop)*u*u}
+    if(x!=null)Ls.push([ty,.5,()=>{const X=Math.round(x)-cx,Y=ty*16-TRAM_UP-cy;px('rgba(30,50,80,.25)',X+4,Y+35,90,3);ctx.drawImage(tramArt,X-1,Y-1)}])});
   NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat)])});
   Ls.push([P.ry,1,()=>person(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,'#2a5db0','#4a2e1a','#e8c33a')]);
   Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());

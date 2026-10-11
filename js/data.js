@@ -17,10 +17,11 @@ town:['Kingsgrad',40,30,'snow',[[2,5,6,5,'#','Party Office','partyoffice'],[9,5,
 [16,23,4,5,'#',"Grace's House",'th4'],[17,27,1,1,'d'],[22,1,8,6,'#','Casino','casino'],[25,6,1,1,'d'],[31,2,5,5,'#','Estate Agent','estate'],[33,6,1,1,'d'],
 [22,10,5,5,'#','Fishing Shop','fishingshop'],[24,14,1,1,'d'],[28,10,4,5,'#','House for Sale','th5'],[29,14,1,1,'d'],[33,10,4,5,'#',"Vince's House",'th2'],[34,14,1,1,'d'],
 [22,17,4,5,'#',"Mary's House",'th4'],[23,21,1,1,'d'],[27,17,4,5,'#',"Jack's House",'th1'],[28,21,1,1,'d'],[32,17,4,5,'#',"Sally's House",'th3'],[33,21,1,1,'d'],
-[24,25,1,1,'d','Sewer Entrance','manhole'],[33,24,4,3,'T'],[10,1,3,2,'T']]],
+[26,28,1,1,'d','Sewer Entrance','manhole'],[32,27,4,2,'T'],[24,23,5,2,'#','Tram Stop','tramshelter'],[21,25,18,1,'P'],[21,26,19,1,'l'],[10,1,3,2,'T']]],
 colahq:['Kelp Cola HQ',18,14,'snow',[[3,2,10,5,'#','Kelp Cola HQ','kchq'],[3,9,4,3,'#','Parking','garage']]],
-shuttle:['Shuttle Bus',22,8,'snow',[[9,2,5,2,'#','Bus Stop','shelter']]],
-colafactory:['Kelp Cola Factory',24,16,'snow',[[3,1,12,6,'#','Kelp Cola Factory','kcfac'],[17,10,5,4,'#','Warehouse','kcwhs']]],
+tramstop:['Tram Stop',22,12,'snow',[[8,2,5,2,'#','Tram Stop','tramshelter'],[3,4,16,1,'P'],[0,5,22,1,'l']]],
+forest:['Pine Forest',26,18,'snow',[[1,1,5,4,'T'],[8,2,3,3,'T'],[17,1,4,3,'T'],[22,4,3,5,'T'],[2,7,4,3,'T'],[15,6,4,2,'T'],[8,7,4,3,'~'],[7,12,5,3,'T'],[18,11,5,4,'T'],[1,13,3,3,'T'],[13,14,2,2,'T'],[20,9,1,1,'R'],[4,11,1,1,'R']]],
+colafactory:['Kelp Cola Factory',24,16,'snow',[[3,1,12,6,'#','Kelp Cola Factory','kcfac'],[17,10,5,4,'#','Warehouse','kcwhs'],[16,4,5,2,'#','Bus Stop','shelter']]],
 second:['Eastbrook',26,18,'snow',[[3,3,6,5,'#','Houses','eb1'],[17,3,6,5,'#','Houses','eb2'],[3,12,6,4,'#','Union Hall','union'],[17,12,6,4,'#','Shops','ebshops']]],
 south:['South Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 southwest:['South West Road',14,22,'snow',[[2,3,3,4,'T'],[9,13,3,4,'T']]],
@@ -93,14 +94,14 @@ kalanharbour:['North Frostholm Harbour',24,14,'harbour',[[1,1,22,6,'~'],[4,3,12,
 savilaharbour:['Eastbrook Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p'],[15,10,4,2,'b','Fishing Boat'],[2,2,6,3,'#','Customs Shed','customs'],[2,9,6,3,'#','Warehouse','whs']]]};
 // Links from the sketch: "A side B side". Order of links sets the order of exits along a side.
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano B north T','north R town L','west R town L',
-'mountains B east T','mountains R cathedral L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R shuttle L',
-'shuttle R colafactory L','colafactory B second T','south L town R','south R second L','beach R west L','beach B village T',
-'west B village T','village L harbour R','town B southwest T','southwest B gated T','southwest L barracks R','gated R privbeach L','gated L privharbour R','village R radio L','fishing T kalanharbour B','second R savilaharbour L'];
+'mountains B east T','mountains R cathedral L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R tramstop L',
+'tramstop R colafactory L','colafactory B second T','south L town R','south R second L','beach R west L','beach B village T',
+'west B village T','village L harbour R','town B southwest T','southwest B gated T','southwest L barracks R','gated R privbeach L','gated L privharbour R','village R radio L','fishing T kalanharbour B','second R savilaharbour L','tramstop B forest T'];
 
 // ---- Overview-map layout (used only by tools/build-map.js): id:[x, y, kind]. Kinds: town, road, site, nature, harbour.
 const POS={oilrig:[169,236,'harbour'],oilhq:[353,239,'site'],fishing:[545,234,'town'],kalanharbour:[545,140,'harbour'],
 volcano:[758,256,'nature'],mountains:[1005,256,'nature'],cathedral:[1159,256,'site'],north:[604,370,'road'],east:[956,377,'road'],
-farm:[1162,380,'nature'],palace:[793,424,'site'],town:[755,487,'town'],colahq:[873,498,'site'],shuttle:[1000,498,'road'],
+farm:[1162,380,'nature'],palace:[793,424,'site'],town:[755,487,'town'],colahq:[873,498,'site'],tramstop:[1000,498,'road'],forest:[1060,570,'nature'],
 colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[961,592,'road'],west:[557,532,'road'],
 beach:[334,465,'nature'],village:[455,668,'town'],harbour:[213,674,'harbour'],radio:[500,610,'site'],barracks:[610,600,'site'],southwest:[735,592,'road'],gated:[758,694,'town'],
 privharbour:[540,700,'harbour'],privbeach:[936,712,'nature']};
@@ -110,12 +111,12 @@ const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you
 cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.']};
 // Where each faction is based: location id -> faction id. Unlisted locations are unassigned.
 const FACTION_AT={village:'communist',town:'democrat',gated:'syndicate',palace:'royal',cathedral:'church',
-colahq:'cola',colafactory:'cola',shuttle:'cola',oilhq:'oil',oilrig:'oil'};
+colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil'};
 
 // ---- Districts: id:[name, map colour]. DISTRICT_OF puts every place on the overview map in one; interiors take their building's.
 const DISTRICTS={central:['Central','#f3d9a4'],north:['North','#d9c8ea'],northeast:['North East','#c4dcef'],northwest:['North West','#c9e3c4'],
 southwest:['South West','#f2c9bf'],south:['South','#eadbb6'],southeast:['South East','#c3e6dc']};
-const DISTRICT_OF={palace:'central',town:'central',colahq:'central',shuttle:'southeast',
+const DISTRICT_OF={palace:'central',town:'central',colahq:'central',tramstop:'southeast',forest:'southeast',
 southwest:'south',barracks:'south',gated:'south',privbeach:'south',privharbour:'south',
 east:'northeast',mountains:'northeast',cathedral:'northeast',farm:'northeast',
 colafactory:'southeast',south:'southeast',second:'southeast',savilaharbour:'southeast',
@@ -177,7 +178,7 @@ const DOORS=[['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',
 ['town',11,9,0,1,'gunshop'],['town',17,9,0,1,'citybar'],['town',5,19,0,1,'supermarket'],['town',12,19,0,1,'tailor'],['town',17,19,0,1,'bookshop'],
 ['town',3,27,0,1,'house_frank'],['town',8,27,0,1,'house_lisa'],['town',13,27,0,1,'house_eddie'],['town',17,27,0,1,'house_grace'],['town',25,6,0,1,'casino'],
 ['town',33,6,0,1,'estateagent'],['town',24,14,0,1,'fishingshop'],['town',29,14,0,1,'house_forsale'],['town',34,14,0,1,'house_vince'],['town',23,21,0,1,'house_mary'],
-['town',28,21,0,1,'house_jack'],['town',33,21,0,1,'house_sally'],['town',24,25,0,1,'sewers'],['palace',14,13,0,1,'servants'],['palace',4,13,0,1,'chapel'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
+['town',28,21,0,1,'house_jack'],['town',33,21,0,1,'house_sally'],['town',26,28,0,1,'sewers'],['palace',14,13,0,1,'servants'],['palace',4,13,0,1,'chapel'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // ---- How each building looks from outside (feature style key -> look). kind: gable, flat or tall
 const BLD={
 plant:{kind:'flat',wall:'#8c98a4',roof:'#5d6b78',trim:'#3d4852',win:'#a9c7da',deco:'plant'},
@@ -218,9 +219,7 @@ fishingshop:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d
 th1:{kind:'gable',wall:'#e8c88a',roof:'#7a4234',trim:'#ffffff',win:'#bcd9ea',chim:.25},
 th2:{kind:'gable',wall:'#9ab8c8',roof:'#3d4a5a',trim:'#f2f2f2',win:'#bcd9ea',chim:.7,sh:'#2e5f8f'},
 th3:{kind:'gable',wall:'#c88a7a',roof:'#4a4f58',trim:'#f4e2d0',win:'#bcd9ea',chim:.5,attic:1},
-tchapel:{kind:'gable',wall:'#efe6cf',roof:'#4a6a9a',trim:'#c9a040',win:'#c9a0e0',deco:'church',tex:'brick'},
-servq:{kind:'gable',wall:'#d8d0bc',roof:'#4a3a5a',trim:'#c9a040',win:'#bcd9ea',chim:.25,chim2:.75},
-h4:{kind:'gable',wall:'#b8d0a8',roof:'#3b5a3b',trim:'#ffffff',win:'#bcd9ea',chim:.3,porch:1},
+th4:{kind:'gable',wall:'#b8d0a8',roof:'#3b5a3b',trim:'#ffffff',win:'#bcd9ea',chim:.3,porch:1},
 th5:{kind:'gable',wall:'#d8d4cc',roof:'#6b6b66',trim:'#ffffff',win:'#9aa8b4',chim:.6},
 chapel:{kind:'gable',wall:'#efe6cf',roof:'#4a6a9a',trim:'#c9a040',win:'#c9a0e0',deco:'church',tex:'brick'},
 servq:{kind:'gable',wall:'#d8d0bc',roof:'#4a3a5a',trim:'#c9a040',win:'#bcd9ea',chim:.25,chim2:.75},
@@ -239,6 +238,7 @@ barn:{kind:'gable',wall:'#a33b2f',roof:'#4a4f58',trim:'#f2f2f2',win:'#a9c7da',de
 kchq:{kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',sign:'KELP COLA',signc:'#2e9d57',flag:'#2e9d57'},
 garage:{kind:'flat',wall:'#9aa0a6',roof:'#6b7178',trim:'#4a5058',win:'#a9c7da',deco:'garage',sign:'PARKING',signc:'#2e6f9a'},
 shelter:{kind:'shelter'},
+tramshelter:{kind:'shelter',stop:'TRAM'},
 kcfac:{kind:'flat',wall:'#d8e4dc',roof:'#4a5a50',trim:'#2e9d57',win:'#a9c7da',deco:'plant',ptx:'KELP COLA'},
 kcwhs:{kind:'gable',wall:'#8aa898',roof:'#4a5a50',trim:'#2e5a3a',win:'#a9c7da',deco:'whs',tex:'metal'},
 eb1:{kind:'gable',wall:'#d8a878',roof:'#4a3a2a',trim:'#ffffff',win:'#bcd9ea',chim:.25,attic:1},
@@ -262,7 +262,7 @@ const PROPS=[['village',12,11,'lamp'],['village',27,11,'lamp'],['village',8,13,'
 ['west',13,5,'signpost'],['west',15,4,'fence'],['west',16,4,'fence'],['west',17,4,'fence'],['west',18,4,'fence'],['west',19,4,'fence'],['west',20,4,'fence'],
 ['west',11,5,'lamp'],['west',14,7,'lamp'],['west',2,9,'bush'],['west',21,3,'bush'],['west',9,9,'bush'],['west',5,8,'rock'],['west',19,10,'rock'],['west',21,9,'woodpile'],
 ['radio',8,6,'warn'],['radio',12,9,'gen'],['radio',13,9,'barrel'],['radio',13,10,'barrel'],['radio',16,5,'spool'],['radio',10,8,'lamp'],['radio',15,7,'dish'],
-['town',8,11,'lamp'],['town',15,11,'lamp'],['town',6,21,'lamp'],['town',14,21,'lamp'],['town',27,8,'lamp'],['town',37,8,'lamp'],['town',26,16,'lamp'],['town',30,23,'lamp'],
+['town',8,11,'lamp'],['town',15,11,'lamp'],['town',6,21,'lamp'],['town',14,21,'lamp'],['town',27,8,'lamp'],['town',37,8,'lamp'],['town',26,16,'lamp'],['town',22,25,'lamp'],['town',37,25,'lamp'],['town',30,25,'bench'],['town',21,26,'buffer'],
 ['town',5,28,'mailbox'],['town',10,28,'mailbox'],['town',15,28,'mailbox'],['town',31,16,'forsale'],['town',36,27,'bench'],['town',21,12,'bench'],['town',3,3,'bush'],['town',37,3,'bush'],
 ['palace',18,12,'woodpile'],['palace',12,14,'bench'],['palace',8,10,'lamp'],['palace',15,9,'lamp'],['radio',2,10,'bush'],['radio',15,12,'bush'],['radio',6,12,'crate'],
 ['oilrig',10,3,'drum'],['oilrig',11,3,'drum'],['oilrig',8,2,'pipes'],['oilrig',9,2,'pipes'],['oilrig',13,2,'gen'],['oilrig',8,5,'cone'],['oilrig',14,7,'lifebuoy'],
@@ -280,9 +280,12 @@ const PROPS=[['village',12,11,'lamp'],['village',27,11,'lamp'],['village',8,13,'
 ['farm',1,7,'fence'],['farm',2,7,'fence'],['farm',3,7,'fence'],['farm',4,7,'fence'],['farm',5,7,'fence'],['farm',6,7,'fence'],['farm',7,7,'fence'],['farm',8,7,'fence'],
 ['farm',13,7,'fence'],['farm',14,7,'fence'],['farm',15,7,'fence'],['farm',16,7,'fence'],['farm',17,7,'fence'],['farm',18,7,'fence'],['farm',19,7,'fence'],['farm',20,7,'fence'],
 ['colahq',2,8,'lamp'],['colahq',13,8,'lamp'],['colahq',16,6,'lamp'],['colahq',14,3,'bench'],['colahq',15,1,'bush'],['colahq',16,12,'bush'],['colahq',8,10,'cone'],['colahq',9,10,'cone'],['colahq',13,6,'mailbox'],
-['shuttle',6,3,'bench'],['shuttle',8,2,'lamp'],['shuttle',15,2,'lamp'],['shuttle',3,1,'bush'],['shuttle',19,6,'bush'],['shuttle',17,2,'phone'],
+['tramstop',5,4,'bench'],['tramstop',15,4,'bench'],['tramstop',3,4,'lamp'],['tramstop',18,4,'lamp'],['tramstop',2,2,'bush'],['tramstop',19,2,'bush'],['tramstop',3,9,'bush'],['tramstop',18,10,'bush'],['tramstop',14,3,'phone'],['tramstop',12,9,'signpost'],
+['colafactory',21,5,'spool'],
+['forest',12,5,'signpost'],['forest',15,10,'firepit'],['forest',17,9,'woodpile'],['forest',6,6,'bush'],['forest',20,8,'bush'],['forest',10,16,'bush'],
+['forest',5,11,'rock'],['forest',23,13,'rock'],['forest',3,5,'driftwood'],['forest',19,16,'driftwood'],['forest',16,3,'snowman'],
 ['colafactory',16,8,'crate'],['colafactory',17,8,'crate'],['colafactory',16,9,'crate'],['colafactory',19,7,'pipes'],['colafactory',20,7,'pipes'],['colafactory',13,9,'lamp'],
-['colafactory',15,8,'warn'],['colafactory',21,2,'gen'],['colafactory',18,3,'spool'],['colafactory',13,14,'cone'],['colafactory',20,14,'drum'],['colafactory',21,14,'drum'],
+['colafactory',15,8,'warn'],['colafactory',21,2,'gen'],['colafactory',13,14,'cone'],['colafactory',20,14,'drum'],['colafactory',21,14,'drum'],
 ['second',10,8,'lamp'],['second',16,8,'lamp'],['second',10,10,'lamp'],['second',16,10,'lamp'],['second',5,8,'mailbox'],['second',20,8,'mailbox'],['second',11,11,'bench'],['second',14,11,'phone'],
 ['second',12,15,'snowman'],['second',13,16,'sled'],['second',1,1,'bush'],['second',24,1,'bush'],['second',1,16,'bush'],['second',24,16,'bush'],['second',9,4,'woodpile'],['second',23,5,'woodpile'],
 ['south',12,5,'signpost'],['south',9,3,'bush'],['south',20,4,'bush'],['south',6,9,'rock'],['south',20,10,'rock'],['south',8,8,'fence'],['south',9,8,'fence'],['south',10,8,'fence'],['south',11,8,'fence'],
