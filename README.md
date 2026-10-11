@@ -17,7 +17,7 @@ No build step. Open `index.html` in a browser, or serve the folder:
 
 ## Controls
 
-Arrows / WASD to move. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
+Arrows / WASD to move. On a tram platform, press E (or Space, Enter, or the E button) to call the tram, and again once it has stopped to get on. Inside, press E to choose a stop (arrow keys and E, or tap); walk out of the door to get off without riding. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
 edge exit to cross to the neighbouring area.
 
 ## Project layout
@@ -57,6 +57,9 @@ edge exit to cross to the neighbouring area.
   boat routes at all, by design.
 - `NPCS` in `js/data.js`: named characters. Every NPC needs a `name`, `job`, `faction` (a `FACTIONS` id, or `'none'` if unaligned)
   `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`, or `'none'`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Saltwick Harbour and Saltwick; no dialogue yet). An optional `hat` colour gives them a beanie.
+- `TRAM_STOPS` and `TRAM_LINE` in `js/data.js`: the Kelp Cola tram. `TRAM_STOPS` lists the stops in the order the tram calls at them (it loops back to the first);
+  each needs a row of track (tile `l`) with a platform (tile `P`) along the row below it, and the row above the track kept clear for the tram's body. `TRAM_LINE` is every place the track passes through, for the overview map.
+- `PRESS_DOORS` in `js/data.js`: places whose door only opens when the player stands on it and presses E (the sewer manhole), instead of by walking on.
 - `PROPS` in `js/data.js`: small objects (lamps, barrels, benches...) placed on a map. They block movement unless listed in `PROP_PASS`.
 
 ## Wiki

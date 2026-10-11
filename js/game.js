@@ -23,26 +23,76 @@ const inw=e=>e.ax!==undefined?[e.ax,e.ay]:[e.x+(e.s=='L'?1:e.s=='R'?-1:0),e.y+(e
 // ---- Input + movement
 const DIR={0:[0,1],1:[0,-1],2:[-1,0],3:[1,0]},KEY={ArrowDown:0,s:0,ArrowUp:1,w:1,ArrowLeft:2,a:2,ArrowRight:3,d:3};
 const P={m:'village',x:0,y:0,rx:0,ry:0,dir:1,mv:null,par:0};let stack=[];
-const sel=document.getElementById('jump');for(const id in L)sel.add(new Option(L[id][0],id));
+const sel=document.getElementById('jump');for(const id in L)if(id!='tram')sel.add(new Option(L[id][0],id));
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;sel.value=id}
 go('village');
-sel.onchange=()=>{go(sel.value);sel.blur()};
-const SOLID='#TR~vbkWecuxygitn';
+sel.onchange=()=>{closeMenu();RIDE=TRIP=null;go(sel.value);sel.blur()};
+const SOLID='#TR~vbkWecuxygitno';
+// tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
+const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x*16+16>q.x+3&&x*16<q.x+93);
 const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
-  PROPS.some(p=>p[0]==m&&p[1]==x&&p[2]==y&&!PROP_PASS.includes(p[3]))};
+  PROPS.some(p=>p[0]==m&&p[1]==x&&p[2]==y&&!PROP_PASS.includes(p[3]))||tramAt(m,x,y)};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};
-addEventListener('keydown',e=>{if(e.target==sel)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
+addEventListener('keydown',e=>{if(e.target==sel||MENU||RIDE)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
 addEventListener('keyup',e=>{const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY)release(KEY[k])});
-document.querySelectorAll('#pad button').forEach(b=>{const d=+b.dataset.d;
+document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.d;
   b.addEventListener('pointerdown',e=>{e.preventDefault();press(d)});
   ['pointerup','pointerleave','pointercancel'].forEach(t=>b.addEventListener(t,()=>release(d)))});
+// the exit (map edge, door or boat berth) the player is standing on, if any, and taking it
+const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
+function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;sel.value=P.m}
 function update(dt){
+  if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU)return;
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
-    if(m.t>=1){P.mv=null;const e=EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
-      if(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;sel.value=P.m}}}
+    if(m.t>=1){P.mv=null;const e=exitHere();
+      if(e&&!PRESS_DOORS.has(e.to))useExit(e);
+      else if(P.m=='tram'&&MAPS.tram[P.y][P.x]=='m')leaveTram()}}
+  if(!P.mv&&tramAt(P.m,P.x,P.y)){standClear();return}
   if(!P.mv&&stack.length){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
     const nx=P.x+dx,ny=P.y+dy;if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
 }
+// a tram has come along where the player is standing: move them to the nearest free tile (preferring in front of the track)
+function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6;dx++){const x=P.x+dx,y=P.y+dy;
+    if(!solid(P.m,x,y)){const d=Math.abs(dx)+Math.abs(dy)*1.5-(dy>0?.5:0);if(!best||d<best[2])best=[x,y,d]}}
+  if(best){place(P.m,[best[0],best[1]],P.dir);say('Mind the tram!')}}
+// ---- Riding the tram. On a platform, the action key (E, Space or Enter, or the E button) calls the tram; once it has stopped,
+// pressing it again gets on. Inside the tram the action key opens a menu of stops; picking one plays a short ride and then
+// puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
+let MSG=null,MENU=0,RIDE=null,TRIP=null;const RIDE_DUR=2800,say=s=>{MSG={s,t:performance.now()}},menu=document.getElementById('menu');
+const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
+const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;sel.value=m};
+// where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
+// the ground just in front of the platform
+function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+48)/16,w=MAPS[m][0].length,c=[];
+  // (a little further along is better than right above the shelter, whose roof would hide the player)
+  for(const y of[tr.y+1,tr.y+2])for(let x=0;x<w;x++)if(!solid(m,x,y))c.push([x,y,Math.abs(x+.5-door)+(y==tr.y+1?0:3)+(MAPS[m][y][x]=='P'?0:2)+(MAPS[m][y+1]?.[x]=='#'?4:0)]);
+  const[x,y]=c.sort((a,b)=>a[2]-b[2])[0];return[x,y]}
+function act(){if(P.mv||MENU||RIDE)return;const now=performance.now();
+  if(P.m=='tram'){openMenu();return}
+  const e=exitHere();if(e&&PRESS_DOORS.has(e.to)){useExit(e);return}
+  if(!onPlatform())return;const st=tramState(P.m,now);
+  if(!st){TRAMS[P.m]={ph:'arrive',t0:now};say('You press the button to call the tram.');return}
+  if(st.ph=='arrive'){say('The tram is on its way.');return}
+  if(st.ph=='leave'){say('The tram has just left.');return}
+  TRIP={from:P.m};TRAMS[P.m]={ph:'wait',t0:now};place('tram',[10,5],1);say('You get on the tram.')}
+function openMenu(){MENU=performance.now();stack=[];
+  menu.innerHTML='<p>Where to?</p>'+TRAM_STOPS.filter(s=>s!=TRIP.from).map(s=>`<button data-to="${s}">${NM[s]}</button>`).join('')+'<button data-to="">Stay on board</button>';
+  menu.querySelectorAll('button').forEach(b=>b.onclick=()=>pick(b.dataset.to));menu.hidden=false;menu.querySelector('button').focus()}
+const closeMenu=()=>{MENU=0;menu.hidden=true};
+// (a click within a moment of opening is the key that opened the menu, not a choice)
+function pick(to){if(performance.now()-MENU<250)return;closeMenu();if(to){RIDE={to,t0:performance.now()};delete TRAMS[TRIP.from]}}
+function arrive(){const to=RIDE.to;RIDE=TRIP=null;TRAMS[to]={ph:'wait',t0:performance.now()-TRAM_WAIT+2500};place(to,platformSpot(to),0);say('You get off the tram at '+NM[to]+'.')}
+function leaveTram(){const from=TRIP.from;TRIP=null;TRAMS[from]={ph:'wait',t0:performance.now()-TRAM_WAIT+3000};place(from,platformSpot(from),0);say('You get off the tram.')}
+// with the menu open: up/down (or W/S) move between stops, E picks, Escape closes it (Enter and Space work on buttons anyway)
+addEventListener('keydown',e=>{if(!MENU)return;const bs=[...menu.querySelectorAll('button')],i=bs.indexOf(document.activeElement),k=e.key.toLowerCase();
+  if(k=='arrowdown'||k=='s')bs[(i+1)%bs.length].focus();else if(k=='arrowup'||k=='w')bs[(i-1+bs.length)%bs.length].focus();
+  else if(k=='escape')closeMenu();else if(k=='e')(bs[i]||bs[0]).click();else return;e.preventDefault()});
+addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&(e.key=='e'||e.key=='E'||e.key==' '||e.key=='Enter')){act();e.preventDefault()}});
+document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
+// what the action key would do here, shown above the player
+function tramHint(){if(P.m=='tram')return MENU?null:'Press E to choose a stop';
+  const e=exitHere();if(e&&PRESS_DOORS.has(e.to))return'Press E to go down into the '+NM[e.to];if(!onPlatform())return null;const st=tramState(P.m,performance.now());
+  return!st?'Press E to call the tram':st.ph=='wait'?'Press E to get on':st.ph=='arrive'?'The tram is coming…':null}
 const cam=(p,len,view)=>len<=view?-((view-len)>>1):Math.max(0,Math.min(len-view,Math.round(p)));
 // Labels are drawn on a second, full-resolution canvas laid over the game so text stays sharp at any size.
 const ov=document.getElementById('ov'),og=ov.getContext('2d');let LB=[];
@@ -59,6 +109,7 @@ function drawLabels(){
     og.fillStyle=k=='x'?'#9fe870':k=='n'?'#ffe9a8':'#ffffff';og.fillText(s,x0,Y)}
   LB=[]}
 function draw(t){
+  if(RIDE){const u=Math.min(1,(t-RIDE.t0)/RIDE_DUR);drawRide(t,u);tx('Next stop: '+NM[RIDE.to],cv.width/2,16,'center','h');drawLabels();return}
   const M=MAPS[P.m],mh=M.length,mw=M[0].length;
   ctx.fillStyle='#0b120a';ctx.fillRect(0,0,cv.width,cv.height);
   // interiors have a taller back wall reaching WU pixels above the map; let the camera show it
@@ -69,6 +120,8 @@ function draw(t){
   FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(lb)tx(lb,(x+w/2)*T-cx,st?y*T-cy-3:(y+h/2)*T-cy+2,'center',st?'b':'s')});
   EX[P.m].filter(e=>e.s!='O').forEach(e=>{const[ix,iy]=inw(e),s=e.s=='F'?(e.ax>e.x?'L':'R'):e.s,nm=NM[e.to]+(e.s=='F'?' (boat)':''),lb=(s=='R'?'':'\u2192 ')+nm+(s=='R'?' \u2192':'');
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
+  const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
+  if(MSG&&t-MSG.t<3000)tx(MSG.s,cv.width/2,cv.height-12,'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);

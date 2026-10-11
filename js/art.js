@@ -97,7 +97,9 @@ function groundLayer(m){
         // snow (or sand) lying over the path's edges, with a little shadow under the lip
         const lip=(q,sid,dist,gc)=>{const dep=vnoise(q/4,sid,16)*3|0;if(dist<dep)col=gpx(X,Y,gc);else if(dist==dep)col=sandy(gc)?'#a8977a':'#8a857f'};
         const op=v=>v!='p'&&v!='d';
-        if(op(n))lip(X,1,ly,at(tx,ty-1));if(op(s))lip(X,2,15-ly,at(tx,ty+1));if(op(wv))lip(Y,3,lx,at(tx-1,ty));if(op(e))lip(Y,4,15-lx,at(tx+1,ty))}
+        if(op(n))lip(X,1,ly,at(tx,ty-1));if(op(s))lip(X,2,15-ly,at(tx,ty+1));if(op(wv))lip(Y,3,lx,at(tx-1,ty));if(op(e))lip(Y,4,15-lx,at(tx+1,ty));
+        // a level crossing: where a path cuts across a tram track, the rails carry on through it
+        if(at(tx-1,ty)=='l'||at(tx+1,ty)=='l'){if(ly==3||ly==11)col='#c9ced4';else if(ly==4||ly==12)col='#6b737c'}}
       else if(ch=='l'){
         // tram track: grey ballast, wooden sleepers across it, and two steel rails running along it
         const nz=vnoise(X/3,Y/3,66);col=nz>.6?'#8a857f':nz<.4?'#6e6a64':'#7d7872';if(ly<2||ly>13)col=mix(col,'#e8eff5',.55);
@@ -339,6 +341,19 @@ const TRAM_UP=23,tramArt=mk(96,36,r=>{
   ptext(r,'KELP COLA',30,26,'#efe6cf');r('#ffe08a',1,25,2,2);r('#ffe08a',93,25,2,2);
   r('#2b2f3a',6,33,18,3);r('#2b2f3a',72,33,18,3);r('#5a5f68',9,34,3,2);r('#5a5f68',18,34,3,2);r('#5a5f68',75,34,3,2);r('#5a5f68',84,34,3,2)});
 const tramPole=mk(6,30,r=>{r('#5a5f68',2,0,2,30);r('#7d858e',2,0,1,30);r('#3a3d44',0,0,6,2);r(SNOW,0,0,6,1);r('#3a3d44',1,28,4,2)});
+// A fast-food van seen from the side: a serving hatch under a striped awning, a menu, a sign on the roof and a steaming vent.
+// Drawn 10 pixels taller than its tiles.
+function vanArt(w,h){const W=w*16,H=h*16+10;return mk(W,H,r=>{
+  const top=10,bot=H-6;r('#f2efe6',2,top,W-4,bot-top);r('#ffffff',2,top,W-4,2);r('#c0392b',2,bot-9,W-4,4);r('#e0a100',2,bot-5,W-4,2);
+  r('#d8d2c0',W-14,top+2,10,bot-top-12);r('#9fc6e0',W-12,top+4,6,6);r('#cfe6f2',W-12,top+4,6,1);r('#e0a100',W-5,bot-4,3,2);
+  // hatch with a counter, an awning above it and a menu beside it
+  r('#3a2a20',8,top+6,W-26,bot-top-17);r('#ffd98a',9,top+7,W-28,3);r('#a8794c',6,bot-12,W-22,3);r('#c49565',6,bot-12,W-22,1);
+  for(let x=5;x<W-15;x++){const c=(x>>2)&1?'#c0392b':'#f2f2f2';r(c,x,top+2,1,4);if((x&3)==1)r(c,x,top+6,1,1)}
+  r('#f2f2f2',13,bot-11,3,2);r('#e0a100',17,bot-11,4,2);r('#c0392b',22,bot-11,2,2);
+  // roof sign and vent
+  r('#2b2f3a',6,1,W-30,8);r('#e0a100',7,2,W-32,6);ptext(r,'HOT FOOD',9,3,'#c0392b');r('#5a5f68',W-16,4,5,6);r('#7d858e',W-16,4,5,1);r(SNOW,2,top-1,W-4,1);
+  // wheels
+  for(const x of[10,W-20]){r('#1a1c22',x,bot-2,10,8);r('#5a5f68',x+3,bot+1,4,3)}})}
 // A cast-iron manhole cover, lightly dusted with snow.
 const manholeArt=mk(14,14,r=>{for(let y=0;y<14;y++)for(let x=0;x<14;x++){const d=Math.hypot(x-6.5,y-6.5);if(d>6.8)continue;
   r(d>5.6?'#3a3d44':((x+y)%3==0?'#2b2f3a':'#555a62'),x,y)}r('#7a808a',4,4,2,1);r(SNOW,2,3,2,1);r(SNOW,9,10,3,1)});
@@ -444,6 +459,8 @@ hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3
 transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap:'tiles',base:'#4a5058',deco:[[6,'onair'],[10,'clock'],[15,'poster']]},
 chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
 crypt:{fl:'stone',f:[],wall:'#6b6458',wall2:'#4a443c',pap:'brick',base:'#3a3530',deco:[[3,'cross'],[7,'rbanner'],[12,'cross']]},
+tram:{fl:'tile',f:['#7d858e','#737b84'],wall:'#efe6cf',wall2:'#b8322a',pap:'panel',base:'#5a5f68',curtain:null,deco:[[2,'win'],[5,'win'],[8,'win'],[12,'win'],[15,'win']]},
+house_pekka:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#f2e2c0',wall2:'#e4d2ac',pap:'stripe',rug:'#c0392b',quilt:'#e0a100',curtain:'#c0392b',deco:[[2,'win'],[5,'pic']]},
 servants:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#e8e0cc',wall2:'#d8ceb4',pap:'stripe',rug:'#5e2a75',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[3,'win'],[6,'clock'],[9,'pic'],[12,'win']]},
 house_kate:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d6e0ec',wall2:'#c2cfe0',pap:'flower',rug:'#7d3c98',quilt:'#d86a8a',curtain:'#7d3c98',deco:[[3,'pic'],[8,'win'],[1,'win']]}};
 function floorPx(X,Y,f){
@@ -551,7 +568,15 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       r('#c0392b',x+4,6,1,1);r('#e0a100',x+8,7,1,1);r('#2e86c1',x+11,6,1,1);r('#5a0a1a',x+3,13,10,4);r('#9aa3ad',x+14,6,1,6);r('#c0392b',x+13,5,3,2)}an={t:'blink',x:5,y:1,c:'#ffd23a'}}
     else{for(let y=2;y<TT-2;y+=6){r('#6b737c',0,y,W,4);r('#8d959e',0,y,W,1);r('#4a4f58',0,y+3,W,1);for(let x=6;x<W;x+=14){r('#c0392b',x,y-1,3,6)}}}});
     return{oy,c,an}}
-  if(ch=='q')return furn('y',w,h,'Bookcase',f,v);  // the secret door in Hekki's shack looks like any other bookcase
+  if(ch=='q')return furn('y',w,h,'Bookcase',f,v);
+  if(ch=='o'){const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{
+    // tram seats: a red cushion on a chrome frame for each tile, with a grab handle on the back
+    for(let x=0;x<W;x+=16){r('#8a2a22',x+1,0,14,8);r('#b8322a',x+2,1,12,6);r('#d4483d',x+2,1,12,1);r('#c9ced4',x+7,0,2,2);
+      r('#8a2a22',x+1,8,14,H-4);r('#c0392b',x+2,9,12,H-7);r('#e04a3a',x+2,9,12,1);r('#9aa3ad',x+2,TT-4,2,4);r('#9aa3ad',x+12,TT-4,2,4)}})}}
+  if(ch=='y'&&l.includes('route')){const oy=12,TT=H+oy-2;return{oy,c:mk(W,TT,r=>{
+    // the route map: the tram line drawn as a red loop on a dark board, with a dot for each stop
+    r('#5a5f68',0,0,W,TT);r('#2b2f3a',1,1,W-2,TT-8);r('#b8322a',3,4,1,TT-16);r('#b8322a',W-4,4,1,TT-16);r('#b8322a',3,4,W-6,1);r('#b8322a',3,TT-12,W-6,1);
+    for(const[x,y]of[[3,4],[W-4,4],[W-4,TT-12],[3,TT-12]]){r('#ffffff',x-1,y-1,3,3);r('#b8322a',x,y,1,1)}r('#e0a100',2,TT-6,W-4,4);r('#2b2f3a',5,TT-5,W-10,2)})}}  // the secret door in Hekki's shack looks like any other bookcase
   if(ch=='y'&&l.includes('screen')){const oy=14,TT=H+oy-2,an=[];const c=mk(W,TT,r=>{
     // a rack of CRT monitors, two high, each showing something different (animated)
     r('#3a3d44',0,0,W,TT);r('#4a4f58',0,0,W,1);
@@ -638,7 +663,9 @@ function scene(m){if(SC[m])return SC[m];
     if(st&&BLD[st]&&BLD[st].kind=='tent'){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;g.drawImage(tentArt(w,h,dx),x*16-1,y*16-9);return}
     if(st&&BLD[st]&&BLD[st].kind=='mast'){put(y+h-1,x*16,y*16-MAST_UP,mastArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-MAST_UP-1});return}
     if(st&&BLD[st]&&BLD[st].kind=='derrick'){put(y+h-1,x*16,y*16-DER_UP,derrickArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-DER_UP+2});return}
-    if(st&&BLD[st]&&BLD[st].kind=='shelter'){g.drawImage(shelterArt(w,h,BLD[st].stop),x*16-1,y*16-13);return}
+    // the van and shelters stand taller than their tiles, so they are sorted with people (who can pass behind them) rather than painted on the ground
+    if(st&&BLD[st]&&BLD[st].kind=='van'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+6,(y+h)*16-2,w*16-8,3);put(y+h-1,x*16-1,y*16-11,vanArt(w,h));an.push({t:'smoke',x:(x+w)*16-14,y:y*16-8});return}
+    if(st&&BLD[st]&&BLD[st].kind=='shelter'){put(y+h-1,x*16-1,y*16-13,shelterArt(w,h,BLD[st].stop));return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
     if(st&&BLD[st]){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
       // buildings you can't go into still get a (locked) front door, unless their look already has a big door
@@ -669,10 +696,10 @@ function scene(m){if(SC[m])return SC[m];
     if(ch=='T'){const t=TREES[hash(x,y,31)*3|0];put(y,x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
     if(ch=='R'){const t=ROCKS[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
   // tram lines: each row with a run of track gets overhead-wire poles along its far side and a wire for the tram's pantograph.
-  // The tram stops level with the middle of the platform beside the track; a line that ends inside the map is a terminus.
+  // The tram stops level with the middle of the platform in front of (below) the track; a line that ends inside the map is a terminus.
   const trams=[];if(!inside)M.forEach((row,y)=>{const a=row.indexOf('l'),b=row.lastIndexOf('l');if(a<0||b-a<6)return;
-    const pl=[...(M[y-1]||'')].map((c,i)=>c=='P'?i:-1).filter(i=>i>=0),mid=pl.length?(pl[0]+pl[pl.length-1]+1)*8:(a+b+1)*8;
-    trams.push({y,a:a*16,b:(b+1)*16,stop:mid-48,from:a>0?'R':'L',through:a==0&&b==row.length-1})});
+    const pl=[...(M[y+1]||'')].map((c,i)=>c=='P'?i:-1).filter(i=>i>=0),mid=pl.length?(pl[0]+pl[pl.length-1]+1)*8:(a+b+1)*8;
+    trams.push({y,a:a*16,b:(b+1)*16,stop:mid-48,from:a>0?'R':'L',through:a==0&&b==row.length-1,plat:pl.length?pl:null})});
   trams.forEach(({y:ty,a,b})=>{const wc=cnv(b,ty*16),wg=wc.getContext('2d');wg.fillStyle='#2b2f3a';wg.fillRect(a,ty*16-TRAM_UP,b-a,1);ents.push({k:99,X:0,Y:0,c:wc});
     for(let x=a/16+1;x<b/16;x+=5)if(!'#T'.includes(M[ty-1][x]))put(ty-1,x*16+5,ty*16-30,tramPole,0,x,ty-1)});
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
@@ -687,6 +714,33 @@ let VIG=null;
 function vignette(){if(VIG&&VIG.width==cv.width&&VIG.height==cv.height)return VIG;VIG=cnv(cv.width,cv.height);const g=VIG.getContext('2d'),w=cv.width,h=cv.height,
   gr=g.createRadialGradient(w/2,h/2,h*.45,w/2,h/2,w*.75);gr.addColorStop(0,'rgba(15,25,50,0)');gr.addColorStop(1,'rgba(15,25,50,.38)');g.fillStyle=gr;g.fillRect(0,0,w,h);return VIG}
 
+// The tram at each stop: TRAMS[map] = {ph: 'arrive' | 'wait' | 'leave', t0: when that phase began}. No entry means no tram there.
+// tramState(m, t) moves it on to its next phase as time passes and returns {ph, u} (u: 0..1 through the arrive/leave run), or null.
+const TRAMS={},TRAM_MOVE=4000,TRAM_WAIT=15000;
+function tramState(m,t){const s=TRAMS[m];if(!s)return null;let el=t-s.t0;
+  if(s.ph=='arrive'&&el>=TRAM_MOVE){s.ph='wait';s.t0+=TRAM_MOVE;el-=TRAM_MOVE}
+  if(s.ph=='wait'&&el>=TRAM_WAIT){s.ph='leave';s.t0+=TRAM_WAIT;el-=TRAM_WAIT}
+  if(s.ph=='leave'&&el>=TRAM_MOVE){delete TRAMS[m];return null}
+  return{ph:s.ph,u:Math.min(1,el/TRAM_MOVE)}}
+// Every tram on map m at time t, as {y: its track row, x: its left edge in pixels}. At a tram stop the tram only comes when called
+// (see tramState); elsewhere one runs straight through every 18 seconds. It runs in, waits at the platform, then carries on out
+// the far side; at a terminus it goes back the way it came. game.js also uses this to stop the player walking through a tram,
+// which blocks its own track row and the row behind it that its body rises over.
+function tramsOn(m,t){if(L[m][3]=='interior')return[];const MW=MAPS[m][0].length*16;
+  return scene(m).trams.map(({y,stop,from,through,plat})=>{const inX=from=='L'?-110:MW+10,outX=through?MW+10:inX;
+    const st=plat?tramState(m,t):(p=>p<4000?{ph:'arrive',u:p/4000}:p<10000?{ph:'wait'}:p<14000?{ph:'leave',u:(p-10000)/4000}:null)(t%18000);
+    return st&&{y,x:st.ph=='arrive'?inX+(stop-inX)*(1-(1-st.u)**2):st.ph=='wait'?stop:stop+(outX-stop)*st.u*st.u}}).filter(Boolean)}
+// The ride between stops: the tram glides along its track past snowy pines and overhead-wire poles, with the scenery
+// scrolling by (u: 0..1 through the ride, which eases in and out).
+function drawRide(t,u){const vw=cv.width,vh=cv.height,px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
+  const sp=u<.25?(u/.25)**2:u>.75?((1-u)/.25)**2:1,s=t*.22*Math.max(.15,sp),gy=vh-44;
+  const sky=ctx.createLinearGradient(0,0,0,gy);sky.addColorStop(0,'#9cb8d0');sky.addColorStop(1,'#dfe9f1');ctx.fillStyle=sky;ctx.fillRect(0,0,vw,gy);
+  for(let x=0;x<vw;x++){const X=x+s*.15,hh=18+Math.sin(X/37)*7+Math.sin(X/13)*3;px('#b9c8d6',x,gy-hh-14,1,hh+14)}
+  for(let i=-1;i<vw/22+2;i++){const X=Math.floor(s*.5/22)+i,tr=TREES[hash(X,1,90)*3|0];ctx.drawImage(tr,X*22-s*.5+hash(X,2,90)*8,gy-tr.height+4)}
+  px('#e8eff5',0,gy,vw,vh-gy);for(let x=-(s%8);x<vw;x+=8)px('#5a3e27',x,gy+10,3,8);px('#c9ced4',0,gy+11,vw,1);px('#c9ced4',0,gy+16,vw,1);
+  const wy=gy-21;px('#2b2f3a',0,wy,vw,1);for(let x=-(s%90);x<vw;x+=90){ctx.drawImage(tramPole,x,wy-1)}
+  for(let i=0;i<40;i++){const X=((hash(i,3,91)*vw-s*1.3)%vw+vw)%vw,Y=((hash(i,4,91)*vh+t*.03)%vh);px('rgba(255,255,255,.8)',X,Y,1,1)}
+  ctx.drawImage(tramArt,(vw>>1)-49,gy-21+(Math.sin(t/90)>.6?1:0));ctx.drawImage(vignette(),0,0)}
 // Where seagulls circle on each map (tile x, y).
 const GULLS={harbour:[15,6],beach:[5,6],kalanharbour:[10,4],savilaharbour:[17,6],privharbour:[5,5],privbeach:[9,4],oilrig:[8,5],fishing:[20,10]};
 // ---- Per-frame drawing. cx, cy: camera offset in pixels. frame: player walking frame (0 idle, 1, 2).
@@ -704,10 +758,9 @@ function drawWorld2(m,cx,cy,t,frame){
   const Ls=[];
   S.ents.forEach(o=>{const X=o.X-cx,Y=o.Y-cy;if(X>vw||Y>vh||X+o.c.width<0||Y+o.c.height<0)return;
     Ls.push([o.k,0,()=>{if(o.sh)px('rgba(30,50,80,.22)',o.sx-cx,o.sy-cy,13,3);ctx.drawImage(o.c,X,Y)}])});
-  // the tram runs in, waits at the platform, then carries on out the far side; at a terminus it goes back the way it came (an 18 second loop)
-  S.trams.forEach(({y:ty,stop,from,through})=>{const MW=mw*16,p=t%18000,inX=from=='L'?-110:MW+10,outX=through?MW+10:inX;let x=null;
-    if(p<4000){const u=p/4000;x=inX+(stop-inX)*(1-(1-u)**2)}else if(p<10000)x=stop;else if(p<14000){const u=(p-10000)/4000;x=stop+(outX-stop)*u*u}
-    if(x!=null)Ls.push([ty,.5,()=>{const X=Math.round(x)-cx,Y=ty*16-TRAM_UP-cy;px('rgba(30,50,80,.25)',X+4,Y+35,90,3);ctx.drawImage(tramArt,X-1,Y-1)}])});
+  tramsOn(m,t).forEach(({y:ty,x})=>{
+    // the tram stands on its track and rises over the row behind it (the platform), so it is drawn after anyone standing there
+    Ls.push([ty-1,1.5,()=>{const X=Math.round(x)-cx,Y=ty*16-TRAM_UP-cy;px('rgba(30,50,80,.25)',X+4,Y+35,90,3);ctx.drawImage(tramArt,X-1,Y-1)}])});
   NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat)])});
   Ls.push([P.ry,1,()=>person(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,'#2a5db0','#4a2e1a','#e8c33a')]);
   Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());

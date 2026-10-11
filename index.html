@@ -3,10 +3,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sarivalto Map</title>
 <link rel="stylesheet" href="css/style.css"></head><body>
-<div id="stage"><canvas id="c"></canvas><canvas id="ov"></canvas></div>
-<p>Walk to the edge exits (labelled) to change area &middot; Arrows/WASD &middot; Layouts are placeholders</p>
+<div id="stage"><canvas id="c"></canvas><canvas id="ov"></canvas><div id="menu" role="dialog" aria-label="Choose a tram stop" hidden></div></div>
+<p>Walk to the edge exits (labelled) to change area &middot; Arrows/WASD &middot; E to use tram stops &middot; Layouts are placeholders</p>
 <label>Jump to: <select id="jump"></select></label>
-<div id="pad"><span></span><button data-d="1">&#9650;</button><span></span>
+<div id="pad"><span></span><button data-d="1">&#9650;</button><button id="act" aria-label="Action">E</button>
 <button data-d="2">&#9664;</button><button data-d="0">&#9660;</button><button data-d="3">&#9654;</button></div>
 <script src="js/data.js"></script>
 <script src="js/art.js"></script>

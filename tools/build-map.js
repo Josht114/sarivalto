@@ -1,8 +1,8 @@
 // Generates docs/island-map.svg (and the copy at island-map.svg) from js/data.js. Usage: node tools/build-map.js  (no dependencies)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;this.DISTRICTS=DISTRICTS;this.DISTRICT_OF=DISTRICT_OF;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,DISTRICTS,DISTRICT_OF}=box,W=1700,H=860;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;this.DISTRICTS=DISTRICTS;this.DISTRICT_OF=DISTRICT_OF;this.TRAM_STOPS=TRAM_STOPS;this.TRAM_LINE=TRAM_LINE;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,TRAM_LINE}=box,W=1700,H=860;
 const COL={town:'#f6ecc8',road:'#d6cdb8',site:'#f0cfae',nature:'#c3d4a6',harbour:'#bddcea'};
 const ids=Object.keys(L).filter(i=>POS[i]),pairs=LINKS.map(s=>{const a=s.split(' ');return[a[0],a[2]]});
 const wd=id=>L[id][0].length*7+20,P=id=>POS[id];
@@ -47,6 +47,11 @@ const boatLines=boats.map(([a,b],k)=>{const d=`M${seaRoute(a,b,CO+28+k*11).map(p
 const roads=pairs.map(([a,b])=>{const d=`M${r1(RP(a)[0])} ${r1(RP(a)[1])}L${r1(RP(b)[0])} ${r1(RP(b)[1])}`,pipe=a=='oilrig'||b=='oilrig';
   return pipe?`<path d="${d}" stroke="#3a3a3a" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`
   :`<path d="${d}" stroke="#8a7a5a" stroke-width="7" stroke-linecap="round"/><path d="${d}" stroke="#efe6c8" stroke-width="2.5" stroke-dasharray="7 6"/>`}).join('');
+// The tram line runs alongside the roads it follows (offset to one side so both stay visible); each stop gets a red T badge.
+const toff=(a,b)=>{const p=RP(a),q=RP(b),l=dist(p,q)||1;return[-(q[1]-p[1])/l*8,(q[0]-p[0])/l*8]};
+const tramLine=TRAM_LINE.slice(1).map((b,i)=>{const a=TRAM_LINE[i],[ox,oy]=toff(a,b),d=`M${r1(RP(a)[0]+ox)} ${r1(RP(a)[1]+oy)}L${r1(RP(b)[0]+ox)} ${r1(RP(b)[1]+oy)}`;
+  return`<path d="${d}" stroke="#b8322a" stroke-width="4.5" stroke-linecap="round"/><path d="${d}" stroke="#f4f1e8" stroke-width="1.5" stroke-dasharray="2 6"/>`}).join('');
+const tramStops=TRAM_STOPS.map(i=>{const[x,y]=NP(i),w=wd(i);return`<g transform="translate(${r1(x-w/2+2)},${r1(y+14)})"><circle r="8" fill="#b8322a" stroke="#fff" stroke-width="2"/><text y="4" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff" font-family="sans-serif">T</text></g>`}).join('');
 // Districts: each inland place (and harbour landing) gets the patch of island nearer to it than to any other place, coloured by
 // its district and clipped to the coast; dashed lines mark where two districts meet.
 const sites=ids.filter(i=>i!='oilrig').map(i=>({id:i,p:RP(i),d:DISTRICT_OF[i]}));
@@ -68,13 +73,15 @@ const nodes=ids.map(i=>{const[x,y]=NP(i).map(r1),k=P(i)[2],w=wd(i),f=FACTION_AT[
   `<rect x="${x-w/2}" y="${y-15}" width="${w}" height="30" rx="7" fill="${COL[k]}" stroke="${f?f[1]:'#4a3b2a'}" stroke-width="${sw}"/><text x="${x}" y="${y+4.5}" text-anchor="middle" font-size="13" fill="#2b2118">${L[i][0]}</text>`+
   (f?`<rect x="${x+w/2-34}" y="${y-25}" width="40" height="15" rx="7.5" fill="${f[1]}" stroke="#fff" stroke-width="1.5"/><text x="${x+w/2-14}" y="${y-14}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${f[2]}</text>`:'')}).join('');
 const grid=Array.from({length:14},(_,i)=>`<line x1="${(i+1)*120}" y1="0" x2="${(i+1)*120}" y2="${H}"/>`).join('')+Array.from({length:7},(_,i)=>`<line x1="0" y1="${(i+1)*110}" x2="${W}" y2="${(i+1)*110}"/>`).join('');
-const KEY=Object.entries({town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour / sea',anchor:'Harbour landing',boat:'Boat route',pipe:'Oil pipeline'});
+const KEY=Object.entries({town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour / sea',anchor:'Harbour landing',boat:'Boat route',tram:'Tram line',tstop:'Tram stop',pipe:'Oil pipeline'});
 const fk=Object.entries(FACTIONS);
 const ky=140+66+fk.length*38+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*28}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
 <text x="1462" y="176" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">FACTION BASES</text>`+fk.map(([k,[n,c,sh]],i)=>`<rect x="1462" y="${198+i*38}" width="42" height="18" rx="9" fill="${c}"/><text x="1483" y="${211+i*38}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${sh}</text><text x="1514" y="${212+i*38}" font-size="14" fill="#2b2118">${n}</text>`).join('')+
 `<text x="1462" y="${140+66+fk.length*38+16}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
 <text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+38+i*28,sym=
   k=='boat'?`<path d="M1462 ${y+8}H1504" stroke="#f4fbfd" stroke-width="6" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#0e4a6e" stroke-width="2.5" stroke-dasharray="9 6" stroke-linecap="round"/>`:
+  k=='tram'?`<path d="M1462 ${y+8}H1504" stroke="#b8322a" stroke-width="4.5" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#f4f1e8" stroke-width="1.5" stroke-dasharray="2 6"/>`:
+  k=='tstop'?`<circle cx="1483" cy="${y+8}" r="8" fill="#b8322a" stroke="#fff" stroke-width="2"/><text x="1483" y="${y+12}" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff" font-family="sans-serif">T</text>`:
   k=='pipe'?`<path d="M1462 ${y+8}H1504" stroke="#3a3a3a" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`:
   k=='road'?`<path d="M1462 ${y+8}H1504" stroke="#8a7a5a" stroke-width="7" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#efe6c8" stroke-width="2.5" stroke-dasharray="7 6"/>`:
   k=='anchor'?`<circle cx="1483" cy="${y+8}" r="8" fill="#1f6f9a" stroke="#fff" stroke-width="2"/>`:
@@ -86,7 +93,7 @@ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" font-
 ${blob(170,'#e3f3f6')}${blob(140,'#cfe6ea')}${blob(112,'#9a8a62')}${blob(104,'#dfe0b4')}
 <defs><clipPath id="isl"><polygon points="${coast}"/></clipPath></defs>
 <g clip-path="url(#isl)" opacity=".75">${districtFill}</g><g clip-path="url(#isl)" stroke="#6b5a3a" stroke-width="2" stroke-dasharray="6 5" opacity=".55" fill="none">${districtEdges}</g>${districtNames}
-<g fill="none">${boatLines}${roads}</g>${anchors}${nodes}
+<g fill="none">${boatLines}${roads}${tramLine}</g>${anchors}${nodes}${tramStops}
 <text x="60" y="68" font-size="44" font-weight="bold" fill="#2b2118" letter-spacing="6">SARIVALTO</text>
 <text x="62" y="94" font-size="16" font-style="italic" fill="#3d3226">An island north of Finland &#183; early 1980s</text>
 <g transform="translate(1340,120)"><polygon points="0,-46 11,0 0,-9 -11,0" fill="#2b2118"/><polygon points="0,46 11,0 0,9 -11,0" fill="#f6ecc8" stroke="#2b2118"/>
