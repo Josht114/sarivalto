@@ -48,7 +48,7 @@ function bld(w,h,s,dx){
   return c}
 const bcache={};
 const bldArt=(m,x,y,w,h,st)=>{const k=m+x+','+y;if(!bcache[k]){const row=MAPS[m][y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;bcache[k]=bld(w,h,BLD[st],dx)}return bcache[k]};
-const BASE={'.':'#e4edf2',',':'#b8aa94',E:'#b8aa94',s:'#e3d3a0',r:'#7d838a',a:'#6b5a2e',p:'#8a6a45','~':'#2d5f8f',T:'#e4edf2',R:'#4f5559',v:'#c4421a','#':'#8b3a2f',b:'#2d5f8f',k:'#e4edf2',F:'#8a6a45',d:'#8b3a2f',W:'#5b4636',f:'#8e6f48',m:'#8e6f48',e:'#8e6f48',c:'#8e6f48',u:'#8e6f48',x:'#8e6f48',y:'#8e6f48',g:'#8e6f48',i:'#8e6f48',z:'#8e6f48'};
+const BASE={t:'#8e6f48',n:'#8e6f48','.':'#e4edf2',',':'#b8aa94',E:'#b8aa94',s:'#e3d3a0',r:'#7d838a',a:'#6b5a2e',p:'#8a6a45','~':'#2d5f8f',T:'#e4edf2',R:'#4f5559',v:'#c4421a','#':'#8b3a2f',b:'#2d5f8f',k:'#e4edf2',F:'#8a6a45',d:'#8b3a2f',W:'#5b4636',f:'#8e6f48',m:'#8e6f48',e:'#8e6f48',c:'#8e6f48',u:'#8e6f48',x:'#8e6f48',y:'#8e6f48',g:'#8e6f48',i:'#8e6f48',z:'#8e6f48'};
 const SP={'.':['#fff','#cdd9e2'],T:['#fff','#cdd9e2'],',':['#d0c3ab','#9d8f78'],E:['#d0c3ab','#9d8f78'],s:['#f0e4b8','#c9b97f'],r:['#9aa0a6','#666c72']};
 const tile=(ch,v)=>art(ch+v,r=>{r(BASE[ch],0,0,16,16);const sp=SP[ch];
   if(sp)for(let i=0;i<6;i++)r(sp[i&1],(hash(i,v,1)*16)|0,(hash(v,i,2)*16)|0);
@@ -93,7 +93,7 @@ const sel=document.getElementById('jump');for(const id in L)sel.add(new Option(L
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;sel.value=id}
 go('village');
 sel.onchange=()=>{go(sel.value);sel.blur()};
-const SOLID='#TR~vbkWecuxygi';
+const SOLID='#TR~vbkWecuxygitn';
 const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
   PROPS.some(p=>p[0]==m&&p[1]==x&&p[2]==y&&!PROP_PASS.includes(p[3]))};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};

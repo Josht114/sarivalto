@@ -11,11 +11,11 @@ const kind=id=>POS[id]?POS[id][2]:'interior',parentOf=id=>{const d=DOORS.find(d=
 const distOf=id=>id&&(DISTRICT_OF[id]||distOf(parentOf(id)));
 Object.keys(POS).forEach(id=>{if(!DISTRICTS[DISTRICT_OF[id]])throw new Error(L[id][0]+' ('+id+') has no district in DISTRICT_OF')});
 const walk={};LINKS.forEach(s=>{const[a,,b]=s.split(' ');(walk[a]??=[]).push(b);(walk[b]??=[]).push(a)});
-const nid=n=>n.name.toLowerCase(),npcOf=id=>NPCS.find(n=>nid(n)==id);
+const nid=n=>n.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),npcOf=id=>NPCS.find(n=>nid(n)==id);
 // Every NPC must have a name, job, faction, main location and home (a building interior you can enter).
-const BUILDINGS=new Set(DOORS.map(d=>d[5]));
+const BUILDINGS=new Set(DOORS.map(d=>d[5]));  // 'none' is allowed for someone with no fixed home
 NPCS.forEach(n=>{const bad=['name','job','faction','loc','home'].filter(k=>!n[k]);if(n.loc&&!L[n.loc])bad.push('loc (unknown id '+n.loc+')');
-  if(n.home&&!BUILDINGS.has(n.home))bad.push('home ('+n.home+' is not a building interior in DOORS)');
+  if(n.home&&n.home!='none'&&!BUILDINGS.has(n.home))bad.push('home ('+n.home+' is not a building interior in DOORS)');
   if(n.faction&&n.faction!='none'&&!FACTIONS[n.faction])bad.push('faction (unknown id '+n.faction+')');
   if(bad.length)throw new Error('NPC '+(n.name||JSON.stringify(n))+' is missing or has a bad: '+bad.join(', '))});
 const A=(c,k,id,t)=>`<a href="${c.single?'#'+k+'-'+id:c.pre+k+'/'+id+'.html'}">${esc(t)}</a>`;
@@ -33,25 +33,27 @@ function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac
   if(labels.length)t+=`<h2>Points of interest</h2><ul>${labels.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`;
   if(walk[id]||BOATS[id])t+=`<h2>Getting here</h2><ul>${(walk[id]||[]).map(x=>`<li>On foot from ${locA(c,x)}</li>`).join('')}${(BOATS[id]||[]).map(x=>`<li>By boat from ${locA(c,x)}</li>`).join('')}</ul>`;
   if(ent.length)t+=`<h2>Inside</h2><ul>${ent.map(d=>`<li>${locA(c,d[5])}</li>`).join('')}</ul>`;
-  if(res.length)t+=`<h2>Residents</h2><ul>${res.map(n=>`<li>${npcA(c,n)}, ${esc(n.job.toLowerCase())}</li>`).join('')}</ul>`;
-  if(people.length)t+=`<h2>People</h2><ul>${people.map(n=>`<li>${npcA(c,n)}, ${esc(n.job.toLowerCase())} (${facA(c,n.faction)})</li>`).join('')}</ul>`;
+  if(res.length)t+=`<h2>Residents</h2><ul>${res.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)}</li>`).join('')}</ul>`;
+  if(people.length)t+=`<h2>People</h2><ul>${people.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} (${facA(c,n.faction)})</li>`).join('')}</ul>`;
   return t}
 function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>n.faction==id),wk=QUEST_WEEKS[id]||[];
   const grid='<div class="weeks">'+Array.from({length:19},(_,i)=>`<span class="${wk.includes(i+1)?'on':''}" style="${wk.includes(i+1)?'background:'+col:''}">${i+1}</span>`).join('')+'</div>';
-  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],['Quests',wk.length+' (weeks '+wk.join(', ')+')']])}
+  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],['Quests',wk.length?wk.length+' (weeks '+wk.join(', ')+')':'None scheduled']])}
 <p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p><h2>Quest weeks</h2><p>Weeks of the 19-week cycle in which this faction has quests:</p>${grid}
-<h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job.toLowerCase())} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
+<h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
 function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
-  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],n.m!=n.loc&&['Currently found',locA(c,n.m)],
+  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],n.m&&n.m!=n.loc&&['Currently found',locA(c,n.m)],
    ['Look',`<span class="sw" style="background:${n.body}"></span> clothes <span class="sw" style="background:${n.hair}"></span> hair`]])}<p>${esc(nt.note||n.name+' lives on the island.')}</p>`}
 const filter='<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">';
 function idxBody(c,k){let t;
   if(k=='locations'){const g={};Object.keys(L).forEach(i=>(g[kind(i)]??=[]).push(i));
     t='<h1>Locations</h1>'+filter+Object.keys(KIND).filter(x=>g[x]).map(x=>`<h2>${KIND[x]}</h2><ul class="cols">${g[x].map(i=>`<li data-s="${esc((L[i][0]+' '+x+' '+DISTRICTS[distOf(i)][0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')+
       '<h2>By district</h2>'+Object.keys(DISTRICTS).map(d=>`<h3><span class="sw" style="background:${DISTRICTS[d][1]}"></span>${esc(DISTRICTS[d][0])}</h3><ul class="cols">${Object.keys(POS).filter(i=>DISTRICT_OF[i]==d).map(i=>`<li data-s="${esc((L[i][0]+' '+DISTRICTS[d][0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')}
-  else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none');t='<h1>Factions</h1>'+filter+'<ul class="cols">'+Object.keys(FACTIONS).map(i=>`<li data-s="${esc(FACTIONS[i][0].toLowerCase())}"><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}<br><small>${esc(FACTIONS[i][3])}</small></li>`).join('')+'</ul>'+
-    (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job.toLowerCase())} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
-  else t='<h1>People</h1>'+filter+'<ul class="cols">'+NPCS.map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)} · ${locA(c,n.loc)} · lives in ${locA(c,n.home)}</small></li>`).join('')+'</ul>';
+  else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none');// one section per faction, listing everyone aligned with it
+    t='<h1>Factions</h1>'+filter+Object.keys(FACTIONS).map(i=>{const mem=NPCS.filter(n=>n.faction==i);
+      return`<h2><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h2><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`}).join('')+
+    (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
+  else t='<h1>People</h1>'+filter+'<ul class="cols">'+NPCS.map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)} · ${locA(c,n.loc)} · ${n.home=='none'?'no fixed home':'lives in '+locA(c,n.home)}</small></li>`).join('')+'</ul>';
   return t}
 const svg=fs.readFileSync(path.join(root,'docs/island-map.svg'),'utf8').replace(/<\?xml.*?\?>/,'');
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${c.single?`<div class="map">${svg}</div>`:`<p><img class="map" src="${c.pre}../docs/island-map.svg" alt="Map of the island"></p>`}

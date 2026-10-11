@@ -27,7 +27,7 @@ edge exit to cross to the neighbouring area.
     js/data.js      the island: location sizes, themes, features, and the links between them
     js/game.js      map building, rendering, input, movement
     js/art.js       detailed pixel-art renderer: outdoor maps listed in ART2 (Saltwick, West Saltwick Harbour,
-                    Beach, West Road, Radio Tower) and every building interior (looks set per building in INT)
+                    Beach, West Road, Radio Tower, Hope Springs, Royal Palace, Cathedral) and every building interior (looks set per building in INT)
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
@@ -56,7 +56,7 @@ edge exit to cross to the neighbouring area.
   Eastbrook Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. South Private Harbour has no
   boat routes at all, by design.
 - `NPCS` in `js/data.js`: named characters. Every NPC needs a `name`, `job`, `faction` (a `FACTIONS` id, or `'none'` if unaligned)
-  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Saltwick Harbour and Saltwick; no dialogue yet). An optional `hat` colour gives them a beanie.
+  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`, or `'none'`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Saltwick Harbour and Saltwick; no dialogue yet). An optional `hat` colour gives them a beanie.
 - `PROPS` in `js/data.js`: small objects (lamps, barrels, benches...) placed on a map. They block movement unless listed in `PROP_PASS`.
 
 ## Wiki
