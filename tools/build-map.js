@@ -76,10 +76,11 @@ const dc={};sites.forEach(s=>{(dc[s.d]??=[]).push(P(s.id))});
 const districtNames=Object.entries(dc).map(([d,ps])=>{const[x,y]=DPOS[d]||[ps.reduce((a,p)=>a+p[0],0)/ps.length,ps.reduce((a,p)=>a+p[1],0)/ps.length];
   return`<text x="${r1(x)}" y="${r1(y)}" text-anchor="middle" font-size="19" font-weight="bold" letter-spacing="5" fill="#5a4630" fill-opacity=".42">${DISTRICTS[d][0].toUpperCase()}</text>`}).join('');
 const anchors=Object.values(HB).map(({c})=>`<g transform="translate(${r1(c[0])},${r1(c[1])})"><circle r="8" fill="#1f6f9a" stroke="#fff" stroke-width="2"/><path d="M0 -4.5V4.5M-3 -1.5H3M-4 1.5Q0 6 4 1.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>`).join('');
+// each place is a link to its wiki page (tools/build-wiki.js points these at the right page, and its map viewer opens a plan of the place instead)
 const nodes=ids.map(i=>{const[x,y]=NP(i).map(r1),k=P(i)[2],w=wd(i),f=FACTION_AT[i]&&FACTIONS[FACTION_AT[i]],sw=f?3.5:1.5;
-  return(f?`<rect x="${x-w/2-7}" y="${y-22}" width="${w+14}" height="44" rx="12" fill="${f[1]}" fill-opacity=".30"/>`:'')+
+  return`<a class="loc" href="../wiki/locations/${i}.html" data-loc="${i}"><title>${L[i][0]}</title>`+(f?`<rect x="${x-w/2-7}" y="${y-22}" width="${w+14}" height="44" rx="12" fill="${f[1]}" fill-opacity=".30"/>`:'')+
   `<rect x="${x-w/2}" y="${y-15}" width="${w}" height="30" rx="7" fill="${COL[k]}" stroke="${f?f[1]:'#4a3b2a'}" stroke-width="${sw}"/><text x="${x}" y="${y+4.5}" text-anchor="middle" font-size="13" fill="#2b2118">${L[i][0]}</text>`+
-  (f?`<rect x="${x+w/2-34}" y="${y-25}" width="40" height="15" rx="7.5" fill="${f[1]}" stroke="#fff" stroke-width="1.5"/><text x="${x+w/2-14}" y="${y-14}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${f[2]}</text>`:'')}).join('');
+  (f?`<rect x="${x+w/2-34}" y="${y-25}" width="40" height="15" rx="7.5" fill="${f[1]}" stroke="#fff" stroke-width="1.5"/><text x="${x+w/2-14}" y="${y-14}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${f[2]}</text>`:'')+'</a>'}).join('');
 const grid=Array.from({length:14},(_,i)=>`<line x1="${(i+1)*120}" y1="0" x2="${(i+1)*120}" y2="${H}"/>`).join('')+Array.from({length:7},(_,i)=>`<line x1="0" y1="${(i+1)*110}" x2="${W}" y2="${(i+1)*110}"/>`).join('');
 const KEY=Object.entries({town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour / sea',anchor:'Harbour landing',boat:'Boat route',river:'River',tram:'Tram line',tstop:'Tram stop',pipe:'Oil pipeline'});
 const fk=Object.entries(FACTIONS);
@@ -109,4 +110,5 @@ ${blob(170,'#e3f3f6')}${blob(140,'#cfe6ea')}${blob(112,'#9a8a62')}${blob(104,'#d
 <text y="-54" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2118">N</text></g>
 ${panel}<rect x="8" y="8" width="${W-16}" height="${H-16}" fill="none" stroke="#2b2118" stroke-width="3"/></svg>`;
 fs.mkdirSync(path.join(root,'docs'),{recursive:true});
-fs.writeFileSync(path.join(root,'docs/island-map.svg'),svg);fs.writeFileSync(path.join(root,'island-map.svg'),svg);console.log('wrote docs/island-map.svg ('+ids.length+' locations, '+pairs.length+' links)');
+fs.writeFileSync(path.join(root,'docs/island-map.svg'),svg);fs.writeFileSync(path.join(root,'island-map.svg'),svg.split('href="../wiki/').join('href="wiki/'));  // (the copy at the top of the project links to the wiki from there)
+console.log('wrote docs/island-map.svg ('+ids.length+' locations, '+pairs.length+' links)');

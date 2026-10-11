@@ -25,7 +25,8 @@ edge exit to cross to the neighbouring area.
     index.html      page shell
     css/style.css   page styling
     js/data.js      the island: location sizes, themes, features, and the links between them
-    js/game.js      map building, camera, input, movement
+    js/world.js     builds every tile map, exit and door from data.js (used by the game and by the wiki generator)
+    js/game.js      camera, input, movement, the tram
     js/art.js       pixel-art renderer for every location and building interior (building looks are set in BLD
                     in data.js, interior looks per building in INT)
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
@@ -33,7 +34,8 @@ edge exit to cross to the neighbouring area.
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
     content/notes.js    hand-written wiki text (locations, factions, people)
     tools/build-wiki.js generates the wiki/ pages from js/data.js and content/notes.js
-    wiki/               wiki-style pages for every location, faction and person (open wiki/index.html)
+    wiki/               wiki-style pages for every location, faction and person (open wiki/index.html). The island map on
+                        its home page is clickable: click a place to see a plan of its buildings, paths and people.
     assets/logos/       Diversified Petroleum logo (light and dark SVG, light PNG)
 
 ## Editing the map
