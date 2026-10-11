@@ -41,7 +41,9 @@ const boats=[];for(const a in BOATS)BOATS[a].forEach(b=>{if(a<b)boats.push([a,b]
 function seaRoute(a,b,d){const R=ring(d),n=R.length,near=p=>R.reduce((bi,q,i)=>dist(q,p)<dist(R[bi],p)?i:bi,0),ia=near(RP(a)),ib=near(RP(b));
   const len=dir=>{let s=0;for(let k=ia;k!=ib;k=(k+dir+n)%n)s+=dist(R[k],R[(k+dir+n)%n]);return s},dir=len(1)<=len(-1)?1:-1,out=[RP(a)];
   for(let k=ia;;k=(k+dir+n)%n){out.push(R[k]);if(k==ib)break}out.push(RP(b));return out}
-const boatLines=boats.map(([a,b],k)=>`<path d="M${seaRoute(a,b,CO+26+k*8).map(p=>r1(p[0])+' '+r1(p[1])).join('L')}" stroke="#1f6f9a" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>`).join('');
+// Each lane gets a pale halo under a dark dashed line so it stands out from the shallows and its neighbours.
+const boatLines=boats.map(([a,b],k)=>{const d=`M${seaRoute(a,b,CO+28+k*11).map(p=>r1(p[0])+' '+r1(p[1])).join('L')}`;
+  return `<path d="${d}" stroke="#f4fbfd" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/><path d="${d}" stroke="#0e4a6e" stroke-width="2.5" stroke-dasharray="9 6" stroke-linecap="round" stroke-linejoin="round"/>`}).join('');
 const roads=pairs.map(([a,b])=>{const d=`M${r1(RP(a)[0])} ${r1(RP(a)[1])}L${r1(RP(b)[0])} ${r1(RP(b)[1])}`,pipe=a=='oilrig'||b=='oilrig';
   return pipe?`<path d="${d}" stroke="#3a3a3a" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`
   :`<path d="${d}" stroke="#8a7a5a" stroke-width="7" stroke-linecap="round"/><path d="${d}" stroke="#efe6c8" stroke-width="2.5" stroke-dasharray="7 6"/>`}).join('');
@@ -72,7 +74,7 @@ const ky=140+66+fk.length*38+40,panel=`<rect x="1440" y="140" width="240" height
 <text x="1462" y="176" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">FACTION BASES</text>`+fk.map(([k,[n,c,sh]],i)=>`<rect x="1462" y="${198+i*38}" width="42" height="18" rx="9" fill="${c}"/><text x="1483" y="${211+i*38}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${sh}</text><text x="1514" y="${212+i*38}" font-size="14" fill="#2b2118">${n}</text>`).join('')+
 `<text x="1462" y="${140+66+fk.length*38+16}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
 <text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+38+i*28,sym=
-  k=='boat'?`<path d="M1462 ${y+8}H1504" stroke="#1f6f9a" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>`:
+  k=='boat'?`<path d="M1462 ${y+8}H1504" stroke="#f4fbfd" stroke-width="6" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#0e4a6e" stroke-width="2.5" stroke-dasharray="9 6" stroke-linecap="round"/>`:
   k=='pipe'?`<path d="M1462 ${y+8}H1504" stroke="#3a3a3a" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>`:
   k=='road'?`<path d="M1462 ${y+8}H1504" stroke="#8a7a5a" stroke-width="7" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#efe6c8" stroke-width="2.5" stroke-dasharray="7 6"/>`:
   k=='anchor'?`<circle cx="1483" cy="${y+8}" r="8" fill="#1f6f9a" stroke="#fff" stroke-width="2"/>`:
