@@ -1,7 +1,5 @@
-// ---- Detailed pixel-art renderer (modern 2D pixel style). Only the maps listed in ART2 (every interior included) use it; every other map still
-// uses the placeholder tiles in game.js. Each map is drawn once to a cached canvas (ground, shorelines, buildings); water,
-// boats, trees, props, people, smoke, flags and snowfall are drawn every frame on top.
-const ART2=new Set(['village','harbour','beach','west','radio','gated','palace','cathedral','town',...Object.keys(L).filter(i=>L[i][3]=='interior')]);
+// ---- Detailed pixel-art renderer (modern 2D pixel style), used for every map and interior. Each map is drawn once to a cached
+// canvas (ground, shorelines, buildings); water, boats, trees, props, people, smoke, flags and snowfall are drawn every frame on top.
 const OUT='#262330',SNOW='#f3f7fa',SNOWD='#d3dfe9';
 const cnv=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
 const RGB={},rgb=h=>RGB[h]??=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
@@ -29,18 +27,32 @@ const ptext=(r,s,x,y,col)=>[...s].forEach((ch,i)=>{const f=FONT[ch];for(let k=0;
 const CLS=ch=>'~b'.includes(ch)?'w':'pF'.includes(ch)?'d':',E'.includes(ch)?'p':'#d'.includes(ch)?'h':'s';
 const land=k=>k=='s'||k=='p'||k=='h';
 const STONE=['#a39d95','#b1aba2','#978f88','#aaa39a'],PLANK=['#9a7049','#8c6542','#a5794f'];
-// Path look per map (default: cobbles). dirt = gravel track, boards = boardwalk.
-const PATHS={west:'dirt',radio:'dirt',beach:'boards'};
+// Path look per map (default: cobbles). dirt = gravel track, boards = boardwalk, steel = the oil rig's deck plating.
+const PATHS={west:'dirt',radio:'dirt',beach:'boards',privbeach:'boards',north:'dirt',east:'dirt',south:'dirt',southwest:'dirt',
+  volcano:'dirt',mountains:'dirt',farm:'dirt',oilrig:'steel'};
 function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return hash(X,Y,3)>.988?'#ccd9e5':nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5'}
 function sandPx(X,Y){const nz=vnoise(X/10,Y/10,1)*.7+vnoise(X/4,Y/4,2)*.3;let c=nz>.62?'#e4d8b4':nz<.38?'#cbbb91':'#d9cba4';
   if(hash(X,Y,3)>.982)c='#a89a7a';else if(hash(X,Y,4)>.99)c='#f4efe0';
   const sn=vnoise(X/12,Y/12,5);return sn>.74?mix(c,'#eef3f6',Math.min(.85,(sn-.74)*9)):c}
+// Mountain ground: snow with grey rock showing through in patches.
+const rockAt=(X,Y)=>vnoise(X/14,Y/14,50)*.75+vnoise(X/5,Y/5,51)*.25,RK=.7;
+function rockPx(X,Y){const nz=rockAt(X,Y);if(nz<RK)return hash(X,Y,52)>.985?'#8a929b':snowPx(X,Y);
+  // outcrops lit from above: a snowy lip on top, a shadowed lower edge, and broken, cracked stone between
+  if(rockAt(X,Y-2)<RK)return nz<RK+.01?'#dfe8ef':'#b1b9c1';if(rockAt(X,Y+2)<RK||rockAt(X+2,Y)<RK)return'#5f666e';
+  const t=vnoise(X/3,Y/3,53),k=vnoise(X/2,Y/7,54);return k>.78?'#5f666e':k>.72?'#b1b9c1':t>.62?'#a3abb3':t<.38?'#737b84':'#8d959e'}
+// Ploughed field under snow: soft furrow ridges with dark soil showing here and there.
+function fieldPx(X,Y){const row=Y%8,nz=vnoise(X/9,Y/9,55);if(row==7)return nz>.58?'#6b5a3a':nz>.45?'#a8a090':'#d8e3ec';
+  if(row==6)return nz>.62?'#5a4a30':'#dfe7ee';if(hash(X,Y,56)>.985)return'#c9b06a';return row==0?'#f6f9fc':'#e8eff5'}
 function groundLayer(m){
-  // the radio mast stands on open ground, so its footprint is drawn as plain ground rather than a building
-  const M=MAPS[m].map(r=>[...r]);FL[m].forEach(([x,y,w,h,,,st])=>{if(st&&BLD[st]&&(BLD[st].kind=='mast'||BLD[st].kind=='manhole'))for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)M[j][i]='.'});
+  // the radio mast and the drilling derrick stand on open ground, so their footprints are drawn as plain ground rather than a building
+  const base=TH[L[m][3]][0],M=MAPS[m].map(r=>[...r]);FL[m].forEach(([x,y,w,h,,,st])=>{if(st&&BLD[st]&&['mast','derrick','manhole'].includes(BLD[st].kind))for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)M[j][i]=base});
   const h=M.length,w=M[0].length,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
-  const base=TH[L[m][3]][0],ps=PATHS[m]||'cobble',at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],cl=(x,y)=>CLS(at(x,y));
-  const sandy=ch=>ch=='s'||(base=='s'&&!'~b,EpF'.includes(ch)),gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y):snowPx(X,Y);
+  const ps=PATHS[m]||'cobble',at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],cl=(x,y)=>{const k=CLS(at(x,y));return ps=='steel'&&k=='p'?'d':k};
+  const sandy=ch=>ch=='s'||(base=='s'&&!'~b,EpF'.includes(ch)),
+    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?rockPx(X,Y):ch=='a'?fieldPx(X,Y):snowPx(X,Y);
+  // crater(X,Y) < 1 inside a lava feature's oval (with a wobbly edge), growing outward from it
+  const VF=FL[m].filter(f=>f[4]=='v').map(([x,y,w,h])=>[(x+w/2)*16,(y+h/2)*16,w*8,h*8]),
+    crater=(X,Y)=>Math.min(99,...VF.map(([cx,cy,rx,ry])=>(((X-cx)/rx)**2+((Y-cy)/ry)**2)*(.92+vnoise(X/6,Y/6,64)*.16)));
   for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){
     const k=cl(tx,ty),n=cl(tx,ty-1),s=cl(tx,ty+1),wv=cl(tx-1,ty),e=cl(tx+1,ty),ch=M[ty][tx];
     const nS=sandy(at(tx,ty-1)),sS=sandy(at(tx,ty+1)),wS=sandy(at(tx-1,ty)),eS=sandy(at(tx+1,ty)),sd=sandy(ch);
@@ -57,8 +69,14 @@ function groundLayer(m){
           if(ly==0)col=SNOWD;else if(ly<fh){const t=hash(X>>2,(Y>>1)+((X>>2)&1),5);col=ly==1?'#8f99a4':t>.6?'#77828e':t>.2?'#5c6773':'#46505b';a=255}
           else if(ly==fh&&hash(X,7)>.25){col='#e6f3fa';a=255}else if(ly==fh+1&&hash(X,8)>.55){col='#bfdcec';a=255}}}
         if(wv=='d'&&lx<3&&!col){col='#0a2236';a=80}
-        if(n=='d'){const pst=lx%12==2||lx%12==3;a=255;
-          if(ly<3)col=ly==0?'#6e4d30':'#4a321f';else if(pst&&ly<8)col=lx%12==2?'#5a3e27':'#3b2818';else if(ly<7){col='#0a2236';a=85}}}
+        if(n=='d'){const pst=lx%12==2||lx%12==3,st=ps=='steel';a=255;
+          if(ly<3)col=ly==0?(st?'#5a5f68':'#6e4d30'):(st?'#3a3d44':'#4a321f');else if(pst&&ly<8)col=lx%12==2?(st?'#6b737c':'#5a3e27'):(st?'#3a3d44':'#3b2818');else if(ly<7){col='#0a2236';a=85}}}
+      else if(k=='d'&&ps=='steel'){
+        // steel deck plates with a raised tread pattern, rivets, drifted snow, and hazard stripes along the edge
+        const sx=X&7,sy=Y&7;col=sx==7||sy==7?'#4f555e':sx==0||sy==0?'#9aa3ad':((X+Y)&3)==0&&((X-Y)&7)==0?'#9aa3ad':'#7d858e';
+        if((sx==1||sx==6)&&(sy==1||sy==6))col='#5a5f68';
+        const sn=vnoise(X/11,Y/11,57)*.6+vnoise(X/3,Y/3,62)*.4;if(sn>.7)col=mix(col,'#e8eff5',Math.min(.8,(sn-.7)*6));
+        const ed=Math.min(n=='w'?ly:99,s=='w'?15-ly:99,wv=='w'?lx:99,e=='w'?15-lx:99);if(ed<3)col=ed==0?'#2b2f3a':((X+Y)>>2)&1?'#e0a100':'#2b2f3a'}
       else if(k=='d'){const bd=X>>2,sm=(Y+bd*7)%24;
         col=(X&3)==3||sm==0?'#4d3624':PLANK[hash(bd,(Y+bd*7)/24|0,6)*3|0];
         if((X&3)==0&&sm)col=shade(col,.06);if((X&3)==1&&(sm==3||sm==20))col='#2f2219';
@@ -80,7 +98,13 @@ function groundLayer(m){
         const lip=(q,sid,dist,gc)=>{const dep=vnoise(q/4,sid,16)*3|0;if(dist<dep)col=gpx(X,Y,gc);else if(dist==dep)col=sandy(gc)?'#a8977a':'#8a857f'};
         const op=v=>v!='p'&&v!='d';
         if(op(n))lip(X,1,ly,at(tx,ty-1));if(op(s))lip(X,2,15-ly,at(tx,ty+1));if(op(wv))lip(Y,3,lx,at(tx-1,ty));if(op(e))lip(Y,4,15-lx,at(tx+1,ty))}
+      else if(ch=='v'&&crater(X,Y)<1){
+        // volcanic crater (an oval inside its feature): a dark rocky rim, a cooled crust, then molten lava with darker crust veins
+        const q=crater(X,Y),d=(1-Math.sqrt(q))*16+(vnoise(X/4,Y/4,58)*3|0),nz=vnoise(X/5,Y/5,59)*.7+vnoise(X/2,Y/2,60)*.3;
+        col=d<3?(hash(X,Y,61)>.5?'#3a3038':'#4a4048'):d<5?(d<4?'#2a2028':'#7a3a2a'):nz>.47&&nz<.52?'#5a2a20':nz>.68?'#ffd23a':nz>.56?'#ff8a3a':'#e8501e'}
       else{col=gpx(X,Y,ch);
+        // scorched ash around a crater's rim
+        const q=crater(X,Y);if(q<2.2)col=mix(col,hash(X,Y,63)>.8?'#2a2028':'#4a4048',Math.min(.85,(2.2-q)*.75));
         if(ch=='T')col=mix(col,sd?'#9a8c6a':'#9fb3c6',sd?.18:.3);
         if(sd){const dw=Math.min(n=='w'?ly:99,s=='w'?15-ly:99,wv=='w'?lx:99,e=='w'?15-lx:99);if(dw<6)col=mix(col,'#a8966c',(6-dw)/7)}
         if(n=='h'&&ly<3)col=mix(col,'#b4c4d4',.85-ly*.2);
@@ -122,6 +146,8 @@ function bld2(w,h,s,dx){
   if(s.deco=='whs'){const bx=(W>>1)-12;for(let i=0;i<w;i++)if(i*16+15>=bx&&i*16<=bx+24)skip.add(i);
     r('#2b2f3a',bx-1,ry+3,26,1);r('#5d4636',bx,ry+4,24,wh-7);r('#7a5d48',bx,ry+4,24,1);
     for(let k=0;k<wh-7;k++){r('#7a5d48',bx+(k*12/(wh-7)|0),ry+4+k,1,1);r('#7a5d48',bx+23-(k*12/(wh-7)|0),ry+4+k,1,1)}r('#2b2f3a',bx+12,ry+4,1,wh-7)}
+  if(s.deco=='garage'){const bw=Math.min(W-16,44),bx=(W-bw)>>1,bh=wh-6;for(let i=0;i<w;i++)if(i*16+15>=bx&&i*16<=bx+bw)skip.add(i);
+    r('#2b2f3a',bx-2,H-bh-5,bw+4,bh+2);for(let y=H-bh-3;y<H-3;y++)r((y&1)?'#76828f':'#8d99a6',bx,y,bw,1)}
   if(s.deco=='hut')skip.add(1);
   // windows
   const win=(x,y,ww,hh,lit)=>{const gl=lit?'#ffd98a':s.win;
@@ -154,8 +180,14 @@ function bld2(w,h,s,dx){
     r(s.trim,0,0,W,2);r(s.trim,0,0,2,ry);r(s.trim,W-2,0,2,ry);r(SNOW,0,0,W,1);
     r(s.trim,0,ry-6,W,6);r(shade(s.trim,-.25),0,ry-2,W,2);r(SNOW,0,ry-6,W,1)}
   // decorations
-  if(s.chim!=null){const cx=(W*s.chim)|0,ch=Math.max(8,ry*.35|0);r(OUT,cx-1,2,9,ch+1);r('#7a4234',cx,3,7,ch);r('#94523f',cx,3,2,ch);
+  for(const cf of[s.chim,s.chim2])if(cf!=null){const cx=(W*cf)|0,ch=Math.max(8,ry*.35|0);r(OUT,cx-1,2,9,ch+1);r('#7a4234',cx,3,7,ch);r('#94523f',cx,3,2,ch);
     for(let y=6;y<ch;y+=3)r('#5e3228',cx,y,7,1);r('#3a3a44',cx-1,2,9,2);r(SNOW,cx-1,1,9,1);an.push({t:'smoke',x:cx+3,y:0})}
+  if(s.flag){const fx=s.kind=='gable'?W-16:10;r('#d5d9de',fx,0,1,ry-6);r('#9aa0a8',fx+1,0,1,ry-6);r(OUT,fx-1,ry-7,4,2);an.push({t:'flag',x:fx+2,y:1,col:s.flag})}
+  if(s.deco=='mil'){
+    // sandbags stacked along the front, and a searchlight on the roof
+    for(let x=0;x<W;x+=7){if(dx>=0&&x+7>dx*16-2&&x<dx*16+18)continue;for(const[yy,o]of[[H-6,0],[H-10,3]]){if(o&&x+o+6>W)continue;
+      r(OUT,x+o,yy,7,5);r('#b8a878',x+o+1,yy+1,5,3);r('#d0c290',x+o+1,yy+1,5,1);r(SNOW,x+o+1,yy,5,1)}}
+    const lx=W-22;r(OUT,lx-1,4,10,8);r('#5a5f68',lx,5,8,6);r('#fff6d0',lx+1,6,6,3);r(SNOW,lx,4,8,1)}
   if(s.attic){const ax=(W>>1)-7,ay=(ry>>1)-6;r(OUT,ax-1,ay-1,16,14);r(s.wall,ax,ay+3,14,9);r(s.roof,ax-1,ay,16,4);r(SNOW,ax-1,ay-1,16,2);win(ax+3,ay+5,8,6,false)}
   if(s.porch&&dx>=0){const X=dx*16;r(OUT,X-3,H-22,22,5);r(s.roof,X-2,H-21,20,3);r(SNOW,X-2,H-22,20,1);r(s.trim,X-1,H-18,1,15);r(s.trim,X+16,H-18,1,15)}
   if(s.deco=='hq'){r('#d5d9de',W>>1,0,1,ry-6);r('#9aa0a8',(W>>1)+1,0,1,ry-6);an.push({t:'flag',x:(W>>1)+2,y:1});
@@ -163,7 +195,7 @@ function bld2(w,h,s,dx){
     if(dx>=0){const X=dx*16+8;r('#ffd23a',X-1,H-22,3,1);r('#ffd23a',X,H-23,1,3)}}
   if(s.deco=='plant'){for(const f of[.1,.32]){const x=W*f|0,hh=ry-10;r(OUT,x-1,-1,11,hh+2);r('#9aa3ad',x,0,9,hh);r('#c3cad1',x,0,2,hh);r('#6b737c',x+7,0,2,hh);
       for(let y=4;y<hh;y+=10)r('#c0392b',x,y,9,3);r('#2b2f3a',x,0,9,2);an.push({t:'smoke',x:x+3,y:-2,big:1})}
-    ptext(r,'FISH CO.',6,ry-5,'#ffffff')}
+    ptext(r,s.ptx||'FISH CO.',6,ry-5,'#ffffff')}
   if(s.deco=='bar'){const bx=(W>>1)-13,by=ry-17;r(OUT,bx-1,by-1,28,11);r('#1a1520',bx,by,26,9);r('#3a3a44',bx+4,by+9,1,6);r('#3a3a44',bx+21,by+9,1,6);r(SNOW,bx-1,by-1,28,1);
     an.push({t:'neon',x:bx+7,y:by+2,s:'BAR'})}
   if(s.deco=='shop'){const bx=(W>>1)-14,by=ry-17;r(OUT,bx-1,by-1,30,11);r('#f2f2f2',bx,by,28,9);r(SNOW,bx-1,by-1,30,1);r('#3a3a44',bx+4,by+9,1,6);r('#3a3a44',bx+23,by+9,1,6);
@@ -261,6 +293,33 @@ function mastArt(w,h){const W=w*16,H=h*16+MAST_UP,c=cnv(W,H),g=c.getContext('2d'
   const dish=(x,y)=>{r(OUT,x-4,y-4,9,9);r('#e8ecef',x-3,y-3,7,7);r('#b9c0c7',x+1,y-3,3,7);r('#5a5f68',x,y,1,1)};
   dish(cx-9,H-62);dish(cx+8,H-44);
   return c}
+// Oil derrick: a yellow lattice tower over a steel drill floor, rising DER_UP pixels above its footprint, with the drill string down the middle.
+const DER_UP=44;
+function derrickArt(w,h){const W=w*16,H=h*16+DER_UP,c=cnv(W,H),g=c.getContext('2d'),r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a,b)};
+  const cx=W>>1,bt=H-16,L0=[5,bt],R0=[W-6,bt],LT=[cx-5,8],RT=[cx+4,8],at=(A,B,t)=>[A[0]+(B[0]-A[0])*t,A[1]+(B[1]-A[1])*t];
+  // drill floor
+  r(OUT,1,H-18,W-2,16);r('#5a5f68',2,H-17,W-4,14);r('#7d858e',2,H-17,W-4,2);r(SNOW,2,H-17,W-4,1);
+  for(let x=2;x<W-2;x++)r(((x>>2)&1)?'#e0a100':'#2b2f3a',x,H-5,1,2);r('rgba(30,50,80,.25)',2,H-3,W-4,3);
+  const lv=[0,.16,.32,.48,.64,.8,1];
+  for(let i=0;i<lv.length-1;i++){const a1=at(L0,LT,lv[i]),b1=at(R0,RT,lv[i]),a2=at(L0,LT,lv[i+1]),b2=at(R0,RT,lv[i+1]);
+    pline(r,a1[0],a1[1],b2[0],b2[1],'#a8862a');pline(r,b1[0],b1[1],a2[0],a2[1],'#a8862a');pline(r,a1[0],a1[1],b1[0],b1[1],'#c99a20');
+    for(let x=Math.round(a1[0]);x<=b1[0];x+=2)r(SNOW,x,a1[1]-1)}
+  for(const d of[0,1]){pline(r,L0[0]+d,L0[1],LT[0]+d,LT[1],'#e0a100');pline(r,R0[0]-d,R0[1],RT[0]-d,RT[1],'#e0a100')}
+  // crown block, drill line, travelling block and the pipe going down the hole
+  r(OUT,cx-8,3,16,7);r('#5a5f68',cx-7,4,14,5);r('#7d858e',cx-7,4,14,1);r(SNOW,cx-7,3,14,1);
+  r('#2b2f3a',cx-1,9,1,26);r('#2b2f3a',cx+1,9,1,26);r(OUT,cx-4,34,9,9);r('#c0392b',cx-3,35,7,7);r('#e04a3a',cx-3,35,2,7);r('#8a9099',cx,43,2,H-62);
+  // a pipe rack on the drill floor
+  for(let k=0;k<3;k++){r('#8d959e',6,H-14+k*3,18,2);r('#b9c0c7',6,H-14+k*3,18,1)}
+  return c}
+// A glass bus shelter with a bench, an advert panel and a bus-stop sign. Drawn 12 pixels taller than its tiles.
+function shelterArt(w,h){const W=w*16,H=h*16+12;return mk(W,H,r=>{
+  r('#8a9099',0,H-10,W,9);r('#a9b0b8',0,H-10,W,2);r(SNOW,0,H-10,W,1);
+  const x0=6,x1=Math.min(W-22,x0+52);
+  r('#9fc6e0',x0,8,x1-x0,H-20);r('#cfe6f2',x0,8,x1-x0,3);for(let k=x0+4;k<x1-6;k+=11){r('#e8f4fa',k,14,1,6);r('#e8f4fa',k+1,13,1,4)}
+  r('#7a5232',x0+4,H-19,x1-x0-18,3);r('#946640',x0+4,H-19,x1-x0-18,1);r('#3a3a44',x0+6,H-16,1,4);r('#3a3a44',x1-17,H-16,1,4);
+  r('#f2f2f2',x1-12,10,10,H-24);r('#2e9d57',x1-11,12,8,5);ptext(r,'KC',x1-10,19,'#2e9d57');
+  r('#3a3d44',x0-2,4,2,H-13);r('#3a3d44',x1,4,2,H-13);r('#2e9d57',x0-4,2,x1-x0+8,5);r('#3d9a5e',x0-4,2,x1-x0+8,1);r(SNOW,x0-4,1,x1-x0+8,2);
+  const sx=W-12;r('#5a5f68',sx,6,2,H-14);r('#2e86c1',sx-6,0,14,9);r('#3d96d1',sx-6,0,14,1);ptext(r,'BUS',sx-5,2,'#ffffff');r(SNOW,sx-6,0,14,1)})}
 // A cast-iron manhole cover, lightly dusted with snow.
 const manholeArt=mk(14,14,r=>{for(let y=0;y<14;y++)for(let x=0;x<14;x++){const d=Math.hypot(x-6.5,y-6.5);if(d>6.8)continue;
   r(d>5.6?'#3a3d44':((x+y)%3==0?'#2b2f3a':'#555a62'),x,y)}r('#7a808a',4,4,2,1);r(SNOW,2,3,2,1);r(SNOW,9,10,3,1)});
@@ -287,6 +346,12 @@ warn:[18,r=>{r('#5a5f68',7,8,2,10);r('#e0a100',1,0,14,10);r('#f0c040',2,1,12,1);
 gen:[14,r=>{r('#3d6b4f',0,2,16,11);r('#4f8a64',0,2,16,2);r('#2f5a40',0,11,16,2);for(let x=2;x<9;x+=2)r('#2a4a36',x,5,1,5);r('#2b2f3a',11,5,3,3);r('#ffd23a',12,6,1,1);r(SNOW,0,1,16,2);r('#3a3a44',13,0,2,2)}],
 spool:[13,r=>{r('#8a6038',0,0,4,13);r('#8a6038',12,0,4,13);r('#3a3a44',4,2,8,9);for(let y=3;y<11;y+=2)r('#555a62',4,y,8,1);r('#a8794c',0,0,4,1);r('#a8794c',12,0,4,1);r(SNOW,0,0,16,1)}],
 forsale:[18,r=>{r('#6b4a2e',3,6,2,12);r('#f2f2f2',0,0,16,8);r('#c0392b',0,0,16,2);ptext(r,'SALE',1,2,'#c0392b');r(SNOW,0,0,16,1)}],
+hay:[12,r=>{r('#c9a040',1,2,14,10);r('#e0bc5a',1,2,14,2);r('#a8862a',1,9,14,1);r('#8a6a20',4,2,1,10);r('#8a6a20',11,2,1,10);r(SNOW,1,1,14,2);r(SNOWD,3,3,10,1)}],
+drum:[14,r=>{r('#2b2f3a',3,1,10,13);r('#3a3f4a',3,1,3,13);r('#e0a100',3,4,10,2);r('#e0a100',3,10,10,1);r('#1a1c22',11,1,2,13);r('#5a5f68',4,0,8,2);r(SNOW,4,0,8,1)}],
+pipes:[10,r=>{for(const y of[6,3,0]){const o=y==0?3:y==3?1:0;r('#8d959e',o,y+1,16-o,3);r('#b9c0c7',o,y+1,16-o,1);r('#5a5f68',o,y+3,16-o,1);r('#2b2f3a',o,y+1,2,3)}r(SNOW,3,0,13,1)}],
+cone:[10,r=>{r('#e8792a',6,1,4,7);r('#e8792a',5,4,6,4);r('#f2f2f2',5,4,6,1);r('#f2f2f2',6,2,4,1);r('#2b2f3a',3,8,10,2);r(SNOW,7,0,2,1)}],
+cart:[12,r=>{r('#7a5232',1,2,12,6);r('#946640',1,2,12,1);r('#5a3a22',1,7,12,1);r('#3a3a44',3,8,4,4);r('#5a5f68',4,9,2,2);r('#6b4a2e',13,4,3,1);r(SNOW,2,1,10,2)}],
+vent:[6,r=>{r('#4a4048',1,1,14,4);r('#2a2028',3,2,10,2);r('#e8501e',6,2,3,1);r('#ff8a3a',7,2,1,1);r('#5a5058',2,0,4,1);r('#5a5058',10,0,4,1)}],
 dish:[18,r=>{r('#5a5f68',7,10,2,8);r('#5a5f68',4,16,8,2);for(let y=0;y<11;y++)for(let x=0;x<14;x++){if(((x-6.5)/6.5)**2+((y-5)/5)**2<1)r(x>8?'#b9c0c7':'#e8ecef',x+1,y)}r('#5a5f68',7,4,2,2);r(SNOW,3,0,8,1)}]});
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
 const CH={};
@@ -502,7 +567,12 @@ function scene(m){if(SC[m])return SC[m];
     if(st&&BLD[st]&&BLD[st].kind=='manhole'){g.drawImage(manholeArt,x*16,y*16);return}
     if(st&&BLD[st]&&BLD[st].kind=='tent'){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;g.drawImage(tentArt(w,h,dx),x*16-1,y*16-9);return}
     if(st&&BLD[st]&&BLD[st].kind=='mast'){put(y+h-1,x*16,y*16-MAST_UP,mastArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-MAST_UP-1});return}
+    if(st&&BLD[st]&&BLD[st].kind=='derrick'){put(y+h-1,x*16,y*16-DER_UP,derrickArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-DER_UP+2});return}
+    if(st&&BLD[st]&&BLD[st].kind=='shelter'){g.drawImage(shelterArt(w,h),x*16-1,y*16-13);return}
+    if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
     if(st&&BLD[st]){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
+      // buildings you can't go into still get a (locked) front door, unless their look already has a big door
+      if(dx<0&&!['church','hut','whs','garage'].includes(BLD[st].deco))dx=w>>1;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
       const b=bld2(w,h,BLD[st],dx);g.drawImage(b.c,x*16,y*16);b.an.forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}))}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
@@ -512,7 +582,7 @@ function scene(m){if(SC[m])return SC[m];
     if(ch=='R'){const t=ROCKS[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
   PROPS.filter(p=>p[0]==m).forEach(([,x,y,k])=>{const t=propArt(k),pass=PROP_PASS.includes(k);put(pass?y-.5:y,x*16-1,(y+1)*16-t.height+1,t,!pass,x,y);
-    if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
+    if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});if(k=='vent')an.push({t:'smoke',x:x*16+7,y:y*16+8});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
   return SC[m]={c,an,boats,ferries,ents,inside,top:inside?WU:0}}
 
 // ---- Snowfall and vignette
@@ -522,6 +592,8 @@ let VIG=null;
 function vignette(){if(VIG&&VIG.width==cv.width&&VIG.height==cv.height)return VIG;VIG=cnv(cv.width,cv.height);const g=VIG.getContext('2d'),w=cv.width,h=cv.height,
   gr=g.createRadialGradient(w/2,h/2,h*.45,w/2,h/2,w*.75);gr.addColorStop(0,'rgba(15,25,50,0)');gr.addColorStop(1,'rgba(15,25,50,.38)');g.fillStyle=gr;g.fillRect(0,0,w,h);return VIG}
 
+// Where seagulls circle on each map (tile x, y).
+const GULLS={harbour:[15,6],beach:[5,6],kalanharbour:[10,4],savilaharbour:[17,6],privharbour:[5,5],privbeach:[9,4],oilrig:[8,5],fishing:[20,10]};
 // ---- Per-frame drawing. cx, cy: camera offset in pixels. frame: player walking frame (0 idle, 1, 2).
 function drawWorld2(m,cx,cy,t,frame){
   const S=scene(m),M=MAPS[m],mh=M.length,mw=M[0].length,vw=cv.width,vh=cv.height,wf=WATER[(t/200|0)%8],px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
@@ -544,8 +616,12 @@ function drawWorld2(m,cx,cy,t,frame){
   S.an.forEach(a=>{const X=a.x-cx,Y=a.y-cy;
     if(a.t=='smoke')for(let k=0;k<6;k++){const g=(t/2600+k/6)%1,s=(a.big?3:2)+Math.round(g*3);
       px(`rgba(236,241,246,${(.6*(1-g)).toFixed(2)})`,X+Math.sin(g*5+k)*2+g*10-s/2,Y-g*24-s/2,s,s)}
-    if(a.t=='flag')for(let c=0;c<12;c++){const dy=Math.round(Math.sin(t/220-c*.7)*c/8),sh=Math.sin(t/220-c*.7)>.3;
-      px(a.royal?(sh?'#5e2a75':'#7d3c98'):(sh?'#a52f24':'#c0392b'),X+c,Y+dy,1,8);if(c>=3&&c<=5)px('#ffd23a',X+c,Y+dy+(a.royal?(c==4?2:3):(c==4?2:3)),1,c==4?3:1)}
+    if(a.t=='flag')for(let c=0;c<12;c++){const dy=Math.round(Math.sin(t/220-c*.7)*c/8),sh=Math.sin(t/220-c*.7)>.3,fc=a.col||(a.royal?'#7d3c98':'#c0392b');
+      px(sh?shade(fc,-.2):fc,X+c,Y+dy,1,8);if(a.col)px('#f2f2f2',X+c,Y+dy+3,1,2);else if(c>=3&&c<=5)px('#ffd23a',X+c,Y+dy+(c==4?2:3),1,c==4?3:1)}
+    if(a.t=='lava')for(let k=0;k<8;k++){
+      // bubbles swell and pop at random spots inside the crater's oval
+      const ph=t/1400+hash(k,1,a.x),n=ph|0,g=ph%1,an=hash(k,n,a.y)*6.283,rr=Math.sqrt(hash(k,n+7,a.y))*.7,bx=X+Math.cos(an)*a.rx*rr|0,by=Y+Math.sin(an)*a.ry*rr|0,s=g<.7?1+(g*3|0):3;
+      if(g<.85)px(g<.6?'#ffd23a':'#fff2a0',bx,by,s,s);else px('#5a2a20',bx-1,by+1,4,1)}
     if(a.t=='bulb')px(((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
     if(a.t=='neon'){const on=hash(t/90|0,3,7)<.96,col=on?(a.col||'#ff5fa8'):'#5a2a40';
       if(on){ctx.fillStyle=a.col?'rgba(255,210,58,.25)':'rgba(255,95,168,.3)';ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}ptext(px,a.s,X,Y,col)}
@@ -555,8 +631,8 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='belt'){const off=(t/45|0)%6;for(let x=off;x<a.w;x+=6)px('#3d4250',X+x,Y,1,a.h);
       for(let i=0;i<a.w/24;i++){const fx=X+((t/35+i*24)%(a.w-4)),fy=Y+3+(i%2)*4;px('#9fb3c4',fx,fy,5,2);px('#d8e4ee',fx,fy+1,5,1)}}});
   if(!S.inside){
-    // seagulls over the harbour and the beach
-    if(m=='harbour'||m=='beach')for(let i=0;i<2;i++){const an=t/2600+i*Math.PI,ox=m=='beach'?5:15,X=ox*16-cx+Math.cos(an)*70,Y=6*16-cy+Math.sin(an)*30-26,up=(t/170+i*3|0)%2;
+    // seagulls circling over the harbours and beaches
+    const gl=GULLS[m];if(gl)for(let i=0;i<2;i++){const an=t/2600+i*Math.PI,X=gl[0]*16-cx+Math.cos(an)*70,Y=gl[1]*16-cy+Math.sin(an)*30-26,up=(t/170+i*3|0)%2;
       px('rgba(20,40,60,.18)',X-2,Y+34,5,1);px('#f2f2f2',X-1,Y,3,2);px('#e8b33a',X+(Math.cos(an+Math.PI/2)>0?2:-2),Y,1,1);
       if(up){px('#f2f2f2',X-3,Y-1,2,1);px('#f2f2f2',X+2,Y-1,2,1);px('#5a5f68',X-4,Y-2,1,1);px('#5a5f68',X+4,Y-2,1,1)}
       else{px('#f2f2f2',X-4,Y,3,1);px('#f2f2f2',X+2,Y,3,1);px('#5a5f68',X-5,Y+1,1,1);px('#5a5f68',X+5,Y+1,1,1)}}

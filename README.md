@@ -25,9 +25,9 @@ edge exit to cross to the neighbouring area.
     index.html      page shell
     css/style.css   page styling
     js/data.js      the island: location sizes, themes, features, and the links between them
-    js/game.js      map building, rendering, input, movement
-    js/art.js       detailed pixel-art renderer: outdoor maps listed in ART2 (Saltwick, West Saltwick Harbour,
-                    Beach, West Road, Radio Tower, Hope Springs, Royal Palace, Cathedral) and every building interior (looks set per building in INT)
+    js/game.js      map building, camera, input, movement
+    js/art.js       pixel-art renderer for every location and building interior (building looks are set in BLD
+                    in data.js, interior looks per building in INT)
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
@@ -39,8 +39,8 @@ edge exit to cross to the neighbouring area.
 ## Editing the map
 
 - `L` in `js/data.js`: one entry per location, `id: [name, width, height, theme, features]`.
-  A feature is `[x, y, w, h, tile, label]` (tiles: `#` building, `T` trees, `R` rock, `~` water,
-  `p` dock, `v` lava).
+  A feature is `[x, y, w, h, tile, label, look]` (tiles: `#` building, `T` trees, `R` rock, `~` water,
+  `p` dock, `b` moored boat, `v` lava). A building's `look` is a key in `BLD`, which sets its walls, roof, signs and decorations.
 - `LINKS` in `js/data.js`: `"A side B side"` (sides are T, B, L, R). Exits are built automatically,
   in the order the links are listed.
 
