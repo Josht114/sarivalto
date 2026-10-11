@@ -53,7 +53,9 @@ function idxBody(c,k){let t;
     t='<h1>Factions</h1>'+filter+Object.keys(FACTIONS).map(i=>{const mem=NPCS.filter(n=>n.faction==i);
       return`<h2><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h2><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`}).join('')+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
-  else t='<h1>People</h1>'+filter+'<ul class="cols">'+NPCS.map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)} · ${locA(c,n.loc)} · ${n.home=='none'?'no fixed home':'lives in '+locA(c,n.home)}</small></li>`).join('')+'</ul>';
+  else{// one section per place on the island; people based inside a building are listed under the place it stands in
+    const top=id=>POS[id]||!parentOf(id)?id:top(parentOf(id)),g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
+    t='<h1>People</h1>'+filter+Object.keys(L).filter(i=>g[i]).map(i=>`<h2>${locA(c,i)}</h2><ul class="cols">${g[i].map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[i][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)}${n.loc!=i?' · '+locA(c,n.loc):''} · ${n.home=='none'?'no fixed home':'lives in '+locA(c,n.home)}</small></li>`).join('')}</ul>`).join('')}
   return t}
 const svg=fs.readFileSync(path.join(root,'docs/island-map.svg'),'utf8').replace(/<\?xml.*?\?>/,'');
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${c.single?`<div class="map">${svg}</div>`:`<p><img class="map" src="${c.pre}../docs/island-map.svg" alt="Map of the island"></p>`}
@@ -74,7 +76,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}@media (ma
 const JS=`document.addEventListener('input',function(e){if(!e.target.classList.contains('filter'))return;var q=e.target.value.toLowerCase();e.target.closest('article').querySelectorAll('li[data-s]').forEach(function(li){li.hidden=li.dataset.s.indexOf(q)<0})})`;
 const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
-['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
+['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
 Object.keys(FACTIONS).forEach(i=>pages.push({id:'factions-'+i,title:FACTIONS[i][0],body:c=>facBody(c,i),file:'factions/'+i+'.html',pre:'../'}));
 NPCS.forEach(n=>pages.push({id:'npcs-'+nid(n),title:n.name,body:c=>npcBody(c,n),file:'npcs/'+nid(n)+'.html',pre:'../'}));
