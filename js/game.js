@@ -8,13 +8,14 @@ const DIR={0:[0,1],1:[0,-1],2:[-1,0],3:[1,0]},KEY={ArrowDown:0,s:0,ArrowUp:1,w:1
 const P={m:'village',x:0,y:0,rx:0,ry:0,dir:1,mv:null,par:0};let stack=[];
 const sel=document.getElementById('jump');for(const id in L)if(id!='tram')sel.add(new Option(L[id][0],id));
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;sel.value=id}
-go('village');
+// The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
+P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;sel.value=P.m;
 sel.onchange=()=>{closeMenu();RIDE=TRIP=null;go(sel.value);sel.blur()};
 const SOLID='#TR~vbkWecuxygitno';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
 const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x*16+16>q.x+3&&x*16<q.x+93);
 const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
-  PROPS.some(p=>p[0]==m&&p[1]==x&&p[2]==y&&!PROP_PASS.includes(p[3]))||tramAt(m,x,y)};
+  PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})||tramAt(m,x,y)};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};
 addEventListener('keydown',e=>{if(e.target==sel||MENU||RIDE)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
 addEventListener('keyup',e=>{const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY)release(KEY[k])});

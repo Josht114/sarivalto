@@ -32,6 +32,7 @@ edge exit to cross to the neighbouring area.
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
     docs/quest-schedule.md  which factions have quests in each of the 19 weeks
+    docs/town-aesthetics.md the look of each town (Eastbrook, Frostholm, Saltwick, Hope Springs, Kingsgrad)
     content/notes.js    hand-written wiki text (locations, factions, people)
     tools/build-wiki.js generates the wiki/ pages from js/data.js and content/notes.js
     wiki/               wiki-style pages for every location, faction and person (open wiki/index.html). The island map on
@@ -42,7 +43,9 @@ edge exit to cross to the neighbouring area.
 
 - `L` in `js/data.js`: one entry per location, `id: [name, width, height, theme, features]`.
   A feature is `[x, y, w, h, tile, label, look]` (tiles: `#` building, `T` trees, `R` rock, `~` water,
-  `p` dock, `b` moored boat, `v` lava). A building's `look` is a key in `BLD`, which sets its walls, roof, signs and decorations.
+  `p` dock, `b` moored boat, `v` lava). A building's `look` is a key in `BLD`, which sets its walls, roof, signs and decorations. Each town has its own look;
+  [docs/town-aesthetics.md](docs/town-aesthetics.md) describes them and the options that make them (weathering, glass fronts, neon and wooden signs,
+  billboards, string lights, columns, window boxes, path styles and per-town props).
 - `LINKS` in `js/data.js`: `"A side B side"` (sides are T, B, L, R). Exits are built automatically,
   in the order the links are listed.
 
