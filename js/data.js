@@ -4,13 +4,14 @@ const L={
 oilrig:['Oil Rig',16,12,'deck',[[3,3,4,3,'#','Drill Tower','derrick'],[9,8,4,2,'#','Crew Quarters','crew']]],
 oilhq:['Diversified Petroleum HQ',18,14,'snow',[[3,2,10,4,'#','Diversified Petroleum HQ','dphq'],[2,9,4,3,'#','Depot','depot']]],
 fishing:['Frostholm',26,16,'snow',[[3,3,5,4,'#','Cottage','ck1'],[9,3,3,4,'#','Cottage','ck2'],[18,3,5,4,'#','Net Shed','netshed'],[3,10,6,4,'#','Smokehouse','smokehouse'],[17,11,5,3,'#','Cottage','ck3']]],
-north:['North Road',22,14,'snow',[[2,2,4,3,'T'],[16,9,4,3,'T']]],
+north:['North Road',22,14,'snow',[[2,2,4,3,'T'],[16,9,4,3,'T'],[11,0,2,5,'~'],[10,5,2,9,'~']]],
 volcano:['Volcano',26,16,'rock',[[9,2,8,5,'v','Crater'],[2,10,4,3,'R'],[19,10,4,3,'R']]],
-mountains:['Mountains',22,16,'rock',[[3,3,4,4,'R'],[14,9,4,4,'R']]],
-cathedral:['Mountain-Top Cathedral',20,16,'rock',[[5,2,10,6,'#','Cathedral','church'],[14,10,4,4,'#',"Father Thyme's House",'rectory'],[15,13,1,1,'d']]],
+mountains:['Mountains',22,16,'rock',[[3,3,4,4,'R'],[14,9,4,4,'R'],[14,1,4,3,'~'],[12,2,2,1,'~'],[8,1,4,2,'~'],[0,1,8,1,'~']]],
+monastery:['Mountain-Top Monastery',20,16,'rock',[[16,2,3,4,'a'],[5,2,10,6,'#','Monastery Church','church'],[10,7,1,1,'d'],[2,10,9,4,'#',"Monks' Quarters",'monkq'],[6,13,1,1,'d'],[14,10,4,4,'#',"Father Thyme's House",'rectory'],[15,13,1,1,'d']]],
 east:['East Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 farm:['East Farm',22,16,'farm',[[1,1,20,6,'.'],[3,3,6,4,'#','Farmhouse','farmhouse'],[13,3,5,3,'#','Barn','barn']]],
-palace:['Royal Palace',20,16,'snow',[[4,2,12,6,'#','Royal Palace','palace'],[10,7,1,1,'d'],[2,9,5,5,'#','Chapel','chapel'],[4,13,1,1,'d'],[12,10,6,4,'#',"Servants' Quarters",'servq'],[14,13,1,1,'d']]],
+palace:['Royal Palace',24,18,'snow',[[4,1,16,6,'#','Royal Palace','palace'],[12,6,1,1,'d'],[5,6,1,1,'d'],[12,7,1,2,','],[5,7,7,1,','],[3,12,19,1,','],[5,10,1,2,','],[18,10,1,2,','],
+[4,8,3,2,'#','Fountain','fountain'],[17,8,3,2,'#','Fountain','fountain'],[1,14,3,3,'T'],[20,14,3,3,'T']]],
 town:['Kingsgrad',40,30,'snow',[[2,5,6,5,'#','Party Office','partyoffice'],[9,5,5,5,'#','Gun Shop','gunshop'],[11,9,1,1,'d'],[15,5,5,5,'#','Bar','citybar'],[17,9,1,1,'d'],
 [2,13,8,7,'#','Supermarket','supermarket'],[5,19,1,1,'d'],[11,15,4,5,'#','Tailor','tailor'],[12,19,1,1,'d'],[16,15,4,5,'#','Book Shop','bookshop'],[17,19,1,1,'d'],
 [2,23,4,5,'#',"Frank's House",'th1'],[3,27,1,1,'d'],[7,23,4,5,'#',"Lisa's House",'th2'],[8,27,1,1,'d'],[12,23,4,5,'#',"Eddie's House",'th3'],[13,27,1,1,'d'],
@@ -26,7 +27,7 @@ second:['Eastbrook',26,25,'snow',[[3,3,6,5,'#','Houses','eb1'],[6,7,1,1,'d'],[17
 south:['South Road',24,12,'snow',[[3,2,4,2,'T'],[16,7,4,2,'T'],[0,10,24,1,'l']]],
 southwest:['South West Road',14,22,'snow',[[2,3,3,4,'T'],[9,13,3,4,'T']]],
 west:['West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
-beach:['Beach',12,22,'sand',[[1,1,3,20,'~'],[4,1,7,2,'~'],[11,0,1,22,'T'],[4,21,7,1,'T'],[4,4,1,1,'R'],[9,17,2,1,'R'],[4,15,1,1,'R'],[8,4,3,2,'#',"Pat's Camp",'tent'],[9,5,1,1,'d']]],
+beach:['Beach',12,22,'sand',[[1,1,3,20,'~'],[4,1,7,2,'~'],[11,0,1,22,'T'],[4,21,7,1,'T'],[4,4,1,1,'R'],[9,17,2,1,'R'],[4,15,1,1,'R'],[8,4,3,2,'#',"Pat's Camp",'tent'],[9,5,1,1,'d'],[4,15,8,2,'~']]],
 village:['Saltwick',44,24,'snow',[
 [2,3,9,8,'#','Fish Processing Plant','plant'],[6,10,1,1,'d'],
 [16,4,10,7,'#','Communist Party HQ','hq'],[20,10,1,1,'d'],
@@ -48,9 +49,20 @@ fishshop:['Fish Shop',14,10,'interior',[[2,1,10,1,'y','Shelves'],[3,3,8,1,'c','C
 house_tom:["Tom's House",10,9,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[7,1,2,1,'i','Stove'],[2,5,3,2,'x','Fishing Nets']]],
 house_sam:["Sam's House",10,9,'interior',[[6,1,2,2,'e','Bed'],[2,3,2,2,'u','Table'],[2,1,3,1,'y','Shelf'],[8,4,1,1,'i','Stove']]],
 house_bob:["Bob's House",10,9,'interior',[[2,5,2,2,'e','Bed'],[4,2,3,2,'u','Table'],[1,1,2,1,'i','Stove'],[7,5,2,1,'y','Shelf']]],
-palacehall:['Palace Hall',28,14,'interior',[[7,1,1,6,'W'],[14,1,1,6,'W'],[21,1,1,6,'W'],[1,7,2,1,'W'],[4,7,7,1,'W'],[12,7,6,1,'W'],[19,7,5,1,'W'],[25,7,2,1,'W'],
-[2,1,2,2,'e','Bed'],[5,1,1,1,'y','Shelf'],[9,1,2,2,'e','Bed'],[12,1,1,1,'y','Shelf'],[16,1,2,2,'e','Bed'],[19,1,1,1,'y','Shelf'],[23,2,3,2,'u','Dining Table'],
-[13,8,2,1,'t','Throne'],[5,8,3,1,'y','Bookcase'],[20,8,3,1,'y','Bookcase']]],
+// ---- The Royal Palace's rooms. The Grand Hall is the hub: doors in its back wall lead to the Royal Apartments, the Throne Room and
+// the Library, and doors in its side walls to the Dining Room and the Royal Chapel. The Dining Room leads on to the Kitchen, which
+// leads to the Servants' Quarters and down to the Wine Cellar; a secret bookcase in the Library opens on the Royal Vault.
+palacehall:['Grand Hall',24,12,'interior',[[1,1,3,1,'y','Shelf'],[8,1,2,1,'y','Shelf'],[14,1,2,1,'y','Shelf'],[20,1,3,1,'y','Shelf'],[2,9,2,1,'u','Side Table'],[20,9,2,1,'u','Side Table']]],
+throne:['Throne Room',20,12,'interior',[[9,1,2,1,'t','Throne']]],
+royalrooms:['Royal Apartments',24,12,'interior',[[8,1,1,6,'W'],[16,1,1,6,'W'],[1,7,3,1,'W'],[5,7,4,1,'W'],[9,7,3,1,'W'],[13,7,4,1,'W'],[17,7,3,1,'W'],[21,7,2,1,'W'],
+[2,1,2,2,'e','Bed'],[5,1,2,1,'y','Shelf'],[5,4,2,2,'u','Desk'],[10,1,2,2,'e','Bed'],[13,1,2,1,'y','Bookcase'],[13,4,2,2,'u','Desk'],[18,1,2,2,'e','Bed'],[21,1,2,1,'y','Shelf'],[21,4,1,1,'n','Mannequin']]],
+dining:['Dining Room',20,12,'interior',[[4,4,12,3,'u','Dining Table'],[2,1,4,1,'y','Bottles'],[14,1,4,1,'y','Shelf']]],
+kitchen:['Palace Kitchen',18,12,'interior',[[1,1,2,1,'i','Stove'],[4,1,2,1,'i','Stove'],[8,1,4,1,'y','Pantry Shelves'],[15,1,1,1,'z','Stairs down'],
+[5,5,6,2,'u','Kitchen Table'],[1,9,2,2,'x','Fresh Fish'],[13,9,2,2,'x','Boxes']]],
+winecellar:['Wine Cellar',18,10,'interior',[[1,1,5,1,'y','Wine Bottles'],[7,1,5,1,'y','Wine Bottles'],[1,5,3,2,'x','Wine Barrels'],[6,5,3,2,'x','Wine Barrels'],[11,5,3,2,'x','Wine Barrels'],[16,8,1,1,'z','Stairs up']]],
+library:['Royal Library',20,12,'interior',[[1,1,4,1,'y','Bookcase'],[6,1,4,1,'y','Bookcase'],[11,1,4,1,'y','Bookcase'],[16,1,2,1,'y','Bookcase'],[18,1,1,1,'q'],
+[2,4,5,1,'y','Bookcase'],[13,4,5,1,'y','Bookcase'],[2,7,5,1,'y','Bookcase'],[13,7,5,1,'y','Bookcase'],[8,5,4,2,'u','Reading Table']]],
+vault:['Royal Vault',14,9,'interior',[[1,1,3,2,'x','Gold Bars'],[10,1,3,2,'x','Gold Bars'],[5,1,4,1,'y','Crown Jewels'],[1,5,2,2,'x','Treasure Chests'],[11,5,2,2,'x','Treasure Chests']]],
 villa_phil:["Phil's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,2,1,'i','Fireplace'],[10,1,4,1,'y','Bookcase'],[6,4,3,2,'u','Desk'],[11,5,3,2,'u','Table']]],
 villa_dario:["Dario's Villa",16,10,'interior',[[12,1,2,2,'e','Bed'],[2,1,4,1,'y','Bookcase'],[7,1,2,1,'i','Fireplace'],[3,5,3,2,'u','Desk'],[9,5,3,2,'u','Table']]],
 villa_gustavo:["Gustavo's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,6,1,'y','Bottles'],[13,1,2,1,'i','Fireplace'],[6,4,4,2,'u','Meeting Table'],[12,6,2,2,'x','Crates']]],
@@ -85,6 +97,13 @@ crypt:['Royal Crypt',16,10,'interior',[[7,1,2,3,'x',"The Late King's Tomb"],[2,2
 tram:['Tram',20,7,'interior',[[2,1,3,1,'o'],[6,1,3,1,'o'],[11,1,3,1,'o'],[15,1,2,1,'o'],[18,1,1,2,'y','Route Map'],
 [2,5,3,1,'o'],[6,5,3,1,'o'],[12,5,3,1,'o'],[16,5,2,1,'o'],[10,6,1,1,'m']]],
 house_pekka:["Pekka's House",10,9,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[7,1,2,1,'i','Stove'],[2,5,3,1,'y','Shelf']]],
+// The Monks' Quarters: the kitchen (left), the refectory you come in to (middle) and the dormitory (right), joined by doorways.
+monks:["Monks' Quarters",27,10,'interior',[[9,1,1,3,'W'],[9,5,1,4,'W'],[17,1,1,3,'W'],[17,5,1,4,'W'],
+[1,1,2,1,'i','Stove'],[4,1,4,1,'y','Pantry Shelves'],[3,4,3,2,'u','Kitchen Table'],[1,7,2,1,'x','Boxes'],
+[11,3,5,2,'u','Refectory Table'],[10,6,2,2,'u','Desk'],[15,1,2,1,'y','Bookcase'],
+[18,1,2,2,'e','Bed'],[21,1,2,2,'e','Bed'],[24,1,2,2,'e','Bed'],[18,6,2,2,'e','Bed'],[21,6,2,2,'e','Bed']]],
+monchurch:['Monastery Church',22,14,'interior',[[10,1,3,1,'t','Altar'],[1,1,2,1,'y','Bookcase'],[19,1,2,1,'y','Bookcase'],
+[2,5,7,1,'u','Pew'],[13,5,7,1,'u','Pew'],[2,7,7,1,'u','Pew'],[13,7,7,1,'u','Pew'],[2,9,7,1,'u','Pew'],[13,9,7,1,'u','Pew']]],
 house_kate:["Kate's House",10,9,'interior',[[7,2,2,2,'e','Bed'],[2,2,2,2,'u','Table'],[2,5,3,1,'y','Shelf'],[5,1,2,1,'i','Stove']]],
 harbour:['West Saltwick Harbour',24,14,'harbour',[[1,1,9,12,'~'],[2,5,10,4,'p'],[2,2,4,2,'b','Fishing Boat'],[2,10,3,2,'b','Fishing Boat'],[6,10,4,2,'b','Fishing Boat'],[13,4,2,2,'k','Fish Pile'],[15,2,6,3,'#','Warehouse','whs']]],
 gated:['Hope Springs Gated Community',26,18,'snow',[[3,3,7,5,'#',"Phil's Villa",'villa1'],[6,7,1,1,'d'],[17,3,7,5,'#',"Dario's Villa",'villa2'],[20,7,1,1,'d'],
@@ -98,23 +117,27 @@ kalanharbour:['North Frostholm Harbour',24,14,'harbour',[[1,1,22,6,'~'],[4,3,12,
 savilaharbour:['Eastbrook Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p'],[15,10,4,2,'b','Fishing Boat'],[2,2,6,3,'#','Customs Shed','customs'],[2,9,6,3,'#','Warehouse','whs']]]};
 // Links from the sketch: "A side B side". Order of links sets the order of exits along a side.
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano B north T','north R town L','west R town L',
-'mountains B east T','mountains R cathedral L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R tramstop L',
+'mountains B east T','mountains R monastery L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R tramstop L',
 'tramstop R colafactory L','colafactory B second T','south L town R','south R second L','beach R west L','beach B village T',
 'west B village T','village L harbour R','town B southwest T','southwest B gated T','southwest L barracks R','gated R privbeach L','gated L privharbour R','village R radio L','fishing T kalanharbour B','second R savilaharbour L','tramstop B forest T'];
 
 // ---- Overview-map layout (used only by tools/build-map.js): id:[x, y, kind]. Kinds: town, road, site, nature, harbour.
 const POS={oilrig:[169,236,'harbour'],oilhq:[353,239,'site'],fishing:[545,234,'town'],kalanharbour:[545,140,'harbour'],
-volcano:[758,256,'nature'],mountains:[1005,256,'nature'],cathedral:[1159,256,'site'],north:[604,370,'road'],east:[956,377,'road'],
+volcano:[758,256,'nature'],mountains:[1005,256,'nature'],monastery:[1159,256,'site'],north:[604,370,'road'],east:[956,377,'road'],
 farm:[1162,380,'nature'],palace:[793,424,'site'],town:[755,487,'town'],colahq:[873,498,'site'],tramstop:[1000,498,'road'],forest:[1060,570,'nature'],
 colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[961,592,'road'],west:[557,532,'road'],
 beach:[334,465,'nature'],village:[455,668,'town'],harbour:[213,674,'harbour'],radio:[500,610,'site'],barracks:[610,600,'site'],southwest:[735,592,'road'],gated:[758,694,'town'],
 privharbour:[540,700,'harbour'],privbeach:[936,712,'nature']};
 
+// ---- The Valto River on the overview map (used only by tools/build-map.js): its course from its spring in the mountains,
+// running past North Road (where the road bridges it) to the place it ends at, then on to the coast there.
+const RIVER={name:'Valto River',pts:[[990,222],[880,192],[760,205],[660,262],[614,330],[604,372],[582,408],[470,432]],end:'beach',bridges:[[592,393]],label:[870,180,-4]};
+
 // ---- Factions shown on the overview map (used only by tools/build-map.js): id:[name, colour, short badge]
 const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you work for. Its people on the island are your handler and an informant.'],communist:['Communist Party','#c0392b','COM','Allies of the Soviet Union.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based in the main town.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
 cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.']};
 // Where each faction is based: location id -> faction id. Unlisted locations are unassigned.
-const FACTION_AT={village:'communist',town:'democrat',gated:'syndicate',palace:'royal',cathedral:'church',
+const FACTION_AT={village:'communist',town:'democrat',gated:'syndicate',palace:'royal',monastery:'church',
 colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil'};
 
 // ---- Districts: id:[name, map colour]. DISTRICT_OF puts every place on the overview map in one; interiors take their building's.
@@ -122,7 +145,7 @@ const DISTRICTS={central:['Central','#f3d9a4'],north:['North','#d9c8ea'],northea
 southwest:['South West','#f2c9bf'],south:['South','#eadbb6'],southeast:['South East','#c3e6dc']};
 const DISTRICT_OF={palace:'central',town:'central',colahq:'central',tramstop:'southeast',forest:'southeast',
 southwest:'south',barracks:'south',gated:'south',privbeach:'south',privharbour:'south',
-east:'northeast',mountains:'northeast',cathedral:'northeast',farm:'northeast',
+east:'northeast',mountains:'northeast',monastery:'northeast',farm:'northeast',
 colafactory:'southeast',south:'southeast',second:'southeast',savilaharbour:'southeast',
 west:'southwest',radio:'southwest',village:'southwest',beach:'southwest',harbour:'southwest',
 oilhq:'northwest',oilrig:'northwest',fishing:'northwest',kalanharbour:'northwest',
@@ -150,10 +173,10 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'apartments',x:20,y:5,dir:0,name:'Helen',home:'apartments',loc:'apartments',job:'Party member',faction:'communist',body:'#b84a4a',hair:'#d9c9a0'},
 {m:'bar',x:5,y:2,dir:0,name:'Ray',home:'barflat',loc:'bar',job:'Bartender',faction:'none',body:'#4a3a2a',hair:'#222222'},
 {m:'colahq',x:8,y:9,dir:0,name:'Phil',home:'villa_phil',loc:'colahq',job:'CEO of Kelp Cola',faction:'cola',body:'#2e5a3a',hair:'#8a8a8a'},
-{m:'palacehall',x:13,y:9,dir:0,name:'Leopold',home:'palacehall',loc:'palacehall',job:'Prince',faction:'royal',body:'#6a2c8a',hair:'#d9b44a'},
-{m:'palacehall',x:10,y:4,dir:0,name:'Augustus',home:'palacehall',loc:'palacehall',job:"Prince's brother",faction:'royal',body:'#4a2a6a',hair:'#c9a040'},
-{m:'cathedral',x:11,y:9,dir:0,name:'Father Thyme',home:'house_thyme',loc:'cathedral',job:'Bishop',faction:'church',body:'#2a2a33',hair:'#e8e8e8'},
-{m:'palacehall',x:16,y:10,dir:0,name:'Daphne',home:'palacehall',loc:'palacehall',job:"Prince's sister",faction:'royal',body:'#9a4ab0',hair:'#e8c86a'},
+{m:'throne',x:10,y:3,dir:0,name:'Leopold',home:'royalrooms',loc:'throne',job:'Prince',faction:'royal',body:'#6a2c8a',hair:'#d9b44a'},
+{m:'library',x:9,y:8,dir:0,name:'Augustus',home:'royalrooms',loc:'library',job:"Prince's brother",faction:'royal',body:'#4a2a6a',hair:'#c9a040'},
+{m:'monastery',x:11,y:9,dir:0,name:'Father Thyme',home:'house_thyme',loc:'monastery',job:'Bishop',faction:'church',body:'#2a2a33',hair:'#e8e8e8'},
+{m:'palace',x:7,y:13,dir:0,name:'Daphne',home:'royalrooms',loc:'palace',job:"Prince's sister",faction:'royal',body:'#9a4ab0',hair:'#e8c86a'},
 {m:'oilhq',x:8,y:7,dir:0,name:'Dario',home:'villa_dario',loc:'oilhq',job:'CEO of Diversified Petroleum',faction:'oil',body:'#37474f',hair:'#2a1a12'},
 {m:'gated',x:20,y:16,dir:0,name:'Gustavo',home:'villa_gustavo',loc:'gated',job:'Don',faction:'syndicate',body:'#1a1a22',hair:'#222222'},
 {m:null,name:'Chuck',home:'none',loc:'shack_hekki',job:'CIA handler (off the island; reached by radio)',faction:'cia',body:'#8a7a5a',hair:'#6b4a2a'},
@@ -167,14 +190,19 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'bookshop',x:9,y:7,dir:1,name:'Mary',home:'house_mary',loc:'bookshop',job:'Book shop owner',faction:'none',body:'#8a3a2a',hair:'#d9c9a0'},
 {m:'fishingshop',x:5,y:2,dir:0,name:'Jack',home:'house_jack',loc:'fishingshop',job:'Fishing shop owner',faction:'none',body:'#2e6f9a',hair:'#7a5a3a',hat:'#e0a100'},
 {m:'estateagent',x:8,y:5,dir:1,name:'Sally',home:'house_sally',loc:'estateagent',job:'Estate agent',faction:'none',body:'#2e6f9a',hair:'#e8c86a'},
-{m:'palacehall',x:11,y:9,dir:0,name:'Edmund',home:'servants',loc:'palacehall',job:'Butler',faction:'royal',body:'#1a1a22',hair:'#b5b5b5'},
-{m:'palace',x:9,y:8,dir:0,name:'Oskar',home:'servants',loc:'palace',job:'Footman',faction:'royal',body:'#5e2a75',hair:'#3a2a20'},
-{m:'servants',x:16,y:2,dir:1,name:'Marta',home:'servants',loc:'servants',job:'Cook',faction:'royal',body:'#f2f2f2',hair:'#8a5a3a'},
-{m:'palacehall',x:4,y:4,dir:0,name:'Ingrid',home:'servants',loc:'palacehall',job:'Maid',faction:'none',body:'#3a3d4a',hair:'#d9c9a0'},
-{m:'palacehall',x:24,y:4,dir:2,name:'Lotta',home:'servants',loc:'palacehall',job:'Maid',faction:'none',body:'#3a3d4a',hair:'#6b3a22'},
-{m:'palace',x:8,y:14,dir:0,name:'Viktor',home:'servants',loc:'palace',job:'Groundskeeper',faction:'none',body:'#5a6a3a',hair:'#7a7a7a',hat:'#3d5a40'},
+{m:'palacehall',x:12,y:5,dir:0,name:'Edmund',home:'servants',loc:'palacehall',job:'Butler',faction:'royal',body:'#1a1a22',hair:'#b5b5b5'},
+{m:'palace',x:11,y:7,dir:0,name:'Oskar',home:'servants',loc:'palace',job:'Footman',faction:'royal',body:'#5e2a75',hair:'#3a2a20'},
+{m:'kitchen',x:2,y:2,dir:1,name:'Marta',home:'servants',loc:'kitchen',job:'Cook',faction:'royal',body:'#f2f2f2',hair:'#8a5a3a'},
+{m:'royalrooms',x:10,y:9,dir:0,name:'Ingrid',home:'servants',loc:'royalrooms',job:'Maid',faction:'none',body:'#3a3d4a',hair:'#d9c9a0'},
+{m:'dining',x:10,y:8,dir:1,name:'Lotta',home:'servants',loc:'dining',job:'Maid',faction:'none',body:'#3a3d4a',hair:'#6b3a22'},
+{m:'palace',x:16,y:14,dir:2,name:'Viktor',home:'servants',loc:'palace',job:'Groundskeeper',faction:'none',body:'#5a6a3a',hair:'#7a7a7a',hat:'#3d5a40'},
 {m:'transhut',x:5,y:6,dir:1,name:'Kalle',home:'apartments',loc:'transhut',job:'Radio DJ',faction:'none',body:'#e8792a',hair:'#3a2a20'},
 {m:'colafactory',x:7,y:13,dir:0,name:'Pekka',home:'house_pekka',loc:'colafactory',job:'Food van owner',faction:'none',body:'#e0a100',hair:'#2a1a12',hat:'#c0392b'},
+{m:'monastery',x:13,y:9,dir:0,name:'Brother Anselm',home:'monks',loc:'monastery',job:'Abbot',faction:'church',body:'#2a2a33',hair:'#9a9a9a'},
+{m:'monastery',x:15,y:6,dir:1,name:'Brother Paavo',home:'monks',loc:'monastery',job:'Monk (gardener)',faction:'church',body:'#5a3a26',hair:'#7a5a3a'},
+{m:'monks',x:12,y:7,dir:2,name:'Brother Ilja',home:'monks',loc:'monks',job:'Monk (scribe)',faction:'church',body:'#3a2a20',hair:'#c9a05a'},
+{m:'monks',x:2,y:2,dir:1,name:'Brother Teodor',home:'monks',loc:'monks',job:'Monk (cook)',faction:'church',body:'#4a3222',hair:'#2a1a12'},
+{m:'monks',x:13,y:2,dir:0,name:'Brother Mikael',home:'monks',loc:'monks',job:'Monk',faction:'church',body:'#3a3d44',hair:'#e8e8e8'},
 {m:'servants',x:3,y:7,dir:2,name:'Elsa',home:'servants',loc:'servants',job:'Laundress',faction:'none',body:'#7a8a9a',hair:'#caa05a'}];
 
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
@@ -182,12 +210,14 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 const DOORS=[['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],
 ['village',14,18,0,1,'fishshop'],['village',21,18,0,1,'house_tom'],['village',27,18,0,1,'house_sam'],
 ['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,1,0,1],
-['palace',10,7,0,1,'palacehall'],['gated',6,7,0,1,'villa_phil'],['gated',20,7,0,1,'villa_dario'],['gated',6,15,0,1,'villa_gustavo'],
-['cathedral',15,13,0,1,'house_thyme'],['radio',14,3,0,1,'shack_hekki'],['shack_hekki',8,1,0,1,'hekki_room'],['radio',3,5,0,1,'transhut'],['beach',9,5,0,1,'tent_pat'],
+['palace',12,6,0,1,'palacehall'],['palacehall',5,0,0,1,'royalrooms'],['palacehall',12,0,0,1,'throne'],['palacehall',19,0,0,1,'library'],
+['palacehall',0,6,1,0,'dining',19,6,-1,0],['palacehall',23,6,-1,0,'chapel'],['dining',0,6,1,0,'kitchen',17,6,-1,0],['kitchen',0,6,1,0,'servants',17,6,-1,0],['palace',5,6,0,1,'servants'],
+['kitchen',15,1,0,1,'winecellar',16,8,-1,0],['library',18,1,0,1,'vault'],['gated',6,7,0,1,'villa_phil'],['gated',20,7,0,1,'villa_dario'],['gated',6,15,0,1,'villa_gustavo'],
+['monastery',15,13,0,1,'house_thyme'],['monastery',6,13,0,1,'monks'],['monastery',10,7,0,1,'monchurch'],['radio',14,3,0,1,'shack_hekki'],['shack_hekki',8,1,0,1,'hekki_room'],['radio',3,5,0,1,'transhut'],['beach',9,5,0,1,'tent_pat'],
 ['town',11,9,0,1,'gunshop'],['town',17,9,0,1,'citybar'],['town',5,19,0,1,'supermarket'],['town',12,19,0,1,'tailor'],['town',17,19,0,1,'bookshop'],
 ['town',3,27,0,1,'house_frank'],['town',8,27,0,1,'house_lisa'],['town',13,27,0,1,'house_eddie'],['town',17,27,0,1,'house_grace'],['town',25,6,0,1,'casino'],
 ['town',33,6,0,1,'estateagent'],['town',24,14,0,1,'fishingshop'],['town',29,14,0,1,'house_forsale'],['town',34,14,0,1,'house_vince'],['town',23,21,0,1,'house_mary'],
-['town',28,21,0,1,'house_jack'],['town',33,21,0,1,'house_sally'],['town',24,28,0,-1,'sewers'],['palace',14,13,0,1,'servants'],['second',6,7,0,1,'house_pekka'],['palace',4,13,0,1,'chapel'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
+['town',28,21,0,1,'house_jack'],['town',33,21,0,1,'house_sally'],['town',24,28,0,-1,'sewers'],['second',6,7,0,1,'house_pekka'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
 // ---- How each building looks from outside (feature style key -> look). kind: gable, flat or tall
@@ -233,7 +263,8 @@ th3:{kind:'gable',wall:'#c88a7a',roof:'#4a4f58',trim:'#f4e2d0',win:'#bcd9ea',chi
 th4:{kind:'gable',wall:'#b8d0a8',roof:'#3b5a3b',trim:'#ffffff',win:'#bcd9ea',chim:.3,porch:1},
 th5:{kind:'gable',wall:'#d8d4cc',roof:'#6b6b66',trim:'#ffffff',win:'#9aa8b4',chim:.6},
 chapel:{kind:'gable',wall:'#efe6cf',roof:'#4a6a9a',trim:'#c9a040',win:'#c9a0e0',deco:'church',tex:'brick'},
-servq:{kind:'gable',wall:'#d8d0bc',roof:'#4a3a5a',trim:'#c9a040',win:'#bcd9ea',chim:.25,chim2:.75},
+fountain:{kind:'fountain'},
+monkq:{kind:'gable',wall:'#b8b2a6',roof:'#5a3a26',trim:'#e8e2d4',win:'#bcd9ea',tex:'brick',chim:.2,chim2:.8},
 h4:{kind:'gable',wall:'#aebfd0',roof:'#2e5f9a',trim:'#9fb4c4',win:'#bcd9ea',chim:.8,porch:1},
 derrick:{kind:'derrick'},
 crew:{kind:'flat',wall:'#d8dce0',roof:'#8a9099',trim:'#e8792a',win:'#a9c7da',tex:'metal'},
@@ -262,7 +293,8 @@ fishmkt:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8'
 customs:{kind:'flat',wall:'#c9c2b0',roof:'#5b636c',trim:'#2e5f8f',win:'#bcd9ea',sign:'CUSTOMS',signc:'#2e5f8f',flag:'#2e5f8f'}};
 
 // ---- Small objects standing in the world (drawn by js/art.js): [mapId, x, y, kind]. All are solid except those in PROP_PASS.
-const PROPS=[['town',21,24,'buffer'],['town',22,26,'lamp'],['town',37,26,'lamp'],['town',25,26,'bench'],['town',35,26,'bench'],
+const PROPS=[['monastery',12,12,'woodpile'],['monastery',3,9,'bench'],['monastery',15,1,'barrel'],['monastery',4,14,'bush'],['monastery',12,1,'bush'],
+['town',21,24,'buffer'],['town',22,26,'lamp'],['town',37,26,'lamp'],['town',25,26,'bench'],['town',35,26,'bench'],
 ['tramstop',3,5,'lamp'],['tramstop',18,5,'lamp'],['tramstop',6,5,'bench'],['tramstop',16,5,'bench'],['tramstop',15,6,'phone'],['tramstop',2,1,'bush'],['tramstop',19,1,'bush'],['tramstop',3,10,'bush'],['tramstop',18,11,'bush'],['tramstop',12,10,'signpost'],
 ['colafactory',16,5,'crate'],['colafactory',17,6,'crate'],['colafactory',16,6,'crate'],['colafactory',19,6,'pipes'],['colafactory',20,6,'pipes'],['colafactory',23,6,'drum'],['colafactory',24,6,'drum'],['colafactory',24,2,'gen'],['colafactory',24,4,'spool'],
 ['colafactory',12,9,'lamp'],['colafactory',16,9,'lamp'],['colafactory',22,11,'lamp'],['colafactory',3,11,'bench'],['colafactory',6,11,'bench'],['colafactory',8,12,'sign'],['colafactory',2,13,'barrel'],['colafactory',9,13,'bush'],
@@ -283,7 +315,10 @@ const PROPS=[['town',21,24,'buffer'],['town',22,26,'lamp'],['town',37,26,'lamp']
 ['radio',8,6,'warn'],['radio',12,9,'gen'],['radio',13,9,'barrel'],['radio',13,10,'barrel'],['radio',16,5,'spool'],['radio',10,8,'lamp'],['radio',15,7,'dish'],
 ['town',8,11,'lamp'],['town',15,11,'lamp'],['town',6,21,'lamp'],['town',14,21,'lamp'],['town',27,8,'lamp'],['town',37,8,'lamp'],['town',26,16,'lamp'],
 ['town',5,28,'mailbox'],['town',10,28,'mailbox'],['town',15,28,'mailbox'],['town',31,16,'forsale'],['town',21,12,'bench'],['town',3,3,'bush'],['town',37,3,'bush'],
-['palace',18,12,'woodpile'],['palace',12,14,'bench'],['palace',8,10,'lamp'],['palace',15,9,'lamp'],['radio',2,10,'bush'],['radio',15,12,'bush'],['radio',6,12,'crate'],
+['palace',11,8,'lamp'],['palace',13,8,'lamp'],['palace',11,10,'hedge'],['palace',13,10,'hedge'],['palace',11,11,'hedge'],['palace',13,11,'hedge'],
+['palace',11,13,'hedge'],['palace',13,13,'hedge'],['palace',11,14,'hedge'],['palace',13,14,'hedge'],['palace',8,10,'statue'],['palace',16,10,'statue'],
+['palace',3,9,'flowers'],['palace',8,8,'flowers'],['palace',16,8,'flowers'],['palace',21,9,'flowers'],['palace',5,14,'flowers'],['palace',8,14,'flowers'],['palace',16,15,'flowers'],['palace',18,14,'flowers'],
+['palace',7,11,'bench'],['palace',17,13,'bench'],['palace',2,12,'lamp'],['palace',22,12,'lamp'],['palace',2,4,'bush'],['palace',21,3,'bush'],['radio',2,10,'bush'],['radio',15,12,'bush'],['radio',6,12,'crate'],
 ['oilrig',10,3,'drum'],['oilrig',11,3,'drum'],['oilrig',8,2,'pipes'],['oilrig',9,2,'pipes'],['oilrig',13,2,'gen'],['oilrig',8,5,'cone'],['oilrig',14,7,'lifebuoy'],
 ['oilrig',2,8,'drum'],['oilrig',3,8,'drum'],['oilrig',6,9,'spool'],['oilrig',13,10,'crate'],['oilrig',7,7,'lamp'],
 ['oilhq',2,6,'lamp'],['oilhq',13,8,'lamp'],['oilhq',7,10,'drum'],['oilhq',8,10,'drum'],['oilhq',7,11,'drum'],['oilhq',9,11,'pipes'],['oilhq',10,11,'pipes'],
@@ -291,9 +326,9 @@ const PROPS=[['town',21,24,'buffer'],['town',22,26,'lamp'],['town',37,26,'lamp']
 ['fishing',8,7,'lamp'],['fishing',14,9,'lamp'],['fishing',19,8,'net'],['fishing',20,8,'net'],['fishing',22,8,'trap'],['fishing',23,9,'buoy'],['fishing',18,9,'anchor'],
 ['fishing',8,5,'woodpile'],['fishing',10,11,'barrel'],['fishing',11,11,'barrel'],['fishing',5,7,'mailbox'],['fishing',15,7,'bench'],['fishing',16,14,'sled'],['fishing',20,1,'bush'],['fishing',10,13,'snowman'],
 ['north',8,6,'signpost'],['north',15,5,'fence'],['north',16,5,'fence'],['north',17,5,'fence'],['north',18,5,'fence'],['north',19,5,'fence'],
-['north',10,10,'rock'],['north',4,11,'rock'],['north',12,2,'bush'],['north',3,9,'bush'],['north',19,8,'woodpile'],['north',10,3,'snowman'],
+['north',13,11,'rock'],['north',4,11,'rock'],['north',9,2,'bush'],['north',3,9,'bush'],['north',19,8,'woodpile'],['north',9,4,'snowman'],
 ['volcano',5,5,'vent'],['volcano',20,4,'vent'],['volcano',16,9,'vent'],['volcano',4,8,'rock'],['volcano',21,13,'rock'],['volcano',12,8,'warn'],['volcano',14,13,'signpost'],
-['mountains',16,3,'rock'],['mountains',6,10,'rock'],['mountains',19,13,'rock'],['mountains',12,9,'signpost'],['mountains',8,2,'bush'],['mountains',18,6,'bush'],
+['mountains',16,5,'rock'],['mountains',6,10,'rock'],['mountains',19,13,'rock'],['mountains',12,9,'signpost'],['mountains',8,4,'bush'],['mountains',18,6,'bush'],
 ['east',13,5,'signpost'],['east',8,8,'fence'],['east',9,8,'fence'],['east',10,8,'fence'],['east',11,8,'fence'],['east',20,2,'bush'],['east',5,9,'bush'],['east',18,3,'rock'],['east',22,4,'woodpile'],
 ['farm',19,3,'hay'],['farm',19,4,'hay'],['farm',20,4,'hay'],['farm',11,4,'cart'],['farm',10,7,'mailbox'],['farm',15,1,'woodpile'],['farm',2,2,'bush'],
 ['farm',1,7,'fence'],['farm',2,7,'fence'],['farm',3,7,'fence'],['farm',4,7,'fence'],['farm',5,7,'fence'],['farm',6,7,'fence'],['farm',7,7,'fence'],['farm',8,7,'fence'],

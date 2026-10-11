@@ -13,6 +13,7 @@ for(const id in L){const[name,w,h,th,fs]=L[id],[g,b]=TH[th],cx=w>>1,cy=h>>1;NM[i
     if(v){for(let j=Math.min(y,cy);j<=Math.max(y,cy);j++)G[j][x]=',';for(let k=Math.min(x,cx);k<=Math.max(x,cx);k++)G[cy][k]=','}
     else{for(let k=Math.min(x,cx);k<=Math.max(x,cx);k++)G[y][k]=',';for(let j=Math.min(y,cy);j<=Math.max(y,cy);j++)G[j][cx]=','}
     EX[id].push({x,y,s,to})});
+  if(th=='interior')DOORS.filter(d=>d[0]==id).forEach(d=>{if(G[d[2]][d[1]]=='W')G[d[2]][d[1]]='m'});
   DOORS.filter(d=>d[5]==id).forEach(d=>{const ix=d[6]??(w>>1),iy=d[7]??(h-1);if(G[iy][ix]!='z')G[iy][ix]='m'});
   if(FERRY[id]){const[fx,fy,sx,sy,ix,iy]=FERRY[id];BOATS[id].forEach((to,i)=>EX[id].push({x:fx+i*sx,y:fy+i*sy,s:'F',to,ax:fx+i*sx+ix,ay:fy+i*sy+iy}))}
   EX[id].forEach(e=>G[e.y][e.x]=e.s=='F'?'F':'E');MAPS[id]=G.map(r=>r.join(''))}
@@ -120,6 +121,7 @@ function draw(t){
   FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(lb)tx(lb,(x+w/2)*T-cx,st?y*T-cy-3:(y+h/2)*T-cy+2,'center',st?'b':'s')});
   EX[P.m].filter(e=>e.s!='O').forEach(e=>{const[ix,iy]=inw(e),s=e.s=='F'?(e.ax>e.x?'L':'R'):e.s,nm=NM[e.to]+(e.s=='F'?' (boat)':''),lb=(s=='R'?'':'\u2192 ')+nm+(s=='R'?' \u2192':'');
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
+  if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
   const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
   if(MSG&&t-MSG.t<3000)tx(MSG.s,cv.width/2,cv.height-12,'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();

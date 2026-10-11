@@ -49,12 +49,15 @@ function groundLayer(m){
   const h=M.length,w=M[0].length,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
   const ps=PATHS[m]||'cobble',at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],cl=(x,y)=>{const k=CLS(at(x,y));return ps=='steel'&&k=='p'?'d':k};
   const sandy=ch=>ch=='s'||(base=='s'&&!'~b,EpF'.includes(ch)),
-    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?rockPx(X,Y):ch=='a'?fieldPx(X,Y):snowPx(X,Y);
+    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y):ch=='a'?fieldPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?rockPx(X,Y):snowPx(X,Y);
   // crater(X,Y) < 1 inside a lava feature's oval (with a wobbly edge), growing outward from it
   const VF=FL[m].filter(f=>f[4]=='v').map(([x,y,w,h])=>[(x+w/2)*16,(y+h/2)*16,w*8,h*8]),
     crater=(X,Y)=>Math.min(99,...VF.map(([cx,cy,rx,ry])=>(((X-cx)/rx)**2+((Y-cy)/ry)**2)*(.92+vnoise(X/6,Y/6,64)*.16)));
+  // bridge(x,y): a path tile with water on both sides is a bridge: 'h' if its walkway runs east-west (water north and south),
+  // 'v' if it runs north-south. Water flows on underneath, so water tiles treat a bridge next to them as more water.
+  const wet=(x,y)=>'~b'.includes(at(x,y)),bridge=(x,y)=>CLS(at(x,y))!='p'?0:wet(x,y-1)&&wet(x,y+1)?'h':wet(x-1,y)&&wet(x+1,y)?'v':0;
   for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){
-    const k=cl(tx,ty),n=cl(tx,ty-1),s=cl(tx,ty+1),wv=cl(tx-1,ty),e=cl(tx+1,ty),ch=M[ty][tx];
+    const k=cl(tx,ty),nb=(x,y)=>k=='w'&&bridge(x,y)?'w':cl(x,y),n=nb(tx,ty-1),s=nb(tx,ty+1),wv=nb(tx-1,ty),e=nb(tx+1,ty),ch=M[ty][tx],br=bridge(tx,ty);
     const nS=sandy(at(tx,ty-1)),sS=sandy(at(tx,ty+1)),wS=sandy(at(tx-1,ty)),eS=sandy(at(tx+1,ty)),sd=sandy(ch);
     const tuft=ch=='.'&&hash(tx,ty,9)>.86,tox=2+(hash(tx,ty,10)*11|0),toy=4+(hash(tx,ty,11)*9|0);
     const vert=(n=='p'||s=='p')&&wv!='p'&&e!='p';
@@ -71,6 +74,12 @@ function groundLayer(m){
         if(wv=='d'&&lx<3&&!col){col='#0a2236';a=80}
         if(n=='d'){const pst=lx%12==2||lx%12==3,st=ps=='steel';a=255;
           if(ly<3)col=ly==0?(st?'#5a5f68':'#6e4d30'):(st?'#3a3d44':'#4a321f');else if(pst&&ly<8)col=lx%12==2?(st?'#6b737c':'#5a3e27'):(st?'#3a3d44':'#3b2818');else if(ly<7){col='#0a2236';a=85}}}
+      else if(br){
+        // a wooden bridge: planks laid across the walkway, with a railing on posts along each side over the water
+        const u=br=='h'?X:Y,v=br=='h'?ly:lx,bd=u>>2;
+        if(v<3||v>12){col=v==0||v==15?'#3b2818':u%8<2?'#4a321f':v==1||v==14?'#a8794c':'#7a5436';if((v==1||v==14)&&vnoise(u/3,v,72)>.45)col=SNOW}
+        else{col=(u&3)==3?'#5a3e27':PLANK[hash(bd,9,70)*3|0];if((u&3)==0)col=shade(col,.08);if((v==5||v==10)&&(u&3)==1)col='#2f2219';
+          if(vnoise(X/6,Y/6,71)>.7)col=mix(col,'#e8eff5',.6)}}
       else if(k=='d'&&ps=='steel'){
         // steel deck plates with a raised tread pattern, rivets, drifted snow, and hazard stripes along the edge
         const sx=X&7,sy=Y&7;col=sx==7||sy==7?'#4f555e':sx==0||sy==0?'#9aa3ad':((X+Y)&3)==0&&((X-Y)&7)==0?'#9aa3ad':'#7d858e';
@@ -132,7 +141,8 @@ const WATER=Array.from({length:8},(_,f)=>{const c=cnv(64,64),g=c.getContext('2d'
   g.putImageData(img,0,0);return c});
 
 // ---- Buildings. s is a BLD entry; dx is the door's column (or -1). Returns the picture and any animated bits.
-function bld2(w,h,s,dx){
+// dx: the main door's column (or -1); more: the columns of any other doors (side or service entrances)
+function bld2(w,h,s,dx,more=[]){
   const W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),an=[];
   const r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a|0,b|0)};
   const tall=s.kind=='tall',wh=tall?H-10:Math.max(2,Math.round(h*.45))*T,ry=H-wh,dk=shade(s.wall,-.25),lt=shade(s.wall,.15);
@@ -150,7 +160,7 @@ function bld2(w,h,s,dx){
   if(aw){const a1=s.awn||(s.deco=='bar'?'#c0392b':'#2e86c1');for(let x=0;x<W;x++){const col=(x>>2)&1?a1:'#f2f2f2';r(col,x,ry,1,7);if((x&3)==1||(x&3)==2)r(col,x,ry+7,1,1)}
     r('rgba(0,0,0,.18)',0,ry+5,W,2);r('rgba(20,20,40,.25)',0,ry+8,W,2)}
   // big doors that take the place of windows
-  const skip=new Set([dx]);
+  const skip=new Set([dx,...more]);
   if(s.deco=='plant'){const bx=W-48,bw=34,bh=wh-8;for(let i=0;i<w;i++)if(i*16+15>=bx&&i*16<=bx+bw)skip.add(i);
     r('#2b2f3a',bx-2,H-bh-5,bw+4,bh+2);for(let y=H-bh-3;y<H-3;y++)r((y&1)?'#76828f':'#8d99a6',bx,y,bw,1);
     for(let y=H-bh-5;y<H-3;y++){const st=((y>>1)&1)?'#e0a100':'#2b2f3a';r(st,bx-4,y,2,1);r(st,bx+bw+2,y,2,1)}}
@@ -173,7 +183,7 @@ function bld2(w,h,s,dx){
   r('#6d727a',0,H-3,W,3);r('#8a9099',0,H-3,W,1);
   for(let x=0;x<W;x++){const d=vnoise(x/5,0,w*7+h);if(d>.55){const t=d>.75?3:2;r(SNOW,x,H-t,1,t);r(SNOWD,x,H-1,1,1)}}
   // door
-  if(dx>=0){const X=dx*16+2;r(shade(s.trim,-.35),X-1,H-18,14,15);r(s.trim,X,H-17,12,14);r('#5b3a26',X+1,H-16,10,13);
+  for(const di of[dx,...more])if(di>=0){const X=di*16+2;r(shade(s.trim,-.35),X-1,H-18,14,15);r(s.trim,X,H-17,12,14);r('#5b3a26',X+1,H-16,10,13);
     [[2,-15],[7,-15],[2,-9],[7,-9]].forEach(([a,b])=>r('#6e4930',X+a,H+b,3,4));r('#e8c33a',X+9,H-9,1,1);
     r('#8a9099',X-1,H-3,14,3);r('#a9b0b8',X-1,H-3,14,1);r('#3a3a44',X+13,H-15,1,1);r('#ffd36b',X+13,H-14,2,3);r('#fff1c8',X+13,H-14,1,1)}
   // roof
@@ -354,6 +364,11 @@ function vanArt(w,h){const W=w*16,H=h*16+10;return mk(W,H,r=>{
   r('#2b2f3a',6,1,W-30,8);r('#e0a100',7,2,W-32,6);ptext(r,'HOT FOOD',9,3,'#c0392b');r('#5a5f68',W-16,4,5,6);r('#7d858e',W-16,4,5,1);r(SNOW,2,top-1,W-4,1);
   // wheels
   for(const x of[10,W-20]){r('#1a1c22',x,bot-2,10,8);r('#5a5f68',x+3,bot+1,4,3)}})}
+// A frozen fountain: a stone basin of ice around a pillar with a snowy bowl on top. Drawn 16 pixels taller than its tiles.
+function fountainArt(w,h){const W=w*16,H=h*16+16;return mk(W,H,r=>{
+  for(let y=14;y<H-1;y++)for(let x=0;x<W;x++){const q=((x-W/2+.5)/(W/2))**2+((y-H+16)/14)**2;if(q<1)r(q>.62?(y<H-10?'#c9ced4':'#8a9099'):q>.5?'#6b737c':hash(x,y,80)>.93?'#ffffff':(x+y)%7==0?'#cfe6f2':'#9fc6e0',x,y)}
+  const cx=W>>1;r('#a9b0b8',cx-3,6,6,16);r('#c9ced4',cx-3,6,2,16);r('#8a9099',cx-9,4,18,4);r('#c9ced4',cx-9,4,18,1);r(SNOW,cx-9,3,18,2);r('#cfe6f2',cx-7,8,2,6);r('#cfe6f2',cx+5,8,2,5);
+  r('#a9b0b8',cx-1,0,2,4);r(SNOW,cx-2,0,4,1)})}
 // A cast-iron manhole cover, lightly dusted with snow.
 const manholeArt=mk(14,14,r=>{for(let y=0;y<14;y++)for(let x=0;x<14;x++){const d=Math.hypot(x-6.5,y-6.5);if(d>6.8)continue;
   r(d>5.6?'#3a3d44':((x+y)%3==0?'#2b2f3a':'#555a62'),x,y)}r('#7a808a',4,4,2,1);r(SNOW,2,3,2,1);r(SNOW,9,10,3,1)});
@@ -387,6 +402,10 @@ cone:[10,r=>{r('#e8792a',6,1,4,7);r('#e8792a',5,4,6,4);r('#f2f2f2',5,4,6,1);r('#
 cart:[12,r=>{r('#7a5232',1,2,12,6);r('#946640',1,2,12,1);r('#5a3a22',1,7,12,1);r('#3a3a44',3,8,4,4);r('#5a5f68',4,9,2,2);r('#6b4a2e',13,4,3,1);r(SNOW,2,1,10,2)}],
 buffer:[14,r=>{r('#5a5f68',2,8,12,6);r('#7d858e',2,8,12,1);for(let x=1;x<15;x++)r(((x>>1)&1)?'#c0392b':'#f2f2f2',x,2,1,6);r('#2b2f3a',1,1,14,1);r(SNOW,1,0,14,1);
   r('#3a3d44',3,4,3,3);r('#3a3d44',10,4,3,3);r('#ffd23a',4,5,1,1);r('#ffd23a',11,5,1,1)}],
+hedge:[14,r=>{r('#2b5c4b',0,2,16,12);r('#3e7a62',1,3,14,3);r('#1d4038',0,11,16,3);for(let x=1;x<15;x+=3)r('#4f8a72',x,6+(x%2),1,1);r(SNOW,0,1,16,3);r(SNOWD,0,4,16,1)}],
+statue:[26,r=>{r('#8a9099',3,20,10,6);r('#a9b0b8',3,20,10,1);r('#c9ced4',5,8,6,12);r('#e8ecef',5,8,2,12);r('#c9ced4',4,10,8,6);r('#c9ced4',6,2,4,6);r('#e8ecef',6,2,1,6);
+  r('#c9ced4',11,6,2,6);r('#a9b0b8',12,2,1,5);r(SNOW,6,1,4,1);r(SNOW,3,19,10,1)}],
+flowers:[8,r=>{r('#5a3d2a',0,4,16,4);r('#6b4a2e',0,4,16,1);for(let x=1;x<15;x+=3){r('#2b5c4b',x,1,2,3);r(['#c0392b','#e07a9a','#7d3c98'][x%3],x,0,2,2)}r(SNOW,0,3,16,1);r(SNOW,3,0,1,1);r(SNOW,10,0,2,1)}],
 vent:[6,r=>{r('#4a4048',1,1,14,4);r('#2a2028',3,2,10,2);r('#e8501e',6,2,3,1);r('#ff8a3a',7,2,1,1);r('#5a5058',2,0,4,1);r('#5a5058',10,0,4,1)}],
 dish:[18,r=>{r('#5a5f68',7,10,2,8);r('#5a5f68',4,16,8,2);for(let y=0;y<11;y++)for(let x=0;x<14;x++){if(((x-6.5)/6.5)**2+((y-5)/5)**2<1)r(x>8?'#b9c0c7':'#e8ecef',x+1,y)}r('#5a5f68',7,4,2,2);r(SNOW,3,0,8,1)}]});
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
@@ -429,8 +448,14 @@ fishshop:{fishCounter:1,fl:'check',f:['#e8eef2','#5b8fb9'],wall:'#cfe6ee',wall2:
 house_tom:{fl:'wood',f:['#b08658','#a37a4e','#bb9062'],wall:'#e8d9a8',wall2:'#d9c690',pap:'flower',rug:'#2e6f9a',quilt:'#c0392b',curtain:'#c0392b',deco:[[2,'win'],[5,'pic']]},
 house_sam:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c8dcc0',wall2:'#b4ccaa',pap:'stripe',rug:'#a33b2f',quilt:'#2e86c1',curtain:'#2e6f9a',deco:[[5,'win'],[8,'clock']]},
 house_bob:{fl:'wood',f:['#b8946a','#aa865c','#c29e72'],wall:'#ecd2c0',wall2:'#dcbea8',pap:'flower',rug:'#3d7a5a',quilt:'#c9822a',curtain:'#3d7a5a',deco:[[4,'win'],[7,'pic'],[8,'win']]},
-palacehall:{fl:'carpet',f:['#5e2a75','#7d3c98'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',quilt:'#7d3c98',curtain:'#5e2a75',base:'#8a6a45',
-  deco:[[1,'pic'],[3,'win'],[5,'clock'],[8,'pic'],[10,'win'],[15,'pic'],[17,'win'],[22,'rbanner'],[24,'win'],[26,'portrait']]},
+palacehall:{fl:'check',f:['#efe6cf','#5e2a75'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#8a6a45',deco:[[2,'portrait'],[8,'rbanner'],[10,'win'],[14,'win'],[16,'rbanner'],[22,'portrait'],[17,'clock']]},
+throne:{fl:'carpet',f:['#8e2f2a','#c9a040'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#8a6a45',deco:[[2,'win'],[4,'rbanner'],[7,'portrait'],[12,'portrait'],[15,'rbanner'],[17,'win']]},
+royalrooms:{fl:'carpet',f:['#5e2a75','#7d3c98'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',quilt:'#7d3c98',curtain:'#5e2a75',base:'#8a6a45',deco:[[1,'pic'],[3,'win'],[6,'clock'],[10,'portrait'],[12,'win'],[18,'pic'],[20,'win']]},
+dining:{fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',rug:'#5e2a75',curtain:'#5e2a75',base:'#8a6a45',deco:[[3,'portrait'],[7,'win'],[10,'rbanner'],[12,'win'],[16,'portrait']]},
+kitchen:{fl:'tile',f:['#d8d2c0','#c8c2b0'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#4a5058',deco:[[7,'clock'],[13,'win']]},
+winecellar:{fl:'stone',f:[],wall:'#6b5a48',wall2:'#4a3f34',pap:'brick',base:'#3a3530',deco:[[13,'win']]},
+library:{fl:'wood',f:['#7a5432','#6e4a2c','#866038'],wall:'#3d5a4a',wall2:'#34503f',pap:'stripe',rug:'#8e2f2a',base:'#5a3d2a',deco:[[5,'portrait'],[10,'clock'],[15,'portrait']]},
+vault:{fl:'stone',f:[],wall:'#7d858e',wall2:'#5a5f68',pap:'brick',base:'#3a3d44',deco:[]},
 villa_phil:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',rug:'#2e9d57',quilt:'#2e6f4a',curtain:'#2e9d57',deco:[[1,'win'],[4,'pic'],[9,'win'],[14,'clock']]},
 villa_dario:{fl:'wood',f:['#7a5a3a','#6e5034','#866444'],wall:'#d8dce2',wall2:'#c8ccd4',pap:'stripe',rug:'#37474f',quilt:'#37474f',curtain:'#37474f',deco:[[6,'pic'],[9,'win'],[11,'portrait'],[14,'win']]},
 villa_gustavo:{fl:'check',f:['#e8e2d4','#2a2a33'],wall:'#5a2a2a',wall2:'#4a2222',pap:'stripe',rug:'#c9a040',quilt:'#8a1a1a',curtain:'#8a1a1a',deco:[[4,'portrait'],[12,'pic'],[15,'win']]},
@@ -460,6 +485,8 @@ transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap
 chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
 crypt:{fl:'stone',f:[],wall:'#6b6458',wall2:'#4a443c',pap:'brick',base:'#3a3530',deco:[[3,'cross'],[7,'rbanner'],[12,'cross']]},
 tram:{fl:'tile',f:['#7d858e','#737b84'],wall:'#efe6cf',wall2:'#b8322a',pap:'panel',base:'#5a5f68',curtain:null,deco:[[2,'win'],[5,'win'],[8,'win'],[12,'win'],[15,'win']]},
+monks:{fl:'stone',f:[],wall:'#b8b2a6',wall2:'#8a8478',pap:'brick',base:'#5a564f',quilt:'#6b4a2e',deco:[[3,'win'],[12,'cross'],[14,'clock'],[20,'cross'],[23,'win']]},
+monchurch:{fl:'check',f:['#e8e2d4','#8a6a45'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#5a3d2a',deco:[[2,'win'],[4,'portrait'],[7,'portrait'],[11,'cross'],[14,'portrait'],[17,'portrait'],[19,'win']]},
 house_pekka:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#f2e2c0',wall2:'#e4d2ac',pap:'stripe',rug:'#c0392b',quilt:'#e0a100',curtain:'#c0392b',deco:[[2,'win'],[5,'pic']]},
 servants:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#e8e0cc',wall2:'#d8ceb4',pap:'stripe',rug:'#5e2a75',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[3,'win'],[6,'clock'],[9,'pic'],[12,'win']]},
 house_kate:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d6e0ec',wall2:'#c2cfe0',pap:'flower',rug:'#7d3c98',quilt:'#d86a8a',curtain:'#7d3c98',deco:[[3,'pic'],[8,'win'],[1,'win']]}};
@@ -479,11 +506,13 @@ const WU=16;
 function interiorLayer(m){
   const M=MAPS[m],h=M.length,w=M[0].length,W=w*T,H=h*T+WU,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data,f=INT[m]||INT.default;
   const at=(x,y)=>(M[y]&&M[y][x])||'W',isW=(x,y)=>at(x,y)=='W',bb=f.base||'#5a3d2a';
-  for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){const ch=M[ty][tx],wall=ch=='W',face=wall&&ty<h-1&&!isW(tx,ty+1),capH=ty==0?0:6;
-    if(ty==0)for(let ly=0;ly<WU;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,col=!face||ly<3?(ly==2&&face?'#54443a':'#3d3029'):shade(wallPx(X,ly-3,f),ly<5?-.2:0),i=(ly*W+X)*4;p.set(rgb(col),i);p[i+3]=255}
+  const dpx=(lx,y)=>lx==2||lx==13||y==0?'#3b2818':lx==7||lx==8?'#4a3222':(lx==6||lx==9)&&y==15?'#c9a040':y%7==3?'#6b4a2e':'#8a5a36';
+  for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){const ch=M[ty][tx],bd=ty==0&&ch=='m',wall=ch=='W'||bd,face=wall&&ty<h-1&&!isW(tx,ty+1),capH=ty==0?0:6;
+    if(ty==0)for(let ly=0;ly<WU;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,col=!face||ly<3?(ly==2&&face?'#54443a':'#3d3029'):shade(wallPx(X,ly-3,f),ly<5?-.2:0),i=(ly*W+X)*4;p.set(rgb(bd&&lx>=2&&lx<=13&&ly>=4?dpx(lx,ly-4):col),i);p[i+3]=255}
     for(let ly=0;ly<16;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,Y=ty*16+ly;let col;
       if(wall&&face){if(ly<capH)col=ly==capH-1?'#54443a':'#3d3029';else if(ly>=14)col=ly==14?shade(bb,.18):bb;
-        else{const fy=ty==0?ly+WU-3:ly-capH;col=wallPx(X,fy,f);if(fy<2)col=shade(col,-.2)}}
+        else{const fy=ty==0?ly+WU-3:ly-capH;col=wallPx(X,fy,f);if(fy<2)col=shade(col,-.2)}
+        if(bd&&lx>=2&&lx<=13&&ly<14)col=dpx(lx,ly+WU-4)}
       else if(wall){col='#3d3029';if((lx==15&&!isW(tx+1,ty))||(lx==0&&!isW(tx-1,ty))||(ly==0&&!isW(tx,ty-1)))col='#54443a'}
       else if(ch=='~'){const e=(at(tx,ty-1)!='~'&&ly<3)||(at(tx,ty+1)!='~'&&ly>12);col=e?'#3a3f3a':(Y+(X>>3))%5==0?'#5a7060':hash(X,Y,45)>.97?'#7a9070':'#3d5244'}
       else{col=floorPx(X,Y,f);
@@ -577,6 +606,11 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     // the route map: the tram line drawn as a red loop on a dark board, with a dot for each stop
     r('#5a5f68',0,0,W,TT);r('#2b2f3a',1,1,W-2,TT-8);r('#b8322a',3,4,1,TT-16);r('#b8322a',W-4,4,1,TT-16);r('#b8322a',3,4,W-6,1);r('#b8322a',3,TT-12,W-6,1);
     for(const[x,y]of[[3,4],[W-4,4],[W-4,TT-12],[3,TT-12]]){r('#ffffff',x-1,y-1,3,3);r('#b8322a',x,y,1,1)}r('#e0a100',2,TT-6,W-4,4);r('#2b2f3a',5,TT-5,W-10,2)})}}  // the secret door in Hekki's shack looks like any other bookcase
+  if(ch=='y'&&l.includes('jewel')){const oy=12,TT=H+oy-2;return{oy,an:{t:'blink',x:W>>1,y:5,c:'#fff2a0'},c:mk(W,TT,r=>{
+    // the crown jewels in a glass case on a velvet stand
+    r('#5a3d2a',0,TT-6,W,6);r('#7a5436',0,TT-6,W,1);r('#5e2a75',1,4,W-2,TT-10);r('#cfe6f2',1,0,W-2,4);r('#e8f4fa',2,1,3,1);
+    const cx=W>>1;r('#ffd23a',cx-6,8,12,4);r('#ffd23a',cx-6,5,2,3);r('#ffd23a',cx-1,4,2,4);r('#ffd23a',cx+4,5,2,3);r('#c0392b',cx-1,9,2,2);r('#2e86c1',cx-5,9,2,2);r('#2e9d57',cx+3,9,2,2);
+    r('#c9a040',4,10,3,5);r('#ffd23a',4,9,3,1);r('#e8e8e8',W-8,9,4,4);r('#c9a040',W-7,13,2,2)})}}
   if(ch=='y'&&l.includes('screen')){const oy=14,TT=H+oy-2,an=[];const c=mk(W,TT,r=>{
     // a rack of CRT monitors, two high, each showing something different (animated)
     r('#3a3d44',0,0,W,TT);r('#4a4f58',0,0,W,1);
@@ -621,6 +655,16 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     if(king){r('#5e2a75',3,3,W-6,TT-13);r('#7d3c98',3,3,W-6,2);r('#c9a040',3,TT-11,W-6,1);
       const cx=W>>1;r('#c9a040',cx-5,8,10,4);r('#ffd23a',cx-5,6,2,2);r('#ffd23a',cx-1,5,2,3);r('#ffd23a',cx+3,6,2,2);r('#c0392b',cx-1,9,2,2)}
     else{const cx=W>>1;r('#7a756c',cx-1,4,2,TT-15);r('#7a756c',cx-4,8,8,2)}})}}
+  if(ch=='x'&&/barrel|gold|chest/.test(l)){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{
+    if(l.includes('barrel'))for(let x=0;x+15<=W;x+=16)for(let y=0;y+15<=TT-2;y+=14){
+      // a wine barrel lying on its side on a rack, its round end facing out
+      r('#4a3222',x+1,y+12,14,3);for(let yy=0;yy<12;yy++)for(let xx=0;xx<14;xx++){const d=Math.hypot(xx-6.5,yy-5.5);if(d<6.3)r(d>5.2?'#3a3a44':d>4.4?'#7a4a2a':(xx+yy)%4==0?'#6b4a2e':'#8a5a36',x+1+xx,y+yy)}
+      r('#5a2a20',x+7,y+5,2,2);r('#c9a040',x+4,y+2,1,1)}
+    // gold bars stacked in a pyramid, three, two, then one
+    else if(l.includes('gold'))for(let row=0;row<3;row++)for(let k=0;k<3-row;k++){const x=((W-(3-row)*13)>>1)+k*13,y=TT-7-row*5;r('#a8862a',x,y,12,6);r('#ffd23a',x+1,y,10,2);r('#fff2a0',x+2,y,3,1)}
+    // a treasure chest per tile: an iron-bound box with its lid ajar on a glint of gold
+    else for(let x=0;x+15<=W;x+=16)for(let y=TT-14;y>=0;y-=16){r('#5a3a22',x+1,y+4,14,10);r('#7a5232',x+1,y+4,14,1);r('#3a3a44',x+1,y+8,14,1);r('#3a3a44',x+3,y+4,1,10);r('#3a3a44',x+12,y+4,1,10);
+      r('#ffd23a',x+6,y+7,4,3);r('#c9a040',x+7,y+8,2,2);r('#8a5a36',x+1,y,14,4);r('#a87a4c',x+1,y,14,1);r('#ffd23a',x+3,y+3,10,1);r('#e04a3a',x+11,y+3,1,1)}})}}
   if(ch=='x'){const oy=4,TT=H+oy;return{oy,c:mk(W,TT,r=>{
     if(l.includes('net')){for(let y=0;y<TT;y++)for(let x=0;x<W;x++){const q=((x-W/2)/(W/2))**2+((y-TT*.6)/(TT*.55))**2;if(q<1)r((x+y)%3?(q<.5?'#3d6b5a':'#2f5a48'):'#5e8f78',x,y)}
       r('#e8792a',W*.3|0,H*.5|0,3,3);r('#e8792a',W*.7|0,H*.6|0,3,3);return}
@@ -665,13 +709,16 @@ function scene(m){if(SC[m])return SC[m];
     if(st&&BLD[st]&&BLD[st].kind=='derrick'){put(y+h-1,x*16,y*16-DER_UP,derrickArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-DER_UP+2});return}
     // the van and shelters stand taller than their tiles, so they are sorted with people (who can pass behind them) rather than painted on the ground
     if(st&&BLD[st]&&BLD[st].kind=='van'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+6,(y+h)*16-2,w*16-8,3);put(y+h-1,x*16-1,y*16-11,vanArt(w,h));an.push({t:'smoke',x:(x+w)*16-14,y:y*16-8});return}
+    if(st&&BLD[st]&&BLD[st].kind=='fountain'){put(y+h-1,x*16-1,y*16-17,fountainArt(w,h));return}
     if(st&&BLD[st]&&BLD[st].kind=='shelter'){put(y+h-1,x*16-1,y*16-13,shelterArt(w,h,BLD[st].stop));return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
-    if(st&&BLD[st]){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
+    if(st&&BLD[st]){const row=M[y+h-1],ds=[];for(let i=0;i<w;i++)if(row[x+i]=='d')ds.push(i);
+      // the door nearest the middle is the main entrance; any others are side doors
+      ds.sort((a,b)=>Math.abs(a-(w-1)/2)-Math.abs(b-(w-1)/2));let dx=ds.length?ds[0]:-1;
       // buildings you can't go into still get a (locked) front door, unless their look already has a big door
       if(dx<0&&!['church','hut','whs','garage'].includes(BLD[st].deco))dx=w>>1;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
-      const b=bld2(w,h,BLD[st],dx);g.drawImage(b.c,x*16,y*16);b.an.forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}))}
+      const b=bld2(w,h,BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);b.an.forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}))}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
   // cables from a radio mast: armoured cables along the ground to its transmitter hut (and, in their own colour, to any building
