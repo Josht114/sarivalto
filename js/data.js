@@ -4,11 +4,11 @@ const L={
 oilrig:['Oil Rig',16,12,'deck',[[3,3,4,3,'#','Drill Tower','derrick'],[9,8,4,2,'#','Crew Quarters','crew']]],
 oilhq:['Diversified Petroleum HQ',18,14,'snow',[[3,2,10,4,'#','Diversified Petroleum HQ','dphq'],[2,9,4,3,'#','Depot','depot']]],
 fishing:['Frostholm',26,16,'snow',[[3,3,5,4,'#','Cottage','ck1'],[9,3,3,4,'#','Cottage','ck2'],[18,3,5,4,'#','Net Shed','netshed'],[3,10,6,4,'#','Smokehouse','smokehouse'],[17,11,5,3,'#','Cottage','ck3']]],
-north:['North Road',22,14,'snow',[[2,2,4,3,'T'],[16,9,4,3,'T'],[11,0,2,5,'~'],[10,5,2,9,'~']]],
+north:['North West Road',22,14,'snow',[[2,2,4,3,'T'],[16,9,4,3,'T'],[11,0,2,5,'~'],[10,5,2,9,'~']]],
 volcano:['Volcano',26,16,'rock',[[9,2,8,5,'v','Crater'],[2,10,4,3,'R'],[19,10,4,3,'R']]],
 mountains:['Mountains',22,16,'rock',[[3,3,4,4,'R'],[14,9,4,4,'R'],[14,1,4,3,'~'],[12,2,2,1,'~'],[8,1,4,2,'~'],[0,1,8,1,'~']]],
 monastery:['Mountain-Top Monastery',20,16,'rock',[[16,2,3,4,'a'],[5,2,10,6,'#','Monastery Church','church'],[10,7,1,1,'d'],[2,10,9,4,'#',"Monks' Quarters",'monkq'],[6,13,1,1,'d'],[14,10,4,4,'#',"Father Thyme's House",'rectory'],[15,13,1,1,'d']]],
-east:['East Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
+east:['North East Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 farm:['East Farm',22,16,'farm',[[1,1,20,6,'.'],[3,3,6,4,'#','Farmhouse','farmhouse'],[13,3,5,3,'#','Barn','barn']]],
 palace:['Royal Palace',24,18,'snow',[[4,1,16,6,'#','Royal Palace','palace'],[12,6,1,1,'d'],[5,6,1,1,'d'],[12,7,1,2,','],[5,7,7,1,','],[3,12,19,1,','],[5,10,1,2,','],[18,10,1,2,','],
 [4,8,3,2,'#','Fountain','fountain'],[17,8,3,2,'#','Fountain','fountain'],[1,14,3,3,'T'],[20,14,3,3,'T']]],
@@ -24,9 +24,9 @@ tramstop:['Tram Stop',22,14,'snow',[[0,3,22,1,'l'],[3,4,16,1,'P'],[9,5,5,2,'#','
 forest:['Pine Forest',26,18,'snow',[[1,1,5,4,'T'],[8,2,3,3,'T'],[17,1,4,3,'T'],[22,4,3,5,'T'],[2,7,4,3,'T'],[15,6,4,2,'T'],[8,7,4,3,'~'],[7,12,5,3,'T'],[18,11,5,4,'T'],[1,13,3,3,'T'],[13,14,2,2,'T'],[20,9,1,1,'R'],[4,11,1,1,'R']]],
 colafactory:['Kelp Cola Factory',26,20,'snow',[[2,1,12,6,'#','Kelp Cola Factory','kcfac'],[17,1,6,4,'#','Warehouse','kcwhs'],[3,12,4,2,'#','Food Van','foodvan'],[0,15,26,1,'l'],[15,16,9,1,'P'],[17,17,5,2,'#','Tram Stop','tramshelter']]],
 second:['Eastbrook',26,25,'snow',[[3,3,6,5,'#','Houses','eb1'],[6,7,1,1,'d'],[17,3,6,5,'#','Houses','eb2'],[3,14,6,4,'#','Union Hall','union'],[17,14,6,4,'#','Shops','ebshops'],[0,20,26,1,'l'],[9,21,8,1,'P'],[10,22,5,2,'#','Tram Stop','tramshelter']]],
-south:['South Road',24,12,'snow',[[3,2,4,2,'T'],[16,7,4,2,'T'],[0,10,24,1,'l']]],
-southwest:['South West Road',14,22,'snow',[[2,3,3,4,'T'],[9,13,3,4,'T']]],
-west:['West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
+south:['South East Road',24,12,'snow',[[3,2,4,2,'T'],[16,7,4,2,'T'],[0,10,24,1,'l']]],
+southwest:['South Road',14,22,'snow',[[2,3,3,4,'T'],[9,13,3,4,'T']]],
+west:['South West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 beach:['Beach',12,22,'sand',[[1,1,3,20,'~'],[4,1,7,2,'~'],[11,0,1,22,'T'],[4,21,7,1,'T'],[4,4,1,1,'R'],[9,17,2,1,'R'],[4,15,1,1,'R'],[8,4,3,2,'#',"Pat's Camp",'tent'],[9,5,1,1,'d'],[4,15,8,2,'~']]],
 village:['Saltwick',44,24,'snow',[
 [2,3,9,8,'#','Fish Processing Plant','plant'],[6,10,1,1,'d'],
@@ -124,13 +124,13 @@ const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano
 // ---- Overview-map layout (used only by tools/build-map.js): id:[x, y, kind]. Kinds: town, road, site, nature, harbour.
 const POS={oilrig:[169,236,'harbour'],oilhq:[353,239,'site'],fishing:[545,234,'town'],kalanharbour:[545,140,'harbour'],
 volcano:[758,256,'nature'],mountains:[1005,256,'nature'],monastery:[1159,256,'site'],north:[604,370,'road'],east:[956,377,'road'],
-farm:[1162,380,'nature'],palace:[793,424,'site'],town:[755,487,'town'],colahq:[873,498,'site'],tramstop:[1000,498,'road'],forest:[1060,570,'nature'],
-colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[961,592,'road'],west:[557,532,'road'],
-beach:[334,465,'nature'],village:[455,668,'town'],harbour:[213,674,'harbour'],radio:[500,610,'site'],barracks:[610,600,'site'],southwest:[735,592,'road'],gated:[758,694,'town'],
-privharbour:[540,700,'harbour'],privbeach:[936,712,'nature']};
+farm:[1162,380,'nature'],palace:[788,384,'site'],town:[755,487,'town'],colahq:[873,498,'site'],tramstop:[1000,498,'road'],forest:[1060,570,'nature'],
+colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[950,609,'road'],west:[557,532,'road'],
+beach:[334,465,'nature'],village:[419,573,'town'],harbour:[213,674,'harbour'],radio:[494,636,'site'],barracks:[610,600,'site'],southwest:[735,592,'road'],gated:[758,694,'town'],
+privharbour:[540,700,'harbour'],privbeach:[925,745,'nature']};
 
 // ---- The Valto River on the overview map (used only by tools/build-map.js): its course from its spring in the mountains,
-// running past North Road (where the road bridges it) to the place it ends at, then on to the coast there.
+// running past North West Road (where the road bridges it) to the place it ends at, then on to the coast there.
 const RIVER={name:'Valto River',pts:[[990,222],[880,192],[760,205],[660,262],[614,330],[604,372],[582,408],[470,432]],end:'beach',bridges:[[592,393]],label:[870,180,-4]};
 
 // ---- Factions shown on the overview map (used only by tools/build-map.js): id:[name, colour, short badge]
