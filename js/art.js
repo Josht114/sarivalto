@@ -446,6 +446,26 @@ function cartArt(w,h){const W=w*16,H=h*16+14;return mk(W,H,r=>{
   r('#c9ced4',3,H-22,W-6,3);r('#e8ecef',3,H-22,W-6,1);r('#c0392b',3,H-19,W-6,11);r('#e04a3a',3,H-19,W-6,1);r('#8e2620',3,H-9,W-6,1);
   ptext(r,'HOT',cx-5,H-17,'#ffd23a');r('#e0a100',5,H-12,W-10,2);r('#5a5f68',W-3,H-17,3,1);
   for(const x of[6,W-14]){r('#1a1a1e',x,H-8,8,7);r('#9aa3ad',x+3,H-5,2,2)}})}
+// The circus big top: a cone of red and cream stripes over a scalloped yellow valance and striped walls, with the entrance at
+// door column dx and a flagpole on top. Drawn 20 pixels taller than its tiles.
+function bigtopArt(w,h,dx){const W=w*16,H=h*16+20,cx=W>>1,ry=Math.round(H*.48);return mk(W,H,r=>{
+  r('#5a3d2a',cx,0,1,8);
+  for(let y=6;y<ry;y++){const hw=Math.max(1,Math.round((W/2)*(y-6)/(ry-6)));for(let x=cx-hw;x<cx+hw;x++){const k=Math.floor((x-cx)/hw*6+6);
+    let col=k&1?'#f2e6c8':'#c0392b';if(y<10+(x%3))col=y<9?'#ffffff':shade(col,.35);r(col,x,y)}}
+  for(let y=ry;y<H-1;y++)for(let x=0;x<W;x++)r(((x/6)|0)&1?'#f2e6c8':'#b5302a',x,y);
+  for(let x=0;x<W;x++){const d=Math.round(4-Math.abs((x%8)-3.5));r('#e0a100',x,ry,1,d);r('#a8862a',x,ry+d,1,1)}
+  const X=dx*16+8;for(let y=0;y<20;y++){const hw=Math.round(4+y*.3);r(y<2?'#a8862a':'#2a1a20',X-hw,H-21+y,hw*2,1)}
+  r('#f2e6c8',X-11,H-21,4,20);r('#f2e6c8',X+7,H-21,4,20);r('#e0a100',X-12,H-22,24,2)})}
+// A painted circus caravan: a curved roof with a stovepipe, a round window, a door with steps, and big spoked wheels. c: its
+// colour (col) and trim. Drawn 10 pixels taller than its tiles.
+function wagonArt(w,h,c){const W=w*16,H=h*16+10,cx=W>>1;return mk(W,H,r=>{
+  for(let x=1;x<W-1;x++){const t=Math.round(((x-cx)/(W/2))**2*5)+2;r(shade(c.col,-.3),x,t,1,9-t);r(SNOW,x,t,1,2)}
+  r(c.col,2,9,W-4,H-20);r(shade(c.col,.2),2,9,W-4,1);r(c.trim,2,10,W-4,1);r(c.trim,2,H-13,W-4,2);
+  for(let x=5;x<W-5;x+=6)r(c.trim,x,H-16,2,2);
+  r(c.trim,5,13,9,9);r('#ffd98a',6,14,7,7);r(c.trim,9,14,1,7);r(c.trim,6,17,7,1);
+  r(shade(c.trim,-.4),cx-6,H-30,12,19);r('#5a3a26',cx-5,H-29,10,18);r('#c9a040',cx+2,H-20,1,2);r('#7a5232',cx-6,H-11,12,2);r('#7a5232',cx-5,H-9,10,2);
+  r('#3a3d44',W-12,0,3,6);r('#5a5f68',W-12,0,1,6);
+  for(const wx of[8,W-9])for(let a=0;a<16;a++){const an=a/16*6.283;r('#4a3222',Math.round(wx+Math.cos(an)*5),Math.round(H-7+Math.sin(an)*5),1,1);if(a%4==0)pline(r,wx,H-7,Math.round(wx+Math.cos(an)*5),Math.round(H-7+Math.sin(an)*5),'#7a5232')}})}
 // A frozen fountain: a stone basin of ice around a pillar with a snowy bowl on top. Drawn 16 pixels taller than its tiles.
 function fountainArt(w,h){const W=w*16,H=h*16+16;return mk(W,H,r=>{
   for(let y=14;y<H-1;y++)for(let x=0;x<W;x++){const q=((x-W/2+.5)/(W/2))**2+((y-H+16)/14)**2;if(q<1)r(q>.62?(y<H-10?'#c9ced4':'#8a9099'):q>.5?'#6b737c':hash(x,y,80)>.93?'#ffffff':(x+y)%7==0?'#cfe6f2':'#9fc6e0',x,y)}
@@ -570,6 +590,7 @@ default:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c4b4
 plant:{grime:1,fl:'tile',f:['#b4bcc0','#a7b0b5'],wall:'#e4ebee',wall2:'#9fc3d6',pap:'tiles',base:'#4a5058',deco:[[2,'win'],[6,'safety'],[9,'clock'],[12,'win'],[16,'win']]},
 hq:{grime:1,fl:'carpet',f:['#8e2f2a','#a8433a'],wall:'#e8dcc0',wall2:'#9a7049',pap:'panel',deco:[[2,'win'],[5,'portrait'],[9,'banner'],[10,'banner'],[14,'portrait'],[17,'win']]},
 apartments:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
+apartments3:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
 apartments2:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
 bar:{grime:1,fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#2f4a3a',wall2:'#294232',pap:'stripe',curtain:'#7a2a2a',deco:[[1,'win'],[14,'dart'],[17,'neon'],[18,'win']]},
 barflat:{grime:1,fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b48a',wall2:'#bba67c',pap:'stripe',curtain:'#3d6b5a',quilt:'#7a5a8a',deco:[[1,'win'],[5,'pic'],[7,'win']]},
@@ -597,11 +618,17 @@ tavern:{fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#3d5a4a',wall2:'#34503
 cedargrill:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',rug:'#3d5a4a',curtain:'#3d5a4a',deco:[[12,'pic'],[16,'win']]},
 tattoo:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#2a2a30',wall2:'#3a3a44',pap:'stripe',base:'#7a1e2a',quilt:'#1a1a22',deco:[[1,'pic'],[3,'poster'],[5,'pic'],[7,'poster'],[10,'win']]},
 skyapts:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
+skyapts4:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
+skyapts3:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
 skyapts2:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
 eblofts:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
+eblofts3:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
 eblofts2:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
 hsresid:{fl:'check',f:['#efe6cf','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#8a6a45',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'portrait'],[15,'portrait']]},
+hsresid2:{fl:'check',f:['#efe6cf','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#8a6a45',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'portrait'],[15,'portrait']]},
 kgapts:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#2e6f9a',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[7,'clock']]},
+kgapts4:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#2e6f9a',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[7,'clock']]},
+kgapts3:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#2e6f9a',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[7,'clock']]},
 kgapts2:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#2e6f9a',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[7,'clock']]},
 doctor:{fl:'tile',f:['#e8eef2','#dfe6ea'],wall:'#f2f2f2',wall2:'#cfe8d8',pap:'tiles',base:'#2e9d57',quilt:'#f2f2f2',deco:[[3,'clock'],[10,'poster'],[14,'win']]},
 police:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#d8dfe6',wall2:'#9aa8b8',pap:'tiles',base:'#3a4a6a',quilt:'#5a5f68',deco:[[4,'clock'],[10,'map'],[17,'win']]},
@@ -630,6 +657,10 @@ fuel_in:{fl:'stone',f:[],wall:'#8a9aa8',wall2:'#37474f',pap:'tiles',base:'#2b2f3
 port_in:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#9aa8b8',pap:'tiles',base:'#37474f',deco:[[6,'map'],[12,'win']]},
 customs_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#7a5a3a',wall2:'#6b4e32',pap:'stripe',base:'#2f2a26',deco:[[6,'clock'],[12,'win']]},
 ebwhs_in:{fl:'wood',f:['#8a6a45','#7a5d3c','#94754e'],wall:'#4f6b4a',wall2:'#3f5a3a',pap:'stripe',base:'#2f2a26',deco:[[9,'win']]},
+bigtop_in:{fl:'sand',f:[],wall:'#c0392b',wall2:'#f2e6c8',pap:'stripe',base:'#e0a100',deco:[[4,'poster'],[12,'neon','CIRCUS','#ffd23a'],[19,'poster']]},
+caravan1_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c0392b',wall2:'#a3302a',pap:'stripe',base:'#5a3a26',quilt:'#e0a100',curtain:'#e0a100',deco:[[2,'poster'],[6,'win']]},
+caravan2_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#2e6f9a',wall2:'#255a7d',pap:'stripe',base:'#5a3a26',quilt:'#e07a9a',curtain:'#f2e6c8',deco:[[2,'win'],[6,'pic']]},
+caravan3_in:{fl:'carpet',f:['#5e2a75','#7d3c98'],wall:'#3a2a4a',wall2:'#c9a040',pap:'flower',base:'#c9a040',quilt:'#7d3c98',curtain:'#c9a040',deco:[[2,'portrait'],[6,'win']]},
 villa_gustavo:{fl:'check',f:['#e8e2d4','#2a2a33'],wall:'#5a2a2a',wall2:'#4a2222',pap:'stripe',rug:'#c9a040',quilt:'#8a1a1a',curtain:'#8a1a1a',deco:[[4,'portrait'],[12,'pic'],[15,'win']]},
 house_thyme:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#e8e2d4',wall2:'#d8d0c0',pap:'panel',rug:'#5a3a8a',quilt:'#5a3a8a',curtain:'#5a3a8a',deco:[[1,'win'],[4,'cross'],[8,'win']]},
 shack_hekki:{fl:'wood',f:['#7a6048','#6e5640','#866a50'],wall:'#8a7a62',wall2:'#7a6a52',pap:'stripe',quilt:'#5a6a4a',curtain:'#5a6a4a',deco:[[3,'pic'],[6,'win']]},
@@ -905,6 +936,9 @@ function scene(m){if(SC[m])return SC[m];
     if(st&&BLD[st]&&BLD[st].kind=='van'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+6,(y+h)*16-2,w*16-8,3);put(y+h-1,x*16-1,y*16-11,vanArt(w,h));an.push({t:'smoke',x:(x+w)*16-14,y:y*16-8});return}
     if(st&&BLD[st]&&(BLD[st].kind=='kiosk'||BLD[st].kind=='cart')){const cart=BLD[st].kind=='cart',a=cart?cartArt(w,h):kioskArt(w,h);
       g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+4,(y+h)*16-2,w*16-6,3);put(y+h-1,x*16-1,y*16-15,a);if(cart)an.push({t:'smoke',x:x*16+w*8-6,y:(y+h)*16-24});return}
+    if(st&&BLD[st]&&BLD[st].kind=='bigtop'){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
+      g.fillStyle='rgba(30,50,80,.22)';g.fillRect(x*16+2,(y+h)*16-2,w*16-2,3);put(y+h-1,x*16-1,y*16-21,bigtopArt(w,h,dx));an.push({t:'flag',x:x*16+w*8+1,y:y*16-20,col:'#e0a100'});return}
+    if(st&&BLD[st]&&BLD[st].kind=='wagon'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+4,(y+h)*16-2,w*16-6,3);put(y+h-1,x*16-1,y*16-11,wagonArt(w,h,BLD[st]));an.push({t:'smoke',x:x*16+w*16-11,y:y*16-11});return}
     if(st&&BLD[st]&&BLD[st].kind=='fountain'){put(y+h-1,x*16-1,y*16-17,fountainArt(w,h));return}
     if(st&&BLD[st]&&BLD[st].kind=='shelter'){put(y+h-1,x*16-1,y*16-13,shelterArt(w,h,BLD[st].stop));return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}

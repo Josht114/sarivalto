@@ -54,7 +54,11 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // ---- Riding the tram. On a platform, the action key (E, Space or Enter, or the E button) calls the tram; once it has stopped,
 // pressing it again gets on. Inside the tram the action key opens a menu of stops; picking one plays a short ride and then
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
-let MSG=null,MENU=0,RIDE=null,TRIP=null;const RIDE_DUR=2800,say=s=>{MSG={s,t:performance.now()}},menu=document.getElementById('menu');
+let MSG=null,MENU=0,RIDE=null,TRIP=null;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
+// ---- Talking: the person on the tile the player is facing, and what they say (a placeholder line for everyone for now)
+const npcAhead=()=>{const[dx,dy]=DIR[P.dir];return NPCS.find(n=>n.m==P.m&&n.x==P.x+dx&&n.y==P.y+dy)};
+const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
+function talk(n){n.dir=P.dir^1;say(line(n),6000)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
 // where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
@@ -65,6 +69,7 @@ function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+4
   const[x,y]=c.sort((a,b)=>a[2]-b[2])[0];return[x,y]}
 function act(){if(P.mv||MENU||RIDE)return;const now=performance.now();
   if(P.m=='tram'){openMenu();return}
+  const n=npcAhead();if(n){talk(n);return}
   const e=exitHere();if(e&&PRESS_DOORS.has(e.to)){useExit(e);return}
   if(!onPlatform())return;const st=tramState(P.m,now);
   if(!st){TRAMS[P.m]={ph:'arrive',t0:now};say('You press the button to call the tram.');return}
@@ -87,6 +92,7 @@ addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&(e.key=='e'||
 document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
 // what the action key would do here, shown above the player
 function tramHint(){if(P.m=='tram')return MENU?null:'Press E to choose a stop';
+  const n=npcAhead();if(n&&!P.mv)return'Press E to talk to '+n.name;
   const e=exitHere();if(e&&PRESS_DOORS.has(e.to))return'Press E to go down into the '+NM[e.to];if(!onPlatform())return null;const st=tramState(P.m,performance.now());
   return!st?'Press E to call the tram':st.ph=='wait'?'Press E to get on':st.ph=='arrive'?'The tram is coming…':null}
 const cam=(p,len,view)=>len<=view?-((view-len)>>1):Math.max(0,Math.min(len-view,Math.round(p)));
@@ -118,7 +124,7 @@ function draw(t){
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
   if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
   const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
-  if(MSG&&t-MSG.t<3000)tx(MSG.s,cv.width/2,cv.height-12,'center','h');
+  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-12,'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);

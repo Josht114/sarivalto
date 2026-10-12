@@ -4,7 +4,7 @@ A 2D top-down, Pokémon-style game set in the early 1980s Cold War. The player i
 fictional island north of Finland, where the king has just died and the island must not fall to the
 Soviet Union. Seven factions compete for control.
 
-**Current stage:** map prototype only. Walk around all 29 locations (plus building interiors); no characters, dialogue or
+**Current stage:** map prototype only. Walk around all 30 locations (plus building interiors); no characters, dialogue or
 game mechanics yet. Layouts are placeholders.
 
 ![Island map](docs/island-map.svg)
@@ -17,7 +17,7 @@ No build step. Open `index.html` in a browser, or serve the folder:
 
 ## Controls
 
-Arrows / WASD to move. On a tram platform, press E (or Space, Enter, or the E button) to call the tram, and again once it has stopped to get on. Inside, press E to choose a stop (arrow keys and E, or tap); walk out of the door to get off without riding. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
+Arrows / WASD to move. Face someone and press E (or Space, Enter, or the E button) to talk to them. On a tram platform, press E (or Space, Enter, or the E button) to call the tram, and again once it has stopped to get on. Inside, press E to choose a stop (arrow keys and E, or tap); walk out of the door to get off without riding. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
 edge exit to cross to the neighbouring area.
 
 ## Project layout
