@@ -74,5 +74,8 @@ Open `wiki/index.html`, or `wiki/all-in-one.html` for a single-file version. Add
 
 ## Factions
 
-Communist party, the late king's family, a cola company, an oil drilling company, an organised
-crime syndicate, a democratic party, and the northern orthodox church.
+Main factions, the ones that can win: the Communist Party, the late king's family, a cola company, an oil drilling company,
+an organised crime syndicate, a democratic party, and the northern orthodox church.
+
+Side factions, which play a part in the story but can't win: the CIA (who you work for), the KGB, and the Republican Party,
+whose vacant leadership the two companies and the syndicate are each trying to win for their own candidate.

@@ -1,8 +1,8 @@
 // Generates docs/island-map.svg (and the copy at island-map.svg) from js/data.js. Usage: node tools/build-map.js  (no dependencies)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;this.DISTRICTS=DISTRICTS;this.DISTRICT_OF=DISTRICT_OF;this.TRAM_STOPS=TRAM_STOPS;this.TRAM_LINE=TRAM_LINE;this.RIVER=RIVER;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,TRAM_LINE,RIVER}=box,W=1700,H=860;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+';this.L=L;this.LINKS=LINKS;this.POS=POS;this.FACTIONS=FACTIONS;this.SIDE_FACTIONS=SIDE_FACTIONS;this.FACTION_AT=FACTION_AT;this.BOATS=BOATS;this.DISTRICTS=DISTRICTS;this.DISTRICT_OF=DISTRICT_OF;this.TRAM_STOPS=TRAM_STOPS;this.TRAM_LINE=TRAM_LINE;this.RIVER=RIVER;',box);
+const {L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,TRAM_LINE,RIVER}=box,W=1700,H=860;
 const COL={town:'#f6ecc8',road:'#d6cdb8',site:'#f0cfae',nature:'#c3d4a6',harbour:'#bddcea'};
 const ids=Object.keys(L).filter(i=>POS[i]),pairs=LINKS.map(s=>{const a=s.split(' ');return[a[0],a[2]]});
 const wd=id=>L[id][0].length*7+20,P=id=>POS[id];
@@ -85,11 +85,14 @@ const nodes=ids.map(i=>{const[x,y]=NP(i).map(r1),k=P(i)[2],w=wd(i),f=FACTION_AT[
   (f?`<rect x="${x+w/2-34}" y="${y-25}" width="40" height="15" rx="7.5" fill="${f[1]}" stroke="#fff" stroke-width="1.5"/><text x="${x+w/2-14}" y="${y-14}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${f[2]}</text>`:'')+'</a>'}).join('');
 const grid=Array.from({length:14},(_,i)=>`<line x1="${(i+1)*120}" y1="0" x2="${(i+1)*120}" y2="${H}"/>`).join('')+Array.from({length:7},(_,i)=>`<line x1="0" y1="${(i+1)*110}" x2="${W}" y2="${(i+1)*110}"/>`).join('');
 const KEY=Object.entries({town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour / sea',anchor:'Harbour landing',boat:'Boat route',river:'River',tram:'Tram line',tstop:'Tram stop',pipe:'Oil pipeline'});
-const fk=Object.entries(FACTIONS);
-const ky=140+66+fk.length*38+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*28}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
-<text x="1462" y="176" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">FACTION BASES</text>`+fk.map(([k,[n,c,sh]],i)=>`<rect x="1462" y="${198+i*38}" width="42" height="18" rx="9" fill="${c}"/><text x="1483" y="${211+i*38}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${sh}</text><text x="1514" y="${212+i*38}" font-size="14" fill="#2b2118">${n}</text>`).join('')+
-`<text x="1462" y="${140+66+fk.length*38+16}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
-<text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+38+i*28,sym=
+// the legend lists the main factions, then the side factions (which can't win) under their own subheading
+const fk=Object.entries(FACTIONS).filter(([k])=>!SIDE_FACTIONS.includes(k)),sk=Object.entries(FACTIONS).filter(([k])=>SIDE_FACTIONS.includes(k)),R=26,sy=198+fk.length*R+6;
+const badge=([k,[n,c,sh]],y)=>`<rect x="1462" y="${y}" width="42" height="18" rx="9" fill="${c}"/><text x="1483" y="${y+13}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${sh}</text><text x="1514" y="${y+14}" font-size="14" fill="#2b2118">${n}</text>`;
+const ky=sy+30+sk.length*R+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*24}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
+<text x="1462" y="176" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">FACTION BASES</text>`+fk.map((f,i)=>badge(f,198+i*R)).join('')+
+`<text x="1462" y="${sy+12}" font-size="13" font-weight="bold" fill="#2b2118">Side factions <tspan font-weight="normal" font-style="italic">(can't win)</tspan></text>`+sk.map((f,i)=>badge(f,sy+26+i*R)).join('')+
+`<text x="1462" y="${sy+30+sk.length*R+12}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
+<text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+38+i*24,sym=
   k=='boat'?`<path d="M1462 ${y+8}H1504" stroke="#f4fbfd" stroke-width="6" stroke-linecap="round"/>`+BOATCOL.slice(0,3).map((c,i)=>`<path d="M${1462+i*14} ${y+8}h12" stroke="${c}" stroke-width="2.5" stroke-dasharray="5 3" stroke-linecap="round"/>`).join(''):
   k=='river'?`<path d="M1462 ${y+8}H1504" stroke="#4f8fbf" stroke-width="8" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#8fc4e4" stroke-width="3" stroke-linecap="round"/>`:
   k=='tram'?`<path d="M1462 ${y+8}H1504" stroke="#b8322a" stroke-width="4.5" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#f4f1e8" stroke-width="1.5" stroke-dasharray="2 6"/>`:

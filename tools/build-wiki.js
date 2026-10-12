@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD}=box.D,NOTES=box.N;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
+const {L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD}=box.D,NOTES=box.N;
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const KIND={town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour or sea',interior:'Interior'};
 const kind=id=>POS[id]?POS[id][2]:'interior',parentOf=id=>{const d=DOORS.find(d=>d[5]==id);return d&&d[0]};
@@ -72,10 +72,10 @@ function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac
   if(res.length)t+=`<h2>Residents</h2><ul>${res.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)}</li>`).join('')}</ul>`;
   if(people.length)t+=`<h2>People</h2><ul>${people.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} (${facA(c,n.faction)})</li>`).join('')}</ul>`;
   return t}
-function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>n.faction==id),wk=QUEST_WEEKS[id]||[];
+function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>n.faction==id),wk=QUEST_WEEKS[id]||[],side=SIDE_FACTIONS.includes(id);
   const grid='<div class="weeks">'+Array.from({length:19},(_,i)=>`<span class="${wk.includes(i+1)?'on':''}" style="${wk.includes(i+1)?'background:'+col:''}">${i+1}</span>`).join('')+'</div>';
-  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],['Quests',wk.length?wk.length+' (weeks '+wk.join(', ')+')':'None scheduled']])}
-<p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p><h2>Quest weeks</h2><p>Weeks of the 19-week cycle in which this faction has quests:</p>${grid}
+  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Side faction (can't win)":'Main faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',wk.length?wk.length+' (weeks '+wk.join(', ')+')':'None scheduled']])}
+<p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p>`+(side?'':`<h2>Quest weeks</h2><p>Weeks of the 19-week cycle in which this faction has quests:</p>${grid}`)+`
 <h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
 function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
   return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],n.m&&n.m!=n.loc&&['Currently found',locA(c,n.m)],
@@ -86,8 +86,10 @@ function idxBody(c,k){let t;
     t='<h1>Locations</h1>'+filter+Object.keys(KIND).filter(x=>g[x]).map(x=>`<h2>${KIND[x]}</h2><ul class="cols">${g[x].map(i=>`<li data-s="${esc((L[i][0]+' '+x+' '+(DISTRICTS[distOf(i)]||[''])[0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')+
       '<h2>By district</h2>'+Object.keys(DISTRICTS).map(d=>`<h3><span class="sw" style="background:${DISTRICTS[d][1]}"></span>${esc(DISTRICTS[d][0])}</h3><ul class="cols">${Object.keys(POS).filter(i=>DISTRICT_OF[i]==d).map(i=>`<li data-s="${esc((L[i][0]+' '+DISTRICTS[d][0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')}
   else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none');// one section per faction, listing everyone aligned with it
-    t='<h1>Factions</h1>'+filter+Object.keys(FACTIONS).map(i=>{const mem=NPCS.filter(n=>n.faction==i);
-      return`<h2><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h2><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`}).join('')+
+    const sec=i=>{const mem=NPCS.filter(n=>n.faction==i);
+      return`<h3><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h3><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`},ids=Object.keys(FACTIONS);
+    t='<h1>Factions</h1>'+filter+'<h2>Main factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(sec).join('')+
+      "<h2>Side factions</h2><p>Factions that play a part in the story but can't win it.</p>"+ids.filter(i=>SIDE_FACTIONS.includes(i)).map(sec).join('')+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
   else{// one section per place on the island; people based inside a building are listed under the place it stands in
     const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
@@ -98,7 +100,7 @@ function mapView(c){const ov=svg.replace(/href="\.\.\/wiki\/locations\/(\w+)\.ht
   return `<div class="mapview"><p class="hint">Click a place to see a map of it.</p><div class="overview map">${ov}</div>`+
     Object.keys(POS).map(id=>`<div class="plan" data-plan="${id}" hidden><div class="planbar"><button type="button" class="back">← Island map</button><b>${esc(L[id][0])}</b><a href="${href(c,'locations',id)}">About this place →</a></div>${plan(c,id)}</div>`).join('')+'</div>'}
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${mapView(c)}
-<ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length}</b> <a href="${lst(c,'factions')}">factions</a></li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
+<ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length-SIDE_FACTIONS.length}</b> main and <b>${SIDE_FACTIONS.length}</b> side <a href="${lst(c,'factions')}">factions</a></li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
 const CSS=`:root{--bg:#f4f1e6;--fg:#2b2118;--mut:#6b5f50;--card:#fffdf6;--bd:#d9d0bc;--ac:#1f6f9a;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#10161d;--fg:#e6edf3;--mut:#9aa8b6;--card:#17202a;--bd:#2c3a48;--ac:#6fb7e0}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,serif}a{color:var(--ac)}

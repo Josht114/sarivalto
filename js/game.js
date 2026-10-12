@@ -6,14 +6,23 @@ const hash=(x,y,s=0)=>{let h=Math.imul(x,374761393)^Math.imul(y,668265263)^Math.
 // ---- Input + movement
 const DIR={0:[0,1],1:[0,-1],2:[-1,0],3:[1,0]},KEY={ArrowDown:0,s:0,ArrowUp:1,w:1,ArrowLeft:2,a:2,ArrowRight:3,d:3};
 const P={m:'village',x:0,y:0,rx:0,ry:0,dir:1,mv:null,par:0};let stack=[];
-// The "Jump to" list: every outdoor location first, then every interior (the tram is left out)
-const sel=document.getElementById('jump');
-for(const[label,inside]of[['Locations',false],['Interiors',true]]){const g=document.createElement('optgroup');g.label=label;
-  for(const id in L)if(id!='tram'&&(L[id][3]=='interior')==inside)g.appendChild(new Option(L[id][0],id));sel.appendChild(g)}
-function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;sel.value=id}
+// The "Jump to" list: outdoor locations first, then a divider, then the interiors grouped by the outdoor area they open
+// onto (found by walking out through doors), each group and each list sorted alphabetically (the tram is left out).
+// The first option is a hidden one naming where the player is, so the select shows it but the list always opens at the top.
+const sel=document.getElementById('jump'),here=new Option('','',true,true);here.hidden=true;sel.appendChild(here);
+const isIn=id=>L[id][3]=='interior',byName=(a,b)=>NM[a].localeCompare(NM[b]);
+function areaOf(id){const seen=new Set([id]),q=[id];while(q.length){const m=q.shift();
+  for(const e of EX[m]){if(!isIn(e.to)&&e.to!='tram')return e.to;if(!seen.has(e.to)){seen.add(e.to);q.push(e.to)}}}}
+const AREAS={};for(const id in L)if(id!='tram'&&isIn(id))(AREAS[areaOf(id)]??=[]).push(id);
+const group=(label,ids)=>{const g=document.createElement('optgroup');g.label=label;ids.sort(byName).forEach(id=>g.appendChild(new Option(NM[id],id)));sel.appendChild(g)};
+group('Outside',Object.keys(L).filter(id=>id!='tram'&&!isIn(id)));
+sel.appendChild(document.createElement('hr'));
+Object.keys(AREAS).sort(byName).forEach(a=>group('Inside: '+NM[a],AREAS[a]));
+const showHere=id=>{here.text=NM[id];sel.selectedIndex=0};
+function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;showHere(id)}
 // The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
-P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;sel.value=P.m;
-sel.onchange=()=>{closeMenu();RIDE=TRIP=null;go(sel.value);sel.blur()};
+P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
+sel.onchange=()=>{const id=sel.value;closeMenu();RIDE=TRIP=null;go(id);sel.blur()};
 const SOLID='#TR~vbkWecuxygitno';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
 const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x*16+16>q.x+3&&x*16<q.x+93);
@@ -27,7 +36,7 @@ document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.
   ['pointerup','pointerleave','pointercancel'].forEach(t=>b.addEventListener(t,()=>release(d)))});
 // the exit (map edge, door or boat berth) the player is standing on, if any, and taking it
 const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
-function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;sel.value=P.m}
+function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
   if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU)return;
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
@@ -47,7 +56,7 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
 let MSG=null,MENU=0,RIDE=null,TRIP=null;const RIDE_DUR=2800,say=s=>{MSG={s,t:performance.now()}},menu=document.getElementById('menu');
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
-const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;sel.value=m};
+const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
 // where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
 // the ground just in front of the platform
 function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+48)/16,w=MAPS[m][0].length,c=[];

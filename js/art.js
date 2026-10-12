@@ -611,6 +611,7 @@ hotel_floor:{fl:'carpet',f:['#6a3442','#5a2a38'],wall:'#e8dcc0',wall2:'#d8ccb0',
 crewq:{fl:'tile',f:['#8d959e','#7d858e'],wall:'#d8dce0',wall2:'#e8792a',pap:'panel',base:'#4a5058',quilt:'#e8792a',deco:[[3,'win'],[9,'clock'],[13,'win']]},
 dphq_in:{fl:'carpet',f:['#37474f','#455a64'],wall:'#d8dce2',wall2:'#8a9aa8',pap:'panel',base:'#37474f',rug:'#e0a100',deco:[[2,'win'],[6,'map'],[10,'clock'],[13,'map'],[17,'win']]},
 depot_in:{fl:'stone',f:[],wall:'#7d8a96',wall2:'#5b636c',pap:'tiles',base:'#2b2f3a',deco:[[4,'safety'],[11,'win']]},
+repubhq:{fl:'carpet',f:['#2b3a5a','#33456a'],wall:'#ece6da',wall2:'#9aa8b8',pap:'panel',base:'#2b2f3a',rug:'#a3123a',deco:[[2,'win'],[6,'rbanner'],[10,'portrait'],[13,'rbanner'],[17,'win']]},
 petro_in:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#9aa8b8',pap:'tiles',base:'#37474f',deco:[[2,'win'],[6,'poster'],[10,'neon','PETRO','#3bd0ff'],[17,'win']]},
 bank_in:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#e8ecef',wall2:'#9aa8b8',pap:'panel',base:'#2b2f3a',rug:'#2e5f8f',deco:[[2,'win'],[6,'clock'],[13,'portrait'],[17,'win']]},
 farmhouse_in:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#e8dcc0',wall2:'#d8cab0',pap:'flower',rug:'#a33b2f',quilt:'#a33b2f',curtain:'#a33b2f',deco:[[3,'win'],[7,'pic'],[11,'win']]},
@@ -719,6 +720,7 @@ function interiorLayer(m){
     if(k=='dart'){r(OUT,X+3,-6,10,10);r('#2a2a33',X+4,-5,8,8);r('#c0392b',X+5,-4,6,6);r('#f2e6c8',X+6,-3,4,4);r('#2e9d57',X+7,-2,2,2)}
     if(k=='poster'){r(OUT,X+2,-9,12,18);r('#f4f4f0',X+3,-8,10,16);r('#c0392b',X+4,-6,8,2);r('#5b8fb9',X+4,-1,6,3);r('#5b8fb9',X+10,-2,2,5);r(OUT,X+5,0,1,1);r('#9cc6e0',X+4,4,8,2)}
     if(k=='rbanner'){r('#5a3d2a',X+3,-10,10,1);r('#7d3c98',X+4,-9,8,21);r('#5e2a75',X+11,-9,1,21);r('#ffd23a',X+5,-4,6,3);r('#ffd23a',X+5,-6,1,2);r('#ffd23a',X+7,-6,2,2);r('#ffd23a',X+10,-6,1,2);r(f.wall,X+7,11,2,1)}
+    if(k=='rbanner'){r('#5a3d2a',X+3,-10,10,1);r('#a3123a',X+4,-9,8,21);r('#7e0e2d',X+11,-9,1,21);for(const[dx,dy,w]of[[3,-8,1],[3,-7,1],[0,-6,7],[1,-5,5],[2,-4,3],[1,-3,2],[4,-3,2],[0,-2,1],[6,-2,1]])r('#ffffff',X+4+dx,dy,w,1);r(f.wall2,X+7,11,2,1)}
     if(k=='dbanner'){r('#5a3d2a',X+3,-10,10,1);r('#2e86c1',X+4,-9,8,21);r('#1f6a9a',X+11,-9,1,21);r('#ffffff',X+7,-5,2,6);r('#ffffff',X+5,-3,6,2);r(f.wall2,X+7,11,2,1)}
     if(k=='cross'){r('#c9a040',X+7,-8,2,16);r('#c9a040',X+4,-4,8,2);r('#e8c860',X+7,-8,1,16)}
     if(k=='listing')for(let i=0;i<4;i++){const x=X+1+(i&1)*7,y=-8+(i>>1)*9;r(OUT,x,y,7,8);r('#f4f4f0',x+1,y+1,5,6);r(['#c88a7a','#9ab8c8','#e8c88a','#b8d0a8'][i],x+2,y+4,3,3);r('#4a4f58',x+2,y+2,3,2)}

@@ -3,7 +3,7 @@ const TH={interior:['f','W'],snow:['.','T'],sand:['s','~'],rock:['r','R'],farm:[
 const L={
 oilrig:['Oil Rig',16,12,'deck',[[3,3,4,3,'#','Drill Tower','derrick'],[9,8,4,2,'#','Crew Quarters','crew'],[11,9,1,1,'d']]],
 oilhq:['Diversified Petroleum HQ',18,14,'snow',[[3,2,10,4,'#','Diversified Petroleum HQ','dphq'],[8,5,1,1,'d'],[2,9,4,3,'#','Depot','depot'],[3,11,1,1,'d']]],
-fishing:['Frostholm',40,16,'snow',[[1,7,38,3,','],[1,14,38,1,','],[2,1,5,6,'#','Petro Tower','petrotower'],[4,6,1,1,'d'],[9,1,5,6,'#','Hotel Aurora','hotel'],[11,6,1,1,'d'],[22,2,6,5,'#','Nordbank','nordbank'],[25,6,1,1,'d'],[29,1,6,6,'#','Cinema','cinema'],[32,6,1,1,'d'],[2,10,6,4,'#','Electronics','hifi'],[5,13,1,1,'d'],[10,10,5,4,'#','Arcade','arcade'],[12,13,1,1,'d'],[22,10,6,4,'#','Polar Burger','burger'],[24,13,1,1,'d'],[29,10,6,4,'#','Nordmart','nordmart'],[32,13,1,1,'d'],[15,1,4,6,'#','Skyline Apartments','skyapt'],[17,6,1,1,'d']]],
+fishing:['Frostholm',40,16,'snow',[[1,7,38,3,','],[1,14,38,1,','],[2,1,5,6,'#','Petro Tower','petrotower'],[4,6,1,1,'d'],[9,1,5,6,'#','Hotel Aurora','hotel'],[11,6,1,1,'d'],[22,2,6,5,'#','Nordbank','nordbank'],[25,6,1,1,'d'],[29,1,6,6,'#','Cinema','cinema'],[32,6,1,1,'d'],[2,10,6,4,'#','Electronics','hifi'],[5,13,1,1,'d'],[10,10,5,4,'#','Arcade','arcade'],[12,13,1,1,'d'],[22,10,6,4,'#','Polar Burger','burger'],[24,13,1,1,'d'],[29,10,6,4,'#','Nordmart','nordmart'],[32,13,1,1,'d'],[15,1,4,6,'#','Skyline Apartments','skyapt'],[17,6,1,1,'d'],[35,1,4,6,'#','Republican Party HQ','repub'],[36,6,1,1,'d']]],
 north:['North West Road',22,14,'snow',[[2,2,4,3,'T'],[16,9,4,3,'T'],[11,0,2,5,'~'],[10,5,2,9,'~']]],
 volcano:['Volcano',26,16,'rock',[[9,2,8,5,'v','Crater'],[2,10,4,3,'R'],[19,10,4,3,'R']]],
 mountains:['Mountains',22,16,'rock',[[3,3,4,4,'R'],[14,9,4,4,'R'],[14,1,4,3,'~'],[12,2,2,1,'~'],[8,1,4,2,'~'],[0,1,8,1,'~']]],
@@ -141,6 +141,8 @@ hotel_floor:['Hotel Aurora, upstairs',24,12,'interior',[[8,1,1,6,'W'],[16,1,1,6,
 crewq:['Crew Quarters',16,9,'interior',[[1,1,2,2,'e','Bunk'],[4,1,2,2,'e','Bunk'],[7,1,2,2,'e','Bunk'],[10,1,2,2,'e','Bunk'],[13,1,2,1,'y','Lockers'],[2,5,4,2,'u','Table'],[12,4,2,1,'i','Stove'],[11,6,3,1,'y','Shelves']]],
 dphq_in:['Diversified Petroleum HQ',20,12,'interior',[[1,1,4,1,'y','Files'],[15,1,4,1,'y','Files'],[7,1,6,1,'y','Screens'],[7,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[16,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[16,8,3,2,'u','Desk'],[7,6,6,2,'u','Meeting Table']]],
 depot_in:['Depot',16,10,'interior',[[1,1,3,2,'x','Oil Drums'],[5,1,6,1,'y','Pipes'],[12,1,3,2,'x','Supply Boxes'],[1,5,2,2,'x','Oil Drums'],[13,5,2,3,'x','Oil Drums'],[5,5,5,1,'u','Workbench']]],
+// Frostholm's Republican Party HQ: the leadership election hall, with the podium, the ballot box and a campaign desk for each candidate
+repubhq:['Republican Party HQ',20,12,'interior',[[1,1,3,1,'y','Files'],[16,1,3,1,'y','Files'],[8,2,4,1,'c','Podium'],[9,5,2,1,'x','Ballot Box'],[1,4,3,2,'u','Campaign Desk'],[16,4,3,2,'u','Campaign Desk'],[1,8,3,2,'u','Campaign Desk'],[6,8,3,1,'o'],[11,8,3,1,'o'],[16,8,3,2,'x','Leaflets']]],
 petro_in:['Petro Tower',20,12,'interior',[[7,1,6,1,'y','Shelves'],[7,3,6,1,'c','Reception'],[1,1,4,1,'y','Files'],[15,1,4,1,'y','Files'],[1,5,3,2,'u','Desk'],[16,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[16,8,3,2,'u','Desk'],[8,7,4,1,'o']]],
 bank_in:['Nordbank',20,12,'interior',[[1,1,3,1,'y','Files'],[8,1,4,1,'x','Safe'],[16,1,3,1,'y','Files'],[2,3,16,1,'c','Bank Counter'],[2,7,3,1,'o'],[15,7,3,1,'o'],[8,7,4,2,'u','Desk']]],
 farmhouse_in:['Farmhouse',14,10,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Shelf'],[9,1,2,1,'i','Stove'],[12,1,1,2,'x','Sacks'],[5,4,4,2,'u','Kitchen Table'],[1,6,2,2,'x','Sacks'],[11,6,2,1,'y','Bookcase']]],
@@ -209,12 +211,17 @@ privharbour:[540,700,'harbour'],privbeach:[925,745,'nature']};
 // running past North West Road (where the road bridges it) to the place it ends at, then on to the coast there.
 const RIVER={name:'Valto River',pts:[[990,222],[880,192],[760,205],[660,262],[614,330],[604,372],[582,408],[470,432]],end:'beach',bridges:[[592,393]],label:[870,180,-4]};
 
-// ---- Factions shown on the overview map (used only by tools/build-map.js): id:[name, colour, short badge]
+// ---- Factions shown on the overview map and in the wiki: id:[name, colour, short badge, description]
 const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you work for. Its people on the island are your handler and an informant.'],communist:['Communist Party','#c0392b','COM','Allies of the Soviet Union.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based at the Community Centre in Eastbrook.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
-cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.']};
+cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.'],
+kgb:['KGB','#5c1f1f','KGB','The Soviet intelligence agency. Its man on the island works with the Communist Party.'],
+republican:['Republican Party','#a3123a','REP','A conservative political party, based at its headquarters in Frostholm. Its leadership is vacant, and Kelp Cola, Diversified Petroleum and the Crime Syndicate are each trying to get their own candidate voted in.']};
+// Side factions play a part in the story but cannot win it (the rest are the main factions, the only ones that can). The quest
+// schedule (QUEST_WEEKS) covers the main factions only.
+const SIDE_FACTIONS=['cia','kgb','republican'];
 // Where each faction is based: location id -> faction id. Unlisted locations are unassigned.
 const FACTION_AT={village:'communist',second:'democrat',gated:'syndicate',palace:'royal',monastery:'church',
-colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil'};
+colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil',fishing:'republican'};
 
 // ---- Districts: id:[name, map colour]. DISTRICT_OF puts every place on the overview map in one; interiors take their building's.
 const DISTRICTS={central:['Central','#f3d9a4'],north:['North','#d9c8ea'],northeast:['North East','#c4dcef'],northwest:['North West','#c9e3c4'],
@@ -296,7 +303,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'colahq',x:5,y:10,dir:0,name:'Ville',home:'kgapts',loc:'colahq',job:'Newsstand vendor',faction:'none',body:'#2e6f9a',hair:'#d9c9a0',hat:'#2e6f9a'},
 {m:'colahq',x:10,y:10,dir:0,name:'Rosa',home:'kgapts',loc:'colahq',job:'Hot dog vendor',faction:'none',body:'#c0392b',hair:'#2a1a12',hat:'#e0a100'},
 {m:'doctor',x:12,y:3,dir:0,name:'Doctor Lind',home:'kgapts',loc:'doctor',job:'Doctor',faction:'none',body:'#f2f2f2',hair:'#8a8a8a'},
-{m:'hotel_floor',x:19,y:4,dir:3,name:'Yuri',home:'hotel_floor',loc:'hotel_floor',job:'KGB agent (posing as a businessman)',faction:'communist',body:'#3a3d44',hair:'#2a1a12',hat:'#5a3a26'},
+{m:'hotel_floor',x:19,y:4,dir:3,name:'Yuri',home:'hotel_floor',loc:'hotel_floor',job:'KGB agent (posing as a businessman)',faction:'kgb',body:'#3a3d44',hair:'#2a1a12',hat:'#5a3a26'},
 {m:'hotel_lobby',x:6,y:2,dir:0,name:'Greta',home:'skyapts',loc:'hotel_lobby',job:'Hotel receptionist',faction:'none',body:'#6a3442',hair:'#e8c86a'},
 {m:'crewq',x:8,y:4,dir:0,name:'Lars',home:'crewq',loc:'crewq',job:'Oil rig worker',faction:'oil',body:'#e8792a',hair:'#c9a05a',hat:'#e0a100'},
 {m:'dphq_in',x:10,y:2,dir:0,name:'Ruth',home:'skyapts',loc:'dphq_in',job:'Receptionist',faction:'oil',body:'#37474f',hair:'#8a5a3a'},
@@ -319,7 +326,12 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'port_in',x:6,y:2,dir:0,name:'Ole',home:'skyapts',loc:'port_in',job:'Harbourmaster',faction:'none',body:'#2e5f8f',hair:'#e8e8e8',hat:'#1f3a5f'},
 {m:'customs_in',x:6,y:2,dir:0,name:'Liv',home:'eblofts',loc:'customs_in',job:'Customs officer',faction:'none',body:'#2e5f8f',hair:'#3a2a20'},
 {m:'ebwhs_in',x:8,y:4,dir:0,name:'Tor',home:'eblofts',loc:'ebwhs_in',job:'Warehouseman',faction:'none',body:'#7a2a1e',hair:'#c9a05a',hat:'#3d5a4a'},
-{m:'servants',x:3,y:7,dir:2,name:'Elsa',home:'servants',loc:'servants',job:'Laundress',faction:'none',body:'#7a8a9a',hair:'#caa05a'}];
+{m:'servants',x:3,y:7,dir:2,name:'Elsa',home:'servants',loc:'servants',job:'Laundress',faction:'none',body:'#7a8a9a',hair:'#caa05a'},
+// the Republican Party's leadership election: the party secretary running it, and the three candidates, each put up by one of the island's powers
+{m:'repubhq',x:10,y:1,dir:0,name:'Margit',home:'skyapts',loc:'repubhq',job:'Republican Party secretary (running the leadership election)',faction:'republican',body:'#a3123a',hair:'#b5b5b5'},
+{m:'repubhq',x:4,y:4,dir:2,name:'Harald',home:'hsresid',loc:'repubhq',job:"Kelp Cola's candidate for Republican Party leader",faction:'cola',body:'#2e9d57',hair:'#c9a05a'},
+{m:'repubhq',x:15,y:4,dir:3,name:'Magnus',home:'skyapts',loc:'repubhq',job:"Diversified Petroleum's candidate for Republican Party leader",faction:'oil',body:'#37474f',hair:'#5a3a26'},
+{m:'repubhq',x:4,y:8,dir:2,name:'Carlo',home:'hsresid',loc:'repubhq',job:"The Crime Syndicate's candidate for Republican Party leader",faction:'syndicate',body:'#1a1a22',hair:'#2a1a12'}];
 
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).
@@ -335,7 +347,7 @@ const DOORS=[['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
 ['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,11,0,1,'ebwhs_in'],['second',12,7,0,1,'house_pekka'],['second',18,17,0,1,'newsroom'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'cinemain'],
-['second',24,17,0,1,'cafe'],['second',27,17,0,1,'tattoo'],['second',33,7,0,1,'eblofts'],['second',33,17,0,1,'tavern'],['second',5,17,0,1,'cedargrill'],['second',12,17,0,1,'commcentre'],['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['second',24,7,0,1,'house_henrik'],['second',27,7,0,1,'house_nora'],['fishing',24,13,0,1,'burgerbar'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
+['second',24,17,0,1,'cafe'],['second',27,17,0,1,'tattoo'],['second',33,7,0,1,'eblofts'],['second',33,17,0,1,'tavern'],['second',5,17,0,1,'cedargrill'],['second',12,17,0,1,'commcentre'],['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['second',24,7,0,1,'house_henrik'],['second',27,7,0,1,'house_nora'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
 // ---- How each building looks from outside (feature style key -> look). kind: gable, flat or tall
@@ -423,6 +435,7 @@ boatshed:{kind:'gable',wall:'#6b7a8a',roof:'#4a4f58',trim:'#2b2f3a',win:'#a9c7da
 fishmkt:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',awn:'#2e6f9a',sign:'FISH MARKET',signc:'#2e6f9a'},
 gazette:{kind:'gable',wall:'#4a5f78',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,sign:'GAZETTE',signk:'wood'},
 // Frostholm is the corporate city: glass towers (glass), neon signs (signk:'neon', blade), rooftop billboards (bill) and a cinema marquee
+repub:{kind:'flat',wall:'#e8e4dc',roof:'#5b636c',trim:'#a3123a',win:'#7fb0d0',glass:1,tex:'panel',sign:'REPUBLICAN',signc:'#a3123a',flag:'#a3123a'},
 skyapt:{kind:'tall',wall:'#3a4a5a',roof:'#2b2f3a',trim:'#7d858e',win:'#7fb0d0',glass:1,tex:'panel',sign:'SKYLINE',signk:'neon',signc:'#ff5fa8'},
 petrotower:{kind:'tall',wall:'#5a6470',roof:'#37474f',trim:'#2b2f3a',win:'#6fa8c8',glass:1,tex:'panel',sign:'PETRO',signk:'neon',signc:'#3bd0ff'},
 hotel:{kind:'tall',wall:'#6a3442',roof:'#3a2a30',trim:'#c9a040',win:'#bcd9ea',blade:['HOTEL','#ff5fa8'],sign:'AURORA',signk:'neon',signc:'#ffd23a'},
