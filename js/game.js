@@ -6,7 +6,10 @@ const hash=(x,y,s=0)=>{let h=Math.imul(x,374761393)^Math.imul(y,668265263)^Math.
 // ---- Input + movement
 const DIR={0:[0,1],1:[0,-1],2:[-1,0],3:[1,0]},KEY={ArrowDown:0,s:0,ArrowUp:1,w:1,ArrowLeft:2,a:2,ArrowRight:3,d:3};
 const P={m:'village',x:0,y:0,rx:0,ry:0,dir:1,mv:null,par:0};let stack=[];
-const sel=document.getElementById('jump');for(const id in L)if(id!='tram')sel.add(new Option(L[id][0],id));
+// The "Jump to" list: every outdoor location first, then every interior (the tram is left out)
+const sel=document.getElementById('jump');
+for(const[label,inside]of[['Locations',false],['Interiors',true]]){const g=document.createElement('optgroup');g.label=label;
+  for(const id in L)if(id!='tram'&&(L[id][3]=='interior')==inside)g.appendChild(new Option(L[id][0],id));sel.appendChild(g)}
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;sel.value=id}
 // The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
 P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;sel.value=P.m;
