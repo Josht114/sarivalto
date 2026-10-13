@@ -30,7 +30,7 @@ if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
 // The day/night toggle beside it (or N): the scenes are rebuilt, since windows, lamps and the detailed proof of concept's
 // art differ by night.
 const dn=document.getElementById('daynight');
-function setNight(on){NIGHT=on;for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dn.textContent=on?'\u263E Night':'\u2600 Day';dn.setAttribute('aria-pressed',on)}
+function setNight(on){NIGHT=on;applyRoutine();for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dn.textContent=on?'\u263E Night':'\u2600 Day';dn.setAttribute('aria-pressed',on)}
 dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
 addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
@@ -155,6 +155,9 @@ document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.
   ['pointerup','pointerleave','pointercancel'].forEach(t=>b.addEventListener(t,()=>release(d)))});
 // the exit (map edge, door or boat berth) the player is standing on, if any, and taking it
 const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
+// a place that is shut at this time of day, and what its door says
+const shut=id=>NIGHT?DAY_ONLY.includes(id):NIGHT_ONLY.includes(id);
+const shutMsg=id=>NM[id]+' is closed. It opens '+(NIGHT?'in the morning.':'at night.');
 function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
   if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU||START||BUSY||CONVO)return;
@@ -164,7 +167,9 @@ function update(dt){
       else if(P.m=='tram'&&MAPS.tram[P.y][P.x]=='m')leaveTram()}}
   if(!P.mv&&tramAt(P.m,P.x,P.y)){standClear();return}
   if(!P.mv&&stack.length){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
-    const nx=P.x+dx,ny=P.y+dy;if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
+    const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
+    if(door){if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
+    else if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
 }
 // a tram has come along where the player is standing: move them to the nearest free tile (preferring in front of the track)
 function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6;dx++){const x=P.x+dx,y=P.y+dy;
@@ -174,8 +179,10 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // pressing it again gets on. Inside the tram the action key opens a menu of stops; picking one plays a short ride and then
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
 let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
-// ---- Talking: the person on the tile the player is facing, and what they say (a placeholder line for everyone for now)
-const npcAhead=()=>{const[dx,dy]=DIR[P.dir];return NPCS.find(n=>n.m==P.m&&n.x==P.x+dx&&n.y==P.y+dy)};
+// ---- Talking: the person on the tile the player is facing, or just across a counter (tile c: bar counters, shop counters,
+// reception desks) from it, and what they say (a placeholder line for everyone for now)
+const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
+  for(let i=0;i<3;i++){const n=NPCS.find(n=>n.m==P.m&&n.x==x&&n.y==y);if(n)return n;if(MAPS[P.m][y]?.[x]!='c')return;x+=dx;y+=dy}};
 const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
 // your own bed (in the living space behind the Hidden Radio Room) is the tile you're facing
 const HOME='hekki_room',bedAhead=()=>{const[dx,dy]=DIR[P.dir];return P.m==HOME&&MAPS[P.m][P.y+dy]?.[P.x+dx]=='e'};
@@ -288,5 +295,33 @@ function draw(t){
 }
 // On opening the game, carry on from the most recent save (if there is one). Starting with ?new in the address starts a new game
 // instead, as do the addresses that set up the start themselves (?day=, ?night and the proofs of concept).
+// ---- Routines: by day everyone is at work, where NPCS places them (night workers the other way round); at night they are at home (their home, and any floors
+// joined to it by stairs that have beds), each beside a bed, sharing beds only once every bed has someone. No one is put on an
+// exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
+var ROUTINE=null;  // (var: setNight runs before this line on the first load)
+// (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
+function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,!EVENING_STAFF.includes(n.name)&&(NIGHT_ONLY.includes(n.loc)?!NIGHT:NIGHT)&&ROUTINE.get(n)||n.atWork))}
+function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
+  // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
+  const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));
+  const free=(m,x,y)=>{const r=grid(m)[y];return!!r&&x>=0&&x<r.length&&!r[x]&&!taken.has(m+','+x+','+y)};
+  // the tiles that can be reached from the way in (some rooms have corners no one can ever get to; those don't count)
+  const reach=m=>{const ex=EX[m]||[],seen=new Set(ex.map(e=>e.x+','+e.y)),q=ex.map(e=>[e.x,e.y]);
+    while(q.length){const[x,y]=q.pop();for(const[dx,dy]of D4){const X=x+dx,Y=y+dy,k=X+','+Y;if(!seen.has(k)&&free(m,X,Y)){seen.add(k);q.push([X,Y])}}}return seen};
+  const beds=m=>FL[m].filter(f=>f[4]=='e'),hasBeds=m=>L[m]&&L[m][3]=='interior'&&beds(m).length>0;
+  // the floors of someone's home: the home itself and the rooms with beds joined to it by stairs (never your own room)
+  const floors=h=>{const out=[h],q=[h];while(q.length){const m=q.shift();(EX[m]||[]).forEach(e=>{if(e.to!=HOME&&!out.includes(e.to)&&hasBeds(e.to)){out.push(e.to);q.push(e.to)}})}return out};
+  NPCS.forEach(n=>{n.atWork={m:n.m,x:n.x,y:n.y,dir:n.dir,costume:n.costume}});
+  NPCS.filter(n=>L[n.home]).forEach((n,i)=>{let best=null;
+    floors(n.home).forEach((m,fi)=>{const ex=EX[m]||[],base=reach(m);
+      for(let y=0;y<MAPS[m].length;y++)for(let x=0;x<MAPS[m][y].length;x++){
+        if(!free(m,x,y)||!base.has(x+','+y)||ex.some(e=>Math.abs(e.x-x)+Math.abs(e.y-y)<=1))continue;
+        let bed=null,dir=0;D4.forEach(([dx,dy],d)=>{if(bed==null&&MAPS[m][y+dy]?.[x+dx]=='e'){bed=beds(m).findIndex(([fx,fy,w,h])=>x+dx>=fx&&x+dx<fx+w&&y+dy>=fy&&y+dy<fy+h);dir=d}});
+        const sc=(bed!=null&&bed>=0?(use[m+bed]||0)*2:3)+fi*.1+((x*31+y*17+i*7)%97)/1000;
+        if(!best||sc<best.sc){taken.add(m+','+x+','+y);const ok=reach(m).size==base.size-1;taken.delete(m+','+x+','+y);if(ok)best={sc,m,x,y,dir,bed}}}});
+    if(!best)return;taken.add(best.m+','+best.x+','+best.y);if(best.bed!=null&&best.bed>=0)use[best.m+best.bed]=(use[best.m+best.bed]||0)+1;
+    R.set(n,{m:best.m,x:best.x,y:best.y,dir:best.dir,costume:undefined})});
+  return R}
+ROUTINE=planRoutine();applyRoutine();
 if(!GOTHIC&&!DETAILED&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);

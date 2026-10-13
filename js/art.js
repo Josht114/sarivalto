@@ -308,7 +308,7 @@ function bld2(w,h,s,dx,more=[]){
       for(let x=x0;x<x1;x+=2)r('#c9a040',x,top-1,1,1)}
     const bx=(W>>1)-3,by=top+3;r(OUT,bx,by,7,4);r(m[3]||'#2e86c1',bx+1,by+1,5,2);r(m[3]||'#2e86c1',bx+5,by,2,1);r('#ffd23a',bx+6,by+1,1,1);r('#ffd23a',bx+2,by+3,1,2);r('#ffd23a',bx+4,by+3,1,2)}
   // windows. On a worn building some are boarded up and some cracked; planter: a window box of flowers under each one.
-  const win=(x,y,ww,hh,lit)=>{const wr=s.wear?hash(x,y,sd+W+31)/s.wear:9;if(wr<.75)lit=false;const gl=lit?'#ffd98a':s.win;
+  const win=(x,y,ww,hh,lit)=>{const wr=s.wear?hash(x,y,sd+W+31)/s.wear:9;if(wr<.75||s.dark)lit=false;const gl=lit?'#ffd98a':s.win;
     if(s.sh){r(s.sh,x-4,y-1,2,hh+2);r(s.sh,x+ww+2,y-1,2,hh+2)}
     r(shade(s.trim,-.35),x-2,y-2,ww+4,hh+4);r(s.trim,x-1,y-1,ww+2,hh+2);r(gl,x,y,ww,hh);r(shade(gl,-.22),x,y,ww,2);
     if(lit&&CYBING)an.push({t:'wlight',x:x+(ww>>1),y:y+(hh>>1)});
@@ -320,7 +320,7 @@ function bld2(w,h,s,dx,more=[]){
       for(let k=x-1;k<x+ww+1;k+=2){r('#2b5c4b',k,y+hh,2,2);r(s.planter[(k>>1)%s.planter.length],k,y+hh-1+((k>>1)&1),1,1)}}};
   if(s.glass){
     // a curtain wall: rows of tinted glass panes between steel mullions, with a diagonal sheen; a few offices have the lights on
-    for(let i=0;i<w;i++){if(skip.has(i))continue;for(let y=tall?14:ry+(aw?12:6);y+10<H-5;y+=13){const x=i*16+2,lit=hash(i,y,w*h+7)>.82;if(lit&&CYBING)an.push({t:'wlight',x:x+6,y:y+5});
+    for(let i=0;i<w;i++){if(skip.has(i))continue;for(let y=tall?14:ry+(aw?12:6);y+10<H-5;y+=13){const x=i*16+2,lit=!s.dark&&hash(i,y,w*h+7)>.82;if(lit&&CYBING)an.push({t:'wlight',x:x+6,y:y+5});
       r(shade(s.trim,-.3),x-1,y-1,14,12);for(let yy=0;yy<10;yy++)for(let xx=0;xx<12;xx++){const d=((x+xx)+(y+yy)*.6|0)%26;
         r(lit?(yy<2?'#ffe9b0':'#ffd98a'):d<3?shade(s.win,.45):yy<3?shade(s.win,.15):s.win,x+xx,y+yy)}r(SNOW,x-1,y+10,14,1)}}}
   else if(tall){for(let y=16;y<H-T-8;y+=22)for(let x=8;x<W-12;x+=18){win(x,y,12,13,hash(x,y,5)>.62);
@@ -1324,8 +1324,9 @@ function scene(m){if(SC[m])return SC[m];
   const wx=L[m][3]=='interior'?'snow':weatherOf(m);WXID=wx;WMAP=WXSNOW[wx]<.5&&!DET(m)?MELT:null;CYBING=L[m][3]!='interior';try{return SC[m]=sceneOf(m,wx)}finally{WMAP=null;WXID='';CYBING=false}}
 // In neon Frostholm, turn a building's animations into light sources: neon signs and tubes glow in their own colour (and are
 // reflected in the wet street below the building, at rb), lit windows glow warm or neon-tinted, marquee bulbs glow gold.
-function cyberLights(b,x,y,h,lights,refl){const rb=refl?(y+h)*16:0;let nb=0;
+function cyberLights(b,x,y,h,lights,refl,dark){const rb=refl?(y+h)*16:0;let nb=0;
   return b.an.filter(a=>{const X=a.x+x*16,Y=a.y+y*16;
+    if(dark){if(['neon','bulb','lbulb','blink'].includes(a.t))a.off=1;return a.t!='wlight'&&a.t!='tube'}
     if(a.t=='neon'){const n=a.s.length;lights.push(a.v?{x:X+1,y:Y+n*3,r:30,col:rgbs(a.col||'#ff5fa8'),f:1,rb}:{x:X+n*2,y:Y+2,r:Math.max(26,n*3.4),col:rgbs(a.col||'#ff5fa8'),f:1,rb})}
     if(a.t=='tube')lights.push({x:X,y:Y,r:30,col:rgbs(a.col),f:0,rb});
     if(a.t=='wlight'){lights.push({x:X,y:Y,r:16,col:refl?['255,210,150','120,220,255','255,120,220'][hash(X,Y,650)*3|0]:'255,205,140',f:0});return false}
@@ -1336,6 +1337,8 @@ function sceneOf(m,wx){
   if(c.an)an.push(...c.an);
   const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
   const signs=[],iconTop={};
+  // at night, the buildings whose business is shut (a door into a DAY_ONLY place, or a DAY_ONLY_STALLS stall) have their lights off
+  const shutTonight=(x,y,w,h,st)=>NIGHT&&typeof DAY_ONLY!='undefined'&&(DOORS.some(d=>d[0]==m&&d[1]>=x&&d[1]<x+w&&d[2]>=y&&d[2]<y+h&&DAY_ONLY.includes(d[5]))||DAY_ONLY_STALLS.some(([p,k])=>p==m&&k==st));
   FL[m].forEach(([x,y,w,h,ch,lb,st])=>{
     if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);[].concat(fu.an||[]).forEach(a=>an.push({...a,x:x*16+a.x,y:y*16-fu.oy+a.y}))}return}
     if(DET(m)&&DBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=detailedArt(w,h,DBLD[st],dx),ox=x*16-1,oy=y*16-DEXT-1;
@@ -1362,7 +1365,7 @@ function sceneOf(m,wx){
       // buildings you can't go into still get a (locked) front door, unless their look already has a big door
       if(dx<0&&!['church','hut','whs','garage'].includes(BLD[st].deco))dx=w>>1;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
-      const b=bld2(w,h,BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);cyberLights(b,x,y,h,lights,CYB(m)).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
+      const dark=shutTonight(x,y,w,h,st),b=bld2(w,h,dark?{...BLD[st],dark:1}:BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);cyberLights(b,x,y,h,lights,CYB(m),dark).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
       if(BLD[st].icon)signs.push({x,y,w,h,k:BLD[st].icon,ry:b.ry,nt:b.nt,hang:BLD[st].hang})}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
@@ -1422,7 +1425,7 @@ function sceneOf(m,wx){
       if(fx=='fire')an.push({t:'fire',x:x*16+8,y:top+6});if(fx=='candle')an.push({t:'candle',x:x*16+8,y:top+oy});
       if(fx=='candles')for(const[cx,h]of[[3,5],[6,7],[9,4],[12,6]])an.push({t:'candle',x:x*16-1+cx+1,y:top+5-h})}if(k=='vent')an.push({t:'smoke',x:x*16+7,y:y*16+8});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
   // lit stalls, the circus big top and caravans, and the tram shelters
-  if(!inside)FL[m].forEach(([x,y,w,h,,,st])=>{const kd=BLD[st]?.kind;if(['van','kiosk','cart','bigtop','wagon','shelter'].includes(kd))lights.push({x:(x+w/2)*16,y:(y+h/2)*16,r:kd=='bigtop'?64:30,col:'255,200,120',f:1})});
+  if(!inside)FL[m].forEach(([x,y,w,h,,,st])=>{const kd=BLD[st]?.kind;if(['van','kiosk','cart','bigtop','wagon','shelter'].includes(kd)&&!shutTonight(x,y,w,h,st))lights.push({x:(x+w/2)*16,y:(y+h/2)*16,r:kd=='bigtop'?64:30,col:'255,200,120',f:1})});
   // power cables sagging across Frostholm's boulevard (sorted just in front of its north side, so the billboards and anyone further
   // down the street are drawn over them and no cable runs across a billboard's lettering)
   if(m=='fishing'){const wc=cnv(M[0].length*16,M.length*16),wg=wc.getContext('2d'),wr=(col,x,y)=>{wg.fillStyle=col;wg.fillRect(x|0,y|0,1,1)};
@@ -1510,13 +1513,13 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='scan'){const yy=(t/40|0)%a.h;px('rgba(255,255,255,.22)',X,Y+yy,a.w,1);if(hash(t/200|0,a.x|0,7)>.93)px('rgba(255,60,200,.3)',X+2,Y+(hash(t/90|0,a.x|0,8)*a.h|0),a.w-4,2)}
     if(a.t=='calendar'&&typeof DAY!='undefined'){const s=String(DAY),w=s.length*8-2,x0=X+((14-w)>>1);
       [...s].forEach((ch,i)=>{const f=FONT[ch];for(let k=0;k<15;k++)if(f[k]=='1')px('#2a2a33',x0+i*8+(k%3)*2,Y+(k/3|0)*2,2,2)})}
-    if(a.t=='bulb')px(((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
+    if(a.t=='bulb')px(!a.off&&((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
     // neon letters (v: stacked vertically). fl: a failing tube that keeps cutting out.
-    if(a.t=='neon'){const c0=a.col||'#ff5fa8',on=a.fl?hash(t/140|0,3,7+a.x)<.72:hash(t/90|0,3,7)<.96,col=on?c0:shade(c0,-.65);
+    if(a.t=='neon'){const c0=a.col||'#ff5fa8',on=a.off?false:a.fl?hash(t/140|0,3,7+a.x)<.72:hash(t/90|0,3,7)<.96,col=on?c0:shade(c0,a.off?-.3:-.65);  // (a sign switched off for the night stays readable: unlit glass, not a dead flicker)
       if(on){const[R,G,B]=rgb(c0);ctx.fillStyle=`rgba(${R},${G},${B},.28)`;if(a.v)ctx.fillRect(X-2,Y-2,7,a.s.length*6+3);else ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}
       if(a.v)[...a.s].forEach((ch,i)=>ptext(px,ch,X,Y+i*6,col));else ptext(px,a.s,X,Y,col)}
-    if(a.t=='lbulb'){const on=((t/700|0)+a.k)%7!=0;if(on){px('rgba(255,230,160,.22)',X-1,Y-1,3,3);px(a.c,X,Y,1,1)}else px(shade(a.c,-.55),X,Y,1,1)}
-    if(a.t=='blink'){const on=((t+a.x*7)/700|0)%2;if(on){px('rgba(255,80,60,.3)',X-1,Y-1,4,4);px(a.c||'#ff3b2f',X,Y,2,2)}else px('#5a2020',X,Y,2,2)}
+    if(a.t=='lbulb'){const on=!a.off&&((t/700|0)+a.k)%7!=0;if(on){px('rgba(255,230,160,.22)',X-1,Y-1,3,3);px(a.c,X,Y,1,1)}else px(shade(a.c,-.55),X,Y,1,1)}
+    if(a.t=='blink'){const on=!a.off&&((t+a.x*7)/700|0)%2;if(on){px('rgba(255,80,60,.3)',X-1,Y-1,4,4);px(a.c||'#ff3b2f',X,Y,2,2)}else px('#5a2020',X,Y,2,2)}
     if(a.t=='fire'){px('rgba(255,160,60,.16)',X-9,Y-10,18,14);for(let k=0;k<5;k++){const hh=2+(hash(k,t/90|0,3)*5|0);px(['#e8321e','#ff8a3a','#ffd23a','#ff8a3a','#e8321e'][k],X-5+k*2,Y-hh,2,hh)}}
     if(a.t=='stove')for(let k=0;k<a.w;k++){const hh=2+(hash(k,t/110|0,5)*4|0);px('#e8321e',X+k,Y+6-hh,1,hh);if(hh>3)px('#ffb01c',X+k,Y+7-hh,1,hh-3)}
     if(a.t=='belt'){const off=(t/45|0)%6;for(let x=off;x<a.w;x+=6)px('#3d4250',X+x,Y,1,a.h);

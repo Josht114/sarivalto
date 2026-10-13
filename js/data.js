@@ -456,7 +456,7 @@ newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']}
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
-const WAIT_AT=['bar','citybar','tavern','jazz_in','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
+const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
 // and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
 const CONVOS={
@@ -466,6 +466,16 @@ Hekki:{start:'hello',nodes:{
   sucks:{say:'Hey!'},
   onto:{say:'No way.'}}},
 };
+// ---- Opening hours: places open only by day, and places open only at night. Their doors don't open while they're shut, and the
+// people who work in a night-only place work at night and are at home by day. Everywhere else is always open. (The street
+// stalls have no door: their vendors are simply at home at night.)
+const DAY_ONLY=['clothes_in','kcmuseum_in','records_in','electro','mart','bookshop','fishingshop','gunshop','tailor','fishshop','tattoo','bank_in','estateagent','fuel_in'];
+const NIGHT_ONLY=['jazz_in','caravan3_in'];
+// the staff of the places open day and night (bars, restaurants, the hotel, the casino, the arcade, the stalls that stay open):
+// they work evenings too, so they are at work at night as well as by day
+const EVENING_STAFF=['Ray','Eddie','Linnea','Sanna','Arvid','Maya','Dex','Hannu','Greta','Vince','Toni'];
+// street stalls open only by day, as [place, look]: at night they stand dark
+const DAY_ONLY_STALLS=[['colahq','newsstand'],['colahq','hotdog'],['colafactory','foodvan']];
 // ---- Shops, by the name of the person who runs them: what they sell, as [item, how many, price in dollars]. The shop is open
 // when its keeper is at their workplace (their loc); talk to them there to buy. Buying moves the item from their stock to your
 // inventory.
