@@ -94,9 +94,20 @@ function idxBody(c,k){let t;
     t='<h1>Factions</h1>'+filter+'<h2>Main factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(sec).join('')+
       "<h2>Side factions</h2><p>Factions that play a part in the story but can't win it.</p>"+ids.filter(i=>SIDE_FACTIONS.includes(i)).map(sec).join('')+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
-  else{// one section per place on the island; people based inside a building are listed under the place it stands in
+  else{// one table per place on the island (alphabetical), sorted by name; people based inside a building are listed under the
+    // place it stands in. Click a column heading to sort that table by it.
+    const where=(x,g)=>A(c,'locations',x,L[x][0])+(top(x)!=x&&top(x)!=g?' <small>('+esc(L[top(x)][0])+')</small>':'');
+    const row=(n,g)=>{const f=n.faction=='none'?'Unaligned':FACTIONS[n.faction][0],note=((NOTES.npcs||{})[nid(n)]||{}).note||'';
+      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],n.home=='none'?'':L[n.home][0],n.job,note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td>`+
+        `<td data-v="${esc(f)}">${n.faction=='none'?'Unaligned':`<span class="sw" style="background:${FACTIONS[n.faction][1]}"></span>`+facA(c,n.faction)}</td>`+
+        `<td data-v="${esc(L[n.loc][0])}">${where(n.loc,g)}</td><td data-v="${esc(n.home=='none'?'~':L[n.home][0])}">${n.home=='none'?'No fixed home':where(n.home,g)}</td>`+
+        `<td>${esc(n.job)}</td><td class="note">${esc(note)}</td></tr>`};
+    const head='<colgroup><col style="width:10%"><col style="width:15%"><col style="width:15%"><col style="width:16%"><col style="width:13%"><col></colgroup><thead><tr>'+
+      ['Name','Faction','Location','Home','Job','Notes'].map((h,k)=>`<th${k<5?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
     const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
-    t='<h1>People</h1>'+filter+Object.keys(L).filter(i=>g[i]).map(i=>`<h2>${locA(c,i)}</h2><ul class="cols">${g[i].map(n=>`<li data-s="${esc([n.name,n.job,n.faction=='none'?'unaligned':FACTIONS[n.faction][0],L[i][0],L[n.loc][0]].join(' ').toLowerCase())}">${npcA(c,n)}<br><small>${esc(n.job)} · ${facA(c,n.faction)}${n.loc!=i?' · '+locA(c,n.loc):''} · ${n.home=='none'?'no fixed home':'lives in '+locA(c,n.home)}</small></li>`).join('')}</ul>`).join('')}
+    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people, grouped by the place they are based in. Click a column heading to sort a table by it.</small></p>`+
+      Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(i=>`<section class="grp"><h2>${locA(c,i)} <small>(${g[i].length})</small></h2><div class="wide"><table class="grid sortable">${head}<tbody>${
+        g[i].sort((a,b)=>a.name.localeCompare(b.name)).map(n=>row(n,i)).join('')}</tbody></table></div></section>`).join('')}
   return t}
 const svg=fs.readFileSync(path.join(root,'docs/island-map.svg'),'utf8').replace(/<\?xml.*?\?>/,'');
 function mapView(c){const ov=svg.replace(/href="\.\.\/wiki\/locations\/(\w+)\.html"/g,(m,id)=>'href="'+href(c,'locations',id)+'"');
@@ -113,6 +124,10 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .info{float:right;margin:0 0 14px 20px;width:290px;max-width:100%;background:var(--card);border:1px solid var(--bd);border-collapse:collapse;font-size:14px}
 .info th{text-align:left;vertical-align:top;padding:6px 8px;color:var(--mut);width:34%;border-bottom:1px solid var(--bd)}.info td{padding:6px 8px;border-bottom:1px solid var(--bd)}
 .sw{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid #0006;margin-right:6px;vertical-align:-1px}.sw.big{width:22px;height:22px;vertical-align:-3px}
+.wide{position:relative;left:50%;transform:translateX(-50%);width:min(1280px,calc(100vw - 32px));overflow-x:auto}
+.grid{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--bd)}.grid th,.grid td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--bd)}
+.grid th{position:sticky;top:0;background:var(--card);color:var(--mut);white-space:nowrap}.grid th[data-col]{cursor:pointer}.grid th[data-col]:hover{color:var(--fg)}.grid th.asc:after{content:' ▲'}.grid th.desc:after{content:' ▼'}
+.grid td{overflow-wrap:anywhere}.grid td:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
 .weeks{display:grid;grid-template-columns:repeat(19,1fr);gap:3px;max-width:640px}.weeks span{text-align:center;font:12px sans-serif;padding:5px 0;border:1px solid var(--bd);border-radius:3px;color:var(--mut)}.weeks .on{color:#fff;font-weight:bold}
@@ -124,7 +139,12 @@ const JS=`document.addEventListener('click',function(e){var v=e.target.closest('
   if(e.target.closest('.back')){v.querySelectorAll('.plan').forEach(function(p){p.hidden=true});v.querySelector('.overview').hidden=false;v.scrollIntoView({block:'nearest'});return}
   var a=e.target.closest('[data-loc]'),p=a&&v.querySelector('[data-plan="'+a.getAttribute('data-loc')+'"]');if(!p)return;e.preventDefault();
   v.querySelectorAll('.plan').forEach(function(q){q.hidden=q!=p});v.querySelector('.overview').hidden=true;v.scrollIntoView({block:'nearest'})});
-document.addEventListener('input',function(e){if(!e.target.classList.contains('filter'))return;var q=e.target.value.toLowerCase();e.target.closest('article').querySelectorAll('li[data-s]').forEach(function(li){li.hidden=li.dataset.s.indexOf(q)<0})})`;
+document.addEventListener('input',function(e){if(!e.target.classList.contains('filter'))return;var q=e.target.value.toLowerCase();var a=e.target.closest('article');a.querySelectorAll('[data-s]').forEach(function(li){li.hidden=li.dataset.s.indexOf(q)<0});
+  a.querySelectorAll('.grp').forEach(function(g){g.hidden=!g.querySelector('[data-s]:not([hidden])')})});
+document.addEventListener('click',function(e){var th=e.target.closest('.sortable th[data-col]');if(!th)return;var t=th.closest('table'),k=+th.dataset.col,up=!th.classList.contains('asc'),b=t.tBodies[0];
+  t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
+  var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
+  Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
 const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
