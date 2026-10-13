@@ -44,6 +44,11 @@ fighting for attention. The neon glows against the snow and the long northern ni
 - **Props:** billboards, street lamps, phone boxes, newspaper boxes, bins and hydrants.
 - **Interiors:** tiled or carpeted floors, office desks, filing cabinets, fluorescent light, branded posters.
 - **Harbour:** container cranes, a fuel dock, company crates.
+- **Neon, with a touch of cyberpunk** (`CYB` in `js/art.js`): every building has a neon tube along its roofline (`tube` in `BLD`),
+  the paving is wet, billboards flicker like screens, steam rises from street grates, power cables sag across the boulevard, and
+  Kelp Cola vending machines and neon OPEN signs line the streets.
+- **By night** (`?night`): Frostholm and its harbour sink into a purple dusk lit only by their neon, windows, lamps and billboards,
+  and the wet street reflects the signs above it.
 - **Avoid:** cottages, timber and anything homely or hand-made.
 
 ## Saltwick: run down and weathered
@@ -95,6 +100,8 @@ Each outdoor place takes its weather from its district (`DISTRICT_OF` in `js/dat
 | Curated | Hope Springs, its private beach and private harbour | a striped, freshly mown lawn | no snow | clipped lollipop trees and cypress cones | nothing |
 
 In the autumn and curated places, snow is stripped from sprites as they are drawn (`MELT`), so any building or prop works without a snow-free version.
+A snowy place can also have warm, snow-free zones (`BARE` in `js/art.js`): the volcano is bare volcanic rock from its first cliff upwards, with
+only a few patches of snow left and ash falling instead; its lower slopes keep their snow.
 Snowmen become pumpkin-headed scarecrows in the autumn and topiary in Hope Springs; sleds become pumpkins and roses (`WXPROP`).
 
 ## Tools for each look
@@ -123,7 +130,7 @@ Saltwick's snow is slushy (`SLUSH`).
 
 Props for each town (`PROPS` in `js/data.js`):
 
-- **Frostholm:** `slamp`, `newsbox`, `bin`, `hydrant`, the billboards `bb_cola`, `bb_oil`, `bb_burger`, `bb_mart`, and the
+- **Frostholm:** `slamp`, `newsbox`, `bin`, `hydrant`, the billboards `bb_cola`, `bb_oil`, `bb_burger`, `bb_mart`, the neon billboard `nb_burger` (text and colour in `NB` in `js/art.js`, where more can be added), `vending`, `steamgrate`, `neonpole`, and the
   containers `cont_r`, `cont_b`, `cont_g`. Billboards are three tiles wide and containers two (centred on their tile).
 - **Saltwick:** `tyre`, `junk`, `cat`, `litter` (can be walked over), `bfence`, `trashbin`, `oldboat` (two tiles).
 - **Hope Springs:** `lamp2`, `urn`, `topiary`, `roses`, `lounger`, `gatepost`, plus the palace's `hedge`, `statue` and `flowers`.

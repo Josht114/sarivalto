@@ -20,11 +20,17 @@ function gradeImage(p){const at=(R,k)=>{const f=Math.max(0,Math.min(.999,k))*(R.
 // rest of the centre and south, with grass showing through; autumn: the south-east, olive grass, fallen leaves and trees turning,
 // with only the last patches of snow; curated: Hope Springs, a mown lawn and clipped trees with no snow at all.
 const WEATHER_IN={southeast:'autumn',central:'medium',south:'medium'},WEATHER_AT={gated:'curated',privbeach:'curated',privharbour:'curated'};
-const weatherOf=m=>WEATHER_AT[m]||WEATHER_IN[DISTRICT_OF[m]]||'snow',WXSNOW={snow:1,medium:.6,autumn:.12,curated:0};
+const weatherOf=m=>WEATHER_AT[m]||WEATHER_IN[DISTRICT_OF[m]]||'snow',WXSNOW={snow:1,medium:.45,autumn:.12,curated:0};
 // While a scene is built (see scene()), WMAP recolours what is drawn: in snow-free weather the snow on roofs, sills, props and
 // rocks is dropped (null), leaving what lies under it. WXID names the weather, so sprites are cached per weather.
 const MELT={'#f3f7fa':null,'#d3dfe9':null,'#e4ecf3':null,'#dff1fb':null,'#cfdde8':null,'#e4edf4':null,'#e8eff5':null,'#dfe8ef':null,'#eef4f8':null};
 let WMAP=null,WXID='';
+// ---- Neon Frostholm. By day it is a neon-trimmed city; by night (?night) it sinks into a purple dusk where neon does the
+// lighting and the wet streets reflect it. Its buildings carry neon tubes along their
+// rooflines (BLD tube), its streets are wet and reflect the signs, billboards flicker like screens, steam rises from grates and
+// cables sag overhead. CYB marks the places it applies to; CYBING is set while one of them is being built.
+const CYB=m=>m=='fishing'||m=='kalanharbour',CYBERLOOK={dark:'rgba(28,10,56,.46)',fog:'190,80,220',fogA:.06};let CYBING=false;
+const rgbs=h=>rgb(h).join(',');
 // Smooth value noise in 0..1 (for snow drifts, wavy edges).
 function vnoise(x,y,s){const xi=Math.floor(x),yi=Math.floor(y),fx=x-xi,fy=y-yi,sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),
   a=hash(xi,yi,s),b=hash(xi+1,yi,s),c=hash(xi,yi+1,s),d=hash(xi+1,yi+1,s);return a+(b-a)*sx+(c-a)*sy+(a-b-c+d)*sx*sy}
@@ -50,14 +56,23 @@ const STONE=['#a39d95','#b1aba2','#978f88','#aaa39a'],PLANK=['#9a7049','#8c6542'
 // pave = Frostholm's concrete paving slabs, worn = Saltwick's broken cobbles, flag = Hope Springs' swept flagstones (no snow on them),
 // brick = Eastbrook's red brick.
 const PATHS={west:'dirt',radio:'dirt',beach:'boards',privbeach:'boards',forest:'dirt',north:'dirt',east:'dirt',south:'dirt',southwest:'dirt',
-  volcano:'dirt',mountains:'dirt',farm:'dirt',oilrig:'steel',fishing:'pave',kalanharbour:'pave',village:'worn',harbour:'worn',gated:'flag',privharbour:'flag',
+  volcano:'dirt',mountains:'dirt',farm:'dirt',oilrig:'steel',fishing:'wet',kalanharbour:'wet',village:'worn',harbour:'worn',gated:'flag',privharbour:'flag',
   second:'brick',savilaharbour:'boards',millroad:'dirt'};
 // Saltwick's snow is trodden grey and brown with slush.
 const SLUSH={village:1,harbour:1};
 function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return hash(X,Y,3)>.988?'#ccd9e5':nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5'}
 // medium snow: snow with patches of tired grass showing through, a slushy rim round each
-function mediumPx(X,Y){const s=snowPx(X,Y),n=vnoise(X/16,Y/16,601)*.7+vnoise(X/5,Y/5,602)*.3;if(n>.36)return s;
-  const e=hash(X,Y,604)>.93?'#5a5f44':vnoise(X/7,Y/7,603)>.5?'#7a8458':'#6a744c';return n>.31?mix(e,'#c9d2d8',.55):e}
+// ---- Snow-free zones inside a snowy place, warmed from below: [x, y, w, h] in tiles. The volcano is bare from its first cliff
+// upwards; only its lower slopes keep their snow. Ground there is volcanic rock, and snow is stripped from props and rocks.
+const BARE={volcano:[0,0,30,13]},inBare=(m,x,y)=>{const b=BARE[m];return!!b&&x>=b[0]&&y>=b[1]&&x<b[0]+b[2]&&y<b[1]+b[3]};
+function volcPx(X,Y){const n=vnoise(X/10,Y/10,660)*.7+vnoise(X/3,Y/3,661)*.3,h=hash(X,Y,662);let c=n>.62?'#6e6258':n<.36?'#4a423c':'#5c524a';
+  if(h>.97)c='#2e2826';else if(h>.94)c='#7a6c60';if(vnoise(X/6,Y/6,663)>.72)c=mix(c,'#8a4a32',.35);
+  // a few patches of snow still lying where the heat doesn't reach
+  const sn=vnoise(X/13,Y/13,664)*.75+vnoise(X/4,Y/4,665)*.25;if(sn>.74)c=sn>.78?snowPx(X,Y):mix(c,'#c9d2d8',.5);return c}
+// draw something (a prop or rock) with its snow stripped off, cached separately
+function bareOf(fn){const sv=[WMAP,WXID];WMAP=MELT;WXID='bare';try{return fn()}finally{[WMAP,WXID]=sv}}
+function mediumPx(X,Y){const s=snowPx(X,Y),n=vnoise(X/16,Y/16,601)*.7+vnoise(X/5,Y/5,602)*.3;if(n>.47)return s;
+  const e=hash(X,Y,604)>.93?'#5a5f44':vnoise(X/7,Y/7,603)>.5?'#7a8458':'#6a744c';return n>.42?mix(e,'#c9d2d8',.55):e}
 // autumn: olive and gold grass, bare earth, fallen leaves, and the last few patches of snow
 function autumnPx(X,Y){const n=vnoise(X/14,Y/14,611)*.65+vnoise(X/5,Y/5,612)*.35,h=hash(X,Y,613);let c=n>.6?'#8a9440':n<.35?'#6e7a34':'#7c8a3a';
   if(vnoise(X/9,Y/9,614)>.68)c=mix(c,'#8a6a3a',.55);
@@ -80,13 +95,13 @@ function fieldPx(X,Y){const row=Y%8,nz=vnoise(X/9,Y/9,55);if(row==7)return nz>.5
   if(row==6)return nz>.62?'#5a4a30':'#dfe7ee';if(hash(X,Y,56)>.985)return'#c9b06a';return row==0?'#f6f9fc':'#e8eff5'}
 function groundLayer(m){if(DET(m))return detailedGround(m);
   // the weather: which ground, and how much snow lies on paths (sth raises a snow threshold out of reach as the snow thins)
-  const wx=weatherOf(m),sk=WXSNOW[wx],sth=t=>t+(1-sk)*.6,gnd=WXGROUND[wx];
+  const wx=weatherOf(m),sk=WXSNOW[wx],sth=t=>t+(1-sk)*.6,gnd=WXGROUND[wx],bareAt=(X,Y)=>inBare(m,X>>4,Y>>4);
   // the radio mast and the drilling derrick stand on open ground, so their footprints are drawn as plain ground rather than a building
   const base=TH[L[m][3]][0],M=MAPS[m].map(r=>[...r]);FL[m].forEach(([x,y,w,h,,,st])=>{if(st&&BLD[st]&&['mast','derrick','manhole'].includes(BLD[st].kind))for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)M[j][i]=base});
   const h=M.length,w=M[0].length,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
   const ps=PATHS[m]||'cobble',at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],cl=(x,y)=>{const k=CLS(at(x,y));return ps=='steel'&&k=='p'?'d':k};
   const sandy=ch=>ch=='s'||(base=='s'&&!'~b,EpF'.includes(ch)),
-    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y,sk<.5):ch=='a'?fieldPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?rockPx(X,Y):gnd(X,Y);
+    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y,sk<.5):ch=='a'?fieldPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?(bareAt(X,Y)?volcPx(X,Y):rockPx(X,Y)):gnd(X,Y);
   // crater(X,Y) < 1 inside a lava feature's oval (with a wobbly edge), growing outward from it
   const VF=FL[m].filter(f=>f[4]=='v').map(([x,y,w,h])=>[(x+w/2)*16,(y+h/2)*16,w*8,h*8]),
     crater=(X,Y)=>Math.min(99,...VF.map(([cx,cy,rx,ry])=>(((X-cx)/rx)**2+((Y-cy)/ry)**2)*(.92+vnoise(X/6,Y/6,64)*.16)));
@@ -140,6 +155,9 @@ function groundLayer(m){if(DET(m))return detailedGround(m);
           const sn=vnoise(X/9,Y/9,29);if(sn>sth(.62))col=mix(col,'#e8eff5',Math.min(1,(sn-sth(.62))*6))}
         else if(ps=='pave'){const sx=X&15,sy=Y&15;col=sx==15||sy==15?'#868c93':hash(X>>4,Y>>4,30)>.5?'#b9bec4':'#b1b6bc';if(sx==0||sy==0)col=shade(col,.1);
           if(hash(X,Y,31)>.985)col='#9aa0a6';const sn=vnoise(X/8,Y/8,32);if(sn>sth(.74))col=mix(col,'#e8eff5',Math.min(.8,(sn-sth(.74))*6))}
+        else if(ps=='wet'){const sx=X&15,sy=Y&15,pd=vnoise(X/10,Y/10,640);col=sx==15||sy==15?'#3a404c':hash(X>>4,Y>>4,641)>.5?'#565e6c':'#4e5664';if(sx==0||sy==0)col=shade(col,.08);
+          if(pd>.6){col=pd>.66?'#343c4c':'#3e4656';if(hash(X,Y,642)>.97)col='#9ab0d0'}
+          const sn=vnoise(X/8,Y/8,32);if(sn>sth(.8))col=mix(col,'#c8d0dc',Math.min(.6,(sn-sth(.8))*5))}
         else if(ps=='flag'){const row=Y>>3,sx=X+(row&1)*6,sg=(sx/12|0);col=['#e6dccb','#ddd2bf','#eee5d6'][hash(sg,row,33)*3|0];
           if((Y&7)==7||sx%12==11)col='#b8ab94';else if((Y&7)==0)col=shade(col,.06)}
         else if(ps=='brick'){const row=Y>>2,sx=X+(row&1)*4;col=['#a0523a','#8e4632','#b05e44'][hash(sx>>3,row,34)*3|0];
@@ -165,6 +183,17 @@ function groundLayer(m){if(DET(m))return detailedGround(m);
         // tram platform: concrete slabs with a yellow safety line along the track edge
         col=(X&15)==15||(Y&15)==15?'#8a9099':hash(X,Y,68)>.97?'#9aa0a6':'#b1b7be';if(ly>=12&&ly<14)col='#e0a100';if(ly>=14)col='#6b7178';
         if(vnoise(X/6,Y/6,69)>sth(.7)&&ly<12)col=mix(col,'#e8eff5',.7)}
+      else if(ch=='C'){
+        // a cliff face: rock laid down in strata, split by cracks, with a snowy lip where it meets the level above, a shadowed foot
+        // where it meets the level below, and its sides lit or shaded where it turns a corner
+        const up=at(tx,ty-1)!='C',dn=!'CS'.includes(at(tx,ty+1)),lf=at(tx-1,ty)!='C',rt=at(tx+1,ty)!='C',band=((Y+(hash(X>>3,0,81)*3|0))/4|0);
+        col=['#6e6056','#5e5248','#7a6b5e','#655850'][band%4];if(Y%4==0)col='#4a3f38';if((X&3)==0&&hash(X>>2,band,82)>.78)col='#3e342e';
+        if(up&&ly<3)col=bareAt(X,Y)?(ly==0?'#9a8a78':'#7a6b5e'):ly==0?SNOW:ly==1?'#b9c4cc':'#8a7a6a';if(dn&&ly>11)col=mix(col,'#1e1a18',(ly-11)*.2);
+        if(lf&&lx<2)col=shade(col,.14);if(rt&&lx>13)col=shade(col,-.28)}
+      else if(ch=='S'){
+        // stairs cut into the cliff: stone steps with lit treads and shadowed risers, between the cut rock on either side
+        const st=ly%4,lf=at(tx-1,ty)!='S',rt=at(tx+1,ty)!='S';col=st==0?'#bdb4a8':st==3?'#5e5248':'#8e8478';if(st==0&&hash(X,Y,83)>.7&&!bareAt(X,Y))col=SNOW;else if(hash(X,Y,84)>.95)col=shade(col,-.1);
+        if(lf&&lx<2||rt&&lx>13)col='#4a3f38'}
       else if(ch=='v'&&crater(X,Y)<1){
         // volcanic crater (an oval inside its feature): a dark rocky rim, a cooled crust, then molten lava with darker crust veins
         const q=crater(X,Y),d=(1-Math.sqrt(q))*16+(vnoise(X/4,Y/4,58)*3|0),nz=vnoise(X/5,Y/5,59)*.7+vnoise(X/2,Y/2,60)*.3;
@@ -249,6 +278,9 @@ function bld2(w,h,s,dx,more=[]){
   r(lt,0,ry,1,wh);r(dk,W-2,ry,2,wh);
   if(s.kind=='gable'){r(s.trim,1,ry,2,wh);r(s.trim,W-3,ry,2,wh)}
   r('rgba(20,20,40,.28)',0,ry,W,3);
+  // a neon tube along the roofline and down both corners
+  if(s.tube){r(shade(s.tube,-.45),0,ry+1,W,1);r(s.tube,0,ry,W,1);r(shade(s.tube,.55),0,ry,W,1);r(s.tube,1,ry,1,wh-4);r(s.tube,W-2,ry,1,wh-4);
+    for(let x=12;x<W;x+=24)an.push({t:'tube',x,y:ry,col:s.tube})}
   // awnings over shop fronts
   if(aw){const a1=s.awn||(s.deco=='bar'?'#c0392b':'#2e86c1');for(let x=0;x<W;x++){const col=(x>>2)&1?a1:'#f2f2f2';r(col,x,ry,1,7);if((x&3)==1||(x&3)==2)r(col,x,ry+7,1,1)}
     r('rgba(0,0,0,.18)',0,ry+5,W,2);r('rgba(20,20,40,.25)',0,ry+8,W,2)}
@@ -277,6 +309,7 @@ function bld2(w,h,s,dx,more=[]){
   const win=(x,y,ww,hh,lit)=>{const wr=s.wear?hash(x,y,sd+W+31)/s.wear:9;if(wr<.75)lit=false;const gl=lit?'#ffd98a':s.win;
     if(s.sh){r(s.sh,x-4,y-1,2,hh+2);r(s.sh,x+ww+2,y-1,2,hh+2)}
     r(shade(s.trim,-.35),x-2,y-2,ww+4,hh+4);r(s.trim,x-1,y-1,ww+2,hh+2);r(gl,x,y,ww,hh);r(shade(gl,-.22),x,y,ww,2);
+    if(lit&&CYBING)an.push({t:'wlight',x:x+(ww>>1),y:y+(hh>>1)});
     if(lit)r('#fff1c8',x+1,y+2,ww-2,1);else{r('rgba(255,255,255,.55)',x+ww-3,y+2,1,1);r('rgba(255,255,255,.55)',x+ww-4,y+3,1,1);r('rgba(255,255,255,.55)',x+ww-5,y+4,1,1)}
     r(s.trim,x+(ww>>1),y,1,hh);r(s.trim,x,y+(hh>>1),ww,1);r(SNOW,x-2,y+hh+1,ww+4,1);r('rgba(0,0,0,.2)',x-1,y+hh+2,ww+2,1);
     if(wr<.42){r('#2a241e',x,y,ww,hh);for(const py of[y+1,y+hh-4,y+(hh>>1)-1]){r('#7d6a50',x-2,py,ww+4,3);r('#957f60',x-2,py,ww+4,1);r('#3a3a44',x-1,py+1,1,1);r('#3a3a44',x+ww,py+1,1,1)}}
@@ -285,7 +318,7 @@ function bld2(w,h,s,dx,more=[]){
       for(let k=x-1;k<x+ww+1;k+=2){r('#2b5c4b',k,y+hh,2,2);r(s.planter[(k>>1)%s.planter.length],k,y+hh-1+((k>>1)&1),1,1)}}};
   if(s.glass){
     // a curtain wall: rows of tinted glass panes between steel mullions, with a diagonal sheen; a few offices have the lights on
-    for(let i=0;i<w;i++){if(skip.has(i))continue;for(let y=tall?14:ry+(aw?12:6);y+10<H-5;y+=13){const x=i*16+2,lit=hash(i,y,w*h+7)>.82;
+    for(let i=0;i<w;i++){if(skip.has(i))continue;for(let y=tall?14:ry+(aw?12:6);y+10<H-5;y+=13){const x=i*16+2,lit=hash(i,y,w*h+7)>.82;if(lit&&CYBING)an.push({t:'wlight',x:x+6,y:y+5});
       r(shade(s.trim,-.3),x-1,y-1,14,12);for(let yy=0;yy<10;yy++)for(let xx=0;xx<12;xx++){const d=((x+xx)+(y+yy)*.6|0)%26;
         r(lit?(yy<2?'#ffe9b0':'#ffd98a'):d<3?shade(s.win,.45):yy<3?shade(s.win,.15):s.win,x+xx,y+yy)}r(SNOW,x-1,y+10,14,1)}}}
   else if(tall){for(let y=16;y<H-T-8;y+=22)for(let x=8;x<W-12;x+=18){win(x,y,12,13,hash(x,y,5)>.62);
@@ -862,6 +895,16 @@ scarecrow:[28,r=>{r('#7a5232',7,10,2,18);r('#8a6a45',7,10,1,18);r('#7a5232',1,13
   r('#5a7a2a',7,0,2,2);r('#3a2418',5,4,2,2);r('#3a2418',9,4,2,2);r('#3a2418',6,7,4,1);r('#ffd27a',6,5,1,1)}],
 pumpkins:[10,r=>{for(const[x,w]of[[0,8],[8,7]]){for(let y=3;y<10;y++)for(let i=0;i<w;i++){if(((i-w/2+.5)/(w/2))**2+((y-6.5)/3.6)**2>1)continue;r(i%3==1?'#d06a22':i<1||i>w-2?'#c0601e':'#e8822a',x+i,y)}r('#5a7a2a',x+w/2-1|0,1,2,3)}
   r('#4a7a2a',6,2,3,1)}]});
+Object.assign(PA,{
+vending:[22,r=>{r('#1f7a44',2,0,12,22);r('#2e9d57',2,0,10,22);r('#3dba6a',2,0,10,1);r('#d8fff0',4,3,6,11);for(let y=4;y<13;y+=3)for(let x=5;x<10;x+=2)r(['#5a2a14','#c0392b','#f2f2f2'][(x+y)%3],x,y,1,2);
+  r('#14121c',4,15,6,3);r('#9aa3ad',11,6,1,3);ptext(r,'KC',4,18,'#f2f2f2');r(SNOW,2,0,12,1)}],
+steamgrate:[4,r=>{r('#2a2e38',1,0,14,4);for(let x=2;x<15;x+=2)r('#14161c',x,1,1,2);r('#4a505c',1,0,14,1)}],
+neonpole:[30,r=>{r('#14121c',7,9,2,21);r('#2a2836',7,9,1,21);r('#14121c',5,28,6,2);r('#14121c',0,0,16,10);r('#24202e',1,1,14,8);r(SNOW,0,0,16,1)}]});
+// Neon billboards: a dark panel on steel legs whose lettering is neon (drawn each frame, so it glows and flickers), lighting the
+// street below at night. NB: the lines of text and the neon colour.
+const NB={nb_burger:[['POLAR','BURGER'],'#ff8a3a']};
+for(const k in NB){const col=NB[k][1];PA[k]=[34,r=>{for(const x of[10,36]){r('#3a3d44',x,19,2,15);r('#5a5f68',x,19,1,15)}r('#2b2f3a',4,19,40,2);r('#3a3d44',4,18,40,1);
+  r('#2b2f3a',0,0,48,19);r('#120e1c',1,1,46,17);r(shade(col,-.55),2,2,44,1);r(shade(col,-.55),2,16,44,1);r(shade(col,-.55),2,2,1,15);r(shade(col,-.55),45,2,1,15);r(SNOW,0,0,48,1)},48]}
 // weather swaps for props that only make sense in the snow
 const WXPROP={autumn:{snowman:'scarecrow',sled:'pumpkins'},curated:{snowman:'topiary',sled:'roses'}};
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
@@ -886,6 +929,21 @@ function char2(d,fr,body,hair,stripe,hat){const key=[d,fr,body,hair,stripe,hat].
     else if(d==1){r(hair,4,1,8,7);r(hair,5,0,6,1);r(shade(hair,-.3),5,8,6,1);r(hl,6,1,3,1)}
     else{r(hair,4,1,8,3);r(hair,5,0,6,1);r(hair,9,4,3,3);r(hair,10,7,2,1);r(hl,5,1,2,1);r(OUT,5,5,1,2);r(skd,8,5,1,2)}
     if(hat){r(hat,4,1,8,2);r(hat,5,0,6,1);r(shade(hat,-.25),4,3,8,1);r('#f2f2f2',7,0,2,1);r(shade(hat,.2),5,1,2,1)}})}
+// Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
+const COST={};
+function costume(kind,d,fr){const key=kind+d+fr;if(COST[key])return COST[key];const side=d>1,back=d==1,f=d==3?(x,w=1)=>16-x-w:(x)=>x;
+  return COST[key]=mk(16,26,r0=>{const r=(c,x,y,w=1,h=1)=>r0(c,f(x,w),y,w,h);
+    // straw (red and white stripes) and lid
+    for(let y=0;y<6;y++)r(y%2?'#f2f2f2':'#c0392b',back?6:9,y,2,1);r('#e8e8e8',2,5,12,3);r('#ffffff',3,5,9,1);r('#c9ced4',2,7,12,1);
+    // the cup: red, tapering towards the bottom, with a white band and a green KC badge
+    for(let y=8;y<21;y++){const hw=6-Math.floor((y-8)/5);r(y%4==0?'#a52f24':'#c0392b',8-hw,y,hw*2,1);r('#e04a3a',8-hw,y,1,1)}
+    r('#f2f2f2',3,15,10,2);if(!back){r('#2e9d57',side?9:6,15,4,2);r('#f2f2f2',side?10:7,15,1,1)}
+    // a hole for the face
+    if(!back){const fx=side?8:5;r('#2a1a12',fx,9,6,5);r('#f1c7a0',fx+1,10,4,3);r('#2a1a12',fx+1,11,1,1);r('#2a1a12',fx+3,11,1,1)}
+    // stubby arms in white gloves (one waving), legs and big shoes
+    const wave=fr;if(!side){r('#c0392b',1,11,2,4);r('#f2f2f2',0,wave?9:14,3,2);r('#c0392b',13,11,2,4);r('#f2f2f2',13,14,3,2)}else{r('#c0392b',9,12,2,4);r('#f2f2f2',9,15,3,2)}
+    r('#2d3046',5,21,2,3);r('#2d3046',9,21,2,3);r('#f2f2f2',4,24,4,2);r('#f2f2f2',8,24,4,2);r('#c9ced4',4,25,4,1);r('#c9ced4',8,25,4,1)})}
+function costumed(px,py,d,kind,t){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(costume(kind,d,d==0?(t/450|0)%2:0),px-1,py-11)}
 // Draws a person whose tile's top-left is (px, py).
 function person(px,py,d,fr,body,hair,stripe,hat){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);
   ctx.drawImage(char2(d,fr,body,hair,stripe,hat),px-1,py-5)}
@@ -934,6 +992,7 @@ skyapts4:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'
 skyapts3:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
 skyapts2:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
 eblofts:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
+eblofts4:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
 eblofts3:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
 eblofts2:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',quilt:'#3d7a5a',curtain:'#7a2a1e',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic']]},
 hsresid:{fl:'check',f:['#efe6cf','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#8a6a45',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'portrait'],[15,'portrait']]},
@@ -1239,7 +1298,16 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
 // ---- Scene: everything that never changes is baked into one canvas per map; ents are the things drawn back to front.
 const SC={};
 function scene(m){if(SC[m])return SC[m];
-  const wx=L[m][3]=='interior'?'snow':weatherOf(m);WXID=wx;WMAP=WXSNOW[wx]<.5&&!DET(m)?MELT:null;try{return SC[m]=sceneOf(m,wx)}finally{WMAP=null;WXID=''}}
+  const wx=L[m][3]=='interior'?'snow':weatherOf(m);WXID=wx;WMAP=WXSNOW[wx]<.5&&!DET(m)?MELT:null;CYBING=CYB(m);try{return SC[m]=sceneOf(m,wx)}finally{WMAP=null;WXID='';CYBING=false}}
+// In neon Frostholm, turn a building's animations into light sources: neon signs and tubes glow in their own colour (and are
+// reflected in the wet street below the building, at rb), lit windows glow warm or neon-tinted, marquee bulbs glow gold.
+function cyberLights(b,x,y,h,lights){const rb=(y+h)*16;let nb=0;
+  return b.an.filter(a=>{const X=a.x+x*16,Y=a.y+y*16;
+    if(a.t=='neon'){const n=a.s.length;lights.push(a.v?{x:X+1,y:Y+n*3,r:30,col:rgbs(a.col||'#ff5fa8'),f:1,rb}:{x:X+n*2,y:Y+2,r:Math.max(26,n*3.4),col:rgbs(a.col||'#ff5fa8'),f:1,rb})}
+    if(a.t=='tube')lights.push({x:X,y:Y,r:30,col:rgbs(a.col),f:0,rb});
+    if(a.t=='wlight'){lights.push({x:X,y:Y,r:16,col:['255,210,150','120,220,255','255,120,220'][hash(X,Y,650)*3|0],f:0});return false}
+    if(a.t=='bulb'&&nb++%5==0)lights.push({x:X,y:Y,r:14,col:'255,210,90',f:1});
+    return true})}
 function sceneOf(m,wx){
   const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],lights=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
   if(c.an)an.push(...c.an);
@@ -1271,7 +1339,7 @@ function sceneOf(m,wx){
       // buildings you can't go into still get a (locked) front door, unless their look already has a big door
       if(dx<0&&!['church','hut','whs','garage'].includes(BLD[st].deco))dx=w>>1;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
-      const b=bld2(w,h,BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);b.an.forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
+      const b=bld2(w,h,BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);(CYB(m)?cyberLights(b,x,y,h,lights):b.an).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
       if(BLD[st].icon)signs.push({x,y,w,h,k:BLD[st].icon,ry:b.ry,nt:b.nt,hang:BLD[st].hang})}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
@@ -1305,7 +1373,7 @@ function sceneOf(m,wx){
     gcable([[ox+(left?8:MW-8),(my+mh)*16-5],[left?(hx+hw)*16:hx*16,(hy+hh)*16-8]],'#1a1c22','#3a3d44')}
   if(!inside)M.forEach((row,y)=>[...row].forEach((ch,x)=>{
     if(ch=='T'){const set=GOTH(m)?DEADTREES:DET(m)?dtrees():treesFor(wx),t=set[hash(x,y,31)*set.length|0];put(y,(DET(m)?-4:0)+x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
-    if(ch=='R'){const t=rocksNow()[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
+    if(ch=='R'){const t=(inBare(m,x,y)?bareOf(rocksNow):rocksNow())[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
   // tram lines: each row with a run of track gets overhead-wire poles along its far side and a wire for the tram's pantograph.
   // The tram stops level with the middle of the platform in front of (below) the track; a line that ends inside the map is a terminus.
   const trams=[];if(!inside)M.forEach((row,y)=>{const a=row.indexOf('l'),b=row.lastIndexOf('l');if(a<0||b-a<6)return;
@@ -1314,12 +1382,26 @@ function sceneOf(m,wx){
   trams.forEach(({y:ty,a,b})=>{const wc=cnv(b,ty*16),wg=wc.getContext('2d');wg.fillStyle='#2b2f3a';wg.fillRect(a,ty*16-TRAM_UP,b-a,1);ents.push({k:99,X:0,Y:0,c:wc});
     for(let x=a/16+1;x<b/16;x+=5)if(!'#T'.includes(M[ty-1][x]))put(ty-1,x*16+5,ty*16-30,tramPole,0,x,ty-1)});
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
-  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k0])=>{const k=GOTH(m)&&GPROP[k0]||DET(m)&&DPROP[k0]||WXPROP[wx]?.[k0]||k0,t=propArt(k),pass=PROP_PASS.includes(k),sp=propSpan(k);put(pass?y-.5:y,(x-((sp-1)>>1))*16-1,(y+1)*16-t.height+1,t,!pass&&sp==1,x,y);
+  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k0])=>{const k=GOTH(m)&&GPROP[k0]||DET(m)&&DPROP[k0]||WXPROP[wx]?.[k0]||k0,t=inBare(m,x,y)?bareOf(()=>propArt(k)):propArt(k),pass=PROP_PASS.includes(k),sp=propSpan(k);put(pass?y-.5:y,(x-((sp-1)>>1))*16-1,(y+1)*16-t.height+1,t,!pass&&sp==1,x,y);
     if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});
+    if(NB[k]){const[lines,col]=NB[k],ox=(x-1)*16,oy=(y+1)*16-t.height+2;lines.forEach((s,i)=>an.push({t:'neon',x:ox+1+((46-s.length*4+1)>>1),y:oy+(lines.length==1?7:4)+i*7,s,col}));
+      lights.push({x:x*16+8,y:oy+9,r:48,col:rgbs(col),f:1,rb:(y+1)*16})}
+    if(CYB(m)){const top=(y+1)*16-t.height+1;
+      if(k=='slamp')lights.push({x:x*16+12,y:top+6,r:34,col:'255,190,140',f:0});
+      if(k=='vending')lights.push({x:x*16+7,y:top+8,r:24,col:'140,255,190',f:1});
+      if(k.startsWith('bb_')){lights.push({x:x*16+8,y:top+9,r:44,col:rgbs(PA[k]&&k=='bb_cola'?'#2e9d57':k=='bb_oil'?'#e0a100':k=='bb_burger'?'#ff5a3a':'#3bd0ff'),f:1});an.push({t:'scan',x:x*16-16,y:top+1,w:46,h:17})}
+      if(k=='steamgrate')an.push({t:'smoke',x:x*16+8,y:top-2,big:1});
+      if(k=='neonpole'){an.push({t:'neon',x:x*16,y:top+3,s:'OPEN',col:'#3bd0ff'});lights.push({x:x*16+8,y:top+5,r:28,col:'59,208,255',f:1})}}
     if(k=='dlamp'&&NIGHT){const top=(y+1)*16-t.height+1;lights.push({x:x*16+2,y:top+12,r:34,col:'255,190,100',f:1},{x:x*16+12,y:top+12,r:34,col:'255,190,100',f:1})}
     if(GLIGHT[k]){const[oy,r,col,fx]=GLIGHT[k],top=(y+1)*16-t.height+1;lights.push({x:x*16+8,y:top+oy,r,col,f:1});
       if(fx=='fire')an.push({t:'fire',x:x*16+8,y:top+6});if(fx=='candle')an.push({t:'candle',x:x*16+8,y:top+oy});
       if(fx=='candles')for(const[cx,h]of[[3,5],[6,7],[9,4],[12,6]])an.push({t:'candle',x:x*16-1+cx+1,y:top+5-h})}if(k=='vent')an.push({t:'smoke',x:x*16+7,y:y*16+8});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
+  // power cables sagging across Frostholm's boulevard (sorted just in front of its north side, so the billboards and anyone further
+  // down the street are drawn over them and no cable runs across a billboard's lettering)
+  if(m=='fishing'){const wc=cnv(M[0].length*16,M.length*16),wg=wc.getContext('2d'),wr=(col,x,y)=>{wg.fillStyle=col;wg.fillRect(x|0,y|0,1,1)};
+    for(const[x0,y0,x1,y1,sag]of[[3,6,13,10,10],[17,6,24,10,8],[31,6,36,10,9],[0,7,39,7,14],[6,6,24,6,12]]){const S0=[x0*16+8,y0*16+2],S1=[x1*16+8,y1*16+2],n=Math.ceil(Math.hypot(S1[0]-S0[0],S1[1]-S0[1])/2);let p=null;
+      for(let k=0;k<=n;k++){const u=k/n,q=[S0[0]+(S1[0]-S0[0])*u,S0[1]+(S1[1]-S0[1])*u+sag*4*u*(1-u)];if(p)pline(wr,p[0],p[1],q[0],q[1],'#14121c');p=q}}
+    ents.push({k:7.5,X:0,Y:0,c:wc})}
   return{c,an,boats,ferries,trams,ents,lights,inside,top:inside?WU:0,iconTop}}
 
 // ---- Snowfall and vignette
@@ -1376,7 +1458,7 @@ function drawWorld2(m,cx,cy,t,frame){
   tramsOn(m,t).forEach(({y:ty,x})=>{
     // the tram stands on its track and rises over the row behind it (the platform), so it is drawn after anyone standing there
     Ls.push([ty-1,1.5,()=>{const X=Math.round(x)-cx,Y=ty*16-TRAM_UP-cy;px('rgba(30,50,80,.25)',X+4,Y+35,90,3);ctx.drawImage(tramArt,X-1,Y-1)}])});
-  NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat)])});
+  NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>n.costume?costumed(n.x*16-cx,n.y*16-cy+b,n.dir,n.costume,t):person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat)])});
   Ls.push([P.ry,1,()=>person(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,'#2a5db0','#4a2e1a','#e8c33a')]);
   Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());
   // smoke, flags, signs, lights, fires and machines
@@ -1398,6 +1480,7 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='reel'){const an=t/180;for(const o of[0,2.09,4.19])px('#5a5f68',X+Math.round(Math.cos(an+o)*2),Y+Math.round(Math.sin(an+o)*2),1,1);px('#2b2f3a',X,Y,1,1)}
     if(a.t=='vu')for(let i=0;i<a.w;i+=2){const hh=1+(hash(i,t/110|0,a.x)*a.h|0);px(hh>=a.h?'#ff3b2f':hh>a.h/2?'#ffd23a':'#5fe08a',X+i,Y+a.h-hh,1,hh)}
     if(a.t=='candle'){const f=hash(a.x,t/120|0,8);px('rgba(255,200,90,.22)',X-2,Y-3,5,6);px(f>.3?'#ffd23a':'#ff8a3a',X,Y-1,1,2);if(f>.6)px('#fff2a0',X,Y-2,1,1)}
+    if(a.t=='scan'){const yy=(t/40|0)%a.h;px('rgba(255,255,255,.22)',X,Y+yy,a.w,1);if(hash(t/200|0,a.x|0,7)>.93)px('rgba(255,60,200,.3)',X+2,Y+(hash(t/90|0,a.x|0,8)*a.h|0),a.w-4,2)}
     if(a.t=='bulb')px(((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
     // neon letters (v: stacked vertically). fl: a failing tube that keeps cutting out.
     if(a.t=='neon'){const c0=a.col||'#ff5fa8',on=a.fl?hash(t/140|0,3,7+a.x)<.72:hash(t/90|0,3,7)<.96,col=on?c0:shade(c0,-.65);
@@ -1420,8 +1503,15 @@ function drawWorld2(m,cx,cy,t,frame){
     const wx=weatherOf(m);
     if(!DET(m)&&wx!='curated')flakes().forEach((f,i)=>{if(wx=='medium'&&i%2||wx=='autumn'&&i%3)return;const p=f.big?1.2:.6,X=md(f.x*vw+Math.sin(t/1300+f.ph)*6+t*.004-cx*p,vw),Y=md(f.y*vh+t*f.sp*(f.big?1.4:1)-cy*p,vh);
       if(wx=='autumn'&&!GOTH(m)){const c=['#d0782a','#b0402a','#d8a030','#8a5a2a'][i%4],w=Math.sin(t/260+f.ph)>0;px(c,X,Y,2,1);px(c,X+(w?1:0),Y+1,1,1);return}
+      if(BARE[m]&&inBare(m,(X+cx)>>4,(Y+cy)>>4)){px('rgba(70,62,60,.7)',X,Y,f.big?2:1,1);return}  // ash, not snow, over the warm ground
       px(GOTH(m)?(f.big?'rgba(255,120,50,.8)':'rgba(160,150,170,.6)'):f.big?'rgba(255,255,255,.7)':'rgba(255,255,255,.85)',X,Y,f.big?2:1,f.big?2:1)});
     if(GOTH(m))gothLight(S,cx,cy,t);
+    // Frostholm by night (?night): purple dusk, every light glowing, and neon reflected in the wet street
+    if(CYB(m)&&NIGHT){gothLight(S,cx,cy,t,CYBERLOOK);ctx.save();ctx.globalCompositeOperation='lighter';
+      // neon reflected in the wet street below each lit building, shimmering
+      for(const l of S.lights){if(!l.rb)continue;const X=l.x-cx+Math.sin(t/300+l.x)*1.5,Y=l.rb-cy,w=l.r*.45;if(X<-w||X>vw+w||Y>vh||Y<-40)continue;
+        const gr=ctx.createLinearGradient(0,Y,0,Y+34);gr.addColorStop(0,`rgba(${l.col},.2)`);gr.addColorStop(1,`rgba(${l.col},0)`);ctx.fillStyle=gr;ctx.fillRect(X-w/2,Y,w,34)}
+      ctx.restore()}
     if(DET(m)&&NIGHT){gothLight(S,cx,cy,t,NIGHTLOOK);
       for(let i=0;i<26;i++){const X=((hash(i,1,500)*vw+Math.sin(t/1700+i)*30-cx*.15)%vw+vw)%vw,Y=((hash(i,2,500)*vh+Math.cos(t/2100+i*2)*20-cy*.15)%vh+vh)%vh,on=Math.sin(t/400+i*1.7)>.2;
         if(on){px('rgba(200,255,120,.25)',X-1,Y-1,3,3);px('#e8ff90',X,Y,1,1)}}}}

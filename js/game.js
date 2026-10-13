@@ -25,7 +25,7 @@ P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
 // (the ?gothic proof of concept starts in Eastbrook's square instead)
 if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
 sel.onchange=()=>{const id=sel.value;closeMenu();RIDE=TRIP=null;go(id);sel.blur()};
-const SOLID='#TR~vbkWecuxygitno';
+const SOLID='#TR~vbkWecuxygitnoC';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
 const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x*16+16>q.x+3&&x*16<q.x+93);
 const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||

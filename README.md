@@ -15,6 +15,9 @@ No build step. Open `index.html` in a browser, or serve the folder:
 
     python3 -m http.server 8000
 
+Add `?night` to the address (for example `index.html?night`) to see the night-time look. So far only Frostholm and its harbour
+have one; everywhere else stays in daylight.
+
 ## Controls
 
 Arrows / WASD to move. Face someone and press E (or Space, Enter, or the E button) to talk to them. On a tram platform, press E (or Space, Enter, or the E button) to call the tram, and again once it has stopped to get on. Inside, press E to choose a stop (arrow keys and E, or tap); walk out of the door to get off without riding. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
@@ -42,7 +45,7 @@ edge exit to cross to the neighbouring area.
 ## Editing the map
 
 - `L` in `js/data.js`: one entry per location, `id: [name, width, height, theme, features]`.
-  A feature is `[x, y, w, h, tile, label, look]` (tiles: `#` building, `T` trees, `R` rock, `~` water,
+  A feature is `[x, y, w, h, tile, label, look]` (tiles: `#` building, `T` trees, `R` rock, `C` cliff face, `S` stairs cut into a cliff, `~` water,
   `p` dock, `b` moored boat, `v` lava). A building's `look` is a key in `BLD`, which sets its walls, roof, signs and decorations. Each town has its own look;
   [docs/town-aesthetics.md](docs/town-aesthetics.md) describes them and the options that make them (weathering, glass fronts, neon and wooden signs,
   billboards, string lights, columns, window boxes, path styles and per-town props).
