@@ -2,7 +2,7 @@
 
 Each of the island's five towns has its own look. Use this guide when adding buildings (`BLD` in `js/data.js`),
 interiors (`INT` in `js/art.js`), props (`PROPS`) or new pixel art, so that each town is recognisable at a glance.
-It is still the early 1980s everywhere, and still snowy. There are no roads on the island, so no cars, buses or road furniture.
+It is still the early 1980s everywhere. How snowy a place is depends on its region (see Weather below). There are no roads on the island, so no cars, buses or road furniture.
 
 | Town | Places | In one line |
 |---|---|---|
@@ -83,6 +83,20 @@ The capital and the hub. It should feel like an ordinary city, the baseline the 
 - **Interiors:** standard shops and homes.
 - **Avoid:** going too far in any one direction; it is the neutral middle.
 
+## Weather
+
+Each outdoor place takes its weather from its district (`DISTRICT_OF` in `js/data.js`); see `WEATHER_IN` and `WEATHER_AT` in `js/art.js`.
+
+| Weather | Where | Ground | Buildings and props | Trees | Falling |
+|---|---|---|---|---|---|
+| Snow | North West, North, North East, South West | deep snow | snow on roofs, sills and props | snowy pines | heavy snow |
+| Medium snow | Central (Kingsgrad, the palace, Kelp Cola HQ), and the rest of the South (South Road, the barracks) | snow with grass showing through | snow on roofs, sills and props | snowy pines | lighter snow |
+| Autumn | South East (Eastbrook and its harbour, the tram stop, the forest, the cola factory, South East Road, Mill Road) | olive and gold grass, bare earth, fallen leaves, the last patches of snow | no snow | round trees turning orange, rust and gold, some still green, among green pines | drifting leaves |
+| Curated | Hope Springs, its private beach and private harbour | a striped, freshly mown lawn | no snow | clipped lollipop trees and cypress cones | nothing |
+
+In the autumn and curated places, snow is stripped from sprites as they are drawn (`MELT`), so any building or prop works without a snow-free version.
+Snowmen become pumpkin-headed scarecrows in the autumn and topiary in Hope Springs; sleds become pumpkins and roses (`WXPROP`).
+
 ## Tools for each look
 
 Building looks (`BLD` in `js/data.js`) take these options on top of the usual walls, roof, trim and windows:
@@ -94,7 +108,7 @@ Building looks (`BLD` in `js/data.js`) take these options on top of the usual wa
 | `signk: 'neon'` | The sign is glowing neon letters in `signc` on a dark board | Frostholm |
 | `blade: [text, colour]` | A tall neon sign down the front, one letter above the next | Frostholm (Hotel Aurora) |
 | `bill: {t: [lines], bg, fg}` | A billboard standing on a flat roof | Frostholm (Polar Burger) |
-| `marquee: text` | A cinema board over the door, ringed with chasing bulbs | Frostholm (Cinema) |
+| `marquee: text` | A cinema board over the door, ringed with chasing bulbs | Kingsgrad (Cinema) |
 | `signk: 'wood'` | A hand-painted wooden sign | Eastbrook |
 | `lights: [colours]` | String lights swagged under the eaves or awning | Eastbrook |
 | `signk: 'brass'` | An engraved brass plaque | Hope Springs (The Club) |

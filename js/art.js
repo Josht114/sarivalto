@@ -6,11 +6,30 @@ const RGB={},rgb=h=>RGB[h]??=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
 // shade(colour, k): k>0 mixes toward white, k<0 toward black.
 const shade=(h,k)=>'#'+rgb(h).map(v=>Math.max(0,Math.min(255,Math.round(k<0?v*(1+k):v+(255-v)*k))).toString(16).padStart(2,'0')).join('');
 const mix=(a,b,k)=>{const A=rgb(a),B=rgb(b);return'#'+A.map((v,i)=>Math.round(v+(B[i]-v)*k).toString(16).padStart(2,'0')).join('')};
+// ---- Proof of concept: a gothic redesign of Eastbrook in the spirit of Blasphemous and The Last Faith, shown only when the page
+// is opened with ?gothic. Eastbrook's ground is colour-graded to a moonlit night (its brick streets to blood red), its buildings are
+// redrawn as gothic stone with stained glass (GBLD), its props and trees are swapped for gothic ones (GPROP, DEADTREES), and a
+// lighting pass leaves it dark except around windows, lamps and fires, under drifting fog and falling ash.
+const GOTHIC=typeof location!='undefined'&&/[?&]gothic\b/.test(location.search),GOTH=m=>GOTHIC&&m=='second';
+// gradient maps: a pixel's brightness picks a colour along a ramp (slate for most things, crimson for reddish ones)
+const RAMP_SLATE=['#0a0910','#191824','#2a2938','#424256','#62677e','#8a92a8'],RAMP_BLOOD=['#120608','#2e0c10','#541619','#7c2a22','#a8503a','#c9844e'];
+function gradeImage(p){const at=(R,k)=>{const f=Math.max(0,Math.min(.999,k))*(R.length-1),i=f|0,u=f-i,a=rgb(R[i]),b=rgb(R[i+1]);return[0,1,2].map(j=>a[j]+(b[j]-a[j])*u)};
+  for(let i=0;i<p.length;i+=4){if(!p[i+3])continue;const r=p[i],g=p[i+1],b=p[i+2],L=(.3*r+.59*g+.11*b)/255,red=r>g+28&&r>b+20;
+    const c=at(red?RAMP_BLOOD:RAMP_SLATE,red?L*1.15:L*.92);p[i]=c[0];p[i+1]=c[1];p[i+2]=c[2]}}
+// ---- Weather by region (outdoor places only). snow: deep snow, as the north and the south-west have; medium: Kingsgrad and the
+// rest of the centre and south, with grass showing through; autumn: the south-east, olive grass, fallen leaves and trees turning,
+// with only the last patches of snow; curated: Hope Springs, a mown lawn and clipped trees with no snow at all.
+const WEATHER_IN={southeast:'autumn',central:'medium',south:'medium'},WEATHER_AT={gated:'curated',privbeach:'curated',privharbour:'curated'};
+const weatherOf=m=>WEATHER_AT[m]||WEATHER_IN[DISTRICT_OF[m]]||'snow',WXSNOW={snow:1,medium:.6,autumn:.12,curated:0};
+// While a scene is built (see scene()), WMAP recolours what is drawn: in snow-free weather the snow on roofs, sills, props and
+// rocks is dropped (null), leaving what lies under it. WXID names the weather, so sprites are cached per weather.
+const MELT={'#f3f7fa':null,'#d3dfe9':null,'#e4ecf3':null,'#dff1fb':null,'#cfdde8':null,'#e4edf4':null,'#e8eff5':null,'#dfe8ef':null,'#eef4f8':null};
+let WMAP=null,WXID='';
 // Smooth value noise in 0..1 (for snow drifts, wavy edges).
 function vnoise(x,y,s){const xi=Math.floor(x),yi=Math.floor(y),fx=x-xi,fy=y-yi,sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),
   a=hash(xi,yi,s),b=hash(xi+1,yi,s),c=hash(xi,yi+1,s),d=hash(xi+1,yi+1,s);return a+(b-a)*sx+(c-a)*sy+(a-b-c+d)*sx*sy}
 // Draws fn(r) on a w x h canvas with a 1px margin, then outlines everything opaque. Draw the result at (x-1, y-1).
-function mk(w,h,fn){const W=w+2,H=h+2,c=cnv(W,H),g=c.getContext('2d');fn((col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x+1,y+1,a,b)});
+function mk(w,h,fn){const W=w+2,H=h+2,c=cnv(W,H),g=c.getContext('2d');fn((col,x,y,a=1,b=1)=>{if(WMAP&&col in WMAP){col=WMAP[col];if(!col)return}g.fillStyle=col;g.fillRect(x+1,y+1,a,b)});
   const d=g.getImageData(0,0,W,H),p=d.data,o=rgb(OUT),A=i=>p[i*4+3]>160,add=[];
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=y*W+x;if(p[i*4+3])continue;
     if((x>0&&A(i-1))||(x<W-1&&A(i+1))||(y>0&&A(i-W))||(y<H-1&&A(i+W)))add.push(i)}
@@ -36,9 +55,20 @@ const PATHS={west:'dirt',radio:'dirt',beach:'boards',privbeach:'boards',forest:'
 // Saltwick's snow is trodden grey and brown with slush.
 const SLUSH={village:1,harbour:1};
 function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return hash(X,Y,3)>.988?'#ccd9e5':nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5'}
-function sandPx(X,Y){const nz=vnoise(X/10,Y/10,1)*.7+vnoise(X/4,Y/4,2)*.3;let c=nz>.62?'#e4d8b4':nz<.38?'#cbbb91':'#d9cba4';
+// medium snow: snow with patches of tired grass showing through, a slushy rim round each
+function mediumPx(X,Y){const s=snowPx(X,Y),n=vnoise(X/16,Y/16,601)*.7+vnoise(X/5,Y/5,602)*.3;if(n>.36)return s;
+  const e=hash(X,Y,604)>.93?'#5a5f44':vnoise(X/7,Y/7,603)>.5?'#7a8458':'#6a744c';return n>.31?mix(e,'#c9d2d8',.55):e}
+// autumn: olive and gold grass, bare earth, fallen leaves, and the last few patches of snow
+function autumnPx(X,Y){const n=vnoise(X/14,Y/14,611)*.65+vnoise(X/5,Y/5,612)*.35,h=hash(X,Y,613);let c=n>.6?'#8a9440':n<.35?'#6e7a34':'#7c8a3a';
+  if(vnoise(X/9,Y/9,614)>.68)c=mix(c,'#8a6a3a',.55);
+  if(h>.965)c=['#d0782a','#b0402a','#d8a030','#8a5a2a'][(h*1000|0)%4];else if(h>.94)c=shade(c,-.15);
+  const sn=vnoise(X/12,Y/12,615);if(sn>.84)c=mix(c,'#e8eff5',Math.min(.8,(sn-.84)*8));return c}
+// curated: a striped, freshly mown lawn
+function lawnPx(X,Y){const b=hash(X,Y,621);let c=((X+Y)>>4)&1?'#62bc50':'#55ad46';if(b>.97)c=shade(c,.08);else if(b<.03)c=shade(c,-.06);return c}
+const WXGROUND={snow:(X,Y)=>snowPx(X,Y),medium:mediumPx,autumn:autumnPx,curated:lawnPx};
+function sandPx(X,Y,dry){const nz=vnoise(X/10,Y/10,1)*.7+vnoise(X/4,Y/4,2)*.3;let c=nz>.62?'#e4d8b4':nz<.38?'#cbbb91':'#d9cba4';
   if(hash(X,Y,3)>.982)c='#a89a7a';else if(hash(X,Y,4)>.99)c='#f4efe0';
-  const sn=vnoise(X/12,Y/12,5);return sn>.74?mix(c,'#eef3f6',Math.min(.85,(sn-.74)*9)):c}
+  const sn=vnoise(X/12,Y/12,5);return sn>.74&&!dry?mix(c,'#eef3f6',Math.min(.85,(sn-.74)*9)):c}
 // Mountain ground: snow with grey rock showing through in patches.
 const rockAt=(X,Y)=>vnoise(X/14,Y/14,50)*.75+vnoise(X/5,Y/5,51)*.25,RK=.7;
 function rockPx(X,Y){const nz=rockAt(X,Y);if(nz<RK)return hash(X,Y,52)>.985?'#8a929b':snowPx(X,Y);
@@ -48,13 +78,15 @@ function rockPx(X,Y){const nz=rockAt(X,Y);if(nz<RK)return hash(X,Y,52)>.985?'#8a
 // Ploughed field under snow: soft furrow ridges with dark soil showing here and there.
 function fieldPx(X,Y){const row=Y%8,nz=vnoise(X/9,Y/9,55);if(row==7)return nz>.58?'#6b5a3a':nz>.45?'#a8a090':'#d8e3ec';
   if(row==6)return nz>.62?'#5a4a30':'#dfe7ee';if(hash(X,Y,56)>.985)return'#c9b06a';return row==0?'#f6f9fc':'#e8eff5'}
-function groundLayer(m){
+function groundLayer(m){if(DET(m))return detailedGround(m);
+  // the weather: which ground, and how much snow lies on paths (sth raises a snow threshold out of reach as the snow thins)
+  const wx=weatherOf(m),sk=WXSNOW[wx],sth=t=>t+(1-sk)*.6,gnd=WXGROUND[wx];
   // the radio mast and the drilling derrick stand on open ground, so their footprints are drawn as plain ground rather than a building
   const base=TH[L[m][3]][0],M=MAPS[m].map(r=>[...r]);FL[m].forEach(([x,y,w,h,,,st])=>{if(st&&BLD[st]&&['mast','derrick','manhole'].includes(BLD[st].kind))for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)M[j][i]=base});
   const h=M.length,w=M[0].length,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
   const ps=PATHS[m]||'cobble',at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],cl=(x,y)=>{const k=CLS(at(x,y));return ps=='steel'&&k=='p'?'d':k};
   const sandy=ch=>ch=='s'||(base=='s'&&!'~b,EpF'.includes(ch)),
-    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y):ch=='a'?fieldPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?rockPx(X,Y):snowPx(X,Y);
+    gpx=(X,Y,ch)=>sandy(ch)?sandPx(X,Y,sk<.5):ch=='a'?fieldPx(X,Y):ch=='r'||(base=='r'&&ch!='.')?rockPx(X,Y):gnd(X,Y);
   // crater(X,Y) < 1 inside a lava feature's oval (with a wobbly edge), growing outward from it
   const VF=FL[m].filter(f=>f[4]=='v').map(([x,y,w,h])=>[(x+w/2)*16,(y+h/2)*16,w*8,h*8]),
     crater=(X,Y)=>Math.min(99,...VF.map(([cx,cy,rx,ry])=>(((X-cx)/rx)**2+((Y-cy)/ry)**2)*(.92+vnoise(X/6,Y/6,64)*.16)));
@@ -64,7 +96,7 @@ function groundLayer(m){
   for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){
     const k=cl(tx,ty),nb=(x,y)=>k=='w'&&bridge(x,y)?'w':cl(x,y),n=nb(tx,ty-1),s=nb(tx,ty+1),wv=nb(tx-1,ty),e=nb(tx+1,ty),ch=M[ty][tx],br=bridge(tx,ty);
     const nS=sandy(at(tx,ty-1)),sS=sandy(at(tx,ty+1)),wS=sandy(at(tx-1,ty)),eS=sandy(at(tx+1,ty)),sd=sandy(ch);
-    const tuft=ch=='.'&&hash(tx,ty,9)>.86,tox=2+(hash(tx,ty,10)*11|0),toy=4+(hash(tx,ty,11)*9|0);
+    const tuft=ch=='.'&&wx!='curated'&&hash(tx,ty,9)>.86,tox=2+(hash(tx,ty,10)*11|0),toy=4+(hash(tx,ty,11)*9|0);
     const vert=(n=='p'||s=='p')&&wv!='p'&&e!='p';
     for(let ly=0;ly<16;ly++)for(let lx=0;lx<16;lx++){const X=tx*16+lx,Y=ty*16+ly;let col=null,a=255;
       if(k=='w'){
@@ -105,15 +137,15 @@ function groundLayer(m){
       else if(k=='p'){
         if(ps=='dirt'){const nz=vnoise(X/6,Y/6,26);col=nz>.6?'#bcae96':nz<.35?'#9f927c':'#ada08a';
           if(hash(X,Y,27)>.9)col='#8a7e6a';else if(hash(X,Y,28)>.95)col='#d2c7b4';
-          const sn=vnoise(X/9,Y/9,29);if(sn>.62)col=mix(col,'#e8eff5',Math.min(1,(sn-.62)*6))}
+          const sn=vnoise(X/9,Y/9,29);if(sn>sth(.62))col=mix(col,'#e8eff5',Math.min(1,(sn-sth(.62))*6))}
         else if(ps=='pave'){const sx=X&15,sy=Y&15;col=sx==15||sy==15?'#868c93':hash(X>>4,Y>>4,30)>.5?'#b9bec4':'#b1b6bc';if(sx==0||sy==0)col=shade(col,.1);
-          if(hash(X,Y,31)>.985)col='#9aa0a6';const sn=vnoise(X/8,Y/8,32);if(sn>.74)col=mix(col,'#e8eff5',Math.min(.8,(sn-.74)*6))}
+          if(hash(X,Y,31)>.985)col='#9aa0a6';const sn=vnoise(X/8,Y/8,32);if(sn>sth(.74))col=mix(col,'#e8eff5',Math.min(.8,(sn-sth(.74))*6))}
         else if(ps=='flag'){const row=Y>>3,sx=X+(row&1)*6,sg=(sx/12|0);col=['#e6dccb','#ddd2bf','#eee5d6'][hash(sg,row,33)*3|0];
           if((Y&7)==7||sx%12==11)col='#b8ab94';else if((Y&7)==0)col=shade(col,.06)}
         else if(ps=='brick'){const row=Y>>2,sx=X+(row&1)*4;col=['#a0523a','#8e4632','#b05e44'][hash(sx>>3,row,34)*3|0];
-          if((Y&3)==3||(sx&7)==7)col='#c9b8a8';const sn=vnoise(X/9,Y/9,35);if(sn>.7)col=mix(col,'#e8eff5',Math.min(.85,(sn-.7)*6))}
+          if((Y&3)==3||(sx&7)==7)col='#c9b8a8';const sn=vnoise(X/9,Y/9,35);if(sn>sth(.7))col=mix(col,'#e8eff5',Math.min(.85,(sn-sth(.7))*6))}
         else{const row=Y/5|0,ry=Y%5,sx=X+row*3,seg=sx/6|0,l6=sx%6;col=STONE[hash(seg,row,14)*4|0];
-          if(ry==4||l6==5)col=hash(X,Y,15)>.6?'#dde6ee':'#77716b';else if(ry==0)col=shade(col,.15);else if(ry==3||l6==4)col=shade(col,-.1);
+          if(ry==4||l6==5)col=hash(X,Y,15)>.6&&sk>.5?'#dde6ee':'#77716b';else if(ry==0)col=shade(col,.15);else if(ry==3||l6==4)col=shade(col,-.1);
           // worn: stones missing, leaving mud and grey slush in the gaps
           if(ps=='worn'){const hole=vnoise(X/5,Y/5,36);if(hole>.64)col=hole>.72?(hash(X,Y,37)>.5?'#6e604e':'#7a6a55'):(hash(X,Y,38)>.4?'#9aa4ac':'#8a939b');if(hash(X,Y,39)>.992)col='#4a4038'}}
         // snow (or sand) lying over the path's edges, with a little shadow under the lip
@@ -126,13 +158,13 @@ function groundLayer(m){
         if(at(tx-1,ty)=='l'||at(tx+1,ty)=='l'){if(ly==3||ly==11)col='#c9ced4';else if(ly==4||ly==12)col='#6b737c'}}
       else if(ch=='l'){
         // tram track: grey ballast, wooden sleepers across it, and two steel rails running along it
-        const nz=vnoise(X/3,Y/3,66);col=nz>.6?'#8a857f':nz<.4?'#6e6a64':'#7d7872';if(ly<2||ly>13)col=mix(col,'#e8eff5',.55);
-        if(X%8<3&&ly>1&&ly<14)col=X%8==0?'#6b4a2e':'#5a3e27';if(vnoise(X/7,Y/7,67)>.72&&(ly<4||ly>11||X%8>=3))col='#e8eff5';
+        const nz=vnoise(X/3,Y/3,66);col=nz>.6?'#8a857f':nz<.4?'#6e6a64':'#7d7872';if((ly<2||ly>13)&&sk>.5)col=mix(col,'#e8eff5',.55);
+        if(X%8<3&&ly>1&&ly<14)col=X%8==0?'#6b4a2e':'#5a3e27';if(vnoise(X/7,Y/7,67)>sth(.72)&&(ly<4||ly>11||X%8>=3))col='#e8eff5';
         if(ly==3||ly==11)col='#c9ced4';else if(ly==4||ly==12)col='#6b737c'}
       else if(ch=='P'){
         // tram platform: concrete slabs with a yellow safety line along the track edge
         col=(X&15)==15||(Y&15)==15?'#8a9099':hash(X,Y,68)>.97?'#9aa0a6':'#b1b7be';if(ly>=12&&ly<14)col='#e0a100';if(ly>=14)col='#6b7178';
-        if(vnoise(X/6,Y/6,69)>.7&&ly<12)col=mix(col,'#e8eff5',.7)}
+        if(vnoise(X/6,Y/6,69)>sth(.7)&&ly<12)col=mix(col,'#e8eff5',.7)}
       else if(ch=='v'&&crater(X,Y)<1){
         // volcanic crater (an oval inside its feature): a dark rocky rim, a cooled crust, then molten lava with darker crust veins
         const q=crater(X,Y),d=(1-Math.sqrt(q))*16+(vnoise(X/4,Y/4,58)*3|0),nz=vnoise(X/5,Y/5,59)*.7+vnoise(X/2,Y/2,60)*.3;
@@ -140,13 +172,14 @@ function groundLayer(m){
       else{col=gpx(X,Y,ch);if(SLUSH[m]&&!sd){const sl=vnoise(X/11,Y/11,40)*.7+vnoise(X/4,Y/4,41)*.3;if(sl>.58)col=mix(col,sl>.66?'#8a8072':'#a39c90',Math.min(.75,(sl-.58)*5))}
         // scorched ash around a crater's rim
         const q=crater(X,Y);if(q<2.2)col=mix(col,hash(X,Y,63)>.8?'#2a2028':'#4a4048',Math.min(.85,(2.2-q)*.75));
-        if(ch=='T')col=mix(col,sd?'#9a8c6a':'#9fb3c6',sd?.18:.3);
+        if(ch=='T')col=mix(col,sd?'#9a8c6a':sk>.5?'#9fb3c6':'#3e4a2a',sd?.18:sk>.5?.3:.22);
         if(sd){const dw=Math.min(n=='w'?ly:99,s=='w'?15-ly:99,wv=='w'?lx:99,e=='w'?15-lx:99);if(dw<6)col=mix(col,'#a8966c',(6-dw)/7)}
         if(n=='h'&&ly<3)col=mix(col,'#b4c4d4',.85-ly*.2);
         if(wv=='h'&&lx<5)col=mix(col,'#b4c4d4',.7-lx*.12);
         if(tuft){const dx=lx-tox,dy=ly-toy;if((dy==0&&(dx==0||dx==2||dx==4))||(dy==-1&&(dx==1||dx==3))||(dy==-2&&dx==2))col=dy==0?'#5e6b45':'#7c8a5c'}
         if(ch=='.'&&hash(tx,ty,18)>.9&&lx==toy&&ly==tox)col='#8a929b'}
       if(col){const i=(Y*W+X)*4;p.set(rgb(col),i);p[i+3]=a}}}
+  if(GOTH(m))gradeImage(p);
   g.putImageData(img,0,0);return c}
 
 // ---- Animated water: 8 seamless 64x64 frames of two crossing wave trains.
@@ -195,7 +228,7 @@ function signArt(k,right){const c=cnv(30,29),g=c.getContext('2d'),r=(col,x,y,a=1
 // dx: the main door's column (or -1); more: the columns of any other doors (side or service entrances)
 function bld2(w,h,s,dx,more=[]){
   const sd=parseInt(s.wall?.slice(1)||'0',16)%9973,W=w*T,H=h*T,c=cnv(W,H),g=c.getContext('2d'),an=[];
-  const r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a|0,b|0)};let nt=null;
+  const r=(col,x,y,a=1,b=1)=>{if(WMAP&&col in WMAP){col=WMAP[col];if(!col)return}g.fillStyle=col;g.fillRect(x|0,y|0,a|0,b|0)};let nt=null;
   const tall=s.kind=='tall',wh=tall?H-10:Math.max(2,Math.round(h*.45))*T,ry=H-wh,dk=shade(s.wall,-.25),lt=shade(s.wall,.15);
   const tex=s.tex||(s.deco=='hq'?'brick':s.kind=='gable'?'siding':'panel'),aw=s.deco=='bar'||s.deco=='shop'||!!s.awn;
   // wall + texture
@@ -387,7 +420,7 @@ rope:[6,r=>{r('#c9a36a',2,0,12,6);r('#a8834a',4,1,8,4);r('#8a6a3a',6,2,4,2);r('#
 anchor:[12,r=>{r('#4a4f58',7,0,2,10);r('#4a4f58',4,2,8,1);r('#4a4f58',2,8,2,3);r('#4a4f58',12,8,2,3);r('#4a4f58',3,10,10,2);r('#6a707a',7,0,1,10)}],
 sled:[8,r=>{r('#a8323a',1,1,13,4);r('#c94a50',1,1,13,1);r('#3a3a44',0,6,15,1);r('#3a3a44',2,5,1,1);r('#3a3a44',12,5,1,1);r(SNOW,3,0,6,1)}]};
 // A prop's sprite is 16 pixels wide unless its entry gives a width (PA[k][2]): a wide one covers that many tiles, centred on its own tile.
-const PCACHE={},propArt=k=>PCACHE[k]??=(k=='rock'?ROCKS[1]:mk(PA[k][2]||16,PA[k][0],PA[k][1])),propSpan=k=>Math.round((PA[k]?.[2]||16)/16);
+const PCACHE={},propArt=k=>PCACHE[k+(WMAP?'|'+WXID:'')]??=(k=='rock'?rocksNow()[1]:mk(PA[k][2]||16,PA[k][0],PA[k][1])),propSpan=k=>Math.round((PA[k]?.[2]||16)/16);
 
 function boatArt(w,h,v){const W=w*16,H=h*16,hc=['#b5402f','#2f5f8f','#3d7a5a'][v*3|0],top=6,bot=H-8,bow=Math.min(12,W/4|0);
   return mk(W,H-1,r=>{
@@ -510,6 +543,209 @@ function wagonArt(w,h,c){const W=w*16,H=h*16+10,cx=W>>1;return mk(W,H,r=>{
   r(shade(c.trim,-.4),cx-6,H-30,12,19);r('#5a3a26',cx-5,H-29,10,18);r('#c9a040',cx+2,H-20,1,2);r('#7a5232',cx-6,H-11,12,2);r('#7a5232',cx-5,H-9,10,2);
   r('#3a3d44',W-12,0,3,6);r('#5a5f68',W-12,0,1,6);
   for(const wx of[8,W-9])for(let a=0;a<16;a++){const an=a/16*6.283;r('#4a3222',Math.round(wx+Math.cos(an)*5),Math.round(H-7+Math.sin(an)*5),1,1);if(a%4==0)pline(r,wx,H-7,Math.round(wx+Math.cos(an)*5),Math.round(H-7+Math.sin(an)*5),'#7a5232')}})}
+// ---- Gothic Eastbrook (the ?gothic proof of concept). A building is a dressed-stone front split into bays by buttresses, a steep
+// slate gable with an iron finial over each bay, a tall lancet window of stained glass in each (lit crimson and amber, or dark),
+// an arched door between two candles, and optionally a bell tower, a rose window, crimson banners and a carved sign. It rises
+// GEXT pixels above its footprint. Returns the picture, its animations and its light sources (all relative to the picture).
+const GEXT=26;
+function gothicArt(w,h,s,dx){const W=w*16,H=h*16+GEXT,an=[],lights=[],ry=GEXT+Math.round(h*16*.3),gold='#c9a040';
+  const st=s.wall,sd=shade(st,-.38),sl=shade(st,.2),bays=Math.max(1,Math.round(W/28)),bw=W/bays,X=dx*16+8;
+  const c=mk(W,H,r=>{
+    // bell tower behind the roofline
+    if(s.tower){const tx=(W>>1)-8;r(st,tx,10,16,ry-6);r(sd,tx,10,1,ry-6);r(sd,tx+15,10,1,ry-6);for(let y=0;y<12;y++){const hw=Math.max(1,Math.round(9*y/12));r(y%3?s.roof:'#14131c',(W>>1)-hw,y,hw*2,1)}
+      r('#14131c',(W>>1)-3,15,6,9);r('#e8a040',(W>>1)-2,17,4,6);r('#ffd890',(W>>1)-1,18,2,2);lights.push({x:W>>1,y:20,r:30,col:'255,170,80',f:1});r(gold,(W>>1)-1,0,2,2)}
+    // roof: a steep slate gable over each bay, crowned with an iron finial
+    for(let i=0;i<bays;i++){const x0=Math.round(i*bw),x1=Math.round((i+1)*bw),mx=(x0+x1)>>1,top=Math.max(9,Math.round(ry-(x1-x0)*.95));
+      for(let y=top;y<ry;y++){const hw=(x1-x0)/2*(y-top)/(ry-top)+1;for(let x=Math.round(mx-hw);x<Math.round(mx+hw);x++)r(((x+(y>>1))%5==0)||(y%4==0)?'#16151e':s.roof,x,y)}
+      r('#3a3a48',mx-1,top-8,2,9);r(gold,mx-3,top-5,6,1);r(gold,mx-1,top-9,2,2)}
+    // walls of dressed stone, flecked
+    r(st,0,ry,W,H-ry);for(let y=ry;y<H;y+=5){r(sd,0,y,W,1);for(let x=((y/5|0)%2)*6;x<W;x+=12)r(sd,x,y,1,5)}
+    for(let x=0;x<W;x++)for(let y=ry;y<H;y++)if(hash(x,y,W+7)>.975)r(sl,x,y);
+    r('#0e0d14',0,ry,W,2);
+    // a lancet window in each bay: stained glass between lead lines, lit or dark; the middle bay can hold a rose window instead
+    const wy0=ry+(s.sign?13:6),wy1=H-23;
+    for(let i=0;i<bays;i++){const mx=Math.round((i+.5)*bw);if(Math.abs(mx-X)<10&&wy1-wy0<14)continue;
+      const lit=hash(i,w,h+st.length)>.25,rose=s.rose&&i==(bays>>1);
+      if(rose){const cy=wy0+9;for(let y=-8;y<=8;y++)for(let x=-8;x<=8;x++){const d=Math.hypot(x,y);if(d>8.4)continue;const a=Math.atan2(y,x),k=((a+Math.PI)/(Math.PI/4))|0;
+          r(d>7.4?'#14131c':d<2?gold:(Math.abs(x)<1||Math.abs(y)<1||d>6.4)?'#1b1a24':k%2?'#8a1a1a':'#2a3a7a',mx+x,cy+y)}lights.push({x:mx,y:cy,r:36,col:'220,60,50',f:1});continue}
+      const ww=8,top=wy0,bot=Math.max(wy0+10,wy1);
+      for(let y=top;y<bot;y++){const k=y-top,hw=k<6?Math.round(Math.sqrt(k/6)*4):4;r('#14131c',mx-hw-1,y,hw*2+2,1);
+        for(let x=mx-hw;x<mx+hw;x++){const u=(y-top)/(bot-top),glass=lit?(u<.45?'#8a1a1a':u<.7?'#c2402a':'#e8a040'):(u<.5?'#1e2230':'#2a3450');r((x==mx||(y-top)%5==4)?'#14131c':glass,x,y)}}
+      r(sl,mx-6,bot,12,2);if(lit)lights.push({x:mx,y:(top+bot)>>1,r:22,col:'240,120,60',f:1})}
+    // buttresses between the bays
+    for(let i=0;i<=bays;i++){const x=Math.round(i*bw)-2;r(sd,x,ry-3,5,H-ry+3);r(sl,x,ry-3,1,H-ry+3);r('#0e0d14',x+4,ry-3,1,H-ry+3);r(sl,x-1,ry-5,7,2);r(sd,x-1,H-10,7,10)}
+    // crimson banners with a gold sun, hung from the buttresses
+    if(s.banner)for(let i=1;i<bays;i++){const x=Math.round(i*bw)-3;r('#14131c',x-1,ry+2,9,1);r('#7a1418',x,ry+3,7,16);r('#9a2020',x,ry+3,2,16);r(gold,x,ry+3,7,1);r(gold,x+2,ry+9,3,3);r('#7a1418',x+1,ry+19,2,2);r('#7a1418',x+4,ry+19,2,2)}
+    // the sign, carved and gilded, under the eaves
+    if(s.sign){const tw=s.sign.length*4+5,sx=(W-tw)>>1;r('#0e0d14',sx-1,ry+2,tw+2,10);r('#1b1a24',sx,ry+3,tw,8);r(gold,sx,ry+3,tw,1);ptext(r,s.sign,sx+3,ry+5,gold)}
+    // the door: a pointed arch of iron-banded oak in a stone surround, with steps and a candle either side
+    for(let y=0;y<22;y++){const hw=y<6?Math.round(Math.sqrt(y/6)*8):8;r(sl,X-hw-2,H-24+y,hw*2+4,1)}
+    for(let y=0;y<19;y++){const hw=y<5?Math.round(Math.sqrt(y/5)*6):6;r('#2a1810',X-hw,H-21+y,hw*2,1)}
+    r('#5a5f68',X-6,H-14,12,1);r('#5a5f68',X-6,H-8,12,1);r('#14131c',X,H-19,1,17);r(gold,X+2,H-11,2,2);
+    r('#4a4858',X-10,H-3,20,3);r('#5e5c70',X-10,H-3,20,1);
+    for(const cx of[X-12,X+11]){r('#e8dcc0',cx,H-9,2,6);r('#c9b28a',cx+1,H-9,1,6);an.push({t:'candle',x:cx+1,y:H-10});lights.push({x:cx+1,y:H-11,r:15,col:'255,180,90',f:1})}
+  });
+  return{c,an,lights}}
+// Gothic Eastbrook's looks for each of its buildings
+const GBLD={eb1:{wall:'#3b3846',roof:'#262433'},eb2:{wall:'#463c3a',roof:'#2a2430'},
+  community:{wall:'#5a4a3e',roof:'#2a2430',tower:1,rose:1,banner:1,sign:'COMMUNITY'},gazette:{wall:'#3b3846',roof:'#262433',sign:'GAZETTE'},
+  coffee:{wall:'#4a3a34',roof:'#2a2430',sign:'COFFEE'},tattoo:{wall:'#3a2a30',roof:'#221c26',sign:'TATTOO',banner:1},
+  cedargrill:{wall:'#4a3a34',roof:'#2a2430',sign:'GRILL',banner:1},tavern:{wall:'#463c3a',roof:'#2a2430',sign:'TAVERN',banner:1},
+  eblofts:{wall:'#3b3846',roof:'#262433',tower:1,sign:'LOFTS'},kcmuseum:{wall:'#5a4a3e',roof:'#2a2430',rose:1,banner:1,sign:'MUSEUM'},
+  records:{wall:'#3a2a30',roof:'#221c26',sign:'RECORDS'},clothes:{wall:'#463c3a',roof:'#2a2430',sign:'CLOTHES',banner:1}};
+// A dead tree: a twisted black trunk and bare, crooked branches.
+const deadTree=v=>mk(16,30,r=>{const tk='#14131c',br='#24222e';r(tk,7,12,3,18);r(br,7,12,1,18);r(tk,6,27,5,3);
+  const B=[[8,14,2,6],[9,12,13,5],[8,18,3,11],[9,17,14,10],[8,9,5,2],[9,8,12,1],[8,5,8,0]];B.forEach(([x0,y0,x1,y1],i)=>{if((i+v)%4==3)return;pline(r,x0,y0,x1,y1,i%2?tk:br)});
+  r(tk,7,4,2,9);r('#a9b1c6',4,6,2,1);r('#a9b1c6',12,4,2,1)});
+const DEADTREES=[0,1,2].map(deadTree);
+// Gothic props, standing in for Eastbrook's own (same tiles, so collisions are unchanged)
+Object.assign(PA,{
+glamp:[30,r=>{r('#14131c',7,9,2,19);r('#2a2836',7,9,1,19);r('#14131c',5,27,6,3);r('#14131c',3,7,10,2);r('#1b1a24',4,0,8,8);r('#f0b050',5,2,6,5);r('#ffe0a0',6,3,2,3);r('#14131c',7,2,1,5);r('#3a3a48',7,0,2,1)}],
+gbench:[11,r=>{r('#3a3846',1,2,14,3);r('#4f4c5e',1,2,14,1);r('#26242f',2,5,2,6);r('#26242f',12,5,2,6);r('#3a3846',1,6,14,2)}],
+brazier:[18,r=>{r('#14131c',3,10,2,8);r('#14131c',11,10,2,8);r('#14131c',7,12,2,6);r('#2a2836',2,6,12,5);r('#3a3a48',2,6,12,1);r('#e8501e',4,5,8,2);r('#ffb040',6,4,4,1)}],
+gravestone:[16,r=>{r('#3e3d4e',3,3,10,13);r('#3e3d4e',4,1,8,2);r('#5a5970',4,1,3,12);r('#26252f',11,3,2,13);r('#1b1a24',7,4,2,7);r('#1b1a24',5,6,6,2);r('#2e3a2a',3,13,4,3);r('#4a4a5e',2,15,12,1)}],
+penitent:[32,r=>{r('#3a3846',4,28,8,4);r('#4f4c5e',4,28,8,1);for(let y=0;y<14;y++){const hw=Math.max(1,Math.round(y*0.4));r(y<2?'#7a7f96':'#5a5970',8-hw,y,hw*2,1)}
+  r('#14131c',6,9,4,2);for(let y=14;y<28;y++){const hw=3+Math.round((y-14)*0.25);r('#4a4a5e',8-hw,y,hw*2,1);r('#3a3846',8+hw-2,y,2,1)}r('#26252f',7,16,2,10);r('#c9a040',7,20,2,2)}],
+shrine:[24,r=>{r('#3e3d4e',2,6,12,18);r('#5a5970',2,6,12,1);for(let y=0;y<6;y++){const hw=Math.round(7*y/6);r('#262433',8-hw,y,hw*2,1)}r('#c9a040',7,0,2,2);
+  r('#14131c',4,9,8,10);r('#c9a040',6,10,4,5);r('#7a1418',7,11,2,3);r('#e8dcc0',7,16,2,3)}],
+thorns:[12,r=>{for(let k=0;k<7;k++)pline(r,1+k*2,11,(k*5)%15,1+(k%3)*2,k%2?'#14131c':'#2a2033');for(const[x,y]of[[3,4],[9,3],[12,6],[6,7]])r('#9a1a1a',x,y,1,1)}],
+candles:[10,r=>{r('#3a3846',1,6,14,4);r('#4f4c5e',1,6,14,1);for(const[x,h]of[[3,5],[6,7],[9,4],[12,6]]){r('#e8dcc0',x,6-h,2,h);r('#c9b28a',x+1,6-h,1,h)}}]});
+const GPROP={lamp:'glamp',bench:'gbench',planter:'brazier',mailbox:'gravestone',woodpile:'gravestone',snowman:'penitent',phone:'shrine',bush:'thorns',chalk:'candles',cafetable:'candles',bike:'thorns'};
+// light sources and flames on the gothic props: [y offset from the sprite's top, radius, colour, flame animation]
+const GLIGHT={glamp:[4,36,'255,170,80'],brazier:[4,42,'255,110,40','fire'],shrine:[16,18,'255,180,90','candle'],candles:[0,20,'255,180,90','candles']};
+// The lighting pass: darkness over the whole view, cut away around each light (which flickers), a warm glow added on top,
+// and banks of fog drifting through.
+let LIGHTC=null;
+function gothLight(S,cx,cy,t,o={dark:'rgba(5,5,14,.8)',fog:'140,150,185',fogA:.13}){const vw=cv.width,vh=cv.height;if(!LIGHTC||LIGHTC.width!=vw||LIGHTC.height!=vh)LIGHTC=cnv(vw,vh);const g=LIGHTC.getContext('2d');
+  g.globalCompositeOperation='source-over';g.clearRect(0,0,vw,vh);g.fillStyle=o.dark;g.fillRect(0,0,vw,vh);g.globalCompositeOperation='destination-out';
+  const ls=S.lights.concat([{x:P.rx*16+8,y:P.ry*16+6,r:26}]),fl=l=>l.f?1+Math.sin(t/110+l.x)*.05+(hash(l.x|0,t/140|0,l.y|0)-.5)*.1:1;
+  for(const l of ls){const X=l.x-cx,Y=l.y-cy,R=l.r*fl(l);if(X<-R||Y<-R||X>vw+R||Y>vh+R)continue;const gr=g.createRadialGradient(X,Y,0,X,Y,R);
+    gr.addColorStop(0,'rgba(0,0,0,1)');gr.addColorStop(.45,'rgba(0,0,0,.75)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(X-R,Y-R,R*2,R*2)}
+  ctx.drawImage(LIGHTC,0,0);ctx.save();ctx.globalCompositeOperation='lighter';
+  for(const l of S.lights){const X=l.x-cx,Y=l.y-cy,R=l.r*.75*fl(l);if(X<-R||Y<-R||X>vw+R||Y>vh+R)continue;const gr=ctx.createRadialGradient(X,Y,0,X,Y,R);
+    gr.addColorStop(0,`rgba(${l.col},.28)`);gr.addColorStop(1,`rgba(${l.col},0)`);ctx.fillStyle=gr;ctx.fillRect(X-R,Y-R,R*2,R*2)}
+  ctx.restore();
+  for(let i=0;i<6;i++){const R=90+(i%3)*30,X=(((i*211+t*.006*(i%2?1:-1)*16-cx*.4)%(vw+2*R))+vw+2*R)%(vw+2*R)-R,Y=((i*137-cy*.4)%(vh+R)+vh+R)%(vh+R)-R/2;
+    const gr=ctx.createRadialGradient(X,Y,0,X,Y,R);gr.addColorStop(0,`rgba(${o.fog},${o.fogA})`);gr.addColorStop(1,`rgba(${o.fog},0)`);ctx.fillStyle=gr;ctx.fillRect(X-R,Y-R,R*2,R*2)}}
+
+// ---- Proof of concept 2: a more detailed Eastbrook (?detailed), in the style of lush top-down pixel art: textured grass with
+// tufts and flowers, pale cobbles with grass creeping over their edges, tiled-roof cottages with gables, chimneys, framed windows
+// and arched doors, leafy trees and hand-made props. Add &night for the night-time version: windows lit, lanterns glowing,
+// fireflies, under the same lighting pass as the gothic proof of concept.
+const DETAILED=typeof location!='undefined'&&/[?&]detailed\b/.test(location.search),NIGHT=typeof location!='undefined'&&/[?&]night\b/.test(location.search),DET=m=>DETAILED&&m=='second';
+const NIGHTLOOK={dark:'rgba(14,18,48,.74)',fog:'110,130,190',fogA:.07};
+function grassPx(X,Y){const n=vnoise(X/18,Y/18,201)*.6+vnoise(X/6,Y/6,202)*.4,b=hash(X,Y,203);let c=n>.62?'#78b850':n<.38?'#5a9a3e':'#68aa48';
+  if(b>.94)c='#4c8a36';else if(b>.9)c='#86c460';return c}
+function cobblePx(X,Y){const row=(Y/6)|0,sx=X+(row&1?3:0),cx=(sx/7)|0,lx=sx%7,ly=Y%6,k=hash(cx,row,211);
+  if(lx==0||ly==0||(lx==1&&ly==1)||(lx==6&&ly==5))return hash(cx,row,212)>.75?'#6a9e48':'#a3957c';
+  const base=['#e8dfcd','#ddd2bc','#d3c6ac','#e2d6c0'][k*4|0];return lx==1||ly==1?shade(base,.25):lx==6||ly==5?shade(base,-.14):base}
+function detailedGround(m){const M=MAPS[m],h=M.length,w=M[0].length,W=w*16,H=h*16,c=cnv(W,H),g=c.getContext('2d'),img=g.createImageData(W,H),p=img.data;
+  const at=(x,y)=>M[Math.max(0,Math.min(h-1,y))][Math.max(0,Math.min(w-1,x))],path=ch=>ch==','||ch=='E',hard=ch=>path(ch)||ch=='l'||ch=='P';
+  const put=(X,Y,col)=>{if(X<0||Y<0||X>=W||Y>=H)return;const i=(Y*W+X)*4;p.set(rgb(col),i);p[i+3]=255};
+  for(let Y=0;Y<H;Y++)for(let X=0;X<W;X++){const tx=X>>4,ty=Y>>4,lx=X&15,ly=Y&15,ch=at(tx,ty);let col;
+    if(path(ch)){col=cobblePx(X,Y);
+      // grass creeping over the edge of the path in a ragged fringe, with a little shadow under it
+      const dep=u=>2+((hash(u>>1,tx*31+ty,91)*3)|0),side=[[!hard(at(tx,ty-1)),ly,X],[!hard(at(tx,ty+1)),15-ly,X],[!hard(at(tx-1,ty)),lx,Y],[!hard(at(tx+1,ty)),15-lx,Y]];
+      for(const[open,d,u]of side)if(open){const k=dep(u);if(d<k)col=d==k-1?'#3e7a2c':grassPx(X,Y);else if(d==k)col=shade(col,-.18)}}
+    else if(ch=='l'){const nz=vnoise(X/3,Y/3,66);col=nz>.6?'#9a8a76':nz<.4?'#7e705e':'#8c7d6a';if(X%8<3&&ly>1&&ly<14)col=X%8==0?'#7a5232':'#5e3e24';
+      if(ly==3||ly==11)col='#d8dde2';else if(ly==4||ly==12)col='#6b737c'}
+    else if(ch=='P'){col=(X&15)==15||(Y&15)==15?'#8f8676':hash(X>>4,Y>>4,213)>.5?'#c9c0b0':'#bfb6a4';if(ly>=12&&ly<14)col='#e0b020';if(ly>=14)col='#7a7262'}
+    else col=grassPx(X,Y);
+    const i=(Y*W+X)*4;p.set(rgb(col),i);p[i+3]=255}
+  // scattered over the grass: tufts, little flowers, pebbles and the odd mushroom
+  for(let ty=0;ty<h;ty++)for(let tx=0;tx<w;tx++){if(hard(at(tx,ty)))continue;const X0=tx*16,Y0=ty*16;
+    for(let k=0;k<3;k++){const x=X0+2+(hash(tx,ty,220+k)*11|0),y=Y0+4+(hash(tx,ty,230+k)*10|0);put(x,y,'#3e7a2c');put(x+2,y,'#3e7a2c');put(x+1,y-1,'#3e7a2c');put(x+1,y-2,'#9ad06a');put(x-1,y-1,'#9ad06a')}
+    const f=hash(tx,ty,240);
+    if(f>.82){const x=X0+3+(hash(tx,ty,241)*9|0),y=Y0+3+(hash(tx,ty,242)*9|0),pc=['#e86aa0','#f4d03f','#f2f2f2','#f08a3a','#9a7ad8'][hash(tx,ty,243)*5|0];
+      put(x,y+3,'#3e7a2c');put(x,y+2,'#3e7a2c');put(x-1,y,pc);put(x+1,y,pc);put(x,y-1,pc);put(x,y+1,pc);put(x,y,'#f4d03f');
+      if(f>.9){put(x+4,y+3,'#3e7a2c');put(x+3,y+2,pc);put(x+5,y+2,pc);put(x+4,y+1,pc);put(x+4,y+2,'#f4d03f')}}
+    else if(f>.77){const x=X0+4+(hash(tx,ty,244)*8|0),y=Y0+6+(hash(tx,ty,245)*7|0);put(x,y,'#8a8f98');put(x+1,y,'#a9b0b8');put(x,y+1,'#5f666e');put(x+1,y+1,'#6e7680')}
+    else if(f>.755){const x=X0+5+(hash(tx,ty,246)*6|0),y=Y0+6+(hash(tx,ty,247)*6|0);put(x,y+2,'#efe0c0');put(x,y+1,'#efe0c0');put(x-1,y,'#c0392b');put(x,y,'#c0392b');put(x+1,y,'#c0392b');put(x,y-1,'#d84a3a');put(x,y,'#f2f2f2')}}
+  g.putImageData(img,0,0);return c}
+// A detailed building, seen from the front in three-quarter view: a tiled roof with a ridge beam over the whole footprint, a
+// cream gable with an attic window, a stone chimney, then walls of stone, brick or timber-framed plaster with framed windows,
+// an arched plank door with a lantern, an optional striped awning and a hanging wooden sign. Rises DEXT pixels above its footprint.
+const DEXT=12;
+function detailedArt(w,h,s,dx){const W=w*16,H=h*16+DEXT,cx=W>>1,ry=DEXT+Math.round(h*16*.5),an=[],lights=[],X=dx*16+8,OUTL='#3a2418';
+  const c=mk(W,H,r=>{
+    // walls
+    const wt=ry+3,wb=H-4;
+    for(let y=wt;y<wb;y++)for(let x=0;x<W;x++){let col;
+      if(s.mat=='stone'){const row=((y-wt)/5)|0,sx=x+(row%2)*4,bx=(sx/9)|0,lx=sx%9,ly=(y-wt)%5,k=hash(bx,row,301+W);
+        col=lx==0||ly==0?'#4a505c':['#7c8494','#6e7684','#858d9c','#727a88'][k*4|0];if((lx==1||ly==1)&&lx&&ly)col=shade(col,.18)}
+      else if(s.mat=='brick'){const row=((y-wt)/4)|0,sx=x+(row%2)*4,lx=sx%8,ly=(y-wt)%4,k=hash((sx/8)|0,row,302+W);
+        col=lx==0||ly==0?'#c9b8a8':['#b0563a','#a04c34','#ba6042'][k*3|0];if(ly==1&&lx)col=shade(col,.12)}
+      else{col=s.plaster||'#f2e6c8';if(hash(x,y,303)>.96)col=shade(col,-.05);
+        if(x%16<2||(y-wt)%14<2&&y-wt<28)col=x%16==0||(y-wt)%14==0?'#5a3a22':'#7a5232'}
+      r(col,x,y)}
+    r('#1a1210',0,wt,W,1);r('rgba(30,20,10,.25)',0,wt+1,W,2);
+    // plinth
+    for(let x=0;x<W;x++){r(x%10==0?'#9a9284':'#c9c0b0',x,wb,1,4)}r('#e0d8c8',0,wb,W,1);
+    // windows (lit at night), skipping the door
+    const rows=Math.max(1,Math.floor((wb-wt-4)/20));
+    for(let k=0;k<rows;k++){const y0=wb-14-k*20;if(y0<wt+3)continue;
+      for(let i=0;i<w;i++){const x0=i*16+3;if(k==0&&Math.abs(x0+5-X)<11)continue;const lit=NIGHT&&hash(i,k,W+7)>.3,gl=lit?'#ffd98a':'#7fb0e0';
+        r(OUTL,x0-1,y0-1,12,11);r('#8a5a36',x0,y0,10,9);r(gl,x0+1,y0+1,8,7);r(lit?'#fff1c8':'#cfe6f8',x0+1,y0+1,3,2);r(lit?'#fff1c8':'#cfe6f8',x0+2,y0+3,1,1);
+        r('#8a5a36',x0+5,y0+1,1,7);r('#8a5a36',x0+1,y0+4,8,1);r('#c9b28a',x0-1,y0+9,12,2);r('#a8906a',x0-1,y0+10,12,1);
+        if(lit)lights.push({x:x0+5,y:y0+4,r:22,col:'255,200,110',f:1})}}
+    // awning over the shop front
+    if(s.awn){const ay=wb-22;for(let x=0;x<W;x++){const cc=(x>>2)&1?s.awn:'#f2efe6';r(cc,x,ay,1,5);if((x&3)==1||(x&3)==2)r(cc,x,ay+5,1,1)}r(shade(s.awn,-.3),0,ay,W,1);r('rgba(30,20,10,.25)',0,ay+6,W,2)}
+    // the door: an arched plank door in a stone surround, with a step and a lantern
+    for(let y=0;y<18;y++){const hw=y<4?Math.round(Math.sqrt(y/4)*7):7;r('#c9c0b0',X-hw-1,wb-18+y,hw*2+2,1);r('#e0d8c8',X-hw-1,wb-18+y,1,1)}
+    for(let y=0;y<16;y++){const hw=y<4?Math.round(Math.sqrt(y/4)*5):5;for(let x=X-hw;x<X+hw;x++)r(((x-X+10)>>1)&1?'#8a5a36':'#7a4e2e',x,wb-16+y)}
+    r('#3a3d44',X-5,wb-12,4,1);r('#3a3d44',X-5,wb-5,4,1);r('#e0b040',X+2,wb-8,2,2);r('#9a9284',X-7,wb,14,2);
+    const lx=X+8;r('#2a2a33',lx,wb-17,4,6);r(NIGHT?'#ffd27a':'#f0c060',lx+1,wb-16,2,4);r('#2a2a33',lx+1,wb-18,2,1);if(NIGHT)lights.push({x:lx+2,y:wb-14,r:26,col:'255,190,100',f:1});
+    // roof: rows of tiles over the whole footprint, a ridge beam down the middle, overhanging eaves
+    for(let y=DEXT;y<ry+3;y++){const row=((y-DEXT)/3)|0,yy=(y-DEXT)%3;for(let x=0;x<W;x++){const left=x<cx,base=left?s.roof:shade(s.roof,-.12),sx=(x+(row&1)*2)%4;
+      r(yy==2?shade(base,-.32):yy==0&&sx==1?shade(base,.22):sx==3?shade(base,-.12):base,x,y)}}
+    r(OUTL,0,ry+2,W,1);r(shade(s.roof,-.45),0,ry+1,W,1);r('#6b3a22',cx-1,DEXT,3,ry-DEXT+2);r('#8a5a36',cx-1,DEXT,1,ry-DEXT+2);
+    // the gable: cream plaster in a timber frame, with an attic window
+    const ay=DEXT+Math.round((ry-DEXT)*.32),gw=Math.round(W*.3);
+    for(let y=ay;y<ry+2;y++){const hw=Math.round(gw*(y-ay)/(ry+2-ay));for(let x=cx-hw;x<=cx+hw;x++)r(hash(x,y,304)>.95?'#e2d2b0':s.plaster||'#efe0c0',x,y);
+      r('#8a5a36',cx-hw-2,y,2,1);r('#8a5a36',cx+hw+1,y,2,1);r(OUTL,cx-hw-3,y,1,1);r(OUTL,cx+hw+3,y,1,1)}
+    if(ry-ay>14){const aw=8,ah=6,ax=cx-4,ayy=ry-ah-3;r(OUTL,ax-1,ayy-1,aw+2,ah+2);r('#8a5a36',ax,ayy,aw,ah);const lit=NIGHT;r(lit?'#ffd98a':'#7fb0e0',ax+1,ayy+1,aw-2,ah-2);r('#8a5a36',ax+3,ayy+1,1,ah-2);if(lit)lights.push({x:cx,y:ayy+3,r:16,col:'255,200,110',f:1})}
+    for(let x=6;x<W-4;x+=10)if(Math.abs(x-cx)>gw+2){r('#5a3a22',x,ry+3,3,2)}
+    // chimney
+    if(w>=4){const chx=Math.round(W*.2);r(OUTL,chx-1,0,10,DEXT+9);for(let y=1;y<DEXT+8;y++)for(let x=0;x<8;x++)r((y%4==0||(x+(y>>2)*3)%6==0)?'#4a505c':y<3?'#5f6674':'#7c8494',chx+x,y);r('#2a2a33',chx+2,1,4,2);an.push({t:'smoke',x:chx+4,y:-2})}
+    // the sign, a wooden board hung on chains below the eaves
+    if(s.sign){const tw=s.sign.length*4+5,sx=(W-tw)>>1,sy=ry+6;r('#3a3d44',sx+3,sy-3,1,3);r('#3a3d44',sx+tw-4,sy-3,1,3);r(OUTL,sx-1,sy-1,tw+2,11);r('#a8794c',sx,sy,tw,9);r('#c49565',sx,sy,tw,1);r('#8a5a36',sx,sy+8,tw,1);ptext(r,s.sign,sx+3,sy+2,'#3a2418')}
+  });
+  return{c,an,lights}}
+// Eastbrook's buildings in the detailed proof of concept
+const DBLD={eblofts:{roof:'#b8483a',mat:'stone',plaster:'#efe0c0',sign:'TIMBER LOFTS'},eb1:{roof:'#c0503a',mat:'stone',plaster:'#efe0c0'},
+  kcmuseum:{roof:'#3d7a5a',mat:'brick',plaster:'#e8f0e0',sign:'KELP COLA MUSEUM'},eb2:{roof:'#a8582e',mat:'timber',plaster:'#f2e6c8'},
+  community:{roof:'#7a3a2a',mat:'brick',plaster:'#efe0c0',sign:'COMMUNITY CENTRE'},cedargrill:{roof:'#c0503a',mat:'stone',plaster:'#efe0c0',sign:'CEDAR GRILL',awn:'#3d7a5a'},
+  coffee:{roof:'#8a4a2a',mat:'timber',plaster:'#f2e6c8',sign:'COFFEE',awn:'#7a2a1e'},records:{roof:'#3a4a6a',mat:'brick',plaster:'#e8e8f0',sign:'RECORDS',awn:'#2f4a5a'},
+  tattoo:{roof:'#4a3a4a',mat:'stone',plaster:'#e8e0e8',sign:'TATTOO',awn:'#7a1e2a'},clothes:{roof:'#b8483a',mat:'timber',plaster:'#f2e6c8',sign:'CLOTHES',awn:'#c9822a'},
+  gazette:{roof:'#3a5a7a',mat:'brick',plaster:'#e8eef2',sign:'GAZETTE'},tavern:{roof:'#8a3a2a',mat:'timber',plaster:'#f2e6c8',sign:'TAVERN'}};
+// Leafy trees: a round canopy of leaf clusters lit from the upper left (v=1 bears apples), or v=2 a dark teal conifer.
+function leafyTree(v){const W=24,H=34;return mk(W,H,r=>{
+  r('#5a3a22',10,22,4,12);r('#7a5232',10,22,1,12);r('#4a2e1a',13,22,1,12);r('#5a3a22',7,31,10,3);r('#7a5232',7,31,3,1);
+  if(v==2){for(let y=0;y<28;y++){const hw=Math.round(2+y*.38+(y%5==4?-1:0));for(let x=12-hw;x<12+hw;x++){const L=(12-x)/hw*.5+.5-(y/40);r(L>.75?'#4a9a82':L>.5?'#2e7a6a':L>.3?'#22604f':'#173f36',x,y)}}return}
+  const blobs=[[12,12,9],[6,15,5],[18,15,5],[7,8,5],[17,8,5],[12,4,5],[12,18,6]];
+  for(let y=0;y<27;y++)for(let x=0;x<W;x++){if(!blobs.some(([bx,by,br])=>Math.hypot(x-bx,y-by)<br+hash(x,y,v*13+5)*1.4))continue;
+    const L=((24-x)+(27-y))/51+(vnoise(x/3,y/3,v*7+300)-.5)*.45;let col=L>.8?'#9ad06a':L>.62?'#76b850':L>.45?'#5a9a3e':L>.3?'#3f7a30':'#2e5e26';
+    if(hash(x>>1,y>>1,v+31)>.86)col=shade(col,.14);r(col,x,y)}
+  if(v==1)for(const[x,y]of[[7,10],[15,8],[12,15],[18,13],[9,17],[14,4],[5,13]]){r('#d8322a',x,y,2,2);r('#ff8a7a',x,y,1,1)}})}
+let DTREES=null;const dtrees=()=>DTREES??=[0,1,2].map(leafyTree);  // built on first use: hash() lives in game.js, which loads after this file
+// detailed props, standing in for Eastbrook's own (same tiles, so collisions are unchanged)
+Object.assign(PA,{
+dlamp:[32,r=>{r('#5a5f68',5,28,6,4);r('#7d858e',5,28,6,1);r('#7a4a2a',7,4,2,24);r('#9a6a3a',7,4,1,24);r('#7a4a2a',1,4,14,2);r('#9a6a3a',1,4,14,1);
+  for(const x of[1,11]){r('#2a2a33',x+1,6,1,2);r('#2a2a33',x,8,4,7);r(NIGHT?'#ffd27a':'#f0c060',x+1,9,2,4);r(NIGHT?'#fff1c8':'#f8d890',x+1,9,1,1);r('#2a2a33',x,15,4,1)}}],
+dbench:[12,r=>{r('#7a4a2a',1,1,14,2);r('#9a6a3a',1,1,14,1);r('#5a3a22',2,3,1,3);r('#5a3a22',13,3,1,3);r('#8a5a36',1,6,14,2);r('#a87a4c',1,6,14,1);r('#4a2e1a',2,8,2,4);r('#4a2e1a',12,8,2,4)}],
+dbush:[14,r=>{for(let y=0;y<14;y++)for(let x=0;x<16;x++){if(((x-7.5)/7.6)**2+((y-7.5)/6.8)**2>1+hash(x,y,401)*.2)continue;const L=((16-x)+(14-y))/30+(hash(x>>1,y>>1,402)-.5)*.3;r(L>.75?'#86c460':L>.55?'#5a9a3e':L>.38?'#3f7a30':'#2e5e26',x,y)}
+  r('#e86aa0',4,4,1,1);r('#f2f2f2',10,6,1,1);r('#e86aa0',7,9,1,1)}],
+dflowers:[10,r=>{r('#6b4a2e',0,5,16,5);r('#8a6040',0,5,16,1);for(let x=1;x<15;x+=3){r('#3e7a2c',x+1,3,1,3);const pc=['#e86aa0','#f4d03f','#f2f2f2','#9a7ad8','#f08a3a'][x%5];r(pc,x,1,3,2);r(pc,x+1,0,1,4);r('#f4d03f',x+1,1,1,1)}}],
+dmailbox:[18,r=>{r('#6b4a2e',7,8,2,10);r('#8a5a36',7,8,1,10);r('#c0392b',3,2,10,7);r('#e04a3a',3,2,10,2);r('#8e2620',3,8,10,1);r('#2a2a33',5,5,6,1);r('#e0b040',12,3,1,3)}],
+dlogs:[12,r=>{for(const[x,y]of[[1,6],[6,6],[11,6],[3,1],[8,1]]){r('#7a5232',x,y,5,5);r('#d8b07a',x+1,y+1,3,3);r('#a8804a',x+2,y+2,1,1);r('#5a3a22',x,y+4,5,1)}}],
+dmush:[14,r=>{r('#efe0c0',6,8,4,6);r('#d8c8a8',8,8,2,6);r('#c0392b',2,3,12,6);r('#d84a3a',3,2,10,2);r('#8e2620',2,8,12,1);for(const[x,y]of[[4,4],[8,3],[11,5],[6,6]]){r('#f8f4ee',x,y,2,2)}
+  r('#efe0c0',13,11,2,3);r('#c0392b',12,9,4,2);r('#f8f4ee',13,9,1,1)}],
+dnotice:[24,r=>{r('#6b4a2e',2,8,2,16);r('#6b4a2e',12,8,2,16);r('#8a5a36',0,2,16,10);r('#a8794c',0,2,16,1);r('#5a3a22',0,11,16,1);
+  r('#f4f1e8',2,4,5,6);r('#f2e6a0',8,3,6,4);r('#f4f1e8',9,8,5,3);r('#c0392b',4,4,1,1);r('#2e6f9a',11,3,1,1);for(const[x,y]of[[3,6],[3,8],[9,5],[10,9]])r('#8a8f98',x,y,3,1)}],
+dbarrel:[16,r=>{r('#8a5a36',2,2,12,13);r('#a8794c',3,2,3,13);r('#6b4a2e',11,2,2,13);r('#3a3d44',2,4,12,1);r('#3a3d44',2,11,12,1);r('#c49565',3,0,10,3);r('#8a5a36',4,1,8,1)}],
+dcrate:[14,r=>{r('#a8794c',1,2,14,12);r('#8a5a36',1,2,14,1);r('#8a5a36',1,13,14,1);r('#8a5a36',1,2,1,12);r('#8a5a36',14,2,1,12);pline(r,2,3,13,12,'#8a5a36');r('#c49565',2,3,12,1)}],
+drock:[14,r=>{for(let y=0;y<14;y++)for(let x=0;x<16;x++){if(((x-7.5)/7.4)**2+((y-8)/6)**2>1)continue;const L=((16-x)+(14-y))/30;r(L>.75?'#c9ced4':L>.55?'#9aa3ad':L>.38?'#7d858e':'#5f666e',x,y)}r('#5f666e',7,6,4,1)}]});
+const DPROP={lamp:'dlamp',bench:'dbench',planter:'dflowers',bush:'dbush',mailbox:'dmailbox',woodpile:'dlogs',snowman:'dmush',phone:'dnotice',chalk:'dnotice',cafetable:'dbarrel',bike:'dcrate',rock:'drock',crate:'dcrate',barrel:'dbarrel'};
 // A frozen fountain: a stone basin of ice around a pillar with a snowy bowl on top. Drawn 16 pixels taller than its tiles.
 function fountainArt(w,h){const W=w*16,H=h*16+16;return mk(W,H,r=>{
   for(let y=14;y<H-1;y++)for(let x=0;x<W;x++){const q=((x-W/2+.5)/(W/2))**2+((y-H+16)/14)**2;if(q<1)r(q>.62?(y<H-10?'#c9ced4':'#8a9099'):q>.5?'#6b737c':hash(x,y,80)>.93?'#ffffff':(x+y)%7==0?'#cfe6f2':'#9fc6e0',x,y)}
@@ -527,6 +763,19 @@ function tentArt(w,h,dx){const W=w*16,H=h*16+8,cx=dx>=0?dx*16+8:W>>1;return mk(W
 const rockArt=v=>mk(16,12,r=>{for(let y=0;y<12;y++)for(let x=0;x<16;x++){const q=((x-7.5)/(7.5-v))**2+((y-7)/5.2)**2;if(q>1)continue;
   let col=x+y<11?'#a3abb3':x+y>17?'#5f666e':'#868e97';if(y<2+((x*5+v)%3==0?1:0)+(v==1?1:0))col=y<1?SNOW:'#dfe8ef';r(col,x,y)}});
 const ROCKS=[0,1,2].map(rockArt);
+// Autumn trees: a round crown turning orange, rust, gold or still green (v 0-4), or a green pine with no snow (v 5).
+const AUTUMN_LEAVES=[['#f0a040','#d87a2a','#b0581e','#7a3a18'],['#d0683a','#a8482a','#7e3220','#4e2214'],['#ecc050','#c89a30','#9a7020','#6a4a14'],
+  ['#8ab04a','#6a943a','#4a742a','#2e5020'],['#c8a040','#a0702a','#7a5020','#4e3418']];
+function autumnTree(v){if(v==5)return pine(0);const P=AUTUMN_LEAVES[v];return mk(16,28,r=>{r('#5a3a22',7,18,2,10);r('#7a5232',7,18,1,10);r('#4a2e1a',5,26,6,2);
+  for(let y=0;y<21;y++)for(let x=0;x<16;x++){const d=Math.hypot(x-7.5,y-10)+(hash(x,y,v+700)-.5)*1.6;if(d>7.6)continue;
+    const L=((15-x)+(20-y))/35+(vnoise(x/3,y/3,v*5+710)-.5)*.5;r(P[L>.72?0:L>.5?1:L>.32?2:3],x,y)}
+  for(const[x,y]of[[2,26],[12,27],[9,27]])r(P[1],x,y)})}
+// Curated trees: a clipped lollipop on a straight stem (v 0, 2) or a trim cypress cone (v 1), suspiciously perfect.
+function curatedTree(v){return mk(16,28,r=>{r('#6b4a2e',7,14,2,12);r('#8a6a45',7,14,1,12);r('#7a5a3a',4,25,8,3);r('#9a7a50',4,25,8,1);
+  if(v==1){for(let y=0;y<24;y++){const hw=Math.max(1,Math.round(y*.3));for(let x=8-hw;x<8+hw;x++)r(x<8-hw/3?'#7ad65a':x<8+hw/3?'#5cbf4a':'#3e9a38',x,y)}return}
+  const R=v==2?5.5:6.5;for(let y=0;y<16;y++)for(let x=0;x<16;x++){const d=Math.hypot(x-7.5,y-7.5);if(d>R)continue;const L=((15-x)+(15-y))/30;r(d>R-1?'#2a7a2e':L>.72?'#8ae06a':L>.5?'#5cbf4a':'#3e9a38',x,y)}})}
+const WXTREES={},treesFor=wx=>wx=='autumn'?WXTREES.a??=[0,1,2,3,4,5].map(autumnTree):wx=='curated'?WXTREES.c??=[0,1,2].map(curatedTree):TREES;
+const RCACHE={},rocksNow=()=>WMAP?RCACHE[WXID]??=[0,1,2].map(rockArt):ROCKS;
 Object.assign(PA,{
 driftwood:[8,r=>{r('#8a7a62',0,3,15,4);r('#a8987c',0,3,15,1);r('#6b5d48',0,6,15,1);r('#8a7a62',10,0,2,4);r('#a8987c',10,0,1,3);r('#c9bfae',2,4,1,1);r('#c9bfae',8,5,2,1)}],
 firepit:[9,r=>{for(const[x,y]of[[1,4],[4,6],[8,7],[12,5],[13,2],[2,1]])r('#7a828a',x,y,3,3);r('#3a2a20',4,2,8,4);r('#6b4a2e',3,3,10,2);r('#8a6a45',5,1,6,1)}],
@@ -606,6 +855,15 @@ stump:[10,r=>{r('#5a3d2a',3,4,10,6);r('#6b4a2e',3,9,10,1);r('#c9a36a',3,2,10,3);
 axe:[14,r=>{r('#5a3d2a',3,6,10,8);r('#c9a36a',3,4,10,3);r('#e0c08a',5,5,6,1);r('#8a6a45',8,0,1,7);r('#9aa3ad',6,0,3,3);r('#c9ced4',6,0,1,3)}],
 cafetable:[12,r=>{r('#3a3d44',7,5,2,7);r('#2b2f3a',5,11,6,1);r('#5a3d2a',3,3,10,2);r('#7a5436',3,3,10,1);r('#f2f2f2',6,1,2,2);r('#8a5a36',9,2,2,1);
   for(const x of[0,13]){r('#3a3d44',x,4,3,1);r('#3a3d44',x,7,3,1);r('#3a3d44',x+(x?2:0),4,1,8)}}]});
+Object.assign(PA,{
+scarecrow:[28,r=>{r('#7a5232',7,10,2,18);r('#8a6a45',7,10,1,18);r('#7a5232',1,13,14,2);r('#d8b040',0,12,2,3);r('#d8b040',14,12,2,3);r('#c9a030',1,15,1,2);r('#c9a030',14,15,1,2);
+  r('#3a4a6a',4,12,8,10);r('#2e3a56',10,12,2,10);r('#c9a040',5,15,3,3);r('#3a4a6a',3,21,2,2);r('#3a4a6a',8,21,2,3);r('#d8b040',6,22,1,2);
+  for(let y=0;y<10;y++)for(let x=0;x<14;x++){if(((x-7)/6.5)**2+((y-5.5)/4.6)**2>1)continue;r(x<4||x>10?'#c0601e':x%4==1?'#d06a22':'#e8822a',x+1,y)}
+  r('#5a7a2a',7,0,2,2);r('#3a2418',5,4,2,2);r('#3a2418',9,4,2,2);r('#3a2418',6,7,4,1);r('#ffd27a',6,5,1,1)}],
+pumpkins:[10,r=>{for(const[x,w]of[[0,8],[8,7]]){for(let y=3;y<10;y++)for(let i=0;i<w;i++){if(((i-w/2+.5)/(w/2))**2+((y-6.5)/3.6)**2>1)continue;r(i%3==1?'#d06a22':i<1||i>w-2?'#c0601e':'#e8822a',x+i,y)}r('#5a7a2a',x+w/2-1|0,1,2,3)}
+  r('#4a7a2a',6,2,3,1)}]});
+// weather swaps for props that only make sense in the snow
+const WXPROP={autumn:{snowman:'scarecrow',sled:'pumpkins'},curated:{snowman:'topiary',sled:'roses'}};
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
 const CH={};
 function char2(d,fr,body,hair,stripe,hat){const key=[d,fr,body,hair,stripe,hat].join();if(CH[key])return CH[key];
@@ -981,12 +1239,18 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
 // ---- Scene: everything that never changes is baked into one canvas per map; ents are the things drawn back to front.
 const SC={};
 function scene(m){if(SC[m])return SC[m];
-  const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
+  const wx=L[m][3]=='interior'?'snow':weatherOf(m);WXID=wx;WMAP=WXSNOW[wx]<.5&&!DET(m)?MELT:null;try{return SC[m]=sceneOf(m,wx)}finally{WMAP=null;WXID=''}}
+function sceneOf(m,wx){
+  const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],lights=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
   if(c.an)an.push(...c.an);
   const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
   const signs=[],iconTop={};
   FL[m].forEach(([x,y,w,h,ch,lb,st])=>{
     if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);[].concat(fu.an||[]).forEach(a=>an.push({...a,x:x*16+a.x,y:y*16-fu.oy+a.y}))}return}
+    if(DET(m)&&DBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=detailedArt(w,h,DBLD[st],dx),ox=x*16-1,oy=y*16-DEXT-1;
+      g.fillStyle='rgba(20,40,20,.28)';g.fillRect(x*16+2,(y+h)*16-1,w*16-2,4);put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox+1,y:a.y+oy+1}));b.lights.forEach(l=>lights.push({...l,x:l.x+ox+1,y:l.y+oy+1}));return}
+    if(GOTH(m)&&GBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=gothicArt(w,h,GBLD[st],dx),ox=x*16-1,oy=y*16-GEXT-1;
+      g.fillStyle='rgba(0,0,0,.4)';g.fillRect(x*16+2,(y+h)*16-1,w*16-2,4);put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox+1,y:a.y+oy+1}));b.lights.forEach(l=>lights.push({...l,x:l.x+ox+1,y:l.y+oy+1}));return}
     if(st&&BLD[st]&&BLD[st].kind=='manhole'){g.drawImage(manholeArt,x*16,y*16);return}
     if(st&&BLD[st]&&BLD[st].kind=='tent'){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;g.drawImage(tentArt(w,h,dx),x*16-1,y*16-9);return}
     if(st&&BLD[st]&&BLD[st].kind=='mast'){put(y+h-1,x*16,y*16-MAST_UP,mastArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-MAST_UP-1});return}
@@ -1040,8 +1304,8 @@ function scene(m){if(SC[m])return SC[m];
     ents.push({k:99,X:0,Y:0,c:wc});
     gcable([[ox+(left?8:MW-8),(my+mh)*16-5],[left?(hx+hw)*16:hx*16,(hy+hh)*16-8]],'#1a1c22','#3a3d44')}
   if(!inside)M.forEach((row,y)=>[...row].forEach((ch,x)=>{
-    if(ch=='T'){const t=TREES[hash(x,y,31)*3|0];put(y,x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
-    if(ch=='R'){const t=ROCKS[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
+    if(ch=='T'){const set=GOTH(m)?DEADTREES:DET(m)?dtrees():treesFor(wx),t=set[hash(x,y,31)*set.length|0];put(y,(DET(m)?-4:0)+x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
+    if(ch=='R'){const t=rocksNow()[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
   // tram lines: each row with a run of track gets overhead-wire poles along its far side and a wire for the tram's pantograph.
   // The tram stops level with the middle of the platform in front of (below) the track; a line that ends inside the map is a terminus.
   const trams=[];if(!inside)M.forEach((row,y)=>{const a=row.indexOf('l'),b=row.lastIndexOf('l');if(a<0||b-a<6)return;
@@ -1050,9 +1314,13 @@ function scene(m){if(SC[m])return SC[m];
   trams.forEach(({y:ty,a,b})=>{const wc=cnv(b,ty*16),wg=wc.getContext('2d');wg.fillStyle='#2b2f3a';wg.fillRect(a,ty*16-TRAM_UP,b-a,1);ents.push({k:99,X:0,Y:0,c:wc});
     for(let x=a/16+1;x<b/16;x+=5)if(!'#T'.includes(M[ty-1][x]))put(ty-1,x*16+5,ty*16-30,tramPole,0,x,ty-1)});
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
-  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k])=>{const t=propArt(k),pass=PROP_PASS.includes(k),sp=propSpan(k);put(pass?y-.5:y,(x-((sp-1)>>1))*16-1,(y+1)*16-t.height+1,t,!pass&&sp==1,x,y);
-    if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});if(k=='vent')an.push({t:'smoke',x:x*16+7,y:y*16+8});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
-  return SC[m]={c,an,boats,ferries,trams,ents,inside,top:inside?WU:0,iconTop}}
+  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k0])=>{const k=GOTH(m)&&GPROP[k0]||DET(m)&&DPROP[k0]||WXPROP[wx]?.[k0]||k0,t=propArt(k),pass=PROP_PASS.includes(k),sp=propSpan(k);put(pass?y-.5:y,(x-((sp-1)>>1))*16-1,(y+1)*16-t.height+1,t,!pass&&sp==1,x,y);
+    if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});
+    if(k=='dlamp'&&NIGHT){const top=(y+1)*16-t.height+1;lights.push({x:x*16+2,y:top+12,r:34,col:'255,190,100',f:1},{x:x*16+12,y:top+12,r:34,col:'255,190,100',f:1})}
+    if(GLIGHT[k]){const[oy,r,col,fx]=GLIGHT[k],top=(y+1)*16-t.height+1;lights.push({x:x*16+8,y:top+oy,r,col,f:1});
+      if(fx=='fire')an.push({t:'fire',x:x*16+8,y:top+6});if(fx=='candle')an.push({t:'candle',x:x*16+8,y:top+oy});
+      if(fx=='candles')for(const[cx,h]of[[3,5],[6,7],[9,4],[12,6]])an.push({t:'candle',x:x*16-1+cx+1,y:top+5-h})}if(k=='vent')an.push({t:'smoke',x:x*16+7,y:y*16+8});if(k=='gen')an.push({t:'blink',x:x*16+13,y:y*16+7,c:'#7fd0a0'})});
+  return{c,an,boats,ferries,trams,ents,lights,inside,top:inside?WU:0,iconTop}}
 
 // ---- Snowfall and vignette
 let FLAKES=null;  // built on first use, because hash() lives in game.js which loads after this file
@@ -1149,6 +1417,12 @@ function drawWorld2(m,cx,cy,t,frame){
       else{px('#f2f2f2',X-4,Y,3,1);px('#f2f2f2',X+2,Y,3,1);px('#5a5f68',X-5,Y+1,1,1);px('#5a5f68',X+5,Y+1,1,1)}}
     // falling snow
     const md=(v,n)=>((v%n)+n)%n;
-    flakes().forEach(f=>{const p=f.big?1.2:.6,X=md(f.x*vw+Math.sin(t/1300+f.ph)*6+t*.004-cx*p,vw),Y=md(f.y*vh+t*f.sp*(f.big?1.4:1)-cy*p,vh);
-      px(f.big?'rgba(255,255,255,.7)':'rgba(255,255,255,.85)',X,Y,f.big?2:1,f.big?2:1)})}
-  ctx.drawImage(vignette(),0,0)}
+    const wx=weatherOf(m);
+    if(!DET(m)&&wx!='curated')flakes().forEach((f,i)=>{if(wx=='medium'&&i%2||wx=='autumn'&&i%3)return;const p=f.big?1.2:.6,X=md(f.x*vw+Math.sin(t/1300+f.ph)*6+t*.004-cx*p,vw),Y=md(f.y*vh+t*f.sp*(f.big?1.4:1)-cy*p,vh);
+      if(wx=='autumn'&&!GOTH(m)){const c=['#d0782a','#b0402a','#d8a030','#8a5a2a'][i%4],w=Math.sin(t/260+f.ph)>0;px(c,X,Y,2,1);px(c,X+(w?1:0),Y+1,1,1);return}
+      px(GOTH(m)?(f.big?'rgba(255,120,50,.8)':'rgba(160,150,170,.6)'):f.big?'rgba(255,255,255,.7)':'rgba(255,255,255,.85)',X,Y,f.big?2:1,f.big?2:1)});
+    if(GOTH(m))gothLight(S,cx,cy,t);
+    if(DET(m)&&NIGHT){gothLight(S,cx,cy,t,NIGHTLOOK);
+      for(let i=0;i<26;i++){const X=((hash(i,1,500)*vw+Math.sin(t/1700+i)*30-cx*.15)%vw+vw)%vw,Y=((hash(i,2,500)*vh+Math.cos(t/2100+i*2)*20-cy*.15)%vh+vh)%vh,on=Math.sin(t/400+i*1.7)>.2;
+        if(on){px('rgba(200,255,120,.25)',X-1,Y-1,3,3);px('#e8ff90',X,Y,1,1)}}}}
+  if(!(DET(m)&&!NIGHT))ctx.drawImage(vignette(),0,0);if(GOTH(m))ctx.drawImage(vignette(),0,0)}

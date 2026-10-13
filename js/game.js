@@ -22,6 +22,8 @@ const showHere=id=>{here.text=NM[id];sel.selectedIndex=0};
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;showHere(id)}
 // The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
 P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
+// (the ?gothic proof of concept starts in Eastbrook's square instead)
+if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
 sel.onchange=()=>{const id=sel.value;closeMenu();RIDE=TRIP=null;go(id);sel.blur()};
 const SOLID='#TR~vbkWecuxygitno';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
