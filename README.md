@@ -15,12 +15,13 @@ No build step. Open `index.html` in a browser, or serve the folder:
 
     python3 -m http.server 8000
 
-Add `?night` to the address (for example `index.html?night`) to see the night-time look. So far only Frostholm and its harbour
-have one; everywhere else stays in daylight.
+Every outdoor place has a day and a night version: switch with the Day/Night button beside "Jump to" (or the N key), or add
+`?night` to the address (for example `index.html?night`) to start at night. Frostholm and its harbour have their own purple
+neon night; everywhere else has a moonlit blue one, lit by windows, lamps, fires and signs. Interiors look the same at any time.
 
 ## Controls
 
-Arrows / WASD to move. Face someone and press E (or Space, Enter, or the E button) to talk to them. On a tram platform, press E (or Space, Enter, or the E button) to call the tram, and again once it has stopped to get on. Inside, press E to choose a stop (arrow keys and E, or tap); walk out of the door to get off without riding. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
+Arrows / WASD to move. Face someone and press E (or Space, Enter, or the E button) to talk to them. M (or the Menu button) opens the start menu: your inventory (the date, CIA and personal funds, and a grid of your items: choose one to read about it and use it), your active quests, and the island map showing where you are. Talk to someone who runs a shop, while they are at it, to see what they sell: choose an item and pay with CIA funds or your own money (C or P). The game runs through the 30 days of September, starting on the 1st: each day you can sit at a table in a bar, restaurant, café, the hotel or your own base and press E to wait until night, then face your bed at home and press E to sleep through to the next morning (the calendar on the wall above it shows the date; `?day=12` in the address starts on another day). The Day/Night button beside "Jump to" (or N) switches every outdoor place between day and night. On a tram platform, press E (or Space, Enter, or the E button) to call the tram, and again once it has stopped to get on. Inside, press E to choose a stop (arrow keys and E, or tap); walk out of the door to get off without riding. Use the "Jump to" dropdown to visit any location. Walk onto a labelled
 edge exit to cross to the neighbouring area.
 
 ## Project layout

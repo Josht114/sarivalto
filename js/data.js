@@ -3,7 +3,7 @@ const TH={interior:['f','W'],snow:['.','T'],sand:['s','~'],rock:['r','R'],farm:[
 const L={
 oilrig:['Oil Rig',16,12,'deck',[[3,3,4,3,'#','Drill Tower','derrick'],[9,8,4,2,'#','Crew Quarters','crew'],[11,9,1,1,'d']]],
 oilhq:['Diversified Petroleum HQ',18,14,'snow',[[3,2,10,4,'#','Diversified Petroleum HQ','dphq'],[8,5,1,1,'d'],[2,9,4,3,'#','Depot','depot'],[3,11,1,1,'d']]],
-fishing:['Frostholm',40,16,'snow',[[1,7,38,3,','],[1,14,38,1,','],[2,1,5,6,'#','Petro Tower','petrotower'],[4,6,1,1,'d'],[9,1,5,6,'#','Hotel Aurora','hotel'],[11,6,1,1,'d'],[22,2,6,5,'#','Nordbank','nordbank'],[25,6,1,1,'d'],[29,1,6,6,'#','Casino','casino'],[32,6,1,1,'d'],[2,10,6,4,'#','Electronics','hifi'],[5,13,1,1,'d'],[10,10,5,4,'#','Arcade','arcade'],[12,13,1,1,'d'],[22,10,6,4,'#','Polar Burger','burger'],[24,13,1,1,'d'],[29,10,6,4,'#','Nordmart','nordmart'],[32,13,1,1,'d'],[15,1,4,6,'#','Skyline Apartments','skyapt'],[17,6,1,1,'d'],[35,1,4,6,'#','Republican Party HQ','repub'],[36,6,1,1,'d']]],
+fishing:['Frostholm',40,16,'snow',[[1,7,38,3,','],[1,14,38,1,','],[2,1,5,6,'#','Petro Tower','petrotower'],[4,6,1,1,'d'],[9,1,5,6,'#','Hotel Aurora','hotel'],[11,6,1,1,'d'],[22,2,6,5,'#','Nordbank','nordbank'],[25,6,1,1,'d'],[29,1,6,6,'#','Casino','casino'],[32,6,1,1,'d'],[2,10,6,4,'#','Electronics','hifi'],[15,10,5,4,'#','The Midnight Note','jazz'],[17,13,1,1,'d'],[5,13,1,1,'d'],[10,10,5,4,'#','Arcade','arcade'],[12,13,1,1,'d'],[22,10,6,4,'#','Polar Burger','burger'],[24,13,1,1,'d'],[29,10,6,4,'#','Nordmart','nordmart'],[32,13,1,1,'d'],[15,1,4,6,'#','Skyline Apartments','skyapt'],[17,6,1,1,'d'],[35,1,4,6,'#','Republican Party HQ','repub'],[36,6,1,1,'d']]],
 // The Valto River comes down from the north-east, passes under the bridge on the track to Frostholm, and flows out west to Lake Ilmari.
 north:['North West Road',22,14,'snow',[[1,9,3,3,'T'],[16,9,4,3,'T'],[15,0,2,5,'~'],[0,3,17,2,'~']]],
 // Lake Ilmari, off North West Road: the Valto River runs in from the east and out to the south, towards the beach. A travelling
@@ -44,7 +44,7 @@ west:['South West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 beach:['Beach',12,22,'sand',[[1,1,3,20,'~'],[4,1,7,2,'~'],[11,0,1,22,'T'],[4,21,7,1,'T'],[4,4,1,1,'R'],[9,17,2,1,'R'],[4,15,1,1,'R'],[8,4,3,2,'#',"Pat's Camp",'tent'],[9,5,1,1,'d'],[4,15,8,2,'~']]],
 village:['Saltwick',44,24,'snow',[
 [2,3,9,8,'#','Fish Processing Plant','plant'],[6,10,1,1,'d'],
-[16,4,10,7,'#','Communist Party HQ','hq'],[20,10,1,1,'d'],
+[16,4,10,7,'#','Communist Party HQ','hq'],[26,9,2,2,'#','Newsstand','swnews'],[20,10,1,1,'d'],
 [31,2,10,9,'#','Apartment Block','apt'],[35,10,1,1,'d'],
 [2,14,8,5,'#','Bar (flat above)','bar'],[5,18,1,1,'d'],
 [12,14,6,5,'#','Fish Shop','shop'],[14,18,1,1,'d'],
@@ -223,6 +223,9 @@ kgapts4:['Kingsgrad Apartments, fourth floor',24,20,'interior',[[8,1,1,6,'W'],[1
 [2,1,2,2,'e','Bed'],[5,3,2,1,'u','Table'],[10,1,2,2,'e','Bed'],[13,3,2,1,'u','Table'],[18,1,2,2,'e','Bed'],[21,3,1,2,'u','Table'],[2,13,2,2,'e','Bed'],[6,15,2,1,'u','Table'],[20,13,2,2,'e','Bed'],[15,15,2,1,'u','Table'],[11,13,2,2,'x','Boxes']]],
 hsresid2:['Hope Springs Residences, second floor',24,20,'interior',[[8,1,1,6,'W'],[16,1,1,6,'W'],[1,7,3,1,'W'],[5,7,7,1,'W'],[13,7,7,1,'W'],[21,7,2,1,'W'],[1,11,4,1,'W'],[6,11,5,1,'W'],[13,11,5,1,'W'],[19,11,4,1,'W'],[10,12,1,7,'W'],[13,12,1,7,'W'],[22,8,1,1,'z','Stairs down'],
 [2,1,2,2,'e','Bed'],[5,3,2,1,'u','Table'],[10,1,2,2,'e','Bed'],[13,3,2,1,'u','Table'],[18,1,2,2,'e','Bed'],[21,3,1,2,'u','Table'],[2,13,2,2,'e','Bed'],[6,15,2,1,'u','Table'],[20,13,2,2,'e','Bed'],[15,15,2,1,'u','Table'],[11,13,2,2,'x','Boxes']]],
+// The Midnight Note, Frostholm's jazz club: the bar on the left, the stage and grand piano at the back, candlelit tables
+jazz_in:['The Midnight Note',20,12,'interior',[[1,1,5,1,'y','Bottles'],[1,3,5,1,'c','Bar Counter'],[8,1,6,2,'c','Stage'],[15,1,2,2,'u','Grand Piano'],
+[3,7,2,2,'u','Table'],[8,7,2,2,'u','Table'],[13,7,2,2,'u','Table'],[17,5,2,2,'u','Table']]],
 // Apartment blocks in the other towns: the same plan as Saltwick's (three flats along the top, a corridor and lobby below)
 skyapts:['Skyline Apartments',24,20,'interior',[[8,1,1,6,'W'],[16,1,1,6,'W'],[1,7,3,1,'W'],[5,7,7,1,'W'],[13,7,7,1,'W'],[21,7,2,1,'W'],
 [1,11,4,1,'W'],[6,11,5,1,'W'],[13,11,5,1,'W'],[19,11,4,1,'W'],[10,12,1,7,'W'],[13,12,1,7,'W'],
@@ -389,6 +392,10 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'caravan3_in',x:5,y:2,dir:0,name:'Madame Zora',home:'caravan3_in',loc:'caravan3_in',job:'Fortune teller',faction:'none',body:'#7d3c98',hair:'#2a1a12',hat:'#c9a040'},
 // Jarmo, inside Kelpy: the Kelp Cola Museum's mascot, waving visitors in from the street (costume: drawn as a giant cola cup)
 {m:'second',x:17,y:9,dir:0,name:'Jarmo',home:'eblofts',loc:'kcmuseum_in',job:'Kelp Cola Museum mascot (Kelpy the cup)',faction:'cola',body:'#c0392b',hair:'#7a5a3a',costume:'cup'},
+{m:'village',x:28,y:10,dir:0,name:'Hannu',home:'apartments',loc:'village',job:'Newsstand vendor',faction:'none',body:'#6b5a48',hair:'#8a8a8a',hat:'#3a3d44'},
+{m:'jazz_in',x:3,y:2,dir:0,name:'Sid',home:'skyapts',loc:'jazz_in',job:'Owner and bartender of The Midnight Note',faction:'none',body:'#1a1a22',hair:'#b5b5b5'},
+{m:'jazz_in',x:10,y:3,dir:0,name:'Leo',home:'skyapts',loc:'jazz_in',job:'Saxophonist',faction:'none',body:'#2b2f3a',hair:'#2a1a12',hat:'#1a1a22'},
+{m:'jazz_in',x:12,y:3,dir:0,name:'Rita',home:'skyapts',loc:'jazz_in',job:'Jazz singer',faction:'none',body:'#7a1e2a',hair:'#1a1a1a'},
 {m:'servants',x:3,y:7,dir:2,name:'Elsa',home:'servants',loc:'servants',job:'Laundress',faction:'none',body:'#7a8a9a',hair:'#caa05a'},
 // Eastbrook's new faces: the hot dog vendor, the Kelp Cola Museum's curator, the clothes and record shop owners, and the lumber mill's crew
 {m:'second',x:7,y:16,dir:0,name:'Dex',home:'eblofts',loc:'second',job:'Hot dog vendor',faction:'democrat',body:'#c0392b',hair:'#3a2a20',hat:'#e0a100'},
@@ -399,16 +406,85 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'mill_in',x:8,y:4,dir:1,name:'Knut',home:'eblofts',loc:'mill_in',job:'Sawyer',faction:'democrat',body:'#3d5a4a',hair:'#c9a05a',hat:'#e0a100'},
 {m:'millroad',x:6,y:5,dir:1,name:'Ilse',home:'eblofts',loc:'millroad',job:'Log loader',faction:'democrat',body:'#c0392b',hair:'#e8c86a',hat:'#2f4a3c'},
 // the Crime Syndicate's people working the towns, one in each
-{m:'fishing',x:19,y:11,dir:0,name:'Nico',home:'skyapts',loc:'fishing',job:'Syndicate bookie',faction:'syndicate',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
+{m:'fishing',x:24,y:8,dir:0,name:'Nico',home:'skyapts',loc:'fishing',job:'Syndicate bookie',faction:'syndicate',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
 {m:'second',x:24,y:17,dir:0,name:'Paolo',home:'eblofts',loc:'second',job:'Syndicate bookie',faction:'syndicate',body:'#2a2a33',hair:'#5a3a26'},
 {m:'town',x:25,y:13,dir:0,name:'Mario',home:'kgapts',loc:'town',job:'Syndicate bookie',faction:'syndicate',body:'#2a2a33',hair:'#5a3a26'},
-{m:'village',x:27,y:9,dir:0,name:'Lucia',home:'apartments',loc:'village',job:'Syndicate enforcer',faction:'syndicate',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
+{m:'village',x:27,y:6,dir:0,name:'Lucia',home:'apartments',loc:'village',job:'Syndicate enforcer',faction:'syndicate',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
 {m:'gated',x:19,y:6,dir:0,name:'Paola',home:'hsresid',loc:'gated',job:'Syndicate enforcer',faction:'syndicate',body:'#2b2f3a',hair:'#8a8a8a'},
 // the Republican Party's leadership election: the party secretary running it, and the three candidates, each put up by one of the island's powers
 {m:'repubhq',x:10,y:1,dir:0,name:'Margit',home:'skyapts',loc:'repubhq',job:'Republican Party secretary (running the leadership election)',faction:'republican',body:'#a3123a',hair:'#b5b5b5'},
 {m:'repubhq',x:4,y:4,dir:2,name:'Harald',home:'hsresid',loc:'repubhq',job:"Kelp Cola's candidate for Republican Party leader",faction:'cola',body:'#2e9d57',hair:'#c9a05a'},
 {m:'repubhq',x:15,y:4,dir:3,name:'Magnus',home:'skyapts',loc:'repubhq',job:"Diversified Petroleum's candidate for Republican Party leader",faction:'oil',body:'#37474f',hair:'#5a3a26'},
 {m:'repubhq',x:4,y:8,dir:2,name:'Carlo',home:'hsresid',loc:'repubhq',job:"The Crime Syndicate's candidate for Republican Party leader",faction:'syndicate',body:'#1a1a22',hair:'#2a1a12'}];
+
+// ---- The player at the start of the game (placeholders): the CIA's operating funds, the player's own money, and what they carry
+// as [item id, how many] (ids are keys in ITEMS). QUESTS: the quests active at the start, as {title, from, text}. Both are shown in the start menu.
+const PLAYER={ciaFunds:5000,funds:250,items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
+// ---- Items: the name, the description shown in the inventory, and the actions you can take with it (each action is handled in
+// game.js; ones it doesn't handle yet say so). Their sprites are ITEM_ART in art.js.
+const ITEMS={
+notebook:{name:'Notebook',desc:'Your field notebook, small enough for a jacket pocket: names, places and anything worth remembering, in your own shorthand.',actions:['Read','Write a note']},
+camera:{name:'Minox spy camera',desc:'A Minox subminiature camera, no bigger than a finger. It slides open to shoot and is made for photographing documents up close.',actions:['Take a photo','Load film']},
+film:{name:'Roll of film',desc:'Film cassettes for the Minox, 50 exposures each. Hand the exposed rolls to Chuck to be developed.',actions:['Load into camera']},
+codebook:{name:'Radio codebook',desc:'One-time pads and call signs for talking to Chuck over the radio. Burn it before anyone else reads it.',actions:['Read','Burn']},
+lockpicks:{name:'Lock picks',desc:'A set of picks and a tension wrench, rolled up in a leather pouch.',actions:['Pick a lock']},
+flashlight:{name:'Flashlight',desc:'A steel flashlight with fresh batteries.',actions:['Turn on']},
+// things the shops sell
+beer:{name:'Bottle of beer',desc:'A brown bottle of Sarivalto lager, brewed in Kingsgrad.',actions:['Drink']},
+whisky:{name:'Glass of whisky',desc:'A short glass of whisky over ice.',actions:['Drink']},
+cigarettes:{name:'Pack of cigarettes',desc:'A red pack of twenty. Offering one round is the quickest way into a conversation.',actions:['Smoke']},
+book:{name:'Paperback novel',desc:'A well-thumbed spy thriller. The hero always gets away.',actions:['Read']},
+islandmap:{name:'Map of Sarivalto',desc:'A folding map of the island with every town, road and harbour.',actions:['Look at']},
+burger:{name:'Polar Burger',desc:'A cheeseburger in a sesame bun from Polar Burger.',actions:['Eat']},
+cola:{name:'Kelp Cola',desc:'The island\'s own cola, in a green glass bottle. It tastes faintly of the sea.',actions:['Drink']},
+coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
+bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
+meal:{name:'Hot meal',desc:'Steak, potatoes and greens on a plate.',actions:['Eat']},
+shirt:{name:'Flannel shirt',desc:'A red checked flannel shirt. In Eastbrook it makes you look like a local.',actions:['Wear']},
+beanie:{name:'Wool beanie',desc:'A navy knitted hat against the cold.',actions:['Wear']},
+suit:{name:'Tailored suit',desc:'A dark suit and red tie, cut to fit. It will get you into places a flannel shirt will not.',actions:['Wear']},
+radio:{name:'Transistor radio',desc:'A pocket radio. It picks up Radio Sarivalto and, at night, stations from across the sea.',actions:['Listen']},
+batteries:{name:'Batteries',desc:'A pair of batteries for a flashlight or a radio.',actions:[]},
+fishrod:{name:'Fishing rod',desc:'A rod and reel with a good length of line.',actions:['Fish']},
+smokedfish:{name:'Smoked fish',desc:'A whole smoked fish, wrapped in paper.',actions:['Eat']},
+pistol:{name:'Pistol',desc:'A small automatic pistol. Better kept hidden.',actions:[]},
+ammo:{name:'Box of bullets',desc:'A box of bullets for the pistol.',actions:[]},
+souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola mascot, from the museum gift shop.',actions:['Look at']},
+bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
+record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at']},
+newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
+hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
+};
+// ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
+const WAIT_AT=['bar','citybar','tavern','jazz_in','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
+// ---- Shops, by the name of the person who runs them: what they sell, as [item, how many, price in dollars]. The shop is open
+// when its keeper is at their workplace (their loc); talk to them there to buy. Buying moves the item from their stock to your
+// inventory.
+const SHOPS={
+Ray:{stock:[['beer',24,2],['whisky',10,4],['cigarettes',10,2]]},
+Eddie:{stock:[['beer',24,2],['whisky',12,4],['cigarettes',10,2]]},
+Linnea:{stock:[['beer',24,2],['whisky',8,4],['meal',8,9]]},
+Sid:{stock:[['whisky',12,5],['beer',20,3],['cigarettes',10,2]]},
+Mary:{stock:[['book',6,8],['islandmap',3,5],['newspaper',10,1]]},
+Sanna:{stock:[['burger',20,3],['cola',20,1]]},
+Maya:{stock:[['coffee',30,1],['bun',12,2]]},
+Arvid:{stock:[['meal',10,12],['beer',12,3]]},
+Juniper:{stock:[['shirt',5,25],['beanie',6,8]]},
+Grace:{stock:[['suit',2,120]]},
+Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10]]},
+Jack:{stock:[['fishrod',3,30],['flashlight',2,10]]},
+Olga:{stock:[['smokedfish',12,4]]},
+Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
+Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
+Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
+Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2]]},
+Rufus:{stock:[['record',12,9]]},
+Ville:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
+Hannu:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
+Rosa:{stock:[['hotdog',30,1],['cola',20,1]]},
+Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
+};
+const QUESTS=[{title:'Report in',from:'Chuck, your CIA handler',text:'Use the radio equipment in the Hidden Radio Room to tell Chuck you have arrived safely on the island.'}];
 
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).
@@ -425,7 +501,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',17,9,0,1,'gunshop'],['town',23,9,0,1,'citybar'],['town',11,19,0,1,'supermarket'],['town',18,19,0,1,'tailor'],['town',23,19,0,1,'bookshop'],
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
-['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['apartments2',22,10,0,-1,'apartments3',22,8,0,1],['skyapts2',22,10,0,-1,'skyapts3',22,8,0,1],['skyapts3',22,10,0,-1,'skyapts4',22,8,0,1],['eblofts2',22,10,0,-1,'eblofts3',22,8,0,1],['eblofts3',22,10,0,-1,'eblofts4',22,8,0,1],['kgapts2',22,10,0,-1,'kgapts3',22,8,0,1],['kgapts3',22,10,0,-1,'kgapts4',22,8,0,1],['hsresid',22,8,0,1,'hsresid2',22,8,0,1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
+['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,10,0,-1,'apartments3',22,8,0,1],['skyapts2',22,10,0,-1,'skyapts3',22,8,0,1],['skyapts3',22,10,0,-1,'skyapts4',22,8,0,1],['eblofts2',22,10,0,-1,'eblofts3',22,8,0,1],['eblofts3',22,10,0,-1,'eblofts4',22,8,0,1],['kgapts2',22,10,0,-1,'kgapts3',22,8,0,1],['kgapts3',22,10,0,-1,'kgapts4',22,8,0,1],['hsresid',22,8,0,1,'hsresid2',22,8,0,1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
 ['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,11,0,1,'ebwhs_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
@@ -496,6 +572,8 @@ farmhouse:{kind:'gable',wall:'#e8dcc0',roof:'#7a4234',trim:'#a33b2f',win:'#bcd9e
 barn:{kind:'gable',wall:'#a33b2f',roof:'#4a4f58',trim:'#f2f2f2',win:'#a9c7da',deco:'whs',tex:'siding'},
 kchq:{kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',sign:'KELP COLA',signc:'#2e9d57',flag:'#2e9d57'},
 newsstand:{kind:'kiosk'},
+jazz:{kind:'flat',wall:'#1e1a2e',roof:'#2b2f3a',trim:'#c9a040',win:'#f2b04a',awn:'#5a1a2a',sign:'MIDNIGHT NOTE',signk:'neon',signc:'#3b8bff',marquee:'LIVE JAZZ',tube:'#3b8bff'},
+swnews:{kind:'kiosk',roof:'#5a6a74',wear:1},
 bigtop:{kind:'bigtop'},
 caravan1:{kind:'wagon',col:'#c0392b',trim:'#e0a100'},
 caravan2:{kind:'wagon',col:'#2e6f9a',trim:'#f2e6c8'},
@@ -587,7 +665,7 @@ const PROPS=[
 ['oilhq',2,6,'lamp'],['oilhq',13,8,'lamp'],['oilhq',7,10,'drum'],['oilhq',8,10,'drum'],['oilhq',7,11,'drum'],['oilhq',9,11,'pipes'],['oilhq',10,11,'pipes'],
 ['oilhq',14,3,'crate'],['oilhq',15,3,'crate'],['oilhq',6,8,'cone'],['oilhq',16,12,'bush'],['oilhq',16,1,'bush'],
 ['fishing',8,9,'bb_oil'],['fishing',4,9,'slamp'],['fishing',12,9,'slamp'],['fishing',25,9,'slamp'],['fishing',32,9,'bb_mart'],
-['fishing',14,6,'newsbox'],['fishing',19,9,'hydrant'],['fishing',15,9,'bb_cola'],['fishing',28,6,'bin'],['fishing',7,6,'phone'],['fishing',15,13,'bin'],['fishing',35,13,'hydrant'],['fishing',8,13,'newsbox'],['fishing',36,9,'nb_burger'],['fishing',8,6,'vending'],['fishing',19,10,'vending'],['fishing',37,10,'vending'],['fishing',17,11,'neonpole'],['fishing',38,12,'neonpole'],
+['fishing',14,6,'newsbox'],['fishing',19,9,'hydrant'],['fishing',15,9,'bb_cola'],['fishing',28,6,'bin'],['fishing',7,6,'phone'],['fishing',9,13,'bin'],['fishing',35,13,'hydrant'],['fishing',8,13,'newsbox'],['fishing',36,9,'nb_burger'],['fishing',8,6,'vending'],['fishing',36,12,'vending'],['fishing',37,10,'vending'],['fishing',35,11,'neonpole'],['fishing',38,12,'neonpole'],
 ['fishing',6,8,'steamgrate'],['fishing',17,8,'steamgrate'],['fishing',30,8,'steamgrate'],['fishing',27,14,'steamgrate'],['kalanharbour',3,7,'steamgrate'],
 ['north',8,6,'signpost'],['north',15,5,'fence'],['north',16,5,'fence'],['north',17,5,'fence'],['north',18,5,'fence'],['north',19,5,'fence'],
 ['north',13,11,'rock'],['north',4,11,'rock'],['north',9,2,'bush'],['north',6,10,'bush'],['north',19,8,'woodpile'],['north',5,6,'snowman'],

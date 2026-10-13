@@ -11,10 +11,50 @@ select{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;paddin
 select option,select optgroup{background:#fff;color:#000}
 select optgroup{font-style:normal;font-weight:bold}
 select hr{border:0;border-top:1px solid #000}
+#controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;padding:0 16px}
+#startbtn{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer}
+#startbtn[aria-expanded="true"]{background:#2f4a14;color:#fff}
+/* the start menu: tabs along the top, then the inventory, quests or map */
+#start{position:absolute;inset:4%;display:flex;flex-direction:column;line-height:1.35;font-size:13px;padding:10px 12px;background:rgba(11,26,43,.96);border:2px solid #9fe870;border-radius:10px;color:#fff;overflow:auto}
+#start[hidden]{display:none}
+#start .tabs{display:flex;gap:6px;margin-bottom:10px;align-items:center}
+#start .tabs button{font:inherit;font-size:13px;padding:5px 12px;border-radius:6px;border:1px solid #3a5a3a;background:#1c2e1c;color:#b9c7b0;cursor:pointer}
+#start .tabs button[aria-selected="true"]{background:#2f4a14;color:#fff;border-color:#9fe870}
+#start .tabs .close{margin-left:auto;padding:5px 10px}
+#start dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin:0 0 10px}
+#start dt{color:#9fe870}#start dd{margin:0}
+#start h3{margin:6px 0 4px;font-size:13px;color:#9fe870}
+#start ul{margin:0;padding-left:18px}#start li{margin:2px 0}#start small{color:#b9c7b0}
+#start p{margin:6px 0 0;font-size:13px;text-align:left;padding:0}
+#start .inv{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+#start .slots{display:grid;grid-template-columns:repeat(4,48px);gap:4px}
+#start .slot{position:relative;width:48px;height:48px;padding:0;border:1px solid #3a5a3a;border-radius:6px;background:#132213;display:grid;place-items:center;cursor:pointer}
+#start span.slot{cursor:default;background:#0f1a10;border-color:#22331f}
+#start .slot img{width:40px;height:40px;image-rendering:pixelated}
+#start .slot[aria-pressed="true"]{border:2px solid #9fe870;background:#2f4a14}
+#start .slot .n{position:absolute;right:3px;bottom:1px;font-size:11px;line-height:1;color:#fff;text-shadow:1px 1px 0 #000}
+#start .slot .p{position:absolute;left:2px;top:1px;font-size:10px;line-height:1;color:#ffe08a;text-shadow:1px 1px 0 #000}
+#start .shopname{margin:0;font-size:15px;color:#fff}#start .shopname small{font-weight:normal}
+#start p.price{font-size:15px;color:#ffe08a}
+#start .acts button:disabled{opacity:.45;cursor:not-allowed;border-color:#3a5a3a}
+#start .item{border:1px solid #3a5a3a;border-radius:8px;padding:8px 10px;background:#0f1a10;min-height:200px}
+#start .ihead{display:flex;gap:8px;align-items:center}#start .ihead img{width:48px;height:48px;image-rendering:pixelated}#start .ihead h3{margin:0}
+#start .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+#start .acts button{font:inherit;font-size:13px;padding:4px 10px;border-radius:6px;border:1px solid #9fe870;background:#1c2e1c;color:#fff;cursor:pointer}
+#start .acts button:hover,#start .acts button:focus-visible{background:#2f4a14}
+#start p.note{color:#ffe08a}
+@media (max-width:520px){#start .inv{grid-template-columns:1fr}}
+#start .map{position:relative}#start .map img{display:block;width:100%;height:auto;border-radius:6px}
+#start .you{position:absolute;width:10px;height:10px;margin:-7px 0 0 -7px;border-radius:50%;background:#ff3b2f;border:2px solid #fff;animation:you .7s infinite alternate}
+@keyframes you{to{box-shadow:0 0 0 6px rgba(255,59,47,.35)}}
+#daynight{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer;min-width:6.5em}
+#daynight[aria-pressed="true"]{background:#1c2340;color:#fff}
 #pad{display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,48px);gap:4px}
 #pad button{background:transparent;color:var(--fg);border:2px solid var(--bd);font:inherit;font-size:18px;touch-action:none}
 #menu{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);line-height:1.3;display:flex;flex-direction:column;gap:6px;min-width:min(70%,260px);padding:12px 14px;background:rgba(11,26,43,.94);border:2px solid #9fe870;border-radius:10px;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 #menu[hidden]{display:none}
+/* the fade to black while time passes (sitting and waiting, sleeping) */
+#fade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity .8s}
 #menu p{margin:0 0 4px;font-size:15px;font-weight:bold;text-align:left;padding:0}
 #menu button{font:inherit;font-size:14px;text-align:left;padding:7px 10px;border-radius:6px;border:1px solid #3a5a3a;background:#1c2e1c;color:#fff;cursor:pointer}
 #menu button:hover,#menu button:focus{background:#2f4a14;border-color:#9fe870;outline:none}
