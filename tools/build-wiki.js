@@ -57,20 +57,23 @@ function plan(c,id){const M=MAPS[id],h=M.length,w=M[0].length,S=16,th=L[id][3],f
   return o+'</svg>'}
 const info=rows=>'<table class="info">'+rows.filter(Boolean).map(([k,v])=>`<tr><th>${esc(k)}</th><td>${v}</td></tr>`).join('')+'</table>';
 const list=a=>a.length?a.join(', '):'—';
-function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac=FACTION_AT[id],people=NPCS.filter(n=>n.m==id||n.loc==id),res=NPCS.filter(n=>n.home==id);
+function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac=FACTION_AT[id],
+    // a place on the island also lists everyone in the buildings that stand in it, saying which building they are in
+    out=!!POS[id],at=x=>x&&x!='none'&&(out?top(x)==id:x==id),people=NPCS.filter(n=>at(n.m)||at(n.loc)),res=NPCS.filter(n=>at(n.home)),
+    where=x=>out&&x&&x!=id&&top(x)==id?' · '+A(c,'locations',x,L[x][0]):'';
   const labels=[...new Set(fs.filter(f=>f[5]).map(f=>f[5]))],ent=DOORS.filter(d=>d[0]==id);
   const dd=distOf(id),rows=[['Type',KIND[k]],dd?['District',`<span class="sw" style="background:${DISTRICTS[dd][1]}"></span>`+esc(DISTRICTS[dd][0])]:['District','Travels between districts'],par&&['Inside',locA(c,par)],fac&&['Faction base',`<span class="sw" style="background:${FACTIONS[fac][1]}"></span>`+facA(c,fac)],['Size',w+' × '+h+' tiles'],
     walk[id]&&['Walk to',list(walk[id].map(x=>locA(c,x)))],BOATS[id]&&['Boat to',list(BOATS[id].map(x=>locA(c,x)))],
-    ent.length&&['Buildings to enter',list(ent.map(d=>locA(c,d[5])))],people.length&&['People',list(people.map(n=>npcA(c,n)))],res.length&&['Residents',list(res.map(n=>npcA(c,n)))]];
+    ent.length&&['Buildings to enter',list(ent.map(d=>A(c,'locations',d[5],L[d[5]][0])))],people.length&&['People',out?`<a href="#people">${people.length}</a>`:list(people.map(n=>npcA(c,n)))],res.length&&['Residents',out?`<a href="#residents">${res.length}</a>`:list(res.map(n=>npcA(c,n)))]];
   let t=`<h1>${esc(name)}</h1>${info(rows)}<p>${esc((NOTES.locations||{})[id]||name+' is a '+KIND[k].toLowerCase()+' on the island.')}</p>`;
   if(POS[id])t+=`<h2 style="clear:both">Map</h2><div class="plan">${plan(c,id)}</div>`;
   if(k=='harbour'&&!BOATS[id]&&id!='oilrig')t+=`<p>No boats run to or from this harbour.</p>`;
   if(labels.length)t+=`<h2>Points of interest</h2><ul>${labels.map(l=>`<li>${esc(l)}</li>`).join('')}</ul>`;
   const ts=TRAM_STOPS.indexOf(id),tn=TRAM_STOPS.length,tram=ts<0?'':`<li>By tram from ${locA(c,TRAM_STOPS[(ts+tn-1)%tn])} (the tram goes on to ${locA(c,TRAM_STOPS[(ts+1)%tn])})</li>`;
   if(walk[id]||BOATS[id]||tram)t+=`<h2>Getting here</h2><ul>${(walk[id]||[]).map(x=>`<li>On foot from ${locA(c,x)}</li>`).join('')}${(BOATS[id]||[]).map(x=>`<li>By boat from ${locA(c,x)}</li>`).join('')}${tram}</ul>`;
-  if(ent.length)t+=`<h2>Inside</h2><ul>${ent.map(d=>`<li>${locA(c,d[5])}</li>`).join('')}</ul>`;
-  if(res.length)t+=`<h2>Residents</h2><ul>${res.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)}</li>`).join('')}</ul>`;
-  if(people.length)t+=`<h2>People</h2><ul>${people.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} (${facA(c,n.faction)})</li>`).join('')}</ul>`;
+  if(ent.length)t+=`<h2>Inside</h2><ul>${ent.map(d=>`<li>${A(c,'locations',d[5],L[d[5]][0])}</li>`).join('')}</ul>`;
+  if(res.length)t+=`<h2 id="residents">Residents</h2><ul>${res.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)}${where(n.home)}</li>`).join('')}</ul>`;
+  if(people.length)t+=`<h2 id="people">People</h2><ul>${people.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} (${facA(c,n.faction)})${where(at(n.m)?n.m:n.loc)}</li>`).join('')}</ul>`;
   return t}
 function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>n.faction==id),wk=QUEST_WEEKS[id]||[],side=SIDE_FACTIONS.includes(id);
   const grid='<div class="weeks">'+Array.from({length:19},(_,i)=>`<span class="${wk.includes(i+1)?'on':''}" style="${wk.includes(i+1)?'background:'+col:''}">${i+1}</span>`).join('')+'</div>';
