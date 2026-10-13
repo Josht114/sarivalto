@@ -36,7 +36,7 @@ addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&(e.key
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:QUESTS.slice()};
-const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map']];
+const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save']];
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
@@ -54,8 +54,16 @@ function renderStart(){if(START=='shop'){renderShop();return}let body='';
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
     body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}</div>
       <p>You are in ${esc(NM[P.m])}${a&&a!=P.m?', '+esc(NM[a]):''}.</p>`}
+  if(START=='save'){// the save slots: where and when each was saved, and buttons to save over it, load it or delete it
+    // (overwriting, loading and deleting ask again on the button first)
+    const btn=(d,i,t)=>`<button data-do="${d}" data-slot="${i}">${ME.confirm==d+i?t+'?':t}</button>`;
+    body=`<div class="saves">${SAVES.map(i=>{const v=readSave(i);
+      return `<div class="save"><div><b>${slotName(i)}</b><br>${v?`${esc(v.where)}: ${v.day} ${MONTH}, ${v.night?'night':'day'}<br><small>Saved ${new Date(v.at).toLocaleString()}</small>`:'<small>Empty</small>'}</div>
+        <div class="acts">${btn('save',i,i=='quick'?'Quick save (Q)':v?'Overwrite':'Save here')}${v?btn('load',i,'Load')+btn('del',i,'Delete'):''}</div></div>`}).join('')}</div>
+      <p><small>Saves are kept in this browser.</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
   startEl.innerHTML=`<div class="tabs" role="tablist">${TABS.map(([k,t])=>`<button role="tab" data-tab="${k}" aria-selected="${k==START}">${t}</button>`).join('')}<button class="close" aria-label="Close the menu">&times;</button></div><div>${body}</div>`;
-  startEl.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{START=b.dataset.tab;ME.note='';renderStart()});
+  startEl.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{START=b.dataset.tab;ME.note='';ME.confirm='';renderStart()});
+  startEl.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>slotAction(b.dataset.do,b.dataset.slot=='quick'?'quick':+b.dataset.slot));
   startEl.querySelectorAll('[data-item]').forEach(b=>b.onclick=()=>{ME.sel=+b.dataset.item;ME.note='';renderStart()});
   startEl.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>useItem(itemActions(ME.items[ME.sel].id)[+b.dataset.act]));startEl.querySelector('.close').onclick=closeStart}
 // What each item can do. The actions come from ITEMS, with a few that change with the item's state (the flashlight's switch,
@@ -98,12 +106,29 @@ function buy(how){const st=stockOf(SHOP.n),t=st[SHOP.sel];if(!t)return;const nm=
   if(ME[how]<t.p){SHOP.note=`You don't have enough ${how=='cia'?'CIA funds':'money of your own'} for the ${nm}.`;renderStart();return}
   ME[how]-=t.p;const mine=has(t.id);if(mine)mine.n++;else ME.items.push({id:t.id,n:1});if(--t.n<=0)st.splice(SHOP.sel,1);
   SHOP.note=`You buy the ${nm} for ${money(t.p)}, paid from ${how=='cia'?'CIA funds':'your own money'}.`;renderStart()}
+// ---- Saving and loading: three slots in the browser's storage. A save holds where you are, the date and time of day, your money,
+// items and quests, and what is left in every shop.
+// the quick save (Q, or its button) has its own slot, saved over without asking; then the three ordinary slots
+const SAVES=['quick',0,1,2],saveKey=i=>'sarivalto-save-'+i,slotName=i=>i=='quick'?'Quick save':'Slot '+(i+1);
+function readSave(i){try{const v=JSON.parse(localStorage.getItem(saveKey(i)));return v&&v.v==1?v:null}catch(e){return null}}
+function slotAction(d,i){const ask=d!='save'||i!='quick'&&readSave(i);
+  if(ask&&ME.confirm!=d+i){ME.confirm=d+i;ME.note='';renderStart();return}ME.confirm='';
+  if(d=='save')ME.note=saveGame(i);if(d=='del'){try{localStorage.removeItem(saveKey(i))}catch(e){}ME.note=slotName(i)+' deleted.'}
+  if(d=='load'){loadGame(i);return}renderStart()}
+function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
+  const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests},stock:STOCK};
+  try{localStorage.setItem(saveKey(i),JSON.stringify(v));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}catch(e){return'The game could not be saved: this browser is not letting the page store anything.'}}
+function loadGame(i){const v=readSave(i);if(!v||!MAPS[v.p.m]){ME.note='That save could not be loaded.';renderStart();return}
+  DAY=v.day;setNight(v.night);Object.assign(ME,v.me,{sel:0,note:'',confirm:''});for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
 function openStart(tab='inv'){if(MENU||RIDE||BUSY)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
 function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
 addEventListener('keydown',e=>{if(e.target==sel||e.repeat)return;const k=e.key;
   if(k=='m'||k=='M'){START?closeStart():openStart();e.preventDefault()}
+  else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
   else if(START&&k=='Escape'){closeStart();e.preventDefault()}
   // in a shop the arrows (or WASD) move through the stock, C pays with CIA funds and P with your own money
   else if(START=='shop'){const st=stockOf(SHOP.n),d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k];
@@ -111,7 +136,7 @@ addEventListener('keydown',e=>{if(e.target==sel||e.repeat)return;const k=e.key;
     else if(k=='c'||k=='C'){buy('cia');e.preventDefault()}else if(k=='p'||k=='P'){buy('cash');e.preventDefault()}else if(k=='Tab')e.preventDefault()}
   // Tab (or 1, 2, 3) changes tab; in the inventory the arrows (or WASD) move through the grid and E, Space or Enter does the item's
   // first action; on the other tabs left and right change tab
-  else if(START&&(k=='Tab'||/^[123]$/.test(k))){const i=TABS.findIndex(t=>t[0]==START);START=TABS[k=='Tab'?(i+(e.shiftKey?TABS.length-1:1))%TABS.length:k-1][0];ME.note='';renderStart();e.preventDefault()}
+  else if(START&&(k=='Tab'||/^[1-4]$/.test(k))){const i=TABS.findIndex(t=>t[0]==START);START=TABS[k=='Tab'?(i+(e.shiftKey?TABS.length-1:1))%TABS.length:k-1][0];ME.note='';renderStart();e.preventDefault()}
   else if(START=='inv'&&ME.items.length&&/^(Arrow(Left|Right|Up|Down)|[wasdWASD])$/.test(k)){const d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k],n=ME.sel+d;
     if(n>=0&&n<ME.items.length){ME.sel=n;ME.note=''}renderStart();e.preventDefault()}
   else if(START=='inv'&&ME.items.length&&/^(e|E| |Enter)$/.test(k)&&!(e.target.closest&&e.target.closest('#start button'))){useItem(itemActions(ME.items[ME.sel].id)[0]);e.preventDefault()}
@@ -244,4 +269,7 @@ function draw(t){
   if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-12,'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
+// On opening the game, carry on from the most recent save (if there is one). Starting with ?new in the address starts a new game
+// instead, as do the addresses that set up the start themselves (?day=, ?night and the proofs of concept).
+if(!GOTHIC&&!DETAILED&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);
