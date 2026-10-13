@@ -100,7 +100,7 @@ Building looks (`BLD` in `js/data.js`) take these options on top of the usual wa
 | `signk: 'brass'` | An engraved brass plaque | Hope Springs (The Club) |
 | `cols: colour` | Columns between the windows | Hope Springs |
 | `planter: [colours]` | A window box of flowers under each window | Hope Springs, Eastbrook |
-| `icon: name` | A hanging picture sign of what the shop sells, on an iron bracket at one corner of the front (away from the door): `mug` (with a face), `vinyl`, `heart`, `flannel`, `grill`, `beer`, `cola`, `gun`, `cart`, `scissors`, `book`, `dice`, `house`, `fishhook`, `fish`, `tv`, `invader`, `burger` (with a face), `bag`, `popcorn`, `cocktail` (`ICON_ART` in `js/art.js`) | Every shop, cafe and bar |
+| `icon: name` | A picture sign of what the shop sells, standing on two short posts on top of its name sign: `mug` (with a face), `vinyl`, `heart`, `flannel`, `grill`, `beer`, `cola` (`ICON_ART` in `js/art.js`). With `hang: 1` it hangs on chains from a wrought-iron bracket at one corner instead, sticking out over the gap beside the shop | Eastbrook's shops (the Timberline Tavern's hangs) |
 | `mural: [sky, sky, sky, bird]` | The front wall painted with a sunset, a snowy peak, pines and a bird, in place of the windows | Eastbrook (the record shop) |
 
 Interiors (`INT` in `js/art.js`) take `grime: 1` (stained walls and floors, used in Saltwick). Paths are styled per place in
