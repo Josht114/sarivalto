@@ -457,6 +457,15 @@ hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
 const WAIT_AT=['bar','citybar','tavern','jazz_in','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
+// ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
+// and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
+const CONVOS={
+Hekki:{start:'hello',nodes:{
+  hello:{say:'So glad you made it.',opts:[['Me too.','metoo'],['This place sucks.','sucks'],['Is anyone on to you?','onto']]},
+  metoo:{say:'Woo!'},
+  sucks:{say:'Hey!'},
+  onto:{say:'No way.'}}},
+};
 // ---- Shops, by the name of the person who runs them: what they sell, as [item, how many, price in dollars]. The shop is open
 // when its keeper is at their workplace (their loc); talk to them there to buy. Buying moves the item from their stock to your
 // inventory.

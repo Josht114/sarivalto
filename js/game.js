@@ -32,7 +32,7 @@ if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
 const dn=document.getElementById('daynight');
 function setNight(on){NIGHT=on;for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dn.textContent=on?'\u263E Night':'\u2600 Day';dn.setAttribute('aria-pressed',on)}
 dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
-addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
+addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:QUESTS.slice()};
@@ -122,13 +122,13 @@ function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a
 function loadGame(i){const v=readSave(i);if(!v||!MAPS[v.p.m]){ME.note='That save could not be loaded.';renderStart();return}
   DAY=v.day;setNight(v.night);Object.assign(ME,v.me,{sel:0,note:'',confirm:''});for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
-function openStart(tab='inv'){if(MENU||RIDE||BUSY)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
+function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
 function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
 addEventListener('keydown',e=>{if(e.target==sel||e.repeat)return;const k=e.key;
   if(k=='m'||k=='M'){START?closeStart():openStart();e.preventDefault()}
-  else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
+  else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY&&!CONVO){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
   else if(START&&k=='Escape'){closeStart();e.preventDefault()}
   // in a shop the arrows (or WASD) move through the stock, C pays with CIA funds and P with your own money
   else if(START=='shop'){const st=stockOf(SHOP.n),d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k];
@@ -148,7 +148,7 @@ const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x
 const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
   PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})||tramAt(m,x,y)};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};
-addEventListener('keydown',e=>{if(e.target==sel||MENU||RIDE||START||BUSY)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
+addEventListener('keydown',e=>{if(e.target==sel||MENU||RIDE||START||BUSY||CONVO)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
 addEventListener('keyup',e=>{const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY)release(KEY[k])});
 document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.d;
   b.addEventListener('pointerdown',e=>{e.preventDefault();press(d)});
@@ -157,7 +157,7 @@ document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.
 const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
 function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
-  if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU||START||BUSY)return;
+  if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU||START||BUSY||CONVO)return;
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
     if(m.t>=1){P.mv=null;const e=exitHere();
       if(e&&!PRESS_DOORS.has(e.to))useExit(e);
@@ -173,7 +173,7 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // ---- Riding the tram. On a platform, the action key (E, Space or Enter, or the E button) calls the tram; once it has stopped,
 // pressing it again gets on. Inside the tram the action key opens a menu of stops; picking one plays a short ride and then
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
-let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
+let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
 // ---- Talking: the person on the tile the player is facing, and what they say (a placeholder line for everyone for now)
 const npcAhead=()=>{const[dx,dy]=DIR[P.dir];return NPCS.find(n=>n.m==P.m&&n.x==P.x+dx&&n.y==P.y+dy)};
 const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
@@ -195,7 +195,7 @@ function sitDown(){if(NIGHT){say('It is already night. Go home and get some slee
 function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit at the table and wait for the evening.',5000);return}
   if(DAY>=DAYS){say('It is '+DAYS+' '+MONTH+', the last day of the month. There is no time to sleep now.',5000);return}
   choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{DAY++;setNight(false)},()=>'You sleep through the night. Good morning: it is '+DAY+' '+MONTH+'.')],['Not now']])}
-function talk(n){n.dir=P.dir^1;if(SHOPS[n.name]&&n.m==n.loc){say(`"Welcome! Have a look at what I've got."`,3000);openShop(n);return}say(line(n),6000)}
+function talk(n){n.dir=P.dir^1;if(CONVOS[n.name]){converse(n);return}if(SHOPS[n.name]&&n.m==n.loc){say(`"Welcome! Have a look at what I've got."`,3000);openShop(n);return}say(line(n),6000)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
 // where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
@@ -204,7 +204,7 @@ function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+4
   // (a little further along is better than right above the shelter, whose roof would hide the player)
   for(const y of[tr.y+1,tr.y+2])for(let x=0;x<w;x++)if(!solid(m,x,y))c.push([x,y,Math.abs(x+.5-door)+(y==tr.y+1?0:3)+(MAPS[m][y][x]=='P'?0:2)+(MAPS[m][y+1]?.[x]=='#'?4:0)]);
   const[x,y]=c.sort((a,b)=>a[2]-b[2])[0];return[x,y]}
-function act(){if(P.mv||MENU||RIDE||START||BUSY)return;const now=performance.now();
+function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performance.now();if(now-CONVO_END<300)return;
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
   const n=npcAhead();if(n){talk(n);return}
@@ -223,14 +223,31 @@ const closeMenu=()=>{MENU=0;menu.hidden=true};
 function pick(to){if(performance.now()-MENU<250)return;closeMenu();if(to){RIDE={to,t0:performance.now()};delete TRAMS[TRIP.from]}}
 function arrive(){const to=RIDE.to;RIDE=TRIP=null;TRAMS[to]={ph:'wait',t0:performance.now()-TRAM_WAIT+2500};place(to,platformSpot(to),0);say('You get off the tram at '+NM[to]+'.')}
 function leaveTram(){const from=TRIP.from;TRIP=null;TRAMS[from]={ph:'wait',t0:performance.now()-TRAM_WAIT+3000};place(from,platformSpot(from),0);say('You get off the tram.')}
+// ---- Conversations (CONVOS): their portrait and what they say at the top left, your replies along the bottom. Up and down (or
+// W and S) choose a reply, E, Space or Enter says it (or press its number, or click it); when it ends, everything closes.
+const cvEl=document.getElementById('convo');
+function converse(n){const c=CONVOS[n.name];CONVO={n,c,at:c.start,sel:0};stack=[];MSG=null;
+  const pc=cvEl.querySelector('canvas'),g=pc.getContext('2d');g.clearRect(0,0,pc.width,pc.height);g.drawImage(portrait(n),0,0);
+  cvEl.querySelector('.who').textContent=n.name;cvEl.hidden=false;renderConvo()}
+const replies=()=>CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]];
+function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
+  cvEl.querySelector('.said').innerHTML=`<b>${esc(CONVO.n.name)}</b><p>"${esc(nd.say)}"</p>`;
+  cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
+  cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
+function reply(i){const o=replies()[i];if(!o)return;if(o[1]==null){endConvo();return}CONVO.at=o[1];CONVO.sel=0;renderConvo()}
+function endConvo(){CONVO=null;CONVO_END=performance.now();cvEl.hidden=true}
+addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==1?e.key.toLowerCase():e.key,n=replies().length;
+  if(k=='ArrowDown'||k=='s')CONVO.sel=(CONVO.sel+1)%n;else if(k=='ArrowUp'||k=='w')CONVO.sel=(CONVO.sel+n-1)%n;
+  else if(/^[1-9]$/.test(k)&&+k<=n)reply(+k-1);else if(k=='e'||k==' '||k=='Enter')reply(CONVO.sel);else if(k=='Escape')endConvo();else return;
+  if(CONVO)renderConvo();e.preventDefault()});
 // with the menu open: up/down (or W/S) move between stops, E picks, Escape closes it (Enter and Space work on buttons anyway)
 addEventListener('keydown',e=>{if(!MENU)return;const bs=[...menu.querySelectorAll('button')],i=bs.indexOf(document.activeElement),k=e.key.toLowerCase();
   if(k=='arrowdown'||k=='s')bs[(i+1)%bs.length].focus();else if(k=='arrowup'||k=='w')bs[(i-1+bs.length)%bs.length].focus();
   else if(k=='escape')closeMenu();else if(k=='e')(bs[i]||bs[0]).click();else return;e.preventDefault()});
 addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&(e.key=='e'||e.key=='E'||e.key==' '||e.key=='Enter')){act();e.preventDefault()}});
-document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
+document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(CONVO){reply(CONVO.sel);return}if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
 // what the action key would do here, shown above the player
-function tramHint(){if(P.m=='tram')return MENU?null:'Press E to choose a stop';
+function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
   if(seatAhead()&&!P.mv&&!npcAhead())return NIGHT?'Night has fallen':'Press E to sit and wait';
   const n=npcAhead();if(n&&!P.mv)return'Press E to talk to '+n.name;
