@@ -24,7 +24,16 @@ colahq:['Kelp Cola HQ',18,14,'snow',[[3,1,10,5,'#','Kelp Cola HQ','kchq'],[8,5,1
 tramstop:['Tram Stop',22,14,'snow',[[0,3,22,1,'l'],[3,4,16,1,'P'],[9,5,5,2,'#','Tram Stop','tramshelter']]],
 forest:['Pine Forest',26,18,'snow',[[1,1,5,4,'T'],[8,2,3,3,'T'],[17,1,4,3,'T'],[22,4,3,5,'T'],[2,7,4,3,'T'],[15,6,4,2,'T'],[8,7,4,3,'~'],[7,12,5,3,'T'],[18,11,5,4,'T'],[1,13,3,3,'T'],[13,14,2,2,'T'],[20,9,1,1,'R'],[4,11,1,1,'R']]],
 colafactory:['Kelp Cola Factory',26,20,'snow',[[2,1,12,6,'#','Kelp Cola Factory','kcfac'],[8,6,1,1,'d'],[17,1,6,4,'#','Warehouse','kcwhs'],[18,4,1,1,'d'],[3,12,4,2,'#','Food Van','foodvan'],[0,15,26,1,'l'],[15,16,9,1,'P'],[17,17,5,2,'#','Tram Stop','tramshelter']]],
-second:['Eastbrook',38,25,'snow',[[9,3,6,5,'#','Houses','eb1'],[12,7,1,1,'d'],[23,3,6,5,'#','Houses','eb2'],[9,14,6,4,'#','Community Centre','community'],[12,17,1,1,'d'],[23,14,3,4,'#','Coffee Roasters','coffee'],[24,17,1,1,'d'],[26,14,3,4,'#','Tattoo Shop','tattoo'],[27,17,1,1,'d'],[7,9,1,2,'T'],[30,9,1,2,'T'],[8,23,1,1,'T'],[29,23,1,1,'T'],[15,13,1,7,','],[22,13,1,7,','],[16,14,6,4,'#','Eastbrook Gazette','gazette'],[18,17,1,1,'d'],[24,7,1,1,'d'],[27,7,1,1,'d'],[0,20,38,1,'l'],[15,21,8,1,'P'],[16,22,5,2,'#','Tram Stop','tramshelter'],[1,1,3,2,'T'],[4,3,2,2,'T'],[1,5,2,3,'T'],[5,8,2,1,'T'],[2,14,6,4,'#','Cedar Grill','cedargrill'],[5,17,1,1,'d'],[1,18,2,2,'T'],[1,22,3,2,'T'],[31,2,5,6,'#','Timber Lofts','eblofts'],[33,7,1,1,'d'],[35,9,2,2,'T'],[30,14,6,4,'#','Timberline Tavern','tavern'],[33,17,1,1,'d'],[36,14,1,5,'T'],[33,22,3,2,'T']]],
+// Eastbrook: a timber town gone hip. Upper Street (row 10), the main street (row 15) and Tram Street (row 20), joined by Alder Lane
+// (column 25); between the main street and Tram Street are the food-cart plaza and a little park, and the tram runs along the bottom.
+second:['Eastbrook',50,30,'snow',[[2,16,11,4,','],[1,15,48,1,','],[26,10,23,1,','],[26,20,23,1,','],[25,21,1,1,','],[0,22,50,1,'l'],[19,23,12,1,'P'],[23,24,5,2,'#','Tram Stop','tramshelter'],
+[2,2,6,7,'#','Timber Lofts','eblofts'],[4,8,1,1,'d'],[10,4,4,5,'#',"Pekka's House",'eb1'],[11,8,1,1,'d'],[16,2,8,7,'#','Kelp Cola Museum','kcmuseum'],[19,8,1,1,'d'],
+[27,4,6,5,'#','Houses','eb2'],[28,8,1,1,'d'],[31,8,1,1,'d'],[35,3,7,6,'#','Community Centre','community'],[38,8,1,1,'d'],
+[1,11,6,4,'#','Cedar Grill','cedargrill'],[4,14,1,1,'d'],[8,11,4,4,'#','Coffee Roasters','coffee'],[9,14,1,1,'d'],[13,11,6,4,'#','Record Shop','records'],[15,14,1,1,'d'],
+[20,11,4,4,'#','Tattoo Shop','tattoo'],[21,14,1,1,'d'],[27,11,6,4,'#','Clothes Shop','clothes'],[29,14,1,1,'d'],[34,11,6,4,'#','Eastbrook Gazette','gazette'],[36,14,1,1,'d'],
+[41,11,7,4,'#','Timberline Tavern','tavern'],[44,14,1,1,'d'],[5,16,2,2,'#','Hot Dog Cart','ebhotdog'],
+[1,1,1,1,'T'],[9,1,2,2,'T'],[14,1,1,2,'T'],[44,1,2,3,'T'],[47,1,2,2,'T'],[46,4,2,3,'T'],[43,6,2,2,'T'],[34,1,2,1,'T'],[47,16,2,3,'T'],[44,17,1,2,'T'],[29,18,1,1,'T'],
+[1,24,4,4,'T'],[6,26,3,2,'T'],[12,26,2,2,'T'],[33,24,3,3,'T'],[40,25,4,3,'T'],[46,24,3,4,'T'],[16,27,2,1,'T']]],
 south:['South East Road',24,12,'snow',[[3,2,4,2,'T'],[16,7,4,2,'T'],[0,10,24,1,'l']]],
 southwest:['South Road',14,22,'snow',[[2,3,3,4,'T'],[9,13,3,4,'T']]],
 west:['South West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
@@ -53,6 +62,9 @@ fishshop:['Fish Shop',14,10,'interior',[[2,1,10,1,'y','Shelves'],[3,3,8,1,'c','C
 house_tom:["Tom's House",10,9,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[7,1,2,1,'i','Stove'],[2,5,3,2,'x','Fishing Nets']]],
 house_sam:["Sam's House",10,9,'interior',[[6,1,2,2,'e','Bed'],[2,3,2,2,'u','Table'],[2,1,3,1,'y','Shelf'],[8,4,1,1,'i','Stove']]],
 house_bob:["Bob's House",10,9,'interior',[[2,5,2,2,'e','Bed'],[4,2,3,2,'u','Table'],[1,1,2,1,'i','Stove'],[7,5,2,1,'y','Shelf']]],
+// Mill Road: the track from the Pine Forest to Eastbrook, past the Eastbrook Lumber Company's mill and its log yard
+millroad:['Mill Road',30,14,'snow',[[9,1,10,5,'#','Lumber Mill','mill'],[10,5,1,1,'d'],[1,1,2,2,'T'],[21,1,2,1,'T'],[27,1,2,3,'T'],
+[1,10,3,3,'T'],[8,11,2,2,'T'],[14,10,4,3,'T'],[22,10,3,3,'T'],[27,11,2,2,'T']]],
 // ---- The Royal Palace's rooms. The Grand Hall is the hub: doors in its back wall lead to the Royal Apartments, the Throne Room and
 // the Library, and doors in its side walls to the Dining Room and the Royal Chapel. The Dining Room leads on to the Kitchen, which
 // leads to the Servants' Quarters and down to the Wine Cellar; a secret bookcase in the Library opens on the Royal Vault.
@@ -150,6 +162,16 @@ dphq_in:['Diversified Petroleum HQ',20,12,'interior',[[1,1,4,1,'y','Files'],[15,
 depot_in:['Depot',16,10,'interior',[[1,1,3,2,'x','Oil Drums'],[5,1,6,1,'y','Pipes'],[12,1,3,2,'x','Supply Boxes'],[1,5,2,2,'x','Oil Drums'],[13,5,2,3,'x','Oil Drums'],[5,5,5,1,'u','Workbench']]],
 // Frostholm's Republican Party HQ: the leadership election hall, with the podium, the ballot box and a campaign desk for each candidate
 repubhq:['Republican Party HQ',20,12,'interior',[[1,1,3,1,'y','Files'],[16,1,3,1,'y','Files'],[8,2,4,1,'c','Podium'],[9,5,2,1,'x','Ballot Box'],[1,4,3,2,'u','Campaign Desk'],[16,4,3,2,'u','Campaign Desk'],[1,8,3,2,'u','Campaign Desk'],[6,8,3,1,'o'],[11,8,3,1,'o'],[16,8,3,2,'x','Leaflets']]],
+// Eastbrook's new places: the Kelp Cola Museum (the company's history, with a gift shop at the back), a vintage clothes shop,
+// a record shop, and the lumber mill on Mill Road
+kcmuseum_in:['Kelp Cola Museum',22,12,'interior',[[1,1,4,1,'y','Vintage Bottles'],[7,1,7,2,'g','Old Bottling Line'],[16,1,5,1,'y','Bottle Caps'],[1,4,2,2,'x','Kelp Cola Crates'],
+[5,4,1,1,'n','Mannequin'],[7,5,3,1,'o'],[14,6,6,1,'c','Gift Shop Counter'],[16,8,5,1,'y','Souvenir Shelves'],[1,8,4,1,'y','Postcard Rack']]],
+clothes_in:['Flannel and Folk',14,10,'interior',[[1,1,5,1,'y','Clothes Rail'],[8,1,5,1,'y','Clothes Rail'],[1,4,1,1,'n','Mannequin'],[12,4,1,1,'n','Mannequin'],
+[3,4,3,1,'y','Clothes Rail'],[9,4,2,1,'y','Cloth'],[8,7,4,1,'c','Counter'],[1,7,3,1,'y','Cloth']]],
+records_in:['Vinyl Resting Place',14,9,'interior',[[1,1,5,1,'y','Record Shelves'],[8,1,5,1,'y','Record Shelves'],[2,4,3,1,'x','Record Crates'],[9,3,3,1,'x','Record Crates'],
+[9,6,4,1,'c','Counter'],[1,6,2,1,'u','Listening Desk']]],
+mill_in:['Lumber Mill',24,12,'interior',[[2,2,12,2,'g','Saw Line'],[16,1,3,2,'x','Timber Stack'],[20,1,3,2,'x','Timber Stack'],[16,5,3,2,'x','Timber Stack'],
+[1,6,3,2,'x','Sawdust Sacks'],[19,8,4,2,'u','Desk'],[1,9,2,1,'y','Lockers']]],
 petro_in:['Petro Tower',20,12,'interior',[[7,1,6,1,'y','Shelves'],[7,3,6,1,'c','Reception'],[1,1,4,1,'y','Files'],[15,1,4,1,'y','Files'],[1,5,3,2,'u','Desk'],[16,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[16,8,3,2,'u','Desk'],[8,7,4,1,'o']]],
 bank_in:['Nordbank',20,12,'interior',[[1,1,3,1,'y','Files'],[8,1,4,1,'x','Safe'],[16,1,3,1,'y','Files'],[2,3,16,1,'c','Bank Counter'],[2,7,3,1,'o'],[15,7,3,1,'o'],[8,7,4,2,'u','Desk']]],
 farmhouse_in:['Farmhouse',14,10,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Shelf'],[9,1,2,1,'i','Stove'],[12,1,1,2,'x','Sacks'],[5,4,4,2,'u','Kitchen Table'],[1,6,2,2,'x','Sacks'],[11,6,2,1,'y','Bookcase']]],
@@ -223,14 +245,14 @@ savilaharbour:['Eastbrook Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'
 // Links from the sketch: "A side B side". Order of links sets the order of exits along a side.
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano R mountains L','lake R north L','lake B beach R','north R town L','west R town L',
 'mountains B east T','mountains R monastery L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R tramstop L',
-'tramstop R colafactory L','colafactory B second T','south L town R','south R second L','beach R west L','beach B village T',
+'tramstop R colafactory L','colafactory B second T','south L town R','forest R millroad L','millroad R second L','south R second L','beach R west L','beach B village T',
 'west B village T','village L harbour R','town B southwest T','southwest B gated T','southwest L barracks R','gated R privbeach L','gated L privharbour R','village R radio L','fishing T kalanharbour B','second R savilaharbour L','tramstop B forest T'];
 
 // ---- Overview-map layout (used only by tools/build-map.js): id:[x, y, kind]. Kinds: town, road, site, nature, harbour.
 const POS={oilrig:[169,236,'harbour'],oilhq:[353,239,'site'],fishing:[545,234,'town'],kalanharbour:[545,140,'harbour'],
 volcano:[758,256,'nature'],lake:[452,362,'nature'],mountains:[1005,256,'nature'],monastery:[1159,256,'site'],north:[604,370,'road'],east:[956,377,'road'],
-farm:[1162,380,'nature'],palace:[788,384,'site'],town:[755,487,'town'],colahq:[873,498,'site'],tramstop:[1000,498,'road'],forest:[1060,570,'nature'],
-colafactory:[1162,484,'site'],second:[1162,632,'town'],savilaharbour:[1330,632,'harbour'],south:[950,609,'road'],west:[557,532,'road'],
+farm:[1162,380,'nature'],palace:[788,384,'site'],town:[755,487,'town'],colahq:[873,498,'site'],tramstop:[1000,498,'road'],forest:[1040,560,'nature'],
+colafactory:[1162,484,'site'],second:[1162,632,'town'],millroad:[1090,592,'road'],savilaharbour:[1330,632,'harbour'],south:[950,609,'road'],west:[557,532,'road'],
 beach:[334,465,'nature'],village:[419,573,'town'],harbour:[213,674,'harbour'],radio:[494,636,'site'],barracks:[610,600,'site'],southwest:[735,592,'road'],gated:[758,694,'town'],
 privharbour:[540,700,'harbour'],privbeach:[925,745,'nature']};
 
@@ -253,7 +275,7 @@ colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil',fishin
 // ---- Districts: id:[name, map colour]. DISTRICT_OF puts every place on the overview map in one; interiors take their building's.
 const DISTRICTS={central:['Central','#f3d9a4'],north:['North','#d9c8ea'],northeast:['North East','#c4dcef'],northwest:['North West','#c9e3c4'],
 southwest:['South West','#f2c9bf'],south:['South','#eadbb6'],southeast:['South East','#c3e6dc']};
-const DISTRICT_OF={palace:'central',town:'central',colahq:'central',tramstop:'southeast',forest:'southeast',
+const DISTRICT_OF={millroad:'southeast',palace:'central',town:'central',colahq:'central',tramstop:'southeast',forest:'southeast',
 southwest:'south',barracks:'south',gated:'south',privbeach:'south',privharbour:'south',
 east:'northeast',mountains:'northeast',monastery:'northeast',farm:'northeast',
 colafactory:'southeast',south:'southeast',second:'southeast',savilaharbour:'southeast',
@@ -360,9 +382,17 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'bigtop_in',x:15,y:7,dir:2,name:'Igor',home:'caravan1_in',loc:'bigtop_in',job:'Strongman',faction:'none',body:'#5a3a26',hair:'#1a1a1a'},
 {m:'caravan3_in',x:5,y:2,dir:0,name:'Madame Zora',home:'caravan3_in',loc:'caravan3_in',job:'Fortune teller',faction:'none',body:'#7d3c98',hair:'#2a1a12',hat:'#c9a040'},
 {m:'servants',x:3,y:7,dir:2,name:'Elsa',home:'servants',loc:'servants',job:'Laundress',faction:'none',body:'#7a8a9a',hair:'#caa05a'},
+// Eastbrook's new faces: the hot dog vendor, the Kelp Cola Museum's curator, the clothes and record shop owners, and the lumber mill's crew
+{m:'second',x:7,y:16,dir:0,name:'Dex',home:'eblofts',loc:'second',job:'Hot dog vendor',faction:'democrat',body:'#c0392b',hair:'#3a2a20',hat:'#e0a100'},
+{m:'kcmuseum_in',x:16,y:5,dir:0,name:'Wilma',home:'eblofts',loc:'kcmuseum_in',job:'Museum curator and gift shop clerk',faction:'cola',body:'#2e9d57',hair:'#c9822a'},
+{m:'clothes_in',x:9,y:6,dir:0,name:'Juniper',home:'eblofts',loc:'clothes_in',job:'Clothes shop owner',faction:'democrat',body:'#7a2a3a',hair:'#e8c86a',hat:'#3d5a4a'},
+{m:'records_in',x:10,y:5,dir:0,name:'Rufus',home:'eblofts',loc:'records_in',job:'Record shop owner',faction:'democrat',body:'#2a2a30',hair:'#6b4a2a'},
+{m:'mill_in',x:20,y:7,dir:0,name:'Bjarne',home:'eblofts',loc:'mill_in',job:'Lumber mill foreman',faction:'democrat',body:'#a33b2f',hair:'#b5b5b5',hat:'#e8792a'},
+{m:'mill_in',x:8,y:4,dir:1,name:'Knut',home:'eblofts',loc:'mill_in',job:'Sawyer',faction:'democrat',body:'#3d5a4a',hair:'#c9a05a',hat:'#e0a100'},
+{m:'millroad',x:6,y:5,dir:1,name:'Ilse',home:'eblofts',loc:'millroad',job:'Log loader',faction:'democrat',body:'#c0392b',hair:'#e8c86a',hat:'#2f4a3c'},
 // the Crime Syndicate's people working the towns, one in each
 {m:'fishing',x:19,y:11,dir:0,name:'Nico',home:'skyapts',loc:'fishing',job:'Syndicate bookie',faction:'syndicate',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
-{m:'second',x:14,y:11,dir:0,name:'Paolo',home:'eblofts',loc:'second',job:'Syndicate bookie',faction:'syndicate',body:'#2a2a33',hair:'#5a3a26'},
+{m:'second',x:24,y:17,dir:0,name:'Paolo',home:'eblofts',loc:'second',job:'Syndicate bookie',faction:'syndicate',body:'#2a2a33',hair:'#5a3a26'},
 {m:'town',x:25,y:13,dir:0,name:'Mario',home:'kgapts',loc:'town',job:'Syndicate bookie',faction:'syndicate',body:'#2a2a33',hair:'#5a3a26'},
 {m:'village',x:27,y:9,dir:0,name:'Lucia',home:'apartments',loc:'village',job:'Syndicate enforcer',faction:'syndicate',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
 {m:'gated',x:19,y:6,dir:0,name:'Paola',home:'hsresid',loc:'gated',job:'Syndicate enforcer',faction:'syndicate',body:'#2b2f3a',hair:'#8a8a8a'},
@@ -374,7 +404,10 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).
-const DOORS=[['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],
+const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['second',19,8,0,1,'kcmuseum_in'],['second',28,8,0,1,'house_henrik'],
+['second',31,8,0,1,'house_nora'],['second',38,8,0,1,'commcentre'],['second',4,14,0,1,'cedargrill'],['second',9,14,0,1,'cafe'],['second',15,14,0,1,'records_in'],
+['second',21,14,0,1,'tattoo'],['second',29,14,0,1,'clothes_in'],['second',36,14,0,1,'newsroom'],['second',44,14,0,1,'tavern'],['millroad',10,5,0,1,'mill_in'],
+['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],
 ['village',14,18,0,1,'fishshop'],['village',21,18,0,1,'house_tom'],['village',27,18,0,1,'house_sam'],
 ['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,1,0,1],
 ['palace',12,6,0,1,'palacehall'],['palacehall',5,0,0,1,'royalrooms'],['palacehall',12,0,0,1,'throne'],['palacehall',19,0,0,1,'library'],
@@ -385,8 +418,8 @@ const DOORS=[['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'casino'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['apartments2',22,10,0,-1,'apartments3',22,8,0,1],['skyapts2',22,10,0,-1,'skyapts3',22,8,0,1],['skyapts3',22,10,0,-1,'skyapts4',22,8,0,1],['eblofts2',22,10,0,-1,'eblofts3',22,8,0,1],['kgapts2',22,10,0,-1,'kgapts3',22,8,0,1],['kgapts3',22,10,0,-1,'kgapts4',22,8,0,1],['hsresid',22,8,0,1,'hsresid2',22,8,0,1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
-['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,11,0,1,'ebwhs_in'],['second',12,7,0,1,'house_pekka'],['second',18,17,0,1,'newsroom'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'cinemain'],
-['second',24,17,0,1,'cafe'],['second',27,17,0,1,'tattoo'],['second',33,7,0,1,'eblofts'],['second',33,17,0,1,'tavern'],['second',5,17,0,1,'cedargrill'],['second',12,17,0,1,'commcentre'],['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['second',24,7,0,1,'house_henrik'],['second',27,7,0,1,'house_nora'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
+['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,11,0,1,'ebwhs_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'cinemain'],
+['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
 // ---- How each building looks from outside (feature style key -> look). kind: gable, flat or tall
@@ -395,8 +428,8 @@ const BLD={
 plant:{kind:'flat',wall:'#7d8790',roof:'#55606a',trim:'#3d4852',win:'#8fa6b4',deco:'plant',wear:.6,tex:'metal'},
 hq:{kind:'flat',wall:'#94473c',roof:'#5f2d25',trim:'#d8ccb4',win:'#d8b860',deco:'hq',wear:.35},
 apt:{kind:'tall',wall:'#a39d90',roof:'#5b5b56',trim:'#4a4a4a',win:'#6f8fa4',deco:'apt',wear:.75},
-bar:{kind:'gable',wall:'#4e3a2c',roof:'#2f2a36',trim:'#2b1d14',win:'#c9a850',deco:'bar',wear:.7},
-shop:{kind:'gable',wall:'#b4c8cc',roof:'#3a5f78',trim:'#c8d4d8',win:'#8fb4c4',deco:'shop',wear:.6},
+bar:{icon:'beer',kind:'gable',wall:'#4e3a2c',roof:'#2f2a36',trim:'#2b1d14',win:'#c9a850',deco:'bar',wear:.7},
+shop:{icon:'fish',kind:'gable',wall:'#b4c8cc',roof:'#3a5f78',trim:'#c8d4d8',win:'#8fb4c4',deco:'shop',wear:.6},
 h1:{kind:'gable',wall:'#c4ad78',roof:'#6e4a32',trim:'#d8d0c0',win:'#9ab0c0',chim:.25,wear:.7},
 h2:{kind:'gable',wall:'#7a9478',roof:'#3b4a3b',trim:'#c8d0c0',win:'#9ab0c0',chim:.7,sh:'#3a4a3a',wear:.8},
 h3:{kind:'gable',wall:'#a8806a',roof:'#4a4f54',trim:'#d4c4b4',win:'#9ab0c0',chim:.5,attic:1,wear:.65},
@@ -422,14 +455,14 @@ shack:{kind:'gable',wall:'#7a6048',roof:'#5a5f68',trim:'#4a3a2a',win:'#a9c7da',c
 tent:{kind:'tent'},
 manhole:{kind:'manhole'},
 civilservice:{kind:'flat',wall:'#d8d4cc',roof:'#5b636c',trim:'#3a3d44',win:'#bcd9ea',tex:'brick',cols:'#efe9dc',sign:'CIVIL SERVICE',signc:'#2b2f3a',flag:'#2e5f8f'},
-gunshop:{kind:'gable',wall:'#6b5a48',roof:'#3a3d44',trim:'#2b2f3a',win:'#a9c7da',sign:'GUNS',signc:'#c0392b',awn:'#4a5a3a'},
-citybar:{kind:'gable',wall:'#5a2e2a',roof:'#2f2a36',trim:'#2b1d14',win:'#f2d16b',deco:'bar'},
-supermarket:{kind:'flat',wall:'#e8e2d4',roof:'#9aa0a6',trim:'#2e9d57',win:'#cfe8f0',sign:'MARKET',signc:'#2e9d57',awn:'#2e9d57'},
-tailor:{kind:'gable',wall:'#d8c8e0',roof:'#5a3a6a',trim:'#f2f2f2',win:'#bcd9ea',sign:'TAILOR',signc:'#7d3c98',awn:'#7d3c98'},
-bookshop:{kind:'gable',wall:'#3d5a4a',roof:'#5a3a26',trim:'#e8dcc0',win:'#f2d16b',sign:'BOOKS',signc:'#3d5a4a',awn:'#8a3a2a'},
-casino:{kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',deco:'casino'},
-estate:{kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#2e6f9a',win:'#bcd9ea',sign:'HOMES',signc:'#2e6f9a'},
-fishingshop:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',sign:'TACKLE',signc:'#2e6f9a',awn:'#2e6f9a'},
+gunshop:{icon:'gun',kind:'gable',wall:'#6b5a48',roof:'#3a3d44',trim:'#2b2f3a',win:'#a9c7da',sign:'GUNS',signc:'#c0392b',awn:'#4a5a3a'},
+citybar:{icon:'cocktail',kind:'gable',wall:'#5a2e2a',roof:'#2f2a36',trim:'#2b1d14',win:'#f2d16b',deco:'bar'},
+supermarket:{icon:'cart',kind:'flat',wall:'#e8e2d4',roof:'#9aa0a6',trim:'#2e9d57',win:'#cfe8f0',sign:'MARKET',signc:'#2e9d57',awn:'#2e9d57'},
+tailor:{icon:'scissors',kind:'gable',wall:'#d8c8e0',roof:'#5a3a6a',trim:'#f2f2f2',win:'#bcd9ea',sign:'TAILOR',signc:'#7d3c98',awn:'#7d3c98'},
+bookshop:{icon:'book',kind:'gable',wall:'#3d5a4a',roof:'#5a3a26',trim:'#e8dcc0',win:'#f2d16b',sign:'BOOKS',signc:'#3d5a4a',awn:'#8a3a2a'},
+casino:{icon:'dice',kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',deco:'casino'},
+estate:{icon:'house',kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#2e6f9a',win:'#bcd9ea',sign:'HOMES',signc:'#2e6f9a'},
+fishingshop:{icon:'fishhook',kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',sign:'TACKLE',signc:'#2e6f9a',awn:'#2e6f9a'},
 kgapt:{kind:'tall',wall:'#b8735a',roof:'#5b5b56',trim:'#f2ede0',win:'#bcd9ea',tex:'brick'},
 doctor:{kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#c0392b',win:'#bcd9ea',sign:'DOCTOR',signc:'#c0392b'},
 police:{kind:'flat',wall:'#3a4a6a',roof:'#2b2f3a',trim:'#e8ecef',win:'#bcd9ea',tex:'brick',sign:'POLICE',signc:'#1f3a5f',flag:'#1f3a5f'},
@@ -465,44 +498,62 @@ tramshelter:{kind:'shelter',stop:'TRAM'},
 foodvan:{kind:'van'},
 kcfac:{kind:'flat',wall:'#d8e4dc',roof:'#4a5a50',trim:'#2e9d57',win:'#a9c7da',deco:'plant',ptx:'KELP COLA'},
 kcwhs:{kind:'gable',wall:'#8aa898',roof:'#4a5a50',trim:'#2e5a3a',win:'#a9c7da',deco:'whs',tex:'metal'},
-// Eastbrook is rustic Pacific Northwest: timber siding in forest green, rust and mustard, porches, hand-painted wooden signs, string lights
-eb1:{kind:'gable',wall:'#4f6b4a',roof:'#3a2f28',trim:'#efe2c4',win:'#f2d16b',chim:.25,porch:1,tex:'siding',planter:['#e0a100','#c0392b','#f2f2f2']},
-eb2:{kind:'gable',wall:'#9a4a32',roof:'#3a3530',trim:'#efe2c4',win:'#f2d16b',chim:.75,porch:1,tex:'siding',lights:['#ffd23a','#ff8a3a','#e07a9a','#7fd0a0']},
-community:{kind:'flat',wall:'#8e4632',roof:'#4a3a32',trim:'#efe2c4',win:'#f2d16b',tex:'brick',sign:'COMMUNITY CENTRE',signk:'wood',flag:'#2e86c1',lights:['#ffd23a','#ff8a3a','#e07a9a','#7fd0a0'],planter:['#e0a100','#c0392b','#f2f2f2']},
-coffee:{kind:'gable',wall:'#3d5a4a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#7a2a1e',sign:'COFFEE',signk:'wood',lights:['#ffd23a','#ff8a3a','#e07a9a','#7fd0a0']},
-eblofts:{kind:'tall',wall:'#6b4a32',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',planter:['#e0a100','#c0392b','#f2f2f2'],sign:'TIMBER LOFTS',signk:'wood'},
-tavern:{kind:'gable',wall:'#5a3a26',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,porch:1,lights:['#ffd23a','#ff8a3a','#e07a9a','#7fd0a0'],sign:'TAVERN',signk:'wood'},
-cedargrill:{kind:'gable',wall:'#7a2a1e',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',chim:.2,awn:'#3d5a4a',planter:['#e0a100','#f2f2f2','#c0392b'],sign:'CEDAR GRILL',signk:'wood'},
-tattoo:{kind:'gable',wall:'#2a2a30',roof:'#3a3530',trim:'#c0392b',win:'#f2d16b',tex:'siding',awn:'#7a1e2a',sign:'TATTOO',signk:'wood'},
+// Eastbrook: Portland by way of a lumber town. Timber siding in mustard, slate blue, teal, oxblood and forest green, hand-painted
+// punning signs, string lights, porches, window boxes and a mural on the record shop
+eb1:{kind:'gable',wall:'#c9822a',roof:'#3a2f28',trim:'#efe2c4',win:'#f2d16b',chim:.25,porch:1,tex:'siding',planter:['#e07a9a','#f2f2f2','#c0392b']},
+eb2:{kind:'gable',wall:'#4a6a7a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',chim:.75,porch:1,tex:'siding',lights:['#ffd23a', '#ff8a3a', '#e07a9a', '#7fd0a0']},
+community:{kind:'flat',wall:'#8e4632',roof:'#4a3a32',trim:'#efe2c4',win:'#f2d16b',tex:'brick',sign:'COMMUNITY CENTRE',signk:'wood',flag:'#2e86c1',lights:['#ffd23a', '#ff8a3a', '#e07a9a', '#7fd0a0'],planter:['#e0a100','#c0392b','#f2f2f2']},
+coffee:{icon:'mug',kind:'gable',wall:'#2f5a5a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#c9822a',sign:'SLOW DRIP',signk:'wood',lights:['#ffd23a', '#ff8a3a', '#e07a9a', '#7fd0a0']},
+eblofts:{kind:'tall',wall:'#6b4a32',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'brick',planter:['#e0a100','#c0392b','#f2f2f2'],sign:'TIMBER LOFTS',signk:'wood'},
+tavern:{icon:'beer',kind:'gable',wall:'#5a3a26',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,porch:1,lights:['#ffd23a', '#ff8a3a', '#e07a9a', '#7fd0a0'],sign:'TIMBERLINE TAVERN',signk:'wood'},
+cedargrill:{icon:'grill',kind:'gable',wall:'#3d5a4a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',chim:.2,awn:'#7a2a1e',planter:['#e0a100','#f2f2f2','#c0392b'],sign:'CEDAR GRILL',signk:'wood'},
+tattoo:{icon:'heart',kind:'gable',wall:'#2a2a30',roof:'#3a3530',trim:'#e07a9a',win:'#f2d16b',tex:'siding',awn:'#7a1e2a',sign:'INK AND PINE',signk:'wood'},
+gazette:{kind:'gable',wall:'#4a5f78',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,sign:'EASTBROOK GAZETTE',signk:'wood'},
+records:{icon:'vinyl',kind:'flat',wall:'#6a3a5a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'brick',mural:['#ff8a3a','#e07a9a','#7a4a8a','#2e86c1'],sign:'VINYL RESTING PLACE',signk:'wood'},
+clothes:{icon:'flannel',kind:'gable',wall:'#7a2a3a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#2f4a3c',planter:['#e0a100','#f2f2f2','#e07a9a'],sign:'FLANNEL AND FOLK',signk:'wood'},
+kcmuseum:{icon:'cola',kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',tex:'brick',awn:'#2e9d57',flag:'#2e9d57',sign:'KELP COLA MUSEUM - GIFT SHOP',signk:'brass'},
+ebhotdog:{kind:'cart',col:'#3d5a4a',um:['#e0a100','#efe2c4'],txt:'DOGS'},
+mill:{kind:'gable',wall:'#7a5232',roof:'#5a5f68',trim:'#efe2c4',win:'#f2d16b',tex:'siding',deco:'whs',chim:.85,sign:'EASTBROOK LUMBER CO.',signk:'wood'},
 boatshed:{kind:'gable',wall:'#6b7a8a',roof:'#4a4f58',trim:'#2b2f3a',win:'#a9c7da',deco:'whs',tex:'metal'},
 fishmkt:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',awn:'#2e6f9a',sign:'FISH MARKET',signc:'#2e6f9a'},
-gazette:{kind:'gable',wall:'#4a5f78',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,sign:'GAZETTE',signk:'wood'},
 // Frostholm is the corporate city: glass towers (glass), neon signs (signk:'neon', blade), rooftop billboards (bill) and a cinema marquee
 repub:{kind:'flat',wall:'#e8e4dc',roof:'#5b636c',trim:'#a3123a',win:'#7fb0d0',glass:1,tex:'panel',sign:'REPUBLICAN',signc:'#a3123a',flag:'#a3123a'},
 skyapt:{kind:'tall',wall:'#3a4a5a',roof:'#2b2f3a',trim:'#7d858e',win:'#7fb0d0',glass:1,tex:'panel',sign:'SKYLINE',signk:'neon',signc:'#ff5fa8'},
 petrotower:{kind:'tall',wall:'#5a6470',roof:'#37474f',trim:'#2b2f3a',win:'#6fa8c8',glass:1,tex:'panel',sign:'PETRO',signk:'neon',signc:'#3bd0ff'},
 hotel:{kind:'tall',wall:'#6a3442',roof:'#3a2a30',trim:'#c9a040',win:'#bcd9ea',blade:['HOTEL','#ff5fa8'],sign:'AURORA',signk:'neon',signc:'#ffd23a'},
 nordbank:{kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'NORDBANK',signc:'#2b2f3a',flag:'#2e5f8f'},
-cinema:{kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',sign:'CINEMA',signk:'neon',signc:'#ff3b2f',marquee:'NOW SHOWING'},
-hifi:{kind:'flat',wall:'#3a3d44',roof:'#2b2f3a',trim:'#e0a100',win:'#7fd0e8',awn:'#e0a100',sign:'ELECTRONICS',signk:'neon',signc:'#3bd0ff'},
-arcade:{kind:'flat',wall:'#1a1c2a',roof:'#2b2f3a',trim:'#ff3bd0',win:'#7f5fd0',sign:'ARCADE',signk:'neon',signc:'#ff3bd0'},
-burger:{kind:'flat',wall:'#f4e6c0',roof:'#8a9099',trim:'#c0392b',win:'#f2d16b',awn:'#c0392b',bill:{t:['POLAR BURGER'],bg:'#c0392b',fg:'#ffd23a'}},
-nordmart:{kind:'flat',wall:'#e8e2d4',roof:'#8a9099',trim:'#2e86c1',win:'#cfe8f0',glass:1,awn:'#2e86c1',sign:'NORDMART',signk:'neon',signc:'#3bd0ff'},
+cinema:{icon:'popcorn',kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',sign:'CINEMA',signk:'neon',signc:'#ff3b2f',marquee:'NOW SHOWING'},
+hifi:{icon:'tv',kind:'flat',wall:'#3a3d44',roof:'#2b2f3a',trim:'#e0a100',win:'#7fd0e8',awn:'#e0a100',sign:'ELECTRONICS',signk:'neon',signc:'#3bd0ff'},
+arcade:{icon:'invader',kind:'flat',wall:'#1a1c2a',roof:'#2b2f3a',trim:'#ff3bd0',win:'#7f5fd0',sign:'ARCADE',signk:'neon',signc:'#ff3bd0'},
+burger:{icon:'burger',kind:'flat',wall:'#f4e6c0',roof:'#8a9099',trim:'#c0392b',win:'#f2d16b',awn:'#c0392b',bill:{t:['POLAR BURGER'],bg:'#c0392b',fg:'#ffd23a'}},
+nordmart:{icon:'bag',kind:'flat',wall:'#e8e2d4',roof:'#8a9099',trim:'#2e86c1',win:'#cfe8f0',glass:1,awn:'#2e86c1',sign:'NORDMART',signk:'neon',signc:'#3bd0ff'},
 fueldock:{kind:'flat',wall:'#8a9aa8',roof:'#37474f',trim:'#e0a100',win:'#9fc6e0',tex:'metal',sign:'FUEL',signk:'neon',signc:'#e0a100'},
 portoffice:{kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'PORT OFFICE',signc:'#2b2f3a'},
 customs:{kind:'gable',wall:'#7a5a3a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',sign:'CUSTOMS',signk:'wood',flag:'#2e5f8f'}};
 
 // ---- Small objects standing in the world (drawn by js/art.js): [mapId, x, y, kind]. All are solid except those in PROP_PASS.
-const PROPS=[['monastery',12,12,'woodpile'],['monastery',3,9,'bench'],['monastery',15,1,'barrel'],['monastery',4,14,'bush'],['monastery',12,1,'bush'],
+const PROPS=[
+// Eastbrook: bikes and planters along Upper Street, the food-cart plaza by the hot dog cart, the park with the KEEP EASTBROOK WEIRD
+// board, lamps along Tram Street, and woodpiles and stumps where the forest comes in
+['second',13,9,'mailbox'],['second',8,9,'bike'],['second',9,6,'woodpile'],['second',8,3,'bush'],['second',21,9,'chalk'],['second',24,9,'lamp'],['second',26,9,'lamp'],
+['second',30,9,'mailbox'],['second',34,9,'bench'],['second',40,9,'bike'],['second',42,9,'planter'],['second',33,6,'woodpile'],
+['second',3,17,'cafetable'],['second',10,17,'cafetable'],['second',3,19,'cafetable'],['second',9,19,'cafetable'],['second',9,16,'chalk'],
+['second',14,17,'bike'],['second',15,17,'bike'],['second',16,17,'bike'],['second',19,16,'planter'],['second',22,16,'planter'],['second',23,19,'phone'],
+['second',37,18,'weird'],['second',32,17,'bench'],['second',42,17,'bench'],['second',45,19,'snowman'],['second',29,16,'planter'],
+['second',8,21,'lamp'],['second',17,21,'lamp'],['second',33,21,'lamp'],['second',42,21,'lamp'],['second',20,24,'lamp'],['second',30,24,'lamp'],
+['second',8,24,'bush'],['second',11,24,'stump'],['second',29,26,'woodpile'],['second',37,25,'bush'],['second',44,27,'stump'],
+// Mill Road: the log yard by the mill, and stumps where the trees have been felled
+['millroad',4,2,'logs'],['millroad',4,4,'logs'],['millroad',22,3,'logs'],['millroad',25,4,'logs'],['millroad',7,3,'axe'],['millroad',20,4,'woodpile'],
+['millroad',5,9,'stump'],['millroad',11,9,'stump'],['millroad',19,10,'stump'],['millroad',25,9,'stump'],['millroad',20,6,'lamp'],['monastery',12,12,'woodpile'],['monastery',3,9,'bench'],['monastery',15,1,'barrel'],['monastery',4,14,'bush'],['monastery',12,1,'bush'],
 ['town',27,24,'buffer'],['town',44,9,'bench'],['town',44,5,'lamp'],['town',45,14,'lamp'],
 ['town',3,8,'bench'],['town',5,8,'lamp'],['town',4,12,'bush'],['town',4,22,'bench'],['town',2,18,'lamp'],['town',5,25,'bush'],['town',28,26,'lamp'],['town',43,26,'lamp'],['town',31,26,'bench'],['town',41,26,'bench'],
 ['tramstop',3,5,'lamp'],['tramstop',18,5,'lamp'],['tramstop',6,5,'bench'],['tramstop',16,5,'bench'],['tramstop',15,6,'phone'],['tramstop',2,1,'bush'],['tramstop',19,1,'bush'],['tramstop',3,10,'bush'],['tramstop',18,11,'bush'],['tramstop',12,10,'signpost'],
 ['colafactory',16,5,'crate'],['colafactory',17,6,'crate'],['colafactory',16,6,'crate'],['colafactory',19,6,'pipes'],['colafactory',20,6,'pipes'],['colafactory',23,6,'drum'],['colafactory',24,6,'drum'],['colafactory',24,2,'gen'],['colafactory',24,4,'spool'],
 ['colafactory',12,9,'lamp'],['colafactory',16,9,'lamp'],['colafactory',22,11,'lamp'],['colafactory',3,11,'bench'],['colafactory',6,11,'bench'],['colafactory',8,12,'sign'],['colafactory',2,13,'barrel'],['colafactory',9,13,'bush'],
 ['colafactory',12,14,'warn'],['colafactory',14,14,'warn'],['colafactory',15,17,'lamp'],['colafactory',23,17,'lamp'],['colafactory',1,17,'bush'],['colafactory',24,17,'bush'],
-['second',11,8,'mailbox'],['second',26,8,'mailbox'],['second',15,4,'woodpile'],['second',29,5,'woodpile'],['second',7,1,'bush'],['second',30,1,'bush'],['second',16,11,'lamp'],['second',22,11,'lamp'],['second',14,13,'lamp'],['second',23,13,'lamp'],
-['second',17,10,'bench'],['second',18,10,'snowman'],['second',20,10,'phone'],['second',21,9,'bike'],['second',9,8,'planter'],['second',14,8,'planter'],['second',23,8,'planter'],['second',28,8,'planter'],
-['second',26,18,'chalk'],['second',29,18,'bike'],['second',24,19,'cafetable'],['second',27,19,'cafetable'],['second',20,18,'bike'],['second',10,18,'bike'],['second',32,8,'planter'],['second',35,8,'bike'],['second',31,10,'chalk'],['second',17,9,'chalk'],['second',14,18,'lamp'],['second',23,18,'lamp'],['second',15,22,'lamp'],['second',21,22,'lamp'],['second',7,22,'bush'],['second',30,22,'bush'],
+
+
+
 ['village',12,11,'lamp'],['village',27,11,'lamp'],['village',8,13,'lamp'],['village',24,13,'lamp'],['village',40,13,'lamp'],
 ['village',23,11,'bench'],['village',11,9,'barrel'],['village',11,10,'crate'],['village',12,10,'crate'],['village',2,20,'barrel'],['village',3,20,'barrel'],
 ['village',24,17,'woodpile'],['village',30,17,'woodpile'],['village',22,20,'mailbox'],['village',28,20,'mailbox'],['village',34,20,'mailbox'],['village',40,20,'mailbox'],

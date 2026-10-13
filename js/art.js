@@ -32,7 +32,7 @@ const STONE=['#a39d95','#b1aba2','#978f88','#aaa39a'],PLANK=['#9a7049','#8c6542'
 // brick = Eastbrook's red brick.
 const PATHS={west:'dirt',radio:'dirt',beach:'boards',privbeach:'boards',forest:'dirt',north:'dirt',east:'dirt',south:'dirt',southwest:'dirt',
   volcano:'dirt',mountains:'dirt',farm:'dirt',oilrig:'steel',fishing:'pave',kalanharbour:'pave',village:'worn',harbour:'worn',gated:'flag',privharbour:'flag',
-  second:'brick',savilaharbour:'boards'};
+  second:'brick',savilaharbour:'boards',millroad:'dirt'};
 // Saltwick's snow is trodden grey and brown with slush.
 const SLUSH={village:1,harbour:1};
 function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return hash(X,Y,3)>.988?'#ccd9e5':nz>.64?'#f6f9fc':nz<.36?'#d8e3ec':'#e8eff5'}
@@ -155,6 +155,71 @@ const WATER=Array.from({length:8},(_,f)=>{const c=cnv(64,64),g=c.getContext('2d'
     const col=v>1.93?'#a9d6ef':v>1.72?'#4f8fbf':v<-1.75?'#215480':tone>.4?'#27618f':'#2a6896';img.data.set([...rgb(col),255],(y*64+x)*4)}
   g.putImageData(img,0,0);return c});
 
+// ---- Shop signs: a picture of what each shop sells, cut out of painted wood or tin, hanging from a wrought-iron bracket at
+// one corner of the shop front (BLD icon). Each is drawn in an 18 x 18 box and outlined.
+const heartAt=(x,y)=>{const X=(x-8.5)/7.4,Y=(8.5-y)/7.1;return Math.pow(X*X+Y*Y-1,3)-X*X*Y*Y*Y<=0};
+const ICON_ART={
+  // a coffee mug with a smiling face, steam curling off the top
+  mug:r=>{for(const[x,y]of[[5,3],[6,2],[5,1],[6,0],[10,3],[9,2],[10,1],[9,0]])r('rgba(255,255,255,.6)',x,y,1,1);r('#f4efe4',2,5,12,13);r('#d8d0c0',12,5,2,13);r('#5a3a26',3,5,10,2);r('#7a5232',3,5,10,1);
+    for(let y=8;y<15;y++){r('#f4efe4',14,y,1,1);r('#f4efe4',17,y,1,1)}r('#f4efe4',14,8,4,1);r('#f4efe4',14,14,4,1);r('#e0a100',2,15,12,2);
+    r(OUT,5,9,2,2);r(OUT,9,9,2,2);r('#ffffff',5,9,1,1);r('#ffffff',9,9,1,1);r('#f2a0b0',3,11,2,1);r('#f2a0b0',11,11,2,1);r(OUT,5,12,1,1);r(OUT,6,13,4,1);r(OUT,10,12,1,1)},
+  // a vinyl record with an orange label
+  vinyl:r=>{for(let y=0;y<18;y++)for(let x=0;x<18;x++){const d=Math.hypot(x-8.5,y-8.5);if(d<=8.6)r(d<1?'#f4efe4':d<3.4?'#ff8a3a':d>7.6?'#1a1a1e':(d|0)%2?'#26262c':'#1a1a1e',x,y)}
+    r('#7a7a86',4,3,3,1);r('#7a7a86',3,4,1,2);r('#ffd23a',8,6,2,1)},
+  // a tattoo-flash heart with a scroll across it
+  heart:r=>{for(let y=0;y<17;y++)for(let x=0;x<18;x++)if(heartAt(x,y))r(y<4&&x<8?'#e85a5a':'#c0392b',x,y);r('#efe2c4',0,7,18,4);r('#d8c8a0',0,10,18,1);r('#c9a87a',0,7,2,4);r('#c9a87a',16,7,2,4);
+    for(let x=3;x<15;x+=2)r('#2a2a30',x,8,1,2)},
+  // a red and black check flannel shirt
+  flannel:r=>{const sh=(x,y)=>((x>>2)+(y>>2))&1?'#b33333':'#8e2626';for(let y=4;y<18;y++)for(let x=3;x<15;x++)r((x&3)==0||(y&3)==0?'#2a1a1a':sh(x,y),x,y);
+    for(let y=4;y<11;y++){r((y&3)==0?'#2a1a1a':'#b33333',0,y,3,1);r((y&3)==0?'#2a1a1a':'#b33333',15,y,3,1)}r('#f4efe4',6,3,6,2);r('#2a1a1a',8,5,2,3);for(let y=8;y<17;y+=3)r('#efe2c4',8,y,2,1)},
+  // flames leaping over a grill
+  grill:r=>{for(const[x,h]of[[3,9],[8,12],[13,8]])for(let k=0;k<h;k++){const hw=Math.max(0,Math.round(Math.sin(Math.PI*k/h)*2.6));r(k<h*.35?'#ffd23a':k<h*.7?'#ff8a3a':'#e8321e',x-hw,12-h+k,hw*2+2,1)}
+    r('#3a3d44',0,12,18,3);for(let x=1;x<18;x+=3)r('#6b737c',x,12,1,3);r('#2b2f3a',3,15,2,3);r('#2b2f3a',13,15,2,3)},
+  // a foaming mug of beer
+  beer:r=>{r('#e0a100',3,6,10,12);r('#ffd23a',4,7,2,10);r('#c98a00',11,6,2,12);for(let y=9;y<16;y++){r('#d8e4ee',13,y,1,1);r('#d8e4ee',16,y,1,1)}r('#d8e4ee',13,9,4,1);r('#d8e4ee',13,15,4,1);
+    for(const[x,y]of[[3,3],[6,2],[9,2],[12,3],[2,5],[13,5],[5,4],[10,4]])r('#ffffff',x,y,3,3);r('#ffffff',3,5,10,2);r('#e8eef2',4,6,8,1);r('#ffffff',13,6,2,3)},
+  // a Kelp Cola bottle
+  cola:r=>{r('#c0392b',7,0,4,2);r('#2e9d57',7,2,4,4);r('#2e9d57',6,6,6,1);r('#2e9d57',5,7,8,1);r('#2e9d57',4,8,10,10);r('#5fc48a',5,8,2,10);r('#1f7a42',12,8,2,10);
+    r('#f4efe4',4,11,10,4);r('#c0392b',4,12,10,1);r('#2e9d57',6,13,6,1)},
+  // a revolver
+  gun:r=>{r('#7d858e',0,5,10,3);r('#a9b0b8',0,5,10,1);r('#2b2f3a',0,7,10,1);r('#5a5f68',9,3,5,7);r('#7d858e',10,4,3,5);r('#3a3d44',13,4,3,3);r('#2b2f3a',14,2,2,2);
+    r('#6b4a2e',12,9,4,3);r('#6b4a2e',13,12,4,3);r('#6b4a2e',14,15,4,3);r('#8a6a45',13,9,1,8);r('#5a5f68',9,10,1,4);r('#5a5f68',9,13,4,1);r('#3a3d44',10,10,1,2)},
+  // a shopping cart
+  cart:r=>{r('#5a5f68',0,1,4,2);r('#5a5f68',3,2,2,10);for(let y=3;y<11;y+=2)r('#9aa3ad',4,y,13-((y-3)>>1),1);for(let x=5;x<17;x+=3)r('#9aa3ad',x,3,1,8-(x>13?2:0));
+    r('#c0392b',4,3,13,1);r('#5a5f68',4,12,12,1);r('#2b2f3a',4,14,4,4);r('#2b2f3a',12,14,4,4);r('#9aa3ad',5,15,2,2);r('#9aa3ad',13,15,2,2)},
+  // tailor's scissors
+  scissors:r=>{const bl=(x0,y0,x1,y1)=>{for(let t=0;t<=1;t+=.04){const x=Math.round(x0+(x1-x0)*t),y=Math.round(y0+(y1-y0)*t);r('#c3cad1',x,y,2,1)}};bl(4,0,12,10);bl(13,0,5,10);r('#7d858e',8,7,2,2);
+    for(const cx of[4,13])for(let y=-3;y<=3;y++)for(let x=-3;x<=3;x++){const d=Math.hypot(x,y);if(d>1.6&&d<=3.4)r('#c0392b',cx+x,14+y,1,1)}},
+  // an open book
+  book:r=>{r('#7a2a1e',0,5,18,11);for(let y=4;y<15;y++){const c=Math.round(Math.abs(y-9)*.15);r('#f4efe4',1,y-c+(y<6?1:0),7,1);r('#f4efe4',10,y-c+(y<6?1:0),7,1)}r('#c9b8a8',8,4,2,12);
+    for(let y=6;y<13;y+=2){r('#9a8a7a',2,y,5,1);r('#9a8a7a',11,y,5,1)}r('#c0392b',13,2,2,5)},
+  // a pair of dice
+  dice:r=>{r('#f4f4f0',0,2,10,10);r('#d8dfe6',0,10,10,2);for(const[x,y]of[[2,4],[6,4],[4,6],[2,8],[6,8]])r(OUT,x,y,2,2);
+    r('#c0392b',8,8,10,10);r('#8e2626',8,16,10,2);for(const[x,y]of[[10,10],[14,14],[12,12]])r('#ffffff',x,y,2,2)},
+  // a little house (with a SOLD flag)
+  house:r=>{for(let y=0;y<8;y++)r('#c0392b',8-y-1,y+1,y*2+2,1);r('#f4efe4',3,9,12,9);r('#5a3a26',8,12,3,6);r('#7fb0d0',4,11,3,3);r('#7fb0d0',12,11,2,3);r('#7a4234',12,1,2,5);r('#ffd23a',8,3,2,2)},
+  // a fish on a hook
+  fishhook:r=>{r('#5a5f68',10,0,1,4);r('#9aa3ad',9,4,1,1);r('#9aa3ad',8,5,1,2);r('#9aa3ad',9,7,2,1);
+    for(let y=0;y<7;y++){const hw=Math.round(Math.sin(Math.PI*(y+.5)/7)*7);r(y<3?'#7fb0d0':'#5b8fb9',9-hw,8+y,hw*2,1)}for(let k=0;k<4;k++)r('#5b8fb9',15+k,8+(k>>1),1,7-k);r(OUT,5,10,1,1);r('#e8eef2',4,13,8,1)},
+  // a fish
+  fish:r=>{for(let y=0;y<9;y++){const hw=Math.round(Math.sin(Math.PI*(y+.5)/9)*7);r(y<4?'#9fc3d6':'#5b8fb9',8-hw,5+y,hw*2,1)}for(let k=0;k<4;k++)r('#5b8fb9',14+k,5+k,1,9-k*2);r(OUT,4,8,1,1);r('#e8eef2',3,11,9,1);r('#c0392b',2,9,1,1)},
+  // a television set with rabbit-ear aerials
+  tv:r=>{r('#5a5f68',5,0,1,4);r('#5a5f68',12,0,1,4);r('#5a5f68',6,3,6,1);r('#7a5232',0,4,18,13);r('#946640',0,4,18,1);r('#2b2f3a',2,6,11,9);r('#5b8fb9',3,7,9,7);r('#9fd6f0',4,8,3,2);
+    r('#e8c33a',14,7,2,2);r('#c3cad1',14,11,2,2);r('#3a2a20',2,17,2,1);r('#3a2a20',14,17,2,1)},
+  // a space invader
+  invader:r=>{const P=['..X...X..','...X.X...','..XXXXX..','.XX.X.XX.','XXXXXXXXX','X.XXXXX.X','X.X...X.X','...X.X...'];P.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='X')r('#7fd0a0',x*2,y*2+1,2,2)}));r(OUT,4,7,2,2);r(OUT,12,7,2,2)},
+  // a burger with a face
+  burger:r=>{for(let y=0;y<6;y++){const hw=Math.round(Math.sqrt(1-Math.pow((5.5-y)/6,2))*8.5);r('#d9a050',9-hw,1+y,hw*2,1)}r('#f4efe4',5,2,1,1);r('#f4efe4',11,3,1,1);r('#f4efe4',8,2,1,1);
+    for(let x=0;x<18;x+=2)r('#5fc48a',x,7+((x>>1)&1),2,2);r('#ffd23a',1,9,16,1);r('#5a2a14',0,10,18,3);r('#7a3a1e',0,10,18,1);r('#d9a050',1,13,16,3);r('#c98a3a',1,15,16,1);
+    r(OUT,6,4,1,2);r(OUT,11,4,1,2);r(OUT,8,6,2,1)},
+  // a shopping bag
+  bag:r=>{for(const x of[5,10])for(let y=0;y<5;y++){r('#8a6a45',x+(y<2?0:0),y,1,1)}r('#8a6a45',5,0,6,1);r('#c9a36a',2,5,14,13);r('#a8834a',13,5,3,13);r('#2e86c1',2,9,14,4);r('#ffffff',5,10,8,2)},
+  // a striped box of popcorn
+  popcorn:r=>{for(const[x,y]of[[2,3],[5,1],[8,0],[11,1],[14,3],[4,5],[9,3],[12,5],[7,5],[1,6],[15,6]])r(x%3?'#fff6d0':'#ffffff',x,y,3,3);
+    for(let y=8;y<18;y++){const in_=Math.round((y-8)*.2);for(let x=2+in_;x<16-in_;x++)r(((x-in_)>>1)&1?'#c0392b':'#f4efe4',x,y,1,1)}},
+  // a cocktail glass with an olive
+  cocktail:r=>{for(let y=0;y<8;y++)r(y<2?'#e8eef2':'#9fd6f0',1+y,2+y,16-y*2,1);r('#5fc48a',10,3,3,3);r('#8a6a45',7,0,1,7);r('#c3cad1',8,10,2,6);r('#c3cad1',4,16,10,2)}};
+const ICONS={},iconArt=k=>ICONS[k]??=mk(18,18,ICON_ART[k]);
 // ---- Buildings. s is a BLD entry; dx is the door's column (or -1). Returns the picture and any animated bits.
 // dx: the main door's column (or -1); more: the columns of any other doors (side or service entrances)
 function bld2(w,h,s,dx,more=[]){
@@ -197,8 +262,17 @@ function bld2(w,h,s,dx,more=[]){
   if(s.deco=='garage'){const bw=Math.min(W-16,44),bx=(W-bw)>>1,bh=wh-6;for(let i=0;i<w;i++)if(i*16+15>=bx&&i*16<=bx+bw)skip.add(i);
     r('#2b2f3a',bx-2,H-bh-5,bw+4,bh+2);for(let y=H-bh-3;y<H-3;y++)r((y&1)?'#76828f':'#8d99a6',bx,y,bw,1)}
   if(s.deco=='hut')skip.add(1);
+  // mural: the front wall painted with a sunset over a snowy peak and pines, with a bird on top (in place of the windows)
+  if(s.mural){const m=s.mural,top=ry+(aw?10:4),bot=H-5,mh=bot-top;for(let i=0;i<w;i++)if(!skip.has(i)){const x0=i*16+1,x1=i*16+15;
+      for(let y=top;y<bot;y++){const f=(y-top)/mh;r(f<.3?m[0]:f<.55?m[1]:m[2],x0,y,x1-x0,1)}
+      for(let x=x0;x<x1;x++){const pk=top+Math.round(mh*.25+Math.abs(((x+i*7)%28)-14)*mh*.04);r('#5a6a8a',x,pk,1,bot-pk);if(pk<top+mh*.4)r('#f2f2f2',x,pk,1,2)}
+      for(let x=x0+2;x<x1-1;x+=5){const th=Math.round(mh*.35)+(hash(x,1,sd)*4|0);for(let k=0;k<th;k++){const hw=Math.max(0,Math.round(k/3));r('#1d4038',x-hw,bot-th+k,hw*2+1,1)}}
+      for(let x=x0;x<x1;x+=2)r('#c9a040',x,top-1,1,1)}
+    const bx=(W>>1)-3,by=top+3;r(OUT,bx,by,7,4);r(m[3]||'#2e86c1',bx+1,by+1,5,2);r(m[3]||'#2e86c1',bx+5,by,2,1);r('#ffd23a',bx+6,by+1,1,1);r('#ffd23a',bx+2,by+3,1,2);r('#ffd23a',bx+4,by+3,1,2)}
   // windows. On a worn building some are boarded up and some cracked; planter: a window box of flowers under each one.
-  const win=(x,y,ww,hh,lit)=>{const wr=s.wear?hash(x,y,sd+W+31)/s.wear:9;if(wr<.75)lit=false;const gl=lit?'#ffd98a':s.win;
+  // the hanging picture sign (icon) goes at the left of the front, or the right if a door is in the way; no window behind it
+  const iL=![dx,...more].some(d=>d>=0&&d<=1),iX=iL?1:W-21,IR=s.icon?[iX-3,ry,iX+23,ry+24]:null;
+  const win=(x,y,ww,hh,lit)=>{if(IR&&x-2<IR[2]&&x+ww+2>IR[0]&&y-2<IR[3]&&y+hh+2>IR[1])return;const wr=s.wear?hash(x,y,sd+W+31)/s.wear:9;if(wr<.75)lit=false;const gl=lit?'#ffd98a':s.win;
     if(s.sh){r(s.sh,x-4,y-1,2,hh+2);r(s.sh,x+ww+2,y-1,2,hh+2)}
     r(shade(s.trim,-.35),x-2,y-2,ww+4,hh+4);r(s.trim,x-1,y-1,ww+2,hh+2);r(gl,x,y,ww,hh);r(shade(gl,-.22),x,y,ww,2);
     if(lit)r('#fff1c8',x+1,y+2,ww-2,1);else{r('rgba(255,255,255,.55)',x+ww-3,y+2,1,1);r('rgba(255,255,255,.55)',x+ww-4,y+3,1,1);r('rgba(255,255,255,.55)',x+ww-5,y+4,1,1)}
@@ -214,7 +288,7 @@ function bld2(w,h,s,dx,more=[]){
         r(lit?(yy<2?'#ffe9b0':'#ffd98a'):d<3?shade(s.win,.45):yy<3?shade(s.win,.15):s.win,x+xx,y+yy)}r(SNOW,x-1,y+10,14,1)}}}
   else if(tall){for(let y=16;y<H-T-8;y+=22)for(let x=8;x<W-12;x+=18){win(x,y,12,13,hash(x,y,5)>.62);
       r(shade(s.trim,-.3),x-3,y+15,18,1);for(let k=x-3;k<x+15;k+=3)r(shade(s.trim,-.3),k,y+12,1,3);r(SNOW,x-3,y+14,18,1)}}
-  else for(let y=ry+(aw?12:8);y+9<H-6;y+=20)for(let i=0;i<w;i++)if(!skip.has(i))win(i*16+3,y,10,9,hash(i,y,w*h)>.6);
+  else if(!s.mural)for(let y=ry+(aw?12:8);y+9<H-6;y+=20)for(let i=0;i<w;i++)if(!skip.has(i))win(i*16+3,y,10,9,hash(i,y,w*h)>.6);
   // foundation and snow banked against it
   r('#6d727a',0,H-3,W,3);r('#8a9099',0,H-3,W,1);
   for(let x=0;x<W;x++){const d=vnoise(x/5,0,w*7+h);if(d>.55){const t=d>.75?3:2;r(SNOW,x,H-t,1,t);r(SNOWD,x,H-1,1,1)}}
@@ -304,6 +378,8 @@ function bld2(w,h,s,dx,more=[]){
   if(s.deco=='hut'){const X=18;r(OUT,X-1,H-18,14,15);r('#7d858e',X,H-17,12,14);r('#9aa3ad',X,H-17,2,14);for(let y=H-14;y<H-4;y+=3)r('#6b737c',X+3,y,6,1);r('#e8c33a',X+9,H-10,2,1);
     const tx=3*16+3;r(OUT,tx-1,ry+5,12,11);r('#e0a100',tx,ry+6,10,9);r('#2b2f3a',tx+4,ry+8,2,4);r('#2b2f3a',tx+4,ry+13,2,1);
     r('#5a5f68',W-14,0,1,ry-6);r('#5a5f68',W-17,3,7,1);r('#5a5f68',W-16,6,5,1);r(OUT,10,4,10,7);r('#e8ecef',11,5,8,5);r('#b9c0c7',15,5,4,5);an.push({t:'blink',x:W-14,y:-1})}
+  if(s.icon){const ax=iL?0:W-24;r(OUT,ax,ry-1,24,3);r('#2b2f3a',ax,ry,24,1);r('#2b2f3a',iL?ax:ax+22,ry-3,2,7);r('#2b2f3a',iL?ax+21:ax+1,ry-2,2,1);
+    for(const cx of[iX+4,iX+15])r('#3a3a44',cx,ry+1,1,2);g.drawImage(iconArt(s.icon),iX,ry+2)}
   r(OUT,0,0,W,1);r(OUT,0,0,1,H);r(OUT,W-1,0,1,H);
   return{c,an}}
 
@@ -439,12 +515,13 @@ function kioskArt(w,h){const W=w*16,H=h*16+14;return mk(W,H,r=>{
   r('#3a2a20',4,16,W-8,9);r('#ffd98a',5,17,W-10,2);r('#a8794c',2,25,W-4,2);r('#c49565',2,25,W-4,1);
   for(let x=5;x<W-6;x+=5){r('#f4f4f0',x,22,4,3);r('#9aa3ad',x+1,23,2,1)}
   for(let x=4;x<W-4;x+=4)for(const y of[29,35]){r(['#c0392b','#2e86c1','#e0a100','#2e9d57','#7d3c98'][(x+y)%5],x,y,3,4);r('#f4f4f0',x,y+1,3,1)}})}
-// A hot dog cart: a red steel cart on two wheels under a striped umbrella. Drawn 14 pixels taller than its tiles.
-function cartArt(w,h){const W=w*16,H=h*16+14;return mk(W,H,r=>{
+// A hot dog cart: a steel cart on two wheels under a striped umbrella. Drawn 14 pixels taller than its tiles.
+// s (its BLD entry) can give the cart's colour (col), the umbrella's two stripes (um) and the word painted on its side (txt).
+function cartArt(w,h,s={}){const W=w*16,H=h*16+14,cc=s.col||'#c0392b',um=s.um||['#e0a100','#c0392b'],txt=s.txt||'HOT';return mk(W,H,r=>{
   const cx=W>>1;r('#9aa3ad',cx-1,8,2,H-26);
-  for(let y=0;y<9;y++){const hw=Math.round(3+y*(W/2-4)/8);for(let x=cx-hw;x<cx+hw;x++)r(y<1?SNOW:((x-cx+40)>>2)&1?'#e0a100':'#c0392b',x,y+1)}
-  r('#c9ced4',3,H-22,W-6,3);r('#e8ecef',3,H-22,W-6,1);r('#c0392b',3,H-19,W-6,11);r('#e04a3a',3,H-19,W-6,1);r('#8e2620',3,H-9,W-6,1);
-  ptext(r,'HOT',cx-5,H-17,'#ffd23a');r('#e0a100',5,H-12,W-10,2);r('#5a5f68',W-3,H-17,3,1);
+  for(let y=0;y<9;y++){const hw=Math.round(3+y*(W/2-4)/8);for(let x=cx-hw;x<cx+hw;x++)r(y<1?SNOW:((x-cx+40)>>2)&1?um[0]:um[1],x,y+1)}
+  r('#c9ced4',3,H-22,W-6,3);r('#e8ecef',3,H-22,W-6,1);r(cc,3,H-19,W-6,11);r(shade(cc,.15),3,H-19,W-6,1);r(shade(cc,-.3),3,H-9,W-6,1);
+  ptext(r,txt,cx-((txt.length*4-1)>>1),H-17,'#ffd23a');r('#e0a100',5,H-12,W-10,2);r('#5a5f68',W-3,H-17,3,1);
   for(const x of[6,W-14]){r('#1a1a1e',x,H-8,8,7);r('#9aa3ad',x+3,H-5,2,2)}})}
 // The circus big top: a cone of red and cream stripes over a scalloped yellow valance and striped walls, with the entrance at
 // door column dx and a flagpole on top. Drawn 20 pixels taller than its tiles.
@@ -554,6 +631,12 @@ chalk:[16,r=>{r('#7a5232',2,1,12,13);r('#946640',2,1,12,1);r('#2f3a32',3,2,10,10
   r('#7a5232',2,14,2,2);r('#7a5232',12,14,2,2);r(SNOW,2,0,12,1)}],
 planter:[16,r=>{r('#7a5232',1,10,14,6);r('#946640',1,10,14,1);r('#5a3a22',1,13,14,1);r('#5a3a22',5,10,1,6);r('#5a3a22',10,10,1,6);
   for(const[y,hw]of[[1,1],[2,2],[3,2],[4,3],[5,4],[6,3],[7,5],[8,6],[9,6]])r(y%3==1?'#3e7a62':'#2b5c4b',8-hw,y,hw*2,1);r(SNOW,6,2,4,1);r(SNOW,4,5,4,1);r(SNOW,3,8,4,1)}],
+weird:[30,r=>{for(const x of[6,56]){r('#5a3d2a',x,14,3,16);r('#7a5232',x,14,1,16)}r('#7a5232',0,0,64,15);r('#946640',0,0,64,1);for(let y=4;y<15;y+=4)r('#6b4a2e',0,y,64,1);
+  r(SNOW,0,0,64,1);ptext(r,'KEEP EASTBROOK',(64-55)>>1,2,'#f2e6c8');ptext(r,'WEIRD',(64-19)>>1,8,'#ffd23a');r('#e07a9a',4,9,3,3);r('#7fd0a0',57,9,3,3)},64],
+logs:[16,r=>{for(const[x,y]of[[1,9],[11,9],[21,9],[6,4],[16,4],[11,0]]){r('#5a3d2a',x,y,10,7);r('#7a5232',x,y,10,1);r('#c9a36a',x+7,y+1,3,5);r('#e0c08a',x+8,y+2,1,3)}
+  r(SNOW,6,4,20,1);r(SNOW,11,0,10,1)},32],
+stump:[10,r=>{r('#5a3d2a',3,4,10,6);r('#6b4a2e',3,9,10,1);r('#c9a36a',3,2,10,3);r('#e0c08a',5,3,6,1);r('#a8834a',7,3,2,1);r('#4a3222',2,9,2,1);r('#4a3222',12,9,2,1);r(SNOW,4,2,4,1)}],
+axe:[14,r=>{r('#5a3d2a',3,6,10,8);r('#c9a36a',3,4,10,3);r('#e0c08a',5,5,6,1);r('#8a6a45',8,0,1,7);r('#9aa3ad',6,0,3,3);r('#c9ced4',6,0,1,3)}],
 cafetable:[12,r=>{r('#3a3d44',7,5,2,7);r('#2b2f3a',5,11,6,1);r('#5a3d2a',3,3,10,2);r('#7a5436',3,3,10,1);r('#f2f2f2',6,1,2,2);r('#8a5a36',9,2,2,1);
   for(const x of[0,13]){r('#3a3d44',x,4,3,1);r('#3a3d44',x,7,3,1);r('#3a3d44',x+(x?2:0),4,1,8)}}]});
 // ---- People: 16x20, outlined, 4 directions, 2 walking frames. hat gives a beanie; stripe is a scarf.
@@ -615,6 +698,10 @@ mart:{fl:'tile',f:['#e8eef2','#dfe6ea'],wall:'#f2f2f2',wall2:'#cfe0f0',pap:'tile
 cinemain:{fl:'carpet',f:['#5a1a2a','#3a1520'],wall:'#2a1a3a',wall2:'#c9a040',pap:'panel',base:'#c9a040',deco:[[2,'poster'],[8,'neon','NOW SHOWING','#ffd23a'],[15,'poster']]},
 cafe:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',deco:[[2,'win'],[6,'pic'],[10,'win']]},
 tavern:{fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#3d5a4a',wall2:'#34503f',pap:'stripe',curtain:'#7a2a1e',deco:[[1,'win'],[8,'pic'],[12,'dart'],[16,'win']]},
+kcmuseum_in:{fl:'check',f:['#e8f2ea','#2e9d57'],wall:'#e8f2ea',wall2:'#9fd6c0',pap:'stripe',base:'#2e5a3a',rug:'#c0392b',deco:[[2,'poster'],[6,'neon','KELP COLA','#2e9d57'],[12,'pic'],[15,'poster'],[19,'win']]},
+clothes_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#3d5a4a',wall2:'#2f4a3c',pap:'stripe',base:'#2f2a26',rug:'#c0392b',curtain:'#e0a100',deco:[[1,'win'],[4,'pic'],[9,'poster'],[12,'win']]},
+records_in:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#2f2a26',rug:'#7a1e2a',deco:[[1,'poster'],[4,'poster'],[7,'neon','VINYL','#ff8a3a'],[11,'poster']]},
+mill_in:{grime:1,fl:'wood',f:['#7a5232','#6b4a2e','#8a5a36'],wall:'#8a6a45',wall2:'#6b4a2e',pap:'panel',base:'#3a2a20',deco:[[2,'win'],[6,'safety'],[11,'clock'],[16,'win'],[21,'win']]},
 cedargrill:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',rug:'#3d5a4a',curtain:'#3d5a4a',deco:[[12,'pic'],[16,'win']]},
 tattoo:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#2a2a30',wall2:'#3a3a44',pap:'stripe',base:'#7a1e2a',quilt:'#1a1a22',deco:[[1,'pic'],[3,'poster'],[5,'pic'],[7,'poster'],[10,'win']]},
 skyapts:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
@@ -901,6 +988,10 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     for(let x=0;x<W;x+=16)for(let y=0;y<H;y+=16){const Y=y+oy;r('#a8794c',x+1,Y,14,14);r('#8a6038',x+1,Y+6,14,1);r('#6e4a2a',x+14,Y,1,14);
       if(l.includes('ice'))for(let k=0;k<5;k++)r(k%2?'#e8f6fc':'#c8e6f4',x+2+k*2,Y-3+(k%2),3,4);
       else{const sm=l.includes('smoked');for(let k=0;k<3;k++){const fx=x+2+k*4,fy=Y-3+(k%2)*2;r(sm?'#b0763a':'#9fb3c4',fx,fy,5,2);r(sm?'#d8a058':'#d8e4ee',fx,fy+1,5,1);r(sm?'#8a5a2a':'#7d93a6',fx+5,fy,1,2)}}}})}}
+  if(ch=='g'&&l.includes('saw')){const oy=10,TT=H+oy,bw=W;return{oy,an:{t:'belt',x:0,y:oy+4,w:bw,h:H-8,log:1},c:mk(W,TT,r=>{r('#5a5f68',2,TT-4,2,4);r('#5a5f68',bw-4,TT-4,2,4);
+    r('#8a6a45',0,oy,bw,4);r('#a8834a',0,oy,bw,1);r('#2b2f3a',0,oy+4,bw,H-8);r('#8a6a45',0,oy+H-6,bw,3);
+    const cx=W>>1,cy=oy+4;for(let y=-9;y<=0;y++)for(let x=-9;x<=9;x++){const d=Math.hypot(x,y);if(d<=9.4)r(d>8?((x+y)&1?'#f4f4f4':'#9aa3ad'):d<2.5?'#3a3d44':(x*y>0?'#c3cad1':'#aab2ba'),cx+x,cy+y)}
+    r('#c0392b',cx-11,cy-12,22,3);r('#e04a3a',cx-11,cy-12,22,1);r('#8e2620',cx-11,cy-10,2,6);r('#8e2620',cx+9,cy-10,2,6);r('#e0a100',cx-14,TT-8,28,2)})}}
   if(ch=='g'){const oy=4,TT=H+oy,bw=W-30;return{oy,an:{t:'belt',x:0,y:oy+4,w:bw,h:H-8,bot:l.includes('bottl')},c:mk(W,TT,r=>{r('#5a5f68',2,TT-4,2,4);r('#5a5f68',bw-4,TT-4,2,4);r('#9aa3ad',0,oy,bw,4);r('#c3cad1',0,oy,bw,1);
     r('#2b2f3a',0,oy+4,bw,H-8);r('#9aa3ad',0,oy+H-6,bw,3);r('#5b8fb9',bw,0,30,TT);r('#7fb0d0',bw,0,30,2);r('#3d6b8f',W-4,0,4,TT);r('#2b2f3a',bw+6,6,14,8);r('#7fd0a0',bw+8,8,3,2);r('#e8321e',bw+13,8,3,2);r('#e0a100',bw+2,TT-8,26,2)})}}
   if(ch=='i'){const oy=18,bw=W>16?W-8:12,bx=(W-bw)>>1;return{oy,an:{t:'stove',x:bx+2,y:oy+4,w:bw-4},c:mk(W,H+oy,r=>{r('#3a3d44',bx+(bw>>1)-2,0,4,oy+2);r('#555a62',bx+(bw>>1)-2,0,1,oy+2);
@@ -934,7 +1025,7 @@ function scene(m){if(SC[m])return SC[m];
     if(st&&BLD[st]&&BLD[st].kind=='derrick'){put(y+h-1,x*16,y*16-DER_UP,derrickArt(w,h));an.push({t:'blink',x:x*16+w*8-1,y:y*16-DER_UP+2});return}
     // the van and shelters stand taller than their tiles, so they are sorted with people (who can pass behind them) rather than painted on the ground
     if(st&&BLD[st]&&BLD[st].kind=='van'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+6,(y+h)*16-2,w*16-8,3);put(y+h-1,x*16-1,y*16-11,vanArt(w,h));an.push({t:'smoke',x:(x+w)*16-14,y:y*16-8});return}
-    if(st&&BLD[st]&&(BLD[st].kind=='kiosk'||BLD[st].kind=='cart')){const cart=BLD[st].kind=='cart',a=cart?cartArt(w,h):kioskArt(w,h);
+    if(st&&BLD[st]&&(BLD[st].kind=='kiosk'||BLD[st].kind=='cart')){const cart=BLD[st].kind=='cart',a=cart?cartArt(w,h,BLD[st]):kioskArt(w,h);
       g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+4,(y+h)*16-2,w*16-6,3);put(y+h-1,x*16-1,y*16-15,a);if(cart)an.push({t:'smoke',x:x*16+w*8-6,y:(y+h)*16-24});return}
     if(st&&BLD[st]&&BLD[st].kind=='bigtop'){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
       g.fillStyle='rgba(30,50,80,.22)';g.fillRect(x*16+2,(y+h)*16-2,w*16-2,3);put(y+h-1,x*16-1,y*16-21,bigtopArt(w,h,dx));an.push({t:'flag',x:x*16+w*8+1,y:y*16-20,col:'#e0a100'});return}
@@ -1070,7 +1161,7 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='fire'){px('rgba(255,160,60,.16)',X-9,Y-10,18,14);for(let k=0;k<5;k++){const hh=2+(hash(k,t/90|0,3)*5|0);px(['#e8321e','#ff8a3a','#ffd23a','#ff8a3a','#e8321e'][k],X-5+k*2,Y-hh,2,hh)}}
     if(a.t=='stove')for(let k=0;k<a.w;k++){const hh=2+(hash(k,t/110|0,5)*4|0);px('#e8321e',X+k,Y+6-hh,1,hh);if(hh>3)px('#ffb01c',X+k,Y+7-hh,1,hh-3)}
     if(a.t=='belt'){const off=(t/45|0)%6;for(let x=off;x<a.w;x+=6)px('#3d4250',X+x,Y,1,a.h);
-      for(let i=0;i<a.w/24;i++){const fx=X+((t/35+i*24)%(a.w-4)),fy=Y+3+(i%2)*4;if(a.bot){px('#5a2a14',fx,fy-2,2,4);px('#f2f2f2',fx,fy-1,2,1)}else{px('#9fb3c4',fx,fy,5,2);px('#d8e4ee',fx,fy+1,5,1)}}}});
+      for(let i=0;i<a.w/24;i++){const fx=X+((t/35+i*24)%(a.w-4)),fy=Y+3+(i%2)*4;if(a.log){px('#7a5232',fx,fy-1,9,3);px('#c9a36a',fx+8,fy-1,2,3)}else if(a.bot){px('#5a2a14',fx,fy-2,2,4);px('#f2f2f2',fx,fy-1,2,1)}else{px('#9fb3c4',fx,fy,5,2);px('#d8e4ee',fx,fy+1,5,1)}}}});
   if(!S.inside){
     // seagulls circling over the harbours and beaches
     const gl=GULLS[m];if(gl)for(let i=0;i<2;i++){const an=t/2600+i*Math.PI,X=gl[0]*16-cx+Math.cos(an)*70,Y=gl[1]*16-cy+Math.sin(an)*30-26,up=(t/170+i*3|0)%2;

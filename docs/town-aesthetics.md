@@ -6,22 +6,29 @@ It is still the early 1980s everywhere, and still snowy. There are no roads on t
 
 | Town | Places | In one line |
 |---|---|---|
-| Eastbrook | `second`, `savilaharbour`, its interiors | Hipster town: rustic Pacific Northwest, like Seattle or Portland |
+| Eastbrook | `second`, `savilaharbour`, `millroad`, its interiors | Hipster town: Portland by way of a lumber town |
 | Frostholm | `fishing`, `kalanharbour`, its interiors | Corporate and urban: advertising and neon everywhere |
 | Saltwick | `village`, `harbour`, its interiors | Run down and weathered |
 | Hope Springs | `gated`, `privbeach`, `privharbour`, its villas | Very fancy: flowers everywhere, well-kept paths |
 | Kingsgrad | `town`, its interiors | A generic city |
 
-## Eastbrook: rustic Pacific Northwest
+## Eastbrook: Portland by way of a lumber town
 
-A timber town turned cosy and creative. Think coffee roasters, a record shop, a small brewery, the local paper,
-bicycles and pine trees growing right up to the houses.
+An old timber town gone hip, like Portland. Think coffee roasters, a record shop, vintage clothes, food carts, the local
+paper, murals, bicycles everywhere, and pine trees growing right up to the houses. Mill Road leads west to the lumber mill
+that the town grew up around.
 
+- **Layout:** three brick streets (Upper Street, the main street and Tram Street) joined by Alder Lane down the middle; a
+  brick-paved food-cart plaza and a little park between the main street and Tram Street; the tram along the bottom.
 - **Buildings:** gable roofs, wooden siding (`tex:'siding'`), porches, chimneys with smoke. Small and individual; no two alike.
-- **Palette:** forest green, rust red, timber brown, mustard, slate blue. Warm yellow window light (`#f2d16b`).
-- **Signs:** hand-painted wooden boards and chalkboards, not plastic or neon.
-- **Props:** woodpiles, bicycles, benches, planters, fir trees, string lights, A-frame chalkboard signs, mailboxes.
-- **Interiors:** wood floors, exposed brick, plants, bookcases, mismatched furniture, warm rugs.
+- **Palette:** mustard, slate blue, teal, oxblood, forest green, timber brown, with pink and orange accents. Warm yellow
+  window light (`#f2d16b`).
+- **Signs:** hand-painted wooden boards with puns (SLOW DRIP, INK AND PINE, VINYL RESTING PLACE, FLANNEL AND FOLK) and
+  chalkboards, not plastic or neon. The Kelp Cola Museum, being the company's, has a brass plaque.
+- **Props:** bicycles, chalkboard signs, timber planters, cafe tables, string lights, woodpiles, stumps, mailboxes, a hot
+  dog cart, and the KEEP EASTBROOK WEIRD board in the park.
+- **Murals:** the record shop's front is painted with a sunset over the mountains, pines and a bird (`mural`).
+- **Interiors:** wood floors, exposed brick, plants, bookcases, record shelves, mismatched furniture, warm rugs.
 - **Harbour:** working but tidy: timber pilings, crab pots, a fish-and-chips hut.
 - **Avoid:** flat concrete roofs, neon, chrome, anything that looks like a chain.
 
@@ -93,6 +100,8 @@ Building looks (`BLD` in `js/data.js`) take these options on top of the usual wa
 | `signk: 'brass'` | An engraved brass plaque | Hope Springs (The Club) |
 | `cols: colour` | Columns between the windows | Hope Springs |
 | `planter: [colours]` | A window box of flowers under each window | Hope Springs, Eastbrook |
+| `icon: name` | A hanging picture sign of what the shop sells, on an iron bracket at one corner of the front (away from the door): `mug` (with a face), `vinyl`, `heart`, `flannel`, `grill`, `beer`, `cola`, `gun`, `cart`, `scissors`, `book`, `dice`, `house`, `fishhook`, `fish`, `tv`, `invader`, `burger` (with a face), `bag`, `popcorn`, `cocktail` (`ICON_ART` in `js/art.js`) | Every shop, cafe and bar |
+| `mural: [sky, sky, sky, bird]` | The front wall painted with a sunset, a snowy peak, pines and a bird, in place of the windows | Eastbrook (the record shop) |
 
 Interiors (`INT` in `js/art.js`) take `grime: 1` (stained walls and floors, used in Saltwick). Paths are styled per place in
 `PATHS` in `js/art.js`: `pave` (Frostholm), `worn` (Saltwick), `flag` (Hope Springs, no snow on them) and `brick` (Eastbrook).
@@ -104,4 +113,5 @@ Props for each town (`PROPS` in `js/data.js`):
   containers `cont_r`, `cont_b`, `cont_g`. Billboards are three tiles wide and containers two (centred on their tile).
 - **Saltwick:** `tyre`, `junk`, `cat`, `litter` (can be walked over), `bfence`, `trashbin`, `oldboat` (two tiles).
 - **Hope Springs:** `lamp2`, `urn`, `topiary`, `roses`, `lounger`, `gatepost`, plus the palace's `hedge`, `statue` and `flowers`.
-- **Eastbrook:** `bike`, `chalk` (a chalkboard sign), `planter`, `cafetable`.
+- **Eastbrook:** `bike`, `chalk` (a chalkboard sign), `planter`, `cafetable`, `weird` (the KEEP EASTBROOK WEIRD board, four
+  tiles wide), and on Mill Road `logs` (a log pile, two tiles), `stump` and `axe` (an axe in a stump).
