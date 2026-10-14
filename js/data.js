@@ -187,7 +187,10 @@ bank_in:['Nordbank',20,12,'interior',[[1,1,3,1,'y','Files'],[8,1,4,1,'x','Safe']
 farmhouse_in:['Farmhouse',14,10,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Shelf'],[9,1,2,1,'i','Stove'],[12,1,1,2,'x','Sacks'],[5,4,4,2,'u','Kitchen Table'],[1,6,2,2,'x','Sacks'],[11,6,2,1,'y','Bookcase']]],
 barn_in:['Barn',18,10,'interior',[[1,1,3,2,'x','Hay Bales'],[5,1,3,2,'x','Hay Bales'],[10,1,3,1,'y','Shelves'],[14,1,3,2,'x','Feed Sacks'],[2,5,4,1,'u','Workbench'],[12,5,4,2,'x','Hay Bales']]],
 civil_in:['Civil Service Bureau',20,12,'interior',[[1,1,4,1,'y','Files'],[6,1,4,1,'y','Files'],[11,1,4,1,'y','Files'],[16,1,3,1,'y','Archive'],[2,2,3,2,'u','Desk'],[8,2,3,2,'u','Desk'],[14,2,3,2,'u','Desk'],[2,5,16,1,'c','Service Counter'],[2,8,5,1,'o'],[13,8,5,1,'o']]],
-kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table']]],
+kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up']]],
+// Phil's office, the second floor of Kelp Cola's headquarters: a panelled room with his executive desk, a bookcase, a drinks cabinet,
+// a trophy shelf of the company's awards and a table for guests
+kchq2:["Phil's Office",16,10,'interior',[[1,1,4,1,'y','Bookcase'],[10,1,4,1,'y','Bottles'],[5,3,5,2,'u','Executive Desk'],[2,6,2,2,'u','Table'],[10,6,4,1,'y','Trophy Shelf'],[14,1,1,1,'z','Stairs down']]],
 kcfac_in:['Kelp Cola Factory',24,12,'interior',[[2,2,20,2,'g','Bottling Line'],[1,6,3,2,'x','Kelp Cola Crates'],[20,6,3,2,'x','Kelp Cola Crates'],[8,6,8,1,'c','Packing Bench'],[1,9,2,1,'y','Lockers']]],
 kcwhs_in:['Kelp Cola Warehouse',18,10,'interior',[[1,1,3,2,'x','Kelp Cola Crates'],[5,1,3,2,'x','Kelp Cola Crates'],[10,1,3,2,'x','Kelp Cola Crates'],[14,1,3,2,'x','Kelp Cola Crates'],[1,5,3,2,'x','Kelp Cola Crates'],[14,5,3,2,'x','Kelp Cola Crates'],[6,5,6,1,'y','Shelves']]],
 whs_in:['Warehouse',18,10,'interior',[[1,1,3,2,'x','Fish Crates'],[5,1,2,2,'x','Ice Crates'],[10,1,3,1,'y','Shelves'],[14,1,3,2,'x','Fishing Nets'],[1,5,3,2,'x','Junk'],[13,6,4,2,'x','Boxes'],[6,5,4,1,'u','Workbench']]],
@@ -276,17 +279,42 @@ privharbour:[540,700,'harbour'],privbeach:[925,745,'nature']};
 const RIVER={name:'Valto River',pts:[[990,222],[880,192],[760,205],[660,262],[575,300],[500,335],[452,362],[400,440]],end:'beach',bridges:[[575,301]],label:[870,180,-4]};
 
 // ---- Factions shown on the overview map and in the wiki: id:[name, colour, short badge, description]
-const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you work for. Its people on the island are your handler and an informant.'],communist:['Communist Party','#c0392b','COM','Allies of the Soviet Union.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based at the Community Centre in Eastbrook.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
+const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you work for. Its people on the island are your handler and an informant.'],communist:['Communist Party','#c0392b','COM','Allies of the Soviet Union. Its leader is Anna.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based at the Community Centre in Eastbrook.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
 cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.'],
 kgb:['KGB','#5c1f1f','KGB','The Soviet intelligence agency. Its man on the island works with the Communist Party.'],
-union:['The Union','#d35400','UNI','The island\'s trade union, for the people who work at the Kelp Cola factory, in the fishing trade and at the lumber mill. Its leader is Anna.'],
-republican:['Republican Party','#a3123a','REP','A conservative political party, based at its headquarters in Frostholm. Its leadership is vacant, and Kelp Cola, Diversified Petroleum and the Crime Syndicate are each trying to get their own candidate voted in.']};
+union:['The Union','#d35400','UNI','The island\'s trade union, for the people who work at the Kelp Cola factory, in the fishing trade and at the lumber mill. Its leader is Helen.'],
+republican:['Republican Party','#a3123a','REP','A conservative political party, based at its headquarters in Frostholm. Its leadership is vacant, and Kelp Cola, Diversified Petroleum and the Crime Syndicate are each trying to get their own candidate voted in.'],
+circus:['The Circus','#e84393','CIR','The travelling circus camped at Lake Ilmari: its ringmaster and performers.'],
+farmers:['The Farmers','#7cb342','FRM','The island\'s farmers, who work East Farm.'],
+army:['The Army','#556b2f','ARM','The island\'s army, based at the barracks under its colonel.'],
+reporters:['The Reporters','#6c757d','PRS','The Eastbrook Gazette\'s newspapermen and women, who report on the island\'s politics without taking sides.']};
 // Side factions play a part in the story but cannot win it (the rest are the main factions, the only ones that can). The quest
-// schedule (QUEST_WEEKS) covers the main factions only.
-const SIDE_FACTIONS=['cia','kgb','republican','union'];
+// schedule (QUEST_DAYS) covers the main factions only.
+const SIDE_FACTIONS=['cia','kgb','republican','union','circus','farmers','army','reporters'];
+// ---- Each faction's hierarchy, shown as a chart on its wiki page: the leader (null when the post is empty, with vacant saying
+// why; a list of names puts them side by side at the top together), the important members (top), and who answers to whom (under: anyone in the chart can have people under them). Everyone
+// else in the faction answers straight to the leader. joint: the top members share one box, and the next tier (next) and
+// everyone else answer to them together. Names are people's names in NPCS, and must belong to the faction.
+const FACTION_TREE={
+cia:{lead:'Chuck',top:['Hekki']},
+communist:{lead:'Anna',top:['Helen','Yuri']},
+democrat:{lead:'Erik',top:['Bjarne'],under:{Bjarne:['Knut','Ilse']}},
+royal:{lead:'Leopold',top:['Augustus','Daphne'],joint:true,next:['Edmund'],under:{Edmund:['Oskar','Marta']}},
+cola:{lead:'Phil',top:['Harald'],joint:true,next:['Kurt','Wilma'],under:{Kurt:['Petra','Aino'],Wilma:['Jarmo']}},
+oil:{lead:'Dario',top:['Magnus'],joint:true},
+syndicate:{lead:'Gustavo',top:['Carlo'],joint:true},
+church:{lead:'Father Thyme',top:['Brother Anselm'],under:{'Brother Anselm':['Brother Paavo','Brother Ilja','Brother Teodor','Brother Mikael']}},
+kgb:{lead:'Yuri'},
+union:{lead:'Helen',top:['Anna']},
+circus:{lead:'Bruno'},
+farmers:{lead:['Hilda','Olaf']},
+army:{lead:'Colonel Halvorsen',top:['Sergeant Rask'],under:{'Sergeant Rask':['Corporal Niemi','Private Aho','Private Koski']}},
+reporters:{lead:'Henrik',top:['Nora']},
+republican:{lead:null,vacant:'Leader: vacant (Harald, Magnus and Carlo are standing)',top:['Margit']},
+};
 // Where each faction is based: location id -> faction id. Unlisted locations are unassigned.
 const FACTION_AT={village:'communist',second:'democrat',gated:'syndicate',palace:'royal',monastery:'church',
-colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil',fishing:'republican'};
+colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil',fishing:'republican',lake:'circus',farm:'farmers',barracks:'army'};
 
 // ---- Districts: id:[name, map colour]. DISTRICT_OF puts every place on the overview map in one; interiors take their building's.
 const DISTRICTS={central:['Central','#f3d9a4'],north:['North','#d9c8ea'],northeast:['North East','#c4dcef'],northwest:['North West','#c9e3c4'],
@@ -316,29 +344,29 @@ const FERRY={harbour:[2,5,0,1,1,0],kalanharbour:[4,3,0,1,1,0],savilaharbour:[19,
 // an interior listed in DOORS, or 'none' for someone with no fixed home). m, x, y: where they stand now (m:null for someone who is not physically on the island). dir: 0 down, 1 up, 2 left, 3 right
 const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour',job:'Fisherman',faction:'none',also:['union'],gender:'male',body:'#d9a520',hair:'#b5b5b5',hat:'#c0392b'},
 {m:'harbour',x:12,y:5,dir:3,name:'Sam',home:'house_sam',loc:'harbour',job:'Fisherman',faction:'communist',also:['union'],gender:'male',body:'#2f6f8f',hair:'#5a3a22',hat:'#3d5a40'},
-{m:'plant',x:6,y:4,dir:1,name:'Bob',home:'house_kate',loc:'plant',job:'Fishmonger',faction:'none',also:['union'],gender:'male',partner:'Kate',body:'#e8e8e8',hair:'#7a5a3a'},
-{m:'plant',x:13,y:4,dir:1,name:'Kate',home:'house_kate',loc:'plant',job:'Fishmonger',faction:'communist',also:['union'],gender:'female',partner:'Bob',body:'#5b8fb9',hair:'#caa05a'},
-{m:'apartments',x:4,y:5,dir:0,name:'Anna',home:'apartments',loc:'apartments',job:'Union leader',faction:'communist',also:['union'],gender:'female',body:'#a33333',hair:'#6b4a2a'},
+{m:'plant',x:6,y:4,dir:1,name:'Bob',home:'apartments',loc:'plant',job:'Fishmonger',faction:'none',also:['union'],gender:'male',partner:'Helen',body:'#e8e8e8',hair:'#7a5a3a'},
+{m:'plant',x:13,y:4,dir:1,name:'Kate',home:'house_kate',loc:'plant',job:'Fishmonger',faction:'communist',also:['union'],gender:'female',body:'#5b8fb9',hair:'#caa05a'},
+{m:'apartments',x:4,y:5,dir:0,name:'Anna',home:'apartments',loc:'apartments',job:'Communist Party leader',faction:'communist',also:['union'],gender:'female',body:'#a33333',hair:'#6b4a2a'},
 {m:'harbour',x:10,y:6,dir:2,name:'Mike',home:'apartments',loc:'harbour',job:'Fisherman',faction:'communist',also:['union'],gender:'male',partner:'Lucia',body:'#8c2f2f',hair:'#222222'},
-{m:'apartments',x:20,y:5,dir:0,name:'Helen',home:'apartments',loc:'apartments',job:'Party member',faction:'communist',gender:'female',body:'#b84a4a',hair:'#d9c9a0'},
+{m:'apartments',x:20,y:5,dir:0,name:'Helen',home:'apartments',loc:'apartments',job:'Union leader',faction:'communist',also:['union'],gender:'female',partner:'Bob',body:'#b84a4a',hair:'#d9c9a0'},
 {m:'bar',x:5,y:2,dir:0,name:'Ray',home:'barflat',loc:'bar',job:'Bartender',faction:'none',gender:'male',body:'#4a3a2a',hair:'#222222'},
-{m:'colahq',x:11,y:6,dir:0,name:'Phil',home:'villa_phil',loc:'colahq',job:'CEO of Kelp Cola',faction:'cola',gender:'male',body:'#2e5a3a',hair:'#8a8a8a'},
+{m:'kchq2',x:7,y:2,dir:0,name:'Phil',home:'villa_phil',loc:'kchq2',job:'CEO of Kelp Cola',faction:'cola',gender:'male',body:'#2e5a3a',hair:'#8a8a8a'},
 {m:'throne',x:10,y:3,dir:0,name:'Leopold',home:'royalrooms',loc:'throne',job:'Prince',faction:'royal',gender:'male',body:'#6a2c8a',hair:'#d9b44a'},
-{m:'library',x:9,y:8,dir:0,name:'Augustus',home:'royalrooms',loc:'library',job:"Prince's brother",faction:'royal',gender:'male',body:'#4a2a6a',hair:'#c9a040'},
-{m:'monastery',x:11,y:9,dir:0,name:'Father Thyme',home:'house_thyme',loc:'monastery',job:'Bishop',faction:'church',gender:'male',body:'#2a2a33',hair:'#e8e8e8'},
+{m:'library',x:9,y:8,dir:0,name:'Augustus',home:'royalrooms',loc:'library',job:"Prince's brother",faction:'royal',also:['church'],gender:'male',body:'#4a2a6a',hair:'#c9a040'},
+{m:'monastery',x:11,y:9,dir:0,name:'Father Thyme',home:'house_thyme',loc:'monastery',job:'Abbot',faction:'church',gender:'male',body:'#2a2a33',hair:'#e8e8e8'},
 {m:'palace',x:7,y:13,dir:0,name:'Daphne',home:'royalrooms',loc:'palace',job:"Prince's sister",faction:'royal',gender:'female',body:'#9a4ab0',hair:'#e8c86a'},
 {m:'oilhq',x:8,y:7,dir:0,name:'Dario',home:'villa_dario',loc:'oilhq',job:'CEO of Diversified Petroleum',faction:'oil',gender:'male',body:'#37474f',hair:'#2a1a12'},
 {m:'clubroom',x:15,y:3,dir:0,name:'Gustavo',home:'villa_gustavo',loc:'clubroom',job:'Don',faction:'syndicate',gender:'male',body:'#1a1a22',hair:'#222222'},
 {m:null,name:'Chuck',home:'none',loc:'shack_hekki',job:'CIA handler (off the island; reached by radio)',faction:'cia',gender:'male',body:'#8a7a5a',hair:'#6b4a2a'},
-{m:'radio',x:12,y:5,dir:2,name:'Hekki',home:'shack_hekki',loc:'radio',job:'Informant',faction:'cia',gender:'male',body:'#5a6a4a',hair:'#c9a05a',hat:'#4a4a52'},
+{m:'radio',x:12,y:5,dir:2,name:'Hekki',home:'shack_hekki',loc:'radio',job:'Radio tech (and CIA informant)',faction:'cia',gender:'male',body:'#5a6a4a',hair:'#c9a05a',hat:'#4a4a52'},
 {m:'beach',x:7,y:7,dir:0,name:'Pat',home:'tent_pat',loc:'beach',job:'Hobo',faction:'none',gender:'male',body:'#6b5a40',hair:'#7a7a7a',hat:'#7a3a2a'},
-{m:'gunshop',x:6,y:2,dir:0,name:'Frank',home:'house_frank',loc:'gunshop',job:'Gun shop owner',faction:'none',gender:'male',body:'#4a5a3a',hair:'#3a2a20'},
+{m:'gunshop',x:6,y:2,dir:0,name:'Frank',home:'house_frank',loc:'gunshop',job:'Gun shop owner',faction:'republican',gender:'male',body:'#4a5a3a',hair:'#3a2a20'},
 {m:'supermarket',x:14,y:10,dir:1,name:'Lisa',home:'house_lisa',loc:'supermarket',job:'Supermarket worker',faction:'none',gender:'female',body:'#2e9d57',hair:'#c9822a'},
 {m:'citybar',x:5,y:2,dir:0,name:'Eddie',home:'house_eddie',loc:'citybar',job:'Bartender',faction:'none',gender:'male',body:'#f2f2f2',hair:'#2a1a12'},
 {m:'tailor',x:5,y:2,dir:0,name:'Grace',home:'house_grace',loc:'tailor',job:'Tailor',faction:'none',gender:'female',body:'#7d3c98',hair:'#9a9a9a'},
 {m:'casino',x:14,y:9,dir:1,name:'Vince',home:'house_vince',loc:'casino',job:'Casino worker',faction:'none',gender:'male',body:'#2a1a3a',hair:'#1a1a1a'},
 {m:'bookshop',x:9,y:7,dir:1,name:'Mary',home:'house_mary',loc:'bookshop',job:'Book shop owner',faction:'none',gender:'female',body:'#8a3a2a',hair:'#d9c9a0'},
-{m:'fishingshop',x:5,y:2,dir:0,name:'Jack',home:'house_jack',loc:'fishingshop',job:'Fishing shop owner',faction:'none',gender:'male',body:'#2e6f9a',hair:'#7a5a3a',hat:'#e0a100'},
+{m:'fishingshop',x:5,y:2,dir:0,name:'Jack',home:'house_jack',loc:'fishingshop',job:'Fishing shop owner',faction:'republican',gender:'male',body:'#2e6f9a',hair:'#7a5a3a',hat:'#e0a100'},
 {m:'estateagent',x:8,y:5,dir:1,name:'Sally',home:'house_sally',loc:'estateagent',job:'Estate agent',faction:'none',gender:'female',body:'#2e6f9a',hair:'#e8c86a'},
 {m:'palacehall',x:12,y:5,dir:0,name:'Edmund',home:'servants',loc:'palacehall',job:'Butler',faction:'royal',gender:'male',body:'#1a1a22',hair:'#b5b5b5'},
 {m:'palace',x:11,y:7,dir:0,name:'Oskar',home:'servants',loc:'palace',job:'Footman',faction:'royal',gender:'male',body:'#5e2a75',hair:'#3a2a20'},
@@ -347,14 +375,14 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'dining',x:10,y:8,dir:1,name:'Lotta',home:'servants',loc:'dining',job:'Maid',faction:'none',gender:'female',body:'#3a3d4a',hair:'#6b3a22'},
 {m:'palace',x:16,y:14,dir:2,name:'Viktor',home:'servants',loc:'palace',job:'Groundskeeper',faction:'none',gender:'male',body:'#5a6a3a',hair:'#7a7a7a',hat:'#3d5a40'},
 {m:'transhut',x:5,y:6,dir:1,name:'Kalle',home:'apartments',loc:'transhut',job:'Radio DJ',faction:'none',gender:'male',body:'#e8792a',hair:'#3a2a20'},
-{m:'colafactory',x:7,y:13,dir:0,name:'Pekka',home:'house_pekka',loc:'colafactory',job:'Food van owner',faction:'democrat',gender:'male',body:'#e0a100',hair:'#2a1a12',hat:'#c0392b'},
-{m:'monastery',x:13,y:9,dir:0,name:'Brother Anselm',home:'monks',loc:'monastery',job:'Abbot',faction:'church',gender:'male',body:'#2a2a33',hair:'#9a9a9a'},
+{m:'colafactory',x:7,y:13,dir:0,name:'Pekka',home:'house_pekka',loc:'colafactory',job:'Food van owner',faction:'church',gender:'male',body:'#e0a100',hair:'#2a1a12',hat:'#c0392b'},
+{m:'monastery',x:13,y:9,dir:0,name:'Brother Anselm',home:'monks',loc:'monastery',job:'Prior',faction:'church',gender:'male',body:'#2a2a33',hair:'#9a9a9a'},
 {m:'monastery',x:15,y:6,dir:1,name:'Brother Paavo',home:'monks',loc:'monastery',job:'Monk (gardener)',faction:'church',gender:'male',body:'#5a3a26',hair:'#7a5a3a'},
 {m:'monks',x:12,y:7,dir:2,name:'Brother Ilja',home:'monks',loc:'monks',job:'Monk (scribe)',faction:'church',gender:'male',body:'#3a2a20',hair:'#c9a05a'},
 {m:'monks',x:2,y:2,dir:1,name:'Brother Teodor',home:'monks',loc:'monks',job:'Monk (cook)',faction:'church',gender:'male',body:'#4a3222',hair:'#2a1a12'},
 {m:'monks',x:13,y:2,dir:0,name:'Brother Mikael',home:'monks',loc:'monks',job:'Monk',faction:'church',gender:'male',body:'#3a3d44',hair:'#e8e8e8'},
-{m:'newsroom',x:14,y:3,dir:0,name:'Henrik',home:'house_henrik',loc:'newsroom',job:'Newspaper editor',faction:'democrat',gender:'male',body:'#5a5f68',hair:'#9a9a9a'},
-{m:'newsroom',x:8,y:6,dir:1,name:'Nora',home:'house_nora',loc:'newsroom',job:'Reporter',faction:'democrat',gender:'female',body:'#c9822a',hair:'#3a2a20'},
+{m:'newsroom',x:14,y:3,dir:0,name:'Henrik',home:'house_henrik',loc:'newsroom',job:'Newspaper editor',faction:'reporters',gender:'male',body:'#5a5f68',hair:'#9a9a9a'},
+{m:'newsroom',x:8,y:6,dir:1,name:'Nora',home:'house_nora',loc:'newsroom',job:'Reporter',faction:'reporters',gender:'female',body:'#c9822a',hair:'#3a2a20'},
 {m:'fishshop',x:6,y:2,dir:0,name:'Olga',home:'apartments',loc:'fishshop',job:'Fish shop owner',faction:'none',gender:'female',body:'#5b8fb9',hair:'#8a8a8a',hat:'#3d5a40'},
 {m:'electro',x:5,y:2,dir:0,name:'Nils',home:'skyapts',loc:'electro',job:'Electronics store owner',faction:'republican',gender:'male',body:'#3a3d44',hair:'#d9c9a0'},
 {m:'arcadein',x:12,y:5,dir:0,name:'Toni',home:'kgapts',loc:'arcadein',job:'Arcade attendant',faction:'none',gender:'male',body:'#ff3bd0',hair:'#1a1a1a'},
@@ -365,40 +393,42 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'tattoo',x:4,y:3,dir:2,name:'Jonas',home:'eblofts',loc:'tattoo',job:'Tattoo artist',faction:'democrat',gender:'male',body:'#2f4a5a',hair:'#6b4a2a'},
 {m:'commcentre',x:10,y:3,dir:0,name:'Erik',home:'eblofts',loc:'commcentre',job:'Democratic Party leader',faction:'democrat',gender:'male',body:'#2e86c1',hair:'#c9a05a'},
 {m:'police',x:10,y:6,dir:0,name:'Sergeant Hanna',home:'kgapts',loc:'police',job:'Desk sergeant',faction:'none',gender:'female',body:'#1f3a5f',hair:'#3a2a20',hat:'#1f3a5f'},
-{m:'tavern',x:6,y:2,dir:0,name:'Linnea',home:'eblofts',loc:'tavern',job:'Bartender',faction:'democrat',gender:'female',body:'#3d5a4a',hair:'#c9822a'},
-{m:'cedargrill',x:5,y:2,dir:0,name:'Arvid',home:'eblofts',loc:'cedargrill',job:'Chef',faction:'democrat',gender:'male',body:'#f2f2f2',hair:'#5a3a26'},
+{m:'tavern',x:6,y:2,dir:0,name:'Linnea',home:'eblofts',loc:'tavern',job:'Bartender',faction:'royal',gender:'female',body:'#3d5a4a',hair:'#c9822a'},
+{m:'cedargrill',x:5,y:2,dir:0,name:'Arvid',home:'eblofts',loc:'cedargrill',job:'Chef',faction:'royal',gender:'male',body:'#f2f2f2',hair:'#5a3a26'},
 {m:'colahq',x:5,y:10,dir:0,name:'Ville',home:'kgapts',loc:'colahq',job:'Newsstand vendor',faction:'none',gender:'male',body:'#2e6f9a',hair:'#d9c9a0',hat:'#2e6f9a'},
 {m:'colahq',x:10,y:10,dir:0,name:'Rosa',home:'kgapts',loc:'colahq',job:'Hot dog vendor',faction:'none',gender:'female',body:'#c0392b',hair:'#2a1a12',hat:'#e0a100'},
-{m:'doctor',x:12,y:3,dir:0,name:'Doctor Lind',home:'kgapts',loc:'doctor',job:'Doctor',faction:'none',gender:'male',body:'#f2f2f2',hair:'#8a8a8a'},
+{m:'doctor',x:12,y:3,dir:0,name:'Doctor Lind',home:'kgapts',loc:'doctor',job:'Doctor',faction:'republican',gender:'male',body:'#f2f2f2',hair:'#8a8a8a'},
 {m:'hotel_floor',x:19,y:4,dir:3,name:'Yuri',home:'hotel_floor',loc:'hotel_floor',job:'KGB agent (posing as a businessman)',faction:'communist',also:['kgb'],gender:'male',body:'#3a3d44',hair:'#2a1a12',hat:'#5a3a26'},
 {m:'hotel_lobby',x:6,y:2,dir:0,name:'Greta',home:'skyapts',loc:'hotel_lobby',job:'Hotel receptionist',faction:'none',gender:'female',body:'#6a3442',hair:'#e8c86a'},
 {m:'crewq',x:8,y:4,dir:0,name:'Lars',home:'crewq',loc:'crewq',job:'Oil rig worker',faction:'oil',gender:'male',body:'#e8792a',hair:'#c9a05a',hat:'#e0a100'},
+{m:'oilrig',x:7,y:4,dir:2,name:'Einar',home:'crewq',loc:'oilrig',job:'Oil rig worker',faction:'oil',gender:'male',body:'#e0a100',hair:'#3a2a20',hat:'#e8792a'},
 {m:'dphq_in',x:10,y:2,dir:0,name:'Ruth',home:'skyapts',loc:'dphq_in',job:'Receptionist',faction:'oil',gender:'female',body:'#37474f',hair:'#8a5a3a'},
 {m:'depot_in',x:7,y:4,dir:0,name:'Bjorn',home:'skyapts',loc:'depot_in',job:'Depot worker',faction:'oil',gender:'male',body:'#5a6a4a',hair:'#d9c9a0',hat:'#e8792a'},
 {m:'petro_in',x:2,y:7,dir:1,name:'Mats',home:'kgapts',loc:'petro_in',job:'Office clerk',faction:'oil',gender:'male',partner:'Elin',body:'#5a6470',hair:'#3a2a20'},
 {m:'bank_in',x:10,y:2,dir:0,name:'Agnes',home:'skyapts',loc:'bank_in',job:'Bank teller',faction:'none',gender:'female',body:'#2e5f8f',hair:'#e8c86a'},
-{m:'farmhouse_in',x:7,y:3,dir:0,name:'Hilda',home:'farmhouse_in',loc:'farmhouse_in',job:'Farmer',faction:'none',gender:'female',partner:'Olaf',body:'#a33b2f',hair:'#c9a05a'},
-{m:'barn_in',x:4,y:4,dir:0,name:'Olaf',home:'farmhouse_in',loc:'barn_in',job:'Farmer',faction:'none',gender:'male',partner:'Hilda',body:'#6b5a40',hair:'#8a8a8a',hat:'#4a5a3a'},
+{m:'farmhouse_in',x:7,y:3,dir:0,name:'Hilda',home:'farmhouse_in',loc:'farmhouse_in',job:'Farmer',faction:'farmers',gender:'female',partner:'Olaf',body:'#a33b2f',hair:'#c9a05a'},
+{m:'barn_in',x:4,y:4,dir:0,name:'Olaf',home:'farmhouse_in',loc:'barn_in',job:'Farmer',faction:'farmers',gender:'male',partner:'Hilda',body:'#6b5a40',hair:'#8a8a8a',hat:'#4a5a3a'},
 {m:'civil_in',x:6,y:4,dir:0,name:'Bertil',home:'kgapts',loc:'civil_in',job:'Civil servant',faction:'none',gender:'male',body:'#5a5f68',hair:'#9a9a9a'},
 {m:'kchq_in',x:11,y:2,dir:0,name:'Elin',home:'kgapts',loc:'kchq_in',job:'Secretary',faction:'cola',gender:'female',partner:'Mats',body:'#2e9d57',hair:'#2a1a12'},
 {m:'kcfac_in',x:12,y:5,dir:1,name:'Kurt',home:'kgapts',loc:'kcfac_in',job:'Factory foreman',faction:'cola',gender:'male',body:'#2e5a3a',hair:'#5a3a26',hat:'#2e9d57'},
 {m:'kcwhs_in',x:9,y:4,dir:0,name:'Petra',home:'kgapts',loc:'kcwhs_in',job:'Warehouse worker',faction:'cola',also:['union'],gender:'female',body:'#8aa898',hair:'#c9822a'},
+{m:'kcfac_in',x:6,y:4,dir:1,name:'Aino',home:'kgapts',loc:'kcfac_in',job:'Bottling line worker',faction:'cola',also:['union'],gender:'female',body:'#2e9d57',hair:'#e8c86a',hat:'#f2f2f2'},
 {m:'whs_in',x:8,y:4,dir:0,name:'Gunnar',home:'apartments',loc:'whs_in',job:'Dock worker',faction:'none',also:['union'],gender:'male',body:'#4a5a5a',hair:'#6b4a2a',hat:'#3a3d44'},
-{m:'barrA_in',x:10,y:4,dir:0,name:'Private Aho',home:'barrA_in',loc:'barrA_in',job:'Soldier',faction:'none',gender:'male',body:'#4a5a3a',hair:'#3a2a20',hat:'#3a4a2a'},
-{m:'barrB_in',x:6,y:3,dir:0,name:'Corporal Niemi',home:'barrA_in',loc:'barrB_in',job:'Army cook',faction:'none',gender:'male',body:'#f2f2f2',hair:'#8a5a3a'},
-{m:'gp_in',x:6,y:3,dir:0,name:'Private Koski',home:'barrA_in',loc:'gp_in',job:'Sentry',faction:'none',gender:'male',body:'#4a5a3a',hair:'#c9a05a',hat:'#3a4a2a'},
-{m:'arm_in',x:9,y:3,dir:0,name:'Sergeant Rask',home:'barrA_in',loc:'arm_in',job:'Quartermaster',faction:'none',gender:'male',body:'#5a6a48',hair:'#2a1a12',hat:'#3a4a2a'},
-{m:'offhq_in',x:10,y:4,dir:0,name:'Colonel Halvorsen',home:'hsresid',loc:'offhq_in',job:'Army commander',faction:'none',gender:'male',body:'#3a4a2a',hair:'#b5b5b5',hat:'#4a5a3a'},
+{m:'barrA_in',x:10,y:4,dir:0,name:'Private Aho',home:'barrA_in',loc:'barrA_in',job:'Soldier',faction:'army',gender:'male',body:'#4a5a3a',hair:'#3a2a20',hat:'#3a4a2a'},
+{m:'barrB_in',x:6,y:3,dir:0,name:'Corporal Niemi',home:'barrA_in',loc:'barrB_in',job:'Army cook',faction:'army',gender:'male',body:'#f2f2f2',hair:'#8a5a3a'},
+{m:'gp_in',x:6,y:3,dir:0,name:'Private Koski',home:'barrA_in',loc:'gp_in',job:'Sentry',faction:'army',gender:'male',body:'#4a5a3a',hair:'#c9a05a',hat:'#3a4a2a'},
+{m:'arm_in',x:9,y:3,dir:0,name:'Sergeant Rask',home:'barrA_in',loc:'arm_in',job:'Quartermaster',faction:'army',gender:'male',body:'#5a6a48',hair:'#2a1a12',hat:'#3a4a2a'},
+{m:'offhq_in',x:10,y:4,dir:0,name:'Colonel Halvorsen',home:'hsresid',loc:'offhq_in',job:'Army commander',faction:'army',gender:'male',body:'#3a4a2a',hair:'#b5b5b5',hat:'#4a5a3a'},
 {m:'fuel_in',x:7,y:3,dir:0,name:'Sven',home:'skyapts',loc:'fuel_in',job:'Fuel dock attendant',faction:'oil',gender:'male',body:'#e0a100',hair:'#5a3a26'},
 {m:'port_in',x:6,y:2,dir:0,name:'Ole',home:'skyapts',loc:'port_in',job:'Harbourmaster',faction:'none',gender:'male',body:'#2e5f8f',hair:'#e8e8e8',hat:'#1f3a5f'},
-{m:'customs_in',x:6,y:2,dir:0,name:'Liv',home:'eblofts',loc:'customs_in',job:'Customs officer',faction:'democrat',gender:'female',body:'#2e5f8f',hair:'#3a2a20'},
-{m:'ebwhs_in',x:8,y:4,dir:0,name:'Tor',home:'eblofts',loc:'ebwhs_in',job:'Warehouseman',faction:'democrat',gender:'male',body:'#7a2a1e',hair:'#c9a05a',hat:'#3d5a4a'},
+{m:'customs_in',x:6,y:2,dir:0,name:'Liv',home:'eblofts',loc:'customs_in',job:'Customs officer',faction:'communist',gender:'female',body:'#2e5f8f',hair:'#3a2a20'},
+{m:'ebwhs_in',x:8,y:4,dir:0,name:'Tor',home:'eblofts',loc:'ebwhs_in',job:'Warehouseman',faction:'communist',gender:'male',body:'#7a2a1e',hair:'#c9a05a',hat:'#3d5a4a'},
 // the travelling circus at Lake Ilmari
-{m:'lake',x:32,y:12,dir:0,name:'Bruno',home:'caravan1_in',loc:'lake',job:'Ringmaster',faction:'none',gender:'male',body:'#a3123a',hair:'#2a1a12',hat:'#1a1a22'},
-{m:'lake',x:24,y:16,dir:0,name:'Pippo',home:'caravan2_in',loc:'lake',job:'Clown',faction:'none',gender:'male',body:'#e0a100',hair:'#e04a3a',hat:'#2e86c1'},
-{m:'bigtop_in',x:8,y:6,dir:3,name:'Lena',home:'caravan2_in',loc:'bigtop_in',job:'Acrobat',faction:'none',gender:'female',body:'#e07a9a',hair:'#2a1a12'},
-{m:'bigtop_in',x:15,y:7,dir:2,name:'Igor',home:'caravan1_in',loc:'bigtop_in',job:'Strongman',faction:'none',gender:'male',body:'#5a3a26',hair:'#1a1a1a'},
-{m:'caravan3_in',x:5,y:2,dir:0,name:'Madame Zora',home:'caravan3_in',loc:'caravan3_in',job:'Fortune teller',faction:'none',gender:'female',body:'#7d3c98',hair:'#2a1a12',hat:'#c9a040'},
+{m:'lake',x:32,y:12,dir:0,name:'Bruno',home:'caravan1_in',loc:'lake',job:'Ringmaster',faction:'circus',gender:'male',body:'#a3123a',hair:'#2a1a12',hat:'#1a1a22'},
+{m:'lake',x:24,y:16,dir:0,name:'Button',home:'caravan2_in',loc:'lake',job:'Jester',faction:'circus',gender:'male',body:'#e0a100',hair:'#e04a3a',hat:'jester|#c0392b|#2e86c1'},
+{m:'bigtop_in',x:8,y:6,dir:3,name:'Lena',home:'caravan2_in',loc:'bigtop_in',job:'Acrobat',faction:'circus',gender:'female',body:'#e07a9a',hair:'#2a1a12'},
+{m:'bigtop_in',x:15,y:7,dir:2,name:'Igor',home:'caravan1_in',loc:'bigtop_in',job:'Strongman',faction:'circus',gender:'male',body:'#5a3a26',hair:'#1a1a1a'},
+{m:'caravan3_in',x:5,y:2,dir:0,name:'Madame Zora',home:'caravan3_in',loc:'caravan3_in',job:'Fortune teller',faction:'circus',gender:'female',body:'#7d3c98',hair:'#2a1a12',hat:'#c9a040'},
 // Jarmo, inside Kelpy: the Kelp Cola Museum's mascot, waving visitors in from the street (costume: drawn as a giant cola cup)
 {m:'second',x:17,y:9,dir:0,name:'Jarmo',home:'eblofts',loc:'kcmuseum_in',job:'Kelp Cola Museum mascot (Kelpy the cup)',faction:'cola',gender:'male',body:'#c0392b',hair:'#7a5a3a',costume:'cup'},
 {m:'village',x:28,y:10,dir:0,name:'Hannu',home:'apartments',loc:'village',job:'Newsstand vendor',faction:'none',gender:'male',body:'#6b5a48',hair:'#8a8a8a',hat:'#3a3d44'},
@@ -410,7 +440,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 // Eastbrook's new faces: the hot dog vendor, the Kelp Cola Museum's curator, the clothes and record shop owners, and the lumber mill's crew
 {m:'second',x:7,y:16,dir:0,name:'Dex',home:'eblofts',loc:'second',job:'Hot dog vendor',faction:'democrat',gender:'male',body:'#c0392b',hair:'#3a2a20',hat:'#e0a100'},
 {m:'kcmuseum_in',x:16,y:5,dir:0,name:'Wilma',home:'eblofts',loc:'kcmuseum_in',job:'Museum curator and gift shop clerk',faction:'cola',gender:'female',body:'#2e9d57',hair:'#c9822a'},
-{m:'clothes_in',x:9,y:6,dir:0,name:'Juniper',home:'eblofts',loc:'clothes_in',job:'Clothes shop owner',faction:'democrat',gender:'female',body:'#7a2a3a',hair:'#e8c86a',hat:'#3d5a4a'},
+{m:'clothes_in',x:9,y:6,dir:0,name:'Juniper',home:'eblofts',loc:'clothes_in',job:'Clothes shop owner',faction:'church',gender:'female',body:'#7a2a3a',hair:'#e8c86a',hat:'#3d5a4a'},
 {m:'records_in',x:10,y:5,dir:0,name:'Rufus',home:'eblofts',loc:'records_in',job:'Record shop owner',faction:'democrat',gender:'male',body:'#2a2a30',hair:'#6b4a2a'},
 {m:'mill_in',x:20,y:7,dir:0,name:'Bjarne',home:'eblofts',loc:'mill_in',job:'Lumber mill foreman',faction:'democrat',gender:'male',body:'#a33b2f',hair:'#b5b5b5',hat:'#e8792a'},
 {m:'mill_in',x:8,y:4,dir:1,name:'Knut',home:'eblofts',loc:'mill_in',job:'Sawyer',faction:'democrat',also:['union'],gender:'male',body:'#3d5a4a',hair:'#c9a05a',hat:'#e0a100'},
@@ -423,8 +453,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'gated',x:19,y:6,dir:0,name:'Paola',home:'hsresid',loc:'gated',job:'Syndicate enforcer',faction:'syndicate',gender:'female',body:'#2b2f3a',hair:'#8a8a8a'},
 // the Republican Party's leadership election: the party secretary running it, and the three candidates, each put up by one of the island's powers
 {m:'repubhq',x:10,y:1,dir:0,name:'Margit',home:'skyapts',loc:'repubhq',job:'Republican Party secretary (running the leadership election)',faction:'republican',gender:'female',body:'#a3123a',hair:'#b5b5b5'},
-{m:'repubhq',x:4,y:4,dir:2,name:'Harald',home:'hsresid',loc:'repubhq',job:"Kelp Cola's candidate for Republican Party leader",faction:'cola',gender:'male',body:'#2e9d57',hair:'#c9a05a'},
-{m:'repubhq',x:15,y:4,dir:3,name:'Magnus',home:'skyapts',loc:'repubhq',job:"Diversified Petroleum's candidate for Republican Party leader",faction:'oil',gender:'male',body:'#37474f',hair:'#5a3a26'},
+{m:'kchq_in',x:19,y:4,dir:0,name:'Harald',home:'hsresid',loc:'kchq_in',job:"Kelp Cola executive and the company's candidate for Republican Party leader",faction:'cola',gender:'male',body:'#2e9d57',hair:'#c9a05a'},
+{m:'dphq_in',x:17,y:4,dir:0,name:'Magnus',home:'skyapts',loc:'dphq_in',job:"Diversified Petroleum executive and the company's candidate for Republican Party leader",faction:'oil',gender:'male',body:'#37474f',hair:'#5a3a26'},
 {m:'repubhq',x:4,y:8,dir:2,name:'Carlo',home:'hsresid',loc:'repubhq',job:"The Crime Syndicate's candidate for Republican Party leader",faction:'syndicate',gender:'male',body:'#1a1a22',hair:'#2a1a12'}];
 
 // ---- The player at the start of the game (placeholders): the CIA's operating funds, the player's own money, and what they carry
@@ -525,7 +555,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['second',21,14,0,1,'tattoo'],['second',29,14,0,1,'clothes_in'],['second',36,14,0,1,'newsroom'],['second',44,14,0,1,'tavern'],['millroad',10,5,0,1,'mill_in'],
 ['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],
 ['village',14,18,0,1,'fishshop'],['village',21,18,0,1,'house_tom'],['village',27,18,0,1,'house_sam'],
-['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,1,0,1],
+['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,1,0,1],['kchq_in',15,1,0,1,'kchq2',14,1,0,1],
 ['palace',12,6,0,1,'palacehall'],['palacehall',5,0,0,1,'royalrooms'],['palacehall',12,0,0,1,'throne'],['palacehall',19,0,0,1,'library'],
 ['palacehall',0,6,1,0,'dining',19,6,-1,0],['palacehall',23,6,-1,0,'chapel'],['dining',0,6,1,0,'kitchen',17,6,-1,0],['kitchen',0,6,1,0,'servants',17,6,-1,0],['palace',5,6,0,1,'servants'],
 ['kitchen',15,1,0,1,'winecellar',16,8,-1,0],['library',18,1,0,1,'vault'],['gated',13,7,0,1,'villa_phil'],['gated',27,7,0,1,'villa_dario'],['gated',13,15,0,1,'villa_gustavo'],['gated',27,15,0,1,'clubroom'],
@@ -579,7 +609,7 @@ citybar:{kind:'gable',wall:'#5a2e2a',roof:'#2f2a36',trim:'#2b1d14',win:'#f2d16b'
 supermarket:{kind:'flat',wall:'#e8e2d4',roof:'#9aa0a6',trim:'#2e9d57',win:'#cfe8f0',sign:'MARKET',signc:'#2e9d57',awn:'#2e9d57'},
 tailor:{kind:'gable',wall:'#d8c8e0',roof:'#5a3a6a',trim:'#f2f2f2',win:'#bcd9ea',sign:'TAILOR',signc:'#7d3c98',awn:'#7d3c98'},
 bookshop:{kind:'gable',wall:'#3d5a4a',roof:'#5a3a26',trim:'#e8dcc0',win:'#f2d16b',sign:'BOOKS',signc:'#3d5a4a',awn:'#8a3a2a'},
-casino:{kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',deco:'casino',tube:'#ffd23a'},
+casino:{nlogo:'spade',kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',deco:'casino',tube:'#ffd23a'},
 estate:{kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#2e6f9a',win:'#bcd9ea',sign:'HOMES',signc:'#2e6f9a'},
 fishingshop:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',sign:'TACKLE',signc:'#2e6f9a',awn:'#2e6f9a'},
 kgapt:{kind:'tall',wall:'#b8735a',roof:'#5b5b56',trim:'#f2ede0',win:'#bcd9ea',tex:'brick'},
@@ -609,7 +639,7 @@ farmhouse:{kind:'gable',wall:'#e8dcc0',roof:'#7a4234',trim:'#a33b2f',win:'#bcd9e
 barn:{kind:'gable',wall:'#a33b2f',roof:'#4a4f58',trim:'#f2f2f2',win:'#a9c7da',deco:'whs',tex:'siding'},
 kchq:{kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',sign:'KELP COLA',signc:'#2e9d57',flag:'#2e9d57'},
 newsstand:{kind:'kiosk'},
-jazz:{kind:'flat',wall:'#1e1a2e',roof:'#2b2f3a',trim:'#c9a040',win:'#f2b04a',awn:'#5a1a2a',sign:'MIDNIGHT NOTE',signk:'neon',signc:'#3b8bff',marquee:'LIVE JAZZ',tube:'#3b8bff'},
+jazz:{nlogo:'note',kind:'flat',wall:'#1e1a2e',roof:'#2b2f3a',trim:'#c9a040',win:'#f2b04a',awn:'#5a1a2a',sign:'MIDNIGHT NOTE',signk:'neon',signc:'#3b8bff',marquee:'LIVE JAZZ',tube:'#3b8bff'},
 swnews:{kind:'kiosk',roof:'#5a6a74',wear:1},
 bigtop:{kind:'bigtop'},
 caravan1:{kind:'wagon',col:'#c0392b',trim:'#e0a100'},
@@ -643,14 +673,14 @@ fishmkt:{kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8'
 repub:{kind:'flat',wall:'#e8e4dc',roof:'#5b636c',trim:'#a3123a',win:'#7fb0d0',glass:1,tex:'panel',sign:'REPUBLICAN',signk:'neon',signc:'#ff3b5c',flag:'#a3123a',tube:'#ff3b5c'},
 skyapt:{kind:'tall',wall:'#3a4a5a',roof:'#2b2f3a',trim:'#7d858e',win:'#7fb0d0',glass:1,tex:'panel',sign:'SKYLINE',signk:'neon',signc:'#ff5fa8',tube:'#b05fff'},
 petrotower:{kind:'tall',wall:'#5a6470',roof:'#37474f',trim:'#2b2f3a',win:'#6fa8c8',glass:1,tex:'panel',sign:'PETRO',signk:'neon',signc:'#3bd0ff',tube:'#3bd0ff'},
-hotel:{kind:'tall',wall:'#6a3442',roof:'#3a2a30',trim:'#c9a040',win:'#bcd9ea',blade:['HOTEL','#ff5fa8'],sign:'AURORA',signk:'neon',signc:'#ffd23a',tube:'#ff5fa8'},
-nordbank:{kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'NORDBANK',signk:'neon',signc:'#3bd0ff',flag:'#2e5f8f',tube:'#b05fff'},
+hotel:{nlogo:'star',kind:'tall',wall:'#6a3442',roof:'#3a2a30',trim:'#c9a040',win:'#bcd9ea',blade:['HOTEL','#ff5fa8'],sign:'AURORA',signk:'neon',signc:'#ffd23a',tube:'#ff5fa8'},
+nordbank:{nlogo:'coin',kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'NORDBANK',signk:'neon',signc:'#3bd0ff',flag:'#2e5f8f',tube:'#b05fff'},
 cinema:{kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',sign:'CINEMA',signk:'neon',signc:'#ff3b2f',marquee:'NOW SHOWING'},
-hifi:{kind:'flat',wall:'#3a3d44',roof:'#2b2f3a',trim:'#e0a100',win:'#7fd0e8',awn:'#e0a100',sign:'ELECTRONICS',signk:'neon',signc:'#3bd0ff',tube:'#3bd0ff'},
-arcade:{kind:'flat',wall:'#1a1c2a',roof:'#2b2f3a',trim:'#ff3bd0',win:'#7f5fd0',sign:'ARCADE',signk:'neon',signc:'#ff3bd0',tube:'#ff3bd0'},
-burger:{kind:'flat',wall:'#f4e6c0',roof:'#8a9099',trim:'#c0392b',win:'#f2d16b',awn:'#c0392b',bill:{t:['POLAR BURGER'],bg:'#c0392b',fg:'#ffd23a'},tube:'#ff5a3a'},
-nordmart:{kind:'flat',wall:'#e8e2d4',roof:'#8a9099',trim:'#2e86c1',win:'#cfe8f0',glass:1,awn:'#2e86c1',sign:'NORDMART',signk:'neon',signc:'#3bd0ff',tube:'#3bd0ff'},
-fueldock:{kind:'flat',wall:'#8a9aa8',roof:'#37474f',trim:'#e0a100',win:'#9fc6e0',tex:'metal',sign:'FUEL',signk:'neon',signc:'#e0a100',tube:'#ffd23a'},
+hifi:{nlogo:'tv',kind:'flat',wall:'#3a3d44',roof:'#2b2f3a',trim:'#e0a100',win:'#7fd0e8',awn:'#e0a100',sign:'ELECTRONICS',signk:'neon',signc:'#3bd0ff',tube:'#3bd0ff'},
+arcade:{nlogo:'invader',kind:'flat',wall:'#1a1c2a',roof:'#2b2f3a',trim:'#ff3bd0',win:'#7f5fd0',sign:'ARCADE',signk:'neon',signc:'#ff3bd0',tube:'#ff3bd0'},
+burger:{nlogo:'burger',kind:'flat',wall:'#f4e6c0',roof:'#8a9099',trim:'#c0392b',win:'#f2d16b',awn:'#c0392b',bill:{t:['POLAR BURGER'],bg:'#c0392b',fg:'#ffd23a'},tube:'#ff5a3a'},
+nordmart:{nlogo:'cart',kind:'flat',wall:'#e8e2d4',roof:'#8a9099',trim:'#2e86c1',win:'#cfe8f0',glass:1,awn:'#2e86c1',sign:'NORDMART',signk:'neon',signc:'#3bd0ff',tube:'#3bd0ff'},
+fueldock:{nlogo:'pump',kind:'flat',wall:'#8a9aa8',roof:'#37474f',trim:'#e0a100',win:'#9fc6e0',tex:'metal',sign:'FUEL',signk:'neon',signc:'#e0a100',tube:'#ffd23a'},
 portoffice:{kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'PORT OFFICE',signc:'#2b2f3a',tube:'#3bd0ff'},
 customs:{kind:'gable',wall:'#7a5a3a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',sign:'CUSTOMS',signk:'wood',flag:'#2e5f8f'}};
 
@@ -753,5 +783,11 @@ const PROPS=[
 ['savilaharbour',11,12,'barrel'],['savilaharbour',12,12,'barrel'],['savilaharbour',8,6,'lamp'],['savilaharbour',8,8,'lamp'],['savilaharbour',12,10,'net'],['savilaharbour',13,10,'net'],['savilaharbour',10,11,'anchor'],['savilaharbour',12,3,'planter'],['savilaharbour',8,5,'chalk'],['savilaharbour',4,6,'bike'],['savilaharbour',5,8,'bench'],['savilaharbour',9,12,'trap']];
 const PROP_PASS=['steamgrate','sled','rope','anchor','seaweed','shell','vent','litter'];
 
-// ---- Which weeks each faction has quests (see docs/quest-schedule.md)
-const QUEST_WEEKS={communist:[4,8,11,14,18,19],royal:[3,7,11,13,16,19],cola:[2,6,10,13,17,19],oil:[1,5,9,14,17,19],syndicate:[3,6,9,12,15,18],democrat:[2,5,8,12,16,19],church:[1,4,7,10,15,19]};
+// ---- The quest schedule over the 30 days of September (see docs/quest-schedule.md and the wiki's Quests page). Weeks run days
+// 1-7, 8-14, 15-21 and 22-28, with days 29 and 30 to finish. QUEST_DAYS: for each main faction, the day it is introduced (intro)
+// and the days it has quests. QUEST_EVENTS: the days given to the whole island, as [name, the faction that runs it (optional)];
+// day 0 is the game's opening, before September begins.
+const QUEST_DAYS={communist:{intro:1,days:[11,16,19,23,27,28,29]},royal:{intro:2,days:[10,15,19,22,25,28,29]},cola:{intro:3,days:[9,13,18,22,26,28,29]},oil:{intro:7,days:[8,12,17,23,26,28,29]},church:{intro:5,days:[8,11,15,18,24,28,29]},syndicate:{intro:6,days:[10,13,17,20,24,27,29]},democrat:{intro:4,days:[9,12,16,20,25,28,29]}};
+const QUEST_EVENTS={0:['Game intro','cia'],14:['Event 1'],21:['Volcano'],30:['Finale']};
+// the quests that have a title so far, by day and faction (the rest are just "Quest")
+const QUEST_TITLES={29:{cola:'Republican primary',oil:'Republican primary',syndicate:'Republican primary',royal:'Line of succession',church:'Line of succession',communist:'Friendly rivalry',democrat:'Friendly rivalry'}};

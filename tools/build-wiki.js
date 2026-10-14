@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
-const {L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen}=box.D,NOTES=box.N;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen}=box.D,NOTES=box.N;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!atWorkWhen(n,night)&&!!L[n.home];
@@ -85,10 +85,58 @@ function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac
     `<div><h3>At night <small>(${night.length})</small></h3><ul>${here(night,true)||'<li>No one</li>'}</ul></div></div>`;
   return t}
 const inFac=(n,id)=>n.faction==id||(n.also||[]).includes(id);
-function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>inFac(n,id)),wk=QUEST_WEEKS[id]||[],side=SIDE_FACTIONS.includes(id);
-  const grid='<div class="weeks">'+Array.from({length:19},(_,i)=>`<span class="${wk.includes(i+1)?'on':''}" style="${wk.includes(i+1)?'background:'+col:''}">${i+1}</span>`).join('')+'</div>';
-  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Side faction (can't win)":'Main faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',wk.length?wk.length+' (weeks '+wk.join(', ')+')':'None scheduled']])}
-<p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p>`+(side?'':`<h2>Quest weeks</h2><p>Weeks of the 19-week cycle in which this faction has quests:</p>${grid}`)+`
+// every name in a faction's hierarchy must be someone in that faction, and appear only once
+const treePlaced=t=>[...[].concat(t.lead||[]),...(t.top||[]),...(t.next||[]),...Object.values(t.under||{}).flat()].filter(Boolean);
+Object.entries(FACTION_TREE).forEach(([id,t])=>{const bad=m=>{console.error('FACTION_TREE.'+id+': '+m);process.exit(1)},placed=treePlaced(t),seen=new Set();
+  [...placed,...Object.keys(t.under||{})].forEach(nm=>{const n=NPCS.find(o=>o.name==nm);if(!n||!inFac(n,id))bad(nm+' is not in the faction')});
+  placed.forEach(nm=>{if(seen.has(nm))bad(nm+' appears twice');seen.add(nm)});
+  Object.keys(t.under||{}).forEach(nm=>{if(!placed.includes(nm))bad(nm+' has people under them but is not in the chart')});
+  if(t.next&&!t.joint)bad('next is only for a joint top')});
+// a faction's hierarchy chart: the leader, then each important member with the people under them (to any depth), then everyone
+// else, all joined by lines (more than three people with no one under them make one box listing them all). With a joint top, the
+// top members share one box and the next tier and everyone else hang below it.
+function orgChart(c,id){const t=FACTION_TREE[id]||{},col=FACTIONS[id][1],mem=NPCS.filter(n=>inFac(n,id)),by=nm=>NPCS.find(n=>n.name==nm),U=t.under||{};
+  const placed=new Set(treePlaced(t)),rest=mem.filter(n=>!placed.has(n.name)).map(n=>n.name);
+  const node=(n,cls='')=>`<div class="node ${cls}" style="border-top-color:${col}">${npcA(c,n)}<small>${esc(n.job)}</small></div>`;
+  const li=(nm,cls='')=>`<li>${node(by(nm),cls)}${(U[nm]||[]).length?`<ul>${kids(U[nm])}</ul>`:''}</li>`;
+  const kids=(names,label)=>!names.length?'':(names.length<=3||names.some(nm=>U[nm]))&&!label?names.map(nm=>li(nm)).join(''):
+    `<li><div class="node grp" style="border-top-color:${col}">${label?`<b>${label}</b>`:''}${names.map(nm=>{const n=by(nm);return`<span>${npcA(c,n)} <small>${esc(n.job)}</small></span>`}).join('')}</div></li>`;
+  const tops=t.top||[],members=kids(rest,tops.length?'Members':''),jointBelow=(t.next||[]).map(nm=>li(nm,'top')).join('')+members;
+  const below=t.joint?`<li><div class="node top joint" style="border-top-color:${col}">${tops.map(nm=>`<span>${npcA(c,by(nm))}<small>${esc(by(nm).job)}</small></span>`).join('')}</div>${jointBelow?`<ul>${jointBelow}</ul>`:''}</li>`
+    :tops.map(nm=>li(nm,'top')).join('')+members;
+  const head=Array.isArray(t.lead)?`<div class="node lead joint" style="border-top-color:${col}">${t.lead.map(nm=>`<span>${npcA(c,by(nm))}<small>${esc(by(nm).job)}</small></span>`).join('')}</div>`:t.lead?node(by(t.lead),'lead'):`<div class="node lead vacant" style="border-top-color:${col}"><b>${esc(t.vacant||'Leader: vacant')}</b></div>`;
+  return `<div class="org"><ul><li>${head}${below?`<ul>${below}</ul>`:''}</li></ul></div>`}
+// the Quests page: the whole 30-day schedule, a row per day grouped into weeks, a column per main faction and the CIA, with the
+// island-wide days across every column; then each faction's totals
+const Q_COLS=['communist','royal','cola','oil','church','syndicate','democrat','cia'];
+const weekOf=d=>d==0?0:Math.min(5,Math.ceil(d/7));
+function questsBody(c){const head=Q_COLS.map(f=>`<th><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</th>`).join('');
+  const rows=Array.from({length:31},(_,d)=>{const w=weekOf(d),first=d==0||d==1||(d-1)%7==0&&d<=29,span=Array.from({length:31},(_,k)=>k).filter(k=>weekOf(k)==w).length,ev=QUEST_EVENTS[d];
+    const wk=first?`<th class="wk" rowspan="${span}">${w?'Week '+w:''}</th>`:'';
+    const cells=ev&&!ev[1]?`<td class="evrow" colspan="${Q_COLS.length}">${esc(ev[0])}</td>`:Q_COLS.map(f=>{const q=QUEST_DAYS[f],col=FACTIONS[f][1];
+      if(ev&&ev[1]==f)return`<td class="qi" style="border-color:${col}">${esc(ev[0])}</td>`;
+      if(q&&q.intro==d)return`<td><span class="qi" style="border-color:${col};color:${col}">Intro</span></td>`;
+      if(q&&q.days.includes(d))return`<td><span class="qq" style="background:${col}">${esc(QUEST_TITLES[d]?.[f]||'Quest')}</span></td>`;return'<td></td>'}).join('');
+    return`<tr class="${first&&d?'wkstart':''}">${wk}<td class="day">${d}</td>${cells}</tr>`}).join('');
+  const sum=Q_COLS.filter(f=>QUEST_DAYS[f]).map(f=>`<tr><td><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</td><td>${QUEST_DAYS[f].intro}</td><td>${QUEST_DAYS[f].days.map(d=>QUEST_TITLES[d]?.[f]?`${d} (${esc(QUEST_TITLES[d][f])})`:d).join(', ')}</td><td>${QUEST_DAYS[f].days.length}</td></tr>`).join('');
+  return `<h1>Quests</h1><p>The game runs over the 30 days of September. It opens on day 0 with the CIA's game intro; over the first week each of the seven main factions is introduced on its own day, and from then on two factions (or more) have quests on most days. Three days belong to the whole island: Event 1 on day 14, the volcano on day 21 and the finale on day 30.</p>
+<div class="qtable"><table class="sched"><thead><tr><th>Week</th><th>Day</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>
+<h2>By faction</h2><table class="sched sum"><thead><tr><th>Faction</th><th>Intro</th><th>Quest days</th><th>Quests</th></tr></thead><tbody>${sum}</tbody></table>`}
+// the Hierarchies page: every faction's chart side by side, main factions first, for comparing them
+function hierBody(c){const ids=Object.keys(FACTIONS),card=id=>`<section class="hcard" style="border-top-color:${FACTIONS[id][1]}"><h3><span class="sw" style="background:${FACTIONS[id][1]}"></span>${A(c,'factions',id,FACTIONS[id][0])} <small>${NPCS.filter(n=>inFac(n,id)).length} people</small></h3>${orgChart(c,id)}</section>`;
+  return `<h1>Hierarchies</h1><p>Every faction's hierarchy side by side: its leader at the top, its important members below, and everyone else beneath them. Click a faction for its page.</p>
+<h2>Main factions</h2><div class="hgrid">${ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(card).join('')}</div>
+<h2>Side factions</h2><div class="hgrid">${ids.filter(i=>SIDE_FACTIONS.includes(i)).map(card).join('')}</div>
+<h2>Unaffiliated</h2><p>Everyone who belongs to no faction, grouped by the district they work in.</p><div class="hgrid">${unaffChart(c)}</div>`}
+// the chart of everyone with no faction (not even a side one): one box per district, listing who works there, their job and where
+function unaffChart(c){const un=NPCS.filter(n=>n.faction=='none'&&!(n.also||[]).length),by={};un.forEach(n=>(by[distOf(n.loc)||'']??=[]).push(n));
+  const box=d=>`<li><div class="node grp" style="border-top-color:${DISTRICTS[d]?DISTRICTS[d][1]:'var(--bd)'}"><b>${esc(DISTRICTS[d]?DISTRICTS[d][0]:'Elsewhere')} · ${by[d].length}</b>${by[d].map(n=>`<span>${npcA(c,n)} <small>${esc(n.job)}, ${esc(L[top(n.loc)][0])}</small></span>`).join('')}</div></li>`;
+  const ds=[...Object.keys(DISTRICTS),''].filter(d=>by[d]);
+  return `<section class="hcard full" style="border-top-color:var(--mut)"><h3>Unaffiliated <small>${un.length} people</small></h3><div class="org"><ul><li><div class="node lead vacant" style="border-top-color:var(--mut)"><b>No faction</b></div><ul>${ds.map(box).join('')}</ul></li></ul></div></section>`}
+function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>inFac(n,id)),qd=QUEST_DAYS[id],wk=qd?qd.days:[],side=SIDE_FACTIONS.includes(id);
+  const grid='<div class="weeks">'+Array.from({length:30},(_,i)=>{const d=i+1,ev=QUEST_EVENTS[d];return wk.includes(d)?`<span class="on" style="background:${col}" title="${esc(QUEST_TITLES[d]?.[id]||'Quest')}">${d}</span>`:qd&&qd.intro==d?`<span class="intro" style="border-color:${col};color:${col}" title="Introduction">${d}</span>`:ev?`<span class="ev" title="${esc(ev[0])}">${d}</span>`:`<span>${d}</span>`}).join('')+'</div>';
+  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Side faction (can't win)":'Main faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',qd?`${wk.length} (days ${wk.join(', ')}); introduced on day ${qd.intro}`:'None scheduled']])}
+<p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p>`+(mem.length||FACTION_TREE[id]?`<h2>Hierarchy</h2>${orgChart(c,id)}`:'')+(side?'':`<h2>Quest days</h2><p>The faction's days in September (the game's 30 days): its introduction (outlined), its quests (filled) and the days given to the whole island (hatched). <a href="${lst(c,'quests')}">The full schedule</a>.</p>${grid}`)+`
 <h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
 // where someone is by day or by night, as a link with the place it is in and whether they are at work or at home
 function when(c,n,night){const x=whereAt(n,night);if(!x)return'Off the island';return A(c,'locations',x,L[x][0])+(top(x)!=x?' <small>('+esc(L[top(x)][0])+')</small>':'')+' <small>· '+(atHomeWhen(n,night)?'at home':'at work')+'</small>'}
@@ -124,7 +172,7 @@ function idxBody(c,k){let t;
   else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none'&&!(n.also||[]).length);// one section per faction, listing everyone aligned with it
     const sec=i=>{const mem=NPCS.filter(n=>inFac(n,i));
       return`<h3><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h3><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`},ids=Object.keys(FACTIONS);
-    t='<h1>Factions</h1>'+filter+'<h2>Main factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(sec).join('')+
+    t='<h1>Factions</h1><p>Compare every faction\'s leadership on the <a href="'+lst(c,'hierarchies')+'">Hierarchies</a> page.</p>'+filter+'<h2>Main factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(sec).join('')+
       "<h2>Side factions</h2><p>Factions that play a part in the story but can't win it.</p>"+ids.filter(i=>SIDE_FACTIONS.includes(i)).map(sec).join('')+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
   else{// one table per place on the island (alphabetical), sorted by name; people based inside a building are listed under the
@@ -150,7 +198,27 @@ function mapView(c){const ov=svg.replace(/href="\.\.\/wiki\/locations\/(\w+)\.ht
     Object.keys(POS).map(id=>`<div class="plan" data-plan="${id}" hidden><div class="planbar"><button type="button" class="back">← Island map</button><b>${esc(L[id][0])}</b><a href="${href(c,'locations',id)}">About this place →</a></div>${plan(c,id)}</div>`).join('')+'</div>'}
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${mapView(c)}
 <ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length-SIDE_FACTIONS.length}</b> main and <b>${SIDE_FACTIONS.length}</b> side <a href="${lst(c,'factions')}">factions</a></li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
-const CSS=`:root{--bg:#f4f1e6;--fg:#2b2118;--mut:#6b5f50;--card:#fffdf6;--bd:#d9d0bc;--ac:#1f6f9a;color-scheme:light dark}
+const CSS=`/* faction hierarchy charts: boxes joined by lines, scrolling sideways on a narrow screen */
+.org{overflow-x:auto;padding:4px 0 12px;margin:0 0 8px}
+.org ul{display:flex;justify-content:center;position:relative;margin:0;padding:18px 0 0;list-style:none}
+.org li{position:relative;display:flex;flex-direction:column;align-items:center;padding:18px 5px 0;margin:0}
+.org li::before,.org li::after{content:'';position:absolute;top:0;right:50%;width:50%;height:18px;border-top:2px solid var(--bd)}
+.org li::after{right:auto;left:50%;border-left:2px solid var(--bd)}
+.org li:only-child{padding-top:0}.org li:only-child::before,.org li:only-child::after{display:none}
+.org li:first-child::before,.org li:last-child::after{border:0}
+.org li:last-child::before{border-right:2px solid var(--bd);border-radius:0 6px 0 0}
+.org li:first-child::after{border-radius:6px 0 0 0}
+.org ul ul::before{content:'';position:absolute;top:0;left:50%;height:18px;border-left:2px solid var(--bd)}
+.org>ul{padding-top:0}.org>ul>li{padding-top:0}.org>ul>li::before,.org>ul>li::after{display:none}
+.org .node{background:var(--card);border:1px solid var(--bd);border-top:4px solid;border-radius:6px;padding:6px 10px;text-align:center;min-width:110px;max-width:200px;font-size:.92em;line-height:1.3}
+.org .node small{display:block;color:var(--mut);font-size:.82em}
+.org .node.lead{font-size:1.05em;min-width:150px;box-shadow:0 1px 4px rgba(0,0,0,.12)}.org .node.lead a{font-weight:bold}
+.org .node.joint{display:flex;gap:14px;max-width:none}.org .node.joint span{flex:1}
+.org .node.vacant{font-style:italic;color:var(--mut)}
+.org .node.grp{text-align:left;max-width:260px;display:flex;flex-direction:column;gap:3px}
+.org .node.grp b{color:var(--mut);font-size:.85em;text-transform:uppercase;letter-spacing:.05em}
+.org .node.grp span small{display:inline}
+:root{--bg:#f4f1e6;--fg:#2b2118;--mut:#6b5f50;--card:#fffdf6;--bd:#d9d0bc;--ac:#1f6f9a;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#10161d;--fg:#e6edf3;--mut:#9aa8b6;--card:#17202a;--bd:#2c3a48;--ac:#6fb7e0}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,serif}a{color:var(--ac)}
 header{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;padding:12px 20px;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:2}
@@ -166,7 +234,18 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 24px}.cols2 h3{margin:.6em 0 .2em}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
-.weeks{display:grid;grid-template-columns:repeat(19,1fr);gap:3px;max-width:640px}.weeks span{text-align:center;font:12px sans-serif;padding:5px 0;border:1px solid var(--bd);border-radius:3px;color:var(--mut)}.weeks .on{color:#fff;font-weight:bold}
+.weeks{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:420px}.weeks span{text-align:center;font:12px sans-serif;padding:5px 0;border:1px solid var(--bd);border-radius:3px;color:var(--mut)}.weeks .intro{border:2px solid;font-weight:bold;padding:4px 0}.weeks .ev{background:repeating-linear-gradient(45deg,transparent 0 3px,var(--bd) 3px 5px)}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:14px;width:min(1400px,calc(100vw - 24px));position:relative;left:50%;transform:translateX(-50%);margin-bottom:18px}
+.hcard{background:var(--card);border:1px solid var(--bd);border-top:4px solid;border-radius:8px;padding:8px 10px;min-width:0}.hcard h3{margin:2px 0 6px;font-size:1.05em}.hcard h3 small{color:var(--mut);font-weight:normal;font-size:.8em}.hcard .org{margin:0}.hcard.full{grid-column:1/-1}
+@media (max-width:480px){.hgrid{grid-template-columns:1fr}}
+.qtable{overflow-x:auto;width:min(1240px,calc(100vw - 24px));position:relative;left:50%;transform:translateX(-50%)}.qtable .sched{width:100%}.sched{border-collapse:collapse;font-size:.9em;margin:8px 0 16px}.sched th,.sched td{border:1px solid var(--bd);padding:3px 8px;text-align:center;white-space:nowrap}
+.sched thead th{background:var(--card);font-size:.88em;white-space:normal;line-height:1.25;min-width:84px}.sched .wk{background:var(--card);font-weight:bold}.sched .day{color:var(--mut);font-variant-numeric:tabular-nums}
+.sched tr.wkstart td,.sched tr.wkstart th{border-top:2px solid var(--fg)}
+.sched .qq{display:inline-block;color:#fff;font-size:.82em;font-weight:bold;padding:1px 8px;border-radius:3px}
+.sched .qi{display:inline-block;border:2px solid;font-size:.82em;font-weight:bold;padding:0 6px;border-radius:3px}
+.sched td.qi{display:table-cell}.sched .evrow{font-weight:bold;letter-spacing:.04em;background:repeating-linear-gradient(45deg,var(--card) 0 6px,transparent 6px 12px)}
+.sched.sum td{text-align:left}
+.weeks .on{color:#fff;font-weight:bold}
 [hidden]{display:none!important}a.loc{cursor:pointer}a.loc:hover rect,a.loc:focus rect{filter:brightness(1.08)}.mapview .hint{margin:0 0 6px;color:var(--mut);font-size:14px}
 .plan{margin:8px 0}.plan-svg{display:block;width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;margin:0 auto}a.bld:hover rect{stroke:#1f6f9a;stroke-width:3}a.exit:hover text{fill:#0b4a6e}
 .planbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 8px}.planbar a{margin-left:auto}.back{font:inherit;font-size:14px;padding:5px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer}
@@ -181,8 +260,10 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
+pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
+pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
 Object.keys(FACTIONS).forEach(i=>pages.push({id:'factions-'+i,title:FACTIONS[i][0],body:c=>facBody(c,i),file:'factions/'+i+'.html',pre:'../'}));

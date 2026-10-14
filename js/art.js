@@ -246,6 +246,116 @@ const ICON_ART={
   cola:r=>{r('#c0392b',7,0,4,2);r('#2e9d57',7,2,4,4);r('#2e9d57',6,6,6,1);r('#2e9d57',5,7,8,1);r('#2e9d57',4,8,10,10);r('#5fc48a',5,8,2,10);r('#1f7a42',12,8,2,10);
     r('#f4efe4',4,11,10,4);r('#c0392b',4,12,10,1);r('#2e9d57',6,13,6,1)}};
 const ICONS={},iconArt=k=>ICONS[k]??=mk(18,18,ICON_ART[k]);
+// ---- Neon logos for Frostholm's businesses (BLD nlogo): a picture of what each one does, bent out of neon tube, standing on the
+// shop's name sign. One character per pixel ('.' is clear): a is the main tube, b the second colour.
+const NEON_LOGO={
+  // a music note, for the jazz club
+  note:[['#3b8bff','#9fd0ff'],`
+....aaaaaaaa
+....a......a
+....aaaaaaaa
+....a......a
+....a......a
+....a......a
+..aaa....aaa
+.abba...abba
+.abba...abba
+..aa.....aa.`],
+  // a space invader, for the arcade
+  invader:[['#ff3bd0','#ffffff'],`
+..a.....a..
+...a...a...
+..aaaaaaa..
+.aabaaabaa.
+aaaaaaaaaaa
+a.aaaaaaa.a
+a.a.....a.a
+...aa.aa...`],
+  // a television with its aerial, for the electronics store
+  tv:[['#3bd0ff','#ff5fa8'],`
+...a.....a...
+....a...a....
+.....a.a.....
+aaaaaaaaaaaaa
+a...........a
+a.bbbbbbbbb.a
+a.b.......b.a
+a.b.......b.a
+a.bbbbbbbbb.a
+a...........a
+aaaaaaaaaaaaa
+.a.........a.`],
+  // a coin with a dollar sign, for the bank
+  coin:[['#3bd0ff','#b05fff'],`
+...aaaaaa...
+..a......a..
+.a...b....a.
+a...bbbb...a
+a..b.b.....a
+a...bbb....a
+a....b.b...a
+a..bbbb....a
+.a...b....a.
+..a......a..
+...aaaaaa...`],
+  // a spade from a deck of cards, for the casino
+  spade:[['#ff3b5c','#ffd23a'],`
+.....a.....
+....aaa....
+...aa.aa...
+..aa...aa..
+.aa.....aa.
+aa.......aa
+aa..bbb..aa
+.aaa.b.aaa.
+.....b.....
+....bbb....`],
+  // a cheeseburger, for Polar Burger
+  burger:[['#ff5a3a','#ffd23a'],`
+...aaaaaa...
+.aa......aa.
+a..b..b..b.a
+aaaaaaaaaaaa
+.bbbbbbbbbb.
+aaaaaaaaaaaa
+a..........a
+.aaaaaaaaaa.`],
+  // a shopping trolley, for Nordmart
+  cart:[['#3bd0ff','#ffd23a'],`
+aa...........
+.a...........
+.aaaaaaaaaaaa
+.a.a..a..a..a
+..a.a..a..a.a
+..aaaaaaaaaaa
+..a..........
+..aaaaaaaaaa.
+...bb....bb..
+...bb....bb..`],
+  // a star, for Hotel Aurora
+  star:[['#ffd23a','#ff5fa8'],`
+.....a.....
+....aba....
+aaaaabaaaaa
+.abbbbbbba.
+..abbbbba..
+..abbabba..
+.aba...aba.
+.aa.....aa.`],
+  // a fuel pump, for the fuel dock
+  pump:[['#e0a100','#3bd0ff'],`
+aaaaaa....
+a....a.aa.
+a.bb.a..a.
+a.bb.a..a.
+a....a..a.
+a....aaaa.
+a....a....
+a....a....
+aaaaaaa...`]};
+// a neon logo's pixels, as [x, y, colour]; and its width and height
+const NL={},neonLogo=k=>NL[k]??=(()=>{const[[a,b],art]=NEON_LOGO[k],rows=art.trim().split('\n'),px=[];rows.forEach((row,y)=>[...row].forEach((ch,x)=>{if(ch=='a'||ch=='b')px.push([x,y,ch=='a'?a:b])}));
+  return{px,w:Math.max(...rows.map(r=>r.length)),h:rows.length,col:a}})();
 // A projecting shop sign: the picture hangs on two short chains from a wrought-iron bracket bolted to the building near its
 // corner, so it sticks out over the gap beside the shop. right: the side it sticks out on. Drawn 30 x 29: the wall plate is at
 // x 0-3 (26-29 on the left), and the picture hangs at x 4-23 (6-25), 8 pixels down.
@@ -968,7 +1078,12 @@ function char2(d,fr,body,hair,stripe,hat){const key=[d,fr,body,hair,stripe,hat].
     if(d==0){r(hair,4,1,8,3);r(hair,5,0,6,1);r(hair,4,4,1,2);r(hair,11,4,1,2);r(hl,6,1,2,1);r(OUT,6,5,1,2);r(OUT,9,5,1,2);r('#e9a28f',5,7,1,1);r('#e9a28f',10,7,1,1)}
     else if(d==1){r(hair,4,1,8,7);r(hair,5,0,6,1);r(shade(hair,-.3),5,8,6,1);r(hl,6,1,3,1)}
     else{r(hair,4,1,8,3);r(hair,5,0,6,1);r(hair,9,4,3,3);r(hair,10,7,2,1);r(hl,5,1,2,1);r(OUT,5,5,1,2);r(skd,8,5,1,2)}
-    if(hat){r(hat,4,1,8,2);r(hat,5,0,6,1);r(shade(hat,-.25),4,3,8,1);r('#f2f2f2',7,0,2,1);r(shade(hat,.2),5,1,2,1)}})}
+    // a jester's cap ('jester|a|b'): a crown split between its two colours, with a drooping point on each side ending in a bell
+    if(hat&&hat.startsWith('jester')){const[,a,b]=hat.split('|'),bell='#ffd23a';
+      if(!side){r(a,4,0,4,3);r(b,8,0,4,3);r(shade(a,-.25),4,3,4,1);r(shade(b,-.25),8,3,4,1);r(shade(a,.2),5,0,2,1);
+        r(a,2,1,2,2);r(a,1,3,2,1);r(a,1,4,1,1);r(bell,0,5,2,2);r(b,12,1,2,2);r(b,13,3,2,1);r(b,14,4,1,1);r(bell,14,5,2,2)}
+      else{r(a,4,0,5,3);r(b,9,0,3,3);r(shade(a,-.25),4,3,8,1);r(shade(a,.2),5,0,2,1);r(b,12,1,2,2);r(b,13,3,2,1);r(b,14,4,1,2);r(bell,14,6,2,2)}}
+    else if(hat){r(hat,4,1,8,2);r(hat,5,0,6,1);r(shade(hat,-.25),4,3,8,1);r('#f2f2f2',7,0,2,1);r(shade(hat,.2),5,1,2,1)}})}
 // Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
 const COST={};
 function costume(kind,d,fr){const key=kind+d+fr;if(COST[key])return COST[key];const side=d>1,back=d==1,f=d==3?(x,w=1)=>16-x-w:(x)=>x;
@@ -994,7 +1109,9 @@ function portrait(n){const sk='#f1c7a0',skd='#d9a37a',body=n.body||'#5a6a4a',hai
     r(skd,11,17,6,5);r(sk,12,21,4,2);
     r(sk,8,5,12,13);r(sk,9,4,10,1);r(sk,9,18,10,1);r(skd,19,6,1,11);r(sk,7,10,1,3);r(sk,20,10,1,3);
     r(hair,8,2,12,4);r(hair,7,4,2,7);r(hair,19,4,2,7);r(shade(hair,.2),10,2,6,1);
-    if(n.hat){r(n.hat,7,0,14,5);r(shade(n.hat,.2),8,0,12,1);r(shade(n.hat,-.25),7,5,14,1)}
+    if(n.hat&&n.hat.startsWith('jester')){const[,a,b]=n.hat.split('|');r(a,7,0,7,5);r(b,14,0,7,5);r(shade(a,.2),8,0,4,1);r(shade(a,-.25),7,5,7,1);r(shade(b,-.25),14,5,7,1);
+      r(a,4,2,3,3);r(a,2,5,3,2);r(a,1,7,2,2);r('#ffd23a',0,9,3,3);r(b,21,2,3,3);r(b,23,5,3,2);r(b,25,7,2,2);r('#ffd23a',25,9,3,3)}
+    else if(n.hat){r(n.hat,7,0,14,5);r(shade(n.hat,.2),8,0,12,1);r(shade(n.hat,-.25),7,5,14,1)}
     r(shade(hair,-.25),10,8,3,1);r(shade(hair,-.25),15,8,3,1);
     r('#2a2a33',11,10,2,2);r('#2a2a33',15,10,2,2);r('#ffffff',11,10,1,1);r('#ffffff',15,10,1,1);
     r(skd,14,11,1,3);r('#a0524a',12,15,4,1)})}
@@ -1066,6 +1183,7 @@ bank_in:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#e8ecef',wall2:'#9aa8b8',pap:'
 farmhouse_in:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#e8dcc0',wall2:'#d8cab0',pap:'flower',rug:'#a33b2f',quilt:'#a33b2f',curtain:'#a33b2f',deco:[[3,'win'],[7,'pic'],[11,'win']]},
 barn_in:{fl:'wood',f:['#8a6a45','#7a5d3c','#94754e'],wall:'#a33b2f',wall2:'#8a3026',pap:'stripe',base:'#4a3222',deco:[[9,'win']]},
 civil_in:{fl:'check',f:['#d8d4cc','#b8b2a6'],wall:'#e8e2d4',wall2:'#c9c2b0',pap:'panel',base:'#3a3d44',deco:[[3,'clock'],[9,'portrait'],[15,'win']]},
+kchq2:{fl:'carpet',f:['#1f4a32','#245638'],wall:'#5a3a22',wall2:'#3e2816',pap:'panel',base:'#c9a040',rug:'#7a1e2a',curtain:'#2e9d57',deco:[[2,'win'],[6,'portrait'],[8,'clock'],[11,'win'],[13,'banner']]},
 kchq_in:{fl:'tile',f:['#e8f2ea','#d8e8dc'],wall:'#e8f2ea',wall2:'#2e9d57',pap:'tiles',base:'#2e9d57',rug:'#2e9d57',deco:[[2,'poster'],[6,'win'],[11,'neon','KELP COLA','#2e9d57'],[16,'win'],[19,'clock']]},
 kcfac_in:{fl:'tile',f:['#b4bcc0','#a7b0b5'],wall:'#e8f2ea',wall2:'#9fd6c0',pap:'tiles',base:'#2e5a3a',deco:[[2,'win'],[7,'safety'],[12,'clock'],[17,'win'],[21,'win']]},
 kcwhs_in:{fl:'stone',f:[],wall:'#8aa898',wall2:'#6b8a7a',pap:'tiles',base:'#2e5a3a',deco:[[9,'win']]},
@@ -1411,7 +1529,10 @@ function sceneOf(m,wx){
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
       const dark=shutTonight(x,y,w,h,st),b=bld2(w,h,dark?{...BLD[st],dark:1}:BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);cyberLights(b,x,y,h,lights,CYB(m),dark).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
       if(BLD[st].spire)spires.push({x:x*16+w*8-10,y:y*16-37,roof:BLD[st].roof,row:y+h-1});
-      if(BLD[st].icon)signs.push({x,y,w,h,k:BLD[st].icon,ry:b.ry,nt:b.nt,hang:BLD[st].hang})}
+      if(BLD[st].icon)signs.push({x,y,w,h,k:BLD[st].icon,ry:b.ry,nt:b.nt,hang:BLD[st].hang})
+      if(BLD[st].nlogo){const L0=neonLogo(BLD[st].nlogo),X=x*16+((w*16-L0.w)>>1),Y=y*16+b.nt-L0.h-4;
+        for(const px of[X+2,X+L0.w-3]){g.fillStyle=OUT;g.fillRect(px-1,Y+L0.h,3,4);g.fillStyle='#3a3d44';g.fillRect(px,Y+L0.h,1,3)}
+        an.push({t:'nlogo',k:BLD[st].nlogo,x:X,y:Y,off:dark?1:0});if(!dark)lights.push({x:X+L0.w/2,y:Y+L0.h/2,r:Math.max(28,L0.w*2.2),col:rgbs(L0.col),f:1,rb:CYB(m)?(y+h)*16:0})}}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
   spires.forEach(({x,y,roof,row})=>put(row,x-1,y-1,spireArt(roof)));
@@ -1563,6 +1684,9 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='calendar'&&typeof DAY!='undefined'){const s=String(DAY),w=s.length*8-2,x0=X+((14-w)>>1);
       [...s].forEach((ch,i)=>{const f=FONT[ch];for(let k=0;k<15;k++)if(f[k]=='1')px('#2a2a33',x0+i*8+(k%3)*2,Y+(k/3|0)*2,2,2)})}
     if(a.t=='bulb')px(!a.off&&((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
+    if(a.t=='nlogo'){const L0=neonLogo(a.k),on=!a.off&&hash(t/90|0,5,11+a.x)<.97;
+      if(on){const[R,G,B]=rgb(L0.col);ctx.fillStyle=`rgba(${R},${G},${B},.2)`;ctx.fillRect(X-2,Y-2,L0.w+4,L0.h+4);for(const[x,y]of L0.px)px(`rgba(${R},${G},${B},.35)`,X+x-1,Y+y-1,3,3)}
+      for(const[x,y,c]of L0.px)px(on?c:shade(c,a.off?-.3:-.65),X+x,Y+y,1,1)}
     // neon letters (v: stacked vertically). fl: a failing tube that keeps cutting out.
     if(a.t=='neon'){const c0=a.col||'#ff5fa8',on=a.off?false:a.fl?hash(t/140|0,3,7+a.x)<.72:hash(t/90|0,3,7)<.96,col=on?c0:shade(c0,a.off?-.3:-.65);  // (a sign switched off for the night stays readable: unlit glass, not a dead flicker)
       if(on){const[R,G,B]=rgb(c0);ctx.fillStyle=`rgba(${R},${G},${B},.28)`;if(a.v)ctx.fillRect(X-2,Y-2,7,a.s.length*6+3);else ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}

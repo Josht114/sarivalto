@@ -35,7 +35,7 @@ edge exit to cross to the neighbouring area.
                     in data.js, interior looks per building in INT)
     tools/build-map.js  generates docs/island-map.svg from js/data.js (node tools/build-map.js)
     docs/island-map.svg overview map of every location and path
-    docs/quest-schedule.md  which factions have quests in each of the 19 weeks
+    docs/quest-schedule.md  the quest schedule: which factions are introduced and have quests on each day of September
     docs/town-aesthetics.md the look of each town (Eastbrook, Frostholm, Saltwick, Hope Springs, Kingsgrad)
     content/notes.js    hand-written wiki text (locations, factions, people)
     tools/build-wiki.js generates the wiki/ pages from js/data.js and content/notes.js
@@ -59,13 +59,14 @@ edge exit to cross to the neighbouring area.
   After changing locations or links, run `node tools/build-map.js` and commit the updated SVG.
 - `FACTIONS` and `FACTION_AT` in `js/data.js`: faction names and colours, and which location each faction is based in
   (shown on the overview map; unlisted locations are unassigned).
+- `FACTION_TREE` in `js/data.js`: each faction's hierarchy for the chart on its wiki page: its leader, its important members and who answers to whom (to any depth); everyone else answers to the leader, or with `joint`, to the top members together.
 - `DISTRICTS` and `DISTRICT_OF` in `js/data.js`: the seven districts (name and map colour) and which district each place is in.
   Every place on the overview map needs one (both generators stop with an error otherwise); interiors take their building's district.
 - `BOATS` and `FERRY` in `js/data.js`: boat routes. `BOATS` lists where you can sail from each place (West Saltwick Harbour, North Frostholm Harbour,
   Eastbrook Harbour and the oil rig are all joined to each other); `FERRY` gives where the boat berths are. South Private Harbour has no
   boat routes at all, by design.
 - `NPCS` in `js/data.js`: named characters. Every NPC needs a `name`, `job`, `faction` (a `FACTIONS` id, or `'none'` if unaligned)
-  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`, or `'none'`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Saltwick Harbour and Saltwick; no dialogue yet). An optional `hat` colour gives them a beanie.
+  `loc` (main location id) and `home` (the building interior they live in, which must be listed in `DOORS`, or `'none'`); `node tools/build-wiki.js` stops with an error if any are missing. They stand in the world (currently the people of West Saltwick Harbour and Saltwick; no dialogue yet). An optional `hat` colour gives them a beanie (or `'jester|colour|colour'` a two-colour jester's cap with bells).
 - `TRAM_STOPS` and `TRAM_LINE` in `js/data.js`: the Kelp Cola tram. `TRAM_STOPS` lists the stops in the order the tram calls at them (it loops back to the first);
   each needs a row of track (tile `l`) with a platform (tile `P`) along the row below it, and the row above the track kept clear for the tram's body. `TRAM_LINE` is every place the track passes through, for the overview map.
 - `PRESS_DOORS` in `js/data.js`: places whose door only opens when the player stands on it and presses E (the sewer manhole), instead of by walking on.
