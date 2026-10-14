@@ -28,7 +28,7 @@ const home=c=>c.single?'#home':c.pre+'index.html',lst=(c,k)=>c.single?'#'+k:c.pr
 // top: the place on the island a building interior stands in (its own id for a place). Homes are linked with that place in brackets.
 const top=id=>POS[id]||!parentOf(id)?id:top(parentOf(id));
 const HOMES=new Set([...NPCS.map(n=>n.home),...Object.keys(L).filter(i=>/^(house|villa|shack|tent)_/.test(i))]);
-const locA=(c,id)=>A(c,'locations',id,L[id][0])+(HOMES.has(id)&&top(id)!=id?' ('+esc(L[top(id)][0])+')':''),facA=(c,id)=>id=='none'?'Unaligned':A(c,'factions',id,FACTIONS[id][0]),npcA=(c,n)=>A(c,'npcs',nid(n),n.name);
+const locA=(c,id)=>A(c,'locations',id,L[id][0])+(HOMES.has(id)&&top(id)!=id?' ('+esc(L[top(id)][0])+')':''),facA=(c,id)=>id=='none'?'Unaligned':A(c,'factions',id,FACTIONS[id][0]),npcA=(c,n)=>A(c,'npcs',nid(n),n.name).replace('<a ',`<a class="${n.gender=='female'?'gf':'gm'}" `);
 // ---- Plans: a map of one place, drawn from its tiles. Buildings you can go into link to their pages, exits link to the
 // neighbouring place (and carry data-loc, so the island map viewer opens that place's plan instead), and people are marked.
 const href=(c,k,id)=>c.single?'#'+k+'-'+id:c.pre+k+'/'+id+'.html';
@@ -223,9 +223,9 @@ const CSS=`/* faction hierarchy charts: boxes joined by lines, scrolling sideway
 .org .node.grp{text-align:left;max-width:260px;display:flex;flex-direction:column;gap:3px}
 .org .node.grp b{color:var(--mut);font-size:.85em;text-transform:uppercase;letter-spacing:.05em}
 .org .node.grp span small{display:inline}
-:root{--bg:#f4f1e6;--fg:#2b2118;--mut:#6b5f50;--card:#fffdf6;--bd:#d9d0bc;--ac:#1f6f9a;color-scheme:light dark}
-@media (prefers-color-scheme:dark){:root{--bg:#10161d;--fg:#e6edf3;--mut:#9aa8b6;--card:#17202a;--bd:#2c3a48;--ac:#6fb7e0}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,serif}a{color:var(--ac)}
+:root{--gf:#c2255c;--gm:#1864ab;--bg:#f4f1e6;--fg:#2b2118;--mut:#6b5f50;--card:#fffdf6;--bd:#d9d0bc;--ac:#1f6f9a;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--gf:#f783ac;--gm:#74c0fc;--bg:#10161d;--fg:#e6edf3;--mut:#9aa8b6;--card:#17202a;--bd:#2c3a48;--ac:#6fb7e0}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,serif}a{color:var(--ac)}a.gf{color:var(--gf)}a.gm{color:var(--gm)}
 header{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;padding:12px 20px;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:2}
 .brand{font-weight:bold;letter-spacing:2px;text-decoration:none;color:var(--fg)}nav{display:flex;gap:14px}
 main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0 .4em}h2{margin-top:1.6em;border-bottom:1px solid var(--bd);padding-bottom:.2em}

@@ -79,7 +79,7 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
   shirt:{Wear:'You put on the flannel shirt.'},beanie:{Wear:'You pull on the beanie.'},suit:{Wear:'You put on the suit. You look like you belong in Kingsgrad.'},
-  radio:{Listen:'Radio Sarivalto: Kalle is playing slow songs for the late king.'},fishrod:{Fish:'Find some open water to fish in.'},
+  radio:{Listen:'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:'Find some open water to fish in.'},
   notebook:{'Read':`${DAY} ${MONTH}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
   camera:{'Take a photo':()=>ME.filmIn?'Nothing here worth photographing.':'There is no film in the camera.','Load film':loadFilm},
   film:{'Load into camera':loadFilm},
