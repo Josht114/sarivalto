@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_TREE,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen}=box.D,NOTES=box.N;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen}=box.D,NOTES=box.N;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!atWorkWhen(n,night)&&!!L[n.home];
@@ -125,17 +125,17 @@ function questsBody(c){const head=Q_COLS.map(f=>`<th><span class="sw" style="bac
 // the Hierarchies page: every faction's chart side by side, main factions first, for comparing them
 function hierBody(c){const ids=Object.keys(FACTIONS),card=id=>`<section class="hcard" style="border-top-color:${FACTIONS[id][1]}"><h3><span class="sw" style="background:${FACTIONS[id][1]}"></span>${A(c,'factions',id,FACTIONS[id][0])} <small>${NPCS.filter(n=>inFac(n,id)).length} people</small></h3>${orgChart(c,id)}</section>`;
   return `<h1>Hierarchies</h1><p>Every faction's hierarchy side by side: its leader at the top, its important members below, and everyone else beneath them. Click a faction for its page.</p>
-<h2>Main factions</h2><div class="hgrid">${ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(card).join('')}</div>
-<h2>Side factions</h2><div class="hgrid">${ids.filter(i=>SIDE_FACTIONS.includes(i)).map(card).join('')}</div>
-<h2>Unaffiliated</h2><p>Everyone who belongs to no faction, grouped by the district they work in.</p><div class="hgrid">${unaffChart(c)}</div>`}
-// the chart of everyone with no faction (not even a side one): one box per district, listing who works there, their job and where
-function unaffChart(c){const un=NPCS.filter(n=>n.faction=='none'&&!(n.also||[]).length),by={};un.forEach(n=>(by[distOf(n.loc)||'']??=[]).push(n));
+<h2>Factions</h2><div class="hgrid">${ids.filter(i=>!GROUPS.includes(i)).map(card).join('')}</div>
+<h2>Groups</h2><div class="hgrid">${ids.filter(i=>GROUPS.includes(i)).map(card).join('')}</div>
+<h2>Unaffiliated</h2><p>Everyone who belongs to no faction or group, grouped by the district they work in.</p><div class="hgrid">${unaffChart(c)}</div>`}
+// the chart of everyone with no faction (and in no group): one box per district, listing who works there, their job and where
+function unaffChart(c){const un=NPCS.filter(n=>n.faction=='none'&&!(n.also||[]).length),by={};if(!un.length)return'<p>Everyone belongs to a faction or a group.</p>';un.forEach(n=>(by[distOf(n.loc)||'']??=[]).push(n));
   const box=d=>`<li><div class="node grp" style="border-top-color:${DISTRICTS[d]?DISTRICTS[d][1]:'var(--bd)'}"><b>${esc(DISTRICTS[d]?DISTRICTS[d][0]:'Elsewhere')} · ${by[d].length}</b>${by[d].map(n=>`<span>${npcA(c,n)} <small>${esc(n.job)}, ${esc(L[top(n.loc)][0])}</small></span>`).join('')}</div></li>`;
   const ds=[...Object.keys(DISTRICTS),''].filter(d=>by[d]);
   return `<section class="hcard full" style="border-top-color:var(--mut)"><h3>Unaffiliated <small>${un.length} people</small></h3><div class="org"><ul><li><div class="node lead vacant" style="border-top-color:var(--mut)"><b>No faction</b></div><ul>${ds.map(box).join('')}</ul></li></ul></div></section>`}
-function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>inFac(n,id)),qd=QUEST_DAYS[id],wk=qd?qd.days:[],side=SIDE_FACTIONS.includes(id);
+function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>inFac(n,id)),qd=QUEST_DAYS[id],wk=qd?qd.days:[],side=GROUPS.includes(id);
   const grid='<div class="weeks">'+Array.from({length:30},(_,i)=>{const d=i+1,ev=QUEST_EVENTS[d];return wk.includes(d)?`<span class="on" style="background:${col}" title="${esc(QUEST_TITLES[d]?.[id]||'Quest')}">${d}</span>`:qd&&qd.intro==d?`<span class="intro" style="border-color:${col};color:${col}" title="Introduction">${d}</span>`:ev?`<span class="ev" title="${esc(ev[0])}">${d}</span>`:`<span>${d}</span>`}).join('')+'</div>';
-  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Side faction (can't win)":'Main faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',qd?`${wk.length} (days ${wk.join(', ')}); introduced on day ${qd.intro}`:'None scheduled']])}
+  return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Group (can't win)":'Faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',qd?`${wk.length} (days ${wk.join(', ')}); introduced on day ${qd.intro}`:'None scheduled']])}
 <p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p>`+(mem.length||FACTION_TREE[id]?`<h2>Hierarchy</h2>${orgChart(c,id)}`:'')+(side?'':`<h2>Quest days</h2><p>The faction's days in September (the game's 30 days): its introduction (outlined), its quests (filled) and the days given to the whole island (hatched). <a href="${lst(c,'quests')}">The full schedule</a>.</p>${grid}`)+`
 <h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
 // where someone is by day or by night, as a link with the place it is in and whether they are at work or at home
@@ -162,7 +162,7 @@ const PLACE_COL=(()=>{
 const placeSw=(id,big)=>PLACE_COL[id]?`<span class="sw${big?' big':''}" style="background:${PLACE_COL[id]}" title="${esc(L[id][0])}"></span>`:'';
 const gen=n=>n.gender=='male'?'Male':n.gender=='female'?'Female':'Not specified';
 function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
-  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Gender',gen(n)],n.partner&&['Partner',npcA(c,NPCS.find(o=>o.name==n.partner))],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Side faction',(n.also||[]).length?n.also.map(f=>`<span class="sw" style="background:${FACTIONS[f][1]}"></span>`+facA(c,f)).join(', '):'None'],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
+  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Gender',gen(n)],n.partner&&['Partner',npcA(c,NPCS.find(o=>o.name==n.partner))],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Groups',(n.also||[]).length?n.also.map(f=>`<span class="sw" style="background:${FACTIONS[f][1]}"></span>`+facA(c,f)).join(', '):'None'],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
    ['Look',`<span class="sw" style="background:${n.body}"></span> clothes <span class="sw" style="background:${n.hair}"></span> hair`]])}<p>${esc(nt.note||n.name+' lives on the island.')}</p>`}
 const filter='<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">';
 function idxBody(c,k){let t;
@@ -172,8 +172,8 @@ function idxBody(c,k){let t;
   else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none'&&!(n.also||[]).length);// one section per faction, listing everyone aligned with it
     const sec=i=>{const mem=NPCS.filter(n=>inFac(n,i));
       return`<h3><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h3><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`},ids=Object.keys(FACTIONS);
-    t='<h1>Factions</h1><p>Compare every faction\'s leadership on the <a href="'+lst(c,'hierarchies')+'">Hierarchies</a> page.</p>'+filter+'<h2>Main factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(sec).join('')+
-      "<h2>Side factions</h2><p>Factions that play a part in the story but can't win it.</p>"+ids.filter(i=>SIDE_FACTIONS.includes(i)).map(sec).join('')+
+    t='<h1>Factions</h1><p>Compare every faction\'s leadership on the <a href="'+lst(c,'hierarchies')+'">Hierarchies</a> page.</p>'+filter+'<h2>Factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!GROUPS.includes(i)).map(sec).join('')+
+      "<h2>Groups</h2><p>Groups that play a part in the story but can't win it.</p>"+ids.filter(i=>GROUPS.includes(i)).map(sec).join('')+
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
   else{// one table per place on the island (alphabetical), sorted by name; people based inside a building are listed under the
     // place it stands in. Click a column heading to sort that table by it.
@@ -186,9 +186,14 @@ function idxBody(c,k){let t;
         `<td data-v="${esc(n.home=='none'?'~':L[n.home][0])}">${n.home=='none'?'No fixed home':where(n.home,g)}</td>`+
         `<td>${esc(n.job)}</td><td class="note">${esc(note)}</td></tr>`};
     const head='<colgroup><col style="width:8%"><col style="width:7.5%"><col style="width:11%"><col style="width:9.5%"><col style="width:12%"><col style="width:12%"><col style="width:11%"><col style="width:9%"><col></colgroup><thead><tr>'+
-      ['Name','Gender','Faction','Side faction','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<8?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
+      ['Name','Gender','Faction','Groups','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<8?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
     const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
-    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people (${NPCS.filter(n=>n.gender=='male').length} men, ${NPCS.filter(n=>n.gender=='female').length} women${NPCS.some(n=>!n.gender)?`, ${NPCS.filter(n=>!n.gender).length} not specified`:''}), grouped by the place they are based in, with where each of them is by day and by night. Click a column heading to sort a table by it.</small></p>`+
+    // the couples (NPCS partner), each once: both people with their faction or group, their home (shared or not) and where they work
+    const fac=n=>n.faction=='none'?'Unaligned':`<span class="sw" style="background:${FACTIONS[n.faction][1]}"></span>`+facA(c,n.faction);
+    const pairs=NPCS.filter(n=>n.partner).map(n=>[n,NPCS.find(o=>o.name==n.partner)]).filter(([a,b])=>b&&a.name<b.name);
+    const partners=pairs.length?`<section><h2>Partners <small>(${pairs.length} couples)</small></h2><div class="wide"><table class="grid"><thead><tr><th>Partner</th><th>Faction or group</th><th>Partner</th><th>Faction or group</th><th>Home</th><th>Work</th></tr></thead><tbody>${
+      pairs.map(([a,b])=>`<tr><td>${npcA(c,a)}</td><td>${fac(a)}</td><td>${npcA(c,b)}</td><td>${fac(b)}</td><td>${a.home==b.home?where(a.home,top(a.home))+' <small>(together)</small>':where(a.home,top(a.home))+' and '+where(b.home,top(b.home))}</td><td>${esc(a.name)}: ${where(a.loc,top(a.loc))}<br>${esc(b.name)}: ${where(b.loc,top(b.loc))}</td></tr>`).join('')}</tbody></table></div></section>`:'';
+    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people (${NPCS.filter(n=>n.gender=='male').length} men, ${NPCS.filter(n=>n.gender=='female').length} women${NPCS.some(n=>!n.gender)?`, ${NPCS.filter(n=>!n.gender).length} not specified`:''}), grouped by the place they are based in, with where each of them is by day and by night. Click a column heading to sort a table by it.</small></p>`+partners+
       Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(i=>`<section class="grp"><h2>${placeSw(i,1)}${locA(c,i)} <small>(${g[i].length})</small></h2><div class="wide"><table class="grid sortable">${head}<tbody>${
         g[i].sort((a,b)=>a.name.localeCompare(b.name)).map(n=>row(n,i)).join('')}</tbody></table></div></section>`).join('')}
   return t}
@@ -197,7 +202,7 @@ function mapView(c){const ov=svg.replace(/href="\.\.\/wiki\/locations\/(\w+)\.ht
   return `<div class="mapview"><p class="hint">Click a place to see a map of it.</p><div class="overview map">${ov}</div>`+
     Object.keys(POS).map(id=>`<div class="plan" data-plan="${id}" hidden><div class="planbar"><button type="button" class="back">← Island map</button><b>${esc(L[id][0])}</b><a href="${href(c,'locations',id)}">About this place →</a></div>${plan(c,id)}</div>`).join('')+'</div>'}
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${mapView(c)}
-<ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length-SIDE_FACTIONS.length}</b> main and <b>${SIDE_FACTIONS.length}</b> side <a href="${lst(c,'factions')}">factions</a></li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
+<ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length-GROUPS.length}</b> <a href="${lst(c,'factions')}">factions</a> and <b>${GROUPS.length}</b> groups</li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
 const CSS=`/* faction hierarchy charts: boxes joined by lines, scrolling sideways on a narrow screen */
 .org{overflow-x:auto;padding:4px 0 12px;margin:0 0 8px}
 .org ul{display:flex;justify-content:center;position:relative;margin:0;padding:18px 0 0;list-style:none}
