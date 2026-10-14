@@ -10,7 +10,7 @@ It is still the early 1980s everywhere. How snowy a place is depends on its regi
 | Frostholm | `fishing`, `kalanharbour`, its interiors | Corporate and urban: advertising and neon everywhere |
 | Saltwick | `village`, `harbour`, its interiors | Run down and weathered |
 | Hope Springs | `gated`, `privbeach`, `privharbour`, its villas | Very fancy: flowers everywhere, well-kept paths |
-| Kingsgrad | `town`, its interiors | A generic city |
+| Kingsgrad | `town`, its interiors | A city with a light steampunk touch |
 
 ## Eastbrook: Portland by way of a lumber town
 
@@ -77,9 +77,21 @@ Where the rich and powerful live, behind a gate. Everything is clipped, swept an
 - **Harbour and beach:** yachts, polished wooden decking, sun loungers, a boathouse.
 - **Avoid:** clutter, rust, crates, anything working-class.
 
-## Kingsgrad: a generic city
+## Kingsgrad: a city with a light steampunk touch
 
-The capital and the hub. It should feel like an ordinary city, the baseline the other towns are measured against.
+The capital and the hub. Underneath it is an ordinary city, the baseline the other towns are measured against; over that it has
+a light steampunk touch (`steamTouch` in `js/art.js`), added to its own buildings without changing their size or shape:
+
+- **Chimney stacks:** soot-black brick with verdigris copper caps, smoking, on every roof, with a brass ridge along the top.
+- **Copper roofs, on a few only:** the Civil Service Bureau, the Police Station, the Supermarket and the Book Shop.
+- **Pipework:** copper pipes down the corners of every building, with valve wheels.
+- **Doors:** brass-bound plank doors on about a third of the buildings.
+- **Atmosphere:** the ground graded sepia, a warm haze, and steam drifting through the streets.
+- **Not:** gears, clocks or airships (those are only in the full steampunk proof of concept, `?steam`).
+
+`?classic` shows the town as it was before; comparisons are in `docs/poc/kingsgrad2-comparison-*.png`.
+
+The town underneath:
 
 - **Buildings:** a mix of gable shops and flat-roofed blocks in brick and render, moderate colours, standard shop awnings and signs.
 - **Palette:** neutral: brick red, beige, grey, muted blues and greens.

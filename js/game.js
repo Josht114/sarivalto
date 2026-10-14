@@ -27,6 +27,7 @@ function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;show
 P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
 // (the ?gothic proof of concept starts in Eastbrook's square instead)
 if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
+if(STEAM||STEAM2||CLASSIC)go('town');  // the steampunk proof of concept (and ?steam2, ?classic) start in Kingsgrad
 // The day/night toggle beside it (or N): the scenes are rebuilt, since windows, lamps and the detailed proof of concept's
 // art differ by night.
 const dn=document.getElementById('daynight');
@@ -169,8 +170,14 @@ function update(dt){
   if(!P.mv&&stack.length){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
     if(door){if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
+    else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
     else if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
 }
+// a warehouse's or barn's big sliding doors (BLD deco 'whs', drawn across the middle of its front): walking up into them is
+// the same as using the building's own door beside them (unless that door is shut)
+function bigDoor(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.deco=='whs'&&y==fy+h-1&&x>=fx&&x<fx+w);if(!f)return null;
+  const[fx,fy,w,h]=f,bx=(w*16>>1)-12,i=x-fx;if(i*16+15<bx||i*16>bx+24)return null;
+  const e=EX[P.m].find(e=>e.y==fy+h-1&&e.x>=fx&&e.x<fx+w&&L[e.to]?.[3]=='interior');return e&&!shut(e.to)?e:null}
 // a tram has come along where the player is standing: move them to the nearest free tile (preferring in front of the track)
 function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6;dx++){const x=P.x+dx,y=P.y+dy;
     if(!solid(P.m,x,y)){const d=Math.abs(dx)+Math.abs(dy)*1.5-(dy>0?.5:0);if(!best||d<best[2])best=[x,y,d]}}
@@ -180,9 +187,11 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
 let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
 // ---- Talking: the person on the tile the player is facing, or just across a counter (tile c: bar counters, shop counters,
-// reception desks) from it, and what they say (a placeholder line for everyone for now)
+// reception desks) or a cell's bars from it, and what they say (a placeholder line for everyone for now)
 const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
-  for(let i=0;i<3;i++){const n=NPCS.find(n=>n.m==P.m&&n.x==x&&n.y==y);if(n)return n;if(MAPS[P.m][y]?.[x]!='c')return;x+=dx;y+=dy}};
+  for(let i=0;i<3;i++){const n=NPCS.find(n=>n.m==P.m&&n.x==x&&n.y==y);if(n)return n;if(MAPS[P.m][y]?.[x]!='c'&&!barsAt(x,y))return;x+=dx;y+=dy}};
+// cell bars (a feature labelled as bars): you can talk to someone through them, as across a counter
+const barsAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/bars/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
 const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
 // your own bed (in the living space behind the Hidden Radio Room) is the tile you're facing
 const HOME='hekki_room',bedAhead=()=>{const[dx,dy]=DIR[P.dir];return P.m==HOME&&MAPS[P.m][P.y+dy]?.[P.x+dx]=='e'};
@@ -285,7 +294,7 @@ function draw(t){
   drawWorld2(P.m,cx,cy,t,P.mv?1+P.par:0);
   NPCS.filter(n=>n.m==P.m).forEach(n=>tx(n.name,n.x*T-cx+8,n.y*T-cy-7,'center','n'));
   // (a building whose picture sign stands on its roof has its label above the picture)
-  const it=scene(P.m).iconTop||{};FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(lb)tx(lb,(x+w/2)*T-cx,st?Math.min(y*T,it[x+','+y]??1e9)-cy-3:(y+h/2)*T-cy+2,'center',st?'b':'s')});
+  const it=scene(P.m).iconTop||{};FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(lb)tx(c=='e'&&FLAT_BLOCK.test(P.m)?flatLabel(P.m,x,y):lb,(x+w/2)*T-cx,st?Math.min(y*T,it[x+','+y]??1e9)-cy-3:(y+h/2)*T-cy+2,'center',st?'b':'s')});
   EX[P.m].filter(e=>e.s!='O').forEach(e=>{const[ix,iy]=inw(e),s=e.s=='F'?(e.ax>e.x?'L':'R'):e.s,nm=NM[e.to]+(e.s=='F'?' (boat)':''),lb=(s=='R'?'':'\u2192 ')+nm+(s=='R'?' \u2192':'');
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
   if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
@@ -300,7 +309,7 @@ function draw(t){
 // exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
-function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork))}
+function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork))}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));
@@ -322,7 +331,12 @@ function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1]
         if(!best||sc<best.sc){taken.add(m+','+x+','+y);const ok=reach(m).size==base.size-1;taken.delete(m+','+x+','+y);if(ok)best={sc,m,x,y,dir,bed}}}});
     if(!best)return;taken.add(best.m+','+best.x+','+best.y);if(best.bed!=null&&best.bed>=0)use[best.m+best.bed]=(use[best.m+best.bed]||0)+1;
     BED.set(n,{m:best.m,bed:best.bed});R.set(n,{m:best.m,x:best.x,y:best.y,dir:best.dir,costume:undefined})});
+  // who sleeps by each bed in the apartment blocks, for the labels on their flats
+  BED.forEach((b,n)=>{if(b.bed>=0&&FLAT_BLOCK.test(b.m)){const[fx,fy]=beds(b.m)[b.bed];((FLATS[b.m]??={})[fx+','+fy]??=[]).push(n.name)}});
   return R}
+// the apartment blocks' floors, and each flat's residents there by its bed (FLATS[place][bed x,y]); a flat's label names them
+var FLATS={};const FLAT_BLOCK=/^(apartments|skyapts|kgapts|eblofts|hsresid)/;
+const flatLabel=(m,x,y)=>{const ns=FLATS[m]?.[x+','+y];return!ns?'Empty flat':(ns.length>1?ns.slice(0,-1).join(', ')+' & '+ns.at(-1):ns[0])+"'s flat"};
 ROUTINE=planRoutine();applyRoutine();
-if(!GOTHIC&&!DETAILED&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}
+if(!GOTHIC&&!DETAILED&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);

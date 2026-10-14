@@ -11,6 +11,11 @@ const mix=(a,b,k)=>{const A=rgb(a),B=rgb(b);return'#'+A.map((v,i)=>Math.round(v+
 // redrawn as gothic stone with stained glass (GBLD), its props and trees are swapped for gothic ones (GPROP, DEADTREES), and a
 // lighting pass leaves it dark except around windows, lamps and fires, under drifting fog and falling ash.
 const GOTHIC=typeof location!='undefined'&&/[?&]gothic\b/.test(location.search),GOTH=m=>GOTHIC&&m=='second';
+// Steampunk proof of concept for Kingsgrad (?steam): see steamArt
+const STEAM=typeof location!='undefined'&&/[?&]steam\b/.test(location.search),STM=m=>STEAM&&m=='town';
+// Kingsgrad's look: its own buildings with steampunk touches laid over them (see steamTouch), and a sepia haze. ?classic shows
+// the town as it was before, and ?steam the full steampunk proof of concept instead. (?steam2 starts the game in Kingsgrad.)
+const qs=typeof location!='undefined'?location.search:'',STEAM2=/[?&]steam2\b/.test(qs),CLASSIC=/[?&]classic\b/.test(qs),STM2=m=>m=='town'&&!STEAM&&!CLASSIC;
 // gradient maps: a pixel's brightness picks a colour along a ramp (slate for most things, crimson for reddish ones)
 const RAMP_SLATE=['#0a0910','#191824','#2a2938','#424256','#62677e','#8a92a8'],RAMP_BLOOD=['#120608','#2e0c10','#541619','#7c2a22','#a8503a','#c9844e'];
 function gradeImage(p){const at=(R,k)=>{const f=Math.max(0,Math.min(.999,k))*(R.length-1),i=f|0,u=f-i,a=rgb(R[i]),b=rgb(R[i+1]);return[0,1,2].map(j=>a[j]+(b[j]-a[j])*u)};
@@ -211,7 +216,10 @@ function groundLayer(m){if(DET(m))return detailedGround(m);
         if(ch=='.'&&hash(tx,ty,18)>.9&&lx==toy&&ly==tox)col='#8a929b'}
       if(col){const i=(Y*W+X)*4;p.set(rgb(col),i);p[i+3]=a}}}
   if(GOTH(m))gradeImage(p);
+  if(STM(m)||STM2(m))sepiaImage(p);
   g.putImageData(img,0,0);return c}
+// the steampunk town's ground: every pixel pulled towards a sepia of its own brightness
+function sepiaImage(p){for(let i=0;i<p.length;i+=4){const l=(p[i]*.3+p[i+1]*.59+p[i+2]*.11)/255,sp=[46+l*176,32+l*140,20+l*96];for(let j=0;j<3;j++)p[i+j]=p[i+j]*.35+sp[j]*.65}}
 
 // ---- Animated water: 8 seamless 64x64 frames of two crossing wave trains.
 const WATER=Array.from({length:8},(_,f)=>{const c=cnv(64,64),g=c.getContext('2d'),img=g.createImageData(64,64),TAU=Math.PI*2,ph=f/8*TAU;
@@ -244,7 +252,37 @@ const ICON_ART={
     for(const[x,y]of[[3,3],[6,2],[9,2],[12,3],[2,5],[13,5],[5,4],[10,4]])r('#ffffff',x,y,3,3);r('#ffffff',3,5,10,2);r('#e8eef2',4,6,8,1);r('#ffffff',13,6,2,3)},
   // a Kelp Cola bottle
   cola:r=>{r('#c0392b',7,0,4,2);r('#2e9d57',7,2,4,4);r('#2e9d57',6,6,6,1);r('#2e9d57',5,7,8,1);r('#2e9d57',4,8,10,10);r('#5fc48a',5,8,2,10);r('#1f7a42',12,8,2,10);
-    r('#f4efe4',4,11,10,4);r('#c0392b',4,12,10,1);r('#2e9d57',6,13,6,1)}};
+    r('#f4efe4',4,11,10,4);r('#c0392b',4,12,10,1);r('#2e9d57',6,13,6,1)},
+  // Kingsgrad's picture signs
+  // a blue shield with a gold band and seal, for the Civil Service Bureau
+  crest:r=>{for(let y=1;y<17;y++){const hw=y<11?7:Math.max(0,7-(y-10)*1.2|0);r('#2e4a7a',9-hw,y,hw*2,1)}r('#c9a040',2,1,14,1);r('#c9a040',2,6,14,2);r('#4a6aa0',3,2,3,4);
+    for(let y=9;y<14;y++)for(let x=6;x<12;x++)if(Math.hypot(x-8.5,y-11)<=2.8)r('#c9a040',x,y);r('#8a6a20',8,10,2,2)},
+  // a revolver, for the gun shop
+  pistol:r=>{r('#3a3d44',0,5,11,3);r('#6b737c',0,5,11,1);r('#2a2a30',1,4,2,1);r('#4a4f58',9,3,6,7);r('#6b737c',9,3,6,1);for(const y of[4,6,8])r('#2a2a30',10,y,4,1);
+    r('#3a3d44',8,9,4,3);r('#2a2a30',9,10,2,1);for(let k=0;k<7;k++)r(k%2?'#6a4428':'#8a5a36',12+(k>>1),10+k,4,1);r('#c9a040',15,9,2,1)},
+  // a wicker basket of groceries, for the supermarket
+  basket:r=>{for(let x=4;x<14;x++){const y=Math.round(6-Math.sin((x-4)/9*Math.PI)*5);r('#7a5232',x,y,1,2)}r('#c0392b',4,6,4,4);r('#e85a4a',5,6,1,1);r('#d89a4a',9,5,6,4);r('#a8642a',10,6,4,1);r('#5a9a3a',7,4,2,3);
+    for(let y=9;y<17;y++){const i=y-9;r('#c9822a',1+(i>>2),y,16-(i>>1),1);for(let x=2+(i>>2);x<16-(i>>2);x+=3)r('#8a5a2a',x+(y%2),y,1,1)}r('#7a5232',1,9,16,1)},
+  // a pair of open scissors, for the tailor
+  scissors:r=>{for(let k=0;k<10;k++){r('#c3cad1',3+k,k,2,1);r('#c3cad1',13-k,k,2,1)}r('#2a2a30',8,8,2,2);
+    for(const cx of[4,13])for(let y=10;y<18;y++)for(let x=cx-4;x<=cx+4;x++){const d=Math.hypot(x-cx,y-13.5);if(d<=3.6&&d>=2.2)r('#7d3c98',x,y)}},
+  // an open book, for the book shop
+  book:r=>{r('#5a3a26',0,5,18,11);r('#f4efe4',1,3,7,12);r('#f4efe4',10,3,7,12);r('#e0d8c4',7,4,1,11);r('#e0d8c4',10,4,1,11);r('#3a2a1a',8,3,2,13);
+    for(let y=5;y<13;y+=2){r('#8a8070',2,y,5,1);r('#8a8070',11,y,5,1)}r('#c0392b',13,3,2,6)},
+  // a film reel with a curl of film, for the cinema
+  reel:r=>{for(let y=0;y<17;y++)for(let x=0;x<17;x++){const d=Math.hypot(x-8,y-8);if(d<=8.2)r(d>7.2?'#2a2a30':'#7a8088',x,y)}
+    for(const[a,b]of[[7,2],[12,5],[11,11],[4,11],[2,5]])r('#1a1a1e',a,b,3,3);r('#c9a040',7,7,3,3);r('#2a2a30',8,8,1,1);r('#1a1a1e',13,14,5,2);r('#3a3a44',14,16,4,2)},
+  // a little house, for the estate agent
+  house:r=>{for(let k=0;k<8;k++)r('#2e6f9a',8-k,1+k,2+k*2,1);r('#1f4a6a',1,8,16,1);r('#f2ede0',3,9,12,9);r('#d8d0c0',3,9,12,1);r('#5b3a26',8,12,3,6);r('#bcd9ea',4,11,3,3);r('#bcd9ea',12,11,2,3);r('#7a4234',12,2,2,4)},
+  // a fish on a hook, for the fishing shop
+  fish:r=>{r('#9aa3ad',13,0,1,6);for(let x=12;x<15;x++)r('#9aa3ad',x,6,1,1);r('#9aa3ad',11,5,1,1);
+    for(let y=8;y<16;y++)for(let x=1;x<15;x++){const dx=(x-7)/6,dy=(y-11.5)/3.4;if(dx*dx+dy*dy<=1)r(y<11?'#5b8fb9':'#a9d4e8',x,y)}
+    for(let k=0;k<4;k++)r('#2e6f9a',13+k,10-k,1,3+k*2);r('#1a1a1e',3,10,1,1);r('#2e6f9a',5,8,1,7)},
+  // a gold six-pointed star, for the police
+  badge:r=>{for(let y=0;y<18;y++)for(let x=0;x<18;x++){const X=x-8.5,Y=y-8.5,a=Math.atan2(Y,X),d=Math.hypot(X,Y),rad=5+3.6*Math.pow(Math.abs(Math.cos(a*3)),3);if(d<=rad)r(d<4?'#e8c860':'#c9a040',x,y)}
+    r('#8a6a20',7,7,4,4);r('#1f3a5f',8,8,2,2)},
+  // a red cross on a white disc, for the doctor
+  cross:r=>{for(let y=0;y<18;y++)for(let x=0;x<18;x++)if(Math.hypot(x-8.5,y-8.5)<=8.6)r('#f4f4f0',x,y);r('#c0392b',7,3,4,12);r('#c0392b',3,7,12,4);r('#e85a4a',7,3,1,12)}};
 const ICONS={},iconArt=k=>ICONS[k]??=mk(18,18,ICON_ART[k]);
 // ---- Neon logos for Frostholm's businesses (BLD nlogo): a picture of what each one does, bent out of neon tube, standing on the
 // shop's name sign. One character per pixel ('.' is clear): a is the main tube, b the second colour.
@@ -717,6 +755,62 @@ function wagonArt(w,h,c){const W=w*16,H=h*16+10,cx=W>>1;return mk(W,H,r=>{
 // slate gable with an iron finial over each bay, a tall lancet window of stained glass in each (lit crimson and amber, or dark),
 // an arched door between two candles, and optionally a bell tower, a rose window, crimson banners and a carved sign. It rises
 // GEXT pixels above its footprint. Returns the picture, its animations and its light sources (all relative to the picture).
+// ---- Steampunk touches (Kingsgrad's look; not with ?classic or ?steam), laid over a building b drawn by bld2 (same size): copper on a few roofs (copper),
+// smoking soot-black chimney stacks and a brass ridge on every roof, copper pipes with valve wheels down the corners, and a
+// brass-bound plank door on a few (door). s is its BLD look, dx its door's column, sd a number to vary things by.
+function steamTouch(b,w,h,s,dx,sd,copper,door){const c=b.c,g=c.getContext('2d'),W=c.width,H=c.height,ry=b.ry,r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a|0,b|0)};
+  // copper: the roof's own colours (lighter and darker) turned verdigris, keeping their shading; snow, signs and trim untouched
+  if(copper&&s.roof){const im=g.getImageData(0,0,W,Math.max(1,ry)),p=im.data,fam=[-.45,-.35,-.25,-.15,0,.1,.2,.3].map(k=>rgb(shade(s.roof,k))),V=['#1f4a40','#2e6a5c','#3f8a76','#5aa892','#86c8b2'];
+    for(let i=0;i<p.length;i+=4){if(!p[i+3])continue;const near=fam.some(f=>Math.abs(f[0]-p[i])+Math.abs(f[1]-p[i+1])+Math.abs(f[2]-p[i+2])<34);if(!near)continue;
+      const l=(p[i]*.3+p[i+1]*.59+p[i+2]*.11)/255,v=rgb(V[Math.min(4,Math.max(0,Math.round(l*6-.6)))]);p[i]=v[0];p[i+1]=v[1];p[i+2]=v[2]}
+    g.putImageData(im,0,0)}
+  // a brass ridge cap along the top of the roof, and chimney stacks of soot-black brick with copper caps, smoking
+  r('#c9a040',2,1,W-4,1);const an=[];
+  for(const f of(w>=6?[.18,.82]:[hash(w,h,sd)>.5?.22:.78])){const x=Math.round(W*f)-4,top=0,bot=Math.min(ry-3,20);if(bot-top<6)continue;
+    r('#1a1410',x-1,top,10,bot-top+1);r('#4a2a22',x,top+1,8,bot-top-1);r('#5e3428',x,top+1,2,bot-top-1);for(let y=top+4;y<bot;y+=3)r('#2e1c16',x,y,8,1);r('#1a1410',x-2,top,12,3);r('#2e5e54',x-1,top,10,2);r('#5aa08e',x-1,top,10,1);r('#2a2a33',x+2,top,4,1);an.push({t:'smoke',x:x+4,y:top-2})}
+  // copper pipes down both corners from the eaves, each with a valve wheel
+  for(const px of[1,W-4]){r('#5a3a1a',px-1,ry+1,5,H-ry-5);r('#8a5a2a',px,ry+1,3,H-ry-5);r('#c08040',px,ry+1,1,H-ry-5);
+    for(let y=ry+6;y<H-6;y+=9)r('#5a3a1a',px,y,3,1);const vy=ry+5+(hash(px,1,sd)*Math.max(1,H-ry-16)|0);r('#c9a040',px-1,vy,5,1);r('#c9a040',px+1,vy-2,1,5);r('#7a2a1a',px+1,vy,1,1)}
+  // a heavy plank door bound in brass, in place of the painted one
+  if(door&&dx>=0){const X=dx*16+2;r('#1a1410',X-1,H-18,14,15);r('#4a2e1a',X,H-17,12,14);for(let x=X+2;x<X+12;x+=3)r('#3a2214',x,H-16,1,13);
+    r('#c9a040',X-1,H-18,14,1);r('#c9a040',X,H-13,12,1);r('#c9a040',X,H-7,12,1);for(const y of[H-13,H-7])for(const x of[X+1,X+10])r('#ffe08a',x,y,1,1);r('#ffd23a',X+9,H-10,1,2)}
+  b.an.push(...an)}
+// ---- Steampunk buildings (?steam, Kingsgrad only). s is the building's BLD look (for its kind and sign); dx its door's column.
+// Drawn SEXT pixels taller than the building, for the chimney stacks. Returns the picture and its animations (smoke, gears).
+const SEXT=24;
+function steamArt(w,h,s,dx){const W=w*16,H=h*16+SEXT,c=cnv(W,H),g=c.getContext('2d'),an=[],sd=(W*31+h*7+(s.sign||s.wall||'').length*13)%997;
+  const r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x|0,y|0,a|0,b|0)};
+  const tall=s.kind=='tall',home=!s.sign&&!s.deco&&!tall&&!s.marquee,big=w>=6&&!home,rt=SEXT+2,ry=SEXT+(tall?8:Math.max(14,Math.round(h*16*.3))),base=H,pl=base-7;
+  // chimney stacks: soot-black brick with copper caps, smoking
+  const stacks=tall?[.2,.5,.8]:home?[.7]:[.25,.75];
+  for(const f of stacks){const x=Math.round(W*f)-3,top=2+(hash(x,2,sd)*6|0);r('#1a1410',x-1,top-1,8,rt-top+2);r('#4a2a22',x,top,6,rt-top);for(let y=top+3;y<rt;y+=4)r('#2e1c16',x,y,6,1);
+    r('#2e5e54',x-1,top,8,2);r('#5aa08e',x-1,top,8,1);an.push({t:'smoke',x:x+3,y:top-2})}
+  // roof: verdigris copper sheets with darker seams, a brass ridge along the top
+  r('#1a1410',0,rt-1,W,ry-rt+2);for(let y=rt;y<ry;y++)for(let x=1;x<W-1;x++)r(x%8==0?'#2e5e54':(y-rt)%5==0?'#3c7466':hash(x>>1,y>>1,sd)>.92?'#5aa08e':'#4a8a7a',x,y,1,1);
+  r('#c9a040',0,rt,W,1);r('#8a6a20',0,rt+1,W,1);
+  // walls: soot-dark brick with dark mortar, an iron plinth studded with brass rivets along the bottom
+  // (each building's bricks lean a little towards its usual wall colour, so the street isn't all one brown)
+  const b1=mix('#5a3226',s.wall||'#5a3226',.3),b2=mix('#6e3e2c',s.wall||'#6e3e2c',.3),b3=mix('#3e2420',s.wall||'#3e2420',.2);
+  for(let y=ry;y<pl;y++)for(let x=0;x<W;x++){const row=(y-ry)>>2,mortar=((x+(row&1)*4)%8==0)||((y-ry)%4==0);r(mortar?'#2e1e18':hash(x>>3,row,sd)>.82?b2:hash(x>>3,row,sd+1)>.9?b3:b1,x,y,1,1)}
+  r('#2e2c2a',0,pl,W,7);r('#4a4642',0,pl,W,1);for(let x=3;x<W;x+=6)r('#c9a040',x,pl+3,1,1);r('#1a1410',0,ry,1,base-ry);r('#1a1410',W-1,ry,1,base-ry);
+  // a copper pipe along the eaves, and down the corners with valve wheels
+  r('#8a5a2a',0,ry,W,2);r('#c08040',0,ry,W,1);
+  for(const px of[2,W-5]){r('#8a5a2a',px,ry+2,3,pl-ry-2);r('#c08040',px,ry+2,1,pl-ry-2);const vy=ry+6+(hash(px,1,sd)*Math.max(1,pl-ry-14)|0);r('#c9a040',px-1,vy,5,1);r('#c9a040',px+1,vy-2,1,5);r('#7a2a1a',px+1,vy,1,1)}
+  // windows: brass-rimmed portholes with a cross bar, most warmly lit
+  const rows=tall?Math.max(1,Math.floor((pl-ry-6)/14)):1;
+  for(let k=0;k<rows;k++){const cy=ry+9+k*14;if(cy+5>pl)break;for(let i=0;i<w;i++){if(i==dx&&k==rows-1)continue;const cx=i*16+8;if(cx<9||cx>W-9)continue;const lit=hash(i,k,sd+3)>.3;
+    for(let yy=-5;yy<=5;yy++)for(let xx=-5;xx<=5;xx++){const d=Math.hypot(xx,yy);if(d<=5.2)r(d>4.1?'#c9a040':d>3.6?'#8a6a20':lit?(yy<-1?'#ffe2a0':'#ffbf5a'):'#2a2a33',cx+xx,cy+yy,1,1)}
+    r('#8a6a20',cx-3,cy,7,1);r('#8a6a20',cx,cy-3,1,7)}}
+  // the door: heavy planks bound in brass, under a brass arch
+  if(dx>=0){const X=dx*16+3;r('#1a1410',X-1,base-18,12,18);r('#4a2e1a',X,base-17,10,17);for(let x=X+2;x<X+10;x+=3)r('#3a2214',x,base-16,1,16);
+    r('#c9a040',X-1,base-18,12,1);r('#c9a040',X,base-12,10,1);r('#c9a040',X,base-5,10,1);r('#ffd23a',X+7,base-9,1,2)}
+  // a brass name plaque on the roof's front edge, and a clock on the grand buildings
+  let nt=ry-10;if(s.sign){const t=s.sign.slice(0,Math.floor((W-10)/4)),tw=t.length*4-1,bx=(W-tw-4)>>1,py=ry-9;r('#1a1410',bx-1,py-1,tw+6,9);r('#c9a040',bx,py,tw+4,7);r('#ffe08a',bx,py,tw+4,1);ptext(r,t,bx+2,py+1,'#2a1a10');nt=py-1}
+  if(s.cols||s.flag||tall){const cx=W>>1,cy=rt+((ry-rt)>>1)-(s.sign?3:0);for(let yy=-6;yy<=6;yy++)for(let xx=-6;xx<=6;xx++){const d=Math.hypot(xx,yy);if(d<=6.3)r(d>5.2?'#c9a040':'#f4ead0',cx+xx,cy+yy,1,1)}
+    an.push({t:'sclock',x:cx,y:cy})}
+  // a big brass gear turning on the roof of the larger buildings
+  if(big)an.push({t:'gear',x:hash(w,h,sd)>.5?12:W-12,y:rt+((ry-rt)>>1),r:7});
+  return{c,an,ry,nt}}
 const GEXT=26;
 function gothicArt(w,h,s,dx){const W=w*16,H=h*16+GEXT,an=[],lights=[],ry=GEXT+Math.round(h*16*.3),gold='#c9a040';
   const st=s.wall,sd=shade(st,-.38),sl=shade(st,.2),bays=Math.max(1,Math.round(W/28)),bw=W/bays,X=dx*16+8;
@@ -1122,9 +1216,9 @@ const INT={
 default:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c4b48c',pap:'stripe',deco:[]},
 plant:{grime:1,fl:'tile',f:['#b4bcc0','#a7b0b5'],wall:'#e4ebee',wall2:'#9fc3d6',pap:'tiles',base:'#4a5058',deco:[[2,'win'],[6,'safety'],[9,'clock'],[12,'win'],[16,'win']]},
 hq:{grime:1,fl:'carpet',f:['#8e2f2a','#a8433a'],wall:'#e8dcc0',wall2:'#9a7049',pap:'panel',deco:[[2,'win'],[5,'portrait'],[9,'banner'],[10,'banner'],[14,'portrait'],[17,'win']]},
-apartments:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
-apartments3:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
-apartments2:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d9cba8',wall2:'#c9b994',pap:'stripe',curtain:'#a33b2f',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
+apartments:{grime:2,fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#c6b892',wall2:'#ad9f78',pap:'stripe',curtain:'#7a3a32',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
+apartments3:{grime:2,fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#c6b892',wall2:'#ad9f78',pap:'stripe',curtain:'#7a3a32',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
+apartments2:{grime:2,fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#c6b892',wall2:'#ad9f78',pap:'stripe',curtain:'#7a3a32',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
 bar:{grime:1,fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#2f4a3a',wall2:'#294232',pap:'stripe',curtain:'#7a2a2a',deco:[[1,'win'],[14,'dart'],[17,'neon'],[18,'win']]},
 barflat:{grime:1,fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b48a',wall2:'#bba67c',pap:'stripe',curtain:'#3d6b5a',quilt:'#7a5a8a',deco:[[1,'win'],[5,'pic'],[7,'win']]},
 fishshop:{grime:1,fishCounter:1,fl:'check',f:['#e8eef2','#5b8fb9'],wall:'#cfe6ee',wall2:'#a9d4e8',pap:'tiles',base:'#4a5058',deco:[[12,'win'],[1,'poster']]},
@@ -1280,7 +1374,14 @@ function interiorLayer(m){
   // grime: water stains running down the back wall, torn wallpaper, and scuffed, stained floorboards
   if(f.grime){for(let x=0;x<w*16;x+=5)if(hash(x,1,w*7)<.35)r('rgba(90,70,40,.2)',x,-12,1+(hash(x,2,w)>.5?1:0),6+(hash(x,3,w)*16|0));
     for(let i=0;i<w;i++)if(hash(i,4,w)<.3){const x=i*16+(hash(i,5,w)*10|0),y=-8+(hash(i,6,w)*10|0);r(shade(f.wall,-.35),x,y,5,4);r(shade(f.wall,.25),x+1,y+1,3,2)}
-    for(let i=0;i<w*h/5;i++){const x=hash(i,7,w)*w*16|0,y=16+(hash(i,8,h)*(h-2)*16|0);r('rgba(60,45,30,.2)',x,y,4+(hash(i,9,w)*10|0),2+(hash(i,10,h)*5|0))}}
+    for(let i=0;i<w*h/5;i++){const x=hash(i,7,w)*w*16|0,y=16+(hash(i,8,h)*(h-2)*16|0);r('rgba(60,45,30,.2)',x,y,4+(hash(i,9,w)*10|0),2+(hash(i,10,h)*5|0))}
+    // grime 2, a run-down place: cracks and damp patches on the back wall, missing and broken floorboards, and darker, bigger stains
+    if(f.grime>1){for(let i=0;i<w;i++){const k=hash(i,11,w);
+        if(k<.35){let x=i*16+(hash(i,12,w)*12|0),y=-12;for(let n=0;n<6+(hash(i,13,w)*5|0);n++){r('rgba(40,30,20,.55)',x,y,1,2);x+=hash(i,14+n,w)>.5?1:-1;y+=2}}
+        else if(k<.6){const x=i*16+(hash(i,15,w)*6|0);r('rgba(70,80,60,.22)',x,-11,10,8);r('rgba(70,80,60,.16)',x+2,-3,7,4)}}
+      for(let i=0;i<w*h/7;i++){const tx=hash(i,21,w)*w|0,ty=1+(hash(i,22,h)*(h-2)|0);if(M[ty]?.[tx]!='f')continue;const x=tx*16,y=ty*16+(hash(i,23,w)*4|0)*4;
+        if(hash(i,24,w)<.5){r('#2a1d12',x+1,y,9+(hash(i,25,w)*5|0),2);r('#1a120a',x+2,y+1,6,1)}else{r('rgba(30,20,10,.45)',x+3,y,7,1);r('rgba(30,20,10,.45)',x+9,y-1,1,2)}}
+      for(let i=0;i<w*h/9;i++){const x=hash(i,31,w)*w*16|0,y=16+(hash(i,32,h)*(h-2)*16|0);r('rgba(45,35,22,.28)',x,y,8+(hash(i,33,w)*12|0),5+(hash(i,34,h)*7|0))}}}
   // back-wall decorations
   const an=[];
   f.deco.forEach(d=>{const[x,k]=d,X=x*16;
@@ -1496,6 +1597,10 @@ function cyberLights(b,x,y,h,lights,refl,dark){const rb=refl?(y+h)*16:0;let nb=0
 function sceneOf(m,wx){
   const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],lights=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
   if(c.an)an.push(...c.an);
+  // the flats' doors in the apartment blocks: a floor tile in a gap in a wall (walls either side of it), across a doorway
+  if(inside&&/^(apartments|skyapts|kgapts|eblofts|hsresid)/.test(m))for(let y=1;y<M.length-1;y++)for(let x=1;x<M[0].length-1;x++){if(M[y][x]!='f')continue;
+    const h=M[y][x-1]=='W'&&M[y][x+1]=='W'&&M[y-1][x]!='W'&&M[y+1][x]!='W',v=M[y-1][x]=='W'&&M[y+1][x]=='W'&&M[y][x-1]!='W'&&M[y][x+1]!='W';
+    if(h||v)an.push({t:'adoor',x:x*16,y:y*16,v})}
   const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
   const signs=[],iconTop={},spires=[];
   // at night, the buildings whose business is shut (a door into a DAY_ONLY place, or a DAY_ONLY_STALLS stall) have their lights off
@@ -1504,6 +1609,8 @@ function sceneOf(m,wx){
     if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);[].concat(fu.an||[]).forEach(a=>an.push({...a,x:x*16+a.x,y:y*16-fu.oy+a.y}))}return}
     if(DET(m)&&DBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=detailedArt(w,h,DBLD[st],dx),ox=x*16-1,oy=y*16-DEXT-1;
       g.fillStyle='rgba(20,40,20,.28)';g.fillRect(x*16+2,(y+h)*16-1,w*16-2,4);put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox+1,y:a.y+oy+1}));b.lights.forEach(l=>lights.push({...l,x:l.x+ox+1,y:l.y+oy+1}));return}
+    if(STM(m)&&st&&BLD[st]&&!['shelter','manhole','wagon','fountain'].includes(BLD[st].kind)){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
+      const b=steamArt(w,h,BLD[st],dx),ox=x*16,oy=y*16-SEXT;g.fillStyle='rgba(20,10,0,.35)';g.fillRect(x*16+2,(y+h)*16-1,w*16-2,4);put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox,y:a.y+oy}));return}
     if(GOTH(m)&&GBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=gothicArt(w,h,GBLD[st],dx),ox=x*16-1,oy=y*16-GEXT-1;
       g.fillStyle='rgba(0,0,0,.4)';g.fillRect(x*16+2,(y+h)*16-1,w*16-2,4);put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox+1,y:a.y+oy+1}));b.lights.forEach(l=>lights.push({...l,x:l.x+ox+1,y:l.y+oy+1}));return}
     if(st&&BLD[st]&&BLD[st].kind=='manhole'){g.drawImage(manholeArt,x*16,y*16);return}
@@ -1527,7 +1634,10 @@ function sceneOf(m,wx){
       // buildings you can't go into still get a (locked) front door, unless their look already has a big door
       if(dx<0&&!['church','hut','whs','garage'].includes(BLD[st].deco))dx=w>>1;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
-      const dark=shutTonight(x,y,w,h,st),b=bld2(w,h,dark?{...BLD[st],dark:1}:BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);cyberLights(b,x,y,h,lights,CYB(m),dark).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
+      const dark=shutTonight(x,y,w,h,st),b=bld2(w,h,dark?{...BLD[st],dark:1}:BLD[st],dx,ds.slice(1));
+      // Kingsgrad's steampunk touches: copper roofs on a few (the Civil Service Bureau, the Police Station, the Supermarket and the Book Shop), brass-bound doors on about a third
+      if(STM2(m))steamTouch(b,w,h,BLD[st],dx,x*7+y*13,['civilservice','police','supermarket','bookshop'].includes(st),hash(x,y,78)<.35);
+      g.drawImage(b.c,x*16,y*16);cyberLights(b,x,y,h,lights,CYB(m),dark).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
       if(BLD[st].spire)spires.push({x:x*16+w*8-10,y:y*16-37,roof:BLD[st].roof,row:y+h-1});
       if(BLD[st].icon)signs.push({x,y,w,h,k:BLD[st].icon,ry:b.ry,nt:b.nt,hang:BLD[st].hang})
       if(BLD[st].nlogo){const L0=neonLogo(BLD[st].nlogo),X=x*16+((w*16-L0.w)>>1),Y=y*16+b.nt-L0.h-4;
@@ -1691,6 +1801,17 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='neon'){const c0=a.col||'#ff5fa8',on=a.off?false:a.fl?hash(t/140|0,3,7+a.x)<.72:hash(t/90|0,3,7)<.96,col=on?c0:shade(c0,a.off?-.3:-.65);  // (a sign switched off for the night stays readable: unlit glass, not a dead flicker)
       if(on){const[R,G,B]=rgb(c0);ctx.fillStyle=`rgba(${R},${G},${B},.28)`;if(a.v)ctx.fillRect(X-2,Y-2,7,a.s.length*6+3);else ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}
       if(a.v)[...a.s].forEach((ch,i)=>ptext(px,ch,X,Y+i*6,col));else ptext(px,a.s,X,Y,col)}
+    // a flat's door: shut (a panelled door filling the doorway) unless the player is within a step of it, when it stands open
+    // against the frame
+    if(a.t=='adoor'){const open=typeof P!='undefined'&&Math.abs(P.rx*16-a.x)<=20&&Math.abs(P.ry*16-a.y)<=20,wood='#7a5232',dk='#4a3020',lt='#9a6a42';
+      if(!a.v){if(open){px(dk,X,Y,3,16);px(wood,X+1,Y,1,16)}else{px(dk,X,Y+4,16,8);px(wood,X+1,Y+5,14,6);px(lt,X+1,Y+5,14,1);px(dk,X+5,Y+6,1,4);px(dk,X+10,Y+6,1,4);px('#c9a040',X+12,Y+8,1,1)}}
+      else{if(open){px(dk,X,Y,16,3);px(wood,X,Y+1,16,1)}else{px(dk,X+5,Y,6,16);px(wood,X+6,Y+1,4,14);px(lt,X+6,Y+1,1,14);px('#c9a040',X+8,Y+11,1,1)}}}
+    // a brass gear turning (steampunk Kingsgrad)
+    if(a.t=='gear'){const R=a.r,an0=t/1400;for(let k=0;k<10;k++){const q=an0+k*Math.PI/5;px('#8a6a20',X+Math.cos(q)*(R+1)-1,Y+Math.sin(q)*(R+1)-1,3,3)}
+      for(let k=0;k<28;k++){const q=k*Math.PI/14;px('#c9a040',X+Math.cos(q)*R,Y+Math.sin(q)*R,1,1);px('#c9a040',X+Math.cos(q)*(R-1),Y+Math.sin(q)*(R-1),1,1)}
+      for(let k=0;k<4;k++){const q=an0+k*Math.PI/2;for(let d=1;d<R-1;d++)px('#a8802a',X+Math.cos(q)*d,Y+Math.sin(q)*d,1,1)}px('#ffe08a',X-1,Y-1,2,2)}
+    // a clock's hands (steampunk Kingsgrad): they really go round
+    if(a.t=='sclock'){const q1=t/60000*Math.PI*2,q2=t/5000*Math.PI*2;for(let d=0;d<4;d++)px('#2a1a10',X+Math.sin(q1)*d,Y-Math.cos(q1)*d,1,1);for(let d=0;d<5;d++)px('#7a2a1a',X+Math.sin(q2)*d,Y-Math.cos(q2)*d,1,1);px('#2a1a10',X,Y,1,1)}
     if(a.t=='lbulb'){const on=!a.off&&((t/700|0)+a.k)%7!=0;if(on){px('rgba(255,230,160,.22)',X-1,Y-1,3,3);px(a.c,X,Y,1,1)}else px(shade(a.c,-.55),X,Y,1,1)}
     if(a.t=='blink'){const on=!a.off&&((t+a.x*7)/700|0)%2;if(on){px('rgba(255,80,60,.3)',X-1,Y-1,4,4);px(a.c||'#ff3b2f',X,Y,2,2)}else px('#5a2020',X,Y,2,2)}
     if(a.t=='fire'){px('rgba(255,160,60,.16)',X-9,Y-10,18,14);for(let k=0;k<5;k++){const hh=2+(hash(k,t/90|0,3)*5|0);px(['#e8321e','#ff8a3a','#ffd23a','#ff8a3a','#e8321e'][k],X-5+k*2,Y-hh,2,hh)}}
@@ -1711,6 +1832,14 @@ function drawWorld2(m,cx,cy,t,frame){
       if(BARE[m]&&inBare(m,(X+cx)>>4,(Y+cy)>>4)){px('rgba(70,62,60,.7)',X,Y,f.big?2:1,1);return}  // ash, not snow, over the warm ground
       px(GOTH(m)?(f.big?'rgba(255,120,50,.8)':'rgba(160,150,170,.6)'):f.big?'rgba(255,255,255,.7)':'rgba(255,255,255,.85)',X,Y,f.big?2:1,f.big?2:1)});
     if(GOTH(m))gothLight(S,cx,cy,t);
+    if(STM(m)||STM2(m)){ctx.fillStyle='rgba(110,64,20,.16)';ctx.fillRect(0,0,vw,vh);
+      for(let i=0;i<14;i++){const sp=.006+hash(i,3,700)*.006,X=((hash(i,1,700)*vw*1.4+Math.sin(t/2300+i)*14-cx*.3)%(vw+60)+vw+60)%(vw+60)-30,Y=((hash(i,2,700)*vh-t*sp-cy*.3)%(vh+60)+vh+60)%(vh+60)-30,s0=10+hash(i,4,700)*14;
+        ctx.fillStyle='rgba(236,226,206,.07)';ctx.fillRect(X-s0/2,Y-s0/3,s0,s0*.66);ctx.fillRect(X-s0/3,Y-s0/2,s0*.66,s0)}
+      // the airship (only in the full ?steam proof of concept)
+      if(!STM2(m)){const ax=((t/90)%(vw+160))-80,ay=12+Math.sin(t/3000)*3;
+      px('#3a2a1a',ax-23,ay-6,46,13);px('#8a5a2a',ax-22,ay-5,44,11);px('#a8703a',ax-22,ay-5,44,3);for(let k=-18;k<20;k+=6)px('#6a4220',ax+k,ay-5,1,11);
+      px('#3a2a1a',ax+21,ay-7,6,4);px('#3a2a1a',ax+21,ay+4,6,4);px('#3a2a1a',ax-6,ay+6,1,4);px('#3a2a1a',ax+6,ay+6,1,4);px('#3a2a1a',ax-8,ay+10,17,5);px('#c9a040',ax-7,ay+11,15,1);
+      if(((t/120)|0)%2)px('#d8d0c0',ax-26,ay-1,3,2)}}
     // Frostholm by night (?night): purple dusk, every light glowing, and neon reflected in the wet street
     if(CYB(m)&&NIGHT){gothLight(S,cx,cy,t,CYBERLOOK);ctx.save();ctx.globalCompositeOperation='lighter';
       // neon reflected in the wet street below each lit building, shimmering

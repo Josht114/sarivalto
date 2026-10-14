@@ -15,6 +15,11 @@ No build step. Open `index.html` in a browser, or serve the folder:
 
     python3 -m http.server 8000
 
+Kingsgrad has a light steampunk look: its own buildings with smoking chimney stacks and copper pipework, verdigris copper roofs
+and brass-bound doors on a few of them, under a sepia haze. Add `?classic` to the address (`index.html?classic`) to see the town as
+it was before, or `?steam` for the full steampunk proof of concept: soot-dark brick, riveted iron and verdigris copper, with brass,
+pipes, smoking stacks, turning gears and an airship overhead. Both start the game in Kingsgrad.
+
 Every outdoor place has a day and a night version: switch with the Day/Night button beside "Jump to" (or the N key), or add
 `?night` to the address (for example `index.html?night`) to start at night. Frostholm and its harbour have their own purple
 neon night; everywhere else has a moonlit blue one, lit by windows, lamps, fires and signs. Interiors look the same at any time.
