@@ -15,7 +15,7 @@ It is still the early 1980s everywhere. How snowy a place is depends on its regi
 ## Eastbrook: Portland by way of a lumber town
 
 An old timber town gone hip, like Portland. Think coffee roasters, a record shop, vintage clothes, food carts, the local
-paper, murals, bicycles everywhere, and pine trees growing right up to the houses. Mill Road leads west to the lumber mill
+paper, murals, bicycles everywhere, and pine trees growing right up to the houses. A track leads west to the Mill, the lumber mill
 that the town grew up around.
 
 - **Layout:** three brick streets (Upper Street, the main street and Tram Street) joined by Alder Lane down the middle; a
@@ -96,7 +96,7 @@ Each outdoor place takes its weather from its district (`DISTRICT_OF` in `js/dat
 |---|---|---|---|---|---|
 | Snow | North West, North, North East, South West | deep snow | snow on roofs, sills and props | snowy pines | heavy snow |
 | Medium snow | Central (Kingsgrad, the palace, Kelp Cola HQ), and the rest of the South (South Road, the barracks) | snow with grass showing through | snow on roofs, sills and props | snowy pines | lighter snow |
-| Autumn | South East (Eastbrook and its harbour, the tram stop, the forest, the cola factory, South East Road, Mill Road) | olive and gold grass, bare earth, fallen leaves, the last patches of snow | no snow | round trees turning orange, rust and gold, some still green, among green pines | drifting leaves |
+| Autumn | South East (Eastbrook and its harbour, the tram stop, the forest, the cola factory, South East Road, the Mill) | olive and gold grass, bare earth, fallen leaves, the last patches of snow | no snow | round trees turning orange, rust and gold, some still green, among green pines | drifting leaves |
 | Curated | Hope Springs, its private beach and private harbour | a striped, freshly mown lawn | no snow | clipped lollipop trees and cypress cones | nothing |
 
 In the autumn and curated places, snow is stripped from sprites as they are drawn (`MELT`), so any building or prop works without a snow-free version.
@@ -135,4 +135,4 @@ Props for each town (`PROPS` in `js/data.js`):
 - **Saltwick:** `tyre`, `junk`, `cat`, `litter` (can be walked over), `bfence`, `trashbin`, `oldboat` (two tiles).
 - **Hope Springs:** `lamp2`, `urn`, `topiary`, `roses`, `lounger`, `gatepost`, plus the palace's `hedge`, `statue` and `flowers`.
 - **Eastbrook:** `bike`, `chalk` (a chalkboard sign), `planter`, `cafetable`, `weird` (the KEEP EASTBROOK WEIRD board, four
-  tiles wide), and on Mill Road `logs` (a log pile, two tiles), `stump` and `axe` (an axe in a stump).
+  tiles wide), and at the Mill `logs` (a log pile, two tiles), `stump` and `axe` (an axe in a stump).

@@ -89,8 +89,29 @@ function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys
 <h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
 // where someone is by day or by night, as a link with the place it is in and whether they are at work or at home
 function when(c,n,night){const x=whereAt(n,night);if(!x)return'Off the island';return A(c,'locations',x,L[x][0])+(top(x)!=x?' <small>('+esc(L[top(x)][0])+')</small>':'')+' <small>· '+(atHomeWhen(n,night)?'at home':'at work')+'</small>'}
+// a colour for each place on the island, used in the People tables (in front of every location, by the place it is in)
+const PLACE_COL=(()=>{
+  // colours as different from each other as possible: from a grid of candidate colours, pick each next one as far as possible
+  // (in CIE Lab, roughly how different colours look) from every one already picked, keeping to mid lightness so that every
+  // swatch shows up on both the light and dark pages
+  const lin=v=>(v/=255)<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4),f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;
+  const lab=([r,g,b])=>{[r,g,b]=[r,g,b].map(lin);const X=f((r*.4124+g*.3576+b*.1805)/.9505),Y=f(r*.2126+g*.7152+b*.0722),Z=f((r*.0193+g*.1192+b*.9505)/1.089);return[116*Y-16,500*(X-Y),200*(Y-Z)]};
+  const cand=[];for(let r=0;r<256;r+=17)for(let g=0;g<256;g+=17)for(let b=0;b<256;b+=17){const c=lab([r,g,b]);if(c[0]>=38&&c[0]<=82)cand.push({rgb:[r,g,b],c})}
+  const d=(p,q)=>Math.hypot(p[0]-q[0],p[1]-q[1],p[2]-q[2]),ids=Object.keys(POS).sort((a,b)=>L[a][0].localeCompare(L[b][0])),picked=[];
+  let best=cand.reduce((a,b)=>Math.hypot(b.c[1],b.c[2])>Math.hypot(a.c[1],a.c[2])?b:a);  // start with the most vivid
+  while(picked.length<ids.length){picked.push(best);let far=-1;for(const k of cand){const m=Math.min(...picked.map(p=>d(p.c,k.c)));if(m>far){far=m;best=k}}}
+  // hand them out so that places next to each other (joined by a path, or close on the overview map) get the most different
+  // colours: the busiest places first, each taking the colour left that is furthest from its neighbours' colours
+  const near={};ids.forEach(a=>near[a]=new Set());LINKS.forEach(l=>{const[a,,b]=l.split(' ');if(near[a]&&near[b]){near[a].add(b);near[b].add(a)}});
+  ids.forEach(a=>ids.forEach(b=>{if(a!=b&&Math.hypot(POS[a][0]-POS[b][0],POS[a][1]-POS[b][1])<230){near[a].add(b);near[b].add(a)}}));
+  const out={},col={},left=[...picked];[...ids].sort((a,b)=>near[b].size-near[a].size||L[a][0].localeCompare(L[b][0])).forEach(id=>{
+    const nb=[...near[id]].filter(n=>col[n]),sc=k=>nb.length?Math.min(...nb.map(n=>d(col[n].c,k.c))):0;
+    const k=left.reduce((a,b)=>sc(b)>sc(a)?b:a);left.splice(left.indexOf(k),1);col[id]=k;out[id]='#'+k.rgb.map(v=>v.toString(16).padStart(2,'0')).join('')});
+  return out})();
+const placeSw=(id,big)=>PLACE_COL[id]?`<span class="sw${big?' big':''}" style="background:${PLACE_COL[id]}" title="${esc(L[id][0])}"></span>`:'';
+const gen=n=>n.gender=='male'?'Male':n.gender=='female'?'Female':'Not specified';
 function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
-  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
+  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Gender',gen(n)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
    ['Look',`<span class="sw" style="background:${n.body}"></span> clothes <span class="sw" style="background:${n.hair}"></span> hair`]])}<p>${esc(nt.note||n.name+' lives on the island.')}</p>`}
 const filter='<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">';
 function idxBody(c,k){let t;
@@ -105,18 +126,18 @@ function idxBody(c,k){let t;
     (un.length?`<h2>Unaligned people</h2><ul>${un.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
   else{// one table per place on the island (alphabetical), sorted by name; people based inside a building are listed under the
     // place it stands in. Click a column heading to sort that table by it.
-    const where=(x,g)=>A(c,'locations',x,L[x][0])+(top(x)!=x&&top(x)!=g?' <small>('+esc(L[top(x)][0])+')</small>':'');
+    const where=(x,g)=>placeSw(top(x))+A(c,'locations',x,L[x][0])+(top(x)!=x&&top(x)!=g?' <small>('+esc(L[top(x)][0])+')</small>':'');
     const row=(n,g)=>{const f=n.faction=='none'?'Unaligned':FACTIONS[n.faction][0],note=((NOTES.npcs||{})[nid(n)]||{}).note||'';
-      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],...[false,true].map(nt=>whereAt(n,nt)?L[whereAt(n,nt)][0]:''),n.home=='none'?'':L[n.home][0],n.job,note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td>`+
+      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],...[false,true].map(nt=>whereAt(n,nt)?L[whereAt(n,nt)][0]:''),n.home=='none'?'':L[n.home][0],n.job,gen(n),note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td><td>${gen(n)}</td>`+
         `<td data-v="${esc(f)}">${n.faction=='none'?'Unaligned':`<span class="sw" style="background:${FACTIONS[n.faction][1]}"></span>`+facA(c,n.faction)}</td>`+
         [false,true].map(nt=>{const x=whereAt(n,nt);return x?`<td data-v="${esc(L[x][0])}">${where(x,g)}${atHomeWhen(n,nt)?' <small>(home)</small>':''}</td>`:'<td data-v="~">Off the island</td>'}).join('')+
         `<td data-v="${esc(n.home=='none'?'~':L[n.home][0])}">${n.home=='none'?'No fixed home':where(n.home,g)}</td>`+
         `<td>${esc(n.job)}</td><td class="note">${esc(note)}</td></tr>`};
-    const head='<colgroup><col style="width:9%"><col style="width:13%"><col style="width:14%"><col style="width:14%"><col style="width:13%"><col style="width:11%"><col></colgroup><thead><tr>'+
-      ['Name','Faction','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<6?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
+    const head='<colgroup><col style="width:9%"><col style="width:8.5%"><col style="width:12%"><col style="width:13%"><col style="width:13%"><col style="width:12%"><col style="width:10%"><col></colgroup><thead><tr>'+
+      ['Name','Gender','Faction','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<7?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
     const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
-    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people, grouped by the place they are based in, with where each of them is by day and by night. Click a column heading to sort a table by it.</small></p>`+
-      Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(i=>`<section class="grp"><h2>${locA(c,i)} <small>(${g[i].length})</small></h2><div class="wide"><table class="grid sortable">${head}<tbody>${
+    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people (${NPCS.filter(n=>n.gender=='male').length} men, ${NPCS.filter(n=>n.gender=='female').length} women${NPCS.some(n=>!n.gender)?`, ${NPCS.filter(n=>!n.gender).length} not specified`:''}), grouped by the place they are based in, with where each of them is by day and by night. Click a column heading to sort a table by it.</small></p>`+
+      Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(i=>`<section class="grp"><h2>${placeSw(i,1)}${locA(c,i)} <small>(${g[i].length})</small></h2><div class="wide"><table class="grid sortable">${head}<tbody>${
         g[i].sort((a,b)=>a.name.localeCompare(b.name)).map(n=>row(n,i)).join('')}</tbody></table></div></section>`).join('')}
   return t}
 const svg=fs.readFileSync(path.join(root,'docs/island-map.svg'),'utf8').replace(/<\?xml.*?\?>/,'');
@@ -137,7 +158,7 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .wide{position:relative;left:50%;transform:translateX(-50%);width:min(1280px,calc(100vw - 32px));overflow-x:auto}
 .grid{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--bd)}.grid th,.grid td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--bd)}
 .grid th{position:sticky;top:0;background:var(--card);color:var(--mut);white-space:nowrap}.grid th[data-col]{cursor:pointer}.grid th[data-col]:hover{color:var(--fg)}.grid th.asc:after{content:' ▲'}.grid th.desc:after{content:' ▼'}
-.grid td{overflow-wrap:anywhere}.grid td:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
+.grid td{overflow-wrap:anywhere}.grid td:nth-child(3){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
 .cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 24px}.cols2 h3{margin:.6em 0 .2em}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}

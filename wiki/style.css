@@ -10,7 +10,7 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .wide{position:relative;left:50%;transform:translateX(-50%);width:min(1280px,calc(100vw - 32px));overflow-x:auto}
 .grid{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--bd)}.grid th,.grid td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--bd)}
 .grid th{position:sticky;top:0;background:var(--card);color:var(--mut);white-space:nowrap}.grid th[data-col]{cursor:pointer}.grid th[data-col]:hover{color:var(--fg)}.grid th.asc:after{content:' ▲'}.grid th.desc:after{content:' ▼'}
-.grid td{overflow-wrap:anywhere}.grid td:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
+.grid td{overflow-wrap:anywhere}.grid td:nth-child(3){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
 .cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 24px}.cols2 h3{margin:.6em 0 .2em}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
