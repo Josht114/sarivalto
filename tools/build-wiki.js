@@ -2,8 +2,11 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
-const {L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD}=box.D,NOTES=box.N;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
+const {L,LINKS,POS,FACTIONS,SIDE_FACTIONS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_WEEKS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen}=box.D,NOTES=box.N;
+// where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
+// with no home stays at work; null means not on the island at all.
+const whereAt=(n,night)=>atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!atWorkWhen(n,night)&&!!L[n.home];
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const KIND={town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour or sea',interior:'Interior'};
 const kind=id=>POS[id]?POS[id][2]:'interior',parentOf=id=>{const d=DOORS.find(d=>d[5]==id);return d&&d[0]};
@@ -59,7 +62,7 @@ const info=rows=>'<table class="info">'+rows.filter(Boolean).map(([k,v])=>`<tr><
 const list=a=>a.length?a.join(', '):'—';
 function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac=FACTION_AT[id],
     // a place on the island also lists everyone in the buildings that stand in it, saying which building they are in
-    out=!!POS[id],at=x=>x&&x!='none'&&(out?top(x)==id:x==id),people=NPCS.filter(n=>at(n.m)||at(n.loc)),res=NPCS.filter(n=>at(n.home)),
+    out=!!POS[id],at=x=>x&&x!='none'&&(out?top(x)==id:x==id),people=NPCS.filter(n=>at(n.m)||at(n.loc)),res=NPCS.filter(n=>at(n.home)),day=NPCS.filter(n=>at(whereAt(n,false))),night=NPCS.filter(n=>at(whereAt(n,true))),
     where=x=>out&&x&&x!=id&&top(x)==id?' · '+A(c,'locations',x,L[x][0]):'';
   const labels=[...new Set(fs.filter(f=>f[5]).map(f=>f[5]))],ent=DOORS.filter(d=>d[0]==id);
   const dd=distOf(id),rows=[['Type',KIND[k]],dd?['District',`<span class="sw" style="background:${DISTRICTS[dd][1]}"></span>`+esc(DISTRICTS[dd][0])]:['District','Travels between districts'],par&&['Inside',locA(c,par)],fac&&['Faction base',`<span class="sw" style="background:${FACTIONS[fac][1]}"></span>`+facA(c,fac)],['Size',w+' × '+h+' tiles'],
@@ -74,14 +77,20 @@ function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac
   if(ent.length)t+=`<h2>Inside</h2><ul>${ent.map(d=>`<li>${A(c,'locations',d[5],L[d[5]][0])}</li>`).join('')}</ul>`;
   if(res.length)t+=`<h2 id="residents">Residents</h2><ul>${res.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)}${where(n.home)}</li>`).join('')}</ul>`;
   if(people.length)t+=`<h2 id="people">People</h2><ul>${people.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} (${facA(c,n.faction)})${where(at(n.m)?n.m:n.loc)}</li>`).join('')}</ul>`;
+  // who is actually here by day, and at night (people at work, or at home)
+  const here=(a,nt)=>a.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)}${where(whereAt(n,nt))}${atHomeWhen(n,nt)?' <small>(at home)</small>':''}</li>`).join('');
+  if(day.length||night.length)t+=`<h2 id="daynight">Here by day and at night</h2><div class="cols2"><div><h3>By day <small>(${day.length})</small></h3><ul>${here(day,false)||'<li>No one</li>'}</ul></div>`+
+    `<div><h3>At night <small>(${night.length})</small></h3><ul>${here(night,true)||'<li>No one</li>'}</ul></div></div>`;
   return t}
 function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>n.faction==id),wk=QUEST_WEEKS[id]||[],side=SIDE_FACTIONS.includes(id);
   const grid='<div class="weeks">'+Array.from({length:19},(_,i)=>`<span class="${wk.includes(i+1)?'on':''}" style="${wk.includes(i+1)?'background:'+col:''}">${i+1}</span>`).join('')+'</div>';
   return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Side faction (can't win)":'Main faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',wk.length?wk.length+' (weeks '+wk.join(', ')+')':'None scheduled']])}
 <p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p>`+(side?'':`<h2>Quest weeks</h2><p>Weeks of the 19-week cycle in which this faction has quests:</p>${grid}`)+`
 <h2>Bases</h2><ul>${bases.map(l=>`<li>${locA(c,l)}</li>`).join('')||'<li>None yet</li>'}</ul>`+(mem.length?`<h2>People</h2><ul>${mem.map(n=>`<li>${npcA(c,n)}, ${esc(n.job)} · ${locA(c,n.loc)}</li>`).join('')}</ul>`:'')}
+// where someone is by day or by night, as a link with the place it is in and whether they are at work or at home
+function when(c,n,night){const x=whereAt(n,night);if(!x)return'Off the island';return A(c,'locations',x,L[x][0])+(top(x)!=x?' <small>('+esc(L[top(x)][0])+')</small>':'')+' <small>· '+(atHomeWhen(n,night)?'at home':'at work')+'</small>'}
 function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
-  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],n.m&&n.m!=n.loc&&['Currently found',locA(c,n.m)],
+  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
    ['Look',`<span class="sw" style="background:${n.body}"></span> clothes <span class="sw" style="background:${n.hair}"></span> hair`]])}<p>${esc(nt.note||n.name+' lives on the island.')}</p>`}
 const filter='<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">';
 function idxBody(c,k){let t;
@@ -98,14 +107,15 @@ function idxBody(c,k){let t;
     // place it stands in. Click a column heading to sort that table by it.
     const where=(x,g)=>A(c,'locations',x,L[x][0])+(top(x)!=x&&top(x)!=g?' <small>('+esc(L[top(x)][0])+')</small>':'');
     const row=(n,g)=>{const f=n.faction=='none'?'Unaligned':FACTIONS[n.faction][0],note=((NOTES.npcs||{})[nid(n)]||{}).note||'';
-      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],n.home=='none'?'':L[n.home][0],n.job,note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td>`+
+      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],...[false,true].map(nt=>whereAt(n,nt)?L[whereAt(n,nt)][0]:''),n.home=='none'?'':L[n.home][0],n.job,note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td>`+
         `<td data-v="${esc(f)}">${n.faction=='none'?'Unaligned':`<span class="sw" style="background:${FACTIONS[n.faction][1]}"></span>`+facA(c,n.faction)}</td>`+
-        `<td data-v="${esc(L[n.loc][0])}">${where(n.loc,g)}</td><td data-v="${esc(n.home=='none'?'~':L[n.home][0])}">${n.home=='none'?'No fixed home':where(n.home,g)}</td>`+
+        [false,true].map(nt=>{const x=whereAt(n,nt);return x?`<td data-v="${esc(L[x][0])}">${where(x,g)}${atHomeWhen(n,nt)?' <small>(home)</small>':''}</td>`:'<td data-v="~">Off the island</td>'}).join('')+
+        `<td data-v="${esc(n.home=='none'?'~':L[n.home][0])}">${n.home=='none'?'No fixed home':where(n.home,g)}</td>`+
         `<td>${esc(n.job)}</td><td class="note">${esc(note)}</td></tr>`};
-    const head='<colgroup><col style="width:10%"><col style="width:15%"><col style="width:15%"><col style="width:16%"><col style="width:13%"><col></colgroup><thead><tr>'+
-      ['Name','Faction','Location','Home','Job','Notes'].map((h,k)=>`<th${k<5?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
+    const head='<colgroup><col style="width:9%"><col style="width:13%"><col style="width:14%"><col style="width:14%"><col style="width:13%"><col style="width:11%"><col></colgroup><thead><tr>'+
+      ['Name','Faction','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<6?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
     const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
-    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people, grouped by the place they are based in. Click a column heading to sort a table by it.</small></p>`+
+    t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people, grouped by the place they are based in, with where each of them is by day and by night. Click a column heading to sort a table by it.</small></p>`+
       Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(i=>`<section class="grp"><h2>${locA(c,i)} <small>(${g[i].length})</small></h2><div class="wide"><table class="grid sortable">${head}<tbody>${
         g[i].sort((a,b)=>a.name.localeCompare(b.name)).map(n=>row(n,i)).join('')}</tbody></table></div></section>`).join('')}
   return t}
@@ -128,6 +138,7 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .grid{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--bd)}.grid th,.grid td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--bd)}
 .grid th{position:sticky;top:0;background:var(--card);color:var(--mut);white-space:nowrap}.grid th[data-col]{cursor:pointer}.grid th[data-col]:hover{color:var(--fg)}.grid th.asc:after{content:' ▲'}.grid th.desc:after{content:' ▼'}
 .grid td{overflow-wrap:anywhere}.grid td:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 24px}.cols2 h3{margin:.6em 0 .2em}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
 .weeks{display:grid;grid-template-columns:repeat(19,1fr);gap:3px;max-width:640px}.weeks span{text-align:center;font:12px sans-serif;padding:5px 0;border:1px solid var(--bd);border-radius:3px;color:var(--mut)}.weeks .on{color:#fff;font-weight:bold}

@@ -474,6 +474,9 @@ const NIGHT_ONLY=['jazz_in','caravan3_in'];
 // the staff of the places open day and night (bars, restaurants, the hotel, the casino, the arcade, the stalls that stay open):
 // they work evenings too, so they are at work at night as well as by day
 const EVENING_STAFF=['Ray','Eddie','Linnea','Sanna','Arvid','Maya','Dex','Hannu','Greta','Vince','Toni'];
+// whether someone is at work (true) or at home (false) by day or by night: evening staff are always at work, people who work
+// somewhere open only at night are at work at night and at home by day, and everyone else the other way round
+const atWorkWhen=(n,night)=>EVENING_STAFF.includes(n.name)||(NIGHT_ONLY.includes(n.loc)?night:!night);
 // street stalls open only by day, as [place, look]: at night they stand dark
 const DAY_ONLY_STALLS=[['colahq','newsstand'],['colahq','hotdog'],['colafactory','foodvan']];
 // ---- Shops, by the name of the person who runs them: what they sell, as [item, how many, price in dollars]. The shop is open

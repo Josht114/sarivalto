@@ -300,7 +300,7 @@ function draw(t){
 // exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
-function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,!EVENING_STAFF.includes(n.name)&&(NIGHT_ONLY.includes(n.loc)?!NIGHT:NIGHT)&&ROUTINE.get(n)||n.atWork))}
+function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork))}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));
