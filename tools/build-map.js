@@ -88,11 +88,11 @@ const KEY=Object.entries({town:'Settlement',road:'Road',site:'Notable site',natu
 // the legend lists the main factions, then the side factions (which can't win) under their own subheading
 const fk=Object.entries(FACTIONS).filter(([k])=>!SIDE_FACTIONS.includes(k)),sk=Object.entries(FACTIONS).filter(([k])=>SIDE_FACTIONS.includes(k)),R=26,sy=198+fk.length*R+6;
 const badge=([k,[n,c,sh]],y)=>`<rect x="1462" y="${y}" width="42" height="18" rx="9" fill="${c}"/><text x="1483" y="${y+13}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${sh}</text><text x="1514" y="${y+14}" font-size="14" fill="#2b2118">${n}</text>`;
-const ky=sy+30+sk.length*R+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*24}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
+const ky=sy+30+sk.length*R+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*22}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
 <text x="1462" y="176" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">FACTION BASES</text>`+fk.map((f,i)=>badge(f,198+i*R)).join('')+
 `<text x="1462" y="${sy+12}" font-size="13" font-weight="bold" fill="#2b2118">Side factions <tspan font-weight="normal" font-style="italic">(can't win)</tspan></text>`+sk.map((f,i)=>badge(f,sy+26+i*R)).join('')+
 `<text x="1462" y="${sy+30+sk.length*R+12}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
-<text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+38+i*24,sym=
+<text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+36+i*22,sym=
   k=='boat'?`<path d="M1462 ${y+8}H1504" stroke="#f4fbfd" stroke-width="6" stroke-linecap="round"/>`+BOATCOL.slice(0,3).map((c,i)=>`<path d="M${1462+i*14} ${y+8}h12" stroke="${c}" stroke-width="2.5" stroke-dasharray="5 3" stroke-linecap="round"/>`).join(''):
   k=='river'?`<path d="M1462 ${y+8}H1504" stroke="#4f8fbf" stroke-width="8" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#8fc4e4" stroke-width="3" stroke-linecap="round"/>`:
   k=='tram'?`<path d="M1462 ${y+8}H1504" stroke="#b8322a" stroke-width="4.5" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#f4f1e8" stroke-width="1.5" stroke-dasharray="2 6"/>`:

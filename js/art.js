@@ -300,6 +300,7 @@ function bld2(w,h,s,dx,more=[]){
   if(s.deco=='garage'){const bw=Math.min(W-16,44),bx=(W-bw)>>1,bh=wh-6;for(let i=0;i<w;i++)if(i*16+15>=bx&&i*16<=bx+bw)skip.add(i);
     r('#2b2f3a',bx-2,H-bh-5,bw+4,bh+2);for(let y=H-bh-3;y<H-3;y++)r((y&1)?'#76828f':'#8d99a6',bx,y,bw,1)}
   if(s.deco=='hut')skip.add(1);
+  if(s.deco=='church'&&s.gothic)for(let i=0;i<w;i++)if(Math.abs(i*16+8-(W>>1))<20)skip.add(i);
   // mural: the front wall painted with a sunset over a snowy peak and pines, with a bird on top (in place of the windows)
   if(s.mural){const m=s.mural,top=ry+(aw?10:4),bot=H-5,mh=bot-top;for(let i=0;i<w;i++)if(!skip.has(i)){const x0=i*16+1,x1=i*16+15;
       for(let y=top;y<bot;y++){const f=(y-top)/mh;r(f<.3?m[0]:f<.55?m[1]:m[2],x0,y,x1-x0,1)}
@@ -325,14 +326,29 @@ function bld2(w,h,s,dx,more=[]){
         r(lit?(yy<2?'#ffe9b0':'#ffd98a'):d<3?shade(s.win,.45):yy<3?shade(s.win,.15):s.win,x+xx,y+yy)}r(SNOW,x-1,y+10,14,1)}}}
   else if(tall){for(let y=16;y<H-T-8;y+=22)for(let x=8;x<W-12;x+=18){win(x,y,12,13,hash(x,y,5)>.62);
       r(shade(s.trim,-.3),x-3,y+15,18,1);for(let k=x-3;k<x+15;k+=3)r(shade(s.trim,-.3),k,y+12,1,3);r(SNOW,x-3,y+14,18,1)}}
+  // gothic: a tall pointed lancet in each bay, in a moulded stone surround; stained glass (s.stained) or leaded clear panes,
+  // some lit from within, with snow on the sill
+  else if(s.gothic)for(let i=0;i<w;i++){if(skip.has(i))continue;const x=i*16+4,top=ry+(aw?12:5),bot=H-6,lit=hash(i,w,h*3)>.55;
+    for(let y=top-1;y<bot+1;y++){const k=y-top,hw=k<5?Math.round(Math.sqrt(Math.max(0,k+1)/6)*5):5;r(shade(s.trim,-.3),x+4-hw,y,hw*2,1)}
+    for(let y=top;y<bot;y++){const k=y-top,hw=k<5?Math.round(Math.sqrt((k+1)/6)*4):4;for(let xx=x+4-hw;xx<x+4+hw;xx++){
+      const lead=xx==x+4||(k>4&&(k-5)%6==0);let c=s.stained?['#8a2a4a','#2a4a8a','#c9a040','#3a6a4a'][((xx>>1)+(k/6|0)+i)%4]:lit?'#ffd98a':s.win;
+      if(!s.stained&&!lead&&((xx+k)%4==0))c=shade(c,-.18);if(s.stained&&lit)c=shade(c,.25);r(lead?'#2a2a33':c,xx,y)}}
+    r(shade(s.trim,-.3),x-1,bot,10,2);r(SNOW,x-1,bot,10,1)}
   else if(!s.mural)for(let y=ry+(aw?12:8);y+9<H-6;y+=20)for(let i=0;i<w;i++)if(!skip.has(i))win(i*16+3,y,10,9,hash(i,y,w*h)>.6);
+  // gothic: stepped stone buttresses between the bays (not beside a door), each topped by a little pinnacle at the eaves
+  if(s.gothic)for(let i=1;i<w;i++){if([dx,...more].some(d=>d>=0&&(i==d||i==d+1)))continue;if(s.deco=='church'&&Math.abs(i*16-(W>>1))<22)continue;
+    const x=i*16-2,mid=ry+((H-ry)>>1),face=shade(s.wall,-.08),hi=shade(s.wall,.2),lo=shade(s.wall,-.35);
+    r(OUT,x-1,ry-1,6,mid-ry+1);r(face,x,ry,4,mid-ry);r(hi,x,ry,1,mid-ry);r(lo,x+3,ry,1,mid-ry);
+    r(OUT,x-2,mid-1,8,H-mid-2);r(face,x-1,mid,6,H-mid-3);r(hi,x-1,mid,1,H-mid-3);r(lo,x+4,mid,1,H-mid-3);r(SNOW,x-2,mid-1,8,1);
+    for(let k=0;k<7;k++){const hw=Math.max(0,3-Math.round(k/2.4));r(k<2?SNOW:face,x+2-hw,ry-1-k,hw*2,1)}r(OUT,x+1,ry-9,2,2)}
   // foundation and snow banked against it
   r('#6d727a',0,H-3,W,3);r('#8a9099',0,H-3,W,1);
   for(let x=0;x<W;x++){const d=vnoise(x/5,0,w*7+h);if(d>.55){const t=d>.75?3:2;r(SNOW,x,H-t,1,t);r(SNOWD,x,H-1,1,1)}}
   // door
   for(const di of[dx,...more])if(di>=0){const X=di*16+2;r(shade(s.trim,-.35),X-1,H-18,14,15);r(s.trim,X,H-17,12,14);r('#5b3a26',X+1,H-16,10,13);
     [[2,-15],[7,-15],[2,-9],[7,-9]].forEach(([a,b])=>r('#6e4930',X+a,H+b,3,4));r('#e8c33a',X+9,H-9,1,1);
-    r('#8a9099',X-1,H-3,14,3);r('#a9b0b8',X-1,H-3,14,1);r('#3a3a44',X+13,H-15,1,1);r('#ffd36b',X+13,H-14,2,3);r('#fff1c8',X+13,H-14,1,1)}
+    r('#8a9099',X-1,H-3,14,3);r('#a9b0b8',X-1,H-3,14,1);r('#3a3a44',X+13,H-15,1,1);r('#ffd36b',X+13,H-14,2,3);r('#fff1c8',X+13,H-14,1,1);
+    if(s.gothic)for(let k=0;k<7;k++){const hw=Math.round(Math.sqrt((k+1)/7)*7);r(shade(s.trim,-.35),X+6-hw,H-25+k,hw*2,1);if(k>1)r('#5b3a26',X+7-hw,H-25+k,hw*2-2,1)}}
   // roof
   if(tall){r(s.roof,0,0,W,10);r(SNOW,0,0,W,4);r(SNOWD,0,3,W,1);r(shade(s.roof,-.3),0,8,W,2)}
   else if(s.kind=='gable'){const rd=shade(s.roof,-.25);r(s.roof,0,0,W,ry);
@@ -340,6 +356,7 @@ function bld2(w,h,s,dx,more=[]){
     else for(let y=3;y<ry;y+=4){r(rd,0,y,W,1);for(let x=((y>>2)&1)*3;x<W;x+=6)r(rd,x,y-3,1,3)}
     for(let x=0;x<W;x++){const d=Math.round(ry*.45+(vnoise(x/6,0,w*13+h)-.5)*8);r(SNOW,x,0,1,d);r(SNOWD,x,d-2,1,2);if(hash(x,3,w)>.8)r('#ffffff',x,1,1,1)}
     r(rd,0,ry-2,W,2);r(OUT,0,ry-1,W,1);
+    if(s.gothic)for(let x=3;x<W-3;x+=5){r('#3a3a44',x,0,1,4);r('#3a3a44',x-1,1,3,1)}
     for(let x=2;x<W-2;x++)if(hash(x,ry,w+h)>.82){r('#dff1fb',x,ry,1,1+(hash(x,1,9)*3|0));r('#ffffff',x,ry,1,1)}
     // a worn roof is patched with odd boards and sheets of tin, and its gutter sags
     if(s.wear){for(let i=0;i<Math.round(W/22*s.wear)+1;i++){const pw=6+(hash(i,1,sd+W+5)*8|0),px=hash(i,2,sd+W+5)*(W-pw)|0,py=Math.round(ry*.5)+(hash(i,3,sd+W+5)*(ry*.5-6)|0);
@@ -408,9 +425,14 @@ function bld2(w,h,s,dx,more=[]){
     const cx=W>>1;r(OUT,cx-13,0,26,ry-5);r('#4a6a9a',cx-12,1,24,ry-7);r('#6a8aba',cx-12,1,6,ry-7);r(SNOW,cx-12,1,24,3);r('#c9a040',cx-1,0,3,2);
     for(const fx of[8,W-10]){r('#d5d9de',fx,0,1,ry-6);an.push({t:'flag',x:fx+1,y:1,royal:1})}}
   if(s.deco=='church'){const cx=W>>1;r(OUT,cx-11,0,22,ry+1);r(s.wall,cx-10,0,20,ry);r(shade(s.wall,-.15),cx+6,0,4,ry);
-    for(let y=3;y<ry;y+=4)r(shade(s.wall,.2),cx-10,y,20,1);r('#2a2a33',cx-4,4,8,10);r('#c9a040',cx-1,5,2,8);r('#c9a040',cx-3,7,6,2);r(SNOW,cx-11,0,22,2);
-    r(OUT,cx-7,ry+3,14,14);r('#5a3a8a',cx-6,ry+4,12,12);r('#c9a0e0',cx-4,ry+6,8,8);r('#e0c060',cx-1,ry+4,2,12);r('#e0c060',cx-6,ry+9,12,2);
+    for(let y=3;y<ry;y+=4)r(shade(s.wall,.2),cx-10,y,20,1);
+    if(s.gothic){for(const bx of[cx-7,cx+2])for(let y=5;y<17;y++){const k=y-5,hw=k<3?Math.round(Math.sqrt((k+1)/4)*2.5):3;r('#2a2a33',bx+3-hw,y,hw*2,1);if(k>3&&k%3==1)r(shade(s.wall,-.2),bx,y,6,1)}
+      r(SNOW,cx-11,0,22,2);const ry0=ry+11;r(OUT,cx-9,ry0-9,18,18);for(let y=-8;y<=8;y++)for(let x=-8;x<=8;x++){const d=Math.hypot(x,y);if(d>8.4)continue;
+        const a=Math.atan2(y,x),k=((a+Math.PI)/(Math.PI/4))|0;r(d>7.3?shade(s.wall,-.3):d<2?'#e0c060':(Math.abs(x)<1||Math.abs(y)<1||Math.abs(Math.abs(x)-Math.abs(y))<1||d>6.3)?'#2a2a33':k%2?'#8a2a4a':'#2a4a8a',cx+x,ry0+y)}}
+    else{r('#2a2a33',cx-4,4,8,10);r('#c9a040',cx-1,5,2,8);r('#c9a040',cx-3,7,6,2);r(SNOW,cx-11,0,22,2);
+    r(OUT,cx-7,ry+3,14,14);r('#5a3a8a',cx-6,ry+4,12,12);r('#c9a0e0',cx-4,ry+6,8,8);r('#e0c060',cx-1,ry+4,2,12);r('#e0c060',cx-6,ry+9,12,2)}
     r(OUT,cx-9,H-21,18,19);r('#5a3a26',cx-8,H-20,16,18);r('#6e4930',cx-8,H-20,7,18);r('#3a2618',cx,H-20,1,18);r('#c9a040',cx-3,H-11,1,2);r('#c9a040',cx+2,H-11,1,2);
+    if(s.gothic)for(let k=0;k<9;k++){const hw=Math.round(Math.sqrt((k+1)/9)*10);r(OUT,cx-hw,H-30+k,hw*2,1);if(k>0)r(shade(s.wall,-.15),cx-hw+1,H-30+k,hw*2-2,1);if(k>2)r('#5a3a26',cx-hw+3,H-30+k,hw*2-6,1)}
     r('#a9b0b8',cx-12,H-3,24,3)}
   if(s.deco=='hut'){const X=18;r(OUT,X-1,H-18,14,15);r('#7d858e',X,H-17,12,14);r('#9aa3ad',X,H-17,2,14);for(let y=H-14;y<H-4;y+=3)r('#6b737c',X+3,y,6,1);r('#e8c33a',X+9,H-10,2,1);
     const tx=3*16+3;r(OUT,tx-1,ry+5,12,11);r('#e0a100',tx,ry+6,10,9);r('#2b2f3a',tx+4,ry+8,2,4);r('#2b2f3a',tx+4,ry+13,2,1);
@@ -788,6 +810,15 @@ dbarrel:[16,r=>{r('#8a5a36',2,2,12,13);r('#a8794c',3,2,3,13);r('#6b4a2e',11,2,2,
 dcrate:[14,r=>{r('#a8794c',1,2,14,12);r('#8a5a36',1,2,14,1);r('#8a5a36',1,13,14,1);r('#8a5a36',1,2,1,12);r('#8a5a36',14,2,1,12);pline(r,2,3,13,12,'#8a5a36');r('#c49565',2,3,12,1)}],
 drock:[14,r=>{for(let y=0;y<14;y++)for(let x=0;x<16;x++){if(((x-7.5)/7.4)**2+((y-8)/6)**2>1)continue;const L=((16-x)+(14-y))/30;r(L>.75?'#c9ced4':L>.55?'#9aa3ad':L>.38?'#7d858e':'#5f666e',x,y)}r('#5f666e',7,6,4,1)}]});
 const DPROP={lamp:'dlamp',bench:'dbench',planter:'dflowers',bush:'dbush',mailbox:'dmailbox',woodpile:'dlogs',snowman:'dmush',phone:'dnotice',chalk:'dnotice',cafetable:'dbarrel',bike:'dcrate',rock:'drock',crate:'dcrate',barrel:'dbarrel'};
+// A hot spring pool: steaming turquoise water in a ring of dark volcanic stones, with snow on the stones round the edge.
+function poolArt(w,h){const W=w*16,H=h*16,c=cnv(W,H),g=c.getContext('2d'),r=(col,x,y,a=1,b=1)=>{g.fillStyle=col;g.fillRect(x,y,a,b)};
+  const rx=W/2-.5,ry=H/2-.5;for(let y=0;y<H;y++)for(let x=0;x<W;x++){const d=Math.hypot((x-rx)/rx,(y-ry)/ry),wob=(vnoise(x/4,y/4,w*7+h)-.5)*.12;
+    if(d>1+wob)continue;if(d>.8+wob){const st=vnoise(x/3,y/3,w+h*5);r(st>.62?'#7a7066':st>.38?'#5a5048':'#463e38',x,y);if(y<ry&&st>.55&&d>.88+wob)r(SNOW,x,y)}
+    else{const k=d/(.8+wob);r(k<.45?'#1f8f94':k<.75?'#2fa9a8':'#56c9bd',x,y);if(hash(x,y,w*3+h)>.985)r('#c8f4ec',x,y)}}
+  for(let y=4;y<H-4;y+=5)for(let x=6;x<W-6;x+=9)if(Math.hypot((x-rx)/rx,(y-ry)/ry)<.6)r('rgba(220,255,250,.45)',x+(y%3),y,4,1);return c}
+// A church spire: an octagonal slated spire with little lucarnes, snow caught on its ribs and a gold cross on top. Drawn 22 x 40.
+const spireArt=(roof)=>mk(22,40,r=>{for(let y=6;y<40;y++){const hw=Math.max(1,Math.round((y-6)/34*10));for(let x=11-hw;x<11+hw;x++)r(x==11-hw||x==10+hw?shade(roof,-.3):(x==11||x==10)?shade(roof,.15):(y%4==0?shade(roof,-.15):roof),x,y);
+    if(y%7==3)r(SNOW,11-hw,y,2,1)}r('#c9a040',10,0,2,7);r('#c9a040',8,2,6,2);r('#e8c860',10,0,1,7);for(const ly of[24,32])r('#2a2a33',10,ly,2,3)});
 // A frozen fountain: a stone basin of ice around a pillar with a snowy bowl on top. Drawn 16 pixels taller than its tiles.
 function fountainArt(w,h){const W=w*16,H=h*16+16;return mk(W,H,r=>{
   for(let y=14;y<H-1;y++)for(let x=0;x<W;x++){const q=((x-W/2+.5)/(W/2))**2+((y-H+16)/14)**2;if(q<1)r(q>.62?(y<H-10?'#c9ced4':'#8a9099'):q>.5?'#6b737c':hash(x,y,80)>.93?'#ffffff':(x+y)%7==0?'#cfe6f2':'#9fc6e0',x,y)}
@@ -1004,6 +1035,7 @@ kcmuseum_in:{fl:'check',f:['#e8f2ea','#2e9d57'],wall:'#e8f2ea',wall2:'#9fd6c0',p
 clothes_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#3d5a4a',wall2:'#2f4a3c',pap:'stripe',base:'#2f2a26',rug:'#c0392b',curtain:'#e0a100',deco:[[1,'win'],[4,'pic'],[9,'poster'],[12,'win']]},
 records_in:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#2f2a26',rug:'#7a1e2a',deco:[[1,'poster'],[4,'poster'],[7,'neon','VINYL','#ff8a3a'],[11,'poster']]},
 mill_in:{grime:1,fl:'wood',f:['#7a5232','#6b4a2e','#8a5a36'],wall:'#8a6a45',wall2:'#6b4a2e',pap:'panel',base:'#3a2a20',deco:[[2,'win'],[6,'safety'],[11,'clock'],[16,'win'],[21,'win']]},
+spa_in:{fl:'wood',f:['#b08658','#a37a4e','#bb9062'],wall:'#8a6a45',wall2:'#6b4a2e',pap:'panel',base:'#3a2a20',rug:'#3d7a7a',deco:[[2,'win'],[6,'pic'],[11,'clock'],[15,'win'],[19,'win']]},
 cedargrill:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',rug:'#3d5a4a',curtain:'#3d5a4a',deco:[[12,'pic'],[16,'win']]},
 tattoo:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#2a2a30',wall2:'#3a3a44',pap:'stripe',base:'#7a1e2a',quilt:'#1a1a22',deco:[[1,'pic'],[3,'poster'],[5,'pic'],[7,'poster'],[10,'win']]},
 skyapts:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
@@ -1074,6 +1106,9 @@ house_mary:{fl:'wood',f:['#b8946a','#aa865c','#c29e72'],wall:'#f2e8d8',wall2:'#e
 house_jack:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#cfe0ea',wall2:'#bcd0dc',pap:'stripe',rug:'#2e6f9a',quilt:'#e0a100',curtain:'#2e6f9a',deco:[[4,'win'],[7,'poster'],[8,'win']]},
 house_sally:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',rug:'#2e6f9a',quilt:'#e07a9a',curtain:'#2e6f9a',deco:[[3,'pic'],[8,'win'],[1,'win']]},
 house_forsale:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#d8d4cc',wall2:'#c8c4bc',pap:'stripe',deco:[[2,'win'],[7,'win']]},
+house_forsale_eb:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b8a8',wall2:'#9a5040',pap:'brick',deco:[[2,'win'],[7,'win']]},
+house_forsale_fh:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',deco:[[2,'win'],[7,'win']]},
+villa_forsale:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',deco:[[1,'win'],[4,'win'],[9,'win'],[13,'win']]},
 hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[2,'map'],[10,'map'],[13,'clock'],[16,'calendar'],[18,'pic']]},
 transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap:'tiles',base:'#4a5058',deco:[[6,'onair'],[10,'clock'],[15,'poster']]},
 chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
@@ -1235,6 +1270,10 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     return{oy,c,an}}
   if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:{t:'blink',x:W-6,y:4,c:'#ff8a3a'},c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
     for(let x=2;x<W-4;x+=11){r('#2b2f3a',x,4,9,8);r('#7fd0a0',x+1,5,7,3);r('#d0d4d8',x+2,9,2,2);r('#d0d4d8',x+6,9,2,2)}r('#6b4a2e',0,TT-8,W,8);r('#8a6a45',0,TT-8,W,1);r('#2b2f3a',4,TT-12,6,4);r('#d0d4d8',W-12,TT-13,1,5)})}}
+  // a wooden shelf stacked with folded towels in soft colours
+  if(ch=='y'&&l.includes('towel')){const oy=12,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#7a5232',0,0,W,TT);r('#946640',0,0,W,1);
+    for(const sy of[2,12,22]){r('#5a3a22',1,sy+8,W-2,2);for(let x=3,i=0;x<W-8;x+=8,i++){const c=['#f4efe4','#9fd6c0','#f2c4c4','#cfe0f0','#f4efe4'][(i+sy)%5];
+      for(let k=0;k<3;k++){r(c,x,sy+6-k*2,6,2);r(shade(c,-.15),x,sy+7-k*2,6,1)}}}})}}
   if(ch=='y'){
     if(l.includes('file')||l.includes('archive')||l.includes('locker')){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{for(let x=0;x<W;x+=16){r('#8d959e',x+1,0,14,TT);r('#a9b0b8',x+1,0,14,2);r('#6b737c',x+13,0,2,TT);
       for(let y=4;y<TT-4;y+=10){r('#6b737c',x+1,y+8,14,1);r('#d0d4d8',x+5,y+3,6,1);r('#f4f4f0',x+6,y+5,4,2)}}})}}
@@ -1266,6 +1305,10 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     if(king){r('#5e2a75',3,3,W-6,TT-13);r('#7d3c98',3,3,W-6,2);r('#c9a040',3,TT-11,W-6,1);
       const cx=W>>1;r('#c9a040',cx-5,8,10,4);r('#ffd23a',cx-5,6,2,2);r('#ffd23a',cx-1,5,2,3);r('#ffd23a',cx+3,6,2,2);r('#c0392b',cx-1,9,2,2)}
     else{const cx=W>>1;r('#7a756c',cx-1,4,2,TT-15);r('#7a756c',cx-4,8,8,2)}})}}
+  // a sunken bath of hot spring water, in a rim of dark stone, steaming
+  if(/bath|pool/.test(l)){const c=mk(W,H,r=>{r('#5a5048',0,0,W,H);r('#7a7066',0,0,W,2);r('#3a3430',0,H-2,W,2);r('#1f8f94',3,3,W-6,H-6);r('#2fa9a8',4,4,W-8,H-9);r('#56c9bd',4,4,W-8,2);
+      for(let x=8;x<W-8;x+=10)r('rgba(220,255,250,.5)',x,(x*7)%(H-12)+6,4,1)});
+    return{oy:0,c,an:Array.from({length:Math.max(2,w)},(_,i)=>({t:'steam',ph:i/w,x:8+i*(W-16)/Math.max(1,w-1),y:8+(i%2)*(H-20)}))}}
   if(ch=='x'&&/barrel|gold|chest/.test(l)){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{
     if(l.includes('barrel'))for(let x=0;x+15<=W;x+=16)for(let y=0;y+15<=TT-2;y+=14){
       // a wine barrel lying on its side on a rack, its round end facing out
@@ -1336,7 +1379,7 @@ function sceneOf(m,wx){
   const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],lights=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
   if(c.an)an.push(...c.an);
   const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
-  const signs=[],iconTop={};
+  const signs=[],iconTop={},spires=[];
   // at night, the buildings whose business is shut (a door into a DAY_ONLY place, or a DAY_ONLY_STALLS stall) have their lights off
   const shutTonight=(x,y,w,h,st)=>NIGHT&&typeof DAY_ONLY!='undefined'&&(DOORS.some(d=>d[0]==m&&d[1]>=x&&d[1]<x+w&&d[2]>=y&&d[2]<y+h&&DAY_ONLY.includes(d[5]))||DAY_ONLY_STALLS.some(([p,k])=>p==m&&k==st));
   FL[m].forEach(([x,y,w,h,ch,lb,st])=>{
@@ -1356,6 +1399,7 @@ function sceneOf(m,wx){
     if(st&&BLD[st]&&BLD[st].kind=='bigtop'){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
       g.fillStyle='rgba(30,50,80,.22)';g.fillRect(x*16+2,(y+h)*16-2,w*16-2,3);put(y+h-1,x*16-1,y*16-21,bigtopArt(w,h,dx));an.push({t:'flag',x:x*16+w*8+1,y:y*16-20,col:'#e0a100'});return}
     if(st&&BLD[st]&&BLD[st].kind=='wagon'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+4,(y+h)*16-2,w*16-6,3);put(y+h-1,x*16-1,y*16-11,wagonArt(w,h,BLD[st]));an.push({t:'smoke',x:x*16+w*16-11,y:y*16-11});return}
+    if(st&&BLD[st]&&BLD[st].kind=='hotspring'){g.drawImage(poolArt(w,h),x*16,y*16);for(let i=0;i<Math.max(2,w*h/3|0);i++)an.push({t:'steam',ph:hash(i,3,x*7+y),x:x*16+10+hash(i,1,x*7+y)*(w*16-20),y:y*16+16+hash(i,2,x*7+y)*(h*16-22)});return}
     if(st&&BLD[st]&&BLD[st].kind=='fountain'){put(y+h-1,x*16-1,y*16-17,fountainArt(w,h));return}
     if(st&&BLD[st]&&BLD[st].kind=='shelter'){put(y+h-1,x*16-1,y*16-13,shelterArt(w,h,BLD[st].stop));return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
@@ -1366,9 +1410,11 @@ function sceneOf(m,wx){
       if(dx<0&&!['church','hut','whs','garage'].includes(BLD[st].deco))dx=w>>1;
       g.fillStyle='rgba(60,80,115,.22)';g.fillRect(x*16+4,(y+h)*16,w*16+1,2);
       const dark=shutTonight(x,y,w,h,st),b=bld2(w,h,dark?{...BLD[st],dark:1}:BLD[st],dx,ds.slice(1));g.drawImage(b.c,x*16,y*16);cyberLights(b,x,y,h,lights,CYB(m),dark).forEach(a=>an.push({...a,x:a.x+x*16,y:a.y+y*16}));
+      if(BLD[st].spire)spires.push({x:x*16+w*8-10,y:y*16-37,roof:BLD[st].roof,row:y+h-1});
       if(BLD[st].icon)signs.push({x,y,w,h,k:BLD[st].icon,ry:b.ry,nt:b.nt,hang:BLD[st].hang})}
     else if(ch=='b')boats.push({x,y,c:boatArt(w,h,hash(x,y,21)),ph:hash(x,y,22)*6})
     else if(ch=='k')g.drawImage(fishPile,x*16,y*16)});
+  spires.forEach(({x,y,roof,row})=>put(row,x-1,y-1,spireArt(roof)));
   // most shops' pictures stand on top of their name sign; a hanging one (BLD hang) sticks out on whichever side of the shop has a clear gap (not one another shop's sign already hangs in), and no door
   // at that corner; more room wins. They hang just under the eaves.
   const taken=new Set(),clear=(cx,y0,y1)=>cx>0&&cx<M[0].length-1&&[y0,y1].every(r=>M[r]&&!'#T'.includes(M[r][cx]));
@@ -1493,6 +1539,9 @@ function drawWorld2(m,cx,cy,t,frame){
   Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());
   // smoke, flags, signs, lights, fires and machines
   S.an.forEach(a=>{const X=a.x-cx,Y=a.y-cy;
+    // steam off hot water: soft white wisps rising straight up and swaying, each spot out of step with the next (ph)
+    if(a.t=='steam')for(let k=0;k<7;k++){const g=(t/3400+k/7+(a.ph||0))%1,s=3+Math.round(g*6);
+      px(`rgba(248,252,255,${(.6*Math.sin(Math.PI*Math.min(1,g*1.3))*(1-g*.5)).toFixed(2)})`,X+Math.sin(g*6+k*1.7)*3-s/2,Y-g*18-s/2,s,s)}
     if(a.t=='smoke')for(let k=0;k<6;k++){const g=(t/2600+k/6)%1,s=(a.big?3:2)+Math.round(g*3);
       px(`rgba(236,241,246,${(.6*(1-g)).toFixed(2)})`,X+Math.sin(g*5+k)*2+g*10-s/2,Y-g*24-s/2,s,s)}
     if(a.t=='flag')for(let c=0;c<12;c++){const dy=Math.round(Math.sin(t/220-c*.7)*c/8),sh=Math.sin(t/220-c*.7)>.3,fc=a.col||(a.royal?'#7d3c98':'#c0392b');

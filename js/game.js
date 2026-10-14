@@ -296,7 +296,7 @@ function draw(t){
 // On opening the game, carry on from the most recent save (if there is one). Starting with ?new in the address starts a new game
 // instead, as do the addresses that set up the start themselves (?day=, ?night and the proofs of concept).
 // ---- Routines: by day everyone is at work, where NPCS places them (night workers the other way round); at night they are at home (their home, and any floors
-// joined to it by stairs that have beds), each beside a bed, sharing beds only once every bed has someone. No one is put on an
+// joined to it by stairs that have beds), each beside a bed, sharing beds only once every bed has someone (except couples, who share one). No one is put on an
 // exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
@@ -312,15 +312,16 @@ function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1]
   // the floors of someone's home: the home itself and the rooms with beds joined to it by stairs (never your own room)
   const floors=h=>{const out=[h],q=[h];while(q.length){const m=q.shift();(EX[m]||[]).forEach(e=>{if(e.to!=HOME&&!out.includes(e.to)&&hasBeds(e.to)){out.push(e.to);q.push(e.to)}})}return out};
   NPCS.forEach(n=>{n.atWork={m:n.m,x:n.x,y:n.y,dir:n.dir,costume:n.costume}});
-  NPCS.filter(n=>L[n.home]).forEach((n,i)=>{let best=null;
+  const BED=new Map();  // where each person sleeps: the room and which bed in it
+  NPCS.filter(n=>L[n.home]).forEach((n,i)=>{let best=null;const pn=n.partner&&NPCS.find(o=>o.name==n.partner),pb=pn&&BED.get(pn);
     floors(n.home).forEach((m,fi)=>{const ex=EX[m]||[],base=reach(m);
       for(let y=0;y<MAPS[m].length;y++)for(let x=0;x<MAPS[m][y].length;x++){
         if(!free(m,x,y)||!base.has(x+','+y)||ex.some(e=>Math.abs(e.x-x)+Math.abs(e.y-y)<=1))continue;
         let bed=null,dir=0;D4.forEach(([dx,dy],d)=>{if(bed==null&&MAPS[m][y+dy]?.[x+dx]=='e'){bed=beds(m).findIndex(([fx,fy,w,h])=>x+dx>=fx&&x+dx<fx+w&&y+dy>=fy&&y+dy<fy+h);dir=d}});
-        const sc=(bed!=null&&bed>=0?(use[m+bed]||0)*2:3)+fi*.1+((x*31+y*17+i*7)%97)/1000;
+        const sc=(bed!=null&&bed>=0?(use[m+bed]||0)*2:3)+fi*.1+((x*31+y*17+i*7)%97)/1000-(pb&&pb.m==m&&pb.bed==bed&&bed>=0?10:0);
         if(!best||sc<best.sc){taken.add(m+','+x+','+y);const ok=reach(m).size==base.size-1;taken.delete(m+','+x+','+y);if(ok)best={sc,m,x,y,dir,bed}}}});
     if(!best)return;taken.add(best.m+','+best.x+','+best.y);if(best.bed!=null&&best.bed>=0)use[best.m+best.bed]=(use[best.m+best.bed]||0)+1;
-    R.set(n,{m:best.m,x:best.x,y:best.y,dir:best.dir,costume:undefined})});
+    BED.set(n,{m:best.m,bed:best.bed});R.set(n,{m:best.m,x:best.x,y:best.y,dir:best.dir,costume:undefined})});
   return R}
 ROUTINE=planRoutine();applyRoutine();
 if(!GOTHIC&&!DETAILED&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}

@@ -19,6 +19,8 @@ const nid=n=>n.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),npcOf=id=>NPCS.find
 const BUILDINGS=new Set(DOORS.map(d=>d[5]));  // 'none' is allowed for someone with no fixed home
 NPCS.forEach(n=>{const bad=['name','job','faction','loc','home'].filter(k=>!n[k]);if(n.loc&&!L[n.loc])bad.push('loc (unknown id '+n.loc+')');
   if(n.home&&n.home!='none'&&!BUILDINGS.has(n.home))bad.push('home ('+n.home+' is not a building interior in DOORS)');
+  (n.also||[]).forEach(f=>{if(!FACTIONS[f])bad.push('also (unknown faction '+f+')')});
+  if(n.partner&&NPCS.find(o=>o.name==n.partner)?.partner!=n.name)bad.push('partner ('+n.partner+' must be someone who names '+n.name+' as their partner)');
   if(n.faction&&n.faction!='none'&&!FACTIONS[n.faction])bad.push('faction (unknown id '+n.faction+')');
   if(bad.length)throw new Error('NPC '+(n.name||JSON.stringify(n))+' is missing or has a bad: '+bad.join(', '))});
 const A=(c,k,id,t)=>`<a href="${c.single?'#'+k+'-'+id:c.pre+k+'/'+id+'.html'}">${esc(t)}</a>`;
@@ -82,7 +84,8 @@ function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac
   if(day.length||night.length)t+=`<h2 id="daynight">Here by day and at night</h2><div class="cols2"><div><h3>By day <small>(${day.length})</small></h3><ul>${here(day,false)||'<li>No one</li>'}</ul></div>`+
     `<div><h3>At night <small>(${night.length})</small></h3><ul>${here(night,true)||'<li>No one</li>'}</ul></div></div>`;
   return t}
-function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>n.faction==id),wk=QUEST_WEEKS[id]||[],side=SIDE_FACTIONS.includes(id);
+const inFac=(n,id)=>n.faction==id||(n.also||[]).includes(id);
+function facBody(c,id){const[name,col,badge,desc]=FACTIONS[id],bases=Object.keys(FACTION_AT).filter(l=>FACTION_AT[l]==id),mem=NPCS.filter(n=>inFac(n,id)),wk=QUEST_WEEKS[id]||[],side=SIDE_FACTIONS.includes(id);
   const grid='<div class="weeks">'+Array.from({length:19},(_,i)=>`<span class="${wk.includes(i+1)?'on':''}" style="${wk.includes(i+1)?'background:'+col:''}">${i+1}</span>`).join('')+'</div>';
   return `<h1><span class="sw big" style="background:${col}"></span>${esc(name)}</h1>${info([['Type',side?"Side faction (can't win)":'Main faction (can win)'],['Badge',esc(badge)],['Bases',list(bases.map(l=>locA(c,l)))],['People',list(mem.map(n=>npcA(c,n)))],!side&&['Quests',wk.length?wk.length+' (weeks '+wk.join(', ')+')':'None scheduled']])}
 <p>${esc(desc)}</p><p>${esc((NOTES.factions||{})[id]||'')}</p>`+(side?'':`<h2>Quest weeks</h2><p>Weeks of the 19-week cycle in which this faction has quests:</p>${grid}`)+`
@@ -111,15 +114,15 @@ const PLACE_COL=(()=>{
 const placeSw=(id,big)=>PLACE_COL[id]?`<span class="sw${big?' big':''}" style="background:${PLACE_COL[id]}" title="${esc(L[id][0])}"></span>`:'';
 const gen=n=>n.gender=='male'?'Male':n.gender=='female'?'Female':'Not specified';
 function npcBody(c,n){const nt=(NOTES.npcs||{})[nid(n)]||{};
-  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Gender',gen(n)],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
+  return `<h1>${esc(n.name)}</h1>${info([['Name',esc(n.name)],['Gender',gen(n)],n.partner&&['Partner',npcA(c,NPCS.find(o=>o.name==n.partner))],['Job',esc(n.job)],['Faction',facA(c,n.faction)],['Side faction',(n.also||[]).length?n.also.map(f=>`<span class="sw" style="background:${FACTIONS[f][1]}"></span>`+facA(c,f)).join(', '):'None'],['Main location',locA(c,n.loc)],['Home',n.home=='none'?'No fixed home':locA(c,n.home)],nt.work&&['Works at',locA(c,nt.work)],['By day',when(c,n,false)],['By night',when(c,n,true)],
    ['Look',`<span class="sw" style="background:${n.body}"></span> clothes <span class="sw" style="background:${n.hair}"></span> hair`]])}<p>${esc(nt.note||n.name+' lives on the island.')}</p>`}
 const filter='<input class="filter" type="search" placeholder="Filter…" aria-label="Filter">';
 function idxBody(c,k){let t;
   if(k=='locations'){const g={};Object.keys(L).forEach(i=>(g[kind(i)]??=[]).push(i));
     t='<h1>Locations</h1>'+filter+Object.keys(KIND).filter(x=>g[x]).map(x=>`<h2>${KIND[x]}</h2><ul class="cols">${g[x].map(i=>`<li data-s="${esc((L[i][0]+' '+x+' '+(DISTRICTS[distOf(i)]||[''])[0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')+
       '<h2>By district</h2>'+Object.keys(DISTRICTS).map(d=>`<h3><span class="sw" style="background:${DISTRICTS[d][1]}"></span>${esc(DISTRICTS[d][0])}</h3><ul class="cols">${Object.keys(POS).filter(i=>DISTRICT_OF[i]==d).map(i=>`<li data-s="${esc((L[i][0]+' '+DISTRICTS[d][0]).toLowerCase())}">${locA(c,i)}</li>`).join('')}</ul>`).join('')}
-  else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none');// one section per faction, listing everyone aligned with it
-    const sec=i=>{const mem=NPCS.filter(n=>n.faction==i);
+  else if(k=='factions'){const un=NPCS.filter(n=>n.faction=='none'&&!(n.also||[]).length);// one section per faction, listing everyone aligned with it
+    const sec=i=>{const mem=NPCS.filter(n=>inFac(n,i));
       return`<h3><span class="sw" style="background:${FACTIONS[i][1]}"></span>${facA(c,i)}</h3><p><small>${esc(FACTIONS[i][3])}</small></p><ul>${mem.length?mem.map(n=>`<li data-s="${esc((n.name+' '+n.job+' '+FACTIONS[i][0]).toLowerCase())}">${npcA(c,n)}, ${esc(n.job)}</li>`).join(''):'<li>No members yet</li>'}</ul>`},ids=Object.keys(FACTIONS);
     t='<h1>Factions</h1>'+filter+'<h2>Main factions</h2><p>The factions that can win the game.</p>'+ids.filter(i=>!SIDE_FACTIONS.includes(i)).map(sec).join('')+
       "<h2>Side factions</h2><p>Factions that play a part in the story but can't win it.</p>"+ids.filter(i=>SIDE_FACTIONS.includes(i)).map(sec).join('')+
@@ -128,13 +131,14 @@ function idxBody(c,k){let t;
     // place it stands in. Click a column heading to sort that table by it.
     const where=(x,g)=>placeSw(top(x))+A(c,'locations',x,L[x][0])+(top(x)!=x&&top(x)!=g?' <small>('+esc(L[top(x)][0])+')</small>':'');
     const row=(n,g)=>{const f=n.faction=='none'?'Unaligned':FACTIONS[n.faction][0],note=((NOTES.npcs||{})[nid(n)]||{}).note||'';
-      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],...[false,true].map(nt=>whereAt(n,nt)?L[whereAt(n,nt)][0]:''),n.home=='none'?'':L[n.home][0],n.job,gen(n),note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td><td>${gen(n)}</td>`+
+      return `<tr data-s="${esc([n.name,f,L[n.loc][0],L[g][0],...[false,true].map(nt=>whereAt(n,nt)?L[whereAt(n,nt)][0]:''),n.home=='none'?'':L[n.home][0],n.job,gen(n),...(n.also||[]).map(x=>FACTIONS[x][0]),note].join(' ').toLowerCase())}"><td>${npcA(c,n)}</td><td>${gen(n)}</td>`+
         `<td data-v="${esc(f)}">${n.faction=='none'?'Unaligned':`<span class="sw" style="background:${FACTIONS[n.faction][1]}"></span>`+facA(c,n.faction)}</td>`+
+        `<td data-v="${esc((n.also||[]).map(x=>FACTIONS[x][0]).join(' ')||'~')}">${(n.also||[]).map(x=>`<span class="sw" style="background:${FACTIONS[x][1]}"></span>`+facA(c,x)).join('<br>')||'—'}</td>`+
         [false,true].map(nt=>{const x=whereAt(n,nt);return x?`<td data-v="${esc(L[x][0])}">${where(x,g)}${atHomeWhen(n,nt)?' <small>(home)</small>':''}</td>`:'<td data-v="~">Off the island</td>'}).join('')+
         `<td data-v="${esc(n.home=='none'?'~':L[n.home][0])}">${n.home=='none'?'No fixed home':where(n.home,g)}</td>`+
         `<td>${esc(n.job)}</td><td class="note">${esc(note)}</td></tr>`};
-    const head='<colgroup><col style="width:9%"><col style="width:8.5%"><col style="width:12%"><col style="width:13%"><col style="width:13%"><col style="width:12%"><col style="width:10%"><col></colgroup><thead><tr>'+
-      ['Name','Gender','Faction','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<7?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
+    const head='<colgroup><col style="width:8%"><col style="width:7.5%"><col style="width:11%"><col style="width:9.5%"><col style="width:12%"><col style="width:12%"><col style="width:11%"><col style="width:9%"><col></colgroup><thead><tr>'+
+      ['Name','Gender','Faction','Side faction','By day','By night','Home','Job','Notes'].map((h,k)=>`<th${k<8?` data-col="${k}"`:''}${k==0?' class="asc"':''}>${h}</th>`).join('')+'</tr></thead>';
     const g={};NPCS.forEach(n=>(g[top(n.loc)]??=[]).push(n));
     t='<h1>People</h1>'+filter+`<p><small>${NPCS.length} people (${NPCS.filter(n=>n.gender=='male').length} men, ${NPCS.filter(n=>n.gender=='female').length} women${NPCS.some(n=>!n.gender)?`, ${NPCS.filter(n=>!n.gender).length} not specified`:''}), grouped by the place they are based in, with where each of them is by day and by night. Click a column heading to sort a table by it.</small></p>`+
       Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(i=>`<section class="grp"><h2>${placeSw(i,1)}${locA(c,i)} <small>(${g[i].length})</small></h2><div class="wide"><table class="grid sortable">${head}<tbody>${
@@ -158,7 +162,7 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .wide{position:relative;left:50%;transform:translateX(-50%);width:min(1280px,calc(100vw - 32px));overflow-x:auto}
 .grid{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--bd)}.grid th,.grid td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--bd)}
 .grid th{position:sticky;top:0;background:var(--card);color:var(--mut);white-space:nowrap}.grid th[data-col]{cursor:pointer}.grid th[data-col]:hover{color:var(--fg)}.grid th.asc:after{content:' ▲'}.grid th.desc:after{content:' ▼'}
-.grid td{overflow-wrap:anywhere}.grid td:nth-child(3){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
+.grid td{overflow-wrap:anywhere}.grid td:nth-child(3),.grid td:nth-child(4){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
 .cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 24px}.cols2 h3{margin:.6em 0 .2em}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
