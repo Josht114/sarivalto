@@ -755,6 +755,17 @@ function wagonArt(w,h,c){const W=w*16,H=h*16+10,cx=W>>1;return mk(W,H,r=>{
 // slate gable with an iron finial over each bay, a tall lancet window of stained glass in each (lit crimson and amber, or dark),
 // an arched door between two candles, and optionally a bell tower, a rose window, crimson banners and a carved sign. It rises
 // GEXT pixels above its footprint. Returns the picture, its animations and its light sources (all relative to the picture).
+// ---- A lighthouse (BLD kind lighthouse): a tapering tower in red and white bands on a stone base, a gallery with a railing,
+// the glass lantern room with its lamp, and a red domed cap; drawn LHX pixels taller than its footprint. Its beam sweeps at night.
+const LHX=44,LHTOP=26;
+function lighthouseArt(w,h){const W=w*16,H=h*16+LHX,cx=W>>1;return mk(W,H,r=>{
+  r('#6b737c',2,H-9,W-4,9);r('#9aa3ad',2,H-9,W-4,1);for(let x=5;x<W-4;x+=7)r('#4a5058',x,H-8,1,8);
+  const top=LHTOP,bot=H-9;for(let y=top;y<bot;y++){const f=(y-top)/(bot-top),hw=Math.round(6+f*7),band=((y-top)/10|0)%2;r(band?'#c0392b':'#f4f4f0',cx-hw,y,hw*2,1);r(band?'#8a2a1e':'#c9ced4',cx+hw-3,y,3,1);r(band?'#d85a4a':'#ffffff',cx-hw,y,1,1)}
+  r('#2a3a4a',cx-2,top+12,4,5);r('#9fc3d6',cx-2,top+12,1,2);r('#2a3a4a',cx-2,top+32,4,5);r('#9fc3d6',cx-2,top+32,1,2);
+  r('#3a2414',cx-4,bot-13,8,13);r('#5b3a26',cx-3,bot-12,6,12);r('#c9a040',cx+1,bot-6,1,1);
+  r('#2a2a30',cx-10,top-2,20,3);r('#2a2a30',cx-10,top-7,20,1);for(let x=cx-10;x<=cx+9;x+=3)r('#2a2a30',x,top-7,1,5);
+  r('#2a2a30',cx-6,top-17,12,15);r('#fff3c0',cx-5,top-16,10,13);r('#ffd23a',cx-3,top-13,6,7);r('#ffffff',cx-2,top-12,2,3);r('#2a2a30',cx-5,top-9,10,1);r('#2a2a30',cx,top-16,1,13);
+  for(let k=0;k<6;k++)r(k<2?'#8a2a1e':'#a83a2a',cx-7+k,top-18-k,14-2*k,1);r('#2a2a30',cx,top-26,1,3)})}
 // ---- Steampunk touches (Kingsgrad's look; not with ?classic or ?steam), laid over a building b drawn by bld2 (same size): copper on a few roofs (copper),
 // smoking soot-black chimney stacks and a brass ridge on every roof, copper pipes with valve wheels down the corners, and a
 // brass-bound plank door on a few (door). s is its BLD look, dx its door's column, sd a number to vary things by.
@@ -1295,6 +1306,7 @@ bigtop_in:{fl:'sand',f:[],wall:'#c0392b',wall2:'#f2e6c8',pap:'stripe',base:'#e0a
 caravan1_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c0392b',wall2:'#a3302a',pap:'stripe',base:'#5a3a26',quilt:'#e0a100',curtain:'#e0a100',deco:[[2,'poster'],[6,'win']]},
 caravan2_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#2e6f9a',wall2:'#255a7d',pap:'stripe',base:'#5a3a26',quilt:'#e07a9a',curtain:'#f2e6c8',deco:[[2,'win'],[6,'pic']]},
 caravan3_in:{fl:'carpet',f:['#5e2a75','#7d3c98'],wall:'#3a2a4a',wall2:'#c9a040',pap:'flower',base:'#c9a040',quilt:'#7d3c98',curtain:'#c9a040',deco:[[2,'portrait'],[6,'win']]},
+lighthouse_in:{fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#e8e4dc',wall2:'#c0392b',pap:'stripe',base:'#2e4a6a',rug:'#2e4a6a',curtain:'#2e4a6a',quilt:'#2e5f8f',deco:[[2,'win'],[5,'map'],[8,'clock']]},
 jazz_in:{fl:'carpet',f:['#1a1c3a','#24264a'],wall:'#2a1a2e',wall2:'#5a2a3a',pap:'panel',base:'#c9a040',rug:'#7a1e2a',curtain:'#7a1e2a',deco:[[2,'neon','BAR','#ff5fa8'],[10,'neon','JAZZ','#3b8bff'],[17,'poster']]},
 villa_gustavo:{fl:'check',f:['#e8e2d4','#2a2a33'],wall:'#5a2a2a',wall2:'#4a2222',pap:'stripe',rug:'#c9a040',quilt:'#8a1a1a',curtain:'#8a1a1a',deco:[[4,'portrait'],[12,'pic'],[15,'win']]},
 house_thyme:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#e8e2d4',wall2:'#d8d0c0',pap:'panel',rug:'#5a3a8a',quilt:'#5a3a8a',curtain:'#5a3a8a',deco:[[1,'win'],[4,'cross'],[8,'win']]},
@@ -1606,8 +1618,9 @@ function cyberLights(b,x,y,h,lights,refl,dark){const rb=refl?(y+h)*16:0;let nb=0
 function sceneOf(m,wx){
   const M=MAPS[m],inside=L[m][3]=='interior',an=[],boats=[],ents=[],lights=[],c=inside?interiorLayer(m):groundLayer(m),g=c.getContext('2d');
   if(c.an)an.push(...c.an);
-  // the flats' doors in the apartment blocks: a floor tile in a gap in a wall (walls either side of it), across a doorway
-  if(inside&&/^(apartments|skyapts|kgapts|eblofts|hsresid)/.test(m))for(let y=1;y<M.length-1;y++)for(let x=1;x<M[0].length-1;x++){if(M[y][x]!='f')continue;
+  // doors between rooms, in every interior (the flats in the apartment blocks, the hotel rooms, the royal apartments, the monks'
+  // cells, your own room): a floor tile in a gap in a wall (walls either side of it), across a doorway
+  if(inside)for(let y=1;y<M.length-1;y++)for(let x=1;x<M[0].length-1;x++){if(M[y][x]!='f')continue;
     const h=M[y][x-1]=='W'&&M[y][x+1]=='W'&&M[y-1][x]!='W'&&M[y+1][x]!='W',v=M[y-1][x]=='W'&&M[y+1][x]=='W'&&M[y][x-1]!='W'&&M[y][x+1]!='W';
     if(h||v)an.push({t:'adoor',x:x*16,y:y*16,v})}
   const put=(k,X,Y,pic,sh,tx,ty)=>ents.push({k,X,Y,c:pic,sh,sx:tx*16+2,sy:(ty+1)*16-3});
@@ -1635,6 +1648,8 @@ function sceneOf(m,wx){
     if(st&&BLD[st]&&BLD[st].kind=='wagon'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+4,(y+h)*16-2,w*16-6,3);put(y+h-1,x*16-1,y*16-11,wagonArt(w,h,BLD[st]));an.push({t:'smoke',x:x*16+w*16-11,y:y*16-11});return}
     if(st&&BLD[st]&&BLD[st].kind=='hotspring'){g.drawImage(poolArt(w,h),x*16,y*16);for(let i=0;i<Math.max(2,w*h/3|0);i++)an.push({t:'steam',ph:hash(i,3,x*7+y),x:x*16+10+hash(i,1,x*7+y)*(w*16-20),y:y*16+16+hash(i,2,x*7+y)*(h*16-22)});return}
     if(st&&BLD[st]&&BLD[st].kind=='fountain'){put(y+h-1,x*16-1,y*16-17,fountainArt(w,h));return}
+    if(st&&BLD[st]&&BLD[st].kind=='lighthouse'){const ox=x*16-1,oy=y*16-LHX-1,lx=x*16+w*8,ly=y*16-LHX+LHTOP-9;put(y+h-1,ox,oy,lighthouseArt(w,h));
+      an.push({t:'beam',x:lx,y:ly});lights.push({x:lx,y:ly,r:70,col:'255,232,160',f:0});return}
     if(st&&BLD[st]&&BLD[st].kind=='shelter'){put(y+h-1,x*16-1,y*16-13,shelterArt(w,h,BLD[st].stop));return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
     if(st&&BLD[st]){const row=M[y+h-1],ds=[];for(let i=0;i<w;i++)if(row[x+i]=='d')ds.push(i);
@@ -1821,6 +1836,9 @@ function drawWorld2(m,cx,cy,t,frame){
       for(let k=0;k<4;k++){const q=an0+k*Math.PI/2;for(let d=1;d<R-1;d++)px('#a8802a',X+Math.cos(q)*d,Y+Math.sin(q)*d,1,1)}px('#ffe08a',X-1,Y-1,2,2)}
     // a clock's hands (steampunk Kingsgrad): they really go round
     if(a.t=='sclock'){const q1=t/60000*Math.PI*2,q2=t/5000*Math.PI*2;for(let d=0;d<4;d++)px('#2a1a10',X+Math.sin(q1)*d,Y-Math.cos(q1)*d,1,1);for(let d=0;d<5;d++)px('#7a2a1a',X+Math.sin(q2)*d,Y-Math.cos(q2)*d,1,1);px('#2a1a10',X,Y,1,1)}
+    // a lighthouse's lamp: a soft glow by day; at night a bright glow and a beam sweeping slowly round
+    if(a.t=='beam'){if(!NIGHT){px('rgba(255,240,170,.35)',X-3,Y-2,6,5);}else{const q=t/1600;px('rgba(255,240,180,.55)',X-5,Y-4,10,9);
+      for(const sg of[-1,1])for(let d=4;d<110;d+=2){const bx=X+Math.cos(q)*d*sg,by=Y+Math.sin(q)*d*sg*.4,wd=1+d*.18;px(`rgba(255,240,180,${(.32*(1-d/110)).toFixed(3)})`,bx-wd/2,by-wd*.2,wd,Math.max(1,wd*.4))}}}
     if(a.t=='lbulb'){const on=!a.off&&((t/700|0)+a.k)%7!=0;if(on){px('rgba(255,230,160,.22)',X-1,Y-1,3,3);px(a.c,X,Y,1,1)}else px(shade(a.c,-.55),X,Y,1,1)}
     if(a.t=='blink'){const on=!a.off&&((t+a.x*7)/700|0)%2;if(on){px('rgba(255,80,60,.3)',X-1,Y-1,4,4);px(a.c||'#ff3b2f',X,Y,2,2)}else px('#5a2020',X,Y,2,2)}
     if(a.t=='fire'){px('rgba(255,160,60,.16)',X-9,Y-10,18,14);for(let k=0;k<5;k++){const hh=2+(hash(k,t/90|0,3)*5|0);px(['#e8321e','#ff8a3a','#ffd23a','#ff8a3a','#e8321e'][k],X-5+k*2,Y-hh,2,hh)}}

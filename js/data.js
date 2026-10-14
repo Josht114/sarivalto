@@ -188,6 +188,8 @@ farmhouse_in:['Farmhouse',14,10,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Sh
 barn_in:['Barn',18,10,'interior',[[1,1,3,2,'x','Hay Bales'],[5,1,3,2,'x','Hay Bales'],[10,1,3,1,'y','Shelves'],[14,1,3,2,'x','Feed Sacks'],[2,5,4,1,'u','Workbench'],[12,5,4,2,'x','Hay Bales']]],
 civil_in:['Civil Service Bureau',20,12,'interior',[[1,1,4,1,'y','Files'],[6,1,4,1,'y','Files'],[11,1,4,1,'y','Files'],[16,1,3,1,'y','Archive'],[2,2,3,2,'u','Desk'],[8,2,3,2,'u','Desk'],[14,2,3,2,'u','Desk'],[2,5,16,1,'c','Service Counter'],[2,8,5,1,'o'],[13,8,5,1,'o']]],
 kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up']]],
+// the lighthouse keeper's room at the foot of the tower: the spiral stair up to the lamp, a bed, a table, a stove, tide charts and lamp oil
+lighthouse_in:['Lighthouse',10,9,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Lamp Oil'],[7,1,2,2,'y','Spiral Stair'],[3,4,2,2,'u','Table'],[8,5,1,1,'i','Stove'],[1,6,2,1,'y','Tide Charts']]],
 // Phil's office, the second floor of Kelp Cola's headquarters: a panelled room with his executive desk, a bookcase, a drinks cabinet,
 // a trophy shelf of the company's awards and a table for guests
 kchq2:["Phil's Office",16,10,'interior',[[1,1,4,1,'y','Bookcase'],[10,1,4,1,'y','Bottles'],[5,3,5,2,'u','Executive Desk'],[2,6,2,2,'u','Table'],[10,6,4,1,'y','Trophy Shelf'],[14,1,1,1,'z','Stairs down']]],
@@ -259,7 +261,9 @@ barracks:['Army Barracks',32,22,'snow',[[2,3,10,6,'#','Barracks Block A','barrA'
 [2,13,9,6,'#','Armoury','arm'],[6,18,1,1,'d'],[21,13,9,6,'#',"Officers' HQ",'offhq'],[25,18,1,1,'d']]],
 radio:['Radio Tower',18,14,'snow',[[7,2,4,4,'#','Radio Tower','mast'],[2,3,4,3,'#','Transmitter Hut','hut'],[3,5,1,1,'d'],[9,6,1,1,','],[13,1,4,3,'#',"Hekki's Shack",'shack'],[14,3,1,1,'d']]],
 kalanharbour:['North Frostholm Harbour',24,14,'harbour',[[1,1,22,6,'~'],[4,3,12,4,'p'],[17,3,4,2,'b','Fishing Boat'],[3,8,5,3,'#','Fuel Dock','fueldock'],[5,10,1,1,'d'],[16,8,5,3,'#','Port Office','portoffice'],[18,10,1,1,'d']]],
-savilaharbour:['Eastbrook Harbour',24,14,'harbour',[[14,1,9,12,'~'],[10,5,10,4,'p'],[15,10,4,2,'b','Fishing Boat'],[2,2,6,3,'#','Customs Shed','customs'],[5,4,1,1,'d'],[2,9,6,3,'#','Warehouse','ebwhs'],[3,11,1,1,'d']]]};
+// Eastbrook Harbour: the quay on the west, a long pier out to the boat berths, a jetty with fishing boats, and a lighthouse on a
+// rocky spit to the north-east, at the end of the pier
+savilaharbour:['Eastbrook Harbour',36,20,'harbour',[[18,1,17,18,'~'],[28,1,6,7,'.'],[14,8,18,4,'p'],[18,13,7,1,'p'],[21,3,4,2,'b','Fishing Boat'],[21,14,4,2,'b','Fishing Boat'],[27,15,4,2,'b','Fishing Boat'],[2,2,6,3,'#','Customs Shed','customs'],[5,4,1,1,'d'],[2,14,6,3,'#','Warehouse','ebwhs'],[3,16,1,1,'d'],[30,3,3,4,'#','Lighthouse','lighthouse'],[31,6,1,1,'d']]]};
 // Links from the sketch: "A side B side". Order of links sets the order of exits along a side.
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano R mountains L','lake R north L','lake B beach R','north R town L','west R town L',
 'mountains B east T','mountains R monastery L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R tramstop L',
@@ -352,7 +356,7 @@ savilaharbour:['harbour','kalanharbour','oilrig'],oilrig:['harbour','kalanharbou
 const TRAM_STOPS=['town','tramstop','colafactory','second'];
 const TRAM_LINE=['town','colahq','tramstop','colafactory','second','south','town'];
 // FERRY: id:[x, y, stepX, stepY, arriveDX, arriveDY]. Berths start at (x,y) and step along; you arrive one tile in.
-const FERRY={harbour:[2,5,0,1,1,0],kalanharbour:[4,3,0,1,1,0],savilaharbour:[19,5,0,1,-1,0],oilrig:[1,3,0,1,1,0]};
+const FERRY={harbour:[2,5,0,1,1,0],kalanharbour:[4,3,0,1,1,0],savilaharbour:[32,8,0,1,-1,0],oilrig:[1,3,0,1,1,0]};
 // ---- Named characters standing in the world (placeholders: no dialogue yet). Every NPC needs:
 // name, job, gender ('male' or 'female'; left out where it has not been decided), also (optional: groups they belong to as
 // well as their faction, such as the Union), partner (optional: the name of the person they
@@ -437,6 +441,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'offhq_in',x:10,y:4,dir:0,name:'Colonel Halvorsen',home:'hsresid',loc:'offhq_in',job:'Army commander',faction:'army',gender:'male',body:'#3a4a2a',hair:'#b5b5b5',hat:'#4a5a3a'},
 {m:'fuel_in',x:7,y:3,dir:0,name:'Sven',home:'skyapts',loc:'fuel_in',job:'Fuel dock attendant',faction:'oil',gender:'male',body:'#e0a100',hair:'#5a3a26'},
 {m:'port_in',x:6,y:2,dir:0,name:'Ole',home:'skyapts',loc:'port_in',job:'Harbourmaster',faction:'admin',gender:'male',body:'#2e5f8f',hair:'#e8e8e8',hat:'#1f3a5f'},
+{m:'lighthouse_in',x:6,y:3,dir:0,name:'Signe',home:'lighthouse_in',loc:'lighthouse_in',job:'Lighthouse keeper',faction:'admin',gender:'female',body:'#2e4a6a',hair:'#c9a05a',hat:'#2e4a6a'},
 {m:'customs_in',x:6,y:2,dir:0,name:'Liv',home:'eblofts',loc:'customs_in',job:'Customs officer',faction:'communist',gender:'female',body:'#2e5f8f',hair:'#3a2a20'},
 {m:'ebwhs_in',x:8,y:4,dir:0,name:'Tor',home:'eblofts',loc:'ebwhs_in',job:'Warehouseman',faction:'communist',gender:'male',body:'#7a2a1e',hair:'#c9a05a',hat:'#3d5a4a'},
 // the travelling circus at Lake Ilmari
@@ -478,6 +483,10 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 // evening in the Timberline Tavern
 {m:'second',x:31,y:17,dir:3,name:'Veikko',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'male',body:'#6a5a3a',hair:'#3a2a20',hat:'#3d5a4a',evening:{m:'tavern',x:4,y:6,dir:0}},
 {m:'second',x:33,y:17,dir:2,name:'Hely',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'female',body:'#a8642a',hair:'#e8c86a',evening:{m:'tavern',x:10,y:6,dir:0}},
+// two out-of-work people from the Skyline Apartments: by day they hang about by the phone box at the west end of Frostholm's
+// boulevard, and they spend the evening in The Midnight Note
+{m:'fishing',x:5,y:7,dir:3,name:'Arto',home:'skyapts',loc:'fishing',job:'Unemployed',faction:'unemployed',gender:'male',body:'#3a3d44',hair:'#2a1a12',hat:'#b05fff',evening:{m:'jazz_in',x:3,y:9,dir:1}},
+{m:'fishing',x:7,y:7,dir:2,name:'Raili',home:'skyapts',loc:'fishing',job:'Unemployed',faction:'unemployed',gender:'female',body:'#ff5fa8',hair:'#1a1a1a',evening:{m:'jazz_in',x:14,y:9,dir:1}},
 {m:'gated',x:19,y:6,dir:0,name:'Paola',home:'hsresid',loc:'gated',job:'Syndicate enforcer',faction:'syndicate',gender:'female',body:'#2b2f3a',hair:'#8a8a8a'},
 // the Republican Party's leadership election: the party secretary running it, and the three candidates, each put up by one of the island's powers
 {m:'repubhq',x:10,y:1,dir:0,name:'Margit',home:'skyapts',loc:'repubhq',job:'Republican Party secretary (running the leadership election)',faction:'republican',gender:'female',body:'#a3123a',hair:'#b5b5b5'},
@@ -595,7 +604,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,10,0,-1,'apartments3',22,8,0,1],['skyapts2',22,10,0,-1,'skyapts3',22,8,0,1],['skyapts3',22,10,0,-1,'skyapts4',22,8,0,1],['eblofts2',22,10,0,-1,'eblofts3',22,8,0,1],['eblofts3',22,10,0,-1,'eblofts4',22,8,0,1],['kgapts2',22,10,0,-1,'kgapts3',22,8,0,1],['kgapts3',22,10,0,-1,'kgapts4',22,8,0,1],['hsresid',22,8,0,1,'hsresid2',22,8,0,1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
-['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,11,0,1,'ebwhs_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
+['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
@@ -713,6 +722,7 @@ burger:{nlogo:'burger',kind:'flat',wall:'#f4e6c0',roof:'#8a9099',trim:'#c0392b',
 nordmart:{nlogo:'cart',kind:'flat',wall:'#e8e2d4',roof:'#8a9099',trim:'#2e86c1',win:'#cfe8f0',glass:1,awn:'#2e86c1',sign:'NORDMART',signk:'neon',signc:'#3bd0ff',tube:'#3bd0ff'},
 fueldock:{nlogo:'pump',kind:'flat',wall:'#8a9aa8',roof:'#37474f',trim:'#e0a100',win:'#9fc6e0',tex:'metal',sign:'FUEL',signk:'neon',signc:'#e0a100',tube:'#ffd23a'},
 portoffice:{kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'PORT OFFICE',signc:'#2b2f3a',tube:'#3bd0ff'},
+lighthouse:{kind:'lighthouse'},
 customs:{kind:'gable',wall:'#7a5a3a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',sign:'CUSTOMS',signk:'wood',flag:'#2e5f8f'}};
 
 // ---- Small objects standing in the world (drawn by js/art.js): [mapId, x, y, kind]. All are solid except those in PROP_PASS.
@@ -810,8 +820,8 @@ const PROPS=[
 ['barracks',15,2,'warn'],['barracks',12,10,'drum'],['barracks',13,10,'drum'],['barracks',17,9,'crate'],['barracks',18,9,'crate'],['barracks',17,10,'crate'],['barracks',15,9,'lamp'],['barracks',20,12,'lamp'],['barracks',30,10,'gen'],
 ['kalanharbour',15,3,'bollard'],['kalanharbour',15,5,'bollard'],['kalanharbour',8,3,'bollard'],['kalanharbour',10,4,'rope'],['kalanharbour',2,12,'cont_r'],['kalanharbour',5,12,'cont_b'],['kalanharbour',8,12,'cont_g'],
 ['kalanharbour',16,12,'cont_b'],['kalanharbour',19,12,'cont_r'],['kalanharbour',20,7,'bb_oil'],['kalanharbour',6,7,'drum'],['kalanharbour',7,7,'drum'],['kalanharbour',11,7,'slamp'],['kalanharbour',13,11,'slamp'],
-['savilaharbour',12,5,'bollard'],['savilaharbour',16,8,'bollard'],['savilaharbour',11,8,'bollard'],['savilaharbour',9,2,'crate'],['savilaharbour',10,2,'crate'],['savilaharbour',9,3,'crate'],
-['savilaharbour',11,12,'barrel'],['savilaharbour',12,12,'barrel'],['savilaharbour',8,6,'lamp'],['savilaharbour',8,8,'lamp'],['savilaharbour',12,10,'net'],['savilaharbour',13,10,'net'],['savilaharbour',10,11,'anchor'],['savilaharbour',12,3,'planter'],['savilaharbour',8,5,'chalk'],['savilaharbour',4,6,'bike'],['savilaharbour',5,8,'bench'],['savilaharbour',9,12,'trap']];
+['savilaharbour',20,8,'lamp'],['savilaharbour',26,8,'lamp'],['savilaharbour',16,7,'lamp'],['savilaharbour',22,11,'bollard'],['savilaharbour',28,11,'bollard'],['savilaharbour',17,11,'bollard'],['savilaharbour',30,11,'lifebuoy'],['savilaharbour',9,13,'crate'],['savilaharbour',10,13,'crate'],['savilaharbour',9,14,'crate'],['savilaharbour',11,17,'barrel'],['savilaharbour',12,17,'barrel'],['savilaharbour',12,4,'net'],['savilaharbour',13,4,'net'],['savilaharbour',10,12,'anchor'],['savilaharbour',12,2,'planter'],['savilaharbour',8,6,'chalk'],['savilaharbour',4,7,'bike'],['savilaharbour',6,7,'bench'],['savilaharbour',14,15,'trap'],['savilaharbour',15,15,'trap'],['savilaharbour',29,5,'rock'],['savilaharbour',33,5,'rock'],['savilaharbour',28,2,'rock'],
+];
 const PROP_PASS=['steamgrate','sled','rope','anchor','seaweed','shell','vent','litter'];
 
 // ---- The quest schedule over the 30 days of September (see docs/quest-schedule.md and the wiki's Quests page). Weeks run days
