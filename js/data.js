@@ -137,7 +137,7 @@ burgerbar:['Polar Burger',16,10,'interior',[[1,1,3,1,'i','Grill'],[5,1,2,1,'i','
 [2,6,3,2,'u','Table'],[11,6,3,2,'u','Table']]],
 // The Eastbrook Gazette: reporters' desks at the front, the editor's desk at the back, and the paper's archive along the wall.
 newsroom:['Eastbrook Gazette',18,10,'interior',[[1,1,4,1,'y','Archive'],[6,1,5,1,'y','Bookcase'],[13,1,4,1,'y','Files'],[2,4,3,2,'u','Desk'],[7,4,3,2,'u','Desk'],[13,4,3,2,'u',"Editor's Desk"],
-[1,7,2,2,'x','Newspaper Bundles'],[15,7,2,2,'x','Newspaper Bundles']]],
+[1,7,2,2,'x','Newspaper Bundles'],[15,7,2,2,'x','Newspaper Bundles'],[11,7,3,2,'x','Printing Press']]],
 house_henrik:["Henrik's House",10,9,'interior',[[2,1,2,2,'e','Bed'],[5,1,3,1,'y','Bookcase'],[6,4,2,2,'u','Desk'],[2,5,1,1,'i','Stove']]],
 house_nora:["Nora's House",10,9,'interior',[[7,2,2,2,'e','Bed'],[2,2,2,2,'u','Desk'],[2,5,3,1,'y','Bookcase'],[5,1,2,1,'i','Stove']]],
 house_kate:["Kate's House",10,9,'interior',[[7,2,2,2,'e','Bed'],[2,2,2,2,'u','Table'],[2,5,3,1,'y','Shelf'],[5,1,2,1,'i','Stove']]],
@@ -474,6 +474,10 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 // spend the evening in the City Bar
 {m:'town',x:2,y:8,dir:3,name:'Eila',home:'kgapts',loc:'town',job:'Unemployed',faction:'unemployed',gender:'female',body:'#8a4a5a',hair:'#d9c9a0',evening:{m:'citybar',x:4,y:8,dir:1}},
 {m:'town',x:4,y:8,dir:2,name:'Marjut',home:'kgapts',loc:'town',job:'Unemployed',faction:'unemployed',gender:'female',body:'#4a5a7a',hair:'#2a1a12',hat:'#c9822a',evening:{m:'citybar',x:11,y:8,dir:1}},
+// two out-of-work people from the Timber Lofts: by day they hang about by the bench in Eastbrook's square, and they spend the
+// evening in the Timberline Tavern
+{m:'second',x:31,y:17,dir:3,name:'Veikko',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'male',body:'#6a5a3a',hair:'#3a2a20',hat:'#3d5a4a',evening:{m:'tavern',x:4,y:6,dir:0}},
+{m:'second',x:33,y:17,dir:2,name:'Hely',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'female',body:'#a8642a',hair:'#e8c86a',evening:{m:'tavern',x:10,y:6,dir:0}},
 {m:'gated',x:19,y:6,dir:0,name:'Paola',home:'hsresid',loc:'gated',job:'Syndicate enforcer',faction:'syndicate',gender:'female',body:'#2b2f3a',hair:'#8a8a8a'},
 // the Republican Party's leadership election: the party secretary running it, and the three candidates, each put up by one of the island's powers
 {m:'repubhq',x:10,y:1,dir:0,name:'Margit',home:'skyapts',loc:'repubhq',job:'Republican Party secretary (running the leadership election)',faction:'republican',gender:'female',body:'#a3123a',hair:'#b5b5b5'},

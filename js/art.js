@@ -1410,6 +1410,15 @@ function interiorLayer(m){
   c.an=an;return c}
 // Furniture for one feature: the outlined picture, how far it reaches above its tiles (oy), and an optional animation.
 function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
+  // a printing press: a black cast-iron frame on legs, an ink roller across the bed, a stack of blank paper going in and a
+  // printed sheet coming out, red-painted trim, and a big flywheel on its side that turns (the gear animation)
+  if(/printing press/.test(l)){const oy=10,TT=H+oy,an=[];const c=mk(W,TT,r=>{
+    r('#2a2a30',2,TT-6,4,6);r('#2a2a30',W-10,TT-6,4,6);r('#3a3d44',0,8,W-6,TT-14);r('#4a4f58',0,8,W-6,2);r('#1e1e24',0,TT-8,W-6,2);
+    r('#a83a2a',2,10,W-10,1);r('#a83a2a',2,TT-10,W-10,1);
+    r('#6b737c',4,13,W-14,6);r('#8a929b',4,13,W-14,1);r('#2a2a33',6,15,W-18,2);r('#9aa0a6',4,19,W-14,1);
+    r('#c9ced4',5,3,10,6);r('#e8e8e0',5,3,10,1);r('#f4f1e8',W-26,TT-12,14,7);for(let y=TT-11;y<TT-6;y+=2)r('#8a8478',W-24,y,10,1);r('#1a1a1a',W-24,TT-11,6,1);
+    r('#2a2a30',W-8,4,4,TT-10);r('#5a5f68',W-7,4,1,TT-10)});
+    an.push({t:'gear',x:W-5,y:oy+3,r:7});return{oy,c,an}}
   if(ch=='e'){const q=f.quilt||['#b33333','#2e6f9a','#3d7a5a','#c9822a'][v*4|0],oy=4,TT=H+oy,wd='#6b4a2e';return{oy,c:mk(W,TT,r=>{
     r(wd,0,0,W,7);r('#8a6a45',1,1,W-2,1);r(wd,0,7,2,TT-7);r(wd,W-2,7,2,TT-7);r('#f2f2f2',2,6,W-4,TT-8);r('#ffffff',3,7,W-6,5);r('#d8dfe6',3,11,W-6,1);
     r(q,2,13,W-4,TT-15);for(let y=17;y<TT-2;y+=4)r(shade(q,-.15),2,y,W-4,1);r(shade(q,.25),2,13,W-4,2);r(wd,0,TT-2,W,2)})}}
