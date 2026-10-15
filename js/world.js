@@ -5,7 +5,7 @@ LINKS.forEach(s=>{const[a,sa,b,sb]=s.split(' ');[[a,sa,b],[b,sb,a]].forEach(([m,
 for(const id in L){const[name,w,h,th,fs]=L[id],[g,b]=TH[th],cx=w>>1,cy=h>>1;NM[id]=name;FL[id]=fs;EX[id]=[];
   const G=Array.from({length:h},(_,y)=>Array.from({length:w},(_,x)=>x==0||y==0||x==w-1||y==h-1?b:g));
   fs.forEach(([x,y,fw,fh,c])=>{for(let j=y;j<y+fh;j++)for(let i=x;i<x+fw;i++)G[j][i]=c});
-  for(const s in ends[id])ends[id][s].forEach((to,i,a)=>{const v=s=='T'||s=='B',p=Math.floor((v?w:h)*(i+1)/(a.length+1)),
+  for(const s in ends[id])ends[id][s].forEach((to,i,a)=>{const v=s=='T'||s=='B',p=(typeof EXIT_AT!='undefined'&&EXIT_AT[id]?.[to])??Math.floor((v?w:h)*(i+1)/(a.length+1)),
     x=v?p:s=='L'?0:w-1,y=v?(s=='T'?0:h-1):p;
     if(v){for(let j=Math.min(y,cy);j<=Math.max(y,cy);j++)G[j][x]=',';for(let k=Math.min(x,cx);k<=Math.max(x,cx);k++)G[cy][k]=','}
     else{for(let k=Math.min(x,cx);k<=Math.max(x,cx);k++)G[y][k]=',';for(let j=Math.min(y,cy);j<=Math.max(y,cy);j++)G[j][cx]=','}

@@ -76,7 +76,7 @@ function loadFilm(){if(ME.filmIn)return'The camera already has film in it.';if(!
 const HEADLINES=['THE KING IS DEAD: ISLAND MOURNS','WHO WILL RULE SARIVALTO? PARTIES PREPARE','REPUBLICANS STILL WITHOUT A LEADER','KELP COLA PROFITS UP AGAIN','OIL RIG PRODUCTION AT RECORD HIGH','SOVIET TRAWLERS SEEN OFF THE NORTH COAST','CHURCH CALLS FOR CALM'];
 function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase(),gone=v=>()=>(take(id),`You ${v} the ${nm}.`),R={
   beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>'You smoke a cigarette.'},
-  burger:{Eat:gone('eat')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
+  burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
   shirt:{Wear:'You put on the flannel shirt.'},beanie:{Wear:'You pull on the beanie.'},suit:{Wear:'You put on the suit. You look like you belong in Kingsgrad.'},
@@ -171,10 +171,13 @@ function update(dt){
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
     if(door){if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
     else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
+    else if(lockedFront(nx,ny,d)){const t=lockedFront(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
 }
 // a warehouse's or barn's big sliding doors (BLD deco 'whs', drawn across the middle of its front): walking up into them is
 // the same as using the building's own door beside them (unless that door is shut)
+// a padlocked building (BLD locked: what it says): walking up into its front says so
+function lockedFront(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.locked&&y==fy+h-1&&x>=fx&&x<fx+w);return f?BLD[f[6]].locked:null}
 function bigDoor(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.deco=='whs'&&y==fy+h-1&&x>=fx&&x<fx+w);if(!f)return null;
   const[fx,fy,w,h]=f,bx=(w*16>>1)-12,i=x-fx;if(i*16+15<bx||i*16>bx+24)return null;
   const e=EX[P.m].find(e=>e.y==fy+h-1&&e.x>=fx&&e.x<fx+w&&L[e.to]?.[3]=='interior');return e&&!shut(e.to)?e:null}

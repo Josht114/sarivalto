@@ -1,7 +1,7 @@
 // ---- Island data: id:[name,w,h,theme,[features: x,y,w,h,tile,label]]. Edit freely; layouts are placeholders.
 const TH={interior:['f','W'],snow:['.','T'],sand:['s','~'],rock:['r','R'],farm:['a','T'],harbour:['.','~'],deck:['p','~']};
 const L={
-oilrig:['Oil Rig',16,12,'deck',[[3,3,4,3,'#','Drill Tower','derrick'],[9,8,4,2,'#','Crew Quarters','crew'],[11,9,1,1,'d']]],
+oilrig:['Oil Rig',16,12,'deck',[[3,3,4,3,'#','Drill Tower','derrick'],[5,5,1,1,'d'],[9,8,4,2,'#','Crew Quarters','crew'],[11,9,1,1,'d']]],
 oilhq:['Diversified Petroleum HQ',18,14,'snow',[[3,2,10,4,'#','Diversified Petroleum HQ','dphq'],[8,5,1,1,'d'],[2,9,4,3,'#','Depot','depot'],[3,11,1,1,'d']]],
 fishing:['Frostholm',40,16,'snow',[[1,7,38,3,','],[1,14,38,1,','],[35,10,4,4,'#','House for Sale','fhouse'],[36,13,1,1,'d'],[2,1,5,6,'#','Petro Tower','petrotower'],[4,6,1,1,'d'],[9,1,5,6,'#','Hotel Aurora','hotel'],[11,6,1,1,'d'],[22,2,6,5,'#','Nordbank','nordbank'],[25,6,1,1,'d'],[29,1,6,6,'#','Casino','casino'],[32,6,1,1,'d'],[2,10,6,4,'#','Electronics','hifi'],[15,10,5,4,'#','The Midnight Note','jazz'],[17,13,1,1,'d'],[5,13,1,1,'d'],[10,10,5,4,'#','Arcade','arcade'],[12,13,1,1,'d'],[22,10,6,4,'#','Polar Burger','burger'],[24,13,1,1,'d'],[29,10,6,4,'#','Nordmart','nordmart'],[32,13,1,1,'d'],[15,1,4,6,'#','Skyline Apartments','skyapt'],[17,6,1,1,'d'],[35,1,4,6,'#','Republican Party HQ','repub'],[36,6,1,1,'d']]],
 // The Valto River comes down from the north-east, passes under the bridge on the track to Frostholm, and flows out west to Lake Ilmari.
@@ -20,10 +20,12 @@ volcano:['Volcano',30,26,'rock',[[1,1,28,12,'C'],[15,14,1,6,','],[8,20,16,1,',']
 mountains:['Mountains',22,16,'rock',[[3,3,4,4,'R'],[14,9,4,4,'R'],[14,1,4,3,'~'],[12,2,2,1,'~'],[8,1,4,2,'~'],[0,1,8,1,'~']]],
 monastery:['Mountain-Top Monastery',20,16,'rock',[[16,2,3,4,'a'],[5,2,10,6,'#','Monastery Church','church'],[10,7,1,1,'d'],[2,10,9,4,'#',"Monks' Quarters",'monkq'],[6,13,1,1,'d'],[14,10,4,4,'#',"Father Thyme's House",'rectory'],[15,13,1,1,'d']]],
 east:['North East Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
-farm:['East Farm',22,16,'farm',[[1,1,20,6,'.'],[3,3,6,4,'#','Farmhouse','farmhouse'],[6,6,1,1,'d'],[13,3,5,3,'#','Barn','barn'],[14,5,1,1,'d']]],
+// East Farm: the yard with the farmhouse, the barn and the Old Barn, and the field below it. The Old Barn's front is padlocked;
+// its way in is a loose board in its back wall (the door on its top row, reached from behind), up a faint trodden trail (;)
+farm:['East Farm',30,16,'farm',[[1,1,28,6,'.'],[21,2,1,5,';'],[22,2,4,1,';'],[3,3,6,4,'#','Farmhouse','farmhouse'],[6,6,1,1,'d'],[13,3,5,3,'#','Barn','barn'],[14,5,1,1,'d'],[22,3,6,4,'#','Old Barn','oldbarn'],[25,3,1,1,'d']]],
 palace:['Royal Palace',24,18,'snow',[[4,1,16,6,'#','Royal Palace','palace'],[12,6,1,1,'d'],[5,6,1,1,'d'],[12,7,1,2,','],[5,7,7,1,','],[3,12,19,1,','],[5,10,1,2,','],[18,10,1,2,','],
 [4,8,3,2,'#','Fountain','fountain'],[17,8,3,2,'#','Fountain','fountain'],[1,14,3,3,'T'],[20,14,3,3,'T']]],
-town:['Kingsgrad',52,30,'snow',[[8,5,6,5,'#','Civil Service Bureau','civilservice'],[11,9,1,1,'d'],[15,5,5,5,'#','Gun Shop','gunshop'],[17,9,1,1,'d'],[21,5,5,5,'#','Bar','citybar'],[23,9,1,1,'d'],[8,13,8,7,'#','Supermarket','supermarket'],[11,19,1,1,'d'],[17,15,4,5,'#','Tailor','tailor'],[18,19,1,1,'d'],[22,15,4,5,'#','Book Shop','bookshop'],[23,19,1,1,'d'],[8,23,4,5,'#',"Frank's House",'th1'],[9,27,1,1,'d'],[13,23,4,5,'#',"Lisa's House",'th2'],[14,27,1,1,'d'],[18,23,4,5,'#',"Eddie's House",'th3'],[19,27,1,1,'d'],[22,23,4,5,'#',"Grace's House",'th4'],[23,27,1,1,'d'],[28,1,8,6,'#','Cinema','cinema'],[31,6,1,1,'d'],[37,2,5,5,'#','Estate Agent','estate'],[39,6,1,1,'d'],[28,10,5,5,'#','Fishing Shop','fishingshop'],[30,14,1,1,'d'],[34,10,4,5,'#','House for Sale','th5'],[35,14,1,1,'d'],[39,10,4,5,'#',"Vince's House",'th2'],[40,14,1,1,'d'],[28,17,4,5,'#',"Mary's House",'th4'],[29,21,1,1,'d'],[33,17,4,5,'#',"Jack's House",'th1'],[34,21,1,1,'d'],[38,17,4,5,'#',"Sally's House",'th3'],[39,21,1,1,'d'],[30,28,1,1,'d','Sewer Entrance','manhole'],[40,27,4,2,'T'],[27,24,25,1,'l'],[27,25,18,1,'P'],[34,26,5,2,'#','Tram Stop','tramshelter'],[9,1,8,4,'#','Kingsgrad Apartments','kgapt'],[14,4,1,1,'d'],[18,1,3,2,'T'],[1,1,2,3,'T'],[4,2,2,2,'T'],[1,6,2,2,'T'],[2,13,2,3,'T'],[5,16,1,2,'T'],[1,24,3,2,'T'],[4,27,2,1,'T'],[45,1,6,6,'#','Police Station','police'],[48,6,1,1,'d'],[45,9,6,5,'#',"Doctor's Office",'doctor'],[48,13,1,1,'d'],[48,17,3,3,'T'],[46,26,4,2,'T']]],
+town:['Kingsgrad',52,38,'snow',[[1,35,50,1,','],[8,30,7,5,'#','Pizzeria','pizzeria'],[11,34,1,1,'d'],[30,31,3,2,'#','Fountain','fountain'],[1,30,3,3,'T'],[18,30,3,2,'T'],[37,30,3,3,'T'],[43,31,4,2,'T'],[8,5,6,5,'#','Civil Service Bureau','civilservice'],[11,9,1,1,'d'],[15,5,5,5,'#','Gun Shop','gunshop'],[17,9,1,1,'d'],[21,5,5,5,'#','Bar','citybar'],[23,9,1,1,'d'],[8,13,8,7,'#','Supermarket','supermarket'],[11,19,1,1,'d'],[17,15,4,5,'#','Tailor','tailor'],[18,19,1,1,'d'],[22,15,4,5,'#','Book Shop','bookshop'],[23,19,1,1,'d'],[8,23,4,5,'#',"Frank's House",'th1'],[9,27,1,1,'d'],[13,23,4,5,'#',"Lisa's House",'th2'],[14,27,1,1,'d'],[18,23,4,5,'#',"Eddie's House",'th3'],[19,27,1,1,'d'],[22,23,4,5,'#',"Grace's House",'th4'],[23,27,1,1,'d'],[28,1,8,6,'#','Cinema','cinema'],[31,6,1,1,'d'],[37,2,5,5,'#','Estate Agent','estate'],[39,6,1,1,'d'],[28,10,5,5,'#','Fishing Shop','fishingshop'],[30,14,1,1,'d'],[34,10,4,5,'#','House for Sale','th5'],[35,14,1,1,'d'],[39,10,4,5,'#',"Vince's House",'th2'],[40,14,1,1,'d'],[28,17,4,5,'#',"Mary's House",'th4'],[29,21,1,1,'d'],[33,17,4,5,'#',"Jack's House",'th1'],[34,21,1,1,'d'],[38,17,4,5,'#',"Sally's House",'th3'],[39,21,1,1,'d'],[30,28,1,1,'d','Sewer Entrance','manhole'],[40,27,4,2,'T'],[27,24,25,1,'l'],[27,25,18,1,'P'],[34,26,5,2,'#','Tram Stop','tramshelter'],[9,1,8,4,'#','Kingsgrad Apartments','kgapt'],[14,4,1,1,'d'],[18,1,3,2,'T'],[1,1,2,3,'T'],[4,2,2,2,'T'],[1,6,2,2,'T'],[2,13,2,3,'T'],[5,16,1,2,'T'],[1,24,3,2,'T'],[4,27,2,1,'T'],[45,1,6,6,'#','Police Station','police'],[48,6,1,1,'d'],[45,9,6,5,'#',"Doctor's Office",'doctor'],[48,13,1,1,'d'],[48,17,3,3,'T'],[46,26,4,2,'T']]],
 colahq:['Kelp Cola HQ',18,14,'snow',[[3,1,10,5,'#','Kelp Cola HQ','kchq'],[8,5,1,1,'d'],[3,9,2,2,'#','Newsstand','newsstand'],[8,9,2,2,'#','Hot Dog Cart','hotdog'],[0,12,18,1,'l']]],
 tramstop:['Tram Stop',22,14,'snow',[[0,3,22,1,'l'],[3,4,16,1,'P'],[9,5,5,2,'#','Tram Stop','tramshelter']]],
 forest:['Pine Forest',26,18,'snow',[[1,1,5,4,'T'],[8,2,3,3,'T'],[17,1,4,3,'T'],[22,4,3,5,'T'],[2,7,4,3,'T'],[15,6,4,2,'T'],[8,7,4,3,'~'],[7,12,5,3,'T'],[18,11,5,4,'T'],[1,13,3,3,'T'],[13,14,2,2,'T'],[20,9,1,1,'R'],[4,11,1,1,'R']]],
@@ -187,7 +189,16 @@ bank_in:['Nordbank',20,12,'interior',[[1,1,3,1,'y','Files'],[8,1,4,1,'x','Safe']
 farmhouse_in:['Farmhouse',14,10,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Shelf'],[9,1,2,1,'i','Stove'],[12,1,1,2,'x','Sacks'],[5,4,4,2,'u','Kitchen Table'],[1,6,2,2,'x','Sacks'],[11,6,2,1,'y','Bookcase']]],
 barn_in:['Barn',18,10,'interior',[[1,1,3,2,'x','Hay Bales'],[5,1,3,2,'x','Hay Bales'],[10,1,3,1,'y','Shelves'],[14,1,3,2,'x','Feed Sacks'],[2,5,4,1,'u','Workbench'],[12,5,4,2,'x','Hay Bales']]],
 civil_in:['Civil Service Bureau',20,12,'interior',[[1,1,4,1,'y','Files'],[6,1,4,1,'y','Files'],[11,1,4,1,'y','Files'],[16,1,3,1,'y','Archive'],[2,2,3,2,'u','Desk'],[8,2,3,2,'u','Desk'],[14,2,3,2,'u','Desk'],[2,5,16,1,'c','Service Counter'],[2,8,5,1,'o'],[13,8,5,1,'o']]],
-kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up']]],
+kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up'],[4,1,3,1,'y','Bottle Display'],[15,9,4,1,'y','Bottle Display'],[1,10,2,1,'x','Kelp Cola Crates']]],
+// Rosaria's pizzeria in Kingsgrad: the oven, the counter and checked tables in front, and behind a door at the back, a shady back
+// room with a card table, a safe, crates and a desk of ledgers, where the Crime Syndicate counts its money
+pizzeria_in:['Pizzeria',18,12,'interior',[[1,1,3,1,'y','Safe'],[5,1,4,2,'u','Card Table'],[11,1,3,2,'x','Crates'],[15,1,2,2,'u','Desk'],[1,4,12,1,'W'],[14,4,3,1,'W'],[1,5,3,2,'i','Pizza Oven'],[5,6,6,1,'c','Counter'],[14,5,2,1,'y','Bottles'],[2,8,2,2,'u','Table'],[6,8,2,2,'u','Table'],[12,8,2,2,'u','Table']]],
+// the Old Barn at East Farm, entered through a loose board at the back: someone's hidden cannabis grow room, with four hydroponic
+// grow beds under hanging lamps, a water tank, drums of nutrients, a fan and a cot
+oldbarn_in:['Old Barn',18,10,'interior',[[2,2,5,2,'x','Grow Bed'],[11,2,5,2,'x','Grow Bed'],[2,5,5,2,'x','Grow Bed'],[11,5,5,2,'x','Grow Bed'],[1,7,1,2,'x','Water Tank'],[3,8,3,1,'x','Nutrient Drums'],[8,8,1,1,'x','Fan'],[14,7,2,2,'e','Cot']]],
+// the drill floor inside the oil rig's drill tower: steel plating slick with oil, the rotary table with the drill pipe going down
+// through it, a mud pump, the drawworks winch, a generator, the driller's console and a pipe rack
+derrick_in:['Drill Floor',16,10,'interior',[[1,1,3,2,'y','Pipe Rack'],[5,1,3,1,'y',"Driller's Console"],[11,1,4,2,'x','Drawworks'],[6,3,3,3,'x','Rotary Table'],[1,5,3,3,'x','Mud Pump'],[12,5,3,2,'x','Generator']]],
 // the lighthouse keeper's room at the foot of the tower: the spiral stair up to the lamp, a bed, a table, a stove, tide charts and lamp oil
 lighthouse_in:['Lighthouse',10,9,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Lamp Oil'],[7,1,2,2,'y','Spiral Stair'],[3,4,2,2,'u','Table'],[8,5,1,1,'i','Stove'],[1,6,2,1,'y','Tide Charts']]],
 // Phil's office, the second floor of Kelp Cola's headquarters: a panelled room with his executive desk, a bookcase, a drinks cabinet,
@@ -300,6 +311,9 @@ unemployed:['The Unemployed','#78909c','UNE',"The island's people without work."
 police:['The Police','#2541b2','POL','The island\'s police, based at the police station in Kingsgrad.'],
 palace:['The Palace Workers','#b07d62','PAL','The staff of the Royal Palace, from the butler down to the groundskeeper.'],
 reporters:['The Reporters','#6c757d','PRS','The Eastbrook Gazette\'s newspapermen and women, who report on the island\'s politics without taking sides.']};
+// ---- Exits pinned to a place along their edge (by the place they lead to), for maps that have grown since their streets were
+// laid out; any other exit is spread evenly along its side
+const EXIT_AT={town:{north:10,west:20,east:7,colahq:15,south:22,palace:26,southwest:26}};
 // Groups play a part in the story but cannot win it (the rest are the factions, the only ones that can). The quest schedule
 // (QUEST_DAYS) covers the factions only.
 const GROUPS=['cia','kgb','republican','union','circus','farmers','army','reporters','palace','food','shops','proprietors','entertainers','police','admin','unemployed'];
@@ -442,6 +456,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'fuel_in',x:7,y:3,dir:0,name:'Sven',home:'skyapts',loc:'fuel_in',job:'Fuel dock attendant',faction:'oil',gender:'male',body:'#e0a100',hair:'#5a3a26'},
 {m:'port_in',x:6,y:2,dir:0,name:'Ole',home:'skyapts',loc:'port_in',job:'Harbourmaster',faction:'admin',gender:'male',body:'#2e5f8f',hair:'#e8e8e8',hat:'#1f3a5f'},
 {m:'lighthouse_in',x:6,y:3,dir:0,name:'Signe',home:'lighthouse_in',loc:'lighthouse_in',job:'Lighthouse keeper',faction:'admin',gender:'female',body:'#2e4a6a',hair:'#c9a05a',hat:'#2e4a6a'},
+{m:'pizzeria_in',x:7,y:5,dir:0,name:'Rosaria',home:'kgapts',loc:'pizzeria_in',job:'Pizzeria owner',faction:'syndicate',also:['food'],gender:'female',body:'#f4f1e8',hair:'#2a1a12'},
 {m:'customs_in',x:6,y:2,dir:0,name:'Liv',home:'eblofts',loc:'customs_in',job:'Customs officer',faction:'communist',gender:'female',body:'#2e5f8f',hair:'#3a2a20'},
 {m:'ebwhs_in',x:8,y:4,dir:0,name:'Tor',home:'eblofts',loc:'ebwhs_in',job:'Warehouseman',faction:'communist',gender:'male',body:'#7a2a1e',hair:'#c9a05a',hat:'#3d5a4a'},
 // the travelling circus at Lake Ilmari
@@ -530,6 +545,8 @@ souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola masc
 bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
 record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at']},
 newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
+pizza:{name:'Slice of pizza',desc:'A hot slice of pizza, cheese and pepperoni, from the pizzeria in Kingsgrad.',actions:['Eat']},
+wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
@@ -551,7 +568,7 @@ const NIGHT_ONLY=['jazz_in','caravan3_in'];
 // the staff of the places open day and night (bars, restaurants, the hotel, the casino, the arcade, the stalls that stay open, and
 // the doctor and the police sergeant, on call, the supermarket and the cinema):
 // they work evenings too, so they are at work at night as well as by day
-const EVENING_STAFF=['Ray','Eddie','Linnea','Sanna','Arvid','Maya','Dex','Hannu','Greta','Vince','Toni','Doctor Lind','Sergeant Hanna','Lisa','Otto'];
+const EVENING_STAFF=['Ray','Eddie','Linnea','Sanna','Arvid','Maya','Dex','Hannu','Greta','Vince','Toni','Doctor Lind','Sergeant Hanna','Lisa','Otto','Rosaria'];
 // whether someone is at work (true) or at home (false) by day or by night: evening staff are always at work, people who work
 // somewhere open only at night are at work at night and at home by day, and everyone else the other way round
 const atWorkWhen=(n,night)=>EVENING_STAFF.includes(n.name)||(NIGHT_ONLY.includes(n.loc)?night:!night);
@@ -583,6 +600,8 @@ Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2]]},
 Ruby:{stock:[['record',12,9]]},
 Ville:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Hannu:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
+Pirkko:{stock:[['burger',20,2],['hotdog',20,1],['coffee',30,1],['cola',20,1]]},
+Rosaria:{stock:[['pizza',20,4],['wine',12,6]]},
 Rosa:{stock:[['hotdog',30,1],['cola',20,1]]},
 Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 };
@@ -604,7 +623,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,10,0,-1,'apartments3',22,8,0,1],['skyapts2',22,10,0,-1,'skyapts3',22,8,0,1],['skyapts3',22,10,0,-1,'skyapts4',22,8,0,1],['eblofts2',22,10,0,-1,'eblofts3',22,8,0,1],['eblofts3',22,10,0,-1,'eblofts4',22,8,0,1],['kgapts2',22,10,0,-1,'kgapts3',22,8,0,1],['kgapts3',22,10,0,-1,'kgapts4',22,8,0,1],['hsresid',22,8,0,1,'hsresid2',22,8,0,1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
-['oilrig',11,9,0,1,'crewq'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
+['town',11,34,0,1,'pizzeria_in'],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
@@ -650,6 +669,7 @@ supermarket:{icon:'basket',kind:'flat',wall:'#e8e2d4',roof:'#9aa0a6',trim:'#2e9d
 tailor:{icon:'scissors',kind:'gable',wall:'#d8c8e0',roof:'#5a3a6a',trim:'#f2f2f2',win:'#bcd9ea',sign:'TAILOR',signc:'#7d3c98',awn:'#7d3c98'},
 bookshop:{icon:'book',kind:'gable',wall:'#3d5a4a',roof:'#5a3a26',trim:'#e8dcc0',win:'#f2d16b',sign:'BOOKS',signc:'#3d5a4a',awn:'#8a3a2a'},
 casino:{nlogo:'spade',kind:'flat',wall:'#2a1a3a',roof:'#3a2a4a',trim:'#c9a040',win:'#f2d16b',deco:'casino',tube:'#ffd23a'},
+pizzeria:{icon:'pizza',kind:'gable',wall:'#e8d8b8',roof:'#7a2a1e',trim:'#2e6f3a',win:'#f2d16b',tex:'brick',sign:'PIZZERIA',signc:'#c0392b',awn:'#c0392b'},
 estate:{icon:'house',kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#2e6f9a',win:'#bcd9ea',sign:'ESTATE AGENT',signc:'#2e6f9a'},
 fishingshop:{icon:'fish',kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',sign:'TACKLE',signc:'#2e6f9a',awn:'#2e6f9a'},
 kgapt:{kind:'tall',wall:'#b8735a',roof:'#5b5b56',trim:'#f2ede0',win:'#bcd9ea',tex:'brick'},
@@ -723,6 +743,7 @@ nordmart:{nlogo:'cart',kind:'flat',wall:'#e8e2d4',roof:'#8a9099',trim:'#2e86c1',
 fueldock:{nlogo:'pump',kind:'flat',wall:'#8a9aa8',roof:'#37474f',trim:'#e0a100',win:'#9fc6e0',tex:'metal',sign:'FUEL',signk:'neon',signc:'#e0a100',tube:'#ffd23a'},
 portoffice:{kind:'flat',wall:'#c9ced4',roof:'#5b636c',trim:'#2b2f3a',win:'#7fb0d0',glass:1,tex:'panel',sign:'PORT OFFICE',signc:'#2b2f3a',tube:'#3bd0ff'},
 lighthouse:{kind:'lighthouse'},
+oldbarn:{kind:'gable',wall:'#6b4a3a',roof:'#4a3f38',trim:'#8a7a6a',win:'#5a6a74',deco:'whs',tex:'siding',wear:.9,locked:'The barn doors are padlocked shut.'},
 customs:{kind:'gable',wall:'#7a5a3a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',sign:'CUSTOMS',signk:'wood',flag:'#2e5f8f'}};
 
 // ---- Small objects standing in the world (drawn by js/art.js): [mapId, x, y, kind]. All are solid except those in PROP_PASS.
@@ -784,7 +805,7 @@ const PROPS=[
 ['lake',5,19,'rock'],['lake',14,17,'driftwood'],['lake',16,22,'rock'],['lake',10,23,'bush'],['lake',3,16,'bush'],['lake',25,23,'rock'],
 ['mountains',16,5,'rock'],['mountains',6,10,'rock'],['mountains',19,13,'rock'],['mountains',12,9,'signpost'],['mountains',8,4,'bush'],['mountains',18,6,'bush'],
 ['east',13,5,'signpost'],['east',8,8,'fence'],['east',9,8,'fence'],['east',10,8,'fence'],['east',11,8,'fence'],['east',20,2,'bush'],['east',5,9,'bush'],['east',18,3,'rock'],['east',22,4,'woodpile'],
-['farm',19,3,'hay'],['farm',19,4,'hay'],['farm',20,4,'hay'],['farm',11,4,'cart'],['farm',10,7,'mailbox'],['farm',15,1,'woodpile'],['farm',2,2,'bush'],
+['farm',2,10,'cabbage'],['farm',3,10,'cabbage'],['farm',4,10,'cabbage'],['farm',5,10,'cabbage'],['farm',6,10,'cabbage'],['farm',7,10,'cabbage'],['farm',8,10,'cabbage'],['farm',17,10,'wheat'],['farm',18,10,'wheat'],['farm',19,10,'wheat'],['farm',20,10,'wheat'],['farm',21,10,'wheat'],['farm',22,10,'wheat'],['farm',23,10,'wheat'],['farm',24,10,'wheat'],['farm',25,10,'wheat'],['farm',26,10,'wheat'],['farm',27,10,'wheat'],['farm',17,11,'wheat'],['farm',18,11,'wheat'],['farm',19,11,'wheat'],['farm',20,11,'wheat'],['farm',21,11,'wheat'],['farm',22,11,'wheat'],['farm',23,11,'wheat'],['farm',24,11,'wheat'],['farm',25,11,'wheat'],['farm',26,11,'wheat'],['farm',27,11,'wheat'],['farm',2,12,'potato'],['farm',3,12,'potato'],['farm',4,12,'potato'],['farm',5,12,'potato'],['farm',6,12,'potato'],['farm',7,12,'potato'],['farm',8,12,'potato'],['farm',17,12,'wheat'],['farm',18,12,'wheat'],['farm',19,12,'wheat'],['farm',20,12,'wheat'],['farm',21,12,'wheat'],['farm',22,12,'wheat'],['farm',23,12,'wheat'],['farm',24,12,'wheat'],['farm',25,12,'wheat'],['farm',26,12,'wheat'],['farm',27,12,'wheat'],['farm',17,13,'wheat'],['farm',18,13,'wheat'],['farm',19,13,'wheat'],['farm',20,13,'wheat'],['farm',21,13,'wheat'],['farm',22,13,'wheat'],['farm',23,13,'wheat'],['farm',24,13,'wheat'],['farm',25,13,'wheat'],['farm',26,13,'wheat'],['farm',27,13,'wheat'],['farm',3,14,'pumpkin'],['farm',4,14,'pumpkin'],['farm',5,14,'pumpkin'],['farm',6,14,'pumpkin'],['farm',7,14,'pumpkin'],['farm',8,14,'pumpkin'],['farm',18,14,'cabbage'],['farm',19,14,'cabbage'],['farm',20,14,'cabbage'],['farm',21,14,'cabbage'],['farm',22,14,'cabbage'],['farm',23,14,'cabbage'],['farm',24,14,'cabbage'],['farm',25,14,'cabbage'],['farm',26,14,'cabbage'],['farm',21,7,'fence'],['farm',28,7,'fence'],['farm',19,3,'hay'],['farm',19,4,'hay'],['farm',20,4,'hay'],['farm',11,4,'cart'],['farm',10,7,'mailbox'],['farm',15,1,'woodpile'],['farm',2,2,'bush'],
 ['farm',1,7,'fence'],['farm',2,7,'fence'],['farm',3,7,'fence'],['farm',4,7,'fence'],['farm',5,7,'fence'],['farm',7,7,'fence'],['farm',8,7,'fence'],
 ['farm',13,7,'fence'],['farm',14,7,'fence'],['farm',15,7,'fence'],['farm',16,7,'fence'],['farm',17,7,'fence'],['farm',18,7,'fence'],['farm',19,7,'fence'],['farm',20,7,'fence'],
 ['colahq',2,8,'lamp'],['colahq',13,8,'lamp'],['colahq',16,6,'lamp'],['colahq',14,3,'bench'],['colahq',15,1,'bush'],['colahq',16,10,'bush'],['colahq',13,6,'mailbox'],
@@ -822,7 +843,7 @@ const PROPS=[
 ['kalanharbour',16,12,'cont_b'],['kalanharbour',19,12,'cont_r'],['kalanharbour',20,7,'bb_oil'],['kalanharbour',6,7,'drum'],['kalanharbour',7,7,'drum'],['kalanharbour',11,7,'slamp'],['kalanharbour',13,11,'slamp'],
 ['savilaharbour',20,8,'lamp'],['savilaharbour',26,8,'lamp'],['savilaharbour',16,7,'lamp'],['savilaharbour',22,11,'bollard'],['savilaharbour',28,11,'bollard'],['savilaharbour',17,11,'bollard'],['savilaharbour',30,11,'lifebuoy'],['savilaharbour',9,13,'crate'],['savilaharbour',10,13,'crate'],['savilaharbour',9,14,'crate'],['savilaharbour',11,17,'barrel'],['savilaharbour',12,17,'barrel'],['savilaharbour',12,4,'net'],['savilaharbour',13,4,'net'],['savilaharbour',10,12,'anchor'],['savilaharbour',12,2,'planter'],['savilaharbour',8,6,'chalk'],['savilaharbour',4,7,'bike'],['savilaharbour',6,7,'bench'],['savilaharbour',14,15,'trap'],['savilaharbour',15,15,'trap'],['savilaharbour',29,5,'rock'],['savilaharbour',33,5,'rock'],['savilaharbour',28,2,'rock'],
 ];
-const PROP_PASS=['steamgrate','sled','rope','anchor','seaweed','shell','vent','litter'];
+const PROP_PASS=['cabbage','wheat','potato','pumpkin','steamgrate','sled','rope','anchor','seaweed','shell','vent','litter'];
 
 // ---- The quest schedule over the 30 days of September (see docs/quest-schedule.md and the wiki's Quests page). Weeks run days
 // 1-7, 8-14, 15-21 and 22-28, with days 29 and 30 to finish. QUEST_DAYS: for each main faction, the day it is introduced (intro)
