@@ -62,7 +62,7 @@ kgapts:"Kingsgrad Apartments, an ordinary city block behind the Civil Service Bu
 electro:"Frostholm's electronics store, run by Nils: a wall of televisions, shelves of hi-fi gear and boxes stacked by the counter.",
 arcadein:"Frostholm's arcade: rows of glowing game cabinets under a pink neon sign. Toni hands out change at the counter. Its machines play Snake, Brick Breaker and Invaders, at a dollar a game.",
 mart:"Nordmart, Frostholm's big store, open late: fridges and aisles of shelves. Birgit runs it from the checkout.",
-cinemain:"Kingsgrad's cinema: rows of red seats, a snack shelf, and the ticket counter where Otto works.",
+cinemain:"Kingsgrad's cinema: rows of red seats, a snack shelf, and the ticket counter where Otto works. Now showing: STORMWING, an action picture about two fighter pilots over the frozen North; a ticket is $4 from Otto, or take a seat.",
 cafe:"Eastbrook's coffee roaster, run by Maya: a roaster by the brick wall, a counter, and a couple of tables.",
 tavern:"The Timberline Tavern, Eastbrook's bar: a long bar backed by bottles, a fireplace, a dartboard and tables. Linnea tends the bar. In the evenings Veikko and Hely, out of work, sit at its tables.",
 cedargrill:"The Cedar Grill, Eastbrook's restaurant: an open kitchen behind the counter, where Arvid cooks, and tables on a rug under the brick walls.",

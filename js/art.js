@@ -1305,6 +1305,13 @@ function costumed(px,py,d,kind,t){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRec
 const QSTAR=['...#...','...#...','..###..','#######','.#####.','..###..','.##.##.','##...##'];
 function qstar(X,Y){const x0=X-3,y0=Y-4;QSTAR.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='#'){ctx.fillStyle='#4a2e00';ctx.fillRect(x0+x-1,y0+y-1,3,3)}}));
   QSTAR.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='#'){ctx.fillStyle=y<3?'#fff2a0':'#ffd23a';ctx.fillRect(x0+x,y0+y,1,1)}}))}
+// A snow bank across a road (28x24, standing on its tile with the drift heaped up behind) and a DANGER sign on a post (28x30)
+let SBA=null,DSA=null;
+function snowBankArt(){return SBA??=mk(28,24,r=>{for(let y=0;y<24;y++){const u=y/23,hw=Math.round(Math.min(13,4+u*14+Math.sin(u*7)*1.5));const c=y<6?'#ffffff':y<17?SNOW:SNOWD;r(c,14-hw,y,hw*2,1)}
+  r('#ffffff',6,7,6,2);r('#ffffff',16,4,5,2);r(SNOWD,4,19,20,2);r('#c8d6e2',8,12,4,1);r('#c8d6e2',17,14,5,1);r('#e8f2f8',10,2,4,1)})}
+function dangerSignArt(){return DSA??=mk(28,30,r=>{r('#4a3020',13,13,2,17);r('#6b4a2e',13,13,1,17);r(SNOWD,9,28,10,2);
+  r('#f4f4f0',1,0,26,15);r('#c0392b',1,0,26,1);r('#c0392b',1,14,26,1);r('#c0392b',1,0,1,15);r('#c0392b',26,0,1,15);
+  ptext(r,'DANGER',3,2,'#c0392b');ptext(r,'SNOW',7,8,'#2a2a33');r(SNOW,2,0,24,1)})}
 function person(px,py,d,fr,body,hair,stripe,hat){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);
   ctx.drawImage(char2(d,fr,body,hair,stripe,hat),px-1,py-5)}
 
@@ -2003,6 +2010,8 @@ function drawWorld2(m,cx,cy,t,frame){
   tramsOn(m,t).forEach(({y:ty,x})=>{
     // the tram stands on its track and rises over the row behind it (the platform), so it is drawn after anyone standing there
     Ls.push([ty-1,1.5,()=>{const X=Math.round(x)-cx,Y=ty*16-TRAM_UP-cy;px('rgba(30,50,80,.25)',X+4,Y+35,90,3);ctx.drawImage(tramArt,X-1,Y-1)}])});
+  // snow banks blocking the roads into places not open yet, each with its DANGER sign
+  if(typeof snowBlocks=='function')snowBlocks(m).forEach(b=>{Ls.push([b.y,.9,()=>ctx.drawImage(snowBankArt(),b.x*16-cx-6,b.y*16-cy-8)]);Ls.push([b.sy,.9,()=>ctx.drawImage(dangerSignArt(),b.sx*16-cx-6,b.sy*16-cy-14)])});
   NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>{n.costume?costumed(n.x*16-cx,n.y*16-cy+b,n.dir,n.costume,t):person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat);
     // someone with a quest to give you: a gold star bobbing over their head
     if(typeof offerOf=='function'&&offerOf(n))qstar(n.x*16-cx+8,n.y*16-cy-25+Math.round(Math.sin(t/260)*1.5))}])});

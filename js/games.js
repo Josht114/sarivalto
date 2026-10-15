@@ -5,11 +5,14 @@
 const featAhead=re=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].find(([fx,fy,w,h,,l])=>l&&re.test(l)&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 // the game on the tile you're facing, if any
 function gameAhead(){if(P.m=='casino'){if(featAhead(/^Slot Machines$/))return'slots';if(featAhead(/^Card Table$/))return'blackjack'}
-  if(P.m=='arcadein'&&featAhead(/^Arcade Screens$/))return'arcade';return null}
-const GAME_HINT={slots:'Press E to play the slot machine',blackjack:'Press E to sit at the blackjack table',arcade:'Press E to play the arcade machines'};
+  if(P.m=='arcadein'&&featAhead(/^Arcade Screens$/))return'arcade';
+  // a seat in the cinema
+  if(P.m=='cinemain'){const[dx,dy]=DIR[P.dir];if(MAPS[P.m][P.y+dy]?.[P.x+dx]=='o')return'film'}return null}
+const GAME_HINT={slots:'Press E to play the slot machine',blackjack:'Press E to sit at the blackjack table',arcade:'Press E to play the arcade machines',film:'Press E to watch the film'};
 // a card table is also somewhere to sit and wait for the evening
 function openPlay(g){if(MENU||RIDE||BUSY)return;
   if(g=='blackjack'){choose('A blackjack table. The dealer is shuffling.',[['Play blackjack',()=>startPlay('blackjack')],...(NIGHT?[]:[['Sit and wait until night',sitDown]]),['Not now']]);return}
+  if(g=='film'){choose('Now showing: STORMWING. A ticket is $4.',[['Buy a ticket and watch',watchFilm],['Not now']]);return}
   startPlay(g)}
 function startPlay(g){SHOP=null;START=g;stack=[];startEl.hidden=false;PLAYS[g].open?.();renderStart()}
 const gameHead=(title,sub)=>`<div class="tabs"><h3 class="shopname">${title} <small>${sub}</small></h3><button class="close" aria-label="Stop playing">&times;</button></div>`;

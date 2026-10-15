@@ -360,6 +360,10 @@ colahq:'cola',colafactory:'cola',tramstop:'cola',oilhq:'oil',oilrig:'oil',fishin
 // ---- Districts: id:[name, map colour]. DISTRICT_OF puts every place on the overview map in one; interiors take their building's.
 const DISTRICTS={central:['Central','#f3d9a4'],north:['North','#d9c8ea'],northeast:['North East','#c4dcef'],northwest:['North West','#c9e3c4'],
 southwest:['South West','#f2c9bf'],south:['South','#eadbb6'],southeast:['South East','#c3e6dc']};
+// ---- When each part of the island opens (the day of September from which it can be reached; it stays open after). OPEN_ON
+// is by district; OPEN_AT picks out a place that opens on a day of its own. Before 1 September (on 22 August) you are at CIA
+// Headquarters, and nothing on the island is open. Roads into a place that isn't open yet are blocked by a snow bank.
+const OPEN_ON={southwest:1,central:2,southeast:4,northeast:5,south:6,northwest:7,north:8},OPEN_AT={colahq:3};
 const DISTRICT_OF={millroad:'southeast',palace:'central',town:'central',colahq:'central',tramstop:'southeast',forest:'southeast',
 southwest:'south',barracks:'south',gated:'south',privbeach:'south',privharbour:'south',
 east:'northeast',mountains:'northeast',monastery:'northeast',farm:'northeast',
@@ -572,6 +576,8 @@ const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_l
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
 // and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
 const CONVOS={
+// Otto sells tickets for the film at the cinema (js/film.js)
+Otto:{start:'a',nodes:{a:{say:"Tonight's picture is STORMWING: the hottest pilots in the North, and one very unhappy control tower. Four dollars a ticket.",opts:[['Buy a ticket and watch ($4)',null,()=>watchFilm()],['Maybe later',null]]}}},
 Hekki:{start:'hello',nodes:{
   hello:{say:'So glad you made it.',opts:[['Me too.','metoo'],['This place sucks.','sucks'],['Is anyone on to you?','onto']]},
   metoo:{say:'Woo!'},

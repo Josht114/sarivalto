@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt}=box.D,NOTES=box.N;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>eveningAt(n,night)?n.evening.m:atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!eveningAt(n,night)&&!atWorkWhen(n,night)&&!!L[n.home];
@@ -62,12 +62,42 @@ function plan(c,id){const M=MAPS[id],h=M.length,w=M[0].length,S=16,th=L[id][3],f
   return o+'</svg>'}
 const info=rows=>'<table class="info">'+rows.filter(Boolean).map(([k,v])=>`<tr><th>${esc(k)}</th><td>${v}</td></tr>`).join('')+'</table>';
 const list=a=>a.length?a.join(', '):'—';
+// ---- Access: the island opens up a part at a time (OPEN_ON by district, OPEN_AT for a place of its own; js/data.js), as the game
+// does it (js/game.js): a place is open from its day on, and a road from an open place into a closed one is blocked by snow.
+const openDay=id=>OPEN_AT[id]??OPEN_ON[DISTRICT_OF[id]]??1,OPEN_DAYS=[...new Set(Object.keys(POS).map(openDay))].sort((a,b)=>a-b);
+const isOpenOn=(id,d)=>openDay(id)<=d,blockedOn=d=>LINKS.map(l=>l.split(' ')).filter(([a,,b])=>isOpenOn(a,d)!=isOpenOn(b,d)).map(([a,,b])=>isOpenOn(a,d)?[a,b]:[b,a]);
+// a small map of the island on a day: open places in their district's colour, the ones opening that day outlined in gold, closed
+// ones grey; snow marks the blocked roads
+function accessMap(d){const G=MAP_GEO,ids=Object.keys(G.cells);
+  const cell=id=>{const o=isOpenOn(id,d),nw=openDay(id)==d;return`<polygon points="${G.cells[id]}" fill="${o?DISTRICTS[DISTRICT_OF[id]][1]:'#8f969c'}" stroke="${o?'#fff':'#7a8086'}" stroke-width="2"${nw?' class="new"':''}><title>${esc(L[id][0])}${o?'':' (closed)'}</title></polygon>`};
+  const news=ids.filter(id=>openDay(id)==d).map(id=>`<polygon points="${G.cells[id]}" fill="none" stroke="#e0a100" stroke-width="7"/>`).join('');
+  const roads=LINKS.map(l=>l.split(' ')).map(([a,,b])=>{const p=G.rp[a],q=G.rp[b],o=isOpenOn(a,d)&&isOpenOn(b,d);return`<path d="M${p[0]} ${p[1]}L${q[0]} ${q[1]}" stroke="${o?'#6b5a3a':'#5a5f66'}" stroke-width="5" stroke-opacity="${o?.9:.5}"/>`}).join('');
+  const snow=blockedOn(d).map(([a,b])=>{const p=G.rp[a],q=G.rp[b];return`<circle cx="${(p[0]+q[0])/2}" cy="${(p[1]+q[1])/2}" r="15" fill="#fff" stroke="#c0392b" stroke-width="5"/>`}).join('');
+  const dots=Object.keys(G.rp).map(id=>`<circle cx="${G.rp[id][0]}" cy="${G.rp[id][1]}" r="9" fill="${isOpenOn(id,d)?'#2b2118':'#5a5f66'}"/>`).join('');
+  return`<svg viewBox="80 90 1340 720" role="img" aria-label="The island on ${d} September"><defs><clipPath id="cl${d}"><polygon points="${G.coast}"/></clipPath></defs>`+
+    `<polygon points="${G.coast}" fill="#cfd8dc"/><g clip-path="url(#cl${d})">${ids.map(cell).join('')}${news}</g><polygon points="${G.coast}" fill="none" stroke="#4a3b2a" stroke-width="4"/>${roads}${snow}${dots}</svg>`}
+function accessBody(c){const place=id=>A(c,'locations',id,L[id][0]),list=a=>a.length?a.join(', '):'–';
+  const rows=OPEN_DAYS.map(d=>{const opens=Object.keys(POS).filter(id=>openDay(id)==d),dists=[...new Set(opens.map(id=>DISTRICT_OF[id]))],whole=k=>Object.keys(POS).filter(i=>DISTRICT_OF[i]==k).every(i=>openDay(i)==d);
+    return`<tr><th>${d} September</th><td>${dists.length?dists.map(k=>`<span class="sw" style="background:${DISTRICTS[k][1]}"></span>${esc(DISTRICTS[k][0])}${whole(k)?'':' <small>(part)</small>'}`).join(', '):'–'}</td><td>${list(opens.map(place))}</td><td>${Object.keys(POS).filter(id=>isOpenOn(id,d)).length} of ${Object.keys(POS).length}</td>`+
+      `<td>${list(blockedOn(d).map(([a,b])=>place(a)+' &rarr; '+place(b)))}</td></tr>`}).join('');
+  return`<h1>Access</h1><p>The island doesn't open all at once. The story begins on <b>22 August</b> at ${A(c,'locations','langley','CIA Headquarters')} in Langley, before you reach the island at all. From <b>1 September</b> the island opens up a part at a time, as the snow is cleared; once a place is open it stays open for the rest of the month.</p>
+<h2>What's open when</h2><p>Each part opens on the day below (most of it a district at a time; Central opens in two parts, with Kelp Cola HQ a day after Kingsgrad and the palace). The last column lists the roads still blocked that day, from the open side to the closed one.</p>
+<div class="qtable"><table class="sched access"><thead><tr><th>Day</th><th>District opens</th><th>Places that open</th><th>Open</th><th>Blocked roads</th></tr></thead><tbody>${rows}</tbody></table></div>
+<h2>Day by day</h2><p>The island on each day it changes: open places in their district's colour, the ones that open that day outlined in gold, closed ones grey, and a ring on each blocked road.</p>
+<div class="accmaps">${OPEN_DAYS.map(d=>`<figure>${accessMap(d)}<figcaption>${d} September</figcaption></figure>`).join('')}</div>
+<h2>In the game</h2><ul>
+<li><b>Snow banks.</b> A road from an open place into a closed one has a deep bank of snow across it, one step in from the edge, and the way out is labelled <i>(closed)</i>. Walking into the snow says so.</li>
+<li><b>The sign.</b> Beside every snow bank stands a red and white <b>DANGER / SNOW</b> sign. Read it (E) and it says: <i>DANGER! SNOW. NO ACCESS.</i> and names the place the road leads to.</li>
+<li><b>Boats and trams.</b> Boats don't run to a harbour that is still snowed in, and the tram only offers the stops that are open.</li>
+<li><b>The map.</b> On the island map in the game (the menu's Map tab, or the map on the wall at home), the places not open yet are shaded, and a snow bank marks each blocked road.</li>
+<li><b>Getting there.</b> Moving from 22 August into September takes you from Langley to your home on the island; going back to 22 August takes you back to Langley. The <i>Jump to</i> test list still goes anywhere.</li></ul>
+<h2>Changing it</h2><p>The days are set in <code>js/data.js</code>: <code>OPEN_ON</code> gives each district its day, and <code>OPEN_AT</code> gives a single place a day of its own. The map shapes the game shades come from <code>tools/build-map.js</code>, which writes <code>js/mapgeo.js</code>.</p>`}
 function locBody(c,id){const[name,w,h,,fs]=L[id],k=kind(id),par=parentOf(id),fac=FACTION_AT[id],
     // a place on the island also lists everyone in the buildings that stand in it, saying which building they are in
     out=!!POS[id],at=x=>x&&x!='none'&&(out?top(x)==id:x==id),people=NPCS.filter(n=>at(n.m)||at(n.loc)),res=NPCS.filter(n=>at(n.home)),day=NPCS.filter(n=>at(whereAt(n,false))),night=NPCS.filter(n=>at(whereAt(n,true))),
     where=x=>out&&x&&x!=id&&top(x)==id?' · '+A(c,'locations',x,L[x][0]):'';
   const labels=[...new Set(fs.filter(f=>f[5]).map(f=>f[5]))],ent=DOORS.filter(d=>d[0]==id);
-  const dd=distOf(id),rows=[['Type',KIND[k]],dd?['District',`<span class="sw" style="background:${DISTRICTS[dd][1]}"></span>`+esc(DISTRICTS[dd][0])]:['District','Travels between districts'],par&&['Inside',locA(c,par)],fac&&['Faction base',`<span class="sw" style="background:${FACTIONS[fac][1]}"></span>`+facA(c,fac)],['Size',w+' × '+h+' tiles'],
+  const dd=distOf(id),rows=[['Type',KIND[k]],dd?['District',`<span class="sw" style="background:${DISTRICTS[dd][1]}"></span>`+esc(DISTRICTS[dd][0])]:['District','Travels between districts'],par&&['Inside',locA(c,par)],POS[id]&&['Open from',`<a href="${lst(c,'access')}">${openDay(id)} September</a>`],fac&&['Faction base',`<span class="sw" style="background:${FACTIONS[fac][1]}"></span>`+facA(c,fac)],['Size',w+' × '+h+' tiles'],
     walk[id]&&['Walk to',list(walk[id].map(x=>locA(c,x)))],BOATS[id]&&['Boat to',list(BOATS[id].map(x=>locA(c,x)))],
     ent.length&&['Buildings to enter',list(ent.map(d=>A(c,'locations',d[5],L[d[5]][0])))],people.length&&['People',out?`<a href="#people">${people.length}</a>`:list(people.map(n=>npcA(c,n)))],res.length&&['Residents',out?`<a href="#residents">${res.length}</a>`:list(res.map(n=>npcA(c,n)))]];
   let t=`<h1>${esc(name)}</h1>${info(rows)}<p>${esc((NOTES.locations||{})[id]||name+' is a '+KIND[k].toLowerCase()+' on the island.')}</p>`;
@@ -243,6 +273,7 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:14px;width:min(1400px,calc(100vw - 24px));position:relative;left:50%;transform:translateX(-50%);margin-bottom:18px}
 .hcard{background:var(--card);border:1px solid var(--bd);border-top:4px solid;border-radius:8px;padding:8px 10px;min-width:0}.hcard h3{margin:2px 0 6px;font-size:1.05em}.hcard h3 small{color:var(--mut);font-weight:normal;font-size:.8em}.hcard .org{margin:0}.hcard.full{grid-column:1/-1}
 @media (max-width:480px){.hgrid{grid-template-columns:1fr}}
+.access td,.access th{vertical-align:top}.accmaps{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:8px 0 16px}.accmaps figure{margin:0;text-align:center}.accmaps svg{width:100%;height:auto;background:#d4ecf4;border-radius:8px}.accmaps figcaption{font-weight:bold;margin-top:2px}
 .qtable{overflow-x:auto;width:min(1240px,calc(100vw - 24px));position:relative;left:50%;transform:translateX(-50%)}.qtable .sched{width:100%}.sched{border-collapse:collapse;font-size:.9em;margin:8px 0 16px}.sched th,.sched td{border:1px solid var(--bd);padding:3px 8px;text-align:center;white-space:nowrap}
 .sched thead th{background:var(--card);font-size:.88em;white-space:normal;line-height:1.25;min-width:84px}.sched .wk{background:var(--card);font-weight:bold}.sched .day{color:var(--mut);font-variant-numeric:tabular-nums}
 .sched tr.wkstart td,.sched tr.wkstart th{border-top:2px solid var(--fg)}
@@ -265,10 +296,11 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
 pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
+pages.push({k:'access',id:'access',title:'Access',body:accessBody,file:'access/index.html',pre:'../'});
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
 Object.keys(FACTIONS).forEach(i=>pages.push({id:'factions-'+i,title:FACTIONS[i][0],body:c=>facBody(c,i),file:'factions/'+i+'.html',pre:'../'}));

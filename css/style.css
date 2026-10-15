@@ -47,9 +47,11 @@ select hr{border:0;border-top:1px solid #000}
 #start .saves{display:flex;flex-direction:column;gap:8px}
 #start .save{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #3a5a3a;border-radius:8px;padding:8px 10px;background:#0f1a10}
 #start .save .acts{margin-top:0}
-#start .map{position:relative}#start .map img{display:block;width:100%;height:auto;border-radius:6px}
+#start .map{position:relative}#start .map svg.fog{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;border-radius:6px}#start .map img{display:block;width:100%;height:auto;border-radius:6px}
 /* the Save tab's import button: a label styled as a button around a hidden file input */
 #start .filebtn{display:inline-block;padding:3px 10px;border:1px solid #9fe870;border-radius:4px;cursor:pointer;color:#9fe870}#start .filebtn:hover,#start .filebtn:focus-within{background:#9fe870;color:#000}
+/* the film at the cinema: the picture as large as the panel allows */
+#start .film{flex:1;min-height:0;display:flex;justify-content:center;align-items:center;background:#000;border-radius:6px}#start #filmc{height:100%;width:auto;max-width:100%;image-rendering:auto;display:block}
 /* the casino and arcade games */
 #start .gamebox{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
 #start #slotc,#start #arcc{image-rendering:pixelated;border:2px solid #c9a040;border-radius:6px;background:#000;display:block}

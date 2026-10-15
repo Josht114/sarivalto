@@ -8,7 +8,7 @@ const DIR={0:[0,1],1:[0,-1],2:[-1,0],3:[1,0]},KEY={ArrowDown:0,s:0,ArrowUp:1,w:1
 const P={m:'village',x:0,y:0,rx:0,ry:0,dir:1,mv:null,par:0};let stack=[];
 // ---- The calendar: the game runs through the 30 days of September, starting on the 1st (?day=N starts on another day for
 // testing). Sleeping in your own bed moves on to the next morning; the calendar on the wall at home shows the date.
-const MONTH='September',DAYS=30;let DAY=Math.min(DAYS,Math.max(1,parseInt(new URLSearchParams(location.search).get('day'))||1));
+const MONTH='September',DAYS=30;const QDAY=parseInt(new URLSearchParams(location.search).get('day'));let DAY=Number.isNaN(QDAY)||QDAY<1?-9:Math.min(DAYS,QDAY);
 // Days are counted from 1 September; the days before it are in August (day 0 is 31 August, so 22 August is day -9). DATES are the
 // days you can be on: 22 August, then the month itself. nextDay is the one after a day (22 August is followed by 1 September).
 const DATES=[-9,...Array.from({length:DAYS},(_,i)=>i+1)],dateStr=d=>d<1?(31+d)+' August':d+' '+MONTH,nextDay=d=>DATES[DATES.indexOf(d)+1]??d+1;
@@ -30,6 +30,8 @@ const showHere=id=>{here.text=NM[id];sel.selectedIndex=0};
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;showHere(id)}
 // The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
 P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
+// (on 22 August, before the month begins, you are at CIA Headquarters in Langley)
+if(DAY<1){P.m='langley';P.x=P.rx=11;P.y=P.ry=10;P.dir=1;showHere(P.m)}
 // (the ?gothic proof of concept starts in Eastbrook's square instead)
 if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
 if(STEAM||STEAM2||CLASSIC)go('town');  // the steampunk proof of concept (and ?steam2, ?classic) start in Kingsgrad
@@ -63,7 +65,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     body=(on.length?`<h3>Active</h3><ul class="quests">${on.map(li).join('')}</ul>`:'<p>No active quests.</p>')+(off.length?`<h3>Completed</h3><ul class="quests">${off.map(li).join('')}</ul>`:'')}
   if(START=='map'){// you are marked at your place on the island map (indoors, at the place the building is in)
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
-    body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(a=>`<span class="qstar" title="${esc(NM[a])}: someone here has a quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
+    body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${mapFog()}${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(a=>`<span class="qstar" title="${esc(NM[a])}: someone here has a quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
       <p>You are in ${esc(NM[P.m])}${a&&a!=P.m?', '+esc(NM[a]):''}.</p>`}
   if(START=='save'){// the save slots: where and when each was saved, and buttons to save over it, load it or delete it
     // (overwriting, loading and deleting ask again on the button first)
@@ -169,11 +171,15 @@ const tfac=document.getElementById('tfac');tfac.innerHTML=MAIN_FACTIONS.map(f=>`
 document.getElementById('tplus').onclick=e=>{addPoints(tfac.value,10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
 document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
 // moving to another day: the calendar on the wall and anything showing the date are drawn again
-function setDay(d){DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAYS,d));for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dayjump.value=DAY;if(START)renderStart()}
-document.getElementById('tday').onclick=e=>{if(DAY<DAYS){setDay(nextDay(DAY));say('It is now '+dateStr(DAY)+'.')}e.target.blur()};
+function setDay(d){const was=DAY;DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAYS,d));for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dayjump.value=DAY;BLOCKS.clear();
+  // (from 22 August into the month you arrive on the island, at home; back to 22 August, you are at Langley again)
+  let note='';if(was<1&&DAY>=1&&/^langley/.test(P.m)){place(HOME,[17,3],0);note=' You arrive on Sarivalto.'}
+  else if(was>=1&&DAY<1&&!/^langley/.test(P.m)){TRIP=null;place('langley',[11,10],1);note=' You are back at CIA Headquarters.'}
+  if(START)renderStart();return note}
+document.getElementById('tday').onclick=e=>{if(DAY<DAYS){const n=setDay(nextDay(DAY));say('It is now '+dateStr(DAY)+'.'+n)}e.target.blur()};
 // the date picker beside Jump to: any day of the month
 const dayjump=document.getElementById('dayjump');DATES.forEach(d=>dayjump.appendChild(new Option(dateStr(d),d)));dayjump.value=DAY;
-dayjump.onchange=()=>{setDay(+dayjump.value);say('It is now '+dateStr(DAY)+'.');dayjump.blur()};
+dayjump.onchange=()=>{const n=setDay(+dayjump.value);say('It is now '+dateStr(DAY)+'.'+n);dayjump.blur()};
 // ---- The wardrobe in your home: your hair and facial hair (style and colour) and the clothes you own, with a preview of you from
 // each side. Up and down (or W and S) choose a row, left and right (or A and D) change it; the arrows on each row do the same.
 const WARD={row:0};
@@ -192,6 +198,14 @@ function renderWardrobe(){const rows=WROWS.map(([k,label,f],i)=>{const o=f(),j=M
   startEl.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>wstep(+b.dataset.w,+b.dataset.d));startEl.querySelector('.close').onclick=closeStart}
 // the wardrobe in your home is the tile you're facing
 const wardrobeAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Wardrobe'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+// the map's shading: every place not open yet is darkened (its patch of island, clipped to the coast; the oil rig, out at sea, a
+// circle), and a snow bank marks each road from an open place into a closed one
+function mapFog(){if(typeof MAP_GEO=='undefined')return'';const G=MAP_GEO,shut=Object.keys(G.rp).filter(id=>!isOpen(id));if(!shut.length)return'';
+  const cells=shut.filter(id=>G.cells[id]).map(id=>`<polygon points="${G.cells[id]}"/>`).join('')+(shut.includes('oilrig')?`<circle cx="${G.rp.oilrig[0]}" cy="${G.rp.oilrig[1]}" r="46"/>`:'');
+  const banks=LINKS.map(l=>l.split(' ')).filter(([a,,b])=>isOpen(a)!=isOpen(b)).map(([a,,b])=>{const p=G.rp[a],q=G.rp[b],x=(p[0]+q[0])/2,y=(p[1]+q[1])/2;
+    return`<g transform="translate(${x.toFixed(1)},${y.toFixed(1)})"><title>Snowed in: ${esc(NM[isOpen(a)?b:a])}</title><path d="M-17 7Q-12 -8 -3 -4Q4 -14 12 -3Q18 -1 18 7Z" fill="#f8fbfd" stroke="#5a6a7a" stroke-width="2"/><path d="M-9 0Q-4 -5 1 -2" stroke="#c8d6e2" stroke-width="2" fill="none"/>`+
+      `<path d="M14 7V-14" stroke="#4a3020" stroke-width="2.5"/><rect x="6" y="-22" width="18" height="10" rx="1.5" fill="#c0392b" stroke="#fff" stroke-width="1.5"/><path d="M15 -20V-15M15 -13.5V-13" stroke="#fff" stroke-width="2"/></g>`}).join('');
+  return`<svg class="fog" viewBox="0 0 1700 860" aria-hidden="true"><defs><clipPath id="fogisl"><polygon points="${G.coast}"/></clipPath></defs><g clip-path="url(#fogisl)" fill="#1a2430" fill-opacity=".42">${cells}</g>${banks}</svg>`}
 function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
 function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
@@ -219,7 +233,7 @@ sel.onchange=()=>{const id=sel.value;closeMenu();RIDE=TRIP=null;go(id);sel.blur(
 const SOLID='#TR~vbkWecuxygitnoC';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
 const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x*16+16>q.x+3&&x*16<q.x+93);
-const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
+const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||!!snowAt(m,x,y)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
   PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})||tramAt(m,x,y)};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};
 addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||MENU||RIDE||START||BUSY||CONVO)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
@@ -232,18 +246,31 @@ const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
 // a place that is shut at this time of day, and what its door says
 const shut=id=>NIGHT?DAY_ONLY.includes(id):NIGHT_ONLY.includes(id);
 const shutMsg=id=>NM[id]+' is closed. It opens '+(NIGHT?'in the morning.':'at night.');
+// ---- Which places are open today (OPEN_ON, OPEN_AT in data.js); interiors and places off the map are always open (they're reached
+// through somewhere that is). A road out of a place into one that isn't open yet is blocked by a snow bank one tile in from the
+// edge, with a DANGER sign beside the road; both are solid, and the sign can be read.
+const openDay=id=>OPEN_AT[id]??OPEN_ON[DISTRICT_OF[id]],isOpen=id=>!POS[id]||(openDay(id)??1)<=DAY;
+const BLOCKS=new Map();  // by place: its snow banks [{x, y, to, sx, sy}] (sx, sy: the sign); worked out once a day
+function snowBlocks(m){if(BLOCKS.has(m))return BLOCKS.get(m);
+  const out=EX[m].filter(e=>'TBLR'.includes(e.s)&&!isOpen(e.to)).map(e=>{const[x,y]=inw(e),v=e.s=='T'||e.s=='B',G=MAPS[m];
+    const side=(v?[[x+1,y],[x-1,y]]:[[x,y-1],[x,y+1]]).find(([a,b])=>G[b]?.[a]&&!SOLID.includes(G[b][a])&&G[b][a]!='E'&&G[b][a]!=',')||(v?[x+1,y]:[x,y+1]);
+    return{x,y,to:e.to,sx:side[0],sy:side[1]}});
+  BLOCKS.set(m,out);return out}
+const snowAt=(m,x,y)=>snowBlocks(m).find(b=>b.x==x&&b.y==y||b.sx==x&&b.sy==y);
+const signAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return snowBlocks(P.m).find(b=>b.sx==x&&b.sy==y)};
 function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
   if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU||START||BUSY||CONVO)return;
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
     if(m.t>=1){P.mv=null;const e=exitHere();
-      if(e&&!PRESS_DOORS.has(e.to))useExit(e);
+      if(e&&!PRESS_DOORS.has(e.to)){if(isOpen(e.to))useExit(e);else say('The boat to '+NM[e.to]+" isn't running: the harbour there is snowed in.",4000)}
       else if(P.m=='tram'&&MAPS.tram[P.y][P.x]=='m')leaveTram()}}
   if(!P.mv&&tramAt(P.m,P.x,P.y)){standClear();return}
   if(!P.mv&&stack.length){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
     if(door){if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
     else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
+    else if(snowAt(P.m,nx,ny)){const t=signAhead()?'The sign says: DANGER! SNOW. NO ACCESS.':'A deep bank of snow blocks the road.';if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(lockedFront(nx,ny,d)){const t=lockedFront(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
 }
@@ -333,6 +360,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
   if(wardrobeAhead()){openWardrobe();return}
+  const sg=signAhead();if(sg){say('DANGER! SNOW. NO ACCESS. The road to '+NM[sg.to]+' is buried in drifts.',5000);return}
   const g=typeof gameAhead=='function'&&gameAhead();if(g){openPlay(g);return}
   const n=npcAhead();if(n){talk(n);return}
   if(seatAhead()){sitDown();return}
@@ -343,7 +371,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(st.ph=='leave'){say('The tram has just left.');return}
   TRIP={from:P.m};TRAMS[P.m]={ph:'wait',t0:now};place('tram',[10,5],1);say('You get on the tram.')}
 function openMenu(){MENU=performance.now();stack=[];menu.setAttribute('aria-label','Choose a tram stop');
-  menu.innerHTML='<p>Where to?</p>'+TRAM_STOPS.filter(s=>s!=TRIP.from).map(s=>`<button data-to="${s}">${NM[s]}</button>`).join('')+'<button data-to="">Stay on board</button>';
+  menu.innerHTML='<p>Where to?</p>'+TRAM_STOPS.filter(s=>s!=TRIP.from&&isOpen(s)).map(s=>`<button data-to="${s}">${NM[s]}</button>`).join('')+'<button data-to="">Stay on board</button>';
   menu.querySelectorAll('button').forEach(b=>b.onclick=()=>pick(b.dataset.to));menu.hidden=false;menu.querySelector('button').focus()}
 const closeMenu=()=>{MENU=0;menu.hidden=true};
 // (a click within a moment of opening is the key that opened the menu, not a choice)
@@ -383,6 +411,7 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
   if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
+  if(signAhead()&&!P.mv)return'Press E to read the sign';
   const ga=typeof gameAhead=='function'&&gameAhead();if(ga&&!P.mv&&!npcAhead())return GAME_HINT[ga];
   if(seatAhead()&&!P.mv&&!npcAhead())return NIGHT?'Night has fallen':'Press E to sit and wait';
   const n=npcAhead();if(n&&!P.mv)return'Press E to talk to '+n.name;
@@ -414,7 +443,7 @@ function draw(t){
   NPCS.filter(n=>n.m==P.m).forEach(n=>tx(n.name,n.x*T-cx+8,n.y*T-cy-7,'center','n'));
   // (a building whose picture sign stands on its roof has its label above the picture)
   const it=scene(P.m).iconTop||{};FL[P.m].forEach(([x,y,w,h,c,lb,st])=>{if(lb)tx(c=='e'&&FLAT_BLOCK.test(P.m)?flatLabel(P.m,x,y):lb,(x+w/2)*T-cx,st?Math.min(y*T,it[x+','+y]??1e9)-cy-3:(y+h/2)*T-cy+2,'center',st?'b':'s')});
-  EX[P.m].filter(e=>e.s!='O').forEach(e=>{const[ix,iy]=inw(e),s=e.s=='F'?(e.ax>e.x?'L':'R'):e.s,nm=NM[e.to]+(e.s=='F'?' (boat)':''),lb=(s=='R'?'':'\u2192 ')+nm+(s=='R'?' \u2192':'');
+  EX[P.m].filter(e=>e.s!='O').forEach(e=>{const[ix,iy]=inw(e),s=e.s=='F'?(e.ax>e.x?'L':'R'):e.s,nm=NM[e.to]+(e.s=='F'?' (boat)':'')+(isOpen(e.to)?'':' (closed)'),lb=(s=='R'?'':'\u2192 ')+nm+(s=='R'?' \u2192':'');
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
   if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
   const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
