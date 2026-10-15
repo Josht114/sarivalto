@@ -517,7 +517,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'repubhq',x:4,y:8,dir:2,name:'Carlo',home:'hsresid',loc:'repubhq',job:"The Crime Syndicate's candidate for Republican Party leader",faction:'syndicate',gender:'male',body:'#1a1a22',hair:'#2a1a12'}];
 
 // ---- The player at the start of the game (placeholders): the CIA's operating funds, the player's own money, and what they carry
-// as [item id, how many] (ids are keys in ITEMS). QUESTS: the quests active at the start, as {title, from, text}. Both are shown in the start menu.
+// as [item id, how many] (ids are keys in ITEMS). QUESTS (below) are the quests. Both are shown in the start menu.
 const PLAYER={ciaFunds:5000,funds:250,items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
 // ---- Items: the name, the description shown in the inventory, and the actions you can take with it (each action is handled in
 // game.js; ones it doesn't handle yet say so). Their sprites are ITEM_ART in art.js.
@@ -612,7 +612,22 @@ Rosaria:{stock:[['pizza',20,4],['wine',12,6]]},
 Rosa:{stock:[['hotdog',30,1],['cola',20,1]]},
 Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 };
-const QUESTS=[{title:'Report in',from:'Chuck, your CIA handler',text:'Use the radio equipment in the Hidden Radio Room to tell Chuck you have arrived safely on the island.'}];
+// Quests. Each has a giver (the person who offers it), a title and what it asks (text), what the giver says offering it (offer),
+// when you take it on (accept) and if you come back before it's done (wait), and what happens when it's done (thanks). start:true
+// makes it yours from the beginning. done lists its completion conditions; meeting all of them ends the quest. Each has a what
+// (how the Quests tab lists it) and one of:
+//   give:item, to:name   talk to that person with the item in your inventory and agree to hand it over
+//   use:label, m:place   face that piece of furniture in that place and press E
+// Someone with a quest to give has a star over their head, and a star on the island map marks where they are.
+const QUESTS={
+report:{title:'Report in',giver:'Chuck',start:true,text:'Use the radio equipment in the Hidden Radio Room to tell Chuck you have arrived safely on the island.',
+  done:[{use:'Radio Equipment',m:'hekki_room',what:'Radio Chuck from the Hidden Radio Room'}],
+  thanks:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "Keep your head down."'},
+pizza:{title:'Pizza for Buttons',giver:'Buttons',text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
+  offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
+  accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',
+  done:[{give:'pizza',to:'Buttons',what:'Give Buttons a slice of pizza'}],
+  thanks:'"Mmm, pizza! You\'re a true friend. Have a free juggle on me!"'}};
 
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).

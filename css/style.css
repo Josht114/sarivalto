@@ -48,6 +48,10 @@ select hr{border:0;border-top:1px solid #000}
 #start .save{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #3a5a3a;border-radius:8px;padding:8px 10px;background:#0f1a10}
 #start .save .acts{margin-top:0}
 #start .map{position:relative}#start .map img{display:block;width:100%;height:auto;border-radius:6px}
+/* quests: the Quests tab, and the stars on the map marking someone with a quest to give */
+#start ul.quests{list-style:none;padding:0;margin:4px 0 10px}#start ul.quests>li{margin:0 0 8px;padding:6px 8px;border:1px solid #3a5a3a;border-radius:6px}
+#start ul.quests>li.qdone{opacity:.6}#start ul.qconds{list-style:none;padding:0;margin:4px 0 0;font-size:12px}#start ul.qconds li.met{color:#9fe870}
+#start .qstar{position:absolute;transform:translate(-50%,-120%);color:#ffd23a;font-size:20px;line-height:1;text-shadow:0 0 2px #000,0 0 2px #000,0 0 3px #000;pointer-events:none;animation:you .7s infinite alternate}
 #start .you{position:absolute;width:10px;height:10px;margin:-7px 0 0 -7px;border-radius:50%;background:#ff3b2f;border:2px solid #fff;animation:you .7s infinite alternate}
 @keyframes you{to{box-shadow:0 0 0 6px rgba(255,59,47,.35)}}
 /* the test tools beside Jump to */

@@ -38,7 +38,9 @@ dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
 addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
-const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:QUESTS.slice()};
+const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests()};
+// your quests, in the order you took them on: {id, met: which conditions are met, done}
+function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start).map(id=>({id,met:[],done:false}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save']];
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
@@ -52,10 +54,13 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     body=`<dl><dt>Date</dt><dd>${DAY} ${MONTH} <small>(day ${DAY} of ${DAYS})</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd></dl>
     <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}</h3></div>
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
-  if(START=='quests')body=ME.quests.length?`<ul>${ME.quests.map(q=>`<li><b>${esc(q.title)}</b> <small>from ${esc(q.from)}</small><br>${esc(q.text)}</li>`).join('')}</ul>`:'<p>No active quests.</p>';
+  if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
+      `<ul class="qconds">${Q.done.map((c,i)=>`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
+    const on=ME.quests.filter(q=>!q.done),off=ME.quests.filter(q=>q.done);
+    body=(on.length?`<h3>Active</h3><ul class="quests">${on.map(li).join('')}</ul>`:'<p>No active quests.</p>')+(off.length?`<h3>Completed</h3><ul class="quests">${off.map(li).join('')}</ul>`:'')}
   if(START=='map'){// you are marked at your place on the island map (indoors, at the place the building is in)
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
-    body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}</div>
+    body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(a=>`<span class="qstar" title="${esc(NM[a])}: someone here has a quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
       <p>You are in ${esc(NM[P.m])}${a&&a!=P.m?', '+esc(NM[a]):''}.</p>`}
   if(START=='save'){// the save slots: where and when each was saved, and buttons to save over it, load it or delete it
     // (overwriting, loading and deleting ask again on the button first)
@@ -123,7 +128,7 @@ function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a
     me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests},stock:STOCK,fp:FP};
   try{localStorage.setItem(saveKey(i),JSON.stringify(v));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}catch(e){return'The game could not be saved: this browser is not letting the page store anything.'}}
 function loadGame(i){const v=readSave(i);if(!v||!MAPS[v.p.m]){ME.note='That save could not be loaded.';renderStart();return}
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -246,7 +251,26 @@ const mapAhead=()=>{if(DIR[P.dir][1]!=-1||L[P.m][3]!='interior'||P.y>2)return fa
 function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit at the table and wait for the evening.',5000);return}
   if(DAY>=DAYS){say('It is '+DAYS+' '+MONTH+', the last day of the month. There is no time to sleep now.',5000);return}
   choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{DAY++;setNight(false)},()=>'You sleep through the night. Good morning: it is '+DAY+' '+MONTH+'.')],['Not now']])}
-function talk(n){n.dir=P.dir^1;if(CONVOS[n.name]){converse(n);return}if(SHOPS[n.name]&&n.m==n.loc){say(`"Welcome! Have a look at what I've got."`,3000);openShop(n);return}say(line(n),6000)}
+// ---- Quests (QUESTS in data.js)
+const qOf=id=>ME.quests.find(q=>q.id==id);
+// the quest someone has to give you: one of theirs you haven't taken on yet (they have a star over their head)
+const offerOf=n=>Object.keys(QUESTS).find(id=>QUESTS[id].giver==n.name&&!qOf(id));
+// the places on the island map where someone has a quest to give (indoors, the place their building is in)
+const questPlaces=()=>[...new Set(NPCS.filter(n=>n.m&&offerOf(n)).map(n=>POS[n.m]?n.m:areaOf(n.m)).filter(a=>a&&POS[a]))];
+// each condition not yet met in your active quests, as [quest, its index, the condition]
+const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>QUESTS[q.id].done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]));
+// meeting a condition; with all of them met, the quest is done
+function meet(q,i){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say(Q.thanks+' Quest complete: '+Q.title+'.',7000)}else say('Quest updated: '+Q.title+'.',4000)}
+// a use condition: the furniture it names, in the place it names, on the tile you're facing
+const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.use&&c.m==P.m&&FL[P.m].some(([fx,fy,w,h,,l])=>l==c.use&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h))};
+// talking to someone: hand over what a quest asks for, if you have it; remind you of their quest; or offer you a new one
+function questTalk(n){
+  const g=openConds().find(([,,c])=>c.give&&c.to==n.name);
+  if(g&&has(g[2].give)){const[q,i,c]=g;choose(`Give ${esc(n.name)} the ${esc(ITEMS[c.give].name.toLowerCase())}?`,[['Give it',()=>{take(c.give);meet(q,i)}],['Not now']]);return true}
+  const w=ME.quests.find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w){say(`"${QUESTS[w.id].wait}"`,5000);return true}
+  const id=offerOf(n);if(!id)return false;const Q=QUESTS[id];
+  choose(`<b>${esc(n.name)}:</b> "${esc(Q.offer)}"`,[['Accept: '+esc(Q.title),()=>{ME.quests.push({id,met:[],done:false});say(`"${Q.accept}" New quest: ${Q.title}.`,6000)}],['Not now']]);return true}
+function talk(n){n.dir=P.dir^1;if(questTalk(n))return;if(CONVOS[n.name]){converse(n);return}if(SHOPS[n.name]&&n.m==n.loc){say(`"Welcome! Have a look at what I've got."`,3000);openShop(n);return}say(line(n),6000)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
 // where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
@@ -258,6 +282,7 @@ function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+4
 function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performance.now();if(now-CONVO_END<300)return;
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
+  const u=useAhead();if(u){meet(u[0],u[1]);return}
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
   const n=npcAhead();if(n){talk(n);return}
@@ -301,6 +326,7 @@ addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&(e.key=='e'||
 document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(CONVO){reply(CONVO.sel);return}if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
+  if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
