@@ -94,7 +94,7 @@ villa_gustavo:["Gustavo's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,6,1,
 house_thyme:["Father Thyme's House",10,9,'interior',[[2,1,2,2,'e','Bed'],[5,1,3,1,'y','Bookcase'],[6,4,2,2,'u','Table'],[2,5,1,1,'i','Stove']]],
 shack_hekki:["Hekki's Shack",10,7,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Radio Set'],[4,4,2,1,'u','Table'],[8,1,1,1,'q']]],
 // The Hidden Radio Room, with a small living space behind a partition on the right (through the doorway at x14, y5)
-hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment'],[5,1,4,1,'y','Screens'],[9,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[11,4,2,2,'y','Screens'],[11,7,2,1,'x','Boxes'],
+hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment'],[5,1,4,1,'y','Big Screen'],[9,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
 [14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
 transhut:['Transmitter Hut',16,10,'interior',[[1,1,5,1,'y','Transmitter'],[7,1,3,1,'y','Records'],[12,1,3,1,'y','Tape Recorder'],[3,4,6,2,'u','Mixing Desk'],[11,4,3,2,'u','Microphone Table'],[1,7,2,2,'x','Boxes']]],
 tent_pat:["Pat's Camp",8,6,'interior',[[1,1,2,2,'e','Bedroll'],[5,1,2,1,'x','Boxes'],[5,3,1,1,'i','Camp Stove']]],

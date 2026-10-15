@@ -1372,7 +1372,7 @@ house_forsale:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#d8d4cc',wall2:
 house_forsale_eb:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b8a8',wall2:'#9a5040',pap:'brick',deco:[[2,'win'],[7,'win']]},
 house_forsale_fh:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',deco:[[2,'win'],[7,'win']]},
 villa_forsale:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',deco:[[1,'win'],[4,'win'],[9,'win'],[13,'win']]},
-hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[2,'map'],[10,'map'],[13,'clock'],[16,'calendar'],[18,'pic']]},
+hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[2,'map'],[10,'map'],[13,'clock'],[15,'map'],[16,'calendar'],[18,'pic']]},
 transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap:'tiles',base:'#4a5058',deco:[[6,'onair'],[10,'clock'],[15,'poster']]},
 chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
 crypt:{fl:'stone',f:[],wall:'#6b6458',wall2:'#4a443c',pap:'brick',base:'#3a3530',deco:[[3,'cross'],[7,'rbanner'],[12,'cross']]},
@@ -1580,6 +1580,26 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     r('#5a3d2a',0,TT-6,W,6);r('#7a5436',0,TT-6,W,1);r('#5e2a75',1,4,W-2,TT-10);r('#cfe6f2',1,0,W-2,4);r('#e8f4fa',2,1,3,1);
     const cx=W>>1;r('#ffd23a',cx-6,8,12,4);r('#ffd23a',cx-6,5,2,3);r('#ffd23a',cx-1,4,2,4);r('#ffd23a',cx+4,5,2,3);r('#c0392b',cx-1,9,2,2);r('#2e86c1',cx-5,9,2,2);r('#2e9d57',cx+3,9,2,2);
     r('#c9a040',4,10,3,5);r('#ffd23a',4,9,3,1);r('#e8e8e8',W-8,9,4,4);r('#c9a040',W-7,13,2,2)})}}
+  // a desktop PC on a wooden desk: a beige CRT monitor (its screen animated with the tracker's bars), a tower with drive slots and
+  // a green power light, a keyboard and a mouse
+  if(ch=='y'&&l=='computer'){const oy=16,TT=H+oy,an=[];const c=mk(W,TT,r=>{
+    r('#5e3e24',1,TT-16,W-2,13);r('#4a3020',1,TT-16,W-2,1);r('#7a5232',4,TT-13,12,5);r('#946640',4,TT-13,12,1);r('#c9a040',9,TT-11,2,1);r('#3a2414',1,TT-3,3,3);r('#3a2414',W-4,TT-3,3,3);
+    r('#7a5232',0,TT-26,W,10);r('#946640',0,TT-26,W,1);
+    r('#d8d0b8',2,1,20,19);r('#eee8d4',2,1,20,1);r('#b8b098',2,19,20,1);r('#2a2a30',4,3,16,14);r('#0e1a14',5,4,14,12);r('#b8b098',8,20,8,3);r('#d8d0b8',6,22,12,2);r('#5fe08a',19,17,1,1);
+    r('#d8d0b8',23,6,8,20);r('#eee8d4',23,6,8,1);r('#b8b098',30,6,1,20);r('#5a5550',24,9,6,2);r('#5a5550',24,13,6,1);r('#5a5550',24,16,6,1);r('#5fe08a',25,22,1,1);r('#b8b098',24,24,6,1);
+    r('#d8d0b8',3,TT-22,17,5);r('#b8b098',3,TT-18,17,1);for(let y=0;y<2;y++)for(let x=0;x<7;x++)r('#8a8478',4+x*2+y,TT-21+y*2,1,1);r('#5a5550',8,TT-18,8,1);
+    r('#d8d0b8',22,TT-21,3,4);r('#b8b098',22,TT-18,3,1);r('#5a5550',23,TT-24,1,3)});
+    an.push({t:'pcscreen',x:5,y:4,w:14,h:12});return{oy,c,an}}
+  // the big screen on the back wall, for video calls to CIA headquarters: a wide dark display in a steel frame with a camera on top,
+  // showing the Agency's seal and LINK READY while no call is on, above a low cabinet with speakers and the call console
+  if(ch=='y'&&l=='big screen'){const oy=34,TT=H+oy,an=[];const c=mk(W,TT,r=>{
+    r('#2b2f3a',0,2,W,32);r('#4a4f58',0,2,W,1);r('#1a1c22',0,33,W,1);r('#0b1a33',3,5,W-6,26);r('#3a3d44',(W>>1)-4,0,8,3);r('#0b0b10',(W>>1)-1,1,2,1);
+    const cx=W>>1,cy=15;for(let y=-8;y<=8;y++)for(let x=-8;x<=8;x++){const d=Math.hypot(x,y);if(d<=8.3)r(d>7.2?'#c9a040':d>6.4?'#1f3a5f':'#2e5a8a',cx+x,cy+y)}
+    r('#f4f4f0',cx-3,cy-3,6,5);r('#1f3a5f',cx-1,cy-2,2,3);r('#c9a040',cx-2,cy+3,4,1);ptext(r,'CIA',4,7,'#9fc0e0');ptext(r,'HQ',W-12,7,'#9fc0e0');
+    ptext(r,'LINK READY',(W-39)>>1,25,'#5fe08a');
+    r('#3a3d44',2,34,W-4,TT-35);r('#4a4f58',2,34,W-4,1);for(const x of[5,W-14])for(let y=37;y<TT-3;y+=2)r('#1a1c22',x,y,9,1);
+    r('#1a1c22',22,37,20,6);r('#c0392b',24,39,2,2);r('#2e9d57',28,39,2,2);r('#d0d4d8',32,39,8,1);r('#d0d4d8',32,41,6,1)});
+    an.push({t:'vcall',x:(W>>1)-1,y:1,lx:3,ly:5,w:W-6,h:26});return{oy,c,an}}
   if(ch=='y'&&l.includes('screen')){const oy=14,TT=H+oy-2,an=[];const c=mk(W,TT,r=>{
     // a rack of CRT monitors, two high, each showing something different (animated)
     r('#3a3d44',0,0,W,TT);r('#4a4f58',0,0,W,1);
@@ -1888,6 +1908,11 @@ function drawWorld2(m,cx,cy,t,frame){
       // bubbles swell and pop at random spots inside the crater's oval
       const ph=t/1400+hash(k,1,a.x),n=ph|0,g=ph%1,an=hash(k,n,a.y)*6.283,rr=Math.sqrt(hash(k,n+7,a.y))*.7,bx=X+Math.cos(an)*a.rx*rr|0,by=Y+Math.sin(an)*a.ry*rr|0,s=g<.7?1+(g*3|0):3;
       if(g<.85)px(g<.6?'#ffd23a':'#fff2a0',bx,by,s,s);else px('#5a2a20',bx-1,by+1,4,1)}
+    // the PC's screen: the Faction Tracker's bars in each faction's colour, rising and falling a little, and a blinking cursor
+    if(a.t=='pcscreen'){const cols=['#c0392b','#2e86c1','#7d3c98','#2e9d57','#5a6a74','#a0522d','#e0a020'];
+      cols.forEach((c,i)=>{const h=3+Math.round((Math.sin(t/900+i*1.3)+1)*2.5);px(c,X+1+i*2,Y+a.h-1-h,1,h)});px('#3a6a4a',X+1,Y+a.h-1,a.w-2,1);if(((t/500)|0)%2)px('#7fd0a0',X+a.w-3,Y+1,2,1)}
+    // the big screen: the camera's light blinking red, and a slow line rolling down the display
+    if(a.t=='vcall'){if(((t/600)|0)%2)px('#ff3b2f',X,Y,2,1);px('rgba(159,192,224,.12)',X-(a.x-a.lx),Y-(a.y-a.ly)+((t/60)|0)%a.h,a.w,1)}
     if(a.t=='screen'){const k=a.k;
       // monitor content: 0 a scrolling waveform, 1 lines of text being typed, 2 a radar sweep
       if(k==0)for(let x=0;x<a.w;x++)px('#5fe08a',X+x,Y+(a.h>>1)+Math.round(Math.sin(x*.9+t/150)*Math.min(2,a.h/3)),1,1);

@@ -43,7 +43,7 @@ let START=null;  // the open tab, or null when the menu is closed
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
   return t?`<button class="slot" data-item="${i}" aria-pressed="${i==sel}" title="${esc(ITEMS[t.id].name)}"><img src="${itemIcon(t.id)}" alt="">${priced?`<span class="p">$${t.p}</span>`:''}${t.n>1?`<span class="n">${t.n}</span>`:''}</button>`:'<span class="slot"></span>'}).join('');
 const money=v=>'$'+v.toLocaleString('en-US'),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-function renderStart(){if(START=='shop'){renderShop();return}let body='';
+function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'){renderTracker();return}let body='';
   if(START=='inv'){// the date and money, then a grid of what you carry (at least 4 rows of 4), and the chosen item's panel
     ME.sel=Math.max(0,Math.min(ME.sel,ME.items.length-1));const it=ME.items[ME.sel],d=it&&ITEMS[it.id];
     const slots=slotsOf(ME.items,ME.sel);
@@ -118,11 +118,38 @@ function slotAction(d,i){const ask=d!='save'||i!='quick'&&readSave(i);
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests},stock:STOCK};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests},stock:STOCK,fp:FP};
   try{localStorage.setItem(saveKey(i),JSON.stringify(v));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}catch(e){return'The game could not be saved: this browser is not letting the page store anything.'}}
 function loadGame(i){const v=readSave(i);if(!v||!MAPS[v.p.m]){ME.note='That save could not be loaded.';renderStart();return}
-  DAY=v.day;setNight(v.night);Object.assign(ME,v.me,{sel:0,note:'',confirm:''});for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
+// ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
+// chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
+// of each day on which they changed (a day with no entry carries on from the one before).
+const MAIN_FACTIONS=Object.keys(FACTIONS).filter(f=>!GROUPS.includes(f));
+const FP={pts:Object.fromEntries(MAIN_FACTIONS.map(f=>[f,0])),hist:{}};
+function addPoints(f,n){FP.pts[f]=(FP.pts[f]||0)+n;FP.hist[DAY]={...FP.pts};if(START=='tracker')renderStart()}
+const ptsOn=d=>{for(let k=d;k>=1;k--)if(FP.hist[k])return FP.hist[k];return Object.fromEntries(MAIN_FACTIONS.map(f=>[f,0]))};
+function openTracker(){if(MENU||RIDE||BUSY)return;SHOP=null;START='tracker';stack=[];startEl.hidden=false;renderStart()}
+function renderTracker(){const rank=MAIN_FACTIONS.slice().sort((a,b)=>FP.pts[b]-FP.pts[a]),max=Math.max(10,...MAIN_FACTIONS.map(f=>FP.pts[f]));
+  const sw=f=>`<span class="fsw" style="background:${FACTIONS[f][1]}"></span>`;
+  // the line chart: days 1-30 across, points up; each faction's line runs as far as today
+  const W=340,H=150,pl=30,pr=8,pt=8,pb=20,xs=d=>pl+(d-1)*(W-pl-pr)/(DAYS-1);let lo=0,hi=10;for(let d=1;d<=DAY;d++)for(const f of MAIN_FACTIONS){const v=ptsOn(d)[f]||0;lo=Math.min(lo,v);hi=Math.max(hi,v)}
+  const ys=v=>pt+(hi-v)*(H-pt-pb)/(hi-lo||1),grid=[...Array(5).keys()].map(i=>lo+(hi-lo)*i/4);
+  const lines=MAIN_FACTIONS.map(f=>{const pts=[];for(let d=1;d<=DAY;d++)pts.push(xs(d).toFixed(1)+','+ys(ptsOn(d)[f]||0).toFixed(1));return`<polyline fill="none" stroke="${FACTIONS[f][1]}" stroke-width="2" points="${pts.join(' ')}"/>`+(DAY==1?`<circle cx="${xs(1)}" cy="${ys(FP.pts[f])}" r="2.5" fill="${FACTIONS[f][1]}"/>`:'')}).join('');
+  const svg=`<svg class="lines" viewBox="0 0 ${W} ${H}" role="img" aria-label="Points by day">${grid.map(v=>`<line x1="${pl}" x2="${W-pr}" y1="${ys(v)}" y2="${ys(v)}" stroke="#2a3a2a"/><text x="${pl-4}" y="${ys(v)+3}" font-size="8" fill="#9fb59a" text-anchor="end">${Math.round(v)}</text>`).join('')}
+    ${[1,5,10,15,20,25,30].map(d=>`<text x="${xs(d)}" y="${H-6}" font-size="8" fill="#9fb59a" text-anchor="middle">${d}</text>`).join('')}<line x1="${xs(DAY)}" x2="${xs(DAY)}" y1="${pt}" y2="${H-pb}" stroke="#9fe870" stroke-dasharray="2 2"/>${lines}</svg>`;
+  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Faction Tracker <small>${DAY} ${MONTH}</small></h3><button class="close" aria-label="Close the tracker">&times;</button></div>
+    <div class="ftrack"><div><h3>Points</h3><div class="bars">${rank.map(f=>`<div class="bar"><span>${sw(f)}${esc(FACTIONS[f][0])}</span><span class="track"><span class="fill" style="display:block;width:${Math.max(0,FP.pts[f])/max*100}%;background:${FACTIONS[f][1]}"></span></span><span>${FP.pts[f]}</span></div>`).join('')}</div>
+    </div><div><h3>Points through September</h3>${svg}</div></div>`;
+  startEl.querySelector('.close').onclick=closeStart}
+// the computer in your home: the bank of screens labelled Computer, on the tile you're facing
+const computerAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Computer'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+// the test tools beside Jump to: add or take away 10 points for a faction, or move on a day
+const tfac=document.getElementById('tfac');tfac.innerHTML=MAIN_FACTIONS.map(f=>`<option value="${f}">${FACTIONS[f][0]}</option>`).join('');
+document.getElementById('tplus').onclick=e=>{addPoints(tfac.value,10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
+document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
+document.getElementById('tday').onclick=e=>{if(DAY<DAYS){DAY++;say('It is now '+DAY+' '+MONTH+'.');if(START)renderStart()}e.target.blur()};
 function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
 function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
@@ -211,6 +238,9 @@ function pass(change,msg){BUSY=true;stack=[];fadeEl.style.opacity=1;setTimeout((
 // sitting and waiting takes you from day to night; sleeping in your bed takes you from night to the next morning
 function sitDown(){if(NIGHT){say('It is already night. Go home and get some sleep.',4000);return}
   choose('Sit and wait for the evening?',[['Sit and wait until night',()=>pass(()=>setNight(true),()=>'You sit and wait. The day goes by, and night falls.')],['Not now']])}
+// a map on the wall (an interior's back-wall decoration 'map', in your home and elsewhere): facing up at it, from the floor below
+// it or with furniture in between, and pressing E opens the island map
+const mapAhead=()=>{if(DIR[P.dir][1]!=-1||L[P.m][3]!='interior'||P.y>2)return false;const x=P.x;return(INT[P.m]?.deco||[]).some(d=>d[1]=='map'&&d[0]==x)};
 function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit at the table and wait for the evening.',5000);return}
   if(DAY>=DAYS){say('It is '+DAYS+' '+MONTH+', the last day of the month. There is no time to sleep now.',5000);return}
   choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{DAY++;setNight(false)},()=>'You sleep through the night. Good morning: it is '+DAY+' '+MONTH+'.')],['Not now']])}
@@ -226,6 +256,8 @@ function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+4
 function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performance.now();if(now-CONVO_END<300)return;
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
+  if(mapAhead()){openStart('map');return}
+  if(computerAhead()){openTracker();return}
   const n=npcAhead();if(n){talk(n);return}
   if(seatAhead()){sitDown();return}
   const e=exitHere();if(e&&PRESS_DOORS.has(e.to)){useExit(e);return}
@@ -267,6 +299,8 @@ addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&(e.key=='e'||
 document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(CONVO){reply(CONVO.sel);return}if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
+  if(mapAhead()&&!P.mv)return'Press E to look at the map';
+  if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
   if(seatAhead()&&!P.mv&&!npcAhead())return NIGHT?'Night has fallen':'Press E to sit and wait';
   const n=npcAhead();if(n&&!P.mv)return'Press E to talk to '+n.name;
