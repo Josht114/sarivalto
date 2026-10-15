@@ -9,6 +9,9 @@ const P={m:'village',x:0,y:0,rx:0,ry:0,dir:1,mv:null,par:0};let stack=[];
 // ---- The calendar: the game runs through the 30 days of September, starting on the 1st (?day=N starts on another day for
 // testing). Sleeping in your own bed moves on to the next morning; the calendar on the wall at home shows the date.
 const MONTH='September',DAYS=30;let DAY=Math.min(DAYS,Math.max(1,parseInt(new URLSearchParams(location.search).get('day'))||1));
+// Days are counted from 1 September; the days before it are in August (day 0 is 31 August, so 22 August is day -9). DATES are the
+// days you can be on: 22 August, then the month itself. nextDay is the one after a day (22 August is followed by 1 September).
+const DATES=[-9,...Array.from({length:DAYS},(_,i)=>i+1)],dateStr=d=>d<1?(31+d)+' August':d+' '+MONTH,nextDay=d=>DATES[DATES.indexOf(d)+1]??d+1;
 // The "Jump to" list: outdoor locations first, then a divider, then the interiors grouped by the outdoor area they open
 // onto (found by walking out through doors), each group and each list sorted alphabetically (the tram is left out).
 // The first option is a hidden one naming where the player is, so the select shows it but the list always opens at the top.
@@ -35,7 +38,7 @@ if(STEAM||STEAM2||CLASSIC)go('town');  // the steampunk proof of concept (and ?s
 const dn=document.getElementById('daynight');
 function setNight(on){NIGHT=on;applyRoutine();for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dn.textContent=on?'\u263E Night':'\u2600 Day';dn.setAttribute('aria-pressed',on)}
 dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
-addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
+addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{}};
@@ -51,7 +54,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
   if(START=='inv'){// the date and money, then a grid of what you carry (at least 4 rows of 4), and the chosen item's panel
     ME.sel=Math.max(0,Math.min(ME.sel,ME.items.length-1));const it=ME.items[ME.sel],d=it&&ITEMS[it.id];
     const slots=slotsOf(ME.items,ME.sel);
-    body=`<dl><dt>Date</dt><dd>${DAY} ${MONTH} <small>(day ${DAY} of ${DAYS})</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd></dl>
+    body=`<dl><dt>Date</dt><dd>${dateStr(DAY)} <small>${DAY<1?'(before the month begins)':`(day ${DAY} of ${DAYS})`}</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd></dl>
     <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}</h3></div>
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
   if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
@@ -66,7 +69,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     // (overwriting, loading and deleting ask again on the button first)
     const btn=(d,i,t)=>`<button data-do="${d}" data-slot="${i}">${ME.confirm==d+i?t+'?':t}</button>`;
     body=`<div class="saves">${SAVES.map(i=>{const v=readSave(i);
-      return `<div class="save"><div><b>${slotName(i)}</b><br>${v?`${esc(v.where)}: ${v.day} ${MONTH}, ${v.night?'night':'day'}<br><small>Saved ${new Date(v.at).toLocaleString()}</small>`:'<small>Empty</small>'}</div>
+      return `<div class="save"><div><b>${slotName(i)}</b><br>${v?`${esc(v.where)}: ${dateStr(v.day)}, ${v.night?'night':'day'}<br><small>Saved ${new Date(v.at).toLocaleString()}</small>`:'<small>Empty</small>'}</div>
         <div class="acts">${btn('save',i,i=='quick'?'Quick save (Q)':v?'Overwrite':'Save here')}${v?btn('load',i,'Load')+btn('del',i,'Delete')+btn('exp',i,'Export'):''}</div></div>`}).join('')}</div>
       <div class="acts"><label class="filebtn"><input type="file" accept=".json,application/json" hidden>Import a save file&hellip;</label></div>
       <p><small>${esc(store.where)}</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
@@ -89,7 +92,7 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
   radio:{Listen:'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:'Find some open water to fish in.'},
-  notebook:{'Read':`${DAY} ${MONTH}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
+  notebook:{'Read':`${dateStr(DAY)}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
   camera:{'Take a photo':()=>ME.filmIn?'Nothing here worth photographing.':'There is no film in the camera.','Load film':loadFilm},
   film:{'Load into camera':loadFilm},
   codebook:{'Read':'Call sign for Chuck: NIGHTJAR. Today\'s pad page is marked with a pencil tick.','Burn':'Not yet: you still need it to talk to Chuck.'},
@@ -134,8 +137,8 @@ function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a
 function exportSave(i){const v=readSave(i);if(!v)return;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(v,null,1)],{type:'application/json'}));
   a.download=`sarivalto-${i=='quick'?'quicksave':'slot-'+(i+1)}-day-${v.day}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);ME.note=slotName(i)+' exported as a file.';renderStart()}
 async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))}catch(e){}if(!v){ME.note='That file is not a Sarivalto save.';renderStart();return}
-  loadSave(v);say('Loaded '+v.where+', '+v.day+' '+MONTH+' from the file. Save it in a slot to keep it.',5000)}
-function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
+  loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
+function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
   DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
@@ -145,7 +148,7 @@ function loadSave(v){
 const MAIN_FACTIONS=Object.keys(FACTIONS).filter(f=>!GROUPS.includes(f));
 const FP={pts:Object.fromEntries(MAIN_FACTIONS.map(f=>[f,0])),hist:{}};
 function addPoints(f,n){FP.pts[f]=(FP.pts[f]||0)+n;FP.hist[DAY]={...FP.pts};if(START=='tracker')renderStart()}
-const ptsOn=d=>{for(let k=d;k>=1;k--)if(FP.hist[k])return FP.hist[k];return Object.fromEntries(MAIN_FACTIONS.map(f=>[f,0]))};
+const ptsOn=d=>{for(let k=d;k>=1;k--)if(FP.hist[k])return FP.hist[k];const pre=Object.keys(FP.hist).map(Number).filter(k=>k<1).sort((a,b)=>b-a)[0];return pre!=null?FP.hist[pre]:Object.fromEntries(MAIN_FACTIONS.map(f=>[f,0]))};
 function openTracker(){if(MENU||RIDE||BUSY)return;SHOP=null;START='tracker';stack=[];startEl.hidden=false;renderStart()}
 function renderTracker(){const rank=MAIN_FACTIONS.slice().sort((a,b)=>FP.pts[b]-FP.pts[a]),max=Math.max(10,...MAIN_FACTIONS.map(f=>FP.pts[f]));
   const sw=f=>`<span class="fsw" style="background:${FACTIONS[f][1]}"></span>`;
@@ -154,8 +157,8 @@ function renderTracker(){const rank=MAIN_FACTIONS.slice().sort((a,b)=>FP.pts[b]-
   const ys=v=>pt+(hi-v)*(H-pt-pb)/(hi-lo||1),grid=[...Array(5).keys()].map(i=>lo+(hi-lo)*i/4);
   const lines=MAIN_FACTIONS.map(f=>{const pts=[];for(let d=1;d<=DAY;d++)pts.push(xs(d).toFixed(1)+','+ys(ptsOn(d)[f]||0).toFixed(1));return`<polyline fill="none" stroke="${FACTIONS[f][1]}" stroke-width="2" points="${pts.join(' ')}"/>`+(DAY==1?`<circle cx="${xs(1)}" cy="${ys(FP.pts[f])}" r="2.5" fill="${FACTIONS[f][1]}"/>`:'')}).join('');
   const svg=`<svg class="lines" viewBox="0 0 ${W} ${H}" role="img" aria-label="Points by day">${grid.map(v=>`<line x1="${pl}" x2="${W-pr}" y1="${ys(v)}" y2="${ys(v)}" stroke="#2a3a2a"/><text x="${pl-4}" y="${ys(v)+3}" font-size="8" fill="#9fb59a" text-anchor="end">${Math.round(v)}</text>`).join('')}
-    ${[1,5,10,15,20,25,30].map(d=>`<text x="${xs(d)}" y="${H-6}" font-size="8" fill="#9fb59a" text-anchor="middle">${d}</text>`).join('')}<line x1="${xs(DAY)}" x2="${xs(DAY)}" y1="${pt}" y2="${H-pb}" stroke="#9fe870" stroke-dasharray="2 2"/>${lines}</svg>`;
-  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Faction Tracker <small>${DAY} ${MONTH}</small></h3><button class="close" aria-label="Close the tracker">&times;</button></div>
+    ${[1,5,10,15,20,25,30].map(d=>`<text x="${xs(d)}" y="${H-6}" font-size="8" fill="#9fb59a" text-anchor="middle">${d}</text>`).join('')}${DAY>=1?`<line x1="${xs(DAY)}" x2="${xs(DAY)}" y1="${pt}" y2="${H-pb}" stroke="#9fe870" stroke-dasharray="2 2"/>`:''}${lines}</svg>`;
+  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Faction Tracker <small>${dateStr(DAY)}</small></h3><button class="close" aria-label="Close the tracker">&times;</button></div>
     <div class="ftrack"><div><h3>Points</h3><div class="bars">${rank.map(f=>`<div class="bar"><span>${sw(f)}${esc(FACTIONS[f][0])}</span><span class="track"><span class="fill" style="display:block;width:${Math.max(0,FP.pts[f])/max*100}%;background:${FACTIONS[f][1]}"></span></span><span>${FP.pts[f]}</span></div>`).join('')}</div>
     </div><div><h3>Points through September</h3>${svg}</div></div>`;
   startEl.querySelector('.close').onclick=closeStart}
@@ -165,7 +168,12 @@ const computerAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x
 const tfac=document.getElementById('tfac');tfac.innerHTML=MAIN_FACTIONS.map(f=>`<option value="${f}">${FACTIONS[f][0]}</option>`).join('');
 document.getElementById('tplus').onclick=e=>{addPoints(tfac.value,10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
 document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
-document.getElementById('tday').onclick=e=>{if(DAY<DAYS){DAY++;say('It is now '+DAY+' '+MONTH+'.');if(START)renderStart()}e.target.blur()};
+// moving to another day: the calendar on the wall and anything showing the date are drawn again
+function setDay(d){DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAYS,d));for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dayjump.value=DAY;if(START)renderStart()}
+document.getElementById('tday').onclick=e=>{if(DAY<DAYS){setDay(nextDay(DAY));say('It is now '+dateStr(DAY)+'.')}e.target.blur()};
+// the date picker beside Jump to: any day of the month
+const dayjump=document.getElementById('dayjump');DATES.forEach(d=>dayjump.appendChild(new Option(dateStr(d),d)));dayjump.value=DAY;
+dayjump.onchange=()=>{setDay(+dayjump.value);say('It is now '+dateStr(DAY)+'.');dayjump.blur()};
 // ---- The wardrobe in your home: your hair and facial hair (style and colour) and the clothes you own, with a preview of you from
 // each side. Up and down (or W and S) choose a row, left and right (or A and D) change it; the arrows on each row do the same.
 const WARD={row:0};
@@ -188,7 +196,7 @@ function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=
 function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
-addEventListener('keydown',e=>{if(e.target==sel||e.repeat)return;const k=e.key;
+addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;const k=e.key;
   if(k=='m'||k=='M'){START?closeStart():openStart();e.preventDefault()}
   else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY&&!CONVO){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
   else if(START&&k=='Escape'){closeStart();e.preventDefault()}
@@ -214,7 +222,7 @@ const tramAt=(m,x,y)=>tramsOn(m,performance.now()).some(q=>(q.y==y||q.y-1==y)&&x
 const solid=(m,x,y)=>{const t=MAPS[m][y]?.[x];return !t||SOLID.includes(t)||NPCS.some(n=>n.m==m&&n.x==x&&n.y==y)||
   PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})||tramAt(m,x,y)};
 const press=d=>{if(!stack.includes(d))stack.push(d)},release=d=>{stack=stack.filter(k=>k!==d)};
-addEventListener('keydown',e=>{if(e.target==sel||MENU||RIDE||START||BUSY||CONVO)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
+addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||MENU||RIDE||START||BUSY||CONVO)return;const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY){press(KEY[k]);e.preventDefault()}});
 addEventListener('keyup',e=>{const k=e.key.length==1?e.key.toLowerCase():e.key;if(k in KEY)release(KEY[k])});
 document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.d;
   b.addEventListener('pointerdown',e=>{e.preventDefault();press(d)});
@@ -281,7 +289,7 @@ function sitDown(){if(NIGHT){say('It is already night. Go home and get some slee
 const mapAhead=()=>{if(DIR[P.dir][1]!=-1||L[P.m][3]!='interior'||P.y>2)return false;const x=P.x;return(INT[P.m]?.deco||[]).some(d=>d[1]=='map'&&d[0]==x)};
 function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit at the table and wait for the evening.',5000);return}
   if(DAY>=DAYS){say('It is '+DAYS+' '+MONTH+', the last day of the month. There is no time to sleep now.',5000);return}
-  choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{DAY++;setNight(false)},()=>'You sleep through the night. Good morning: it is '+DAY+' '+MONTH+'.')],['Not now']])}
+  choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{setDay(nextDay(DAY));setNight(false)},()=>'You sleep through the night. Good morning: it is '+dateStr(DAY)+'.')],['Not now']])}
 // ---- Quests (QUESTS in data.js)
 const qOf=id=>ME.quests.find(q=>q.id==id);
 // the quest someone has to give you: one of theirs you haven't taken on yet (they have a star over their head)
@@ -366,7 +374,7 @@ addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==
 addEventListener('keydown',e=>{if(!MENU)return;const bs=[...menu.querySelectorAll('button')],i=bs.indexOf(document.activeElement),k=e.key.toLowerCase();
   if(k=='arrowdown'||k=='s')bs[(i+1)%bs.length].focus();else if(k=='arrowup'||k=='w')bs[(i-1+bs.length)%bs.length].focus();
   else if(k=='escape')closeMenu();else if(k=='e')(bs[i]||bs[0]).click();else return;e.preventDefault()});
-addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&(e.key=='e'||e.key=='E'||e.key==' '||e.key=='Enter')){act();e.preventDefault()}});
+addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&(e.key=='e'||e.key=='E'||e.key==' '||e.key=='Enter')){act();e.preventDefault()}});
 document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(CONVO){reply(CONVO.sel);return}if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
@@ -450,4 +458,4 @@ var FLATS={};const FLAT_BLOCK=/^(apartments|skyapts|kgapts|eblofts|hsresid)/;
 const flatLabel=(m,x,y)=>{const ns=FLATS[m]?.[x+','+y];return!ns?'Empty flat':(ns.length>1?ns.slice(0,-1).join(', ')+' & '+ns.at(-1):ns[0])+"'s flat"};
 ROUTINE=planRoutine();applyRoutine();
 store.init().then(()=>{if(!GOTHIC&&!DETAILED&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}});
-let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);
+let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;requestAnimationFrame(loop)})(0);

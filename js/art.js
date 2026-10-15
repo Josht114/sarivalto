@@ -1550,8 +1550,8 @@ function interiorLayer(m){
     if(k=='rbanner'){r('#5a3d2a',X+3,-10,10,1);r('#7d3c98',X+4,-9,8,21);r('#5e2a75',X+11,-9,1,21);r('#ffd23a',X+5,-4,6,3);r('#ffd23a',X+5,-6,1,2);r('#ffd23a',X+7,-6,2,2);r('#ffd23a',X+10,-6,1,2);r(f.wall,X+7,11,2,1)}
     if(k=='rbanner'){r('#5a3d2a',X+3,-10,10,1);r('#a3123a',X+4,-9,8,21);r('#7e0e2d',X+11,-9,1,21);for(const[dx,dy,w]of[[3,-8,1],[3,-7,1],[0,-6,7],[1,-5,5],[2,-4,3],[1,-3,2],[4,-3,2],[0,-2,1],[6,-2,1]])r('#ffffff',X+4+dx,dy,w,1);r(f.wall2,X+7,11,2,1)}
     if(k=='dbanner'){r('#5a3d2a',X+3,-10,10,1);r('#2e86c1',X+4,-9,8,21);r('#1f6a9a',X+11,-9,1,21);r('#ffffff',X+7,-5,2,6);r('#ffffff',X+5,-3,6,2);r(f.wall2,X+7,11,2,1)}
-    // a tear-off wall calendar: SEPTEMBER across a red header, today's date below it (drawn each frame, so it follows DAY)
-    if(k=='calendar'){r('#3a3a44',X+4,-11,1,2);r('#3a3a44',X+11,-11,1,2);r(OUT,X,-9,16,20);r('#f4f1e8',X+1,-8,14,18);r('#c0392b',X+1,-8,14,6);ptext(r,'SEP',X+3,-7,'#ffffff');
+    // a tear-off wall calendar: the month (SEP, or AUG before it) across a red header, today's date below it (drawn each frame, so it follows DAY)
+    if(k=='calendar'){r('#3a3a44',X+4,-11,1,2);r('#3a3a44',X+11,-11,1,2);r(OUT,X,-9,16,20);r('#f4f1e8',X+1,-8,14,18);r('#c0392b',X+1,-8,14,6);ptext(r,typeof DAY!='undefined'&&DAY<1?'AUG':'SEP',X+3,-7,'#ffffff');
       r('#d8d2c0',X+1,9,14,1);an.push({t:'calendar',x:X+1,y:-1})}
     if(k=='cross'){r('#c9a040',X+7,-8,2,16);r('#c9a040',X+4,-4,8,2);r('#e8c860',X+7,-8,1,16)}
     if(k=='listing')for(let i=0;i<4;i++){const x=X+1+(i&1)*7,y=-8+(i>>1)*9;r(OUT,x,y,7,8);r('#f4f4f0',x+1,y+1,5,6);r(['#c88a7a','#9ab8c8','#e8c88a','#b8d0a8'][i],x+2,y+4,3,3);r('#4a4f58',x+2,y+2,3,2)}
@@ -2036,7 +2036,7 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='vu')for(let i=0;i<a.w;i+=2){const hh=1+(hash(i,t/110|0,a.x)*a.h|0);px(hh>=a.h?'#ff3b2f':hh>a.h/2?'#ffd23a':'#5fe08a',X+i,Y+a.h-hh,1,hh)}
     if(a.t=='candle'){const f=hash(a.x,t/120|0,8);px('rgba(255,200,90,.22)',X-2,Y-3,5,6);px(f>.3?'#ffd23a':'#ff8a3a',X,Y-1,1,2);if(f>.6)px('#fff2a0',X,Y-2,1,1)}
     if(a.t=='scan'){const yy=(t/40|0)%a.h;px('rgba(255,255,255,.22)',X,Y+yy,a.w,1);if(hash(t/200|0,a.x|0,7)>.93)px('rgba(255,60,200,.3)',X+2,Y+(hash(t/90|0,a.x|0,8)*a.h|0),a.w-4,2)}
-    if(a.t=='calendar'&&typeof DAY!='undefined'){const s=String(DAY),w=s.length*8-2,x0=X+((14-w)>>1);
+    if(a.t=='calendar'&&typeof DAY!='undefined'){const s=String(DAY<1?31+DAY:DAY),w=s.length*8-2,x0=X+((14-w)>>1);
       [...s].forEach((ch,i)=>{const f=FONT[ch];for(let k=0;k<15;k++)if(f[k]=='1')px('#2a2a33',x0+i*8+(k%3)*2,Y+(k/3|0)*2,2,2)})}
     if(a.t=='bulb')px(!a.off&&((t/250|0)+(a.x>>1))%3?'#ffe9a8':'#8a6a2a',X,Y,1,1);
     if(a.t=='nlogo'){const L0=neonLogo(a.k),on=!a.off&&hash(t/90|0,5,11+a.x)<.97;
