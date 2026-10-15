@@ -1,0 +1,7 @@
+Name: Jonna
+Gender: Female
+Faction: Democratic Party
+Group: The Proprietors
+Partner: None
+Job: Tattoo artist
+Home: Timber Lofts (Eastbrook)

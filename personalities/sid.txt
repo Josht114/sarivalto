@@ -1,0 +1,7 @@
+Name: Sid
+Gender: Male
+Faction: None
+Group: The Proprietors
+Partner: None
+Job: Owner and bartender of The Midnight Note
+Home: Skyline Apartments (Frostholm)

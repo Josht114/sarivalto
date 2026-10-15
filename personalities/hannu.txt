@@ -1,0 +1,7 @@
+Name: Hannu
+Gender: Male
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Newsstand vendor
+Home: Apartment Block (Saltwick)

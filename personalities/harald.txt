@@ -1,0 +1,7 @@
+Name: Harald
+Gender: Male
+Faction: Kelp Cola
+Group: None
+Partner: None
+Job: Kelp Cola executive and the company's candidate for Republican Party leader
+Home: Hope Springs Residences (Hope Springs Gated Community)

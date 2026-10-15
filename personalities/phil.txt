@@ -1,0 +1,7 @@
+Name: Phil
+Gender: Male
+Faction: Kelp Cola
+Group: None
+Partner: None
+Job: CEO of Kelp Cola
+Home: Phil's Villa (Hope Springs Gated Community)

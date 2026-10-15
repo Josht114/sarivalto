@@ -1,0 +1,7 @@
+Name: Ole
+Gender: Male
+Faction: None
+Group: The Administrators
+Partner: None
+Job: Harbourmaster
+Home: Skyline Apartments (Frostholm)

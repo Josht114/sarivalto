@@ -1,0 +1,7 @@
+Name: Arvid
+Gender: Male
+Faction: Royal Family
+Group: The Food Vendors
+Partner: None
+Job: Chef
+Home: Timber Lofts (Eastbrook)

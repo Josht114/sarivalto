@@ -1,0 +1,7 @@
+Name: Sirpa
+Gender: Female
+Faction: None
+Group: The Unemployed
+Partner: None
+Job: Unemployed
+Home: Apartment Block (Saltwick)

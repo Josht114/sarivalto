@@ -1,0 +1,7 @@
+Name: Mats
+Gender: Male
+Faction: Diversified Petroleum
+Group: None
+Partner: Elin
+Job: Office clerk
+Home: Kingsgrad Apartments (Kingsgrad)

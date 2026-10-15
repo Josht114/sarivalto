@@ -1,0 +1,7 @@
+Name: Jack
+Gender: Male
+Faction: None
+Group: Republican Party, The Shopkeepers
+Partner: None
+Job: Fishing shop owner
+Home: Jack's House (Kingsgrad)

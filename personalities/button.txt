@@ -1,0 +1,7 @@
+Name: Button
+Gender: Male
+Faction: None
+Group: The Circus
+Partner: None
+Job: Jester
+Home: Performers' Caravan (Lake Ilmari)

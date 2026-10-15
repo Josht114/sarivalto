@@ -1,0 +1,7 @@
+Name: Ingrid
+Gender: Female
+Faction: None
+Group: The Palace Workers
+Partner: None
+Job: Maid
+Home: Servants' Quarters (Royal Palace)

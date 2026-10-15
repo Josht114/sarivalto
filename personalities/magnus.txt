@@ -1,0 +1,7 @@
+Name: Magnus
+Gender: Male
+Faction: Diversified Petroleum
+Group: None
+Partner: None
+Job: Diversified Petroleum executive and the company's candidate for Republican Party leader
+Home: Skyline Apartments (Frostholm)

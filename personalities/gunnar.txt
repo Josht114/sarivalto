@@ -1,0 +1,7 @@
+Name: Gunnar
+Gender: Male
+Faction: None
+Group: The Union
+Partner: None
+Job: Dock worker
+Home: Apartment Block (Saltwick)

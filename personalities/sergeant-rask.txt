@@ -1,0 +1,7 @@
+Name: Sergeant Rask
+Gender: Male
+Faction: None
+Group: The Army
+Partner: None
+Job: Quartermaster
+Home: Barracks Block A (Army Barracks)

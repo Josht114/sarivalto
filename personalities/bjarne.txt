@@ -1,0 +1,7 @@
+Name: Bjarne
+Gender: Male
+Faction: Democratic Party
+Group: None
+Partner: None
+Job: Lumber mill foreman
+Home: Timber Lofts (Eastbrook)

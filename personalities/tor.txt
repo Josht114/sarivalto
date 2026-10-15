@@ -1,0 +1,7 @@
+Name: Tor
+Gender: Male
+Faction: Communist Party
+Group: None
+Partner: None
+Job: Warehouseman
+Home: Timber Lofts (Eastbrook)

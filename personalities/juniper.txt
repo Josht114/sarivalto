@@ -1,0 +1,7 @@
+Name: Juniper
+Gender: Female
+Faction: Orthodox Church
+Group: The Shopkeepers
+Partner: None
+Job: Clothes shop owner
+Home: Timber Lofts (Eastbrook)

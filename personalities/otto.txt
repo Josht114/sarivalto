@@ -1,0 +1,7 @@
+Name: Otto
+Gender: Male
+Faction: None
+Group: Republican Party, The Proprietors
+Partner: None
+Job: Cinema manager
+Home: Kingsgrad Apartments (Kingsgrad)

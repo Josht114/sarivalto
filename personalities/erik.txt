@@ -1,0 +1,7 @@
+Name: Erik
+Gender: Male
+Faction: Democratic Party
+Group: None
+Partner: None
+Job: Democratic Party leader
+Home: Timber Lofts (Eastbrook)

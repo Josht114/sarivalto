@@ -1,0 +1,7 @@
+Name: Lucia
+Gender: Female
+Faction: Crime Syndicate
+Group: None
+Partner: Mike
+Job: Syndicate enforcer
+Home: Apartment Block (Saltwick)

@@ -1,0 +1,7 @@
+Name: Brother Ilja
+Gender: Male
+Faction: Orthodox Church
+Group: None
+Partner: None
+Job: Monk (scribe)
+Home: Monks' Quarters (Mountain-Top Monastery)

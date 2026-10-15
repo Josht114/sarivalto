@@ -1,0 +1,7 @@
+Name: Lena
+Gender: Female
+Faction: None
+Group: The Circus
+Partner: None
+Job: Acrobat
+Home: Performers' Caravan (Lake Ilmari)

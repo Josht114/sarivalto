@@ -1,0 +1,7 @@
+Name: Signe
+Gender: Female
+Faction: None
+Group: The Administrators
+Partner: None
+Job: Lighthouse keeper
+Home: Lighthouse (Eastbrook Harbour)

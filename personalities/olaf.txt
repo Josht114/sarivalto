@@ -1,0 +1,7 @@
+Name: Olaf
+Gender: Male
+Faction: None
+Group: The Farmers
+Partner: Hilda
+Job: Farmer
+Home: Farmhouse (East Farm)

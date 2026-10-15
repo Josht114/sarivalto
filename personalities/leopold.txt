@@ -1,0 +1,7 @@
+Name: Leopold
+Gender: Male
+Faction: Royal Family
+Group: None
+Partner: None
+Job: Prince
+Home: Royal Apartments (Royal Palace)

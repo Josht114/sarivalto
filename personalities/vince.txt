@@ -1,0 +1,7 @@
+Name: Vince
+Gender: Male
+Faction: None
+Group: The Proprietors
+Partner: None
+Job: Casino worker
+Home: Vince's House (Kingsgrad)

@@ -1,0 +1,7 @@
+Name: Margit
+Gender: Female
+Faction: None
+Group: Republican Party
+Partner: None
+Job: Republican Party secretary (running the leadership election)
+Home: Skyline Apartments (Frostholm)

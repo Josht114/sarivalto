@@ -1,0 +1,7 @@
+Name: Tom
+Gender: Male
+Faction: None
+Group: The Union
+Partner: None
+Job: Fisherman
+Home: Tom's House (Saltwick)

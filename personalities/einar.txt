@@ -1,0 +1,7 @@
+Name: Einar
+Gender: Male
+Faction: Diversified Petroleum
+Group: None
+Partner: None
+Job: Oil rig worker
+Home: Crew Quarters (Oil Rig)

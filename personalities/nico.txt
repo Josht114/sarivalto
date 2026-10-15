@@ -1,0 +1,7 @@
+Name: Nico
+Gender: Male
+Faction: Crime Syndicate
+Group: None
+Partner: None
+Job: Syndicate bookie
+Home: Skyline Apartments (Frostholm)
