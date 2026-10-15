@@ -1309,17 +1309,27 @@ function person(px,py,d,fr,body,hair,stripe,hat){ctx.fillStyle='rgba(20,30,55,.2
   ctx.drawImage(char2(d,fr,body,hair,stripe,hat),px-1,py-5)}
 
 // ---- A head-and-shoulders portrait of someone for conversations, in their clothes, hair and hat colours (28x28, outlined)
-function portrait(n){const sk='#f1c7a0',skd='#d9a37a',body=n.body||'#5a6a4a',hair=n.hair||'#5a3a22';
+// Women have hair falling past the face (long to the shoulders, or a chin-length bob, picked by name), finer brows with lashes,
+// a little blush, fuller lips and small earrings.
+function portrait(n){const sk='#f1c7a0',skd='#d9a37a',body=n.body||'#5a6a4a',hair=n.hair||'#5a3a22',fem=n.gender=='female',
+    long=fem&&[...n.name].reduce((a,c)=>a+c.charCodeAt(0),0)%3!=0,hd=shade(hair,-.25);
   return mk(28,28,r=>{r(body,2,21,24,7);r(shade(body,.18),2,21,24,1);r(shade(body,-.28),20,22,6,6);r(shade(body,-.35),13,22,2,6);
+    // her hair behind the head and neck, down over the shoulders (long) or to the jaw (a bob)
+    if(fem){if(long){r(hair,6,4,16,15);r(hair,5,8,3,17);r(hair,20,8,3,17);r(hair,4,19,3,6);r(hair,21,19,3,6);r(hd,4,24,3,1);r(hd,21,24,3,1);r(hd,7,17,1,8);r(hd,20,17,1,8);r(shade(hair,.2),5,10,1,8)}
+      else{r(hair,6,4,16,13);r(hd,6,16,4,1);r(hd,18,16,4,1)}}
     r(skd,11,17,6,5);r(sk,12,21,4,2);
     r(sk,8,5,12,13);r(sk,9,4,10,1);r(sk,9,18,10,1);r(skd,19,6,1,11);r(sk,7,10,1,3);r(sk,20,10,1,3);
     r(hair,8,2,12,4);r(hair,7,4,2,7);r(hair,19,4,2,7);r(shade(hair,.2),10,2,6,1);
+    // her hair framing the face: a side-swept fringe and locks down both cheeks
+    if(fem){r(hair,8,5,5,2);r(hair,8,7,2,1);r(hair,7,4,2,long?13:11);r(hair,19,4,2,long?13:11);r(shade(hair,.2),9,3,3,1);r(shade(hair,.2),7,8,1,4)}
     if(n.hat&&n.hat.startsWith('jester')){const[,a,b]=n.hat.split('|');r(a,7,0,7,5);r(b,14,0,7,5);r(shade(a,.2),8,0,4,1);r(shade(a,-.25),7,5,7,1);r(shade(b,-.25),14,5,7,1);
       r(a,4,2,3,3);r(a,2,5,3,2);r(a,1,7,2,2);r('#ffd23a',0,9,3,3);r(b,21,2,3,3);r(b,23,5,3,2);r(b,25,7,2,2);r('#ffd23a',25,9,3,3)}
     else if(n.hat){r(n.hat,7,0,14,5);r(shade(n.hat,.2),8,0,12,1);r(shade(n.hat,-.25),7,5,14,1)}
-    r(shade(hair,-.25),10,8,3,1);r(shade(hair,-.25),15,8,3,1);
+    if(fem){r(hd,11,8,2,1);r(hd,10,9,1,1);r(hd,15,8,2,1);r(hd,17,9,1,1)}else{r(hd,10,8,3,1);r(hd,15,8,3,1)}
     r('#2a2a33',11,10,2,2);r('#2a2a33',15,10,2,2);r('#ffffff',11,10,1,1);r('#ffffff',15,10,1,1);
-    r(skd,14,11,1,3);r('#a0524a',12,15,4,1)})}
+    if(fem){r('#1a1a22',10,10,1,1);r('#1a1a22',17,10,1,1);r('#1a1a22',11,9,2,1);r('#1a1a22',15,9,2,1);r('#f0a8a0',10,13,2,1);r('#f0a8a0',16,13,2,1);
+      r(skd,14,11,1,2);r('#b8404a',12,15,4,1);r('#d8606a',13,16,2,1);r('#ffd23a',7,14,1,1)}
+    else{r(skd,14,11,1,3);r('#a0524a',12,15,4,1)}})}
 // ---- Interiors: a back wall with windows and pictures, a floor per building, and detailed furniture.
 // fl: floor (wood, tile, check, carpet) and its colours f; wall/wall2/pap: wallpaper; deco: [tileX, kind] along the back wall;
 // rug: colour of a rug under the table; quilt: bed cover colour; curtain: window curtains.

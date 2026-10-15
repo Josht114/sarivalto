@@ -291,17 +291,25 @@ const questPlaces=()=>[...new Set(NPCS.filter(n=>n.m&&offerOf(n)).map(n=>POS[n.m
 // each condition not yet met in your active quests, as [quest, its index, the condition]
 const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>QUESTS[q.id].done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]));
 // meeting a condition; with all of them met, the quest is done
-function meet(q,i){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say(Q.thanks+' Quest complete: '+Q.title+'.',7000)}else say('Quest updated: '+Q.title+'.',4000)}
+function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}else say('Quest updated: '+Q.title+'.',4000)}
 // a use condition: the furniture it names, in the place it names, on the tile you're facing
 const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.use&&c.m==P.m&&FL[P.m].some(([fx,fy,w,h,,l])=>l==c.use&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h))};
-// talking to someone: hand over what a quest asks for, if you have it; remind you of their quest; or offer you a new one
+// talking to someone about a quest, as a conversation: hand over what it asks for, if you have it; be reminded of it; or be
+// offered a new one. Returns the conversation, or nothing if they have no quest business with you.
+const unquote=t=>t.replace(/^"|"$/g,'');
 function questTalk(n){
-  const g=openConds().find(([,,c])=>c.give&&c.to==n.name);
-  if(g&&has(g[2].give)){const[q,i,c]=g;choose(`Give ${esc(n.name)} the ${esc(ITEMS[c.give].name.toLowerCase())}?`,[['Give it',()=>{take(c.give);meet(q,i)}],['Not now']]);return true}
-  const w=ME.quests.find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w){say(`"${QUESTS[w.id].wait}"`,5000);return true}
-  const id=offerOf(n);if(!id)return false;const Q=QUESTS[id];
-  choose(`<b>${esc(n.name)}:</b> "${esc(Q.offer)}"`,[['Accept: '+esc(Q.title),()=>{ME.quests.push({id,met:[],done:false});say(`"${Q.accept}" New quest: ${Q.title}.`,6000)}],['Not now']]);return true}
-function talk(n){n.dir=P.dir^1;if(questTalk(n))return;if(CONVOS[n.name]){converse(n);return}if(SHOPS[n.name]&&n.m==n.loc){say(`"Welcome! Have a look at what I've got."`,3000);openShop(n);return}say(line(n),6000)}
+  const g=openConds().find(([,,c])=>c.give&&c.to==n.name),Qg=g&&QUESTS[g[0].id];
+  if(g&&has(g[2].give)){const[q,i,c]=g,nm=ITEMS[c.give].name.toLowerCase();
+    return{start:'a',nodes:{a:{say:Qg.giver==n.name&&Qg.wait?Qg.wait:'Have you got something for me?',opts:[['Give '+n.name+' the '+nm,'thanks',()=>{take(c.give);meet(q,i,true)}],['Not yet',null]]},
+      thanks:{say:unquote(Qg.thanks)}}}}
+  const w=ME.quests.find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w)return{start:'a',nodes:{a:{say:QUESTS[w.id].wait}}};
+  const id=offerOf(n);if(!id)return null;const Q=QUESTS[id];
+  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false});say('New quest: '+Q.title+'.',4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
+// talking to someone: their quest business first, then their own conversation (CONVOS), a shopkeeper's welcome, or a line about
+// themselves; all of it in the conversation panel
+function talk(n){n.dir=P.dir^1;
+  const c=questTalk(n)||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
+  converse(n,c)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
 // where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
@@ -337,15 +345,18 @@ function leaveTram(){const from=TRIP.from;TRIP=null;TRAMS[from]={ph:'wait',t0:pe
 // ---- Conversations (CONVOS): their portrait and what they say at the top left, your replies along the bottom. Up and down (or
 // W and S) choose a reply, E, Space or Enter says it (or press its number, or click it); when it ends, everything closes.
 const cvEl=document.getElementById('convo');
-function converse(n){const c=CONVOS[n.name];CONVO={n,c,at:c.start,sel:0};stack=[];MSG=null;
+function converse(n,c=CONVOS[n.name]){CONVO={n,c,at:c.start,sel:0};stack=[];MSG=null;
   const pc=cvEl.querySelector('canvas'),g=pc.getContext('2d');g.clearRect(0,0,pc.width,pc.height);g.drawImage(portrait(n),0,0);
-  cvEl.querySelector('.who').textContent=n.name;cvEl.hidden=false;renderConvo()}
+  cvEl.querySelector('.who').textContent=n.name;cvEl.querySelector('.job').textContent=n.job.replace(/ \(.*\)$/,'');
+  // a small badge in the faction's colour with its short name (and the faction's full name on hover)
+  const F=FACTIONS[n.faction];cvEl.querySelector('.fac').innerHTML=F?`<i style="background:${F[1]}" title="${esc(F[0])}">${esc(F[2])}</i> ${esc(F[0])}`:'<i class="none" title="Unaligned">&ndash;</i> Unaligned';
+  cvEl.hidden=false;renderConvo()}
 const replies=()=>CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]];
 function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
   cvEl.querySelector('.said').innerHTML=`<b>${esc(CONVO.n.name)}</b><p>"${esc(nd.say)}"</p>`;
   cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
   cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
-function reply(i){const o=replies()[i];if(!o)return;if(o[1]==null){endConvo();return}CONVO.at=o[1];CONVO.sel=0;renderConvo()}
+function reply(i){const o=replies()[i];if(!o)return;if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}
 function endConvo(){CONVO=null;CONVO_END=performance.now();cvEl.hidden=true}
 addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==1?e.key.toLowerCase():e.key,n=replies().length;
   if(k=='ArrowDown'||k=='s')CONVO.sel=(CONVO.sel+1)%n;else if(k=='ArrowUp'||k=='w')CONVO.sel=(CONVO.sel+n-1)%n;
