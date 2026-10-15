@@ -1225,6 +1225,66 @@ function char2(d,fr,body,hair,stripe,hat){const key=[d,fr,body,hair,stripe,hat].
         r(a,2,1,2,2);r(a,1,3,2,1);r(a,1,4,1,1);r(bell,0,5,2,2);r(b,12,1,2,2);r(b,13,3,2,1);r(b,14,4,1,1);r(bell,14,5,2,2)}
       else{r(a,4,0,5,3);r(b,9,0,3,3);r(shade(a,-.25),4,3,8,1);r(shade(a,.2),5,0,2,1);r(b,12,1,2,2);r(b,13,3,2,1);r(b,14,4,1,2);r(bell,14,6,2,2)}}
     else if(hat){r(hat,4,1,8,2);r(hat,5,0,6,1);r(shade(hat,-.25),4,3,8,1);r('#f2f2f2',7,0,2,1);r(shade(hat,.2),5,1,2,1)}})}
+// ---- The player, dressed as chosen at the wardrobe (a look: hair and hairCol, beard and beardCol, and the CLOTHES ids worn as
+// hat, top, legs and shoes). 16x20, laid out like char2; cached by look.
+const LK={},HAIRS={
+  // each style's hair as rectangles [x,y,w,h], seen from the front (f), back (b) and side (s)
+  short:{f:[[4,1,8,3],[5,0,6,1],[4,4,1,2],[11,4,1,2]],b:[[4,1,8,7],[5,0,6,1]],s:[[4,1,8,3],[5,0,6,1],[9,4,3,3],[10,7,2,1]]},
+  long:{f:[[4,1,8,3],[5,0,6,1],[3,2,2,8],[11,2,2,8]],b:[[4,1,8,3],[5,0,6,1],[3,2,10,8]],s:[[4,1,8,3],[5,0,6,1],[8,3,4,7],[12,4,1,5]]},
+  bob:{f:[[4,1,8,2],[5,0,6,1],[3,2,2,6],[11,2,2,6]],b:[[4,1,8,3],[5,0,6,1],[3,2,10,6]],s:[[4,1,8,3],[5,0,6,1],[8,3,4,5]]},
+  ponytail:{f:[[4,1,8,3],[5,0,6,1],[4,4,1,2],[11,4,1,2]],b:[[4,1,8,7],[5,0,6,1],[7,8,2,4]],s:[[4,1,8,3],[5,0,6,1],[9,4,3,3],[12,3,2,2],[13,5,1,4]]},
+  curly:{f:[[3,0,10,3],[3,3,2,3],[11,3,2,3]],b:[[3,0,10,8]],s:[[3,0,10,4],[9,4,4,4]]},
+  buzz:{f:[[5,0,6,1],[4,1,8,1]],b:[[5,0,6,1],[4,1,8,6]],s:[[5,0,6,1],[4,1,8,1],[9,2,3,4]]},
+  bald:{f:[[4,4,1,2],[11,4,1,2]],b:[[4,4,8,3]],s:[[9,4,3,2]]}};
+const wearing=lk=>({hat:CLOTHES[lk.hat]||CLOTHES.nohat,top:CLOTHES[lk.top]||CLOTHES.parka_blue,legs:CLOTHES[lk.legs]||CLOTHES.jeans_blue,shoes:CLOTHES[lk.shoes]||CLOTHES.boots_brown});
+function lookChar(d,fr,lk){const key=d+','+fr+','+JSON.stringify(lk);if(LK[key])return LK[key];const w=wearing(lk);
+  const sk='#f1c7a0',skd='#d9a37a',side=d>1,v=d==0?'f':d==1?'b':'s',tc=w.top.col,pt=w.legs.col,sh=w.shoes,hair=lk.hairCol,bc=lk.beardCol;
+  return LK[key]=mk(16,20,r0=>{const r=(c,x,y,ww=1,h=1)=>r0(c,d==3?16-x-ww:x,y,ww,h);
+    // legs and feet, each [leg x, leg width, leg length, foot x, foot width, foot top]: boots and snow boots are two rows high (snow
+    // boots with a fleece top), sneakers white with a grey sole, and shoes one row under a longer trouser leg
+    let ft;if(!side){const a=fr==1?1:0,b=fr==2?1:0;ft=[[5,2,3-a,5,2,18-a],[9,2,3-b,9,2,18-b]]}
+    else if(fr==1)ft=[[4,2,3,3,3,18],[9,2,3,9,3,18]];else{const l=fr==2?1:0;ft=[[6,2,3-l,5,3,18-l],[8,2,3,8,3,18]]}
+    const low=sh.style=='shoes';
+    for(const[lx,lw,lh,fx,fw,fy]of ft){r(pt,lx,15,lw,lh+(low?1:0));
+      if(w.legs.style=='jeans')r(shade(pt,.2),lx,15,1,lh);if(w.legs.style=='cords')r(shade(pt,-.28),lx+1,15,1,lh);
+      if(sh.style=='boots')r(sh.col,fx,fy,fw,2);
+      else if(sh.style=='snowboots'){r(sh.col,fx,fy,fw,2);r(shade(sh.col,-.3),fx,fy+1,fw,1);r('#e8dcc0',fx,fy-1,fw,1)}
+      else if(sh.style=='sneakers'){r(sh.col,fx,fy,fw,1);r('#9aa3ad',fx,fy+1,fw,1)}
+      else{r(sh.col,fx,fy+1,fw,1);r(shade(sh.col,.45),fx,fy+1,1,1)}}
+    // the top: a trench coat's skirt hangs over the legs
+    const bl=shade(tc,.18),bd=shade(tc,-.28),arm=shade(tc,-.35),st=w.top.style;
+    if(st=='trench'){r(tc,4,15,8,2);r(bd,4,16,8,1);if(d==0)r(bd,7,15,1,2)}
+    r(tc,4,9,8,6);r(bl,4,9,1,6);r(bd,10,9,2,6);r(bd,4,14,8,1);
+    if(st=='parka'){if(d==0)r(bd,7,10,1,4);r('#e8dcc0',4,9,8,1)}
+    if(st=='sweater'){r(shade(tc,-.22),4,14,8,1);if(d!=1)r(shade(tc,-.22),6,9,4,1)}
+    if(st=='flannel'){for(const x of[5,8,11])r(shade(tc,-.4),x,9,1,6);for(const y of[11,13])r(shade(tc,-.4),4,y,8,1);if(d==0)r(shade(tc,.3),7,9,2,1)}
+    if(st=='suit'){if(d==0){r('#f2f2f2',6,9,4,2);r('#c0392b',7,10,2,3);r(shade(tc,.18),6,11,1,3);r(shade(tc,.18),9,11,1,3)}else if(side)r('#f2f2f2',4,9,2,1)}
+    if(st=='trench'){r(shade(tc,-.4),4,12,8,1);if(d==0){r(bd,6,9,1,3);r(bd,9,9,1,3)}}
+    // arms
+    if(!side){const s=fr==1?-1:fr==2?1:0;r(arm,3,10+s,1,4);r(sk,3,14+s,1,1);r(arm,12,10-s,1,4);r(sk,12,14-s,1,1)}
+    else{const s=fr==1?-1:fr==2?1:0;r(arm,7+s,10,2,4);r(sk,7+s,14,2,1)}
+    // the head and face
+    r(sk,4,2,8,6);r(sk,5,1,6,1);r(sk,5,8,6,1);if(!side)r(skd,11,2,1,6);
+    if(d==0){r(OUT,6,5,1,2);r(OUT,9,5,1,2);r('#e9a28f',5,7,1,1);r('#e9a28f',10,7,1,1)}else if(side){r(OUT,5,5,1,2);r(skd,8,5,1,2)}
+    // facial hair (not seen from behind)
+    const B=lk.beard,stb=mix(sk,bc,.45);
+    if(d==0){if(B=='stubble'){r(stb,5,7,6,1);r(stb,6,8,4,1)}if(B=='moustache'||B=='goatee')r(bc,6,7,4,1);if(B=='goatee')r(bc,7,8,2,1);
+      if(B=='beard'){r(bc,4,5,1,3);r(bc,11,5,1,3);r(bc,5,7,6,2);r('#8a4a3a',7,7,2,1)}}
+    else if(side){if(B=='stubble'){r(stb,4,7,4,1);r(stb,5,8,3,1)}if(B=='moustache'||B=='goatee')r(bc,4,7,2,1);if(B=='goatee')r(bc,4,8,2,1);
+      if(B=='beard'){r(bc,4,7,5,2);r(bc,7,5,2,2)}}
+    // hair, a buzz cut showing the scalp through it
+    const hc=lk.hair=='buzz'?mix(hair,sk,.35):hair;(HAIRS[lk.hair]||HAIRS.short)[v].forEach(([x,y,ww,h])=>r(hc,x,y,ww,h));
+    if(lk.hair=='short'&&d==1)r(shade(hair,-.3),5,8,6,1);
+    if(!['bald','buzz'].includes(lk.hair)&&d!=1)r(shade(hair,.25),d==0?6:5,lk.hair=='curly'?0:1,2,1);
+    if(lk.hair=='curly')for(const[x,y]of[[4,1],[8,0],[11,2],[6,2]])r(shade(hair,.25),x,y,1,1);
+    // headwear
+    const ht=w.hat,c=ht.col;
+    if(ht.style=='beanie'){r(c,4,1,8,2);r(c,5,0,6,1);r(shade(c,-.25),4,3,8,1);r('#f2f2f2',7,0,2,1);r(shade(c,.2),5,1,2,1)}
+    if(ht.style=='flatcap'){r(c,4,1,8,2);r(c,5,0,6,1);r(shade(c,.15),6,1,3,1);if(side)r(shade(c,-.3),2,3,5,1);else r(shade(c,-.3),4,3,8,1)}
+    if(ht.style=='ushanka'){r(c,3,0,10,3);r(shade(c,.3),3,2,10,1);r(shade(c,.15),5,0,3,1);if(d==0){r(c,3,3,2,4);r(c,11,3,2,4)}else if(side)r(c,8,3,3,4);else r(c,3,3,10,3)}
+    if(ht.style=='fedora'){r(c,5,0,6,2);r(shade(c,-.45),5,2,6,1);r(shade(c,-.15),2,3,12,1);r(shade(c,.2),6,0,2,1)}
+    if(ht.style=='beret'){r(c,3,1,9,2);r(c,4,0,6,1);r(shade(c,-.3),4,3,8,1);r(shade(c,.25),5,1,2,1)}})}
+function dressed(px,py,d,fr,lk){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
 // Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
 const COST={};
 function costume(kind,d,fr){const key=kind+d+fr;if(COST[key])return COST[key];const side=d>1,back=d==1,f=d==3?(x,w=1)=>16-x-w:(x)=>x;
@@ -1378,7 +1438,7 @@ house_forsale:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#d8d4cc',wall2:
 house_forsale_eb:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b8a8',wall2:'#9a5040',pap:'brick',deco:[[2,'win'],[7,'win']]},
 house_forsale_fh:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',deco:[[2,'win'],[7,'win']]},
 villa_forsale:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',deco:[[1,'win'],[4,'win'],[9,'win'],[13,'win']]},
-hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[2,'map'],[10,'map'],[13,'clock'],[15,'map'],[16,'calendar'],[18,'pic']]},
+hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[2,'map'],[10,'map'],[13,'clock'],[15,'map'],[16,'calendar']]},
 transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap:'tiles',base:'#4a5058',deco:[[6,'onair'],[10,'clock'],[15,'poster']]},
 chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
 crypt:{fl:'stone',f:[],wall:'#6b6458',wall2:'#4a443c',pap:'brick',base:'#3a3530',deco:[[3,'cross'],[7,'rbanner'],[12,'cross']]},
@@ -1508,6 +1568,10 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   // a potted plant: a broad-leaved fern in a white pot
   if(l=='plant'){const oy=12,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#e8e6e0',3,TT-9,10,9);r('#c8c6c0',3,TT-9,10,1);r('#5a3e27',4,TT-10,8,1);
     for(const[x,y,w,h]of[[2,6,4,3],[10,6,4,3],[5,2,3,8],[8,3,3,7],[1,11,4,2],[11,11,4,2],[6,9,4,4]]){r('#2e6a2e',x,y,w,h);r('#4a9a3a',x+1,y,Math.max(1,w-2),1)}})}}
+  // a tall wooden wardrobe with two panelled doors, brass knobs and a carved top
+  if(l=='wardrobe'){const oy=22,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#5a3d24',1,1,W-2,TT-3);r('#3a2414',0,0,W,3);r('#7a5636',0,0,W,1);
+    r('#4a3020',(W>>1)-1,4,1,TT-8);for(const x of[3,(W>>1)+1]){r('#6b4a2e',x,5,(W>>1)-4,TT-12);r('#7a5636',x,5,(W>>1)-4,1);r('#4a3020',x,TT-8,(W>>1)-4,1)}
+    r('#c9a040',(W>>1)-3,TT>>1,1,2);r('#c9a040',(W>>1)+1,TT>>1,1,2);r('#3a2414',2,TT-2,2,2);r('#3a2414',W-4,TT-2,2,2);r('#3a2414',1,TT-4,W-2,1)})}}
   // a brown leather Chesterfield sofa, buttoned
   if(l=='sofa'){const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#5a2e1a',0,0,W,TT-2);r('#7a4228',2,1,W-4,8);for(let x=5;x<W-4;x+=6)r('#4a2414',x,4,1,1);r('#8a4e30',2,10,W-4,TT-14);r('#a05a38',2,10,W-4,1);r('#5a2e1a',0,0,3,TT-2);r('#5a2e1a',W-3,0,3,TT-2);r('#3a1e10',2,TT-2,2,2);r('#3a1e10',W-4,TT-2,2,2)})}}
   // a glass display case of Kelp Cola bottles from over the years: a dark wooden cabinet, three glass shelves of bottles in their
@@ -1932,7 +1996,7 @@ function drawWorld2(m,cx,cy,t,frame){
   NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>{n.costume?costumed(n.x*16-cx,n.y*16-cy+b,n.dir,n.costume,t):person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat);
     // someone with a quest to give you: a gold star bobbing over their head
     if(typeof offerOf=='function'&&offerOf(n))qstar(n.x*16-cx+8,n.y*16-cy-25+Math.round(Math.sin(t/260)*1.5))}])});
-  Ls.push([P.ry,1,()=>person(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,'#2a5db0','#4a2e1a','#e8c33a')]);
+  Ls.push([P.ry,1,()=>dressed(Math.round(P.rx*16-cx),Math.round(P.ry*16-cy),P.dir,frame,typeof ME!='undefined'?ME.look:PLAYER.look)]);
   Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());
   // smoke, flags, signs, lights, fires and machines
   S.an.forEach(a=>{const X=a.x-cx,Y=a.y-cy;
@@ -2485,6 +2549,7 @@ wine:[`
 .....kkkkkk.....`,{k:'#262330',G:'#4a1a2a',R:'#c0392b',w:'#f1ead6'}],
 };
 const ITEM_ICONS={};
-function itemIcon(id){if(ITEM_ICONS[id])return ITEM_ICONS[id];const[art,pal]=ITEM_ART[id]||ITEM_ART.notebook,rows=art.trim().split('\n'),c=cnv(64,64),g=c.getContext('2d');
+function itemIcon(id){if(ITEM_ICONS[id])return ITEM_ICONS[id];
+  if(!ITEM_ART[id]&&CLOTHES[id]){const c=cnv(64,64),g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(lookChar(0,0,{...PLAYER.look,[CLOTHES[id].slot]:id}),8,2,48,60);return ITEM_ICONS[id]=c.toDataURL()}const[art,pal]=ITEM_ART[id]||ITEM_ART.notebook,rows=art.trim().split('\n'),c=cnv(64,64),g=c.getContext('2d');
   rows.forEach((row,y)=>[...row].forEach((ch,x)=>{if(pal[ch]){g.fillStyle=pal[ch];g.fillRect(x*4,(y+(16-rows.length>>1))*4,4,4)}}));
   return ITEM_ICONS[id]=c.toDataURL()}

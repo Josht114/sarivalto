@@ -38,7 +38,7 @@ dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
 addEventListener('keydown',e=>{if(e.target!=sel&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
-const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests()};
+const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{}};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start).map(id=>({id,met:[],done:false}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save']];
@@ -47,7 +47,7 @@ let START=null;  // the open tab, or null when the menu is closed
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
   return t?`<button class="slot" data-item="${i}" aria-pressed="${i==sel}" title="${esc(ITEMS[t.id].name)}"><img src="${itemIcon(t.id)}" alt="">${priced?`<span class="p">$${t.p}</span>`:''}${t.n>1?`<span class="n">${t.n}</span>`:''}</button>`:'<span class="slot"></span>'}).join('');
 const money=v=>'$'+v.toLocaleString('en-US'),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'){renderTracker();return}let body='';
+function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'){renderTracker();return}if(START=='wardrobe'){renderWardrobe();return}if(typeof PLAYS!='undefined'&&PLAYS[START]){PLAYS[START].render();return}let body='';
   if(START=='inv'){// the date and money, then a grid of what you carry (at least 4 rows of 4), and the chosen item's panel
     ME.sel=Math.max(0,Math.min(ME.sel,ME.items.length-1));const it=ME.items[ME.sel],d=it&&ITEMS[it.id];
     const slots=slotsOf(ME.items,ME.sel);
@@ -67,10 +67,12 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     const btn=(d,i,t)=>`<button data-do="${d}" data-slot="${i}">${ME.confirm==d+i?t+'?':t}</button>`;
     body=`<div class="saves">${SAVES.map(i=>{const v=readSave(i);
       return `<div class="save"><div><b>${slotName(i)}</b><br>${v?`${esc(v.where)}: ${v.day} ${MONTH}, ${v.night?'night':'day'}<br><small>Saved ${new Date(v.at).toLocaleString()}</small>`:'<small>Empty</small>'}</div>
-        <div class="acts">${btn('save',i,i=='quick'?'Quick save (Q)':v?'Overwrite':'Save here')}${v?btn('load',i,'Load')+btn('del',i,'Delete'):''}</div></div>`}).join('')}</div>
-      <p><small>Saves are kept in this browser.</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
+        <div class="acts">${btn('save',i,i=='quick'?'Quick save (Q)':v?'Overwrite':'Save here')}${v?btn('load',i,'Load')+btn('del',i,'Delete')+btn('exp',i,'Export'):''}</div></div>`}).join('')}</div>
+      <div class="acts"><label class="filebtn"><input type="file" accept=".json,application/json" hidden>Import a save file&hellip;</label></div>
+      <p><small>${esc(store.where)}</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
   startEl.innerHTML=`<div class="tabs" role="tablist">${TABS.map(([k,t])=>`<button role="tab" data-tab="${k}" aria-selected="${k==START}">${t}</button>`).join('')}<button class="close" aria-label="Close the menu">&times;</button></div><div>${body}</div>`;
   startEl.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{START=b.dataset.tab;ME.note='';ME.confirm='';renderStart()});
+  const fi=startEl.querySelector('.filebtn input');if(fi)fi.onchange=()=>{if(fi.files[0])importSave(fi.files[0])};
   startEl.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>slotAction(b.dataset.do,b.dataset.slot=='quick'?'quick':+b.dataset.slot));
   startEl.querySelectorAll('[data-item]').forEach(b=>b.onclick=()=>{ME.sel=+b.dataset.item;ME.note='';renderStart()});
   startEl.querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>useItem(itemActions(ME.items[ME.sel].id)[+b.dataset.act]));startEl.querySelector('.close').onclick=closeStart}
@@ -86,7 +88,6 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
-  shirt:{Wear:'You put on the flannel shirt.'},beanie:{Wear:'You pull on the beanie.'},suit:{Wear:'You put on the suit. You look like you belong in Kingsgrad.'},
   radio:{Listen:'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:'Find some open water to fish in.'},
   notebook:{'Read':`${DAY} ${MONTH}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
   camera:{'Take a photo':()=>ME.filmIn?'Nothing here worth photographing.':'There is no film in the camera.','Load film':loadFilm},
@@ -111,25 +112,33 @@ function renderShop(){const n=SHOP.n,st=stockOf(n);SHOP.sel=Math.max(0,Math.min(
   startEl.querySelectorAll('[data-item]').forEach(b=>b.onclick=()=>{SHOP.sel=+b.dataset.item;SHOP.note='';renderStart()});
   startEl.querySelectorAll('[data-pay]').forEach(b=>b.onclick=()=>buy(b.dataset.pay));startEl.querySelector('.close').onclick=closeStart}
 function buy(how){const st=stockOf(SHOP.n),t=st[SHOP.sel];if(!t)return;const nm=ITEMS[t.id].name.toLowerCase();
+  if(CLOTHES[t.id]&&ME.clothes.includes(t.id)){SHOP.note=`You already have the ${nm} in your wardrobe.`;renderStart();return}
   if(ME[how]<t.p){SHOP.note=`You don't have enough ${how=='cia'?'CIA funds':'money of your own'} for the ${nm}.`;renderStart();return}
-  ME[how]-=t.p;const mine=has(t.id);if(mine)mine.n++;else ME.items.push({id:t.id,n:1});if(--t.n<=0)st.splice(SHOP.sel,1);
-  SHOP.note=`You buy the ${nm} for ${money(t.p)}, paid from ${how=='cia'?'CIA funds':'your own money'}.`;renderStart()}
-// ---- Saving and loading: three slots in the browser's storage. A save holds where you are, the date and time of day, your money,
+  ME[how]-=t.p;if(CLOTHES[t.id])ME.clothes.push(t.id);else{const mine=has(t.id);if(mine)mine.n++;else ME.items.push({id:t.id,n:1})}if(--t.n<=0)st.splice(SHOP.sel,1);
+  SHOP.note=`You buy the ${nm} for ${money(t.p)}, paid from ${how=='cia'?'CIA funds':'your own money'}.`+(CLOTHES[t.id]?' It will be waiting in your wardrobe at home.':'');renderStart()}
+// ---- Saving and loading: a quick save and three slots, kept by store (js/store.js: in the browser, or as files in the app). A save holds where you are, the date and time of day, your money,
 // items and quests, and what is left in every shop.
 // the quick save (Q, or its button) has its own slot, saved over without asking; then the three ordinary slots
-const SAVES=['quick',0,1,2],saveKey=i=>'sarivalto-save-'+i,slotName=i=>i=='quick'?'Quick save':'Slot '+(i+1);
-function readSave(i){try{const v=JSON.parse(localStorage.getItem(saveKey(i)));return v&&v.v==1?v:null}catch(e){return null}}
-function slotAction(d,i){const ask=d!='save'||i!='quick'&&readSave(i);
+const SAVES=['quick',0,1,2],slotName=i=>i=='quick'?'Quick save':'Slot '+(i+1);
+const okSave=v=>v&&v.v==1&&v.p&&MAPS[v.p.m]?v:null,readSave=i=>okSave(store.get(i));
+function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||i!='quick'&&readSave(i);
   if(ask&&ME.confirm!=d+i){ME.confirm=d+i;ME.note='';renderStart();return}ME.confirm='';
-  if(d=='save')ME.note=saveGame(i);if(d=='del'){try{localStorage.removeItem(saveKey(i))}catch(e){}ME.note=slotName(i)+' deleted.'}
+  if(d=='save')ME.note=saveGame(i);if(d=='del'){store.remove(i).catch(e=>console.warn(e));ME.note=slotName(i)+' deleted.'}
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests},stock:STOCK,fp:FP};
-  try{localStorage.setItem(saveKey(i),JSON.stringify(v));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}catch(e){return'The game could not be saved: this browser is not letting the page store anything.'}}
-function loadGame(i){const v=readSave(i);if(!v||!MAPS[v.p.m]){ME.note='That save could not be loaded.';renderStart();return}
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
-  TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi},stock:STOCK,fp:FP};
+  // (if storing fails, say so once it has)
+  store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
+// a save as a file to download, and a save file loaded straight into the game
+function exportSave(i){const v=readSave(i);if(!v)return;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(v,null,1)],{type:'application/json'}));
+  a.download=`sarivalto-${i=='quick'?'quicksave':'slot-'+(i+1)}-day-${v.day}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);ME.note=slotName(i)+' exported as a file.';renderStart()}
+async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))}catch(e){}if(!v){ME.note='That file is not a Sarivalto save.';renderStart();return}
+  loadSave(v);say('Loaded '+v.where+', '+v.day+' '+MONTH+' from the file. Save it in a slot to keep it.',5000)}
+function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+DAY+' '+MONTH+'.',4000)}
+function loadSave(v){
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
 // of each day on which they changed (a day with no entry carries on from the one before).
@@ -157,6 +166,24 @@ const tfac=document.getElementById('tfac');tfac.innerHTML=MAIN_FACTIONS.map(f=>`
 document.getElementById('tplus').onclick=e=>{addPoints(tfac.value,10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
 document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
 document.getElementById('tday').onclick=e=>{if(DAY<DAYS){DAY++;say('It is now '+DAY+' '+MONTH+'.');if(START)renderStart()}e.target.blur()};
+// ---- The wardrobe in your home: your hair and facial hair (style and colour) and the clothes you own, with a preview of you from
+// each side. Up and down (or W and S) choose a row, left and right (or A and D) change it; the arrows on each row do the same.
+const WARD={row:0};
+const ownedOf=slot=>Object.keys(CLOTHES).filter(id=>CLOTHES[id].slot==slot&&(id=='nohat'||ME.clothes.includes(id))).map(id=>[id,CLOTHES[id].name]);
+const WROWS=[['hair','Hair',()=>HAIR_STYLES],['hairCol','Hair colour',()=>HAIR_COLS],['beard','Facial hair',()=>BEARD_STYLES],['beardCol','Facial hair colour',()=>HAIR_COLS],
+  ['hat','Headwear',()=>ownedOf('hat')],['top','Top',()=>ownedOf('top')],['legs','Trousers',()=>ownedOf('legs')],['shoes','Shoes',()=>ownedOf('shoes')]];
+function openWardrobe(){if(MENU||RIDE||BUSY)return;SHOP=null;START='wardrobe';stack=[];startEl.hidden=false;renderStart()}
+function wstep(i,dd){const[k,,f]=WROWS[i],o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k]));ME.look[k]=o[(j+dd+o.length)%o.length][0];WARD.row=i;renderStart()}
+function renderWardrobe(){const rows=WROWS.map(([k,label,f],i)=>{const o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k])),lc=label.toLowerCase();
+    return`<div class="wrow${i==WARD.row?' on':''}"><span class="wl">${label}</span><button data-w="${i}" data-d="-1" aria-label="Previous ${lc}">&#9664;</button>`+
+      `<span class="wv">${k.endsWith('Col')?`<i class="wsw" style="background:${o[j][0]}"></i>`:''}${esc(o[j][1])} <small>${j+1}/${o.length}</small></span><button data-w="${i}" data-d="1" aria-label="Next ${lc}">&#9654;</button></div>`}).join('');
+  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Wardrobe</h3><button class="close" aria-label="Close the wardrobe">&times;</button></div>
+    <div class="wardrobe"><div class="wprev" aria-label="How you look">${[0,3,1,2].map(()=>'<canvas width="48" height="60"></canvas>').join('')}</div><div class="wopts">${rows}</div></div>
+    <p class="note">Up and down choose, left and right change. More clothes are for sale at ${esc(NM.clothes_in)} and ${esc(NM.tailor)}.</p>`;
+  startEl.querySelectorAll('.wprev canvas').forEach((c,i)=>{const g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(lookChar([0,3,1,2][i],0,ME.look),0,0,48,60)});
+  startEl.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>wstep(+b.dataset.w,+b.dataset.d));startEl.querySelector('.close').onclick=closeStart}
+// the wardrobe in your home is the tile you're facing
+const wardrobeAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Wardrobe'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
 function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
@@ -166,6 +193,10 @@ addEventListener('keydown',e=>{if(e.target==sel||e.repeat)return;const k=e.key;
   else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY&&!CONVO){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
   else if(START&&k=='Escape'){closeStart();e.preventDefault()}
   // in a shop the arrows (or WASD) move through the stock, C pays with CIA funds and P with your own money
+  // in the casino and arcade games, the game takes the keys
+  else if(typeof PLAYS!='undefined'&&PLAYS[START]){if(PLAYS[START].key(k,e))e.preventDefault()}
+  else if(START=='wardrobe'){const m={ArrowUp:-1,w:-1,ArrowDown:1,s:1}[k.length==1?k.toLowerCase():k],c={ArrowLeft:-1,a:-1,ArrowRight:1,d:1}[k.length==1?k.toLowerCase():k];
+    if(m){WARD.row=(WARD.row+m+WROWS.length)%WROWS.length;renderStart();e.preventDefault()}else if(c){wstep(WARD.row,c);e.preventDefault()}}
   else if(START=='shop'){const st=stockOf(SHOP.n),d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k];
     if(d){const n=SHOP.sel+d;if(n>=0&&n<st.length){SHOP.sel=n;SHOP.note=''}renderStart();e.preventDefault()}
     else if(k=='c'||k=='C'){buy('cia');e.preventDefault()}else if(k=='p'||k=='P'){buy('cash');e.preventDefault()}else if(k=='Tab')e.preventDefault()}
@@ -285,6 +316,8 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   const u=useAhead();if(u){meet(u[0],u[1]);return}
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
+  if(wardrobeAhead()){openWardrobe();return}
+  const g=typeof gameAhead=='function'&&gameAhead();if(g){openPlay(g);return}
   const n=npcAhead();if(n){talk(n);return}
   if(seatAhead()){sitDown();return}
   const e=exitHere();if(e&&PRESS_DOORS.has(e.to)){useExit(e);return}
@@ -329,7 +362,9 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
+  if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
+  const ga=typeof gameAhead=='function'&&gameAhead();if(ga&&!P.mv&&!npcAhead())return GAME_HINT[ga];
   if(seatAhead()&&!P.mv&&!npcAhead())return NIGHT?'Night has fallen':'Press E to sit and wait';
   const n=npcAhead();if(n&&!P.mv)return'Press E to talk to '+n.name;
   const e=exitHere();if(e&&PRESS_DOORS.has(e.to))return'Press E to go down into the '+NM[e.to];if(!onPlatform())return null;const st=tramState(P.m,performance.now());
@@ -403,5 +438,5 @@ function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1]
 var FLATS={};const FLAT_BLOCK=/^(apartments|skyapts|kgapts|eblofts|hsresid)/;
 const flatLabel=(m,x,y)=>{const ns=FLATS[m]?.[x+','+y];return!ns?'Empty flat':(ns.length>1?ns.slice(0,-1).join(', ')+' & '+ns.at(-1):ns[0])+"'s flat"};
 ROUTINE=planRoutine();applyRoutine();
-if(!GOTHIC&&!DETAILED&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}
+store.init().then(()=>{if(!GOTHIC&&!DETAILED&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}});
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);requestAnimationFrame(loop)})(0);

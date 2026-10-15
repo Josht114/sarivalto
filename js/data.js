@@ -95,7 +95,7 @@ house_thyme:["Father Thyme's House",10,9,'interior',[[2,1,2,2,'e','Bed'],[5,1,3,
 shack_hekki:["Hekki's Shack",10,7,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Radio Set'],[4,4,2,1,'u','Table'],[8,1,1,1,'q']]],
 // The Hidden Radio Room, with a small living space behind a partition on the right (through the doorway at x14, y5)
 hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment'],[5,1,4,1,'y','Big Screen'],[9,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
-[14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
+[14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[18,1,1,1,'y','Wardrobe'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
 // CIA Headquarters at Langley, Virginia, where the game's story begins: not on the island, and reached only from the Jump to list.
 // The lobby has the Agency's seal set in its granite floor, the Memorial Wall of stars between two flags with the Book of Honor in
 // its case beneath, a statue, benches, the security desk and the stairs up to the office
@@ -518,7 +518,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 
 // ---- The player at the start of the game (placeholders): the CIA's operating funds, the player's own money, and what they carry
 // as [item id, how many] (ids are keys in ITEMS). QUESTS (below) are the quests. Both are shown in the start menu.
-const PLAYER={ciaFunds:5000,funds:250,items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
+const PLAYER={ciaFunds:5000,funds:250,look:{hair:'short',hairCol:'#4a2e1a',beard:'none',beardCol:'#4a2e1a',hat:'beanie_yellow',top:'parka_blue',legs:'jeans_blue',shoes:'boots_brown'},clothes:['beanie_yellow','parka_blue','sweater_grey','jeans_blue','khakis','boots_brown'],items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
 // ---- Items: the name, the description shown in the inventory, and the actions you can take with it (each action is handled in
 // game.js; ones it doesn't handle yet say so). Their sprites are ITEM_ART in art.js.
 const ITEMS={
@@ -539,9 +539,20 @@ cola:{name:'Kelp Cola',desc:'The island\'s own cola, in a green glass bottle. It
 coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
 bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
 meal:{name:'Hot meal',desc:'Steak, potatoes and greens on a plate.',actions:['Eat']},
-shirt:{name:'Flannel shirt',desc:'A red checked flannel shirt. In Eastbrook it makes you look like a local.',actions:['Wear']},
-beanie:{name:'Wool beanie',desc:'A navy knitted hat against the cold.',actions:['Wear']},
-suit:{name:'Tailored suit',desc:'A dark suit and red tie, cut to fit. It will get you into places a flannel shirt will not.',actions:['Wear']},
+shirt:{name:'Flannel shirt',desc:'A red checked flannel shirt. In Eastbrook it makes you look like a local. It goes into your wardrobe.',actions:[]},
+beanie:{name:'Wool beanie',desc:'A navy knitted hat against the cold. It goes into your wardrobe.',actions:[]},
+suit:{name:'Tailored suit',desc:'A dark suit and red tie, cut to fit. It will get you into places a flannel shirt will not. It goes into your wardrobe.',actions:[]},
+sweater:{name:"Fisherman's jumper",desc:'A thick green jumper knitted from oiled wool, as worn on the boats. It goes into your wardrobe.',actions:[]},
+cords:{name:'Brown corduroys',desc:'Warm brown corduroy trousers. It goes into your wardrobe.',actions:[]},
+sneakers:{name:'White sneakers',desc:'Canvas sneakers, very American. It goes into your wardrobe.',actions:[]},
+flatcap:{name:'Tweed flat cap',desc:'A brown tweed cap with a short peak. It goes into your wardrobe.',actions:[]},
+ushanka:{name:'Fur ushanka',desc:'A fur hat with ear flaps, for the worst of the winter. It goes into your wardrobe.',actions:[]},
+snowboots:{name:'Snow boots',desc:'Grey rubber boots lined with fleece. It goes into your wardrobe.',actions:[]},
+beret:{name:'Black beret',desc:'A black wool beret, for looking like an artist. It goes into your wardrobe.',actions:[]},
+trench:{name:'Trench coat',desc:'A belted tan trench coat with a turned-up collar. It goes into your wardrobe.',actions:[]},
+slacks:{name:'Black trousers',desc:'Pressed black trousers to go with a jacket. It goes into your wardrobe.',actions:[]},
+oxfords:{name:'Black Oxfords',desc:'Polished black leather shoes. It goes into your wardrobe.',actions:[]},
+fedora:{name:'Grey fedora',desc:'A grey felt hat with a black band. It goes into your wardrobe.',actions:[]},
 radio:{name:'Transistor radio',desc:'A pocket radio. It picks up Radio Sarivalto and, at night, stations from across the sea.',actions:['Listen']},
 batteries:{name:'Batteries',desc:'A pair of batteries for a flashlight or a radio.',actions:[]},
 fishrod:{name:'Fishing rod',desc:'A rod and reel with a good length of line.',actions:['Fish']},
@@ -586,6 +597,24 @@ const DAY_ONLY_STALLS=[['colahq','newsstand'],['colahq','hotdog'],['colafactory'
 // ---- Shops, by the name of the person who runs them: what they sell, as [item, how many, price in dollars]. The shop is open
 // when its keeper is at their workplace (their loc); talk to them there to buy. Buying moves the item from their stock to your
 // inventory.
+// ---- The wardrobe: what you can look like. Hair and facial hair styles and colours are free to change; clothes (CLOTHES, by slot:
+// hat, top, legs, shoes) must be owned. You start with PLAYER.clothes; the ones with an entry in ITEMS can be bought in the shops
+// and go straight into the wardrobe. style picks how each is drawn (js/art.js lookChar), col its colour.
+const HAIR_STYLES=[['short','Short'],['long','Long'],['bob','Bob'],['ponytail','Ponytail'],['curly','Curly'],['buzz','Buzz cut'],['bald','Bald']];
+const BEARD_STYLES=[['none','Clean-shaven'],['stubble','Stubble'],['moustache','Moustache'],['goatee','Goatee'],['beard','Full beard']];
+const HAIR_COLS=[['#1a1414','Black'],['#3a2418','Dark brown'],['#4a2e1a','Brown'],['#6b4423','Chestnut'],['#8a3a1e','Auburn'],['#c0662a','Ginger'],['#d8b060','Blonde'],['#ece0b0','Platinum'],['#8a8a8a','Grey'],['#e8e8e8','White']];
+const CLOTHES={
+nohat:{slot:'hat',name:'No hat',style:'none'},
+beanie_yellow:{slot:'hat',name:'Yellow beanie',style:'beanie',col:'#e8c33a'},beanie:{slot:'hat',name:'Navy wool beanie',style:'beanie',col:'#2a3a5e'},
+flatcap:{slot:'hat',name:'Tweed flat cap',style:'flatcap',col:'#7a6a4a'},ushanka:{slot:'hat',name:'Fur ushanka',style:'ushanka',col:'#6b4a2e'},
+beret:{slot:'hat',name:'Black beret',style:'beret',col:'#2a2a33'},fedora:{slot:'hat',name:'Grey fedora',style:'fedora',col:'#5a5f68'},
+parka_blue:{slot:'top',name:'Blue parka',style:'parka',col:'#2a5db0'},sweater_grey:{slot:'top',name:'Grey jumper',style:'sweater',col:'#7a7f88'},
+shirt:{slot:'top',name:'Flannel shirt',style:'flannel',col:'#b03a2e'},sweater:{slot:'top',name:"Fisherman's jumper",style:'sweater',col:'#3d6a4a'},
+suit:{slot:'top',name:'Tailored suit',style:'suit',col:'#2b2f3a'},trench:{slot:'top',name:'Trench coat',style:'trench',col:'#b8a070'},
+jeans_blue:{slot:'legs',name:'Jeans',style:'jeans',col:'#2d3046'},khakis:{slot:'legs',name:'Khaki trousers',style:'trousers',col:'#8a7a5a'},
+cords:{slot:'legs',name:'Brown corduroys',style:'cords',col:'#6b4a2e'},slacks:{slot:'legs',name:'Black trousers',style:'trousers',col:'#1e1e24'},
+boots_brown:{slot:'shoes',name:'Brown boots',style:'boots',col:'#3b2a22'},sneakers:{slot:'shoes',name:'White sneakers',style:'sneakers',col:'#e8e8e4'},
+snowboots:{slot:'shoes',name:'Snow boots',style:'snowboots',col:'#5a5f68'},oxfords:{slot:'shoes',name:'Black Oxfords',style:'shoes',col:'#1a1a1e'}};
 const SHOPS={
 Ray:{stock:[['beer',24,2],['whisky',10,4],['cigarettes',10,2]]},
 Eddie:{stock:[['beer',24,2],['whisky',12,4],['cigarettes',10,2]]},
@@ -595,8 +624,8 @@ Mary:{stock:[['book',6,8],['islandmap',3,5],['newspaper',10,1]]},
 Sanna:{stock:[['burger',20,3],['cola',20,1]]},
 Maya:{stock:[['coffee',30,1],['bun',12,2]]},
 Arvid:{stock:[['meal',10,12],['beer',12,3]]},
-Juniper:{stock:[['shirt',5,25],['beanie',6,8]]},
-Grace:{stock:[['suit',2,120]]},
+Juniper:{stock:[['shirt',5,25],['beanie',6,8],['sweater',4,30],['cords',4,35],['sneakers',3,40],['flatcap',4,12],['ushanka',3,20],['snowboots',3,45],['beret',3,15]]},
+Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['fedora',3,35]]},
 Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10]]},
 Jack:{stock:[['fishrod',3,30],['flashlight',2,10]]},
 Olga:{stock:[['smokedfish',12,4]]},

@@ -48,6 +48,28 @@ select hr{border:0;border-top:1px solid #000}
 #start .save{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #3a5a3a;border-radius:8px;padding:8px 10px;background:#0f1a10}
 #start .save .acts{margin-top:0}
 #start .map{position:relative}#start .map img{display:block;width:100%;height:auto;border-radius:6px}
+/* the Save tab's import button: a label styled as a button around a hidden file input */
+#start .filebtn{display:inline-block;padding:3px 10px;border:1px solid #9fe870;border-radius:4px;cursor:pointer;color:#9fe870}#start .filebtn:hover,#start .filebtn:focus-within{background:#9fe870;color:#000}
+/* the casino and arcade games */
+#start .gamebox{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+#start #slotc,#start #arcc{image-rendering:pixelated;border:2px solid #c9a040;border-radius:6px;background:#000;display:block}
+#start #slotc{width:360px;max-width:100%;height:auto}#start #arcc{width:330px;max-width:calc(100% - 64px);height:auto;border-color:#ff3bd0}
+#start .acts>span{align-self:center;margin-right:2px}#start .acts button[aria-pressed=true]{background:#9fe870;color:#000}
+#start table.paytable{border-collapse:collapse;font-size:12px}#start .paytable caption{text-align:left;color:#9fe870;padding-bottom:4px}#start .paytable td{padding:1px 10px 1px 0}#start .paytable td+td{text-align:right;color:#ffe08a}
+#start .felt{background:#0f4a2a;border:2px solid #c9a040;border-radius:10px;padding:8px 10px;margin:4px 0 8px}
+#start .bjrow{display:flex;align-items:center;gap:10px;min-height:52px}#start .bjl{width:70px;color:#ffe08a}#start .cards{display:flex;gap:4px}
+#start .card{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:32px;height:46px;background:#fbfaf4;color:#1a1a1e;border-radius:4px;border:1px solid #000;font-weight:bold;font-size:13px;line-height:1.1}
+#start .card b{font-size:15px}#start .card.red{color:#c0392b}#start .card.back{background:repeating-linear-gradient(45deg,#7a1a2a 0 3px,#a52f3a 3px 6px);border-color:#f4f4f0}
+#start .arcade{display:flex;flex-direction:column;gap:8px;align-items:flex-start}#start .amenu{display:flex;flex-wrap:wrap;gap:6px}
+#start .arcade.playing{flex-direction:row}#start .pad{display:flex;flex-direction:column;gap:4px}#start .pad button{min-width:40px;padding:4px 8px;touch-action:none}
+@media (max-width:620px){#start .gamebox{grid-template-columns:1fr}}
+/* the wardrobe: a preview of you from each side, and a row for each thing you can change */
+#start .wardrobe{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+#start .wprev{display:grid;grid-template-columns:repeat(2,72px);gap:6px}#start .wprev canvas{width:72px;height:90px;image-rendering:pixelated;background:#0f1a10;border:1px solid #3a5a3a;border-radius:4px}
+#start .wrow{display:grid;grid-template-columns:minmax(0,9em) 28px minmax(0,1fr) 28px;gap:6px;align-items:center;padding:3px 6px;border-radius:4px;font-size:13px}
+#start .wrow.on{background:#1c2e1c;outline:1px solid #9fe870}#start .wrow button{padding:2px 0}#start .wv{text-align:center}#start .wv small{opacity:.6}
+#start .wsw{display:inline-block;width:10px;height:10px;border:1px solid #000;margin-right:5px;vertical-align:middle}
+@media (max-width:620px){#start .wardrobe{grid-template-columns:1fr}#start .wprev{grid-template-columns:repeat(4,60px)}#start .wprev canvas{width:60px;height:75px}}
 /* quests: the Quests tab, and the stars on the map marking someone with a quest to give */
 #start ul.quests{list-style:none;padding:0;margin:4px 0 10px}#start ul.quests>li{margin:0 0 8px;padding:6px 8px;border:1px solid #3a5a3a;border-radius:6px}
 #start ul.quests>li.qdone{opacity:.6}#start ul.qconds{list-style:none;padding:0;margin:4px 0 0;font-size:12px}#start ul.qconds li.met{color:#9fe870}
