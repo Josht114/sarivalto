@@ -1343,6 +1343,8 @@ caravan1_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c0392b',wall2:'#
 caravan2_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#2e6f9a',wall2:'#255a7d',pap:'stripe',base:'#5a3a26',quilt:'#e07a9a',curtain:'#f2e6c8',deco:[[2,'win'],[6,'pic']]},
 caravan3_in:{fl:'carpet',f:['#5e2a75','#7d3c98'],wall:'#3a2a4a',wall2:'#c9a040',pap:'flower',base:'#c9a040',quilt:'#7d3c98',curtain:'#c9a040',deco:[[2,'portrait'],[6,'win']]},
 pizzeria_in:{fl:'check',f:['#efe6d4','#a8322a'],wall:'#e8dcc0',wall2:'#2e6f3a',pap:'stripe',base:'#5a3a26',rug:'#2e6f3a',curtain:'#c0392b',deco:[[3,'pic'],[8,'clock'],[14,'pic']]},
+langley:{fl:'granite',f:['#d8dade','#cfd2d6','#e2e4e7'],wall:'#ecebe6',wall2:'#cfccc2',pap:'panel',base:'#7a7a76',seal:[176,104,34],deco:[[4,'verse'],[8,'stars'],[9,'stars'],[10,'stars'],[11,'stars'],[12,'stars'],[13,'stars'],[16,'clock']]},
+langley_office:{fl:'carpet',f:['#3a4a5e','#33425a'],wall:'#e6e0d0',wall2:'#7a5232',pap:'panel',base:'#4a3020',rug:'#7a2a2a',deco:[[6,'cseal'],[9,'portrait'],[11,'map'],[15,'win']]},
 oldbarn_in:{grime:2,fl:'wood',f:['#5a3e27','#4e3622','#64462c'],wall:'#5a3d2a',wall2:'#4a3020',pap:'panel',base:'#2e2016',quilt:'#5a5a4a',deco:[[4,'win'],[13,'win']]},
 derrick_in:{grime:2,oil:1,fl:'tile',f:['#4a4f58','#3e434b'],wall:'#5a6068',wall2:'#e0a100',pap:'stripe',base:'#2b2f3a',deco:[[2,'safety'],[7,'clock'],[12,'safety']]},
 lighthouse_in:{fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#e8e4dc',wall2:'#c0392b',pap:'stripe',base:'#2e4a6a',rug:'#2e4a6a',curtain:'#2e4a6a',quilt:'#2e5f8f',deco:[[2,'win'],[5,'map'],[8,'clock']]},
@@ -1389,6 +1391,7 @@ house_kate:{grime:1,fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#d6e0ec',w
 function floorPx(X,Y,f){
   if(f.fl=='wood'){const row=Y>>2,sx=X+(hash(row,1,40)*32|0),seg=sx>>5,c=f.f[hash(seg,row,41)*f.f.length|0];
     return(Y&3)==3||(sx&31)==0?shade(c,-.28):(Y&3)==0?shade(c,.07):hash(X,Y,42)>.94?shade(c,-.1):c}
+  if(f.fl=='granite'){const c=f.f[hash(X>>5,Y>>5,47)*f.f.length|0];return(X&31)==31||(Y&31)==31?shade(c,-.16):hash(X,Y,48)>.92?shade(c,-.12):hash(X,Y,49)>.96?shade(c,.2):c}
   if(f.fl=='sand')return sandPx(X,Y);
   if(f.fl=='stone'){const row=Y>>3,sx=X+(row&1)*4;return(Y&7)==7||(sx&7)==7?'#4a4f50':hash(sx>>3,row,44)>.5?'#7a7f80':'#6e7374'}
   if(f.fl=='tile')return(X&7)==7||(Y&7)==7?'#8a9398':((X>>3)+(Y>>3))&1?f.f[1]:f.f[0];
@@ -1422,6 +1425,13 @@ function interiorLayer(m){
   // a rug under the (first) table
   if(f.rug)FL[m].filter(q=>q[4]=='u').slice(0,1).forEach(([x,y,ww,hh])=>{const X=x*16-6,Y=y*16-4,RW=ww*16+12,RH=hh*16+10;r(shade(f.rug,-.3),X,Y,RW,RH);r(f.rug,X+1,Y+1,RW-2,RH-2);
     r(shade(f.rug,.35),X+3,Y+3,RW-6,1);r(shade(f.rug,.35),X+3,Y+RH-4,RW-6,1);for(let k=X+2;k<X+RW-2;k+=2){r('#f2e6c8',k,Y-1);r('#f2e6c8',k,Y+RH)}});
+  // seal: [x,y,radius] in pixels, the Agency's seal set into the floor: a dark ring lettered in pale dots, a blue field, the
+  // sixteen-pointed compass star and the shield at its heart
+  if(f.seal){const[cx,cy,R]=f.seal;for(let y=-R;y<=R;y++)for(let x=-R;x<=R;x++){const d=Math.hypot(x,y);if(d>R+.3)continue;let c;
+    if(d>R-1.2)c='#3a3d44';else if(d>R-8)c=d>R-2.2||d<R-6.8?'#e8e6e0':(hash(Math.round(Math.atan2(y,x)*30),1,77)>.45&&d>R-5.5&&d<R-3.5?'#c8ccd2':'#4a4f58');
+    else{c=d>R-9.2?'#e8e6e0':'#2e4a6e';const q=Math.atan2(y,x)/(Math.PI/8),fr=q-Math.round(q),lim=(R-9)*((Math.round(q)&1)?.62:.95)*(1-2*Math.abs(fr))*.85+(R-9)*.12;
+      if(d<lim)c=fr>0?'#f4f4f0':'#c8ccd2'}
+    if(d<5.5)c=d>4.5?'#c9a040':y<-1?'#2e4a6e':(x+8)%2?'#c0392b':'#f4f4f0';r(c,cx+x,cy+y)}}
   // grime: water stains running down the back wall, torn wallpaper, and scuffed, stained floorboards
   if(f.grime){for(let x=0;x<w*16;x+=5)if(hash(x,1,w*7)<.35)r('rgba(90,70,40,.2)',x,-12,1+(hash(x,2,w)>.5?1:0),6+(hash(x,3,w)*16|0));
     for(let i=0;i<w;i++)if(hash(i,4,w)<.3){const x=i*16+(hash(i,5,w)*10|0),y=-8+(hash(i,6,w)*10|0);r(shade(f.wall,-.35),x,y,5,4);r(shade(f.wall,.25),x+1,y+1,3,2)}
@@ -1450,6 +1460,12 @@ function interiorLayer(m){
       if(v==2){for(let k2=0;k2<8;k2++){const q=k2*Math.PI/4;for(let d2=3;d2<7;d2++)r('#f2c230',X+8+Math.round(Math.cos(q)*d2),-1+Math.round(Math.sin(q)*d2),1,1)}for(let y=-3;y<=3;y++)for(let x=-3;x<=3;x++)if(Math.hypot(x,y)<=3.2)r(Math.hypot(x,y)>2.2?'#8a2a1e':'#c0392b',X+8+x,-1+y,1,1);r('#2e9d57',X+4,6,8,2)}
       if(v==3){r('#5b8fb9',X+2,2,12,6);for(let x=X+2;x<X+14;x+=4)r('#9cc6e0',x,2,2,1);bottle(X+5,-7);r('#f2c230',X+11,-8,2,2)}
       r('#d8c8a0',X+13,-10,1,2);r('#b8a880',X+2,8,2,1)}
+    // the Memorial Wall: white marble carved with rows of black stars, one for each officer who died in the Agency's service
+    if(k=='stars'){r('#f4f3ee',X,-12,16,23);r('#e2e0d8',X,10,16,1);for(const[sx,sy]of[[3,-9],[10,-9],[6,-4],[13,-4],[2,1],[9,1]]){r('#2a2a33',X+sx,sy,3,1);r('#2a2a33',X+sx+1,sy-1,1,3);r('#2a2a33',X+sx,sy+2,1,1);r('#2a2a33',X+sx+2,sy+2,1,1)}}
+    // a marble plaque carved with a verse in gilt letters (two tiles wide)
+    if(k=='verse'){r('#b8b4a8',X-1,-11,34,19);r('#f4f3ee',X,-10,32,17);for(let y=-7;y<5;y+=3)for(let x=X+3;x<X+29;x+=1+(hash(x,y,93)>.7?1:0))if(hash(x,y,94)>.3)r('#b8963a',x,y,1,1)}
+    // the Agency's seal on a plaque: the compass star on blue in a gold ring
+    if(k=='cseal'){for(let y=-7;y<=7;y++)for(let x=-7;x<=7;x++){const d=Math.hypot(x,y);if(d<=7.3)r(d>6.3?'#c9a040':d>5.2?'#e8e6e0':'#2e4a6e',X+8+x,-1+y)}r('#f4f4f0',X+7,-5,2,9);r('#f4f4f0',X+4,-2,9,2);r('#f4f4f0',X+5,-4,1,1);r('#f4f4f0',X+11,-4,1,1);r('#f4f4f0',X+5,2,1,1);r('#f4f4f0',X+11,2,1,1)}
     if(k=='pic'){r(OUT,X+2,-6,12,11);r('#8a6038',X+3,-5,10,9);r('#9cc6e0',X+4,-4,8,7);r('#5e8f48',X+4,0,8,3);r('#7aa860',X+6,-1,4,1);r('#f2f2f2',X+5,-3,3,1)}
     if(k=='portrait'){r(OUT,X+3,-8,10,16);r('#c9a040',X+4,-7,8,14);r('#3a2a20',X+5,-6,6,12);r('#e0b080',X+6,-4,4,4);r('#5a3a26',X+6,-5,4,1);r('#2a2a33',X+5,1,6,5);r('#c0392b',X+7,1,2,2)}
     if(k=='banner'){r('#5a3d2a',X+3,-10,10,1);r('#c0392b',X+4,-9,8,21);r('#a52f24',X+11,-9,1,21);r('#ffd23a',X+7,-5,2,4);r('#ffd23a',X+5,-4,6,2);r(f.wall2,X+7,11,2,1)}
@@ -1473,6 +1489,23 @@ function interiorLayer(m){
 // Furniture for one feature: the outlined picture, how far it reaches above its tiles (oy), and an optional animation.
 function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   if(/rotary table|mud pump|drawworks|generator|driller|pipe rack/.test(l))return machineArt(l,W,H);
+  // an American flag on a brass pole, its stripes hanging in folds, on a heavy base
+  if(l=='flag'){const oy=24,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#c9a040',7,0,2,2);r('#8a6a2a',7,2,2,TT-4);r('#3a3d44',3,TT-3,10,3);
+    for(let y=4;y<TT-12;y++){r(((y>>1)%2)?'#f4f4f0':'#c0392b',1,y,6,1);r(((y>>1)%2)?'#e8e8e4':'#a52f24',9,y,6,1);if((y>>1)&1){r('rgba(0,0,0,.12)',3,y,1,1);r('rgba(0,0,0,.12)',12,y,1,1)}}
+    r('#1f3a6f',9,4,6,7);for(let y=5;y<11;y+=2)for(let x=10;x<15;x+=2)r('#f4f4f0',x,y,1,1);r('#c9a040',0,TT-13,7,1);r('#c9a040',9,TT-13,7,1)})}}
+  // the Book of Honor: the book of the fallen lying open in a glass case on a black marble stand
+  if(l=='book of honor'){const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#2a2a30',6,11,W-12,TT-11);r('#3a3a44',6,11,W-12,1);r('#2a2a30',3,9,W-6,3);
+    r('#9fc0cc',3,1,W-6,8);r('#cfe6f2',4,1,W-8,1);r('#f4efe4',9,4,7,4);r('#f4efe4',16,4,7,4);r('#8a8478',15,4,2,4);for(let y=5;y<8;y++){r('#b8b4a8',10,y,5,1);r('#b8b4a8',17,y,5,1)}r('#1f3a6f',8,8,16,1)})}}
+  // a bronze statue of a man in a long coat on a granite plinth
+  if(l=='statue'){const oy=20,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#7a7a76',1,TT-10,14,10);r('#9a9a96',1,TT-10,14,1);r('#5a5a56',1,TT-1,14,1);r('#c9a040',5,TT-6,6,2);
+    r('#5a4028',6,1,4,5);r('#7a5a38',7,1,2,2);r('#4a3420',4,6,8,TT-17);r('#6b4a2e',5,6,2,TT-17);r('#4a3420',3,8,2,8);r('#4a3420',11,8,2,8);r('#3a2818',5,TT-11,2,1);r('#3a2818',9,TT-11,2,1)})}}
+  // a long wooden bench on black iron legs
+  if(l=='bench'){const oy=4,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#2a2a30',3,9,2,TT-9);r('#2a2a30',W-5,9,2,TT-9);r('#2a2a30',(W>>1)-1,9,2,TT-9);for(const y of[3,6]){r('#8a6038',1,y,W-2,3);r('#a57a4a',1,y,W-2,1)}})}}
+  // a potted plant: a broad-leaved fern in a white pot
+  if(l=='plant'){const oy=12,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#e8e6e0',3,TT-9,10,9);r('#c8c6c0',3,TT-9,10,1);r('#5a3e27',4,TT-10,8,1);
+    for(const[x,y,w,h]of[[2,6,4,3],[10,6,4,3],[5,2,3,8],[8,3,3,7],[1,11,4,2],[11,11,4,2],[6,9,4,4]]){r('#2e6a2e',x,y,w,h);r('#4a9a3a',x+1,y,Math.max(1,w-2),1)}})}}
+  // a brown leather Chesterfield sofa, buttoned
+  if(l=='sofa'){const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#5a2e1a',0,0,W,TT-2);r('#7a4228',2,1,W-4,8);for(let x=5;x<W-4;x+=6)r('#4a2414',x,4,1,1);r('#8a4e30',2,10,W-4,TT-14);r('#a05a38',2,10,W-4,1);r('#5a2e1a',0,0,3,TT-2);r('#5a2e1a',W-3,0,3,TT-2);r('#3a1e10',2,TT-2,2,2);r('#3a1e10',W-4,TT-2,2,2)})}}
   // a glass display case of Kelp Cola bottles from over the years: a dark wooden cabinet, three glass shelves of bottles in their
   // old shapes and colours, a little lamp lighting them, and a brass plaque
   if(/bottle display/.test(l)){const oy=14,TT=H+oy,cols=['#2e9d57','#3a7a5a','#6a4a2a','#cfe0d8','#1f6a42'];return{oy,c:mk(W,TT,r=>{

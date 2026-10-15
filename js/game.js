@@ -16,11 +16,13 @@ const sel=document.getElementById('jump'),here=new Option('','',true,true);here.
 const isIn=id=>L[id][3]=='interior',byName=(a,b)=>NM[a].localeCompare(NM[b]);
 function areaOf(id){const seen=new Set([id]),q=[id];while(q.length){const m=q.shift();
   for(const e of EX[m]){if(!isIn(e.to)&&e.to!='tram')return e.to;if(!seen.has(e.to)){seen.add(e.to);q.push(e.to)}}}}
-const AREAS={};for(const id in L)if(id!='tram'&&isIn(id))(AREAS[areaOf(id)]??=[]).push(id);
+const AREAS={};for(const id in L)if(id!='tram'&&isIn(id))(AREAS[areaOf(id)??'']??=[]).push(id);
 const group=(label,ids)=>{const g=document.createElement('optgroup');g.label=label;ids.sort(byName).forEach(id=>g.appendChild(new Option(NM[id],id)));sel.appendChild(g)};
 group('Outside',Object.keys(L).filter(id=>id!='tram'&&!isIn(id)));
 sel.appendChild(document.createElement('hr'));
-Object.keys(AREAS).sort(byName).forEach(a=>group('Inside: '+NM[a],AREAS[a]));
+Object.keys(AREAS).filter(a=>a).sort(byName).forEach(a=>group('Inside: '+NM[a],AREAS[a]));
+// places not on the island at all (CIA Headquarters at Langley)
+if(AREAS[''])group('Off the island',AREAS['']);
 const showHere=id=>{here.text=NM[id];sel.selectedIndex=0};
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;showHere(id)}
 // The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
