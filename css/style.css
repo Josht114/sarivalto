@@ -50,8 +50,23 @@ select hr{border:0;border-top:1px solid #000}
 #start .map{position:relative}#start .map svg.fog{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;border-radius:6px}#start .map img{display:block;width:100%;height:auto;border-radius:6px}
 /* the Save tab's import button: a label styled as a button around a hidden file input */
 #start .filebtn{display:inline-block;padding:3px 10px;border:1px solid #9fe870;border-radius:4px;cursor:pointer;color:#9fe870}#start .filebtn:hover,#start .filebtn:focus-within{background:#9fe870;color:#000}
+/* the title screen: the picture over the whole stage, the menu at the bottom right */
+#title{position:absolute;inset:0;z-index:20;line-height:1.3}#title[hidden]{display:none}#title #titleimg{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+#title .tmenu{position:absolute;right:3%;bottom:3%;display:flex;flex-direction:row;gap:6px}
+#title .tmenu button{font:bold 13px ui-monospace,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:0;border:2px solid #ff4fc0;box-shadow:3px 3px 0 #4a0a6a;background:#1a0628;color:#5ff0ff;cursor:pointer;text-align:left}
+#title .tmenu button:hover,#title .tmenu button:focus{background:#ff4fc0;color:#1a0628;outline:none}#title .tmenu button:focus::before{content:'\25B6  '}
+@media (max-width:520px){#title .tmenu button{font-size:12px;padding:5px 8px}}
 /* the film at the cinema: the picture as large as the panel allows */
 #start .film{flex:1;min-height:0;display:flex;justify-content:center;align-items:center;background:#000;border-radius:6px}#start #filmc{height:100%;width:auto;max-width:100%;image-rendering:auto;display:block}
+/* poker: the other three players across the top, the cards on the table and the pot, then you */
+#start .poker{display:flex;flex-direction:column;gap:6px}#start .pseats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+#start .pseat{display:grid;grid-template-columns:32px minmax(0,1fr);gap:2px 6px;align-items:center;background:rgba(0,0,0,.22);border:1px solid transparent;border-radius:8px;padding:4px 6px;font-size:12px}
+#start .pseat img{width:32px;height:32px;image-rendering:pixelated;border-radius:4px;background:#24364a}#start .pseat .cards,#start .pseat .said{grid-column:1/-1}#start .pseat .card{width:22px;height:32px;font-size:10px}#start .pseat .card b{font-size:11px}
+#start .pseat.folded{opacity:.45}#start .pseat.turn,#start .pme.turn{border-color:#ffd23a;box-shadow:0 0 0 1px #ffd23a}#start .said{color:#ffe08a;min-height:1em}
+#start .card.win{outline:2px solid #ffd23a;outline-offset:1px;box-shadow:0 0 6px #ffd23a}#start .hname{color:#9fe870;margin-left:4px;align-self:center}
+#start .pboard{display:flex;align-items:center;justify-content:center;gap:12px}#start .card.slot{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.3)}#start .pot{color:#ffe08a;font-weight:bold}
+#start .pme{display:flex;align-items:center;gap:10px;border:1px solid transparent;border-radius:8px;padding:4px 6px;background:rgba(0,0,0,.22)}
+#start .dbtn{font-style:normal;font-size:9px;font-weight:bold;background:#f4f4f0;color:#000;border-radius:50%;padding:0 4px}
 /* the casino and arcade games */
 #start .gamebox{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
 #start #slotc,#start #arcc{image-rendering:pixelated;border:2px solid #c9a040;border-radius:6px;background:#000;display:block}
@@ -108,6 +123,7 @@ select hr{border:0;border-top:1px solid #000}
 #convo .portrait{left:10px;top:10px;padding:6px 6px 4px;display:flex;flex-direction:column;align-items:center;gap:2px}
 #convo .portrait canvas{width:96px;height:96px;image-rendering:pixelated;background:#24364a;border-radius:6px}
 #convo .portrait b{font-size:13px;color:#9fe870}
+#convo.call .portrait canvas{background:#0b1a33;filter:saturate(.6) hue-rotate(-10deg) contrast(1.1);box-shadow:inset 0 0 0 2px #5ab0ff}#convo.call .portrait::before{content:'VIDEO CALL';font-size:9px;letter-spacing:1px;color:#ff5a5a}
 #convo .portrait{max-width:120px}#convo .portrait .job{font-size:11px;color:#cfd8cf;text-align:center;line-height:1.2;max-width:110px}
 #convo .portrait .fac{font-size:10px;color:#cfd8cf;display:flex;align-items:center;gap:4px;max-width:110px;text-align:left;line-height:1.1}
 #convo .portrait .fac i{font-style:normal;font-weight:bold;font-size:9px;color:#fff;padding:1px 4px;border-radius:3px;border:1px solid rgba(255,255,255,.5);text-shadow:0 1px 0 rgba(0,0,0,.5);flex:none}#convo .portrait .fac i.none{background:#5a5f68}

@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Make the title picture</title>
+<style>body{background:#111;color:#ddd;font:14px sans-serif;margin:20px}canvas{image-rendering:pixelated;width:960px;max-width:100%;border:1px solid #444}a{color:#9fe870}</style></head>
+<body><h1>Title picture</h1><p>The title screen's picture, drawn by tools/title-art.js, with him from tools/title-figure.png. Save it as <code>img/title.png</code>.</p><p><a id="dl" download="title.png">Download title.png</a></p><div id="out"></div>
+<script src="title-art.js"></script><script>const fig=new Image();fig.onload=()=>{const c=makeTitle(fig);document.getElementById('out').appendChild(c);document.getElementById('dl').href=c.toDataURL('image/png')};fig.src='title-figure.png'</script></body></html>

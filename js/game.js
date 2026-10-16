@@ -182,7 +182,7 @@ document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-10);say(FACT
 // moving to another day: the calendar on the wall and anything showing the date are drawn again
 function setDay(d){const was=DAY;DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAYS,d));for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dayjump.value=DAY;BLOCKS.clear();
   // (from 22 August into the month you arrive on the island, at home; back to 22 August, you are at Langley again)
-  let note='';if(was<1&&DAY>=1&&/^langley/.test(P.m)){place(HOME,[17,3],0);note=' You arrive on Sarivalto.'}
+  let note='';if(was<1&&DAY>=1&&/^langley/.test(P.m)){place(HOME,[17,3],0);note=' You arrive on Sarivalto.'+(chuckCalling()?' The big screen is flashing: Chuck is calling.':'')}
   else if(was>=1&&DAY<1&&!/^langley/.test(P.m)){TRIP=null;place('langley',[11,10],1);note=' You are back at CIA Headquarters.'}
   if(START)renderStart();return note}
 document.getElementById('tday').onclick=e=>{if(DAY<DAYS){const n=setDay(nextDay(DAY));say('It is now '+dateStr(DAY)+'.'+n)}e.target.blur()};
@@ -330,19 +330,29 @@ function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit
 // ---- Quests (QUESTS in data.js)
 const qOf=id=>ME.quests.find(q=>q.id==id);
 // the quest someone has to give you: one of theirs you haven't taken on yet (they have a star over their head)
-const offerOf=n=>Object.keys(QUESTS).find(id=>QUESTS[id].giver==n.name&&!qOf(id));
+const offerOf=n=>Object.keys(QUESTS).find(id=>QUESTS[id].giver==n.name&&!qOf(id)&&(QUESTS[id].from??-99)<=DAY);
 // the places on the island map where someone has a quest to give (indoors, the place their building is in)
 const questPlaces=()=>[...new Set(NPCS.filter(n=>n.m&&offerOf(n)).map(n=>POS[n.m]?n.m:areaOf(n.m)).filter(a=>a&&POS[a]))];
 // each condition not yet met in your active quests, as [quest, its index, the condition]
 const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>QUESTS[q.id].done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]));
 // meeting a condition; with all of them met, the quest is done
 function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}else say('Quest updated: '+Q.title+'.',4000)}
+// ---- The video call: the big screen in your home links to Chuck at Langley. When he has a quest for you, or is waiting to hear
+// about one, you can call him; when he has a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts him in
+// the conversation panel on a video feed.
+const CHUCK=()=>NPCS.find(n=>n.name=='Chuck');
+const chuckCalling=()=>{const n=CHUCK();return DAY>=1&&!!n&&!!offerOf(n)};
+const screenAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Big Screen'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+function videoCall(){const n=CHUCK();if(!n)return;if(DAY<1){say('The screen shows LINK READY. You are at Langley: Chuck is upstairs.',4000);return}
+  const c=questTalk(n)||{start:'a',nodes:{a:{say:"NIGHTJAR, Langley. Nothing new for you right now. Keep your head down and your eyes open."}}};
+  converse(n,c);cvEl.classList.add('call')}
 // a use condition: the furniture it names, in the place it names, on the tile you're facing
 const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.use&&c.m==P.m&&FL[P.m].some(([fx,fy,w,h,,l])=>l==c.use&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h))};
 // talking to someone about a quest, as a conversation: hand over what it asks for, if you have it; be reminded of it; or be
 // offered a new one. Returns the conversation, or nothing if they have no quest business with you.
 const unquote=t=>t.replace(/^"|"$/g,'');
 function questTalk(n){
+  const tk=openConds().find(([,,c])=>c.talk==n.name);if(tk){const[q,i]=tk;return{...QUESTS[q.id].chat,onEnd:()=>meet(q,i)}}
   const g=openConds().find(([,,c])=>c.give&&c.to==n.name),Qg=g&&QUESTS[g[0].id];
   if(g&&has(g[2].give)){const[q,i,c]=g,nm=ITEMS[c.give].name.toLowerCase();
     return{start:'a',nodes:{a:{say:Qg.giver==n.name&&Qg.wait?Qg.wait:'Have you got something for me?',opts:[['Give '+n.name+' the '+nm,'thanks',()=>{take(c.give);meet(q,i,true)}],['Not yet',null]]},
@@ -367,6 +377,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
   const u=useAhead();if(u){meet(u[0],u[1]);return}
+  if(screenAhead()){videoCall();return}
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
   if(wardrobeAhead()){openWardrobe();return}
@@ -403,7 +414,7 @@ function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
   cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
   cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
 function reply(i){const o=replies()[i];if(!o)return;if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}
-function endConvo(){CONVO=null;CONVO_END=performance.now();cvEl.hidden=true}
+function endConvo(){const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call');f?.()}
 addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==1?e.key.toLowerCase():e.key,n=replies().length;
   if(k=='ArrowDown'||k=='s')CONVO.sel=(CONVO.sel+1)%n;else if(k=='ArrowUp'||k=='w')CONVO.sel=(CONVO.sel+n-1)%n;
   else if(/^[1-9]$/.test(k)&&+k<=n)reply(+k-1);else if(k=='e'||k==' '||k=='Enter')reply(CONVO.sel);else if(k=='Escape')endConvo();else return;
@@ -417,6 +428,7 @@ document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefau
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
   if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
+  if(screenAhead()&&!P.mv)return chuckCalling()?'Press E to answer Chuck\'s call':'Press E to call Langley';
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
   if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
@@ -496,5 +508,8 @@ function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1]
 var FLATS={};const FLAT_BLOCK=/^(apartments|skyapts|kgapts|eblofts|hsresid)/;
 const flatLabel=(m,x,y)=>{const ns=FLATS[m]?.[x+','+y];return!ns?'Empty flat':(ns.length>1?ns.slice(0,-1).join(', ')+' & '+ns.at(-1):ns[0])+"'s flat"};
 ROUTINE=planRoutine();applyRoutine();
-store.init().then(()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}});
+// once the saves are read, the title screen (js/title.js): Continue there loads the most recent save. (A test start, ?new, ?day,
+// ?night or a proof of concept, goes straight into the game.) It waits for the page to finish loading, so js/title.js is there.
+store.init().then(()=>{const go=()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search))showTitle()};
+  if(document.readyState=='complete')go();else addEventListener('load',go)});
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;requestAnimationFrame(loop)})(0);

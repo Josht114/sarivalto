@@ -1635,7 +1635,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   if(ch=='e'){const q=f.quilt||['#b33333','#2e6f9a','#3d7a5a','#c9822a'][v*4|0],oy=4,TT=H+oy,wd='#6b4a2e';return{oy,c:mk(W,TT,r=>{
     r(wd,0,0,W,7);r('#8a6a45',1,1,W-2,1);r(wd,0,7,2,TT-7);r(wd,W-2,7,2,TT-7);r('#f2f2f2',2,6,W-4,TT-8);r('#ffffff',3,7,W-6,5);r('#d8dfe6',3,11,W-6,1);
     r(q,2,13,W-4,TT-15);for(let y=17;y<TT-2;y+=4)r(shade(q,-.15),2,y,W-4,1);r(shade(q,.25),2,13,W-4,2);r(wd,0,TT-2,W,2)})}}
-  if(ch=='u'&&/card|roulette/.test(l)){const oy=5,TT=H+oy+6,seats=[];for(let x=8;x<W;x+=16)seats.push(x);return{oy,c:mk(W,TT,r=>{
+  if(ch=='u'&&/card|roulette|poker/.test(l)){const oy=5,TT=H+oy+6,seats=[];for(let x=8;x<W;x+=16)seats.push(x);return{oy,c:mk(W,TT,r=>{
     const chair=(cx,y,back)=>{if(back){r('#5a1a2a',cx-3,y,6,3);r('#7a2a3a',cx-3,y,6,1)}r('#8a2a3a',cx-3,y+3,6,3);r('#5a1a2a',cx-3,y+5,6,1)};seats.forEach(x=>chair(x,0,true));
     r('#5a3d2a',0,oy,W,H-4);r('#2e7d4a',2,oy+2,W-4,H-8);r('#3d9a5e',2,oy+2,W-4,1);r(shade('#5a3d2a',-.3),0,oy+H-4,W,2);
     if(l.includes('roulette')){const cx=W-14,cy=oy+(H>>1)-2;for(let y=-6;y<=6;y++)for(let x=-6;x<=6;x++){const d=Math.hypot(x,y);if(d<=6.5)r(d>5?'#5a3d2a':d<2?'#c9a040':(Math.atan2(y,x)*3|0)&1?'#c0392b':'#1a1a22',cx+x,cy+y)}
@@ -1717,7 +1717,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     ptext(r,'LINK READY',(W-39)>>1,25,'#5fe08a');
     r('#3a3d44',2,34,W-4,TT-35);r('#4a4f58',2,34,W-4,1);for(const x of[5,W-14])for(let y=37;y<TT-3;y+=2)r('#1a1c22',x,y,9,1);
     r('#1a1c22',22,37,20,6);r('#c0392b',24,39,2,2);r('#2e9d57',28,39,2,2);r('#d0d4d8',32,39,8,1);r('#d0d4d8',32,41,6,1)});
-    an.push({t:'vcall',x:(W>>1)-1,y:1,lx:3,ly:5,w:W-6,h:26});return{oy,c,an}}
+    an.push({t:'vcall',x:(W>>1)-1,y:1,sx:4-(W>>1),sy:4,w:W-6,h:26});return{oy,c,an}}
   if(ch=='y'&&l.includes('screen')){const oy=14,TT=H+oy-2,an=[];const c=mk(W,TT,r=>{
     // a rack of CRT monitors, two high, each showing something different (animated)
     r('#3a3d44',0,0,W,TT);r('#4a4f58',0,0,W,1);
@@ -2036,7 +2036,10 @@ function drawWorld2(m,cx,cy,t,frame){
     if(a.t=='pcscreen'){const cols=['#c0392b','#2e86c1','#7d3c98','#2e9d57','#5a6a74','#a0522d','#e0a020'];
       cols.forEach((c,i)=>{const h=3+Math.round((Math.sin(t/900+i*1.3)+1)*2.5);px(c,X+1+i*2,Y+a.h-1-h,1,h)});px('#3a6a4a',X+1,Y+a.h-1,a.w-2,1);if(((t/500)|0)%2)px('#7fd0a0',X+a.w-3,Y+1,2,1)}
     // the big screen: the camera's light blinking red, and a slow line rolling down the display
-    if(a.t=='vcall'){if(((t/600)|0)%2)px('#ff3b2f',X,Y,2,1);px('rgba(159,192,224,.12)',X-(a.x-a.lx),Y-(a.y-a.ly)+((t/60)|0)%a.h,a.w,1)}
+    if(a.t=='vcall'){if(((t/600)|0)%2)px('#ff3b2f',X,Y,2,1);px('rgba(159,192,224,.12)',X+a.sx,Y+a.sy+((t/60)|0)%a.h,a.w,1);
+      // Chuck calling: the screen flashes red with INCOMING CALL across it
+      if(typeof chuckCalling=='function'&&chuckCalling()&&((t/400)|0)%2){const sx=X+a.sx,sy=Y+a.sy;px('#7a1020',sx,sy,a.w,a.h);
+        [['INCOMING',sy+6],['CALL',sy+14]].forEach(([w,y])=>{const x0=sx+((a.w-w.length*4+1)>>1);[...w].forEach((ch,i)=>{const f=FONT[ch];for(let k=0;k<15;k++)if(f[k]=='1')px('#ffffff',x0+i*4+k%3,y+(k/3|0),1,1)})})}}
     if(a.t=='screen'){const k=a.k;
       // monitor content: 0 a scrolling waveform, 1 lines of text being typed, 2 a radar sweep
       if(k==0)for(let x=0;x<a.w;x++)px('#5fe08a',X+x,Y+(a.h>>1)+Math.round(Math.sin(x*.9+t/150)*Math.min(2,a.h/3)),1,1);

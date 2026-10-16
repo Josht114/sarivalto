@@ -4,14 +4,16 @@
 // costs a dollar a game, and keeps your best score on each (ME.hi, saved with the game).
 const featAhead=re=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].find(([fx,fy,w,h,,l])=>l&&re.test(l)&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 // the game on the tile you're facing, if any
-function gameAhead(){if(P.m=='casino'){if(featAhead(/^Slot Machines$/))return'slots';if(featAhead(/^Card Table$/))return'blackjack'}
+function gameAhead(){if(typeof POKER_AT!='undefined'&&(P.m=='pizzeria_in'&&featAhead(/^Card Table$/)||P.m=='casino'&&featAhead(/^Poker Table$/)))return'poker';
+  if(P.m=='casino'){if(featAhead(/^Slot Machines$/))return'slots';if(featAhead(/^Card Table$/))return'blackjack'}
   if(P.m=='arcadein'&&featAhead(/^Arcade Screens$/))return'arcade';
   // a seat in the cinema
   if(P.m=='cinemain'){const[dx,dy]=DIR[P.dir];if(MAPS[P.m][P.y+dy]?.[P.x+dx]=='o')return'film'}return null}
-const GAME_HINT={slots:'Press E to play the slot machine',blackjack:'Press E to sit at the blackjack table',arcade:'Press E to play the arcade machines',film:'Press E to watch the film'};
+const GAME_HINT={slots:'Press E to play the slot machine',blackjack:'Press E to sit at the blackjack table',arcade:'Press E to play the arcade machines',film:'Press E to watch the film',poker:'Press E to play poker'};
 // a card table is also somewhere to sit and wait for the evening
 function openPlay(g){if(MENU||RIDE||BUSY)return;
   if(g=='blackjack'){choose('A blackjack table. The dealer is shuffling.',[['Play blackjack',()=>startPlay('blackjack')],...(NIGHT?[]:[['Sit and wait until night',sitDown]]),['Not now']]);return}
+  if(g=='poker'){choose(esc(POKER_AT[P.m].intro),[['Sit in',sitDownPoker],['Not now']]);return}
   if(g=='film'){choose('Now showing: STORMWING. A ticket is $4.',[['Buy a ticket and watch',watchFilm],['Not now']]);return}
   startPlay(g)}
 function startPlay(g){SHOP=null;START=g;stack=[];startEl.hidden=false;PLAYS[g].open?.();renderStart()}

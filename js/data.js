@@ -109,7 +109,7 @@ gunshop:['Gun Shop',12,8,'interior',[[2,1,8,1,'y','Gun Rack'],[3,3,6,1,'c','Coun
 supermarket:['Supermarket',18,12,'interior',[[1,1,6,1,'y','Fridge'],[8,1,9,1,'y','Shelves'],[2,4,6,1,'y','Shelves'],[10,4,6,1,'y','Shelves'],[2,7,6,1,'y','Shelves'],[10,7,6,1,'y','Shelves'],[12,9,4,1,'c','Checkout']]],
 citybar:['City Bar',16,10,'interior',[[2,1,8,1,'y','Bottles'],[2,3,8,1,'c','Bar Counter'],[3,6,3,2,'u','Table'],[10,6,3,2,'u','Table'],[13,1,2,1,'i','Fireplace']]],
 tailor:["Tailor's Shop",12,9,'interior',[[1,1,4,1,'y','Cloth'],[6,1,5,1,'y','Clothes Rail'],[3,3,5,1,'c','Counter'],[1,5,1,1,'n','Mannequin'],[10,5,1,1,'n','Mannequin'],[10,3,1,1,'n','Mannequin']]],
-casino:['Casino',20,12,'interior',[[2,1,7,1,'y','Slot Machines'],[11,1,7,1,'y','Slot Machines'],[3,4,4,2,'u','Card Table'],[13,4,4,2,'u','Roulette'],[3,8,4,2,'u','Card Table'],[13,8,3,1,'c','Cashier']]],
+casino:['Casino',20,12,'interior',[[2,1,7,1,'y','Slot Machines'],[11,1,7,1,'y','Slot Machines'],[3,4,4,2,'u','Card Table'],[13,4,4,2,'u','Roulette'],[3,8,4,2,'u','Poker Table'],[13,8,3,1,'c','Cashier']]],
 bookshop:['Book Shop',12,9,'interior',[[1,1,4,1,'y','Bookcase'],[7,1,4,1,'y','Bookcase'],[2,4,3,1,'y','Bookcase'],[7,4,3,1,'y','Bookcase'],[8,6,3,1,'c','Counter'],[2,6,2,2,'u','Reading Table']]],
 fishingshop:['Fishing Shop',12,9,'interior',[[1,1,5,1,'y','Fishing Rods'],[7,1,4,1,'y','Tackle'],[3,3,6,1,'c','Counter'],[1,5,2,2,'x','Bait'],[9,5,2,2,'x','Fishing Nets']]],
 estateagent:['Estate Agent',12,8,'interior',[[1,1,4,1,'y','Files'],[9,1,2,1,'y','Shelf'],[2,3,3,2,'u','Desk'],[7,3,3,2,'u','Desk']]],
@@ -142,8 +142,7 @@ monks:["Monks' Quarters",27,10,'interior',[[9,1,1,3,'W'],[9,5,1,4,'W'],[17,1,1,3
 [18,1,2,2,'e','Bed'],[21,1,2,2,'e','Bed'],[24,1,2,2,'e','Bed'],[18,6,2,2,'e','Bed'],[21,6,2,2,'e','Bed']]],
 monchurch:['Monastery Church',22,14,'interior',[[10,1,3,1,'t','Altar'],[1,1,2,1,'y','Bookcase'],[19,1,2,1,'y','Bookcase'],
 [2,5,7,1,'u','Pew'],[13,5,7,1,'u','Pew'],[2,7,7,1,'u','Pew'],[13,7,7,1,'u','Pew'],[2,9,7,1,'u','Pew'],[13,9,7,1,'u','Pew']]],
-burgerbar:['Polar Burger',16,10,'interior',[[1,1,3,1,'i','Grill'],[5,1,2,1,'i','Fryer'],[8,1,4,1,'y','Menu Board'],[13,1,2,1,'y','Fridge'],[2,3,10,1,'c','Counter'],
-[2,6,3,2,'u','Table'],[11,6,3,2,'u','Table']]],
+burgerbar:['Polar Burger',16,14,'interior',[[1,5,3,1,'i','Grill'],[5,5,2,1,'i','Fryer'],[8,5,4,1,'y','Menu Board'],[13,5,2,1,'y','Fridge'],[2,7,10,1,'c','Counter'],[2,10,3,2,'u','Table'],[11,10,3,2,'u','Table'],[1,4,6,1,'W'],[8,4,7,1,'W'],[1,1,2,1,'i','Stove'],[4,1,2,1,'i','Stove'],[7,1,3,1,'y','Pantry Shelves'],[11,1,2,1,'x','Sink'],[13,1,2,1,'y','Fridge'],[11,3,3,1,'u','Kitchen Table']]],
 // The Eastbrook Gazette: reporters' desks at the front, the editor's desk at the back, and the paper's archive along the wall.
 newsroom:['Eastbrook Gazette',18,10,'interior',[[1,1,4,1,'y','Archive'],[6,1,5,1,'y','Bookcase'],[13,1,4,1,'y','Files'],[2,4,3,2,'u','Desk'],[7,4,3,2,'u','Desk'],[13,4,3,2,'u',"Editor's Desk"],
 [1,7,2,2,'x','Newspaper Bundles'],[15,7,2,2,'x','Newspaper Bundles'],[11,7,3,2,'x','Printing Press']]],
@@ -155,7 +154,7 @@ electro:['Electronics',12,9,'interior',[[1,1,4,1,'y','TV Screens'],[6,1,5,1,'y',
 arcadein:['Arcade',16,10,'interior',[[1,1,6,1,'y','Arcade Screens'],[9,1,6,1,'y','Arcade Screens'],[2,5,3,1,'y','Arcade Screens'],[11,6,4,1,'c','Change Counter']]],
 mart:['Nordmart',18,12,'interior',[[1,1,6,1,'y','Fridge'],[8,1,9,1,'y','Shelves'],[2,4,6,1,'y','Shelves'],[10,4,6,1,'y','Shelves'],[2,7,6,1,'y','Shelves'],[10,7,6,1,'y','Shelves'],[12,9,4,1,'c','Checkout']]],
 cinemain:['Cinema',18,12,'interior',[[2,3,6,1,'o'],[10,3,6,1,'o'],[2,5,6,1,'o'],[10,5,6,1,'o'],[2,7,6,1,'o'],[10,7,6,1,'o'],[1,9,3,1,'y','Shelves'],[12,9,4,1,'c','Ticket Counter']]],
-cafe:['Coffee Roasters',12,9,'interior',[[1,1,4,1,'y','Shelves'],[6,1,2,1,'i','Roaster'],[2,3,6,1,'c','Counter'],[2,6,2,1,'u','Table'],[7,6,3,1,'u','Table']]],
+cafe:['Coffee Roasters',12,13,'interior',[[1,5,4,1,'y','Shelves'],[6,5,2,1,'i','Roaster'],[2,7,6,1,'c','Counter'],[2,10,2,1,'u','Table'],[7,10,3,1,'u','Table'],[1,4,4,1,'W'],[6,4,5,1,'W'],[1,1,2,1,'i','Oven'],[4,1,3,1,'y','Pantry Shelves'],[8,1,2,1,'x','Sink'],[10,1,1,1,'y','Fridge'],[8,3,3,1,'u','Kitchen Table']]],
 tattoo:['Tattoo Shop',12,9,'interior',[[1,1,3,1,'y','Inks'],[8,1,3,1,'y','Shelves'],[2,3,2,2,'e','Tattoo Bench'],[7,3,2,2,'e','Tattoo Bench'],[8,6,3,1,'c','Counter']]],
 // Kingsgrad Police Station: three cells behind bars along the back wall, a corridor, then the front desk and the officers' desks.
 police:['Kingsgrad Police Station',20,12,'interior',[[7,1,1,4,'W'],[13,1,1,4,'W'],[1,1,2,2,'e','Bunk'],[8,1,2,2,'e','Bunk'],[14,1,2,2,'e','Bunk'],
@@ -165,8 +164,8 @@ doctor:["Doctor's Office",16,10,'interior',[[7,1,1,5,'W'],[1,1,4,1,'y','Files'],
 // Eastbrook Community Centre, the Democratic Party's base: a meeting hall with a long table, a noticeboard and the party's desk
 commcentre:['Community Centre',20,12,'interior',[[5,4,10,2,'u','Meeting Table'],[1,1,3,1,'y','Bookcase'],[16,1,3,1,'y','Files'],[15,8,3,2,'u','Desk'],[1,8,2,2,'x','Boxes'],[9,1,2,1,'i','Stove']]],
 // Eastbrook's bar and restaurant
-tavern:['Timberline Tavern',18,11,'interior',[[2,1,9,1,'y','Bottles'],[2,3,9,1,'c','Bar Counter'],[14,1,2,1,'i','Fireplace'],[3,7,3,2,'u','Table'],[9,7,3,2,'u','Table'],[14,5,3,2,'u','Table']]],
-cedargrill:['Cedar Grill',18,11,'interior',[[1,1,2,1,'i','Stove'],[4,1,2,1,'i','Stove'],[7,1,4,1,'y','Pantry Shelves'],[1,3,10,1,'c','Counter'],[14,1,3,1,'y','Bottles'],[3,6,3,2,'u','Table'],[9,6,3,2,'u','Table'],[14,5,3,2,'u','Table']]],
+tavern:['Timberline Tavern',18,15,'interior',[[2,5,9,1,'y','Bottles'],[2,7,9,1,'c','Bar Counter'],[14,5,2,1,'i','Fireplace'],[3,11,3,2,'u','Table'],[9,11,3,2,'u','Table'],[14,9,3,2,'u','Table'],[1,4,11,1,'W'],[13,4,4,1,'W'],[1,1,2,1,'i','Stove'],[4,1,2,1,'i','Stove'],[7,1,2,1,'x','Sink'],[14,1,2,1,'y','Fridge'],[10,1,3,1,'y','Pantry Shelves'],[2,3,4,1,'u','Kitchen Table']]],
+cedargrill:['Cedar Grill',18,15,'interior',[[1,5,2,1,'i','Stove'],[4,5,2,1,'i','Stove'],[7,5,4,1,'y','Pantry Shelves'],[1,7,10,1,'c','Counter'],[14,5,3,1,'y','Bottles'],[3,10,3,2,'u','Table'],[9,10,3,2,'u','Table'],[14,9,3,2,'u','Table'],[1,4,11,1,'W'],[13,4,4,1,'W'],[1,1,2,1,'i','Stove'],[4,1,2,1,'i','Oven'],[7,1,3,1,'y','Pantry Shelves'],[11,1,2,1,'x','Sink'],[14,1,2,1,'y','Fridge'],[3,3,4,1,'u','Kitchen Table']]],
 // Hotel Aurora: the lobby, with stairs up to a floor of three guest rooms. The room on the right is the KGB agent's,
 // fitted out with radio equipment, monitor screens and a tape recorder like the player's own set-up.
 hotel_lobby:['Hotel Aurora',20,12,'interior',[[3,1,6,1,'y','Key Rack'],[3,3,6,1,'c','Reception'],[17,1,1,1,'z','Stairs up'],[11,4,4,2,'u','Table'],[2,8,4,1,'o'],[14,8,4,1,'o']]],
@@ -199,7 +198,7 @@ civil_in:['Civil Service Bureau',20,12,'interior',[[1,1,4,1,'y','Files'],[6,1,4,
 kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up'],[4,1,3,1,'y','Bottle Display'],[15,9,4,1,'y','Bottle Display'],[1,10,2,1,'x','Kelp Cola Crates']]],
 // Rosaria's pizzeria in Kingsgrad: the oven, the counter and checked tables in front, and behind a door at the back, a shady back
 // room with a card table, a safe, crates and a desk of ledgers, where the Crime Syndicate counts its money
-pizzeria_in:['Pizzeria',18,12,'interior',[[1,1,3,1,'y','Safe'],[5,1,4,2,'u','Card Table'],[11,1,3,2,'x','Crates'],[15,1,2,2,'u','Desk'],[1,4,12,1,'W'],[14,4,3,1,'W'],[1,5,3,2,'i','Pizza Oven'],[5,6,6,1,'c','Counter'],[14,5,2,1,'y','Bottles'],[2,8,2,2,'u','Table'],[6,8,2,2,'u','Table'],[12,8,2,2,'u','Table']]],
+pizzeria_in:['Pizzeria',24,12,'interior',[[1,1,3,1,'y','Safe'],[5,1,4,2,'u','Card Table'],[11,1,3,2,'x','Crates'],[15,1,2,2,'u','Desk'],[1,4,12,1,'W'],[14,4,3,1,'W'],[1,5,3,2,'i','Pizza Oven'],[5,6,6,1,'c','Counter'],[14,5,2,1,'y','Bottles'],[2,8,2,2,'u','Table'],[6,8,2,2,'u','Table'],[12,8,2,2,'u','Table'],[17,1,1,5,'W'],[17,7,1,4,'W'],[18,1,2,1,'i','Stove'],[21,1,2,1,'y','Fridge'],[22,3,1,3,'y','Pantry Shelves'],[19,8,3,1,'u','Kitchen Table'],[18,10,2,1,'x','Sink']]],
 // the Old Barn at East Farm, entered through a loose board at the back: someone's hidden cannabis grow room, with four hydroponic
 // grow beds under hanging lamps, a water tank, drums of nutrients, a fan and a cot
 oldbarn_in:['Old Barn',18,10,'interior',[[2,2,5,2,'x','Grow Bed'],[11,2,5,2,'x','Grow Bed'],[2,5,5,2,'x','Grow Bed'],[11,5,5,2,'x','Grow Bed'],[1,7,1,2,'x','Water Tank'],[3,8,3,1,'x','Nutrient Drums'],[8,8,1,1,'x','Fan'],[14,7,2,2,'e','Cot']]],
@@ -433,13 +432,13 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'arcadein',x:12,y:5,dir:0,name:'Toni',home:'kgapts',loc:'arcadein',job:'Arcade attendant',faction:'proprietors',gender:'female',body:'#ff3bd0',hair:'#1a1a1a'},
 {m:'mart',x:14,y:10,dir:1,name:'Birgit',home:'skyapts',loc:'mart',job:'Nordmart manager',faction:'shops',gender:'female',body:'#2e86c1',hair:'#e8c86a'},
 {m:'cinemain',x:14,y:10,dir:1,name:'Otto',home:'kgapts',loc:'cinemain',job:'Cinema manager',faction:'republican',also:['proprietors'],gender:'male',body:'#5a1a2a',hair:'#5a3a26'},
-{m:'burgerbar',x:6,y:2,dir:0,name:'Sanna',home:'skyapts',loc:'burgerbar',job:'Polar Burger cook',faction:'food',gender:'female',body:'#c0392b',hair:'#c9822a'},
-{m:'cafe',x:4,y:2,dir:0,name:'Maya',home:'eblofts',loc:'cafe',job:'Coffee roaster',faction:'democrat',also:['food'],gender:'female',body:'#3d5a4a',hair:'#3a2a20',hat:'#c9822a'},
+{m:'burgerbar',x:6,y:6,dir:0,name:'Sanna',home:'skyapts',loc:'burgerbar',job:'Polar Burger cook',faction:'food',gender:'female',body:'#c0392b',hair:'#c9822a'},
+{m:'cafe',x:4,y:6,dir:0,name:'Maya',home:'eblofts',loc:'cafe',job:'Coffee roaster',faction:'democrat',also:['food'],gender:'female',body:'#3d5a4a',hair:'#3a2a20',hat:'#c9822a'},
 {m:'tattoo',x:4,y:3,dir:2,name:'Jonna',home:'eblofts',loc:'tattoo',job:'Tattoo artist',faction:'democrat',also:['proprietors'],gender:'female',body:'#2f4a5a',hair:'#6b4a2a'},
 {m:'commcentre',x:10,y:3,dir:0,name:'Erik',home:'eblofts',loc:'commcentre',job:'Democratic Party leader',faction:'democrat',gender:'male',body:'#2e86c1',hair:'#c9a05a'},
 {m:'police',x:10,y:6,dir:0,name:'Sergeant Hanna',home:'kgapts',loc:'police',job:'Desk sergeant',faction:'police',gender:'female',body:'#1f3a5f',hair:'#3a2a20',hat:'#1f3a5f'},
-{m:'tavern',x:6,y:2,dir:0,name:'Linnea',home:'eblofts',loc:'tavern',job:'Bartender',faction:'royal',also:['proprietors'],gender:'female',body:'#3d5a4a',hair:'#c9822a'},
-{m:'cedargrill',x:5,y:2,dir:0,name:'Arvid',home:'eblofts',loc:'cedargrill',job:'Chef',faction:'royal',also:['food'],gender:'male',body:'#f2f2f2',hair:'#5a3a26'},
+{m:'tavern',x:6,y:6,dir:0,name:'Linnea',home:'eblofts',loc:'tavern',job:'Bartender',faction:'royal',also:['proprietors'],gender:'female',body:'#3d5a4a',hair:'#c9822a'},
+{m:'cedargrill',x:5,y:6,dir:0,name:'Arvid',home:'eblofts',loc:'cedargrill',job:'Chef',faction:'royal',also:['food'],gender:'male',body:'#f2f2f2',hair:'#5a3a26'},
 {m:'colahq',x:5,y:10,dir:0,name:'Ville',home:'kgapts',loc:'colahq',job:'Newsstand vendor',faction:'shops',gender:'male',body:'#2e6f9a',hair:'#d9c9a0',hat:'#2e6f9a'},
 {m:'colahq',x:10,y:10,dir:0,name:'Rosa',home:'kgapts',loc:'colahq',job:'Hot dog vendor',faction:'food',gender:'female',body:'#c0392b',hair:'#2a1a12',hat:'#e0a100'},
 {m:'doctor',x:12,y:3,dir:0,name:'Doctor Lind',home:'kgapts',loc:'doctor',job:'Doctor',faction:'republican',gender:'male',body:'#f2f2f2',hair:'#8a8a8a'},
@@ -507,8 +506,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'town',x:4,y:8,dir:2,name:'Marjut',home:'kgapts',loc:'town',job:'Unemployed',faction:'unemployed',gender:'female',body:'#4a5a7a',hair:'#2a1a12',hat:'#c9822a',evening:{m:'citybar',x:11,y:8,dir:1}},
 // two out-of-work people from the Timber Lofts: by day they hang about by the bench in Eastbrook's square, and they spend the
 // evening in the Timberline Tavern
-{m:'second',x:31,y:17,dir:3,name:'Veikko',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'male',body:'#6a5a3a',hair:'#3a2a20',hat:'#3d5a4a',evening:{m:'tavern',x:4,y:6,dir:0}},
-{m:'second',x:33,y:17,dir:2,name:'Hely',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'female',body:'#a8642a',hair:'#e8c86a',evening:{m:'tavern',x:10,y:6,dir:0}},
+{m:'second',x:31,y:17,dir:3,name:'Veikko',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'male',body:'#6a5a3a',hair:'#3a2a20',hat:'#3d5a4a',evening:{m:'tavern',x:4,y:10,dir:0}},
+{m:'second',x:33,y:17,dir:2,name:'Hely',home:'eblofts',loc:'second',job:'Unemployed',faction:'unemployed',gender:'female',body:'#a8642a',hair:'#e8c86a',evening:{m:'tavern',x:10,y:10,dir:0}},
 // two out-of-work people from the Skyline Apartments: by day they hang about by the phone box at the west end of Frostholm's
 // boulevard, and they spend the evening in The Midnight Note
 {m:'fishing',x:5,y:7,dir:3,name:'Arto',home:'skyapts',loc:'fishing',job:'Unemployed',faction:'unemployed',gender:'male',body:'#3a3d44',hair:'#2a1a12',hat:'#b05fff',evening:{m:'jazz_in',x:3,y:9,dir:1}},
@@ -653,11 +652,25 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // (how the Quests tab lists it) and one of:
 //   give:item, to:name   talk to that person with the item in your inventory and agree to hand it over
 //   use:label, m:place   face that piece of furniture in that place and press E
+//   talk:name            have a conversation with that person (the quest's chat is what they say)
+// from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
+// call (the big screen in your home), not in person.
 // Someone with a quest to give has a star over their head, and a star on the island map marks where they are.
 const QUESTS={
 report:{title:'Report in',giver:'Chuck',start:true,text:'Use the radio equipment in the Hidden Radio Room to tell Chuck you have arrived safely on the island.',
   done:[{use:'Radio Equipment',m:'hekki_room',what:'Radio Chuck from the Hidden Radio Room'}],
   thanks:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "Keep your head down."'},
+meetreds:{title:'Meet the Communists',giver:'Chuck',from:1,call:true,text:'Chuck wants a read on the Communist Party. Go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
+  offer:"Morning, NIGHTJAR. Glad you made it in one piece. First job: the Communist Party. Their leader is a woman called Anna; they run things out of an HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don't tip your hand.",
+  accept:'Good. Call me when you have something.',wait:'Talked to Anna yet? Communist Party HQ, Saltwick. A friendly chat, nothing more.',
+  done:[{talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader'}],
+  thanks:'You have the measure of Anna. Chuck will want to hear about her.',
+  chat:{start:'a',nodes:{
+    a:{say:"Comrade! Not many come in from the cold to visit us. What brings you to the Party's door?",opts:[['I want to know what the Party stands for.','b'],["I heard about the king. Everyone's talking about it.",'c'],["I'm a journalist, from abroad.",'d']]},
+    b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island belongs to the fishermen, the mill hands and the miners, not to the palace and the cola men.',opts:[['And the Americans?','e'],['Thank you for your time.',null]]},
+    c:{say:'So is everyone. A king dies and the vultures circle: the royals, the Democrats, Kelp Cola, the Syndicate. This month decides who runs the island.',opts:[['Where does the Party stand?','b'],["I'll keep my ears open.",null]]},
+    d:{say:'A journalist! Then write this down: the people of Sarivalto will choose their own future. Not Washington. Not Moscow.',opts:[['Not Moscow?','e'],['I will.',null]]},
+    e:{say:"We take help where it's offered, comrade, but nobody buys us. Remember that. Now, I have a meeting. Come back any time."}}}},
 pizza:{title:'Pizza for Buttons',giver:'Buttons',text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
   offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
   accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',
@@ -680,7 +693,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,10,0,-1,'apartments3',22,8,0,1],['skyapts2',22,10,0,-1,'skyapts3',22,8,0,1],['skyapts3',22,10,0,-1,'skyapts4',22,8,0,1],['eblofts2',22,10,0,-1,'eblofts3',22,8,0,1],['eblofts3',22,10,0,-1,'eblofts4',22,8,0,1],['kgapts2',22,10,0,-1,'kgapts3',22,8,0,1],['kgapts3',22,10,0,-1,'kgapts4',22,8,0,1],['hsresid',22,8,0,1,'hsresid2',22,8,0,1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,8,0,1],['skyapts',22,8,0,1,'skyapts2',22,8,0,1],['eblofts',22,8,0,1,'eblofts2',22,8,0,1],['kgapts',22,8,0,1,'kgapts2',22,8,0,1],
-['town',11,34,0,1,'pizzeria_in'],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['langley',18,1,0,1,'langley_office',16,8,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
+['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,-1,0],['langley',18,1,0,1,'langley_office',16,8,-1,0],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,1,0,1,'crypt',14,8,-1,0]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
