@@ -90,6 +90,13 @@ select hr{border:0;border-top:1px solid #000}
 #start svg.lines{width:100%;height:auto;background:#0f1a10;border:1px solid #3a5a3a;border-radius:6px}
 #daynight{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer;min-width:6.5em}
 #daynight[aria-pressed="true"]{background:#1c2340;color:#fff}
+#fsbtn{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer}#fsbtn[hidden]{display:none}
+/* full screen: the game fills the screen at its own shape (--ar, set by game.js), black either side, with the labels laid over it;
+   on a touch screen the direction pad comes too, in the bottom-right corner */
+#stage:fullscreen{border:0;background:#000;width:100vw;height:100vh}
+#stage:fullscreen #c,#stage:fullscreen #ov{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100vh * var(--ar,1.5)));height:auto}
+#stage:fullscreen #pad{position:absolute;right:16px;bottom:16px;line-height:normal;opacity:.8}
+#stage:fullscreen #pad button{background:rgba(11,18,10,.55);color:#fff;border-color:#9fe870}
 #pad{display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,48px);gap:4px}
 #pad button{background:transparent;color:var(--fg);border:2px solid var(--bd);font:inherit;font-size:18px;touch-action:none}
 #menu{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);line-height:1.3;display:flex;flex-direction:column;gap:6px;min-width:min(70%,260px);padding:12px 14px;background:rgba(11,26,43,.94);border:2px solid #9fe870;border-radius:10px;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}

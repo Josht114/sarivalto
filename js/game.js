@@ -34,12 +34,21 @@ P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
 if(DAY<1){P.m='langley';P.x=P.rx=11;P.y=P.ry=10;P.dir=1;showHere(P.m)}
 // (the ?gothic proof of concept starts in Eastbrook's square instead)
 if(GOTHIC||DETAILED){P.m='second';P.x=P.rx=19;P.y=P.ry=12;showHere(P.m)}
+if(MODERN){P.m='fishing';P.x=P.rx=20;P.y=P.ry=8;showHere(P.m)}  // the modern proof of concept starts in Frostholm
 if(STEAM||STEAM2||CLASSIC)go('town');  // the steampunk proof of concept (and ?steam2, ?classic) start in Kingsgrad
 // The day/night toggle beside it (or N): the scenes are rebuilt, since windows, lamps and the detailed proof of concept's
 // art differ by night.
 const dn=document.getElementById('daynight');
 function setNight(on){NIGHT=on;applyRoutine();for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dn.textContent=on?'\u263E Night':'\u2600 Day';dn.setAttribute('aria-pressed',on)}
 dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
+// Full screen (the button, or F): the game's stage fills the screen; on a touch screen the direction pad moves into it while it does
+const stage=document.getElementById('stage'),fsb=document.getElementById('fsbtn'),pad=document.getElementById('pad'),controls=document.getElementById('controls');
+stage.style.setProperty('--ar',cv.width/cv.height);fsb.hidden=!(document.fullscreenEnabled||document.webkitFullscreenEnabled);
+const inFS=()=>(document.fullscreenElement||document.webkitFullscreenElement)==stage;
+function toggleFS(){if(inFS())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else(stage.requestFullscreen||stage.webkitRequestFullscreen).call(stage)}
+fsb.onclick=()=>{toggleFS();fsb.blur()};
+['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{const on=inFS();fsb.setAttribute('aria-pressed',on);fsb.innerHTML=on?'Exit full screen':'&#9974; Full screen';
+  if(matchMedia('(pointer:coarse)').matches){if(on)stage.appendChild(pad);else controls.after(pad)}}));
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
@@ -212,6 +221,7 @@ startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
 addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;const k=e.key;
   if(k=='m'||k=='M'){START?closeStart():openStart();e.preventDefault()}
+  else if((k=='f'||k=='F')&&!CONVO&&!fsb.hidden){toggleFS();e.preventDefault()}
   else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY&&!CONVO){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
   else if(START&&k=='Escape'){closeStart();e.preventDefault()}
   // in a shop the arrows (or WASD) move through the stock, C pays with CIA funds and P with your own money
@@ -486,5 +496,5 @@ function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1]
 var FLATS={};const FLAT_BLOCK=/^(apartments|skyapts|kgapts|eblofts|hsresid)/;
 const flatLabel=(m,x,y)=>{const ns=FLATS[m]?.[x+','+y];return!ns?'Empty flat':(ns.length>1?ns.slice(0,-1).join(', ')+' & '+ns.at(-1):ns[0])+"'s flat"};
 ROUTINE=planRoutine();applyRoutine();
-store.init().then(()=>{if(!GOTHIC&&!DETAILED&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}});
+store.init().then(()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search)){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}});
 let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;requestAnimationFrame(loop)})(0);

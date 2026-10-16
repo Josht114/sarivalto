@@ -34,7 +34,7 @@ let WMAP=null,WXID='';
 // lighting and the wet streets reflect it. Its buildings carry neon tubes along their
 // rooflines (BLD tube), its streets are wet and reflect the signs, billboards flicker like screens, steam rises from grates and
 // cables sag overhead. CYB marks the places it applies to; CYBING is set while one of them is being built.
-const CYB=m=>m=='fishing'||m=='kalanharbour',CYBERLOOK={dark:'rgba(28,10,56,.46)',fog:'190,80,220',fogA:.06};let CYBING=false;
+const CYB=m=>(m=='fishing'||m=='kalanharbour')&&!(typeof MOD=='function'&&MOD(m)),CYBERLOOK={dark:'rgba(28,10,56,.46)',fog:'190,80,220',fogA:.06};let CYBING=false;
 const rgbs=h=>rgb(h).join(',');
 // Smooth value noise in 0..1 (for snow drifts, wavy edges).
 function vnoise(x,y,s){const xi=Math.floor(x),yi=Math.floor(y),fx=x-xi,fy=y-yi,sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),
@@ -100,7 +100,7 @@ function rockPx(X,Y){const nz=rockAt(X,Y);if(nz<RK)return hash(X,Y,52)>.985?'#8a
 // Ploughed field under snow: soft furrow ridges with dark soil showing here and there.
 function fieldPx(X,Y){const row=Y%8,nz=vnoise(X/9,Y/9,55);if(row==7)return nz>.58?'#6b5a3a':nz>.45?'#a8a090':'#d8e3ec';
   if(row==6)return nz>.62?'#5a4a30':'#dfe7ee';if(hash(X,Y,56)>.985)return'#c9b06a';return row==0?'#f6f9fc':'#e8eff5'}
-function groundLayer(m){if(DET(m))return detailedGround(m);
+function groundLayer(m){if(DET(m))return detailedGround(m);if(typeof MOD=='function'&&MOD(m))return modernGround(m);
   // the weather: which ground, and how much snow lies on paths (sth raises a snow threshold out of reach as the snow thins)
   const wx=weatherOf(m),sk=WXSNOW[wx],sth=t=>t+(1-sk)*.6,gnd=WXGROUND[wx],bareAt=(X,Y)=>inBare(m,X>>4,Y>>4);
   // the radio mast and the drilling derrick stand on open ground, so their footprints are drawn as plain ground rather than a building
@@ -1850,6 +1850,8 @@ function sceneOf(m,wx){
   const shutTonight=(x,y,w,h,st)=>NIGHT&&typeof DAY_ONLY!='undefined'&&(DOORS.some(d=>d[0]==m&&d[1]>=x&&d[1]<x+w&&d[2]>=y&&d[2]<y+h&&DAY_ONLY.includes(d[5]))||DAY_ONLY_STALLS.some(([p,k])=>p==m&&k==st));
   FL[m].forEach(([x,y,w,h,ch,lb,st])=>{
     if(inside){const fu=furn(ch,w,h,lb,INT[m]||INT.default,hash(x,y,43));if(fu){put(y+h-1,x*16-1,y*16-fu.oy-1,fu.c);[].concat(fu.an||[]).forEach(a=>an.push({...a,x:x*16+a.x,y:y*16-fu.oy+a.y}))}return}
+    if(typeof MOD=='function'&&MOD(m)&&MBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=modernArt(w,h,MBLD[st],dx),ox=x*16-1,oy=y*16-MEXT-1;
+      put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox+1,y:a.y+oy+1}));b.lights.forEach(l=>lights.push({...l,x:l.x+ox+1,y:l.y+oy+1}));return}
     if(DET(m)&&DBLD[st]){const row=M[y+h-1];let dx=w>>1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;const b=detailedArt(w,h,DBLD[st],dx),ox=x*16-1,oy=y*16-DEXT-1;
       g.fillStyle='rgba(20,40,20,.28)';g.fillRect(x*16+2,(y+h)*16-1,w*16-2,4);put(y+h-1,ox,oy,b.c);b.an.forEach(a=>an.push({...a,x:a.x+ox+1,y:a.y+oy+1}));b.lights.forEach(l=>lights.push({...l,x:l.x+ox+1,y:l.y+oy+1}));return}
     if(STM(m)&&st&&BLD[st]&&!['shelter','manhole','wagon','fountain'].includes(BLD[st].kind)){const row=M[y+h-1];let dx=-1;for(let i=0;i<w;i++)if(row[x+i]=='d')dx=i;
@@ -1920,7 +1922,7 @@ function sceneOf(m,wx){
     ents.push({k:99,X:0,Y:0,c:wc});
     gcable([[ox+(left?8:MW-8),(my+mh)*16-5],[left?(hx+hw)*16:hx*16,(hy+hh)*16-8]],'#1a1c22','#3a3d44')}
   if(!inside)M.forEach((row,y)=>[...row].forEach((ch,x)=>{
-    if(ch=='T'){const set=GOTH(m)?DEADTREES:DET(m)?dtrees():treesFor(wx),t=set[hash(x,y,31)*set.length|0];put(y,(DET(m)?-4:0)+x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
+    if(ch=='T'){const set=GOTH(m)?DEADTREES:DET(m)?dtrees():typeof MOD=='function'&&MOD(m)?mtrees():treesFor(wx),t=set[hash(x,y,31)*set.length|0];put(y,(DET(m)?-4:0)+x*16+Math.round(hash(x,y,32)*2-1)-1,(y+1)*16-t.height+1,t,1,x,y)}
     if(ch=='R'){const t=(inBare(m,x,y)?bareOf(rocksNow):rocksNow())[hash(x,y,33)*3|0];put(y,x*16-1,(y+1)*16-t.height,t,1,x,y)}}));
   // tram lines: each row with a run of track gets overhead-wire poles along its far side and a wire for the tram's pantograph.
   // The tram stops level with the middle of the platform in front of (below) the track; a line that ends inside the map is a terminus.
@@ -1930,7 +1932,7 @@ function sceneOf(m,wx){
   trams.forEach(({y:ty,a,b})=>{const wc=cnv(b,ty*16),wg=wc.getContext('2d');wg.fillStyle='#2b2f3a';wg.fillRect(a,ty*16-TRAM_UP,b-a,1);ents.push({k:99,X:0,Y:0,c:wc});
     for(let x=a/16+1;x<b/16;x+=5)if(!'#T'.includes(M[ty-1][x]))put(ty-1,x*16+5,ty*16-30,tramPole,0,x,ty-1)});
   const ferries=EX[m].filter(e=>e.s=='F').map(e=>({x:e.ax>e.x?e.x-1:e.x+1,y:e.y,ph:hash(e.x,e.y,23)*6}));
-  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k0])=>{const k=GOTH(m)&&GPROP[k0]||DET(m)&&DPROP[k0]||WXPROP[wx]?.[k0]||k0,t=inBare(m,x,y)?bareOf(()=>propArt(k)):propArt(k),pass=PROP_PASS.includes(k),sp=propSpan(k);put(pass?y-.5:y,(x-((sp-1)>>1))*16-1,(y+1)*16-t.height+1,t,!pass&&sp==1,x,y);
+  PROPS.filter(p=>p[0]==m).forEach(([,x,y,k0])=>{const k=GOTH(m)&&GPROP[k0]||DET(m)&&DPROP[k0]||typeof MOD=='function'&&MOD(m)&&MPROP[k0]||WXPROP[wx]?.[k0]||k0,t=inBare(m,x,y)?bareOf(()=>propArt(k)):propArt(k),pass=PROP_PASS.includes(k),sp=propSpan(k);put(pass?y-.5:y,(x-((sp-1)>>1))*16-1,(y+1)*16-t.height+1,t,!pass&&sp==1,x,y);
     if(k=='firepit')an.push({t:'fire',x:x*16+8,y:y*16+11});
     if(NB[k]){const[lines,col]=NB[k],ox=(x-1)*16,oy=(y+1)*16-t.height+2;lines.forEach((s,i)=>an.push({t:'neon',x:ox+1+((46-s.length*4+1)>>1),y:oy+(lines.length==1?7:4)+i*7,s,col}));
       lights.push({x:x*16+8,y:oy+9,r:48,col:rgbs(col),f:1,rb:(y+1)*16})}
@@ -1950,7 +1952,7 @@ function sceneOf(m,wx){
   if(!inside)FL[m].forEach(([x,y,w,h,,,st])=>{const kd=BLD[st]?.kind;if(['van','kiosk','cart','bigtop','wagon','shelter'].includes(kd)&&!shutTonight(x,y,w,h,st))lights.push({x:(x+w/2)*16,y:(y+h/2)*16,r:kd=='bigtop'?64:30,col:'255,200,120',f:1})});
   // power cables sagging across Frostholm's boulevard (sorted just in front of its north side, so the billboards and anyone further
   // down the street are drawn over them and no cable runs across a billboard's lettering)
-  if(m=='fishing'){const wc=cnv(M[0].length*16,M.length*16),wg=wc.getContext('2d'),wr=(col,x,y)=>{wg.fillStyle=col;wg.fillRect(x|0,y|0,1,1)};
+  if(m=='fishing'&&!(typeof MOD=='function'&&MOD(m))){const wc=cnv(M[0].length*16,M.length*16),wg=wc.getContext('2d'),wr=(col,x,y)=>{wg.fillStyle=col;wg.fillRect(x|0,y|0,1,1)};
     for(const[x0,y0,x1,y1,sag]of[[3,6,13,10,10],[17,6,24,10,8],[31,6,36,10,9],[0,7,39,7,14],[6,6,24,6,12]]){const S0=[x0*16+8,y0*16+2],S1=[x1*16+8,y1*16+2],n=Math.ceil(Math.hypot(S1[0]-S0[0],S1[1]-S0[1])/2);let p=null;
       for(let k=0;k<=n;k++){const u=k/n,q=[S0[0]+(S1[0]-S0[0])*u,S0[1]+(S1[1]-S0[1])*u+sag*4*u*(1-u)];if(p)pline(wr,p[0],p[1],q[0],q[1],'#14121c');p=q}}
     ents.push({k:7.5,X:0,Y:0,c:wc})}
@@ -2103,7 +2105,7 @@ function drawWorld2(m,cx,cy,t,frame){
       for(const l of S.lights){if(!l.rb)continue;const X=l.x-cx+Math.sin(t/300+l.x)*1.5,Y=l.rb-cy,w=l.r*.45;if(X<-w||X>vw+w||Y>vh||Y<-40)continue;
         const gr=ctx.createLinearGradient(0,Y,0,Y+34);gr.addColorStop(0,`rgba(${l.col},.2)`);gr.addColorStop(1,`rgba(${l.col},0)`);ctx.fillStyle=gr;ctx.fillRect(X-w/2,Y,w,34)}
       ctx.restore()}
-    if(NIGHT&&!GOTH(m)&&!DET(m)&&!CYB(m))gothLight(S,cx,cy,t,MOONLOOK);
+    if(NIGHT&&!GOTH(m)&&!DET(m)&&!CYB(m))gothLight(S,cx,cy,t,typeof MOD=='function'&&MOD(m)?NIGHTLOOK:MOONLOOK);
     if(DET(m)&&NIGHT){gothLight(S,cx,cy,t,NIGHTLOOK);
       for(let i=0;i<26;i++){const X=((hash(i,1,500)*vw+Math.sin(t/1700+i)*30-cx*.15)%vw+vw)%vw,Y=((hash(i,2,500)*vh+Math.cos(t/2100+i*2)*20-cy*.15)%vh+vh)%vh,on=Math.sin(t/400+i*1.7)>.2;
         if(on){px('rgba(200,255,120,.25)',X-1,Y-1,3,3);px('#e8ff90',X,Y,1,1)}}}}
