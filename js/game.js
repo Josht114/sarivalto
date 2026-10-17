@@ -52,7 +52,7 @@ fsb.onclick=()=>{toggleFS();fsb.blur()};
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
-const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null};
+const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start).map(id=>({id,met:[],done:false}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save']];
@@ -100,9 +100,10 @@ const HEADLINES=['THE KING IS DEAD: ISLAND MOURNS','WHO WILL RULE SARIVALTO? PAR
 function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase();
   // holding something: one thing at a time
   if(a=='Equip'||a=='Unequip'){const was=ME.equipped&&ME.equipped!=id&&ITEMS[ME.equipped];ME.equipped=a=='Equip'?id:null;
-    ME.note=a=='Equip'?`You take the ${nm} in your hand${was?`, putting away the ${was.name.toLowerCase()}`:''}.`:`You put the ${nm} away.`;renderStart();return}
-  const gone=v=>()=>(take(id),`You ${v} the ${nm}.`),R={
-  beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>'You smoke a cigarette.'},
+    ME.note=id=='cigarettes'?(a=='Equip'?`You light a cigarette${was?` and put away the ${was.name.toLowerCase()}`:''}. You'll smoke as you go.`:'You stub out your cigarette.')
+      :a=='Equip'?`You take the ${nm} in your hand${was?`, putting away the ${was.name.toLowerCase()}`:''}.`:`You put the ${nm} away.`;renderStart();return}
+  const gone=v=>()=>(take(id),`You ${v} the ${nm}.`+(typeof eat=='function'?eat(id):'')),R={
+  beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>smoke()},
   burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
@@ -145,7 +146,7 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped},stock:STOCK,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol},stock:STOCK,fp:FP};
   // (if storing fails, say so once it has)
   store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -155,7 +156,7 @@ async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))
   loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
 function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -275,6 +276,7 @@ const signAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return snowBlocks
 function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
   if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU||START||BUSY||CONVO)return;
+  if(typeof needsTick=='function')needsTick(dt);
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
     if(m.t>=1){P.mv=null;const e=exitHere();
       if(e&&!PRESS_DOORS.has(e.to)){if(isOpen(e.to))useExit(e);else say('The boat to '+NM[e.to]+" isn't running: the harbour there is snowed in.",4000)}
@@ -324,13 +326,13 @@ const fadeEl=document.getElementById('fade');
 function pass(change,msg){BUSY=true;stack=[];fadeEl.style.opacity=1;setTimeout(()=>{change();fadeEl.style.opacity=0;say(msg(),5000);setTimeout(()=>BUSY=false,800)},1100)}
 // sitting and waiting takes you from day to night; sleeping in your bed takes you from night to the next morning
 function sitDown(){if(NIGHT){say('It is already night. Go home and get some sleep.',4000);return}
-  choose('Sit and wait for the evening?',[['Sit and wait until night',()=>pass(()=>setNight(true),()=>'You sit and wait. The day goes by, and night falls.')],['Not now']])}
+  choose('Sit and wait for the evening?',[['Sit and wait until night',()=>pass(()=>{setNight(true);needsPass(20,30,60)},()=>'You sit and wait. The day goes by, and night falls.')],['Not now']])}
 // a map on the wall (an interior's back-wall decoration 'map', in your home and elsewhere): facing up at it, from the floor below
 // it or with furniture in between, and pressing E opens the island map
 const mapAhead=()=>{if(DIR[P.dir][1]!=-1||L[P.m][3]!='interior'||P.y>2)return false;const x=P.x;return(INT[P.m]?.deco||[]).some(d=>d[1]=='map'&&d[0]==x)};
 function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit at the table and wait for the evening.',5000);return}
   if(DAY>=DAYS){say('It is '+DAYS+' '+MONTH+', the last day of the month. There is no time to sleep now.',5000);return}
-  choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{setDay(nextDay(DAY));setNight(false)},()=>'You sleep through the night. Good morning: it is '+dateStr(DAY)+'.')],['Not now']])}
+  choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{setDay(nextDay(DAY));setNight(false);needsPass(30,40,100)},()=>'You sleep through the night. Good morning: it is '+dateStr(DAY)+'.')],['Not now']])}
 // ---- Quests (QUESTS in data.js)
 const qOf=id=>ME.quests.find(q=>q.id==id);
 // the quest someone has to give you: one of theirs you haven't taken on yet (they have a star over their head)
@@ -522,6 +524,6 @@ store.init().then(()=>{const go=()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!ST
   if(document.readyState=='complete')go();else addEventListener('load',go)});
 // what you're holding, in the top right of the screen: redrawn only when it changes
 const hudEq=document.getElementById('hudeq');let hudWas;
-function showHeld(){const id=ME.equipped&&has(ME.equipped)?ME.equipped:null;if(id===hudWas)return;hudWas=id;hudEq.hidden=!id;
-  if(id)hudEq.innerHTML=`<img src="${itemIcon(id)}" alt=""><span><small>Equipped</small>${esc(ITEMS[id].name)}</span>`}
-let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;showHeld();requestAnimationFrame(loop)})(0);
+function showHeld(){const id=ME.equipped&&has(ME.equipped)?ME.equipped:null,extra=id=='cigarettes'?` <small>${ME.cigsLeft} left in the pack</small>`:'',key=id+extra;if(key===hudWas)return;hudWas=key;hudEq.hidden=!id;
+  if(id)hudEq.innerHTML=`<img src="${itemIcon(id)}" alt=""><span><small>${id=='cigarettes'?'Smoking':'Equipped'}</small>${esc(ITEMS[id].name)}${extra}</span>`}
+let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;showHeld();if(typeof showNeeds=='function')showNeeds();requestAnimationFrame(loop)})(0);

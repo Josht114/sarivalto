@@ -2022,7 +2022,10 @@ function drawWorld2(m,cx,cy,t,frame){
     const rod=typeof ME!='undefined'&&ME.equipped=='fishrod'&&(()=>{const[h,t]=[[[11,9],[18,-7]],[[3,8],[-3,-8]],[[6,9],[-7,-5]],[[9,9],[22,-5]]][P.dir];
       ctx.strokeStyle='#5a3a22';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(X+h[0],Y+h[1]);ctx.lineTo(X+t[0],Y+t[1]);ctx.stroke();
       ctx.strokeStyle='rgba(240,240,240,.7)';ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(X+t[0],Y+t[1]);ctx.lineTo(X+t[0],Y+t[1]+7);ctx.stroke();ctx.fillStyle='#c9a040';ctx.fillRect(X+h[0]+(t[0]-h[0])*.15-1,Y+h[1]+(t[1]-h[1])*.15-1,2,2)});
-    if(rod&&P.dir==1)rod();dressed(X,Y,P.dir,frame,typeof ME!='undefined'?ME.look:PLAYER.look);if(rod&&P.dir!=1)rod()}]);
+    if(rod&&P.dir==1)rod();dressed(X,Y,P.dir,frame,typeof ME!='undefined'?ME.look:PLAYER.look);if(rod&&P.dir!=1)rod();
+    if(typeof ME!='undefined'&&ME.equipped=='cigarettes'){const m=[[9,3,1],null,[3,2,-1],[12,2,1]][P.dir];if(m){const[mx,my,d]=m;ctx.fillStyle='#f4f4f0';ctx.fillRect(X+mx-(d<0?3:0),Y+my,3,1);
+        ctx.fillStyle=(t/300|0)%3?'#ff8a3a':'#ffd23a';ctx.fillRect(X+mx+(d<0?-4:3),Y+my,1,1)}
+      const sx=X+(m?m[0]+(m[2]<0?-4:3):8),sy=Y+(m?m[1]:-2);for(let k=0;k<3;k++){const u=((t/1400+k/3)%1);ctx.fillStyle=`rgba(230,230,235,${.5*(1-u)})`;ctx.fillRect(Math.round(sx+Math.sin(u*6+k)*2+u*3),Math.round(sy-2-u*12),1+(u>.5?1:0),1+(u>.5?1:0))}}}]);
   Ls.sort((a,b)=>a[0]-b[0]||a[1]-b[1]).forEach(e=>e[2]());
   // smoke, flags, signs, lights, fires and machines
   S.an.forEach(a=>{const X=a.x-cx,Y=a.y-cy;

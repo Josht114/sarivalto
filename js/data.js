@@ -521,7 +521,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 
 // ---- The player at the start of the game (placeholders): the CIA's operating funds, the player's own money, and what they carry
 // as [item id, how many] (ids are keys in ITEMS). QUESTS (below) are the quests. Both are shown in the start menu.
-const PLAYER={ciaFunds:5000,funds:250,look:{hair:'short',hairCol:'#4a2e1a',beard:'none',beardCol:'#4a2e1a',hat:'beanie_yellow',top:'parka_blue',legs:'jeans_blue',shoes:'boots_brown'},clothes:['beanie_yellow','parka_blue','sweater_grey','jeans_blue','khakis','boots_brown'],items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
+const PLAYER={ciaFunds:5000,funds:250,hunger:80,nicotine:70,look:{hair:'short',hairCol:'#4a2e1a',beard:'none',beardCol:'#4a2e1a',hat:'beanie_yellow',top:'parka_blue',legs:'jeans_blue',shoes:'boots_brown'},clothes:['beanie_yellow','parka_blue','sweater_grey','jeans_blue','khakis','boots_brown'],items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
 // ---- Items: the name, the description shown in the inventory, and the actions you can take with it (each action is handled in
 // game.js; ones it doesn't handle yet say so). Their sprites are ITEM_ART in art.js.
 // ITEMS: each thing you can carry: its name, description and what you can do with it (actions); equip:true means it can be held
@@ -536,7 +536,7 @@ flashlight:{name:'Flashlight',desc:'A steel flashlight with fresh batteries.',ac
 // things the shops sell
 beer:{name:'Bottle of beer',desc:'A brown bottle of Sarivalto lager, brewed in Kingsgrad.',actions:['Drink']},
 whisky:{name:'Glass of whisky',desc:'A short glass of whisky over ice.',actions:['Drink']},
-cigarettes:{name:'Pack of cigarettes',desc:'A red pack of twenty. Offering one round is the quickest way into a conversation.',actions:['Smoke']},
+cigarettes:{name:'Pack of cigarettes',desc:'A red pack of twenty. Offering one round is the quickest way into a conversation. Equip it to smoke as you go.',actions:['Smoke'],equip:true},
 book:{name:'Paperback novel',desc:'A well-thumbed spy thriller. The hero always gets away.',actions:['Read']},
 islandmap:{name:'Map of Sarivalto',desc:'A folding map of the island with every town, road and harbour.',actions:['Look at']},
 burger:{name:'Polar Burger',desc:'A cheeseburger in a sesame bun from Polar Burger.',actions:['Eat']},
@@ -589,6 +589,10 @@ boot:{name:'Old boot',where:'any',w:5,zone:.4,price:0,junk:true,desc:'A waterlog
 for(const k in FISH)ITEMS[k]={name:FISH[k].name,desc:FISH[k].desc,actions:['Look at']};
 // who buys the fish you catch
 const FISH_BUYER='Olga';
+// ---- How much each thing you eat or drink fills your hunger (out of 100; js/needs.js)
+// ---- How drunk each drink makes you (the alcohol meter goes up by this, out of 100)
+const ALCOHOL={beer:15,wine:25,whisky:20};
+const FOOD={meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
 const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say

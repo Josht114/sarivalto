@@ -16,8 +16,14 @@ select hr{border:0;border-top:1px solid #000}
 #startbtn[aria-expanded="true"]{background:#2f4a14;color:#fff}
 /* the start menu: tabs along the top, then the inventory, quests or map */
 /* the item you're holding, in the top right of the game screen */
-#hudeq{position:absolute;top:2%;right:1.5%;display:flex;align-items:center;gap:5px;padding:3px 8px 3px 3px;line-height:1.1;font-size:11px;color:#fff;background:rgba(11,26,43,.78);border:1px solid #ffd23a;border-radius:6px;pointer-events:none}
-#hudeq[hidden]{display:none}#hudeq img{width:24px;height:24px;image-rendering:pixelated}#hudeq small{display:block;font-size:9px;color:#ffd23a;text-transform:uppercase;letter-spacing:1px}
+#hud{position:absolute;top:2%;right:1.5%;display:flex;flex-direction:column;align-items:flex-end;gap:4px;pointer-events:none;line-height:1.1}
+#hudeq{display:flex;align-items:center;gap:5px;padding:3px 8px 3px 3px;line-height:1.1;font-size:11px;color:#fff;background:rgba(11,26,43,.78);border:1px solid #ffd23a;border-radius:6px;pointer-events:none}
+#hudeq[hidden]{display:none}
+/* hunger and nicotine: two small bars, red when low */
+#needs{display:flex;flex-direction:column;gap:3px;padding:4px 6px;background:rgba(11,26,43,.78);border:1px solid #3a5a3a;border-radius:6px}
+#needs .need{display:grid;grid-template-columns:52px 60px;align-items:center;gap:5px;font-size:9px;color:#cfd8cf;text-transform:uppercase;letter-spacing:.5px}
+#needs i{display:block;height:6px;background:#1c2e1c;border:1px solid #0a120a;border-radius:2px;overflow:hidden}#needs b{display:block;height:100%;background:#9fe870}
+#needs .need:nth-child(2) b{background:#c8c0a8}#needs .alc b{background:#e0a030}#needs .low span{color:#ff6a5a}#needs .low b{background:#ff5a3a!important;animation:you .6s infinite alternate}#hudeq img{width:24px;height:24px;image-rendering:pixelated}#hudeq small{display:block;font-size:9px;color:#ffd23a;text-transform:uppercase;letter-spacing:1px}
 #start{position:absolute;inset:4%;display:flex;flex-direction:column;line-height:1.35;font-size:13px;padding:10px 12px;background:rgba(11,26,43,.96);border:2px solid #9fe870;border-radius:10px;color:#fff;overflow:auto}
 #start[hidden]{display:none}
 #start .tabs{display:flex;gap:6px;margin-bottom:10px;align-items:center}
