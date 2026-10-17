@@ -524,13 +524,15 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 const PLAYER={ciaFunds:5000,funds:250,look:{hair:'short',hairCol:'#4a2e1a',beard:'none',beardCol:'#4a2e1a',hat:'beanie_yellow',top:'parka_blue',legs:'jeans_blue',shoes:'boots_brown'},clothes:['beanie_yellow','parka_blue','sweater_grey','jeans_blue','khakis','boots_brown'],items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
 // ---- Items: the name, the description shown in the inventory, and the actions you can take with it (each action is handled in
 // game.js; ones it doesn't handle yet say so). Their sprites are ITEM_ART in art.js.
+// ITEMS: each thing you can carry: its name, description and what you can do with it (actions); equip:true means it can be held
+// in your hand (one thing at a time), which some actions need (the fishing rod must be held to fish).
 const ITEMS={
 notebook:{name:'Notebook',desc:'Your field notebook, small enough for a jacket pocket: names, places and anything worth remembering, in your own shorthand.',actions:['Read','Write a note']},
-camera:{name:'Minox spy camera',desc:'A Minox subminiature camera, no bigger than a finger. It slides open to shoot and is made for photographing documents up close.',actions:['Take a photo','Load film']},
+camera:{name:'Minox spy camera',desc:'A Minox subminiature camera, no bigger than a finger. It slides open to shoot and is made for photographing documents up close.',actions:['Take a photo','Load film'],equip:true},
 film:{name:'Roll of film',desc:'Film cassettes for the Minox, 50 exposures each. Hand the exposed rolls to Chuck to be developed.',actions:['Load into camera']},
 codebook:{name:'Radio codebook',desc:'One-time pads and call signs for talking to Chuck over the radio. Burn it before anyone else reads it.',actions:['Read','Burn']},
 lockpicks:{name:'Lock picks',desc:'A set of picks and a tension wrench, rolled up in a leather pouch.',actions:['Pick a lock']},
-flashlight:{name:'Flashlight',desc:'A steel flashlight with fresh batteries.',actions:['Turn on']},
+flashlight:{name:'Flashlight',desc:'A steel flashlight with fresh batteries.',actions:['Turn on'],equip:true},
 // things the shops sell
 beer:{name:'Bottle of beer',desc:'A brown bottle of Sarivalto lager, brewed in Kingsgrad.',actions:['Drink']},
 whisky:{name:'Glass of whisky',desc:'A short glass of whisky over ice.',actions:['Drink']},
@@ -558,9 +560,9 @@ oxfords:{name:'Black Oxfords',desc:'Polished black leather shoes. It goes into y
 fedora:{name:'Grey fedora',desc:'A grey felt hat with a black band. It goes into your wardrobe.',actions:[]},
 radio:{name:'Transistor radio',desc:'A pocket radio. It picks up Radio Sarivalto and, at night, stations from across the sea.',actions:['Listen']},
 batteries:{name:'Batteries',desc:'A pair of batteries for a flashlight or a radio.',actions:[]},
-fishrod:{name:'Fishing rod',desc:'A rod and reel with a good length of line.',actions:['Fish']},
+fishrod:{name:'Fishing rod',desc:'A rod and reel with a good length of line. Equip it to fish.',actions:['Fish'],equip:true},
 smokedfish:{name:'Smoked fish',desc:'A whole smoked fish, wrapped in paper.',actions:['Eat']},
-pistol:{name:'Pistol',desc:'A small automatic pistol. Better kept hidden.',actions:[]},
+pistol:{name:'Pistol',desc:'A small automatic pistol. Better kept hidden.',actions:[],equip:true},
 ammo:{name:'Box of bullets',desc:'A box of bullets for the pistol.',actions:[]},
 souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola mascot, from the museum gift shop.',actions:['Look at']},
 bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
@@ -570,6 +572,23 @@ pizza:{name:'Slice of pizza',desc:'A hot slice of pizza, cheese and pepperoni, f
 wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
+// ---- Fish (js/fishing.js): where each bites (the sea, fresh water, or any), how often (w, and at night if it differs), how big the
+// green zone is when you reel it in (smaller is harder, and it fights harder too), and what Olga at the fish shop pays for one.
+// Junk is caught like a fish but nobody buys it. Each is also an item.
+const FISH={
+herring:{name:'Herring',where:'sea',w:30,zone:.34,price:2,desc:'A silver herring, the fish the island was built on.'},
+cod:{name:'Cod',where:'sea',w:18,zone:.28,price:5,desc:'A fat speckled cod.'},
+salmon:{name:'Salmon',where:'sea',w:8,night:14,zone:.2,price:10,desc:'A gleaming sea salmon, heavy in the hand.'},
+halibut:{name:'Halibut',where:'sea',w:3,night:6,zone:.14,price:18,desc:'A great flat halibut, both eyes on one side.'},
+kelp:{name:'Kelp',where:'sea',w:6,zone:.4,price:0,junk:true,desc:'A dripping clump of kelp. Kelp Cola would be proud.'},
+perch:{name:'Perch',where:'fresh',w:30,zone:.34,price:2,desc:'A striped perch with spiny red fins.'},
+burbot:{name:'Burbot',where:'fresh',w:10,night:22,zone:.26,price:5,desc:'A slimy, whiskered burbot, which bites best in the dark.'},
+pike:{name:'Pike',where:'fresh',w:12,zone:.2,price:8,desc:'A long pike with a mouthful of teeth.'},
+char:{name:'Arctic char',where:'fresh',w:4,night:7,zone:.14,price:14,desc:'An Arctic char, red-bellied, from the cold deep water.'},
+boot:{name:'Old boot',where:'any',w:5,zone:.4,price:0,junk:true,desc:'A waterlogged old boot. Someone lost it a long time ago.'}};
+for(const k in FISH)ITEMS[k]={name:FISH[k].name,desc:FISH[k].desc,actions:['Look at']};
+// who buys the fish you catch
+const FISH_BUYER='Olga';
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
 const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say

@@ -52,21 +52,21 @@ fsb.onclick=()=>{toggleFS();fsb.blur()};
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
-const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{}};
+const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start).map(id=>({id,met:[],done:false}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save']];
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
-  return t?`<button class="slot" data-item="${i}" aria-pressed="${i==sel}" title="${esc(ITEMS[t.id].name)}"><img src="${itemIcon(t.id)}" alt="">${priced?`<span class="p">$${t.p}</span>`:''}${t.n>1?`<span class="n">${t.n}</span>`:''}</button>`:'<span class="slot"></span>'}).join('');
+  return t?`<button class="slot${!priced&&ME.equipped==t.id?' eq':''}" data-item="${i}" aria-pressed="${i==sel}" title="${esc(ITEMS[t.id].name)}${!priced&&ME.equipped==t.id?' (equipped)':''}"><img src="${itemIcon(t.id)}" alt="">${!priced&&ME.equipped==t.id?'<span class="e">E</span>':''}${priced?`<span class="p">$${t.p}</span>`:''}${t.n>1?`<span class="n">${t.n}</span>`:''}</button>`:'<span class="slot"></span>'}).join('');
 const money=v=>'$'+v.toLocaleString('en-US'),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
 function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'){renderTracker();return}if(START=='wardrobe'){renderWardrobe();return}if(typeof PLAYS!='undefined'&&PLAYS[START]){PLAYS[START].render();return}let body='';
   if(START=='inv'){// the date and money, then a grid of what you carry (at least 4 rows of 4), and the chosen item's panel
     ME.sel=Math.max(0,Math.min(ME.sel,ME.items.length-1));const it=ME.items[ME.sel],d=it&&ITEMS[it.id];
     const slots=slotsOf(ME.items,ME.sel);
     body=`<dl><dt>Date</dt><dd>${dateStr(DAY)} <small>${DAY<1?'(before the month begins)':`(day ${DAY} of ${DAYS})`}</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd></dl>
-    <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}</h3></div>
+    <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}${ME.equipped==it.id?' <small class="eqd">Equipped</small>':''}</h3></div>
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
   if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
       `<ul class="qconds">${Q.done.map((c,i)=>`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
@@ -93,22 +93,26 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
 // What each item can do. The actions come from ITEMS, with a few that change with the item's state (the flashlight's switch,
 // film in the camera); useItem carries one out and leaves a line in the panel.
 const has=id=>ME.items.find(i=>i.id==id),take=id=>{const i=has(id);if(i&&--i.n<=0)ME.items.splice(ME.items.indexOf(i),1)};
-function itemActions(id){return ITEMS[id].actions.map(a=>id=='flashlight'&&a=='Turn on'&&ME.light?'Turn off':a)}
+function itemActions(id){const a=ITEMS[id].actions.map(a=>id=='flashlight'&&a=='Turn on'&&ME.light?'Turn off':a);return ITEMS[id].equip?[ME.equipped==id?'Unequip':'Equip',...a]:a}
 function itemState(id){return id=='camera'?` ${ME.filmIn?'Loaded: '+ME.filmIn+' exposures left.':'No film loaded.'}`:id=='flashlight'?` It is ${ME.light?'on':'off'}.`:''}
 function loadFilm(){if(ME.filmIn)return'The camera already has film in it.';if(!has('film'))return'You have no film.';take('film');ME.filmIn=50;return'You load a fresh roll of film into the Minox: 50 exposures.'}
 const HEADLINES=['THE KING IS DEAD: ISLAND MOURNS','WHO WILL RULE SARIVALTO? PARTIES PREPARE','REPUBLICANS STILL WITHOUT A LEADER','KELP COLA PROFITS UP AGAIN','OIL RIG PRODUCTION AT RECORD HIGH','SOVIET TRAWLERS SEEN OFF THE NORTH COAST','CHURCH CALLS FOR CALM'];
-function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase(),gone=v=>()=>(take(id),`You ${v} the ${nm}.`),R={
+function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase();
+  // holding something: one thing at a time
+  if(a=='Equip'||a=='Unequip'){const was=ME.equipped&&ME.equipped!=id&&ITEMS[ME.equipped];ME.equipped=a=='Equip'?id:null;
+    ME.note=a=='Equip'?`You take the ${nm} in your hand${was?`, putting away the ${was.name.toLowerCase()}`:''}.`:`You put the ${nm} away.`;renderStart();return}
+  const gone=v=>()=>(take(id),`You ${v} the ${nm}.`),R={
   beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>'You smoke a cigarette.'},
   burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
-  radio:{Listen:'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:'Find some open water to fish in.'},
+  radio:{Listen:'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:()=>ME.equipped!='fishrod'?'Equip the fishing rod first.':canFish()?(closeStart(),startFishing(),''):'Face some open water (the sea, the lake or the river) to fish in it.'},
   notebook:{'Read':`${dateStr(DAY)}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
   camera:{'Take a photo':()=>ME.filmIn?'Nothing here worth photographing.':'There is no film in the camera.','Load film':loadFilm},
   film:{'Load into camera':loadFilm},
   codebook:{'Read':'Call sign for Chuck: NIGHTJAR. Today\'s pad page is marked with a pencil tick.','Burn':'Not yet: you still need it to talk to Chuck.'},
   lockpicks:{'Pick a lock':'There is no lock here to pick.'},
-  flashlight:{'Turn on':()=>(ME.light=true,'Click. The flashlight is on.'),'Turn off':()=>(ME.light=false,'Click. The flashlight is off.')}}[id]?.[a];
+  flashlight:{'Turn on':()=>(ME.light=true,'Click. The flashlight is on.'),'Turn off':()=>(ME.light=false,'Click. The flashlight is off.')}}[id]?.[a]??(FISH[id]&&a=='Look at'?FISH[id].desc+(FISH[id].junk?' Nobody will buy it.':' Olga at the fish shop pays '+money(FISH[id].price)+' for one.'):undefined);
   ME.note=typeof R=='function'?R():R??'You cannot do that yet.';const at=ME.items.findIndex(i=>i.id==id);if(at>=0)ME.sel=at;renderStart()}
 // ---- Shops: talking to a shopkeeper at their shop shows their stock (in the same grid as your inventory). Choose an item and
 // pay with CIA funds or your own money; it moves from their stock to your inventory.
@@ -141,7 +145,7 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi},stock:STOCK,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped},stock:STOCK,fp:FP};
   // (if storing fails, say so once it has)
   store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -151,7 +155,7 @@ async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))
   loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
 function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -363,7 +367,7 @@ function questTalk(n){
 // talking to someone: their quest business first, then their own conversation (CONVOS), a shopkeeper's welcome, or a line about
 // themselves; all of it in the conversation panel
 function talk(n){n.dir=P.dir^1;
-  const c=questTalk(n)||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
+  const c=questTalk(n)||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],...(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk)?[['Sell my catch',null,sellCatch]]:[]),['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
   converse(n,c)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
@@ -381,6 +385,8 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
   if(wardrobeAhead()){openWardrobe();return}
+  if(typeof canFish=='function'&&canFish()){startFishing();return}
+  if(typeof waterAhead=='function'&&has('fishrod')&&ME.equipped!='fishrod'&&waterAhead()){say('Equip your fishing rod first: open the menu (M), choose it in your inventory and press Equip.',4500);return}
   const sg=signAhead();if(sg){say('DANGER! SNOW. NO ACCESS. The road to '+NM[sg.to]+' is buried in drifts.',5000);return}
   const g=typeof gameAhead=='function'&&gameAhead();if(g){openPlay(g);return}
   const n=npcAhead();if(n){talk(n);return}
@@ -434,6 +440,8 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
   if(signAhead()&&!P.mv)return'Press E to read the sign';
+  if(typeof canFish=='function'&&canFish()&&!P.mv)return'Press E to fish';
+  if(typeof waterAhead=='function'&&has('fishrod')&&ME.equipped!='fishrod'&&waterAhead()&&!P.mv)return'Equip your fishing rod to fish';
   const ga=typeof gameAhead=='function'&&gameAhead();if(ga&&!P.mv&&!npcAhead())return GAME_HINT[ga];
   if(seatAhead()&&!P.mv&&!npcAhead())return NIGHT?'Night has fallen':'Press E to sit and wait';
   const n=npcAhead();if(n&&!P.mv)return'Press E to talk to '+n.name;
@@ -512,4 +520,8 @@ ROUTINE=planRoutine();applyRoutine();
 // ?night or a proof of concept, goes straight into the game.) It waits for the page to finish loading, so js/title.js is there.
 store.init().then(()=>{const go=()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search))showTitle()};
   if(document.readyState=='complete')go();else addEventListener('load',go)});
-let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;requestAnimationFrame(loop)})(0);
+// what you're holding, in the top right of the screen: redrawn only when it changes
+const hudEq=document.getElementById('hudeq');let hudWas;
+function showHeld(){const id=ME.equipped&&has(ME.equipped)?ME.equipped:null;if(id===hudWas)return;hudWas=id;hudEq.hidden=!id;
+  if(id)hudEq.innerHTML=`<img src="${itemIcon(id)}" alt=""><span><small>Equipped</small>${esc(ITEMS[id].name)}</span>`}
+let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;showHeld();requestAnimationFrame(loop)})(0);
