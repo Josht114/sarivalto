@@ -1,7 +1,0 @@
-Name: Bruno
-Gender: Male
-Faction: None
-Group: The Circus
-Partner: None
-Job: Ringmaster
-Home: Ringmaster's Caravan (Lake Ilmari)

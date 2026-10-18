@@ -1,0 +1,8 @@
+Name: Sanna
+Gender: Female
+Faction: None
+Group: The Food Vendors
+Partner: None
+Job: Polar Burger cook
+Home: Skyline Apartments (Frostholm)
+Bio:

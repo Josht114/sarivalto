@@ -1,0 +1,8 @@
+Name: Bertil
+Gender: Male
+Faction: None
+Group: The Administrators
+Partner: None
+Job: Civil servant
+Home: Kingsgrad Apartments (Kingsgrad)
+Bio:

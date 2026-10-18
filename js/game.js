@@ -207,7 +207,7 @@ function renderWardrobe(){const rows=WROWS.map(([k,label,f],i)=>{const o=f(),j=M
       `<span class="wv">${k.endsWith('Col')?`<i class="wsw" style="background:${o[j][0]}"></i>`:''}${esc(o[j][1])} <small>${j+1}/${o.length}</small></span><button data-w="${i}" data-d="1" aria-label="Next ${lc}">&#9654;</button></div>`}).join('');
   startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Wardrobe</h3><button class="close" aria-label="Close the wardrobe">&times;</button></div>
     <div class="wardrobe"><div class="wprev" aria-label="How you look">${[0,3,1,2].map(()=>'<canvas width="48" height="60"></canvas>').join('')}</div><div class="wopts">${rows}</div></div>
-    <p class="note">Up and down choose, left and right change. More clothes are for sale at ${esc(NM.clothes_in)} and ${esc(NM.tailor)}.</p>`;
+    <p class="note">Up and down choose, left and right change. More clothes are for sale at ${esc(NM.clothes_in)}, ${esc(NM.tailor)} and ${esc(NM.outfitters_in)}.</p>`;
   startEl.querySelectorAll('.wprev canvas').forEach((c,i)=>{const g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(lookChar([0,3,1,2][i],0,ME.look),0,0,48,60)});
   startEl.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>wstep(+b.dataset.w,+b.dataset.d));startEl.querySelector('.close').onclick=closeStart}
 // the wardrobe in your home is the tile you're facing

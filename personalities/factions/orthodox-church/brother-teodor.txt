@@ -1,0 +1,8 @@
+Name: Brother Teodor
+Gender: Male
+Faction: Orthodox Church
+Group: None
+Partner: None
+Job: Monk (cook)
+Home: Monks' Quarters (Mountain-Top Monastery)
+Bio:

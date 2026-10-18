@@ -1,7 +1,0 @@
-Name: Toni
-Gender: Female
-Faction: None
-Group: The Proprietors
-Partner: None
-Job: Arcade attendant
-Home: Kingsgrad Apartments (Kingsgrad)

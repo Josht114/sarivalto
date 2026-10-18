@@ -1,0 +1,8 @@
+Name: Veikko
+Gender: Male
+Faction: None
+Group: The Unemployed
+Partner: None
+Job: Unemployed
+Home: Timber Lofts (Eastbrook)
+Bio:

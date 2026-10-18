@@ -1,7 +1,0 @@
-Name: Private Aho
-Gender: Male
-Faction: None
-Group: The Army
-Partner: None
-Job: Soldier
-Home: Barracks Block A (Army Barracks)

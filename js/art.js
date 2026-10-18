@@ -239,6 +239,8 @@ const ICON_ART={
   vinyl:r=>{for(let y=0;y<18;y++)for(let x=0;x<18;x++){const d=Math.hypot(x-8.5,y-8.5);if(d<=8.6)r(d<1?'#f4efe4':d<3.4?'#ff8a3a':d>7.6?'#1a1a1e':(d|0)%2?'#26262c':'#1a1a1e',x,y)}
     r('#7a7a86',4,3,3,1);r('#7a7a86',3,4,1,2);r('#ffd23a',8,6,2,1)},
   // a tattoo-flash heart with a scroll across it
+  // a yellow sou'wester, its long brim at the back
+  souwester:r=>{r('#f0c020',5,4,9,7);r('#ffe070',6,4,3,2);r('#c89810',11,5,3,6);r('#f0c020',1,10,16,3);r('#c89810',1,12,16,1);r('#f0c020',13,13,4,3);r('#c89810',4,8,10,1);r('#7a5a10',8,13,2,4)},
   heart:r=>{for(let y=0;y<17;y++)for(let x=0;x<18;x++)if(heartAt(x,y))r(y<4&&x<8?'#e85a5a':'#c0392b',x,y);r('#efe2c4',0,7,18,4);r('#d8c8a0',0,10,18,1);r('#c9a87a',0,7,2,4);r('#c9a87a',16,7,2,4);
     for(let x=3;x<15;x+=2)r('#2a2a30',x,8,1,2)},
   // a red and black check flannel shirt
@@ -1283,6 +1285,7 @@ function lookChar(d,fr,lk){const key=d+','+fr+','+JSON.stringify(lk);if(LK[key])
     if(ht.style=='flatcap'){r(c,4,1,8,2);r(c,5,0,6,1);r(shade(c,.15),6,1,3,1);if(side)r(shade(c,-.3),2,3,5,1);else r(shade(c,-.3),4,3,8,1)}
     if(ht.style=='ushanka'){r(c,3,0,10,3);r(shade(c,.3),3,2,10,1);r(shade(c,.15),5,0,3,1);if(d==0){r(c,3,3,2,4);r(c,11,3,2,4)}else if(side)r(c,8,3,3,4);else r(c,3,3,10,3)}
     if(ht.style=='fedora'){r(c,5,0,6,2);r(shade(c,-.45),5,2,6,1);r(shade(c,-.15),2,3,12,1);r(shade(c,.2),6,0,2,1)}
+    if(ht.style=='souwester'){r(c,4,0,8,3);r(shade(c,.25),5,0,3,1);r(shade(c,-.25),2,3,12,1);if(d==1)r(c,3,4,10,3);else if(side)r(c,9,3,5,4);else{r(c,2,3,2,2);r(c,12,3,2,2)}}
     if(ht.style=='beret'){r(c,3,1,9,2);r(c,4,0,6,1);r(shade(c,-.3),4,3,8,1);r(shade(c,.25),5,1,2,1)}})}
 function dressed(px,py,d,fr,lk){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
 // Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
@@ -1349,6 +1352,7 @@ apartments3:{grime:2,fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#c6b892',
 apartments2:{grime:2,fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#c6b892',wall2:'#ad9f78',pap:'stripe',curtain:'#7a3a32',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'pic'],[15,'pic'],[7,'clock']]},
 bar:{grime:1,fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#2f4a3a',wall2:'#294232',pap:'stripe',curtain:'#7a2a2a',deco:[[1,'win'],[14,'dart'],[17,'neon'],[18,'win']]},
 barflat:{grime:1,fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b48a',wall2:'#bba67c',pap:'stripe',curtain:'#3d6b5a',quilt:'#7a5a8a',deco:[[1,'win'],[5,'pic'],[7,'win']]},
+outfitters_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#2e5a7a',wall2:'#24486a',pap:'panel',base:'#1e2a3a',rug:'#e0a100',curtain:'#e0a100',deco:[[1,'win'],[5,'map'],[8,'pic'],[14,'win']]},
 fishshop:{grime:1,fishCounter:1,fl:'check',f:['#e8eef2','#5b8fb9'],wall:'#cfe6ee',wall2:'#a9d4e8',pap:'tiles',base:'#4a5058',deco:[[12,'win'],[1,'poster']]},
 house_tom:{grime:1,fl:'wood',f:['#b08658','#a37a4e','#bb9062'],wall:'#e8d9a8',wall2:'#d9c690',pap:'flower',rug:'#2e6f9a',quilt:'#c0392b',curtain:'#c0392b',deco:[[2,'win'],[5,'pic']]},
 house_sam:{grime:1,fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c8dcc0',wall2:'#b4ccaa',pap:'stripe',rug:'#a33b2f',quilt:'#2e86c1',curtain:'#2e6f9a',deco:[[5,'win'],[8,'clock']]},

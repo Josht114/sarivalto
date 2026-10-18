@@ -1,7 +1,0 @@
-Name: Sally
-Gender: Female
-Faction: None
-Group: The Proprietors
-Partner: None
-Job: Estate agent
-Home: Sally's House (Kingsgrad)

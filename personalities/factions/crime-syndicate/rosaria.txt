@@ -1,0 +1,8 @@
+Name: Rosaria
+Gender: Female
+Faction: Crime Syndicate
+Group: The Food Vendors
+Partner: None
+Job: Pizzeria owner
+Home: Kingsgrad Apartments (Kingsgrad)
+Bio:

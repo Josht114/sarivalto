@@ -1,0 +1,8 @@
+Name: Nora
+Gender: Female
+Faction: None
+Group: The Reporters
+Partner: None
+Job: Reporter
+Home: Nora's House (Eastbrook)
+Bio:

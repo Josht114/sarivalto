@@ -1,0 +1,8 @@
+Name: Sven
+Gender: Male
+Faction: Diversified Petroleum
+Group: None
+Partner: None
+Job: Fuel dock attendant
+Home: Skyline Apartments (Frostholm)
+Bio:

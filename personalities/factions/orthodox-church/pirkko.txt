@@ -1,0 +1,8 @@
+Name: Pirkko
+Gender: Female
+Faction: Orthodox Church
+Group: The Food Vendors
+Partner: None
+Job: Food van owner
+Home: Pirkko's House (Eastbrook)
+Bio:

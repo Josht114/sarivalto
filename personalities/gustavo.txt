@@ -1,7 +1,0 @@
-Name: Gustavo
-Gender: Male
-Faction: Crime Syndicate
-Group: None
-Partner: None
-Job: Don
-Home: Gustavo's Villa (Hope Springs Gated Community)

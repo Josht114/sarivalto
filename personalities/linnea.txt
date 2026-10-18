@@ -1,7 +1,0 @@
-Name: Linnea
-Gender: Female
-Faction: Royal Family
-Group: The Proprietors
-Partner: None
-Job: Bartender
-Home: Timber Lofts (Eastbrook)

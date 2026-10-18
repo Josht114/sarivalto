@@ -1,7 +1,0 @@
-Name: Dex
-Gender: Male
-Faction: Democratic Party
-Group: The Food Vendors
-Partner: None
-Job: Hot dog vendor
-Home: Timber Lofts (Eastbrook)

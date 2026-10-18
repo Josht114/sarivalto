@@ -1,7 +1,0 @@
-Name: Viktor
-Gender: Male
-Faction: None
-Group: The Palace Workers
-Partner: None
-Job: Groundskeeper
-Home: Servants' Quarters (Royal Palace)

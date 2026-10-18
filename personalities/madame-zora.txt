@@ -1,7 +1,0 @@
-Name: Madame Zora
-Gender: Female
-Faction: None
-Group: The Circus
-Partner: None
-Job: Fortune teller
-Home: Fortune Teller's Caravan (Lake Ilmari)

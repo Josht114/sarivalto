@@ -1,7 +1,0 @@
-Name: Britta
-Gender: Female
-Faction: Diversified Petroleum
-Group: None
-Partner: None
-Job: Depot worker
-Home: Skyline Apartments (Frostholm)

@@ -1,7 +1,0 @@
-Name: Ruth
-Gender: Female
-Faction: Diversified Petroleum
-Group: None
-Partner: None
-Job: Receptionist
-Home: Skyline Apartments (Frostholm)

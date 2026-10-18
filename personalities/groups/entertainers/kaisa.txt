@@ -1,0 +1,8 @@
+Name: Kaisa
+Gender: Female
+Faction: None
+Group: The Entertainers
+Partner: None
+Job: Radio DJ
+Home: Apartment Block (Saltwick)
+Bio:

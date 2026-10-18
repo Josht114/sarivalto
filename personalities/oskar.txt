@@ -1,7 +1,0 @@
-Name: Oskar
-Gender: Male
-Faction: Royal Family
-Group: The Palace Workers
-Partner: None
-Job: Footman
-Home: Servants' Quarters (Royal Palace)

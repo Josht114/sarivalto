@@ -1,7 +1,0 @@
-Name: Edmund
-Gender: Male
-Faction: Royal Family
-Group: The Palace Workers
-Partner: None
-Job: Butler
-Home: Servants' Quarters (Royal Palace)

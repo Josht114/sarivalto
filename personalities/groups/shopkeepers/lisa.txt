@@ -1,0 +1,8 @@
+Name: Lisa
+Gender: Female
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Supermarket worker
+Home: Lisa's House (Kingsgrad)
+Bio:

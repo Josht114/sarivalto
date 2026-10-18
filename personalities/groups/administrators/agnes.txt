@@ -1,0 +1,8 @@
+Name: Agnes
+Gender: Female
+Faction: None
+Group: The Administrators
+Partner: None
+Job: Bank teller
+Home: Skyline Apartments (Frostholm)
+Bio:

@@ -1,7 +1,0 @@
-Name: Helen
-Gender: Female
-Faction: Communist Party
-Group: The Union
-Partner: Bob
-Job: Union leader
-Home: Apartment Block (Saltwick)

@@ -1,7 +1,0 @@
-Name: Augustus
-Gender: Male
-Faction: Royal Family, Orthodox Church
-Group: None
-Partner: None
-Job: Prince's brother
-Home: Royal Apartments (Royal Palace)

@@ -1,0 +1,8 @@
+Name: Liv
+Gender: Female
+Faction: Communist Party
+Group: None
+Partner: None
+Job: Customs officer
+Home: Timber Lofts (Eastbrook)
+Bio:

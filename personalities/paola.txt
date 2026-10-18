@@ -1,7 +1,0 @@
-Name: Paola
-Gender: Female
-Faction: Crime Syndicate
-Group: None
-Partner: None
-Job: Syndicate enforcer
-Home: Hope Springs Residences (Hope Springs Gated Community)

@@ -1,0 +1,8 @@
+Name: Buttons
+Gender: Male
+Faction: None
+Group: The Circus
+Partner: Meg
+Job: Jester
+Home: Performers' Caravan (Lake Ilmari)
+Bio:

@@ -1,0 +1,8 @@
+Name: Frank
+Gender: Male
+Faction: None
+Group: Republican Party, The Shopkeepers
+Partner: None
+Job: Gun shop owner
+Home: Frank's House (Kingsgrad)
+Bio:

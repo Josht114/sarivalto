@@ -1,7 +1,0 @@
-Name: Greta
-Gender: Female
-Faction: None
-Group: The Proprietors
-Partner: None
-Job: Hotel receptionist
-Home: Skyline Apartments (Frostholm)

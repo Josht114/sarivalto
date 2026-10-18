@@ -1,7 +1,0 @@
-Name: Hekki
-Gender: Male
-Faction: None
-Group: CIA
-Partner: None
-Job: Radio tech (and CIA informant)
-Home: Hekki's Shack (Radio Tower)

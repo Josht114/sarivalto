@@ -1,0 +1,8 @@
+Name: Nils
+Gender: Male
+Faction: None
+Group: Republican Party, The Shopkeepers
+Partner: None
+Job: Electronics store owner
+Home: Skyline Apartments (Frostholm)
+Bio:

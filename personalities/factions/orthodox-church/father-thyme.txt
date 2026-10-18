@@ -1,0 +1,8 @@
+Name: Father Thyme
+Gender: Male
+Faction: Orthodox Church
+Group: None
+Partner: None
+Job: Abbot
+Home: Father Thyme's House (Mountain-Top Monastery)
+Bio:

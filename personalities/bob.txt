@@ -1,7 +1,0 @@
-Name: Bob
-Gender: Male
-Faction: None
-Group: The Union
-Partner: Helen
-Job: Fishmonger
-Home: Apartment Block (Saltwick)

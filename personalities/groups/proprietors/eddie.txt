@@ -1,0 +1,8 @@
+Name: Eddie
+Gender: Female
+Faction: None
+Group: The Proprietors
+Partner: None
+Job: Bartender
+Home: Eddie's House (Kingsgrad)
+Bio:

@@ -1,0 +1,8 @@
+Name: Doctor Lind
+Gender: Male
+Faction: None
+Group: Republican Party
+Partner: None
+Job: Doctor
+Home: Kingsgrad Apartments (Kingsgrad)
+Bio:

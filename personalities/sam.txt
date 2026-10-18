@@ -1,7 +1,0 @@
-Name: Sam
-Gender: Male
-Faction: Communist Party
-Group: The Union
-Partner: None
-Job: Fisherman
-Home: Sam's House (Saltwick)

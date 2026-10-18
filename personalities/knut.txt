@@ -1,7 +1,0 @@
-Name: Knut
-Gender: Male
-Faction: Democratic Party
-Group: The Union
-Partner: None
-Job: Sawyer
-Home: Timber Lofts (Eastbrook)

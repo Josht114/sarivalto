@@ -1,0 +1,8 @@
+Name: Wilma
+Gender: Female
+Faction: Kelp Cola
+Group: The Shopkeepers
+Partner: None
+Job: Museum curator and gift shop clerk
+Home: Timber Lofts (Eastbrook)
+Bio:

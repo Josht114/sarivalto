@@ -1,0 +1,8 @@
+Name: Ville
+Gender: Male
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Newsstand vendor
+Home: Kingsgrad Apartments (Kingsgrad)
+Bio:

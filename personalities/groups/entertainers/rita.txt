@@ -1,0 +1,8 @@
+Name: Rita
+Gender: Female
+Faction: None
+Group: The Entertainers
+Partner: None
+Job: Jazz singer
+Home: Skyline Apartments (Frostholm)
+Bio:

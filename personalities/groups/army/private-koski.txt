@@ -1,0 +1,8 @@
+Name: Private Koski
+Gender: Male
+Faction: None
+Group: The Army
+Partner: None
+Job: Sentry
+Home: Barracks Block A (Army Barracks)
+Bio:

@@ -1,7 +1,0 @@
-Name: Kate
-Gender: Female
-Faction: Communist Party
-Group: The Union
-Partner: None
-Job: Fishmonger
-Home: Kate's House (Saltwick)

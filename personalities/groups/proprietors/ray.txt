@@ -1,0 +1,8 @@
+Name: Ray
+Gender: Female
+Faction: None
+Group: The Proprietors
+Partner: None
+Job: Bartender
+Home: Bar Flat (Saltwick)
+Bio:

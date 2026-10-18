@@ -1,7 +1,0 @@
-Name: Jaana
-Gender: Female
-Faction: Kelp Cola
-Group: The Entertainers
-Partner: None
-Job: Kelp Cola Museum mascot (Kelpy the cup)
-Home: Timber Lofts (Eastbrook)

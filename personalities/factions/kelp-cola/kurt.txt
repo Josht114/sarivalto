@@ -1,0 +1,8 @@
+Name: Kurt
+Gender: Male
+Faction: Kelp Cola
+Group: None
+Partner: None
+Job: Factory foreman
+Home: Kingsgrad Apartments (Kingsgrad)
+Bio:

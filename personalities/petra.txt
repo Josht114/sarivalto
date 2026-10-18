@@ -1,7 +1,0 @@
-Name: Petra
-Gender: Female
-Faction: Kelp Cola
-Group: The Union
-Partner: None
-Job: Warehouse worker
-Home: Kingsgrad Apartments (Kingsgrad)

@@ -1,7 +1,0 @@
-Name: Ruby
-Gender: Female
-Faction: Democratic Party
-Group: The Shopkeepers
-Partner: None
-Job: Record shop owner
-Home: Timber Lofts (Eastbrook)

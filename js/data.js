@@ -44,12 +44,13 @@ south:['South East Road',24,12,'snow',[[3,2,4,2,'T'],[16,7,4,2,'T'],[0,10,24,1,'
 southwest:['South Road',14,22,'snow',[[2,3,3,4,'T'],[9,13,3,4,'T']]],
 west:['South West Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 beach:['Beach',12,22,'sand',[[1,1,3,20,'~'],[4,1,7,2,'~'],[11,0,1,22,'T'],[4,21,7,1,'T'],[4,4,1,1,'R'],[9,17,2,1,'R'],[4,15,1,1,'R'],[8,4,3,2,'#',"Pat's Camp",'tent'],[9,5,1,1,'d'],[4,15,8,2,'~']]],
-village:['Saltwick',44,24,'snow',[
+village:['Saltwick',44,30,'snow',[
 [2,3,9,8,'#','Fish Processing Plant','plant'],[6,10,1,1,'d'],
 [16,4,10,7,'#','Communist Party HQ','hq'],[26,9,2,2,'#','Newsstand','swnews'],[20,10,1,1,'d'],
 [31,2,10,9,'#','Apartment Block','apt'],[35,10,1,1,'d'],
 [2,14,8,5,'#','Bar (flat above)','bar'],[5,18,1,1,'d'],
 [12,14,6,5,'#','Fish Shop','shop'],[14,18,1,1,'d'],
+[18,22,7,5,'#','Harbour Outfitters','outfitters'],[21,26,1,1,'d'],[17,20,1,8,','],[17,27,5,1,','],
 [20,14,4,5,'#',"Tom's House",'h1'],[21,18,1,1,'d'],
 [26,14,4,5,'#',"Sam's House",'h2'],[27,18,1,1,'d'],
 [32,14,4,5,'#','House for Sale','h3'],[33,18,1,1,'d'],
@@ -64,6 +65,8 @@ apartments:['Apartment Block',24,20,'interior',[[8,1,1,6,'W'],[16,1,1,6,'W'],[1,
 [2,13,2,2,'e','Bed'],[6,15,2,1,'u'],[1,17,2,1,'x','Boxes'],[20,13,2,2,'e','Bed'],[15,15,2,1,'u'],[21,17,1,1,'i','Stove'],[22,8,1,1,'z','Stairs up']]],
 bar:['Bar',20,12,'interior',[[3,1,10,1,'y','Bottles'],[3,3,10,1,'c','Bar Counter'],[3,7,3,2,'u','Table'],[9,7,3,2,'u','Table'],[15,7,3,2,'u','Table'],[16,2,1,1,'z','Stairs up']]],
 barflat:['Bar Flat',12,8,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[2,5,3,1,'y','Shelf'],[10,1,1,1,'z','Stairs down']]],
+// Harbour Outfitters in Saltwick: clothes for the boats and the cold
+outfitters_in:['Harbour Outfitters',16,10,'interior',[[1,1,5,1,'y','Clothes Rail'],[9,1,5,1,'y','Clothes Rail'],[1,4,1,1,'n','Mannequin'],[14,4,1,1,'n','Mannequin'],[4,4,3,1,'y','Clothes Rail'],[9,4,2,1,'y','Cloth'],[10,7,4,1,'c','Counter'],[1,7,3,1,'y','Cloth']]],
 fishshop:['Fish Shop',14,10,'interior',[[2,1,10,1,'y','Shelves'],[3,3,8,1,'c','Counter'],[2,6,3,2,'x','Fresh Fish'],[9,6,3,2,'x','Smoked Fish']]],
 house_tom:["Tom's House",10,9,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[7,1,2,1,'i','Stove'],[2,5,3,2,'x','Fishing Nets']]],
 house_sam:["Sam's House",10,9,'interior',[[6,1,2,2,'e','Bed'],[2,3,2,2,'u','Table'],[2,1,3,1,'y','Shelf'],[8,4,1,1,'i','Stove']]],
@@ -300,7 +303,7 @@ privharbour:[540,700,'harbour'],privbeach:[925,745,'nature']};
 const RIVER={name:'Valto River',pts:[[990,222],[880,192],[760,205],[660,262],[575,300],[500,335],[452,362],[400,440]],end:'beach',bridges:[[575,301]],label:[870,180,-4]};
 
 // ---- Factions shown on the overview map and in the wiki: id:[name, colour, short badge, description]
-const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you work for. Its people on the island are your handler and an informant.'],communist:['Communist Party','#c0392b','COM','Allies of the Soviet Union. Its leader is Anna.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based at the Community Centre in Eastbrook.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
+const FACTIONS={cia:['CIA','#1f3a5f','CIA','The American intelligence agency you work for. Its people on the island are your handler and an informant.'],communist:['Communist Party','#c0392b','COM','Wants Sarivalto to join the Soviet Union, as a Soviet republic. Its leader is Anna.'],democrat:['Democratic Party','#2e86c1','DEM','A democratic political party, based at the Community Centre in Eastbrook.'],royal:['Royal Family','#7d3c98','ROY','The family of the island\'s previous king.'],
 cola:['Kelp Cola','#2e9d57','KC','A cola company.'],oil:['Diversified Petroleum','#37474f','DP','An oil drilling company.'],syndicate:['Crime Syndicate','#8d5524','SYN','An organised crime syndicate. Its boss lives in the gated community.'],church:['Orthodox Church','#e0a100','CH','The northern orthodox church.'],
 kgb:['KGB','#5c1f1f','KGB','The Soviet intelligence agency. Its man on the island works with the Communist Party.'],
 union:['The Union','#d35400','UNI','The island\'s trade union, for the people who work at the Kelp Cola factory, in the fishing trade and at the lumber mill. Its leader is Helen.'],
@@ -319,7 +322,7 @@ palace:['The Palace Workers','#b07d62','PAL','The staff of the Royal Palace, fro
 reporters:['The Reporters','#6c757d','PRS','The Eastbrook Gazette\'s newspapermen and women, who report on the island\'s politics without taking sides.']};
 // ---- Exits pinned to a place along their edge (by the place they lead to), for maps that have grown since their streets were
 // laid out; any other exit is spread evenly along its side
-const EXIT_AT={town:{north:10,west:20,east:7,colahq:15,south:22,palace:26,southwest:26}};
+const EXIT_AT={village:{harbour:12,radio:12},town:{north:10,west:20,east:7,colahq:15,south:22,palace:26,southwest:26}};
 // Groups play a part in the story but cannot win it (the rest are the factions, the only ones that can). The quest schedule
 // (QUEST_DAYS) covers the factions only.
 const GROUPS=['cia','kgb','republican','union','circus','farmers','army','reporters','palace','food','shops','proprietors','entertainers','police','admin','unemployed'];
@@ -428,6 +431,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'newsroom',x:14,y:3,dir:0,name:'Henrik',home:'house_henrik',loc:'newsroom',job:'Newspaper editor',faction:'reporters',gender:'male',body:'#5a5f68',hair:'#9a9a9a'},
 {m:'newsroom',x:8,y:6,dir:1,name:'Nora',home:'house_nora',loc:'newsroom',job:'Reporter',faction:'reporters',gender:'female',body:'#c9822a',hair:'#3a2a20'},
 {m:'fishshop',x:6,y:2,dir:0,name:'Olga',home:'apartments',loc:'fishshop',job:'Fish shop owner',faction:'shops',gender:'female',body:'#5b8fb9',hair:'#8a8a8a',hat:'#3d5a40'},
+{m:'outfitters_in',x:11,y:6,dir:0,name:'Helmi',home:'apartments',loc:'outfitters_in',job:'Outfitter',faction:'shops',gender:'female',body:'#e0a100',hair:'#c8a060'},
 {m:'electro',x:5,y:2,dir:0,name:'Nils',home:'skyapts',loc:'electro',job:'Electronics store owner',faction:'republican',also:['shops'],gender:'male',body:'#3a3d44',hair:'#d9c9a0'},
 {m:'arcadein',x:12,y:5,dir:0,name:'Toni',home:'kgapts',loc:'arcadein',job:'Arcade attendant',faction:'proprietors',gender:'female',body:'#ff3bd0',hair:'#1a1a1a'},
 {m:'mart',x:14,y:10,dir:1,name:'Birgit',home:'skyapts',loc:'mart',job:'Nordmart manager',faction:'shops',gender:'female',body:'#2e86c1',hair:'#e8c86a'},
@@ -558,6 +562,13 @@ trench:{name:'Trench coat',desc:'A belted tan trench coat with a turned-up colla
 slacks:{name:'Black trousers',desc:'Pressed black trousers to go with a jacket. It goes into your wardrobe.',actions:[]},
 oxfords:{name:'Black Oxfords',desc:'Polished black leather shoes. It goes into your wardrobe.',actions:[]},
 fedora:{name:'Grey fedora',desc:'A grey felt hat with a black band. It goes into your wardrobe.',actions:[]},
+oilskin:{name:'Yellow oilskin',desc:'A stiff yellow oilskin jacket that keeps out the sea spray. It goes into your wardrobe.',actions:[]},
+cableknit:{name:'Cable-knit jumper',desc:'A heavy navy jumper in a cable knit. It goes into your wardrobe.',actions:[]},
+peacoat:{name:'Pea coat',desc:'A double-breasted navy wool coat, as worn on the bridge. It goes into your wardrobe.',actions:[]},
+dungarees:{name:'Dungarees',desc:'Hard-wearing blue work dungarees. It goes into your wardrobe.',actions:[]},
+wellies:{name:'Green wellies',desc:'Tall green rubber boots for the quayside. It goes into your wardrobe.',actions:[]},
+souwester:{name:"Sou'wester",desc:"A yellow oilskin rain hat with a long brim at the back. It goes into your wardrobe.",actions:[]},
+watchcap:{name:'Red watch cap',desc:'A close-fitting red knitted cap, the fisherman\'s favourite. It goes into your wardrobe.',actions:[]},
 radio:{name:'Transistor radio',desc:'A pocket radio. It picks up Radio Sarivalto and, at night, stations from across the sea.',actions:['Listen']},
 batteries:{name:'Batteries',desc:'A pair of batteries for a flashlight or a radio.',actions:[]},
 fishrod:{name:'Fishing rod',desc:'A rod and reel with a good length of line. Equip it to fish.',actions:['Fish'],equip:true},
@@ -609,7 +620,7 @@ Hekki:{start:'hello',nodes:{
 // ---- Opening hours: places open only by day, and places open only at night. Their doors don't open while they're shut, and the
 // people who work in a night-only place work at night and are at home by day. Everywhere else is always open. (The street
 // stalls have no door: their vendors are simply at home at night.)
-const DAY_ONLY=['clothes_in','kcmuseum_in','records_in','electro','mart','bookshop','fishingshop','gunshop','tailor','fishshop','tattoo','bank_in','estateagent','fuel_in'];
+const DAY_ONLY=['clothes_in','outfitters_in','kcmuseum_in','records_in','electro','mart','bookshop','fishingshop','gunshop','tailor','fishshop','tattoo','bank_in','estateagent','fuel_in'];
 const NIGHT_ONLY=['jazz_in','caravan3_in'];
 // the staff of the places open day and night (bars, restaurants, the hotel, the casino, the arcade, the stalls that stay open, and
 // the doctor and the police sergeant, on call, the supermarket and the cinema):
@@ -642,7 +653,10 @@ suit:{slot:'top',name:'Tailored suit',style:'suit',col:'#2b2f3a'},trench:{slot:'
 jeans_blue:{slot:'legs',name:'Jeans',style:'jeans',col:'#2d3046'},khakis:{slot:'legs',name:'Khaki trousers',style:'trousers',col:'#8a7a5a'},
 cords:{slot:'legs',name:'Brown corduroys',style:'cords',col:'#6b4a2e'},slacks:{slot:'legs',name:'Black trousers',style:'trousers',col:'#1e1e24'},
 boots_brown:{slot:'shoes',name:'Brown boots',style:'boots',col:'#3b2a22'},sneakers:{slot:'shoes',name:'White sneakers',style:'sneakers',col:'#e8e8e4'},
-snowboots:{slot:'shoes',name:'Snow boots',style:'snowboots',col:'#5a5f68'},oxfords:{slot:'shoes',name:'Black Oxfords',style:'shoes',col:'#1a1a1e'}};
+snowboots:{slot:'shoes',name:'Snow boots',style:'snowboots',col:'#5a5f68'},oxfords:{slot:'shoes',name:'Black Oxfords',style:'shoes',col:'#1a1a1e'},
+oilskin:{slot:'top',name:'Yellow oilskin',style:'parka',col:'#f0c020'},cableknit:{slot:'top',name:'Cable-knit jumper',style:'sweater',col:'#1e2a50'},peacoat:{slot:'top',name:'Pea coat',style:'trench',col:'#1e2a44'},
+dungarees:{slot:'legs',name:'Dungarees',style:'trousers',col:'#3a5a8a'},wellies:{slot:'shoes',name:'Green wellies',style:'boots',col:'#2e5a2e'},
+souwester:{slot:'hat',name:"Sou'wester",style:'souwester',col:'#f0c020'},watchcap:{slot:'hat',name:'Red watch cap',style:'beanie',col:'#c0392b'}};
 const SHOPS={
 Ray:{stock:[['beer',24,2],['whisky',10,4],['cigarettes',10,2]]},
 Eddie:{stock:[['beer',24,2],['whisky',12,4],['cigarettes',10,2]]},
@@ -657,6 +671,7 @@ Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['
 Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10]]},
 Jack:{stock:[['fishrod',3,30],['flashlight',2,10]]},
 Olga:{stock:[['smokedfish',12,4]]},
+Helmi:{stock:[['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
 Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
 Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
 Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
@@ -683,17 +698,17 @@ const QUESTS={
 report:{title:'Report in',giver:'Chuck',start:true,text:'Use the radio equipment in the Hidden Radio Room to tell Chuck you have arrived safely on the island.',
   done:[{use:'Radio Equipment',m:'hekki_room',what:'Radio Chuck from the Hidden Radio Room'}],
   thanks:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "Keep your head down."'},
-meetreds:{title:'Meet the Communists',giver:'Chuck',from:1,call:true,text:'Chuck wants a read on the Communist Party. Go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
-  offer:"Morning, NIGHTJAR. Glad you made it in one piece. First job: the Communist Party. Their leader is a woman called Anna; they run things out of an HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don't tip your hand.",
+meetreds:{title:'Meet the Communists',giver:'Chuck',from:1,call:true,text:'Chuck wants a read on the Communist Party, who want the island to join the Soviet Union. Go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
+  offer:"Morning, NIGHTJAR. Glad you made it in one piece. First job: the Communist Party. They want this island in the Soviet Union, and that's exactly what we're here to stop. Their leader is a woman called Anna; they run things out of an HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don't tip your hand.",
   accept:'Good. Call me when you have something.',wait:'Talked to Anna yet? Communist Party HQ, Saltwick. A friendly chat, nothing more.',
   done:[{talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader'}],
   thanks:'You have the measure of Anna. Chuck will want to hear about her.',
   chat:{start:'a',nodes:{
     a:{say:"Comrade! Not many come in from the cold to visit us. What brings you to the Party's door?",opts:[['I want to know what the Party stands for.','b'],["I heard about the king. Everyone's talking about it.",'c'],["I'm a journalist, from abroad.",'d']]},
-    b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island belongs to the fishermen, the mill hands and the miners, not to the palace and the cola men.',opts:[['And the Americans?','e'],['Thank you for your time.',null]]},
-    c:{say:'So is everyone. A king dies and the vultures circle: the royals, the Democrats, Kelp Cola, the Syndicate. This month decides who runs the island.',opts:[['Where does the Party stand?','b'],["I'll keep my ears open.",null]]},
-    d:{say:'A journalist! Then write this down: the people of Sarivalto will choose their own future. Not Washington. Not Moscow.',opts:[['Not Moscow?','e'],['I will.',null]]},
-    e:{say:"We take help where it's offered, comrade, but nobody buys us. Remember that. Now, I have a meeting. Come back any time."}}}},
+    b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island should join the Soviet Union, as a Soviet republic, and belong to the fishermen, the mill hands and the miners, not to the palace and the cola men.',opts:[['Join the Soviet Union?','e'],['Thank you for your time.',null]]},
+    c:{say:'So is everyone. A king dies and the vultures circle: the royals, the Democrats, Kelp Cola, the Syndicate. This month decides who runs the island, and whether it finally takes its place in the Soviet Union.',opts:[['Where does the Party stand?','b'],["I'll keep my ears open.",null]]},
+    d:{say:"A journalist! Then write this down: Sarivalto's future lies with the Soviet Union. Moscow will give this island what its kings never did.",opts:[['And what does Moscow get?','e'],['I will.',null]]},
+    e:{say:"Friends, comrade. A harbour in the north, and an island that stands with the workers of the world. The Americans would rather we stayed a little kingdom they can buy. Now, I have a meeting. Come back any time."}}}},
 pizza:{title:'Pizza for Buttons',giver:'Buttons',text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
   offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
   accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',
@@ -706,7 +721,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['second',31,8,0,1,'house_nora'],['second',38,8,0,1,'commcentre'],['second',4,14,0,1,'cedargrill'],['second',9,14,0,1,'cafe'],['second',15,14,0,1,'records_in'],
 ['second',21,14,0,1,'tattoo'],['second',29,14,0,1,'clothes_in'],['second',36,14,0,1,'newsroom'],['second',44,14,0,1,'tavern'],['millroad',10,5,0,1,'mill_in'],
 ['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],
-['village',14,18,0,1,'fishshop'],['village',21,18,0,1,'house_tom'],['village',27,18,0,1,'house_sam'],
+['village',14,18,0,1,'fishshop'],['village',21,26,0,1,'outfitters_in'],['village',21,18,0,1,'house_tom'],['village',27,18,0,1,'house_sam'],
 ['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,1,0,1],['kchq_in',15,1,0,1,'kchq2',14,1,0,1],
 ['palace',12,6,0,1,'palacehall'],['palacehall',5,0,0,1,'royalrooms'],['palacehall',12,0,0,1,'throne'],['palacehall',19,0,0,1,'library'],
 ['palacehall',0,6,1,0,'dining',19,6,-1,0],['palacehall',23,6,-1,0,'chapel'],['dining',0,6,1,0,'kitchen',17,6,-1,0],['kitchen',0,6,1,0,'servants',17,6,-1,0],['palace',5,6,0,1,'servants'],
@@ -816,6 +831,7 @@ cedargrill:{icon:'grill',kind:'gable',wall:'#3d5a4a',roof:'#2f2a26',trim:'#e0c89
 tattoo:{icon:'heart',kind:'gable',wall:'#2a2a30',roof:'#3a3530',trim:'#e07a9a',win:'#f2d16b',tex:'siding',awn:'#7a1e2a',sign:'INK AND PINE',signk:'wood'},
 gazette:{kind:'gable',wall:'#4a5f78',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,sign:'EASTBROOK GAZETTE',signk:'wood'},
 records:{icon:'vinyl',kind:'flat',wall:'#6a3a5a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'brick',mural:['#ff8a3a','#e07a9a','#7a4a8a','#2e86c1'],sign:'VINYL RESTING PLACE',signk:'wood'},
+outfitters:{icon:'souwester',kind:'gable',wall:'#2e5a7a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#e0a100',sign:'HARBOUR OUTFITTERS',signk:'wood'},
 clothes:{icon:'flannel',kind:'gable',wall:'#7a2a3a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#2f4a3c',planter:['#e0a100','#f2f2f2','#e07a9a'],sign:'FLANNEL AND FOLK',signk:'wood'},
 kcmuseum:{icon:'cola',kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',tex:'brick',awn:'#2e9d57',flag:'#2e9d57',sign:'KELP COLA MUSEUM - GIFT SHOP',signk:'brass'},
 ebhotdog:{kind:'cart',col:'#3d5a4a',um:['#e0a100','#efe2c4'],txt:'DOGS'},
@@ -865,7 +881,7 @@ const PROPS=[
 ['village',12,11,'lamp'],['village',27,11,'lamp'],['village',8,13,'lamp'],['village',24,13,'lamp'],['village',40,13,'lamp'],
 ['village',23,11,'bench'],['village',11,9,'barrel'],['village',11,10,'crate'],['village',12,10,'crate'],['village',2,20,'barrel'],['village',3,20,'barrel'],
 ['village',24,17,'woodpile'],['village',30,17,'woodpile'],['village',22,20,'mailbox'],['village',28,20,'mailbox'],['village',34,20,'mailbox'],['village',40,20,'mailbox'],
-['village',31,13,'phone'],['village',17,21,'junk'],['village',15,20,'tyre'],['village',8,21,'junk'],['village',9,22,'tyre'],['village',4,21,'tyre'],['village',12,13,'tyre'],['village',2,11,'junk'],['village',13,11,'trashbin'],
+['village',31,13,'phone'],['village',14,22,'junk'],['village',25,27,'lamp'],['village',15,20,'tyre'],['village',8,21,'junk'],['village',9,22,'tyre'],['village',4,21,'tyre'],['village',12,13,'tyre'],['village',2,11,'junk'],['village',13,11,'trashbin'],
 ['village',25,11,'cat'],['village',16,13,'litter'],['village',30,21,'litter'],['village',38,11,'litter'],['village',40,21,'bfence'],['village',41,21,'bfence'],['village',19,13,'trashbin'],['village',36,21,'cat'],['village',5,22,'bush'],['village',26,22,'bush'],['village',42,22,'bush'],['village',42,4,'bush'],['village',41,8,'bush'],
 ['harbour',21,4,'barrel'],['harbour',22,4,'barrel'],['harbour',22,3,'crate'],['harbour',19,5,'crate'],['harbour',20,5,'crate'],['harbour',16,6,'lamp'],['harbour',20,8,'lamp'],
 ['harbour',9,5,'bollard'],['harbour',4,8,'bollard'],['harbour',9,8,'bollard'],['harbour',7,6,'rope'],['harbour',15,10,'net'],['harbour',16,10,'net'],

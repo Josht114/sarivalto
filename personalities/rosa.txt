@@ -1,7 +1,0 @@
-Name: Rosa
-Gender: Female
-Faction: None
-Group: The Food Vendors
-Partner: None
-Job: Hot dog vendor
-Home: Kingsgrad Apartments (Kingsgrad)

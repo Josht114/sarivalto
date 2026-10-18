@@ -1,7 +1,0 @@
-Name: Olga
-Gender: Female
-Faction: None
-Group: The Shopkeepers
-Partner: None
-Job: Fish shop owner
-Home: Apartment Block (Saltwick)

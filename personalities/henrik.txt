@@ -1,7 +1,0 @@
-Name: Henrik
-Gender: Male
-Faction: None
-Group: The Reporters
-Partner: None
-Job: Newspaper editor
-Home: Henrik's House (Eastbrook)

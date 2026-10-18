@@ -1,0 +1,8 @@
+Name: Elsa
+Gender: Female
+Faction: None
+Group: The Palace Workers
+Partner: None
+Job: Laundress
+Home: Servants' Quarters (Royal Palace)
+Bio:

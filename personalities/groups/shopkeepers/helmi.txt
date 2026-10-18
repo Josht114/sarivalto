@@ -1,0 +1,8 @@
+Name: Helmi
+Gender: Female
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Outfitter
+Home: Apartment Block (Saltwick)
+Bio:

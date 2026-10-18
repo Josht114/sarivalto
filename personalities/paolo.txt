@@ -1,7 +1,0 @@
-Name: Paolo
-Gender: Male
-Faction: Crime Syndicate
-Group: None
-Partner: None
-Job: Syndicate bookie
-Home: Timber Lofts (Eastbrook)

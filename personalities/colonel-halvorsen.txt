@@ -1,7 +1,0 @@
-Name: Colonel Halvorsen
-Gender: Male
-Faction: None
-Group: The Army
-Partner: None
-Job: Army commander
-Home: Hope Springs Residences (Hope Springs Gated Community)

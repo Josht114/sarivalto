@@ -1,7 +1,0 @@
-Name: Raili
-Gender: Female
-Faction: None
-Group: The Unemployed
-Partner: None
-Job: Unemployed
-Home: Skyline Apartments (Frostholm)

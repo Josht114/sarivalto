@@ -1,7 +1,0 @@
-Name: Saga
-Gender: Female
-Faction: None
-Group: The Proprietors
-Partner: None
-Job: Spa attendant
-Home: Kingsgrad Apartments (Kingsgrad)

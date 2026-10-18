@@ -1,0 +1,8 @@
+Name: Grace
+Gender: Female
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Tailor
+Home: Grace's House (Kingsgrad)
+Bio:

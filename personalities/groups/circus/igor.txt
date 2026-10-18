@@ -1,0 +1,8 @@
+Name: Igor
+Gender: Male
+Faction: None
+Group: The Circus
+Partner: None
+Job: Strongman
+Home: Ringmaster's Caravan (Lake Ilmari)
+Bio:

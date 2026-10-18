@@ -1,7 +1,0 @@
-Name: Sergeant Hanna
-Gender: Female
-Faction: None
-Group: The Police
-Partner: None
-Job: Desk sergeant
-Home: Kingsgrad Apartments (Kingsgrad)

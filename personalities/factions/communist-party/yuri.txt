@@ -1,0 +1,8 @@
+Name: Yuri
+Gender: Male
+Faction: Communist Party
+Group: KGB
+Partner: None
+Job: KGB agent (posing as a businessman)
+Home: Hotel Aurora, upstairs (Frostholm)
+Bio:

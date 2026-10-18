@@ -1,0 +1,8 @@
+Name: Elin
+Gender: Female
+Faction: Kelp Cola
+Group: None
+Partner: Mats
+Job: Secretary
+Home: Kingsgrad Apartments (Kingsgrad)
+Bio:

@@ -1,0 +1,8 @@
+Name: Corporal Niemi
+Gender: Male
+Faction: None
+Group: The Army
+Partner: None
+Job: Army cook
+Home: Barracks Block A (Army Barracks)
+Bio:

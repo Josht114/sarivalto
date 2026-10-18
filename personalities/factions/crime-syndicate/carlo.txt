@@ -1,0 +1,8 @@
+Name: Carlo
+Gender: Male
+Faction: Crime Syndicate
+Group: None
+Partner: None
+Job: The Crime Syndicate's candidate for Republican Party leader
+Home: Hope Springs Residences (Hope Springs Gated Community)
+Bio:

@@ -1,0 +1,8 @@
+Name: Arto
+Gender: Male
+Faction: None
+Group: The Unemployed
+Partner: None
+Job: Unemployed
+Home: Skyline Apartments (Frostholm)
+Bio:

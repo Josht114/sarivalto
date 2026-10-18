@@ -1,7 +1,0 @@
-Name: Daphne
-Gender: Female
-Faction: Royal Family
-Group: None
-Partner: None
-Job: Prince's sister
-Home: Royal Apartments (Royal Palace)

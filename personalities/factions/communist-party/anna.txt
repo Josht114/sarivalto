@@ -1,0 +1,8 @@
+Name: Anna
+Gender: Female
+Faction: Communist Party
+Group: The Union
+Partner: None
+Job: Communist Party leader
+Home: Apartment Block (Saltwick)
+Bio:

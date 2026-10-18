@@ -1,0 +1,8 @@
+Name: Dario
+Gender: Male
+Faction: Diversified Petroleum
+Group: None
+Partner: None
+Job: CEO of Diversified Petroleum
+Home: Dario's Villa (Hope Springs Gated Community)
+Bio:

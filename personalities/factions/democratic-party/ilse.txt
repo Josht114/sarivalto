@@ -1,0 +1,8 @@
+Name: Ilse
+Gender: Female
+Faction: Democratic Party
+Group: The Union
+Partner: None
+Job: Log loader
+Home: Timber Lofts (Eastbrook)
+Bio:

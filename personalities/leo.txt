@@ -1,7 +1,0 @@
-Name: Leo
-Gender: Male
-Faction: None
-Group: The Entertainers
-Partner: None
-Job: Saxophonist
-Home: Skyline Apartments (Frostholm)

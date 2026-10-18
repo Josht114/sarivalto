@@ -1,7 +1,0 @@
-Name: Birgit
-Gender: Female
-Faction: None
-Group: The Shopkeepers
-Partner: None
-Job: Nordmart manager
-Home: Skyline Apartments (Frostholm)

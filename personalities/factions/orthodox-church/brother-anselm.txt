@@ -1,0 +1,8 @@
+Name: Brother Anselm
+Gender: Male
+Faction: Orthodox Church
+Group: None
+Partner: None
+Job: Prior
+Home: Monks' Quarters (Mountain-Top Monastery)
+Bio:

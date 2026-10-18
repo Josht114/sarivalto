@@ -1,7 +1,0 @@
-Name: Mary
-Gender: Female
-Faction: None
-Group: The Shopkeepers
-Partner: None
-Job: Book shop owner
-Home: Mary's House (Kingsgrad)

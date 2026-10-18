@@ -1,0 +1,8 @@
+Name: Marta
+Gender: Female
+Faction: Royal Family
+Group: The Palace Workers
+Partner: None
+Job: Cook
+Home: Servants' Quarters (Royal Palace)
+Bio:

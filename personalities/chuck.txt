@@ -1,7 +1,0 @@
-Name: Chuck
-Gender: Male
-Faction: None
-Group: CIA
-Partner: None
-Job: CIA handler (off the island; reached by radio)
-Home: No fixed home

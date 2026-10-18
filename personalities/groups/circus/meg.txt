@@ -1,0 +1,8 @@
+Name: Meg
+Gender: Female
+Faction: None
+Group: The Circus
+Partner: Buttons
+Job: Acrobat
+Home: Performers' Caravan (Lake Ilmari)
+Bio:

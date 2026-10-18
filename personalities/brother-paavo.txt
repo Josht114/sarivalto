@@ -1,7 +1,0 @@
-Name: Brother Paavo
-Gender: Male
-Faction: Orthodox Church
-Group: None
-Partner: None
-Job: Monk (gardener)
-Home: Monks' Quarters (Mountain-Top Monastery)

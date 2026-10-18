@@ -1,0 +1,8 @@
+Name: Maya
+Gender: Female
+Faction: Democratic Party
+Group: The Food Vendors
+Partner: None
+Job: Coffee roaster
+Home: Timber Lofts (Eastbrook)
+Bio:

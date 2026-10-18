@@ -1,0 +1,8 @@
+Name: Mike
+Gender: Male
+Faction: Communist Party
+Group: The Union
+Partner: Lucia
+Job: Fisherman
+Home: Apartment Block (Saltwick)
+Bio:

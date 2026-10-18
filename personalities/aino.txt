@@ -1,7 +1,0 @@
-Name: Aino
-Gender: Female
-Faction: Kelp Cola
-Group: The Union
-Partner: None
-Job: Bottling line worker
-Home: Kingsgrad Apartments (Kingsgrad)

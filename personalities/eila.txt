@@ -1,7 +1,0 @@
-Name: Eila
-Gender: Female
-Faction: None
-Group: The Unemployed
-Partner: None
-Job: Unemployed
-Home: Kingsgrad Apartments (Kingsgrad)
