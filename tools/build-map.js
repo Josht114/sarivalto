@@ -79,19 +79,18 @@ const districtNames=Object.entries(dc).map(([d,ps])=>{const[x,y]=DPOS[d]||[ps.re
   return`<text x="${r1(x)}" y="${r1(y)}" text-anchor="middle" font-size="19" font-weight="bold" letter-spacing="5" fill="#5a4630" fill-opacity=".42">${DISTRICTS[d][0].toUpperCase()}</text>`}).join('');
 const anchors=Object.values(HB).map(({c})=>`<g transform="translate(${r1(c[0])},${r1(c[1])})"><circle r="8" fill="#1f6f9a" stroke="#fff" stroke-width="2"/><path d="M0 -4.5V4.5M-3 -1.5H3M-4 1.5Q0 6 4 1.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>`).join('');
 // each place is a link to its wiki page (tools/build-wiki.js points these at the right page, and its map viewer opens a plan of the place instead)
-const nodes=ids.map(i=>{const[x,y]=NP(i).map(r1),k=P(i)[2],w=wd(i),f=FACTION_AT[i]&&FACTIONS[FACTION_AT[i]],sw=f?3.5:1.5;
+const nodes=ids.map(i=>{const[x,y]=NP(i).map(r1),k=P(i)[2],w=wd(i),f=FACTION_AT[i]&&!GROUPS.includes(FACTION_AT[i])&&FACTIONS[FACTION_AT[i]],sw=f?3.5:1.5;
   return`<a class="loc" href="../wiki/locations/${i}.html" data-loc="${i}"><title>${L[i][0]}</title>`+(f?`<rect x="${x-w/2-7}" y="${y-22}" width="${w+14}" height="44" rx="12" fill="${f[1]}" fill-opacity=".30"/>`:'')+
   `<rect x="${x-w/2}" y="${y-15}" width="${w}" height="30" rx="7" fill="${COL[k]}" stroke="${f?f[1]:'#4a3b2a'}" stroke-width="${sw}"/><text x="${x}" y="${y+4.5}" text-anchor="middle" font-size="13" fill="#2b2118">${L[i][0]}</text>`+
   (f?`<rect x="${x+w/2-34}" y="${y-25}" width="40" height="15" rx="7.5" fill="${f[1]}" stroke="#fff" stroke-width="1.5"/><text x="${x+w/2-14}" y="${y-14}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${f[2]}</text>`:'')+'</a>'}).join('');
 const grid=Array.from({length:14},(_,i)=>`<line x1="${(i+1)*120}" y1="0" x2="${(i+1)*120}" y2="${H}"/>`).join('')+Array.from({length:7},(_,i)=>`<line x1="0" y1="${(i+1)*110}" x2="${W}" y2="${(i+1)*110}"/>`).join('');
 const KEY=Object.entries({town:'Settlement',road:'Road',site:'Notable site',nature:'Wilderness',harbour:'Harbour / sea',anchor:'Harbour landing',boat:'Boat route',river:'River',tram:'Tram line',tstop:'Tram stop',pipe:'Oil pipeline'});
-// the legend lists the factions, then the groups (which can't win) under their own subheading
-const fk=Object.entries(FACTIONS).filter(([k])=>!GROUPS.includes(k)),sk=Object.entries(FACTIONS).filter(([k])=>GROUPS.includes(k)),R=26,sy=198+fk.length*R+6;
+// the legend lists the factions (the ones that can win; the groups' bases aren't marked on the map)
+const fk=Object.entries(FACTIONS).filter(([k])=>!GROUPS.includes(k)),R=26,sy=198+fk.length*R+6;
 const badge=([k,[n,c,sh]],y)=>`<rect x="1462" y="${y}" width="42" height="18" rx="9" fill="${c}"/><text x="1483" y="${y+13}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">${sh}</text><text x="1514" y="${y+14}" font-size="14" fill="#2b2118">${n}</text>`;
-const ky=sy+30+sk.length*R+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*22}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
+const ky=sy+40,panel=`<rect x="1440" y="140" width="240" height="${ky-140+48+KEY.length*22}" rx="10" fill="#f6ecc8" fill-opacity=".92" stroke="#4a3b2a" stroke-width="2"/>
 <text x="1462" y="176" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">FACTION BASES</text>`+fk.map((f,i)=>badge(f,198+i*R)).join('')+
-`<text x="1462" y="${sy+12}" font-size="13" font-weight="bold" fill="#2b2118">Groups <tspan font-weight="normal" font-style="italic">(can't win)</tspan></text>`+sk.map((f,i)=>badge(f,sy+26+i*R)).join('')+
-`<text x="1462" y="${sy+30+sk.length*R+12}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
+`<text x="1462" y="${sy+12}" font-size="12" font-style="italic" fill="#3d3226">Unmarked places are unassigned.</text>
 <text x="1462" y="${ky+20}" font-size="16" font-weight="bold" fill="#2b2118" letter-spacing="2">KEY</text>`+KEY.map(([k,t],i)=>{const y=ky+36+i*22,sym=
   k=='boat'?`<path d="M1462 ${y+8}H1504" stroke="#f4fbfd" stroke-width="6" stroke-linecap="round"/>`+BOATCOL.slice(0,3).map((c,i)=>`<path d="M${1462+i*14} ${y+8}h12" stroke="${c}" stroke-width="2.5" stroke-dasharray="5 3" stroke-linecap="round"/>`).join(''):
   k=='river'?`<path d="M1462 ${y+8}H1504" stroke="#4f8fbf" stroke-width="8" stroke-linecap="round"/><path d="M1462 ${y+8}H1504" stroke="#8fc4e4" stroke-width="3" stroke-linecap="round"/>`:

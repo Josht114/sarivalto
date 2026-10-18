@@ -286,6 +286,7 @@ function update(dt){
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
     if(door){if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
     else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
+    else if(stairsWay(nx,ny,d)){const t=stairsWay(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(snowAt(P.m,nx,ny)){const t=signAhead()?'The sign says: DANGER! SNOW. NO ACCESS.':'A deep bank of snow blocks the road.';if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(lockedFront(nx,ny,d)){const t=lockedFront(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
@@ -294,6 +295,10 @@ function update(dt){
 // the same as using the building's own door beside them (unless that door is shut)
 // a padlocked building (BLD locked: what it says): walking up into its front says so
 function lockedFront(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.locked&&y==fy+h-1&&x>=fx&&x<fx+w);return f?BLD[f[6]].locked:null}
+// stairs go one way: up from the bottom (walking up into them), down from the top (walking down into them); from any other side
+// they say which way they go
+function stairsWay(x,y,d){if(MAPS[P.m][y]?.[x]!='z')return null;const f=FL[P.m].find(([fx,fy,w,h,c])=>c=='z'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h),up=/up/i.test(f?.[5]||'');
+  return DIR[d][1]==(up?-1:1)?null:up?'These stairs go up: climb them from the bottom.':'These stairs go down: take them from the top.'}
 function bigDoor(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.deco=='whs'&&y==fy+h-1&&x>=fx&&x<fx+w);if(!f)return null;
   const[fx,fy,w,h]=f,bx=(w*16>>1)-12,i=x-fx;if(i*16+15<bx||i*16>bx+24)return null;
   const e=EX[P.m].find(e=>e.y==fy+h-1&&e.x>=fx&&e.x<fx+w&&L[e.to]?.[3]=='interior');return e&&!shut(e.to)?e:null}
