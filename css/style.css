@@ -14,6 +14,10 @@ select hr{border:0;border-top:1px solid #000}
 #controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;padding:0 16px}
 #startbtn{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer}
 #startbtn[aria-expanded="true"]{background:#2f4a14;color:#fff}
+#radiobtn{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer}#radiobtn[aria-pressed="true"]{background:#5a1a3a;color:#fff}
+/* what's on the radio, in the bottom left of the game screen */
+#radiocap{position:absolute;left:1.5%;bottom:3%;max-width:46%;padding:4px 8px;font-size:11px;line-height:1.3;color:#fff;background:rgba(11,26,43,.82);border:1px solid #ff7ad8;border-radius:6px;pointer-events:none}#radiocap[hidden]{display:none}#radiocap small{display:block;font-size:9px;color:#ff7ad8;text-transform:uppercase;letter-spacing:1px}
+#musicbtn{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer;min-width:5.5em}#musicbtn[aria-pressed="false"]{background:#3a3a3a;color:#aaa}
 /* the start menu: tabs along the top, then the inventory, quests or map */
 /* the item you're holding, in the top right of the game screen */
 #hud{position:absolute;top:2%;right:1.5%;display:flex;flex-direction:column;align-items:flex-end;gap:4px;pointer-events:none;line-height:1.1}

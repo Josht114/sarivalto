@@ -107,7 +107,7 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
-  radio:{Listen:'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:()=>ME.equipped!='fishrod'?'Equip the fishing rod first.':canFish()?(closeStart(),startFishing(),''):'Face some open water (the sea, the lake or the river) to fish in it.'},
+  radio:{Listen:()=>typeof toggleRadio=='function'?toggleRadio():'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:()=>ME.equipped!='fishrod'?'Equip the fishing rod first.':canFish()?(closeStart(),startFishing(),''):'Face some open water (the sea, the lake or the river) to fish in it.'},
   notebook:{'Read':`${dateStr(DAY)}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
   camera:{'Take a photo':()=>ME.filmIn?'Nothing here worth photographing.':'There is no film in the camera.','Load film':loadFilm},
   film:{'Load into camera':loadFilm},
