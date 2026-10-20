@@ -367,10 +367,13 @@ const mainDue=()=>{if(DAY<1)return null;const t=mainTaken();if(t)return t.done?n
 // (with whether any of them is a main quest)
 const questPlaces=()=>{const at={};for(const n of NPCS){const id=n.m&&offerOf(n);if(!id)continue;const a=POS[n.m]?n.m:areaOf(n.m);if(a&&POS[a])at[a]=at[a]||!!QUESTS[id].main}return Object.entries(at)};
 // each condition not yet met in your active quests, as [quest, its index, the condition]
-// (in a quest whose conditions come in order, only the next one)
-const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id],cs=Q.done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]);return Q.seq?cs.slice(0,1):cs});
-// meeting a condition; with all of them met, the quest is done
-function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}else{const said=Q.done[i].said;say((said?said+' ':'')+'Quest updated: '+Q.title+'.',said?12000:4000)}}
+// (in a quest whose conditions come in order, only the next one; a last condition only once all the others are met)
+const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id],cs=Q.done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]);
+  return Q.seq?cs.slice(0,1):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
+// meeting a condition; with all of them met, the quest is done (and if what's left is a last step, or the next in order, it says so)
+function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}
+  else{const said=Q.done[i].said,left=Q.done.filter((_,k)=>!q.met[k]),next=!said&&(Q.seq||left.every(c=>c.last))?' Next: '+left[0].what.replace(/^./,c=>c.toLowerCase())+'.':'';
+    say((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next,said||next?12000:4000)}}
 // ---- The video call: the big screen in your home links to Chuck at Langley. When he has a quest for you, or is waiting to hear
 // about one, you can call him; when he has a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts him in
 // the conversation panel on a video feed.
@@ -386,6 +389,10 @@ const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds()
 // offered a new one. Returns the conversation, or nothing if they have no quest business with you.
 const unquote=t=>t.replace(/^"|"$/g,'');
 function questTalk(n){
+  // a tour: pay for it (from CIA funds) and it's yours; the quest moves on once it's over, if you paid
+  const tr=openConds().find(([,,c])=>c.tour==n.name);if(tr){const[q,i,c]=tr;let paid=false;
+    const a={...c.chat.nodes.a,opts:ME.cia>=c.price?[['Pay $'+c.price+' for the tour (CIA funds)','b',()=>{ME.cia-=c.price;paid=true}],['Not now',null]]:[["Not now (you don't have $"+c.price+')',null]]};
+    return{start:'a',nodes:{...c.chat.nodes,a},onEnd:()=>{if(paid)meet(q,i)}}}
   const tk=openConds().find(([,,c])=>c.talk==n.name);if(tk){const[q,i,c]=tk;return{...(c.chat||QUESTS[q.id].chat),onEnd:()=>meet(q,i)}}
   const g=openConds().find(([,,c])=>c.give&&c.to==n.name),Qg=g&&QUESTS[g[0].id];
   if(g&&has(g[2].give)){const[q,i,c]=g,nm=ITEMS[c.give].name.toLowerCase();

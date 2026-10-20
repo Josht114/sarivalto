@@ -690,11 +690,13 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // (taking one withdraws any others offered that day), and you can't sit and wait for the evening until it's done. Side quests
 // (the rest) can be taken on and done at any time: from their first day (from), or once the places they need are open (opens:
 // place ids, as on the island map). done lists its completion conditions; meeting all of them ends the quest, and with seq:true
-// they're met in order, one at a time. Each has a what (how the Quests tab lists it), optionally said (what happens as it's met),
-// and one of:
+// they're met in order, one at a time (or a condition with last:true waits until all the others are met). Each has a what (how
+// the Quests tab lists it), optionally said (what happens as it's met), and one of:
 //   give:item, to:name   talk to that person with the item in your inventory and agree to hand it over
 //   use:label, m:place   face that piece of furniture in that place and press E
-//   talk:name            have a conversation with that person (the quest's chat is what they say)
+//   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say)
+//   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
+//                        options are made for you: pay, or not now)
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
 // call (the big screen in your home), not in person.
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
@@ -705,8 +707,12 @@ meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,se
   accept:"Good. Radio in and I'll brief you over the set.",wait:'Radioed in yet? Then get over to Saltwick and talk to Anna, at the Communist Party HQ. A friendly chat, nothing more.',
   done:[{use:'Radio Equipment',m:'hekki_room',what:'Report in to Chuck on the radio in the Hidden Radio Room',
       said:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "First job: the Communist Party. They want this island in the Soviet Union, and that\'s exactly what we\'re here to stop. Their leader is a woman called Anna, at their HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don\'t tip your hand."'},
-    {talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader'}],
-  thanks:'You have the measure of Anna. Chuck will want to hear about her.',
+    {talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader',said:'You have the measure of Anna. Report back to Chuck on the big screen in the Hidden Radio Room.'},
+    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. You saw Anna? What's the Party really after?",opts:[['She wants the island in the Soviet Union, and she means it.','b'],['She thinks the Americans want to buy the island.','c']]},
+      b:{say:"That's what I was afraid of. A true believer's harder to deal with than a man with a price. Good work. Get some sleep: tomorrow, Kingsgrad."},
+      c:{say:"She's not wrong, but don't you tell her that. Good work. Get some sleep: tomorrow, Kingsgrad."}}}}],
+  thanks:'Chuck has your report on the Communist Party.',
   chat:{start:'a',nodes:{
     a:{say:"Comrade! Not many come in from the cold to visit us. What brings you to the Party's door?",opts:[['I want to know what the Party stands for.','b'],["I heard about the king. Everyone's talking about it.",'c'],["I'm a journalist, from abroad.",'d']]},
     b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island should join the Soviet Union, as a Soviet republic, and belong to the fishermen, the mill hands and the miners, not to the palace and the cola men.',opts:[['Join the Soviet Union?','e'],['Thank you for your time.',null]]},
@@ -757,8 +763,28 @@ meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text
     {talk:'Elsa',what:'Talk to Elsa, the laundress',chat:{start:'a',nodes:{
       a:{say:"You'll want to stand back, this is all starch. Elsa. Every sheet and shirt in the palace comes through this room.",opts:[['You must learn a lot from the laundry.','b'],['Hard work?','c']]},
       b:{say:"Lipstick on a collar that's no one's wife's. Mud from the harbour on the prince's boots. Laundry never lies, love. People do."},
-      c:{say:"Hard on the hands, easy on the head. And nobody notices a laundress."}}}}],
-  thanks:"You have met the whole royal household. Chuck will want to hear what the palace is saying."},
+      c:{say:"Hard on the hands, easy on the head. And nobody notices a laundress."}}}},
+    // (last: only once you've talked to everyone else)
+    {talk:'Chuck',last:true,what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. You've been through the whole palace? Tell me what you've got.",opts:[['Leopold means to be crowned, whatever it takes.','b'],['The staff say strange visitors come up the drive at night.','c']]},
+      b:{say:"Then he's either our best friend on this island or our biggest headache. We'll find out which. Good work: that's the household on file."},
+      c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file."}}}}],
+  thanks:"Chuck has your report on the royal household."},
+meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:4,call:true,seq:true,text:'Chuck wants you to learn the Kelp Cola company line before you go anywhere near its bosses: take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, then report back.',
+  offer:"Morning, NIGHTJAR. The road into Eastbrook's open. Today it's Kelp Cola: they bottle half the money on this island, and their man Harald wants to lead the Republicans. Before you go knocking on any doors at the company, learn the company line. There's a museum in Eastbrook, and the mascot gives a tour. Take it, then tell me what they're selling.",
+  accept:"Enjoy the tour. Buy a souvenir if it helps the cover.",wait:"Taken that museum tour yet? Kelp Cola Museum, Eastbrook. The mascot runs it.",
+  done:[
+    {tour:'Jaana',price:5,what:'Take the tour of the Kelp Cola Museum with Kelpy the mascot',said:'That was the Kelp Cola story, as the company tells it. Report back to Chuck on the big screen in the Hidden Radio Room.',chat:{start:'a',nodes:{
+      a:{say:"Hiya, hiya! I'm Kelpy, the Kelp Cola cup! Welcome to the Kelp Cola Museum! The grand tour is five dollars. Ready for the fizz-tory of Kelp Cola?"},
+      b:{say:"Follow me! A long, long time ago, before there was any Kelp Cola, there was a beach, and on that beach there was kelp. Lots and lots of kelp! It washed up on the sand after every storm.",opts:[['Go on.','c']]},
+      c:{say:"Well, our CEO Phil's grandfather gathered up that kelp from the shore, took it home, and brewed it into a health tonic! Folk swore by it: for colds, for aches, for the long winter blues!",opts:[['A health tonic?','d']]},
+      d:{say:"Yes indeedy! And over the years the recipe got better and better: a little less seaweed, a lot more fizz! It's been refined and passed down through the family, all the way to Phil.",opts:[["So what's in it?",'e']]},
+      e:{say:"Ooh, nobody knows! The recipe is a closely guarded secret. Only the family knows it, and it's locked away somewhere very, very safe. Not even Kelpy knows, and I'm made of the stuff! Thanks for taking the tour! The gift shop is right this way!"}}}},
+    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. So, what's the Kelp Cola story?",opts:[["Phil's grandfather brewed beach kelp into a health tonic.",'b'],["The recipe's a closely guarded family secret.",'c']]},
+      b:{say:"Seaweed off the beach, and now they own half the island. That's the American dream, NIGHTJAR, only it happened over here. Good work."},
+      c:{say:"Secrets are our business. Whoever holds that recipe holds the company, and whoever holds the company has a lot to say about who runs this island. Good work."}}}}],
+  thanks:"Chuck has your report on Kelp Cola."},
 pizza:{title:'Pizza for Buttons',giver:'Buttons',opens:['lake','town'],text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
   offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
   accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',
