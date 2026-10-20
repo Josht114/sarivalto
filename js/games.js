@@ -14,7 +14,7 @@ const GAME_HINT={slots:'Press E to play the slot machine',blackjack:'Press E to 
 function openPlay(g){if(MENU||RIDE||BUSY)return;
   if(g=='blackjack'){choose('A blackjack table. The dealer is shuffling.',[['Play blackjack',()=>startPlay('blackjack')],...(NIGHT?[]:[['Sit and wait until night',sitDown]]),['Not now']]);return}
   if(g=='poker'){choose(esc(POKER_AT[P.m].intro),[['Sit in',sitDownPoker],['Not now']]);return}
-  if(g=='film'){choose('Now showing: STORMWING. A ticket is $4.',[['Buy a ticket and watch',watchFilm],['Not now']]);return}
+  if(g=='film'){choose('Now showing: STORMWING and TOP COMRADE. A ticket is $4.',[['Watch STORMWING',()=>watchFilm('stormwing')],['Watch TOP COMRADE',()=>watchFilm('topcomrade')],['Not now']]);return}
   startPlay(g)}
 function startPlay(g){SHOP=null;START=g;stack=[];startEl.hidden=false;PLAYS[g].open?.();renderStart()}
 const gameHead=(title,sub)=>`<div class="tabs"><h3 class="shopname">${title} <small>${sub}</small></h3><button class="close" aria-label="Stop playing">&times;</button></div>`;

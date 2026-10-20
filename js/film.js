@@ -1,9 +1,9 @@
-// ---- STORMWING, the picture showing at the cinema: an 80-second animated short about two fighter pilots over the frozen North,
-// Falcon and his wingman Frost. Sit in one of the cinema's seats (or buy a ticket from Otto) to watch it, for $4. It plays in the
+// ---- The cinema's two pictures. STORMWING: an 80-second animated short about two fighter pilots over the frozen North,
+// Falcon and his wingman Frost. Sit in one of the cinema's seats (or buy a ticket from Otto) to watch it, or TOP COMRADE (below), for $4. It plays in the
 // start-menu panel (START 'film'); Space pauses it, Escape leaves. The film is drawn fresh for any moment (filmFrame(g, t)), so
 // it can be paused, skipped or checked frame by frame. 256x144, drawn at twice that for sharper subtitles.
 const FW=256,FH=144,clamp=u=>Math.max(0,Math.min(1,u)),ease=u=>u*u*(3-2*u),fade=(u,a=.12)=>Math.min(clamp(u/a),clamp((1-u)/a));
-const FILM={t:0,last:0,paused:false,ended:false};
+const FILM={t:0,last:0,paused:false,ended:false,id:'stormwing'};
 // ---- drawing helpers
 function fsky(g,c1,c2,c3){const gr=g.createLinearGradient(0,0,0,FH);gr.addColorStop(0,c1);gr.addColorStop(.62,c2);gr.addColorStop(1,c3);g.fillStyle=gr;g.fillRect(0,0,FW,FH)}
 function fsun(g,x,y,r,col){const gr=g.createRadialGradient(x,y,0,x,y,r*3);gr.addColorStop(0,col);gr.addColorStop(.3,col+'88');gr.addColorStop(1,col+'00');g.fillStyle=gr;g.fillRect(x-r*3,y-r*3,r*6,r*6);g.fillStyle=col;g.beginPath();g.arc(x,y,r,0,7);g.fill()}
@@ -14,14 +14,14 @@ function fmount(g,off,base,h,col,snow,seed){const pk=[];for(let i=0;i<8;i++)pk.p
 function fclouds(g,off,y,col,n,sz){g.fillStyle=col;for(let i=0;i<n;i++){const x=((i*97+13)%300)-((off*(1+i%3*.3))%300+300)%300+300,yy=y+(i*23%30);
   for(const[dx,dy,r]of[[0,0,sz],[sz*.9,-sz*.3,sz*.8],[sz*1.8,0,sz*.7]]){g.beginPath();g.arc((x%300)-30+dx,yy+dy,r,0,7);g.fill()}}}
 // a fighter jet seen from the side, nose to the right (dir -1 faces left), s its size; ab lights the afterburner; bandits are dark
-// with a red band
-function fjet(g,x,y,s,dir=1,o={}){const T=o.t??0,col=o.bandit?'#4a4f58':'#9aa6b4',dk=o.bandit?'#2b2f36':'#6a7684';g.save();g.translate(x,y);g.rotate(o.tilt||0);g.scale(dir*s,s);
+// with a red band, and a soviet jet (a MiG) grey-green with red stars
+function fjet(g,x,y,s,dir=1,o={}){const T=o.t??0,col=o.bandit?'#4a4f58':o.soviet?'#8c9a86':'#9aa6b4',dk=o.bandit?'#2b2f36':o.soviet?'#5c6a58':'#6a7684';g.save();g.translate(x,y);g.rotate(o.tilt||0);g.scale(dir*s,s);
   if(o.ab){const f=10+Math.sin(T*60)*3;g.fillStyle='#ff8a3a';g.beginPath();g.moveTo(-1,-2.2);g.lineTo(-f,0);g.lineTo(-1,2.2);g.fill();g.fillStyle='#fff3a0';g.beginPath();g.moveTo(-1,-1.2);g.lineTo(-f*.55,0);g.lineTo(-1,1.2);g.fill()}
   g.fillStyle=dk;g.beginPath();g.moveTo(3,-3);g.lineTo(0,-12);g.lineTo(5,-12);g.lineTo(12,-3);g.fill();
   g.fillStyle=col;g.beginPath();g.moveTo(0,-2.5);g.lineTo(8,-3.5);g.lineTo(30,-3.5);g.lineTo(42,0);g.lineTo(30,2.5);g.lineTo(4,3);g.lineTo(0,2.5);g.fill();
   g.fillStyle=dk;g.beginPath();g.moveTo(13,1);g.lineTo(25,1);g.lineTo(9,8);g.fill();g.fillRect(0,-2.5,3,5);
   g.fillStyle='#8fd0ff';g.beginPath();g.ellipse(29,-4,6,2.6,0,Math.PI,0);g.fill();g.fillStyle='#e8f6ff';g.fillRect(27,-5.5,3,1);
-  if(o.bandit){g.fillStyle='#c0392b';g.fillRect(36,-2,3,4);g.fillRect(4,-11,3,3)}else{g.fillStyle='#2e5db0';g.beginPath();g.arc(5,-7,2,0,7);g.fill();g.fillStyle='#fff';g.fillRect(4.5,-7.5,1,1);g.fillStyle='#1f3a6f';g.fillRect(14,-1,10,1)}
+  if(o.bandit){g.fillStyle='#c0392b';g.fillRect(36,-2,3,4);g.fillRect(4,-11,3,3)}else if(o.soviet){fstar(g,6,-7,2.6,'#d02a2a');fstar(g,18,3.5,2.2,'#d02a2a');g.fillStyle='#d02a2a';g.fillRect(39,-1.5,3,3)}else{g.fillStyle='#2e5db0';g.beginPath();g.arc(5,-7,2,0,7);g.fill();g.fillStyle='#fff';g.fillRect(4.5,-7.5,1,1);g.fillStyle='#1f3a6f';g.fillRect(14,-1,10,1)}
   g.restore()}
 function fmissile(g,x,y,ang,len=7){g.save();g.translate(x,y);g.rotate(ang);g.fillStyle='#e8e8e8';g.fillRect(-len,-1,len,2);g.fillStyle='#c0392b';g.fillRect(0,-1,2,2);g.fillStyle='#ffd23a';g.fillRect(-len-3,-1,3,2);g.restore()}
 function fboom(g,x,y,u){if(u<=0||u>=1)return;const r=4+u*26;g.globalAlpha=1-u;g.fillStyle='#6a6a70';g.beginPath();g.arc(x,y-u*6,r*1.1,0,7);g.fill();
@@ -110,19 +110,74 @@ const SCENES=[
   // the credits roll
   {d:9,f(g,u){g.fillStyle='#000';g.fillRect(0,0,FW,FH);const L=['STORMWING','','FALCON','Jack Rivers','','FROST','Lena Nord','','TOWER','Bertil Mattsson','','COMMAND','Ulla Strand','','Flying sequences','The Northern Air Wing','','Filmed on location','in the skies over the North','','A NORTHWIND PICTURE','','No tower controllers were','harmed in the making of this film.'];
     const y0=FH+10-u*(L.length*11+FH);L.forEach((l,i)=>ftext(g,l,128,y0+i*11,i==0||/^[A-Z ]+$/.test(l)&&l.length>2?'bold 8px serif':'8px serif',i==0?'#ffd23a':/^[A-Z ]+$/.test(l)?'#9fc0e0':'#e8e8e8'))}}];
-const FILM_LEN=SCENES.reduce((a,s)=>a+s.d,0);
+// ---- TOP COMRADE, the second picture: a 34-second Soviet answer to the Western flying picture, from the Red Star State Film
+// Studio No. 4. Comrade Sokol, the fastest pilot in the People's Air Force, his wingman Gus, a beach volleyball game that ends in a
+// draw (as planned), and the bravest attack ever made on a weather balloon.
+// a five-pointed star, centred on (x, y)
+function fstar(g,x,y,r,col){g.fillStyle=col;g.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.42:r;g.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr)}g.closePath();g.fill()}
+// Sokol, head and shoulders: a leather flying helmet with ear flaps and a red star, and his state-issue sunglasses
+function fsokol(g){g.fillStyle='#5a6040';g.beginPath();g.ellipse(128,150,74,40,0,0,7);g.fill();g.fillStyle='#8a6a4a';g.beginPath();g.ellipse(128,114,34,9,0,0,7);g.fill();
+  g.fillStyle='#d9a37a';g.fillRect(118,92,20,18);g.fillStyle='#f1c7a0';g.beginPath();g.ellipse(128,78,19,23,0,0,7);g.fill();
+  g.fillStyle='#4a3020';g.beginPath();g.ellipse(128,66,24,22,0,Math.PI,0);g.fill();g.fillRect(104,62,8,26);g.fillRect(144,62,8,26);g.fillStyle='#3a2416';g.fillRect(104,84,8,3);g.fillRect(144,84,8,3);
+  fstar(g,128,52,5,'#d02a2a');g.fillStyle='#1a1a22';g.beginPath();g.ellipse(119,76,8,5,0,0,7);g.ellipse(137,76,8,5,0,0,7);g.fill();g.fillRect(126,74,4,1.5);
+  g.fillStyle='#5a6a8a';g.fillRect(114,73,4,2);g.fillRect(132,73,4,2);g.strokeStyle='#8a4a3a';g.lineWidth=1.6;g.beginPath();g.arc(128,88,7,.25,Math.PI-.25);g.stroke()}
+// a volleyball player in a striped sailor's vest, every one exactly like the others
+function fplayer(g,x,y,face){g.fillStyle='#f1c7a0';g.fillRect(x-1,y-3,2,3);g.fillStyle='#2a2a40';g.fillRect(x-3,y,2,7);g.fillRect(x+1,y,2,7);
+  for(let k=0;k<5;k++){g.fillStyle=k%2?'#2a4aa0':'#f4f4f0';g.fillRect(x-4,y-12+k*2,8,2)}g.fillStyle='#f1c7a0';g.fillRect(x-6,y-12,2,6);g.fillRect(x+4,y-12,2,6);
+  g.beginPath();g.arc(x,y-16,4,0,7);g.fill();g.fillStyle='#1a1a22';g.fillRect(x+(face>0?0:-3),y-17,3,1.5);g.fillStyle='#c9a05a';g.fillRect(x-4,y-20,8,2)}
+const RSCENES=[
+  // the studio card: a red star rising, with the Ministry's approval
+  {d:3.5,f(g,u){g.fillStyle='#120406';g.fillRect(0,0,FW,FH);g.globalAlpha=Math.sin(Math.PI*u);
+    g.strokeStyle='rgba(255,210,58,.35)';g.lineWidth=1;for(let i=0;i<16;i++){const a=i*Math.PI/8;g.beginPath();g.moveTo(128+Math.cos(a)*20,52+Math.sin(a)*20);g.lineTo(128+Math.cos(a)*40,52+Math.sin(a)*40);g.stroke()}
+    fstar(g,128,52,17,'#d02a2a');fstar(g,128,52,9,'#ff5a4a');ftext(g,'RED STAR STATE FILM STUDIO No. 4',128,90,'bold 9px serif','#f0e0c0');ftext(g,'presents',128,103,'italic 8px serif','#d0a080');
+    ftext(g,'Approved by the Ministry of Culture',128,124,'6px serif','#a08060');g.globalAlpha=1}},
+  // the title over a red sunset, a MiG streaking across
+  {d:5.5,f(g,u,T){fsky(g,'#2a0610','#b8302a','#ffb050');fsun(g,186,104,15,'#ffd27a');fmount(g,T*6,128,44,'#3a1018',null,3);fmount(g,T*14,140,28,'#22080e',null,6);
+    const x=-50+ease(clamp(u/.55))*360;g.strokeStyle='rgba(255,255,255,.5)';g.lineWidth=1;g.beginPath();g.moveTo(-10,72);g.lineTo(x-6,72);g.stroke();fjet(g,x,70,.9,1,{ab:1,t:T,soviet:1});
+    if(u>.4){const k=ease(clamp((u-.4)/.2)),sc=1.6-.6*k;g.save();g.globalAlpha=k;g.translate(128,52);g.scale(sc,sc);g.font='bold 26px serif';g.textAlign='center';
+      const gr=g.createLinearGradient(0,-22,0,4);gr.addColorStop(0,'#fff6c0');gr.addColorStop(.5,'#ffd23a');gr.addColorStop(.55,'#b07a10');gr.addColorStop(1,'#ffe88a');
+      g.fillStyle='#3a0606';g.fillText('TOP COMRADE',2,2);g.fillStyle=gr;g.fillText('TOP COMRADE',0,0);g.restore();g.globalAlpha=1}
+    if(u>.66){g.globalAlpha=clamp((u-.66)/.12);ftext(g,'The sky belongs to the people.',128,74,'italic 9px serif','#fff3e0');g.globalAlpha=1}}},
+  // Sokol in the cockpit, asking the only question that matters
+  {d:5,f(g,u){fsky(g,'#2a1020','#c0503a','#f0a050');g.fillStyle='#3a2a2a';g.fillRect(0,96,FW,48);fsokol(g);
+    fsub(g,u<.5?'SOKOL':'CONTROL',u<.5?'Control, this is Sokol. Requesting permission to go fast.':'Request received. Please submit form 27-B, in triplicate.')}},
+  // volleyball on the beach: three against three, all alike, the ball going back and forth over the net
+  {d:5,f(g,u,T){fsky(g,'#5aa0d8','#a8d8f0','#e8f4fa');g.fillStyle='#3a7ab0';g.fillRect(0,70,FW,20);g.fillStyle='#e8d29a';g.fillRect(0,90,FW,54);
+    g.fillStyle='#6a5a40';g.fillRect(127,74,2,46);g.fillStyle='rgba(240,240,240,.85)';g.fillRect(126,76,4,18);g.strokeStyle='#888';g.lineWidth=.5;for(let y=78;y<94;y+=3){g.beginPath();g.moveTo(126,y);g.lineTo(130,y);g.stroke()}
+    const ph=(T/1.4)%1,leg=Math.floor(T/1.4)%2,bx=leg?178-ph*90:88+ph*90,by=96-Math.sin(Math.PI*ph)*52;
+    [[52,1],[80,1],[106,1],[150,-1],[176,-1],[204,-1]].forEach(([x,f],i)=>{const near=Math.abs(x-bx)<14&&(ph<.12||ph>.88);fplayer(g,x,116-(near?6:Math.abs(Math.sin(T*3+i))*2),f)});
+    g.fillStyle='#fff';g.beginPath();g.arc(bx,by,3,0,7);g.fill();g.fillStyle='#d02a2a';g.fillRect(bx-3,by-.5,6,1);
+    ftext(g,'SCORE: 7 - 7 (A DRAW, AS PLANNED)',128,12,'bold 7px monospace','#1a2a4a');
+    fsub(g,u<.5?'SOKOL':'GUS',u<.5?'Gus, you are in my zone.':'Comrade, there are no zones. All zones belong to everyone.')}},
+  // the dogfight: the bravest attack ever made on a weather balloon
+  {d:6,f(g,u,T){fsky(g,'#3a5a80','#8ab0d0','#d8e8f0');fclouds(g,T*30,24,'rgba(255,255,255,.75)',5,9);fclouds(g,T*60,100,'rgba(255,255,255,.6)',4,12);
+    const jx=30+ease(clamp(u/.4))*40;fjet(g,jx,82,.75,1,{ab:1,t:T,soviet:1});const bxp=196,byp=52+Math.sin(T*1.5)*3;
+    if(u<.5){g.strokeStyle='#888';g.lineWidth=.5;g.beginPath();g.moveTo(bxp,byp+9);g.lineTo(bxp,byp+20);g.stroke();g.fillStyle='#f4f4f0';g.beginPath();g.arc(bxp,byp,9,0,7);g.fill();g.fillStyle='#d8d8d8';g.beginPath();g.arc(bxp+3,byp+2,5,0,7);g.fill();g.fillStyle='#c0a060';g.fillRect(bxp-2,byp+20,4,3)}
+    if(u>.28&&u<.5){const k=(u-.28)/.22;fmissile(g,jx+34+k*(bxp-jx-34),82+k*(byp-82),Math.atan2(byp-82,bxp-jx-34))}
+    if(u>=.5){fboom(g,bxp,byp,clamp((u-.5)/.35));for(let i=0;i<14;i++){const k=u-.5,a=i*.45;g.fillStyle=['#d02a2a','#ffd23a','#f4f4f0'][i%3];g.fillRect(bxp+Math.cos(a)*k*90,byp+Math.sin(a)*k*60+k*k*80,2,2)}}
+    fsub(g,u<.45?'SOKOL':u<.68?'SOKOL':'CONTROL',u<.45?'Western spy plane, dead ahead! Engaging!':u<.68?'Target destroyed!':'Sokol, that was our weather balloon. Now nobody knows if it will snow.')}},
+  // into the sunset, and THE END
+  {d:4,f(g,u,T){fsky(g,'#2a0618','#d0405a','#ffb860');fsun(g,128,104,18,'#ffd88a');fmount(g,T*4,124,34,'#3a1018',null,8);fmount(g,T*9,140,22,'#22080e',null,1);
+    const k=ease(u),s=.7-k*.5;fjet(g,100+k*24,80-k*14,s,1,{ab:1,t:T,soviet:1});fjet(g,136+k*6,70-k*12,s*.92,1,{ab:1,t:T,soviet:1});
+    if(u>.4){g.globalAlpha=clamp((u-.4)/.2);ftext(g,'THE END',128,42,'bold 18px serif','#fff3e0');ftext(g,'КОНЕЦ',128,56,'bold 10px serif','#ffd23a');g.globalAlpha=1}}},
+  // the credits
+  {d:5,f(g,u){g.fillStyle='#120406';g.fillRect(0,0,FW,FH);const L=['TOP COMRADE','','SOKOL','Played by the People','','GUS','Also played by the People','','CONTROL','Form 27-B','','Flying sequences','The 4th Guards Air Regiment','','A RED STAR PICTURE','','No weather balloons were harmed','in the making of this film.','(One was.)'];
+    const y0=FH+10-u*(L.length*11+FH);L.forEach((l,i)=>ftext(g,l,128,y0+i*11,i==0||/^[A-Z0-9 -]+$/.test(l)&&l.length>2?'bold 8px serif':'8px serif',i==0?'#ffd23a':/^[A-Z0-9 -]+$/.test(l)?'#e88a7a':'#e8e8e8'))}}];
+// the pictures showing: their title, the line on the screen while it plays, and their scenes
+const FILMS={stormwing:{title:'STORMWING',scenes:SCENES},topcomrade:{title:'TOP COMRADE',scenes:RSCENES}};
+const filmLen=id=>FILMS[id].scenes.reduce((a,s)=>a+s.d,0);
 // draw the film as it is t seconds in
-function filmFrame(g,t){let a=0;for(const s of SCENES){if(t<a+s.d||s==SCENES[SCENES.length-1]){const T=Math.min(t-a,s.d),u=T/s.d;g.save();s.f(g,u,T);g.restore();
+function filmFrame(g,t,id=FILM.id){const SC=FILMS[id].scenes;let a=0;for(const s of SC){if(t<a+s.d||s==SC[SC.length-1]){const T=Math.min(t-a,s.d),u=T/s.d;g.save();s.f(g,u,T);g.restore();
   // a quick fade between scenes, and a little film grain
   const fa=1-Math.min(clamp(T/.35),clamp((s.d-T)/.35));if(fa>0){g.fillStyle=`rgba(0,0,0,${fa})`;g.fillRect(0,0,FW,FH)}break}a+=s.d}
   for(let i=0;i<14;i++){g.fillStyle=`rgba(255,255,255,${.05+((i*7+(t*24|0))%5)*.01})`;g.fillRect((i*67+(t*24|0)*31)%FW,(i*41+(t*24|0)*17)%FH,1,1)}}
 // ---- at the cinema: a seat (or Otto's counter) and the ticket
-function watchFilm(){if(ME.cash<4){say('A ticket is $4, and you don\'t have enough money of your own.',4000);return}ME.cash-=4;FILM.t=0;FILM.paused=false;FILM.ended=false;startPlay('film');FILM.last=performance.now();requestAnimationFrame(filmLoop)}
+function watchFilm(id='stormwing'){if(ME.cash<4){say('A ticket is $4, and you don\'t have enough money of your own.',4000);return}ME.cash-=4;FILM.id=id;FILM.t=0;FILM.paused=false;FILM.ended=false;startPlay('film');FILM.last=performance.now();requestAnimationFrame(filmLoop)}
 function filmLoop(now){if(START!='film')return;const dt=Math.min(.1,(now-FILM.last)/1000);FILM.last=now;if(!FILM.paused)FILM.t+=dt;
-  const c=startEl.querySelector('#filmc');if(c){const g=c.getContext('2d');g.setTransform(2,0,0,2,0,0);filmFrame(g,Math.min(FILM.t,FILM_LEN));if(FILM.paused){g.fillStyle='rgba(0,0,0,.4)';g.fillRect(0,0,FW,FH);ftext(g,'PAUSED',128,76,'bold 12px monospace','#fff')}}
-  if(FILM.t>=FILM_LEN+1.5){closeStart();say('The lights come up. What a picture!',4000);return}requestAnimationFrame(filmLoop)}
+  const c=startEl.querySelector('#filmc');if(c){const g=c.getContext('2d');g.setTransform(2,0,0,2,0,0);filmFrame(g,Math.min(FILM.t,filmLen(FILM.id)));if(FILM.paused){g.fillStyle='rgba(0,0,0,.4)';g.fillRect(0,0,FW,FH);ftext(g,'PAUSED',128,76,'bold 12px monospace','#fff')}}
+  if(FILM.t>=filmLen(FILM.id)+1.5){closeStart();say('The lights come up. What a picture!',4000);return}requestAnimationFrame(filmLoop)}
 PLAYS.film={
-  render(){startEl.innerHTML=gameHead('STORMWING','now showing')+`<div class="film"><canvas id="filmc" width="${FW*2}" height="${FH*2}" aria-label="The film STORMWING playing"></canvas></div><p class="note">Space pauses &middot; Escape leaves the cinema</p>`;
+  render(){startEl.innerHTML=gameHead(FILMS[FILM.id].title,'now showing')+`<div class="film"><canvas id="filmc" width="${FW*2}" height="${FH*2}" aria-label="The film ${FILMS[FILM.id].title} playing"></canvas></div><p class="note">Space pauses &middot; Escape leaves the cinema</p>`;
     wire();const g=startEl.querySelector('#filmc').getContext('2d');g.setTransform(2,0,0,2,0,0);filmFrame(g,FILM.t)},
   act(){},
   key(k){if(k==' '||k=='p'||k=='P'){FILM.paused=!FILM.paused;return true}return/^Arrow|^[wasde]$/i.test(k)}};

@@ -68,13 +68,13 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     body=`<dl><dt>Date</dt><dd>${dateStr(DAY)} <small>${DAY<1?'(before the month begins)':`(day ${DAY} of ${DAYS})`}</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd></dl>
     <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}${ME.equipped==it.id?' <small class="eqd">Equipped</small>':''}</h3></div>
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
-  if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
+  if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>${Q.main?'Main quest':'Side quest'}, from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
       `<ul class="qconds">${Q.done.map((c,i)=>`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
     const on=ME.quests.filter(q=>!q.done),off=ME.quests.filter(q=>q.done);
     body=(on.length?`<h3>Active</h3><ul class="quests">${on.map(li).join('')}</ul>`:'<p>No active quests.</p>')+(off.length?`<h3>Completed</h3><ul class="quests">${off.map(li).join('')}</ul>`:'')}
   if(START=='map'){// you are marked at your place on the island map (indoors, at the place the building is in)
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
-    body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${mapFog()}${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(a=>`<span class="qstar" title="${esc(NM[a])}: someone here has a quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
+    body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${mapFog()}${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(([a,main])=>`<span class="qstar${main?'':' side'}" title="${esc(NM[a])}: someone here has a ${main?'main':'side'} quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
       <p>You are in ${esc(NM[P.m])}${a&&a!=P.m?', '+esc(NM[a]):''}.</p>`}
   if(START=='opts'){// the volume of everything you hear (the music, the place sounds and the radio), remembered in this browser
     const v=typeof MU!='undefined'?Math.round(MU.vol*100):100;
@@ -121,10 +121,17 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   flashlight:{'Turn on':()=>(ME.light=true,'Click. The flashlight is on.'),'Turn off':()=>(ME.light=false,'Click. The flashlight is off.')}}[id]?.[a]??(FISH[id]&&a=='Look at'?FISH[id].desc+(FISH[id].junk?' Nobody will buy it.':' Olga at the fish shop pays '+money(FISH[id].price)+' for one.'):undefined);
   ME.note=typeof R=='function'?R():R??'You cannot do that yet.';const at=ME.items.findIndex(i=>i.id==id);if(at>=0)ME.sel=at;renderStart()}
 // ---- Shops: talking to a shopkeeper at their shop shows their stock (in the same grid as your inventory). Choose an item and
-// pay with CIA funds or your own money; it moves from their stock to your inventory.
-const STOCK={};  // each shop's stock as it is now, by keeper name
-let SHOP=null;   // the open shop: {n: the keeper, sel: the chosen item, note: the last thing that happened}
-const stockOf=n=>STOCK[n.name]??=SHOPS[n.name].stock.map(([id,c,p])=>({id,n:c,p}));
+// pay with CIA funds or your own money; it moves from their stock to your inventory. Deliveries come every other day (the 1st,
+// 3rd, 5th and so on of September): a shop you look in on after one has its stock filled back up to what it started with (anything
+// it has more of, it keeps).
+const STOCK={};    // each shop's stock as it is now, by keeper name
+const STOCKED={};  // the delivery day each shop's stock was last filled on, by keeper name
+let SHOP=null;     // the open shop: {n: the keeper, sel: the chosen item, note: the last thing that happened}
+const deliveryDay=d=>d<1?d:d%2?d:d-1;
+function stockOf(n){const full=SHOPS[n.name].stock,dd=deliveryDay(DAY),st=STOCK[n.name];
+  if(!st||STOCKED[n.name]==null||STOCKED[n.name]<dd||STOCKED[n.name]>DAY){
+    STOCK[n.name]=[...full.map(([id,c,p])=>{const had=st&&st.find(t=>t.id==id);return{id,n:Math.max(c,had?had.n:0),p}}),...(st||[]).filter(t=>!full.some(([id])=>id==t.id))];STOCKED[n.name]=dd}
+  return STOCK[n.name]}
 function openShop(n){if(MENU||RIDE)return;SHOP={n,sel:0,note:''};START='shop';stack=[];startEl.hidden=false;renderStart()}
 function renderShop(){const n=SHOP.n,st=stockOf(n);SHOP.sel=Math.max(0,Math.min(SHOP.sel,st.length-1));const t=st[SHOP.sel],d=t&&ITEMS[t.id];
   const pay=(k,label,v,key)=>`<button data-pay="${k}"${v<t.p?' disabled':''}>${label} <small>(${key})</small></button>`;
@@ -151,7 +158,7 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol},stock:STOCK,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol},stock:STOCK,stocked:STOCKED,fp:FP};
   // (if storing fails, say so once it has)
   store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -161,7 +168,7 @@ async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))
   loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
 function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});if(!Array.isArray(ME.quests)||ME.quests.some(q=>!QUESTS[q.id]))ME.quests=startQuests();ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -336,6 +343,8 @@ const fadeEl=document.getElementById('fade');
 function pass(change,msg){BUSY=true;stack=[];fadeEl.style.opacity=1;setTimeout(()=>{change();fadeEl.style.opacity=0;say(msg(),5000);setTimeout(()=>BUSY=false,800)},1100)}
 // sitting and waiting takes you from day to night; sleeping in your bed takes you from night to the next morning
 function sitDown(){if(NIGHT){say('It is already night. Go home and get some sleep.',4000);return}
+  // (not until today's main quest is done)
+  const due=mainDue();if(due){say(due=='offer'?"You can't call it a day yet: there's a main quest for you today. Look for the gold star.":"You can't call it a day yet: finish today's main quest first ("+QUESTS[due.id].title+').',5000);return}
   choose('Sit and wait for the evening?',[['Sit and wait until night',()=>pass(()=>{setNight(true);needsPass(20,30,60)},()=>'You sit and wait. The day goes by, and night falls.')],['Not now']])}
 // a map on the wall (an interior's back-wall decoration 'map', in your home and elsewhere): facing up at it, from the floor below
 // it or with furniture in between, and pressing E opens the island map
@@ -346,13 +355,22 @@ function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit
 // ---- Quests (QUESTS in data.js)
 const qOf=id=>ME.quests.find(q=>q.id==id);
 // the quest someone has to give you: one of theirs you haven't taken on yet (they have a star over their head)
-const offerOf=n=>Object.keys(QUESTS).find(id=>QUESTS[id].giver==n.name&&!qOf(id)&&(QUESTS[id].from??-99)<=DAY);
+// (a main quest only on its own morning, and only if you haven't taken on another main quest that day; a side quest from its
+// first day, once the places it needs are open)
+const mainTaken=()=>ME.quests.find(q=>QUESTS[q.id].main&&q.took==DAY);
+const offerable=id=>{const Q=QUESTS[id];if(qOf(id))return false;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
+const offerOf=n=>Object.keys(QUESTS).filter(id=>QUESTS[id].giver==n.name&&offerable(id)).sort((a,b)=>!!QUESTS[b].main-!!QUESTS[a].main)[0];
+// the main quest standing between you and the evening: today's, taken on and not yet done ('offer' if there is one today you
+// haven't taken on), or nothing
+const mainDue=()=>{if(DAY<1)return null;const t=mainTaken();if(t)return t.done?null:t;return Object.keys(QUESTS).some(id=>QUESTS[id].main&&QUESTS[id].day==DAY)?'offer':null};
 // the places on the island map where someone has a quest to give (indoors, the place their building is in)
-const questPlaces=()=>[...new Set(NPCS.filter(n=>n.m&&offerOf(n)).map(n=>POS[n.m]?n.m:areaOf(n.m)).filter(a=>a&&POS[a]))];
+// (with whether any of them is a main quest)
+const questPlaces=()=>{const at={};for(const n of NPCS){const id=n.m&&offerOf(n);if(!id)continue;const a=POS[n.m]?n.m:areaOf(n.m);if(a&&POS[a])at[a]=at[a]||!!QUESTS[id].main}return Object.entries(at)};
 // each condition not yet met in your active quests, as [quest, its index, the condition]
-const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>QUESTS[q.id].done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]));
+// (in a quest whose conditions come in order, only the next one)
+const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id],cs=Q.done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]);return Q.seq?cs.slice(0,1):cs});
 // meeting a condition; with all of them met, the quest is done
-function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}else say('Quest updated: '+Q.title+'.',4000)}
+function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}else{const said=Q.done[i].said;say((said?said+' ':'')+'Quest updated: '+Q.title+'.',said?12000:4000)}}
 // ---- The video call: the big screen in your home links to Chuck at Langley. When he has a quest for you, or is waiting to hear
 // about one, you can call him; when he has a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts him in
 // the conversation panel on a video feed.
@@ -368,14 +386,15 @@ const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds()
 // offered a new one. Returns the conversation, or nothing if they have no quest business with you.
 const unquote=t=>t.replace(/^"|"$/g,'');
 function questTalk(n){
-  const tk=openConds().find(([,,c])=>c.talk==n.name);if(tk){const[q,i]=tk;return{...QUESTS[q.id].chat,onEnd:()=>meet(q,i)}}
+  const tk=openConds().find(([,,c])=>c.talk==n.name);if(tk){const[q,i,c]=tk;return{...(c.chat||QUESTS[q.id].chat),onEnd:()=>meet(q,i)}}
   const g=openConds().find(([,,c])=>c.give&&c.to==n.name),Qg=g&&QUESTS[g[0].id];
   if(g&&has(g[2].give)){const[q,i,c]=g,nm=ITEMS[c.give].name.toLowerCase();
     return{start:'a',nodes:{a:{say:Qg.giver==n.name&&Qg.wait?Qg.wait:'Have you got something for me?',opts:[['Give '+n.name+' the '+nm,'thanks',()=>{take(c.give);meet(q,i,true)}],['Not yet',null]]},
       thanks:{say:unquote(Qg.thanks)}}}}
-  const w=ME.quests.find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w)return{start:'a',nodes:{a:{say:QUESTS[w.id].wait}}};
-  const id=offerOf(n);if(!id)return null;const Q=QUESTS[id];
-  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false});say('New quest: '+Q.title+'.',4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
+  // (today's main quest comes before a reminder, and the reminder is about the latest quest you took on from them)
+  const id=offerOf(n),w=[...ME.quests].reverse().find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w&&!(id&&QUESTS[id].main))return{start:'a',nodes:{a:{say:QUESTS[w.id].wait}}};
+  if(!id)return null;const Q=QUESTS[id];
+  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false,took:DAY});say((Q.main?'New main quest: ':'New side quest: ')+Q.title+'.',4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
 // talking to someone: their quest business first, then their own conversation (CONVOS), a shopkeeper's welcome, or a line about
 // themselves; all of it in the conversation panel
 function talk(n){n.dir=P.dir^1;

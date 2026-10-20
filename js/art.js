@@ -1304,10 +1304,10 @@ function costume(kind,d,fr){const key=kind+d+fr;if(COST[key])return COST[key];co
     r('#2d3046',5,21,2,3);r('#2d3046',9,21,2,3);r('#f2f2f2',4,24,4,2);r('#f2f2f2',8,24,4,2);r('#c9ced4',4,25,4,1);r('#c9ced4',8,25,4,1)})}
 function costumed(px,py,d,kind,t){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(costume(kind,d,d==0?(t/450|0)%2:0),px-1,py-11)}
 // Draws a person whose tile's top-left is (px, py).
-// a quest star: a five-pointed gold star, outlined, centred on (X,Y)
+// a quest star: a five-pointed star, outlined, centred on (X,Y): gold for a main quest, silver for a side quest
 const QSTAR=['...#...','...#...','..###..','#######','.#####.','..###..','.##.##.','##...##'];
-function qstar(X,Y){const x0=X-3,y0=Y-4;QSTAR.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='#'){ctx.fillStyle='#4a2e00';ctx.fillRect(x0+x-1,y0+y-1,3,3)}}));
-  QSTAR.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='#'){ctx.fillStyle=y<3?'#fff2a0':'#ffd23a';ctx.fillRect(x0+x,y0+y,1,1)}}))}
+function qstar(X,Y,side){const x0=X-3,y0=Y-4;QSTAR.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='#'){ctx.fillStyle='#4a2e00';ctx.fillRect(x0+x-1,y0+y-1,3,3)}}));
+  QSTAR.forEach((row,y)=>[...row].forEach((c,x)=>{if(c=='#'){ctx.fillStyle=side?(y<3?'#ffffff':'#c4ccd8'):(y<3?'#fff2a0':'#ffd23a');ctx.fillRect(x0+x,y0+y,1,1)}}))}
 // A snow bank across a road (28x24, standing on its tile with the drift heaped up behind) and a DANGER sign on a post (28x30)
 let SBA=null,DSA=null;
 function snowBankArt(){return SBA??=mk(28,24,r=>{for(let y=0;y<24;y++){const u=y/23,hw=Math.round(Math.min(13,4+u*14+Math.sin(u*7)*1.5));const c=y<6?'#ffffff':y<17?SNOW:SNOWD;r(c,14-hw,y,hw*2,1)}
@@ -2035,7 +2035,7 @@ function drawWorld2(m,cx,cy,t,frame){
   if(typeof snowBlocks=='function')snowBlocks(m).forEach(b=>{Ls.push([b.y,.9,()=>ctx.drawImage(snowBankArt(),b.x*16-cx-6,b.y*16-cy-8)]);Ls.push([b.sy,.9,()=>ctx.drawImage(dangerSignArt(),b.sx*16-cx-6,b.sy*16-cy-14)])});
   NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>{n.costume?costumed(n.x*16-cx,n.y*16-cy+b,n.dir,n.costume,t):person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n.body,n.hair,null,n.hat);
     // someone with a quest to give you: a gold star bobbing over their head
-    if(typeof offerOf=='function'&&offerOf(n))qstar(n.x*16-cx+8,n.y*16-cy-25+Math.round(Math.sin(t/260)*1.5))}])});
+    {const qid=typeof offerOf=='function'&&offerOf(n);if(qid)qstar(n.x*16-cx+8,n.y*16-cy-25+Math.round(Math.sin(t/260)*1.5),!QUESTS[qid].main)}}])});
   Ls.push([P.ry,1,()=>{const X=Math.round(P.rx*16-cx),Y=Math.round(P.ry*16-cy);
     // holding the fishing rod: drawn behind when you face away, in front otherwise
     const rod=typeof ME!='undefined'&&ME.equipped=='fishrod'&&(()=>{const[h,t]=[[[11,9],[18,-7]],[[3,8],[-3,-8]],[[6,9],[-7,-5]],[[9,9],[22,-5]]][P.dir];

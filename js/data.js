@@ -610,7 +610,7 @@ const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_l
 // and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
 const CONVOS={
 // Otto sells tickets for the film at the cinema (js/film.js)
-Otto:{start:'a',nodes:{a:{say:"Tonight's picture is STORMWING: the hottest pilots in the North, and one very unhappy control tower. Four dollars a ticket.",opts:[['Buy a ticket and watch ($4)',null,()=>watchFilm()],['Maybe later',null]]}}},
+Otto:{start:'a',nodes:{a:{say:"Two pictures tonight. STORMWING: the hottest pilots in the North, and one very unhappy control tower. And TOP COMRADE, all the way from the other side of the Iron Curtain: same story, more paperwork. Four dollars a ticket.",opts:[['Watch STORMWING ($4)',null,()=>watchFilm('stormwing')],['Watch TOP COMRADE ($4)',null,()=>watchFilm('topcomrade')],['Maybe later',null]]}}},
 Hekki:{start:'hello',nodes:{
   hello:{say:'So glad you made it.',opts:[['Me too.','metoo'],['This place sucks.','sucks'],['Is anyone on to you?','onto']]},
   metoo:{say:'Woo!'},
@@ -685,23 +685,27 @@ Rosa:{stock:[['hotdog',30,1],['cola',20,1]]},
 Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 };
 // Quests. Each has a giver (the person who offers it), a title and what it asks (text), what the giver says offering it (offer),
-// when you take it on (accept) and if you come back before it's done (wait), and what happens when it's done (thanks). start:true
-// makes it yours from the beginning. done lists its completion conditions; meeting all of them ends the quest. Each has a what
-// (how the Quests tab lists it) and one of:
+// when you take it on (accept) and if you come back before it's done (wait), and what happens when it's done (thanks).
+// Main quests (main:true) belong to a day (day): their giver offers them that morning, you can take on only one main quest a day
+// (taking one withdraws any others offered that day), and you can't sit and wait for the evening until it's done. Side quests
+// (the rest) can be taken on and done at any time: from their first day (from), or once the places they need are open (opens:
+// place ids, as on the island map). done lists its completion conditions; meeting all of them ends the quest, and with seq:true
+// they're met in order, one at a time. Each has a what (how the Quests tab lists it), optionally said (what happens as it's met),
+// and one of:
 //   give:item, to:name   talk to that person with the item in your inventory and agree to hand it over
 //   use:label, m:place   face that piece of furniture in that place and press E
 //   talk:name            have a conversation with that person (the quest's chat is what they say)
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
 // call (the big screen in your home), not in person.
-// Someone with a quest to give has a star over their head, and a star on the island map marks where they are.
+// Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
+// island map marks where they are.
 const QUESTS={
-report:{title:'Report in',giver:'Chuck',start:true,text:'Use the radio equipment in the Hidden Radio Room to tell Chuck you have arrived safely on the island.',
-  done:[{use:'Radio Equipment',m:'hekki_room',what:'Radio Chuck from the Hidden Radio Room'}],
-  thanks:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "Keep your head down."'},
-meetreds:{title:'Meet the Communists',giver:'Chuck',from:1,call:true,text:'Chuck wants a read on the Communist Party, who want the island to join the Soviet Union. Go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
-  offer:"Morning, NIGHTJAR. Glad you made it in one piece. First job: the Communist Party. They want this island in the Soviet Union, and that's exactly what we're here to stop. Their leader is a woman called Anna; they run things out of an HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don't tip your hand.",
-  accept:'Good. Call me when you have something.',wait:'Talked to Anna yet? Communist Party HQ, Saltwick. A friendly chat, nothing more.',
-  done:[{talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader'}],
+meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
+  offer:"Morning, NIGHTJAR. Glad you made it in one piece. Before anything else, report in properly: use the radio set there in the room, so Langley has it on the record that NIGHTJAR is in place. Then I'll give you your first job.",
+  accept:"Good. Radio in and I'll brief you over the set.",wait:'Radioed in yet? Then get over to Saltwick and talk to Anna, at the Communist Party HQ. A friendly chat, nothing more.',
+  done:[{use:'Radio Equipment',m:'hekki_room',what:'Report in to Chuck on the radio in the Hidden Radio Room',
+      said:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "First job: the Communist Party. They want this island in the Soviet Union, and that\'s exactly what we\'re here to stop. Their leader is a woman called Anna, at their HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don\'t tip your hand."'},
+    {talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader'}],
   thanks:'You have the measure of Anna. Chuck will want to hear about her.',
   chat:{start:'a',nodes:{
     a:{say:"Comrade! Not many come in from the cold to visit us. What brings you to the Party's door?",opts:[['I want to know what the Party stands for.','b'],["I heard about the king. Everyone's talking about it.",'c'],["I'm a journalist, from abroad.",'d']]},
@@ -709,7 +713,53 @@ meetreds:{title:'Meet the Communists',giver:'Chuck',from:1,call:true,text:'Chuck
     c:{say:'So is everyone. A king dies and the vultures circle: the royals, the Democrats, Kelp Cola, the Syndicate. This month decides who runs the island, and whether it finally takes its place in the Soviet Union.',opts:[['Where does the Party stand?','b'],["I'll keep my ears open.",null]]},
     d:{say:"A journalist! Then write this down: Sarivalto's future lies with the Soviet Union. Moscow will give this island what its kings never did.",opts:[['And what does Moscow get?','e'],['I will.',null]]},
     e:{say:"Friends, comrade. A harbour in the north, and an island that stands with the workers of the world. The Americans would rather we stayed a little kingdom they can buy. Now, I have a meeting. Come back any time."}}}},
-pizza:{title:'Pizza for Buttons',giver:'Buttons',text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
+// (a talk condition can have its own chat, for a quest with several people to talk to)
+meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text:'The road to Kingsgrad is open. Chuck wants to know the royal household: go to the Royal Palace and talk to each of the royal family and every one of their staff.',
+  offer:"Morning, NIGHTJAR. Good work on Anna. The snow's cleared on the road to Kingsgrad, so today it's the palace. The old king's dead, and whoever ends up wearing the crown, or tearing it down, matters to us. Meet the family: Prince Leopold, his brother Augustus and his sister Daphne. And talk to the staff, every one of them. Butlers and maids hear everything.",
+  accept:"Good. Be polite, be curious, and remember who said what.",wait:"Still working through the palace? All three royals, and every one of the staff. The maids and the laundress too.",
+  done:[
+    {talk:'Leopold',what:'Talk to Prince Leopold',chat:{start:'a',nodes:{
+      a:{say:"You'll forgive me if I don't stand. My father's chair is larger than it looks. Are you here to offer condolences, or advice? I've had a great deal of both.",opts:[['Condolences, Your Highness.','b'],['Will you be crowned?','c']]},
+      b:{say:"Thank you. He was a hard man to be the son of, and a harder one to lose. The island is watching me now, waiting to see whether I'm him."},
+      c:{say:"If the island lets me. There are people in Saltwick who'd rather bury the crown with him, and people in Eastbrook who'd sell it. I mean to be crowned. Whether I'm king of anything afterwards is another question."}}}},
+    {talk:'Augustus',what:"Talk to Augustus, the prince's brother",chat:{start:'a',nodes:{
+      a:{say:"Shh. This is a library. Oh, you're new. Augustus. The other brother. The one who reads.",opts:[['What are you reading?','b'],['How is the family holding up?','c']]},
+      b:{say:"The lives of the saints. Father Thyme at the monastery lends them to me. They all suffered beautifully. I've not got the knack of it yet."},
+      c:{say:"Leopold talks to everyone and listens to no one. Daphne listens to everyone and tells no one. I pray. Between us we make one decent king."}}}},
+    {talk:'Daphne',what:"Talk to Daphne, the prince's sister",chat:{start:'a',nodes:{
+      a:{say:"A new face! Walk with me, the gardens are the only place in the palace where the walls don't have ears. Well, Viktor has ears, but he only uses them for birdsong.",opts:[['Who would listen at the walls?','b'],['It must be a difficult time.','c']]},
+      b:{say:"Everyone, darling. The Party, the Americans, the cola people, my own brothers. Half the island wants something from this family, and the other half wants it gone. I find it terribly exciting."},
+      c:{say:"For Leopold, yes. He has to be Father now. I only have to be charming, which I was going to be anyway."}}}},
+    {talk:'Edmund',what:'Talk to Edmund, the butler',chat:{start:'a',nodes:{
+      a:{say:"Good morning. Edmund, butler to the household these thirty-one years. If you've business with the family, you have it through me.",opts:[["Just paying my respects.",'b'],['You must know the palace better than anyone.','c']]},
+      b:{say:"Very good. The household is in mourning; you'll keep your voice down in the Grand Hall, and your hands off the silver."},
+      c:{say:"I know every room, every key and every secret in it, sir. Which is precisely why I keep them."}}}},
+    {talk:'Oskar',what:'Talk to Oskar, the footman',chat:{start:'a',nodes:{
+      a:{say:"Morning! Oskar, footman. I open the doors, carry the bags and stand very still in the cold. Mostly the cold.",opts:[['Seen anything interesting?','b'],['Busy since the king died?','c']]},
+      b:{say:"Visitors I've never seen before, coming up the drive late at night. Men in good coats. Mr Edmund says I didn't see them, so I didn't."},
+      c:{say:"Run off my feet. Everyone on the island wants to come and look sorry at the prince."}}}},
+    {talk:'Marta',what:'Talk to Marta, the cook',chat:{start:'a',nodes:{
+      a:{say:"Out of my way unless you're carrying onions. Marta. I cook for the family, the staff and every hungry fool who wanders into my kitchen.",opts:[['What does the prince like to eat?','b'],['How are the staff taking it?','c']]},
+      b:{say:"Herring, like his father. Daphne eats nothing and says it's delicious. Augustus fasts on saints' days, and he's found a lot of saints lately."},
+      c:{say:"We cried on Sunday and we cooked on Monday. A palace still has to eat, whoever sits on the throne."}}}},
+    {talk:'Ingrid',what:'Talk to Ingrid, the maid',chat:{start:'a',nodes:{
+      a:{say:"Oh! I wasn't listening, I was dusting. Ingrid. I keep the royal apartments.",opts:[['What do you hear up here?','b'],['Is it a good place to work?','c']]},
+      b:{say:"The prince walking the floor half the night. Letters burned in the grate in the morning. I don't read them. I just notice the ashes."},
+      c:{say:"It's warm and the food's good. You keep your head down and your apron clean."}}}},
+    {talk:'Lotta',what:'Talk to Lotta, the maid',chat:{start:'a',nodes:{
+      a:{say:"Mind the tablecloth, it's just been pressed. Lotta. I set the dining room and clear it again.",opts:[['Who comes to dinner these days?','b'],['Do the family eat together?','c']]},
+      b:{say:"A man from Kelp Cola last week, all teeth. And the colonel from the barracks. They talked about the succession over the soup and stopped when I came in with the fish."},
+      c:{say:"They sit together. They don't talk together. It's a long table."}}}},
+    {talk:'Viktor',what:'Talk to Viktor, the groundskeeper',chat:{start:'a',nodes:{
+      a:{say:"Mind the hedges. Viktor. I keep the grounds, such as they are under all this snow.",opts:[['Quiet work?','b'],['Do you see much out here?','c']]},
+      b:{say:"Quiet enough to hear a robin a field away. And the front gate creaking at midnight."},
+      c:{say:"Everything comes and goes by the front gate, and the front gate goes past my shed. I don't say. Nobody asks a gardener."}}}},
+    {talk:'Elsa',what:'Talk to Elsa, the laundress',chat:{start:'a',nodes:{
+      a:{say:"You'll want to stand back, this is all starch. Elsa. Every sheet and shirt in the palace comes through this room.",opts:[['You must learn a lot from the laundry.','b'],['Hard work?','c']]},
+      b:{say:"Lipstick on a collar that's no one's wife's. Mud from the harbour on the prince's boots. Laundry never lies, love. People do."},
+      c:{say:"Hard on the hands, easy on the head. And nobody notices a laundress."}}}}],
+  thanks:"You have met the whole royal household. Chuck will want to hear what the palace is saying."},
+pizza:{title:'Pizza for Buttons',giver:'Buttons',opens:['lake','town'],text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
   offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
   accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',
   done:[{give:'pizza',to:'Buttons',what:'Give Buttons a slice of pizza'}],
@@ -967,8 +1017,19 @@ const QUEST_TITLES={29:{cola:'Republican primary',oil:'Republican primary',syndi
 const TRACK_INFO={chant:['Gregorian chant','A small choir of men\'s voices sings the Salve Regina, one line in the Dorian mode, over a low hummed drone, in a long stone-church echo.'],
   jazz:['Jazz','A quartet swings through a medium-tempo tune in F: a walking bass, the ride cymbal and brushes, piano chords on the off-beats, and now and then a breathy tenor sax taking a solo, in a small club\'s echo.'],
   arcade:['Arcade music','An upbeat chiptune in A minor: a thin pulse-wave tune, a bubbling bass and noise drums, with coins, lasers, jumps and explosions going off on the machines all round the hall.'],
-  shop:['Shop sounds','Customers murmuring, footsteps crossing the floor, the till ringing up a sale, the door\'s chime now and then, and quiet music in the background.'],
+  shop:['Shop music','Cheerful easy-listening music from the ceiling speakers (vibraphone, electric piano, a bouncy bass and a shaker), with the till ringing up a sale, the door\'s chime, footsteps and a paper bag rustling at the counter.'],
+  regal:['Royal processional','A stately Baroque processional in D major: strings holding the chords over a walking bass, a harpsichord rippling through them, timpani, and two trumpets playing the tune in the dotted rhythms of a grand entrance, in a palace hall\'s long echo.'],
+  romani:['Romani music','A travelling band\'s csárdás in D harmonic minor: slow and mournful at first, a violin sliding into its notes over accordion chords and a rolling cimbalom, then breaking into a fast dance with an oom-pah bass, and back again.'],
+  mill:['Lumber mill','The motors humming, the conveyor clattering, the big saw whining up to speed and biting into a log, the cut timber thudding onto the stack, metal clanking and air hissing from a valve.'],
+  rig:['Oil rig','The drilling pump\'s slow, heavy chug over the motors\' hum, the drill grinding, a chain rattling through, metal clanking, steam hissing, and the sea and the wind around the platform.'],
+  plant:['Fish processing plant','The conveyor rattling fish along the line, the refrigeration compressor droning, fish slapping into the bins, a pneumatic pusher thumping, metal clanking and air hissing.'],
+  cola:['Bottling line','The Kelp Cola factory and its warehouse: the motors humming, bottles clinking against each other along the line, the filler hissing and the capper thumping, crates of full bottles set down, metal clanking.'],
+  casino:['Casino swing','Upbeat big-band swing like a Las Vegas lounge: a walking bass, swinging drums, brass punching out chords and a trumpet riffing over the top, with slot machines paying out, chips clattering and the roulette wheel spinning behind.'],
+  cafe:['Coffee shop','People talking at the tables, the espresso machine and its steam wand frothing milk, the grinder, cups on saucers and spoons stirring, the beans popping in the roaster, and an acoustic guitar in the background.'],
+  spy:['Ominous','Dark Cold War thriller music: a low drone that never settles, a slow heartbeat pulse, uneasy string chords swelling and fading, lone high piano notes in a long echo and now and then a low brass swell.'],
+  woods:['The woods','The snowy woods along the roads and in the Pine Forest: a light breeze in the pines, a branch creaking, snow slumping off one; by day birds singing, a crow far off and a woodpecker drumming, and by night an owl.'],
+  army:['Fife and drum','A fife and drum corps of the 1860s plays a march across the parade ground: two fifes in thirds over a snare drum\'s accents, flams and rolls, and a bass drum on every beat.'],
   pizzeria:['Italian waltz','An accordion carries a waltz tune over a trembling mandolin and an oom-pah-pah bass.'],
   ocean:['The sea','Waves roll in every few seconds and break in a hiss of surf, gulls cry now and then from one side or the other, and a bell buoy clangs far out.']};
-const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach','oilrig'],jazz:['jazz_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
+const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach'],jazz:['jazz_in'],regal:['palace','palacehall','throne','royalrooms','dining','library','chapel','crypt','kitchen','servants','winecellar','vault'],romani:['bigtop_in','caravan1_in','caravan2_in','caravan3_in'],mill:['millroad','mill_in'],rig:['oilrig','derrick_in'],plant:['plant'],cola:['kcfac_in','kcwhs_in'],casino:['casino'],cafe:['cafe'],spy:['langley','langley_office','hekki_room'],woods:['north','east','south','southwest','west','forest'],army:['barracks','barrA_in','barrB_in','gp_in','arm_in','offhq_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
   shop:['bookshop','clothes_in','tailor','electro','fishingshop','fishshop','outfitters_in','gunshop','kcmuseum_in','mart','supermarket','records_in']};
