@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>eveningAt(n,night)?n.evening.m:atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!eveningAt(n,night)&&!atWorkWhen(n,night)&&!!L[n.home];
@@ -76,6 +76,18 @@ function accessMap(d){const G=MAP_GEO,ids=Object.keys(G.cells);
   const dots=Object.keys(G.rp).map(id=>`<circle cx="${G.rp[id][0]}" cy="${G.rp[id][1]}" r="9" fill="${isOpenOn(id,d)?'#2b2118':'#5a5f66'}"/>`).join('');
   return`<svg viewBox="80 90 1340 720" role="img" aria-label="The island on ${d} September"><defs><clipPath id="cl${d}"><polygon points="${G.coast}"/></clipPath></defs>`+
     `<polygon points="${G.coast}" fill="#cfd8dc"/><g clip-path="url(#cl${d})">${ids.map(cell).join('')}${news}</g><polygon points="${G.coast}" fill="none" stroke="#4a3b2a" stroke-width="4"/>${roads}${snow}${dots}</svg>`}
+// The Audio page: each piece of background sound, what you hear and where; then every location with the sound it has, by place
+function audioBody(c){const trackOf=id=>Object.keys(MUSIC_AT).find(k=>MUSIC_AT[k].includes(id)),here=id=>{const k=trackOf(id);return k?TRACK_INFO[k][0]:''};
+  const tracks=Object.keys(TRACK_INFO).map(k=>`<h3>${esc(TRACK_INFO[k][0])}</h3><p>${esc(TRACK_INFO[k][1])}</p><p><small>Plays at: ${MUSIC_AT[k].map(id=>A(c,'locations',id,L[id][0])).join(', ')}</small></p>`).join('');
+  const g={};Object.keys(L).filter(id=>id!='tram').forEach(id=>(g[top(id)]??=[]).push(id));
+  const head='<colgroup><col style="width:50%"><col></colgroup><thead><tr><th data-col="0" class="asc">Location</th><th data-col="1">Background audio</th></tr></thead>';
+  const all=Object.keys(L).filter(id=>id!='tram'),n=all.filter(trackOf).length;
+  return `<h1>Audio</h1><p>The background sound each place has, made in the browser as you play. Places without any are quiet.
+Radio Sarivalto, when it is switched on (the Radio button, or Listen on a transistor radio), plays instead of all of it, anywhere. The Music button
+turns the music and place sounds off and on, and the volume is set on the Options tab of the game's menu.</p><h2>Tracks</h2>${tracks}
+<h2>Every location</h2><p><small>${n} of ${all.length} locations have background audio.</small></p>`+filter+
+    Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(p=>`<section class="grp"><h3>${locA(c,p)}</h3><div class="wide"><table class="grid sortable">${head}<tbody>${
+      g[p].sort((a,b)=>(a==p?-1:b==p?1:L[a][0].localeCompare(L[b][0]))).map(id=>`<tr data-s="${esc((L[id][0]+' '+L[p][0]+' '+(here(id)||'none')).toLowerCase())}"><td>${A(c,'locations',id,L[id][0])}</td><td data-v="${esc(here(id)||'~')}">${here(id)?esc(here(id)):'<small>None</small>'}</td></tr>`).join('')}</tbody></table></div></section>`).join('')}
 function accessBody(c){const place=id=>A(c,'locations',id,L[id][0]),list=a=>a.length?a.join(', '):'–';
   const rows=OPEN_DAYS.map(d=>{const opens=Object.keys(POS).filter(id=>openDay(id)==d),dists=[...new Set(opens.map(id=>DISTRICT_OF[id]))],whole=k=>Object.keys(POS).filter(i=>DISTRICT_OF[i]==k).every(i=>openDay(i)==d);
     return`<tr><th>${d} September</th><td>${dists.length?dists.map(k=>`<span class="sw" style="background:${DISTRICTS[k][1]}"></span>${esc(DISTRICTS[k][0])}${whole(k)?'':' <small>(part)</small>'}`).join(', '):'–'}</td><td>${list(opens.map(place))}</td><td>${Object.keys(POS).filter(id=>isOpenOn(id,d)).length} of ${Object.keys(POS).length}</td>`+
@@ -296,11 +308,12 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
 pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
 pages.push({k:'access',id:'access',title:'Access',body:accessBody,file:'access/index.html',pre:'../'});
+pages.push({k:'audio',id:'audio',title:'Audio',body:audioBody,file:'audio/index.html',pre:'../'});
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
 Object.keys(FACTIONS).forEach(i=>pages.push({id:'factions-'+i,title:FACTIONS[i][0],body:c=>facBody(c,i),file:'factions/'+i+'.html',pre:'../'}));

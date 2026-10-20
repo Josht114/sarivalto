@@ -962,3 +962,13 @@ const QUEST_DAYS={communist:{intro:1,days:[11,16,19,23,27,28,29]},royal:{intro:2
 const QUEST_EVENTS={0:['Game intro','cia'],14:['Event 1'],21:['Volcano'],30:['Finale']};
 // the quests that have a title so far, by day and faction (the rest are just "Quest")
 const QUEST_TITLES={29:{cola:'Republican primary',oil:'Republican primary',syndicate:'Republican primary',royal:'Line of succession',church:'Line of succession',communist:'Friendly rivalry',democrat:'Friendly rivalry'}};
+// ---- Background audio, made as it plays by js/music.js: each track's name and what you hear (TRACK_INFO), and the places it
+// plays in (MUSIC_AT; a building only where it is listed). Radio Sarivalto, when it is switched on, plays instead, anywhere.
+const TRACK_INFO={chant:['Gregorian chant','A small choir of men\'s voices sings the Salve Regina, one line in the Dorian mode, over a low hummed drone, in a long stone-church echo.'],
+  jazz:['Jazz','A quartet swings through a medium-tempo tune in F: a walking bass, the ride cymbal and brushes, piano chords on the off-beats, and now and then a breathy tenor sax taking a solo, in a small club\'s echo.'],
+  arcade:['Arcade music','An upbeat chiptune in A minor: a thin pulse-wave tune, a bubbling bass and noise drums, with coins, lasers, jumps and explosions going off on the machines all round the hall.'],
+  shop:['Shop sounds','Customers murmuring, footsteps crossing the floor, the till ringing up a sale, the door\'s chime now and then, and quiet music in the background.'],
+  pizzeria:['Italian waltz','An accordion carries a waltz tune over a trembling mandolin and an oom-pah-pah bass.'],
+  ocean:['The sea','Waves roll in every few seconds and break in a hiss of surf, gulls cry now and then from one side or the other, and a bell buoy clangs far out.']};
+const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach','oilrig'],jazz:['jazz_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
+  shop:['bookshop','clothes_in','tailor','electro','fishingshop','fishshop','outfitters_in','gunshop','kcmuseum_in','mart','supermarket','records_in']};

@@ -1646,6 +1646,21 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       for(let x=6;x<W-24;x+=5)r('#f2e6c8',x,oy+5,3,6)}
     else{for(let k=0;k<4;k++){r('#f2f2f2',6+k*7,oy+5,4,6);r('#c0392b',7+k*7,oy+6,1,1)}r('#c0392b',W-12,oy+H-10,3,2);r('#2e86c1',W-8,oy+H-10,3,2);r('#e0a100',W-10,oy+H-12,3,2)}
     seats.forEach(x=>chair(x,oy+H-1,false))})}}
+  // a grand piano in three-quarter view: a glossy black body, straight on the left and curving in to its tail on the right, the
+  // lid propped open on its stick to show the gold frame and strings, the keyboard across the front, and three legs
+  if(ch=='u'&&l.includes('piano')){const oy=12,TT=H+oy,bt=oy+2,bb=H+oy-12,body=y=>{const u=(y-bt)/(bb-bt);return Math.round(9+(W-11)*Math.sqrt(Math.max(0,u)))};
+    return{oy,c:mk(W,TT,r=>{
+      // the body, and the gold frame and strings showing inside it
+      for(let y=bt;y<bb;y++){const xr=body(y);r('#16141c',1,y,xr,1);if(y>bt+2&&y<bb-1){r('#c9a040',3,y,xr-4,1);for(let x=4;x<xr-2;x+=2)r('#8a6a2a',x,y,1,1)}}
+      for(let y=bt+3;y<bb-1;y+=5)r('#e8c860',3,y,body(y)-4,1);
+      // the lid, propped up over the bass side, glossy with a highlight, and its stick
+      for(let y=0;y<oy+6;y++){const xr=Math.round(4+(W*.55)*(y/(oy+6)));r('#1c1a24',1,y,xr,1);r('#3a3848',1+Math.round(xr*.3),y,2,1)}
+      r('#5a5f68',Math.round(W*.6),3,1,bt);r('#2a2830',W*.6|0,2,2,2);
+      // the keyboard: a black key slip, then white keys with black ones in twos and threes
+      const ky=bb;r('#16141c',0,ky,W,2);for(let x=1;x<W-1;x++)r(x%3==0?'#b8b0a0':'#f4f1e8',x,ky+2,1,5);
+      for(let k=0,x=2;x<W-2;x+=3,k++)if([0,1,3,4,5].includes(k%7))r('#16141c',x+1,ky+2,2,3);r('#2a2830',0,ky+7,W,1);
+      // the legs, and a little shine along the case
+      for(const lx of[2,W-5])r('#16141c',lx,ky+8,3,H+oy-ky-8);r('#16141c',(W>>1)-1,bb-4,2,4);r('#4a4858',2,bt+1,1,bb-bt-3)})}}
   if(ch=='u'&&l.includes('pew')){const oy=5,TT=H+oy;return{oy,c:mk(W,TT,r=>{
     // a wooden pew: a carved back rail with the seat in front of it
     r('#5a3d2a',0,0,W,6);r('#7a5436',0,0,W,1);for(let x=3;x<W-2;x+=8)r('#4a3222',x,2,2,3);

@@ -55,7 +55,7 @@ addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start).map(id=>({id,met:[],done:false}))}
-const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save']];
+const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save'],['opts','Options']];
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
@@ -76,6 +76,10 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
     body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${mapFog()}${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(a=>`<span class="qstar" title="${esc(NM[a])}: someone here has a quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
       <p>You are in ${esc(NM[P.m])}${a&&a!=P.m?', '+esc(NM[a]):''}.</p>`}
+  if(START=='opts'){// the volume of everything you hear (the music, the place sounds and the radio), remembered in this browser
+    const v=typeof MU!='undefined'?Math.round(MU.vol*100):100;
+    body=`<h3>Sound</h3><p><label for="volume">Volume</label> <input type="range" id="volume" min="0" max="100" step="5" value="${v}"> <b id="volval">${v}%</b></p>
+      <p><small>The volume of everything: the music, the sounds of each place and the radio. The Music button turns the music and place sounds off and on; the Radio button plays Radio Sarivalto instead.</small></p>`}
   if(START=='save'){// the save slots: where and when each was saved, and buttons to save over it, load it or delete it
     // (overwriting, loading and deleting ask again on the button first)
     const btn=(d,i,t)=>`<button data-do="${d}" data-slot="${i}">${ME.confirm==d+i?t+'?':t}</button>`;
@@ -86,6 +90,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
       <p><small>${esc(store.where)}</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
   startEl.innerHTML=`<div class="tabs" role="tablist">${TABS.map(([k,t])=>`<button role="tab" data-tab="${k}" aria-selected="${k==START}">${t}</button>`).join('')}<button class="close" aria-label="Close the menu">&times;</button></div><div>${body}</div>`;
   startEl.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{START=b.dataset.tab;ME.note='';ME.confirm='';renderStart()});
+  const vol=startEl.querySelector('#volume');if(vol)vol.oninput=()=>{if(typeof setVolume=='function')setVolume(vol.value/100);startEl.querySelector('#volval').textContent=vol.value+'%'};
   const fi=startEl.querySelector('.filebtn input');if(fi)fi.onchange=()=>{if(fi.files[0])importSave(fi.files[0])};
   startEl.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>slotAction(b.dataset.do,b.dataset.slot=='quick'?'quick':+b.dataset.slot));
   startEl.querySelectorAll('[data-item]').forEach(b=>b.onclick=()=>{ME.sel=+b.dataset.item;ME.note='';renderStart()});
@@ -105,7 +110,7 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   const gone=v=>()=>(take(id),`You ${v} the ${nm}.`+(typeof eat=='function'?eat(id):'')),R={
   beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>smoke()},
   burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
-  newspaper:{Read:()=>`The headline: ${HEADLINES[(DAY-1)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
+  newspaper:{Read:()=>`The headline: ${HEADLINES[((DAY-1)%HEADLINES.length+HEADLINES.length)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
   radio:{Listen:()=>typeof toggleRadio=='function'?toggleRadio():'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:()=>ME.equipped!='fishrod'?'Equip the fishing rod first.':canFish()?(closeStart(),startFishing(),''):'Face some open water (the sea, the lake or the river) to fish in it.'},
   notebook:{'Read':`${dateStr(DAY)}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
@@ -239,11 +244,11 @@ addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;co
     else if(k=='c'||k=='C'){buy('cia');e.preventDefault()}else if(k=='p'||k=='P'){buy('cash');e.preventDefault()}else if(k=='Tab')e.preventDefault()}
   // Tab (or 1, 2, 3) changes tab; in the inventory the arrows (or WASD) move through the grid and E, Space or Enter does the item's
   // first action; on the other tabs left and right change tab
-  else if(START&&(k=='Tab'||/^[1-4]$/.test(k))){const i=TABS.findIndex(t=>t[0]==START);START=TABS[k=='Tab'?(i+(e.shiftKey?TABS.length-1:1))%TABS.length:k-1][0];ME.note='';renderStart();e.preventDefault()}
+  else if(START&&(k=='Tab'||/^[1-9]$/.test(k)&&k<=TABS.length)){const i=TABS.findIndex(t=>t[0]==START);START=TABS[k=='Tab'?(i+(e.shiftKey?TABS.length-1:1))%TABS.length:k-1][0];ME.note='';renderStart();e.preventDefault()}
   else if(START=='inv'&&ME.items.length&&/^(Arrow(Left|Right|Up|Down)|[wasdWASD])$/.test(k)){const d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k],n=ME.sel+d;
     if(n>=0&&n<ME.items.length){ME.sel=n;ME.note=''}renderStart();e.preventDefault()}
   else if(START=='inv'&&ME.items.length&&/^(e|E| |Enter)$/.test(k)&&!(e.target.closest&&e.target.closest('#start button'))){useItem(itemActions(ME.items[ME.sel].id)[0]);e.preventDefault()}
-  else if(START&&START!='inv'&&/^(ArrowLeft|ArrowRight|a|d|A|D)$/.test(k)){const i=TABS.findIndex(t=>t[0]==START),d=/Right|d|D/.test(k)?1:TABS.length-1;START=TABS[(i+d)%TABS.length][0];ME.note='';renderStart();e.preventDefault()}});
+  else if(START&&START!='inv'&&e.target.type!='range'&&/^(ArrowLeft|ArrowRight|a|d|A|D)$/.test(k)){const i=TABS.findIndex(t=>t[0]==START),d=/Right|d|D/.test(k)?1:TABS.length-1;START=TABS[(i+d)%TABS.length][0];ME.note='';renderStart();e.preventDefault()}});
 sel.onchange=()=>{const id=sel.value;closeMenu();RIDE=TRIP=null;go(id);sel.blur()};
 const SOLID='#TR~vbkWecuxygitnoC';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
