@@ -52,9 +52,9 @@ fsb.onclick=()=>{toggleFS();fsb.blur()};
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
-const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0};
+const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0,tattoos:[]};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
-function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start).map(id=>({id,met:[],done:false}))}
+function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start&&(QUESTS[id].day??DAY)==DAY).map(id=>({id,met:[],done:false,took:DAY}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save'],['opts','Options']];
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
@@ -65,7 +65,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
   if(START=='inv'){// the date and money, then a grid of what you carry (at least 4 rows of 4), and the chosen item's panel
     ME.sel=Math.max(0,Math.min(ME.sel,ME.items.length-1));const it=ME.items[ME.sel],d=it&&ITEMS[it.id];
     const slots=slotsOf(ME.items,ME.sel);
-    body=`<dl><dt>Date</dt><dd>${dateStr(DAY)} <small>${DAY<1?'(before the month begins)':`(day ${DAY} of ${DAYS})`}</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd></dl>
+    body=`<dl><dt>Date</dt><dd>${dateStr(DAY)} <small>${DAY<1?'(before the month begins)':`(day ${DAY} of ${DAYS})`}</small></dd><dt>CIA funds</dt><dd>${money(ME.cia)}</dd><dt>Personal funds</dt><dd>${money(ME.cash)}</dd>${ME.tattoos.length?`<dt>Tattoos</dt><dd>${ME.tattoos.map(t=>esc(tatName(t.id))+' <small>('+esc(t.place.toLowerCase())+')</small>').join(', ')}</dd>`:''}</dl>
     <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}${ME.equipped==it.id?' <small class="eqd">Equipped</small>':''}</h3></div>
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
   if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>${Q.main?'Main quest':'Side quest'}, from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
@@ -158,7 +158,7 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol},stock:STOCK,stocked:STOCKED,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos},stock:STOCK,stocked:STOCKED,fp:FP};
   // (if storing fails, say so once it has)
   store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -168,7 +168,7 @@ async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))
   loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
 function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;ME.tattoos=v.me.tattoos||[];for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -201,7 +201,7 @@ function setDay(d){const was=DAY;DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAY
   // (from 22 August into the month you arrive on the island, at home; back to 22 August, you are at Langley again)
   let note='';if(was<1&&DAY>=1&&/^langley/.test(P.m)){place(HOME,[17,3],0);note=' You arrive on Sarivalto.'+(chuckCalling()?' The big screen is flashing: Chuck is calling.':'')}
   else if(was>=1&&DAY<1&&!/^langley/.test(P.m)){TRIP=null;place('langley',[11,10],1);note=' You are back at CIA Headquarters.'}
-  if(START)renderStart();return note}
+  note+=arrivals();if(START)renderStart();return note}
 document.getElementById('tday').onclick=e=>{if(DAY<DAYS){const n=setDay(nextDay(DAY));say('It is now '+dateStr(DAY)+'.'+n)}e.target.blur()};
 // the date picker beside Jump to: any day of the month
 const dayjump=document.getElementById('dayjump');DATES.forEach(d=>dayjump.appendChild(new Option(dateStr(d),d)));dayjump.value=DAY;
@@ -209,17 +209,26 @@ dayjump.onchange=()=>{const n=setDay(+dayjump.value);say('It is now '+dateStr(DA
 // ---- The wardrobe in your home: your hair and facial hair (style and colour) and the clothes you own, with a preview of you from
 // each side. Up and down (or W and S) choose a row, left and right (or A and D) change it; the arrows on each row do the same.
 const WARD={row:0};
-const ownedOf=slot=>Object.keys(CLOTHES).filter(id=>CLOTHES[id].slot==slot&&(id=='nohat'||ME.clothes.includes(id))).map(id=>[id,CLOTHES[id].name]);
+// (in the Cover Story Department, WARD.all: every outfit in the game, and what you leave wearing is yours)
+const ownedOf=slot=>Object.keys(CLOTHES).filter(id=>CLOTHES[id].slot==slot&&(id=='nohat'||WARD.all||ME.clothes.includes(id))).map(id=>[id,CLOTHES[id].name]);
 const WROWS=[['hair','Hair',()=>HAIR_STYLES],['hairCol','Hair colour',()=>HAIR_COLS],['beard','Facial hair',()=>BEARD_STYLES],['beardCol','Facial hair colour',()=>HAIR_COLS],
   ['hat','Headwear',()=>ownedOf('hat')],['top','Top',()=>ownedOf('top')],['legs','Trousers',()=>ownedOf('legs')],['shoes','Shoes',()=>ownedOf('shoes')]];
-function openWardrobe(){if(MENU||RIDE||BUSY)return;SHOP=null;START='wardrobe';stack=[];startEl.hidden=false;renderStart()}
+function openWardrobe(all){if(MENU||RIDE||BUSY)return;SHOP=null;WARD.all=!!all;START='wardrobe';stack=[];startEl.hidden=false;renderStart()}
+// ---- The Cover Story Department at Langley: the character creator. Every hairstyle, colour and outfit in the game to choose from;
+// leaving it, the clothes you have on go into your wardrobe at home, and your alias is done (questEvent 'alias').
+const openCover=()=>openWardrobe(true);
+function leaveCover(){WARD.all=false;for(const k of['hat','top','legs','shoes'])if(ME.look[k]&&ME.look[k]!='nohat'&&!ME.clothes.includes(ME.look[k]))ME.clothes.push(ME.look[k]);questEvent('alias')}
+// the cigarette machine in the Langley cafeteria: a pack for $2 of your own money
+const vendingAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return P.m=='langley_cafe'&&FL[P.m].some(([fx,fy,w,h,,l])=>l=='Cigarette Machine'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+function cigMachine(){choose('A cigarette machine. Twenty to a pack, $2.',[['Buy a pack ($2)',()=>{if(ME.cash<2){say("You don't have $2 of your own.",3500);return}ME.cash-=2;const c=has('cigarettes');if(c)c.n++;else ME.items.push({id:'cigarettes',n:1});say('Clunk. A pack of cigarettes drops into the tray.',3500)}],['Not now']])}
+const mirrorAhead=()=>{if(P.m!='langley_cover')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Dressing Mirror'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function wstep(i,dd){const[k,,f]=WROWS[i],o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k]));ME.look[k]=o[(j+dd+o.length)%o.length][0];WARD.row=i;renderStart()}
 function renderWardrobe(){const rows=WROWS.map(([k,label,f],i)=>{const o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k])),lc=label.toLowerCase();
     return`<div class="wrow${i==WARD.row?' on':''}"><span class="wl">${label}</span><button data-w="${i}" data-d="-1" aria-label="Previous ${lc}">&#9664;</button>`+
       `<span class="wv">${k.endsWith('Col')?`<i class="wsw" style="background:${o[j][0]}"></i>`:''}${esc(o[j][1])} <small>${j+1}/${o.length}</small></span><button data-w="${i}" data-d="1" aria-label="Next ${lc}">&#9654;</button></div>`}).join('');
-  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Wardrobe</h3><button class="close" aria-label="Close the wardrobe">&times;</button></div>
+  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">${WARD.all?'Cover Story Department <small>your alias</small>':'Wardrobe'}</h3><button class="close" aria-label="${WARD.all?'Done':'Close the wardrobe'}">&times;</button></div>
     <div class="wardrobe"><div class="wprev" aria-label="How you look">${[0,3,1,2].map(()=>'<canvas width="48" height="60"></canvas>').join('')}</div><div class="wopts">${rows}</div></div>
-    <p class="note">Up and down choose, left and right change. More clothes are for sale at ${esc(NM.clothes_in)}, ${esc(NM.tailor)} and ${esc(NM.outfitters_in)}.</p>`;
+    <p class="note">Up and down choose, left and right change. ${WARD.all?'Anything you leave wearing goes into your wardrobe. Close when you are done.':`More clothes are for sale at ${esc(NM.clothes_in)}, ${esc(NM.tailor)} and ${esc(NM.outfitters_in)}.`}</p>`;
   startEl.querySelectorAll('.wprev canvas').forEach((c,i)=>{const g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(lookChar([0,3,1,2][i],0,ME.look),0,0,48,60)});
   startEl.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>wstep(+b.dataset.w,+b.dataset.d));startEl.querySelector('.close').onclick=closeStart}
 // the wardrobe in your home is the tile you're facing
@@ -233,7 +242,7 @@ function mapFog(){if(typeof MAP_GEO=='undefined')return'';const G=MAP_GEO,shut=O
       `<path d="M14 7V-14" stroke="#4a3020" stroke-width="2.5"/><rect x="6" y="-22" width="18" height="10" rx="1.5" fill="#c0392b" stroke="#fff" stroke-width="1.5"/><path d="M15 -20V-15M15 -13.5V-13" stroke="#fff" stroke-width="2"/></g>`}).join('');
   return`<svg class="fog" viewBox="0 0 1700 860" aria-hidden="true"><defs><clipPath id="fogisl"><polygon points="${G.coast}"/></clipPath></defs><g clip-path="url(#fogisl)" fill="#1a2430" fill-opacity=".42">${cells}</g>${banks}</svg>`}
 function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
-function closeStart(){START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
+function closeStart(){if(START=='wardrobe'&&WARD.all)leaveCover();START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
 addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;const k=e.key;
@@ -351,14 +360,14 @@ function sitDown(){if(NIGHT){say('It is already night. Go home and get some slee
 const mapAhead=()=>{if(DIR[P.dir][1]!=-1||L[P.m][3]!='interior'||P.y>2)return false;const x=P.x;return(INT[P.m]?.deco||[]).some(d=>d[1]=='map'&&d[0]==x)};
 function sleep(){if(!NIGHT){say('It is still daytime, and you are not tired. Sit at the table and wait for the evening.',5000);return}
   if(DAY>=DAYS){say('It is '+DAYS+' '+MONTH+', the last day of the month. There is no time to sleep now.',5000);return}
-  choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{setDay(nextDay(DAY));setNight(false);needsPass(30,40,100)},()=>'You sleep through the night. Good morning: it is '+dateStr(DAY)+'.')],['Not now']])}
+  choose('Go to bed?',[['Sleep until morning',()=>pass(()=>{setDay(nextDay(DAY));setNight(false);needsPass(30,40,100)},()=>'You sleep through the night. Good morning: it is '+dateStr(DAY)+'.'+arrivals())],['Not now']])}
 // ---- Quests (QUESTS in data.js)
 const qOf=id=>ME.quests.find(q=>q.id==id);
 // the quest someone has to give you: one of theirs you haven't taken on yet (they have a star over their head)
 // (a main quest only on its own morning, and only if you haven't taken on another main quest that day; a side quest from its
 // first day, once the places it needs are open)
 const mainTaken=()=>ME.quests.find(q=>QUESTS[q.id].main&&q.took==DAY);
-const offerable=id=>{const Q=QUESTS[id];if(qOf(id))return false;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
+const offerable=id=>{const Q=QUESTS[id];if(qOf(id)||Q.given)return false;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
 const offerOf=n=>Object.keys(QUESTS).filter(id=>QUESTS[id].giver==n.name&&offerable(id)).sort((a,b)=>!!QUESTS[b].main-!!QUESTS[a].main)[0];
 // the main quest standing between you and the evening: today's, taken on and not yet done ('offer' if there is one today you
 // haven't taken on), or nothing
@@ -369,19 +378,28 @@ const questPlaces=()=>{const at={};for(const n of NPCS){const id=n.m&&offerOf(n)
 // each condition not yet met in your active quests, as [quest, its index, the condition]
 // (in a quest whose conditions come in order, only the next one; a last condition only once all the others are met)
 const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id],cs=Q.done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]);
-  return Q.seq?cs.slice(0,1):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
+  return Q.seq?cs.slice(0,1).filter(([q,i,c])=>!c.days||DAY>=(q.when?.[i-1]??DAY)+c.days):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
 // meeting a condition; with all of them met, the quest is done (and if what's left is a last step, or the next in order, it says so)
-function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.',quiet?4000:7000)}
+function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;(q.when??=[])[i]=DAY;
+  const gv=[Q.done[i].gives||[]].flat().filter(id=>!qOf(id));gv.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
+  const gift=Q.done[i].gift;if(gift){const mine=has(gift);if(mine)mine.n++;else ME.items.push({id:gift,n:1})}
+  const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave,quiet?4000:7000)}
   else{const said=Q.done[i].said,left=Q.done.filter((_,k)=>!q.met[k]),next=!said&&(Q.seq||left.every(c=>c.last))?' Next: '+left[0].what.replace(/^./,c=>c.toLowerCase())+'.':'';
-    say((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next,said||next?12000:4000)}}
-// ---- The video call: the big screen in your home links to Chuck at Langley. When he has a quest for you, or is waiting to hear
-// about one, you can call him; when he has a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts him in
-// the conversation panel on a video feed.
+    say((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next+gave,said||next||gave?12000:4000)}}
+// something happening in the game (a tattoo, say) meets the conditions waiting for it
+function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev)meet(q,i)}
+// what's arrived this morning for a condition that had to wait (said when the day begins)
+const arrivals=()=>openConds().filter(([q,i,c])=>c.arrives&&q.when?.[i-1]!=null&&DAY==q.when[i-1]+(c.days||0)).map(([,,c])=>' '+c.arrives).join('');
+// ---- The video call: the big screen in your home links to Langley: to Chuck by day, and in the evening to George, who handles the
+// jobs that are done after dark. When the one on the line has a quest for you, or is waiting to hear about one, you can call them;
+// when they have a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts them in the conversation panel on
+// a video feed.
 const CHUCK=()=>NPCS.find(n=>n.name=='Chuck');
-const chuckCalling=()=>{const n=CHUCK();return DAY>=1&&!!n&&!!offerOf(n)};
+const CALLER=()=>NPCS.find(n=>n.name==(NIGHT?'George':'Chuck'));
+const chuckCalling=()=>{const n=CALLER();return DAY>=1&&!!n&&!!offerOf(n)};
 const screenAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Big Screen'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
-function videoCall(){const n=CHUCK();if(!n)return;if(DAY<1){say('The screen shows LINK READY. You are at Langley: Chuck is upstairs.',4000);return}
-  const c=questTalk(n)||{start:'a',nodes:{a:{say:"NIGHTJAR, Langley. Nothing new for you right now. Keep your head down and your eyes open."}}};
+function videoCall(){const n=CALLER();if(!n)return;if(DAY<1){say(`The screen shows LINK READY. You are at Langley: ${n.name} is ${n.name=='Chuck'?'upstairs':'in the cafeteria'}.`,4000);return}
+  const c=questTalk(n)||{start:'a',nodes:{a:{say:n.name=='Chuck'?"NIGHTJAR, Langley. Nothing new for you right now. Keep your head down and your eyes open.":"NIGHTJAR. George. Chuck's gone home; the night shift's mine. Nothing for you tonight. When there's a job that needs doing after dark, I'll call."}}};
   converse(n,c);cvEl.classList.add('call')}
 // a use condition: the furniture it names, in the place it names, on the tile you're facing
 const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.use&&c.m==P.m&&FL[P.m].some(([fx,fy,w,h,,l])=>l==c.use&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h))};
@@ -423,6 +441,8 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
   if(wardrobeAhead()){openWardrobe();return}
+  if(mirrorAhead()){openCover();return}
+  if(vendingAhead()){cigMachine();return}
   if(typeof canFish=='function'&&canFish()){startFishing();return}
   if(typeof waterAhead=='function'&&has('fishrod')&&ME.equipped!='fishrod'&&waterAhead()){say('Equip your fishing rod first: open the menu (M), choose it in your inventory and press Equip.',4500);return}
   const sg=signAhead();if(sg){say('DANGER! SNOW. NO ACCESS. The road to '+NM[sg.to]+' is buried in drifts.',5000);return}
@@ -472,10 +492,12 @@ document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefau
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
   if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
-  if(screenAhead()&&!P.mv)return chuckCalling()?'Press E to answer Chuck\'s call':'Press E to call Langley';
+  if(screenAhead()&&!P.mv)return chuckCalling()?`Press E to answer ${CALLER().name}'s call`:`Press E to call Langley (${CALLER().name})`;
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
   if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
+  if(mirrorAhead()&&!P.mv)return'Press E to work on your alias';
+  if(vendingAhead()&&!P.mv)return'Press E to buy cigarettes';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
   if(signAhead()&&!P.mv)return'Press E to read the sign';
   if(typeof canFish=='function'&&canFish()&&!P.mv)return'Press E to fish';

@@ -6,3 +6,5 @@ Partner: Olaf
 Job: Farmer
 Home: Farmhouse (East Farm)
 Bio:
+A farmer at East Farm, which she runs with her partner Olaf.
+Up before dawn, out in all weathers, and unimpressed by anyone from the towns.

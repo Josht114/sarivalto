@@ -6,3 +6,5 @@ Partner: None
 Job: Spa attendant
 Home: Kingsgrad Apartments (Kingsgrad)
 Bio:
+The spa attendant in Kingsgrad, who runs the saunas and the steam rooms for the island's wealthy.
+Hears a great deal from people who think they are relaxing.

@@ -6,3 +6,5 @@ Partner: None
 Job: Chef
 Home: Timber Lofts (Eastbrook)
 Bio:
+Chef at the Cedar Grill in Eastbrook, trained in the palace kitchens before striking out on his own.
+A royalist who still keeps a portrait of the late king above the stove.

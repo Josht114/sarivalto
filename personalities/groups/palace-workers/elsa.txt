@@ -6,3 +6,5 @@ Partner: None
 Job: Laundress
 Home: Servants' Quarters (Royal Palace)
 Bio:
+The palace laundress, who washes every sheet and shirt in the palace.
+She notices everything the laundry tells her, from lipstick on a collar to harbour mud on the prince's boots.

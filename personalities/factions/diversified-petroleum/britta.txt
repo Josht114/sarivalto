@@ -6,3 +6,5 @@ Partner: None
 Job: Depot worker
 Home: Skyline Apartments (Frostholm)
 Bio:
+A depot worker for Diversified Petroleum in Frostholm, who loads fuel drums and keeps the depot running in all weathers.
+Practical and tired of the executives' grand plans.

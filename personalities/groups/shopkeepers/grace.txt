@@ -6,3 +6,5 @@ Partner: None
 Job: Tailor
 Home: Grace's House (Kingsgrad)
 Bio:
+The tailor in Kingsgrad, who has made the island's finest suits for forty years, the late king's among them.
+Exacting, elegant and full of gossip from the fitting room.

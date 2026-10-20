@@ -6,3 +6,5 @@ Partner: None
 Job: Ringmaster
 Home: Ringmaster's Caravan (Lake Ilmari)
 Bio:
+Ringmaster of the travelling circus camped at Lake Ilmari.
+Booming, theatrical and always in his red coat, he has been on the road for thirty years and can talk his way into, or out of, any town.

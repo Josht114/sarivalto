@@ -6,3 +6,5 @@ Partner: Meg
 Job: Jester
 Home: Performers' Caravan (Lake Ilmari)
 Bio:
+The circus jester, who juggles, tumbles and tells terrible jokes, and is always hungry.
+His partner is Meg, the acrobat, who catches him when he falls, which is often.

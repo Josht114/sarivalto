@@ -6,3 +6,5 @@ Partner: None
 Job: Food van owner
 Home: Pirkko's House (Eastbrook)
 Bio:
+Owner of a food van in Eastbrook, selling hot soup and pastries to the mill workers.
+A churchgoer who says grace over every pasty and gives the leftovers to whoever needs them.

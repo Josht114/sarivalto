@@ -6,3 +6,5 @@ Partner: None
 Job: Fisherman
 Home: Sam's House (Saltwick)
 Bio:
+An old Saltwick fisherman who has worked the same waters for forty years and joined the Union before most of its members were born.
+Says little, mends nets on his doorstep and votes with Anna every time.

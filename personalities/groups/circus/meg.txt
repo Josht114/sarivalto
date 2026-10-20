@@ -6,3 +6,6 @@ Partner: Buttons
 Job: Acrobat
 Home: Performers' Caravan (Lake Ilmari)
 Bio:
+The circus acrobat, who flies on the trapeze in the big top.
+Fearless, practical and the one who actually keeps the troupe organised.
+Her partner is Buttons the jester.

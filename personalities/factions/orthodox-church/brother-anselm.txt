@@ -6,3 +6,5 @@ Partner: None
 Job: Prior
 Home: Monks' Quarters (Mountain-Top Monastery)
 Bio:
+The Prior of the mountain-top monastery and Father Thyme's second in command.
+Strict, devout and suspicious of everything that comes up the mountain from the towns below.

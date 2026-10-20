@@ -6,3 +6,4 @@ Partner: None
 Job: Quartermaster
 Home: Barracks Block A (Army Barracks)
 Bio:
+The barracks quartermaster, who runs the armoury and knows exactly how many rifles, boots and blankets the army has, and exactly how many have gone missing.

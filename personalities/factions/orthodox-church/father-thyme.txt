@@ -6,3 +6,5 @@ Partner: None
 Job: Abbot
 Home: Father Thyme's House (Mountain-Top Monastery)
 Bio:
+The Abbot of the mountain-top monastery and head of the island's Orthodox Church.
+Wise, patient and influential, he lends books to the prince's brother Augustus and has opinions about who should wear the crown.

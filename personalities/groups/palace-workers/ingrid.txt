@@ -6,3 +6,5 @@ Partner: None
 Job: Maid
 Home: Servants' Quarters (Royal Palace)
 Bio:
+A maid who keeps the royal apartments.
+Shy and careful, she hears the prince walking the floor at night and notices the ashes of letters burned in the grate.

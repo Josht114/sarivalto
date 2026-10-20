@@ -6,3 +6,5 @@ Partner: None
 Job: Fuel dock attendant
 Home: Skyline Apartments (Frostholm)
 Bio:
+The fuel dock attendant at Frostholm harbour, who fills every boat on the north coast.
+A gossip who will tell anyone where every boat has been, for the price of a coffee.

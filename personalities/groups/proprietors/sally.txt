@@ -6,3 +6,5 @@ Partner: None
 Job: Estate agent
 Home: Sally's House (Kingsgrad)
 Bio:
+An estate agent in Kingsgrad who sells houses and villas, including the empty villa in Hope Springs.
+Relentlessly upbeat, she believes the island's property market is about to boom.

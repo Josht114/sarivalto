@@ -6,3 +6,5 @@ Partner: None
 Job: Bartender
 Home: Eddie's House (Kingsgrad)
 Bio:
+A bartender in Kingsgrad who has heard every story the town has to tell, usually twice.
+Pours a generous measure and keeps her opinions to herself.

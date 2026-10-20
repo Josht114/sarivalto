@@ -104,6 +104,9 @@ select hr{border:0;border-top:1px solid #000}
 #start .wrow.on{background:#1c2e1c;outline:1px solid #9fe870}#start .wrow button{padding:2px 0}#start .wv{text-align:center}#start .wv small{opacity:.6}
 #start .wsw{display:inline-block;width:10px;height:10px;border:1px solid #000;margin-right:5px;vertical-align:middle}
 @media (max-width:620px){#start .wardrobe{grid-template-columns:1fr}#start .wprev{grid-template-columns:repeat(4,60px)}#start .wprev canvas{width:60px;height:75px}}
+/* the tattoo shop's design preview: one big square of skin */
+#start .wprev.tprev{grid-template-columns:168px}#start .wprev.tprev canvas{width:168px;height:168px;image-rendering:auto}
+@media (max-width:620px){#start .wprev.tprev{grid-template-columns:140px}#start .wprev.tprev canvas{width:140px;height:140px}}
 /* quests: the Quests tab, and the stars on the map marking someone with a quest to give */
 #start ul.quests{list-style:none;padding:0;margin:4px 0 10px}#start ul.quests>li{margin:0 0 8px;padding:6px 8px;border:1px solid #3a5a3a;border-radius:6px}
 #start ul.quests>li.qdone{opacity:.6}#start ul.qconds{list-style:none;padding:0;margin:4px 0 0;font-size:12px}#start ul.qconds li.met{color:#9fe870}

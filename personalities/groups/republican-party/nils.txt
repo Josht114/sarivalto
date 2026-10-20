@@ -6,3 +6,5 @@ Partner: None
 Job: Electronics store owner
 Home: Skyline Apartments (Frostholm)
 Bio:
+Owner of the electronics store in Frostholm, who sells radios, batteries and film and repairs anything with a valve in it.
+A Republican and a gadget enthusiast who suspects the government is listening.

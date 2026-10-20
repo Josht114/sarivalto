@@ -6,3 +6,5 @@ Partner: None
 Job: Lighthouse keeper
 Home: Lighthouse (Eastbrook Harbour)
 Bio:
+The lighthouse keeper at Eastbrook Harbour, who lives alone in the lighthouse and has kept its lamp burning for twenty years.
+Sees every boat that passes, by day or by night.

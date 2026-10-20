@@ -6,3 +6,5 @@ Partner: Helen
 Job: Fishmonger
 Home: Apartment Block (Saltwick)
 Bio:
+A fishmonger at the fish processing plant in Saltwick and a Union man to the bone.
+Lives with Helen, the Union leader, and is happy to let her do the speeches while he does the cooking.

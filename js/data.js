@@ -101,11 +101,24 @@ hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment']
 [14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[18,1,1,1,'y','Wardrobe'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
 // CIA Headquarters at Langley, Virginia, where the game's story begins: not on the island, and reached only from the Jump to list.
 // The lobby has the Agency's seal set in its granite floor, the Memorial Wall of stars between two flags with the Book of Honor in
-// its case beneath, a statue, benches, the security desk and the stairs up to the office
-langley:['CIA Headquarters',22,12,'interior',[[1,1,1,1,'x','Plant'],[20,1,1,1,'x','Plant'],[7,1,1,1,'y','Flag'],[14,1,1,1,'y','Flag'],[10,1,2,1,'y','Book of Honor'],[2,4,1,1,'x','Statue'],[1,9,3,1,'x','Bench'],[18,1,1,1,'z','Stairs up'],[15,8,5,1,'c','Security Desk']]],
-// the office upstairs at Langley where you are briefed before you leave for the island: the officer's desk, files and a safe, a
+// its case beneath, a statue, benches, the security desk, the stairs up to the office and down to the basement, and doors to the
+// Cover Story Department (left) and the cafeteria (right)
+langley:['CIA Headquarters',22,12,'interior',[[1,1,1,1,'x','Plant'],[20,1,1,1,'x','Plant'],[7,1,1,1,'y','Flag'],[14,1,1,1,'y','Flag'],[10,1,2,1,'y','Book of Honor'],[2,4,1,1,'x','Statue'],[1,9,3,1,'x','Bench'],[18,1,1,1,'z','Stairs up'],[4,3,1,1,'z','Stairs down'],[15,8,5,1,'c','Security Desk']]],
+// the Cover Story Department, off the left of the lobby: where an officer is given an alias and the look to go with it. Rails
+// of clothes, a wig stand, passports, a dressing mirror, two mannequins and Doris's desk
+langley_cover:['Cover Story Department',16,10,'interior',[[1,1,4,1,'y','Costume Rail'],[6,1,2,1,'y','Wig Stand'],[9,1,2,1,'y','Passports'],[12,1,2,1,'y','Dressing Mirror'],[2,5,3,2,'u','Desk'],[9,5,1,1,'n','Mannequin'],[11,5,1,1,'n','Mannequin']]],
+// the cafeteria, off the right of the lobby: the serving counter, a drinks fridge, a cigarette machine and tables
+langley_cafe:['Cafeteria',20,12,'interior',[[1,1,6,1,'c','Serving Counter'],[9,1,2,1,'y','Fridge'],[13,1,2,1,'y','Cigarette Machine'],[3,5,3,2,'u','Table'],[9,5,3,2,'u','Table'],[15,5,3,2,'u','Table'],[3,9,3,2,'u','Table'],[9,9,3,2,'u','Table'],[15,9,3,2,'u','Table']]],
+// George's office, off the Upstairs Corridor along from Chuck's: the jobs that don't go in the reports. A gun rack, locked
+// files, wiretap gear, forged papers, a shredder, a burn bag, a bag of cash and a safe
+langley_george:["George's Office",14,9,'interior',[[1,1,3,1,'y','Gun Rack'],[5,1,2,1,'y','Locked Files'],[8,1,2,1,'y','Wiretap Gear'],[11,1,2,1,'y','Forged Papers'],[5,4,4,2,'u','Desk'],[1,6,1,1,'x','Shredder'],[2,6,1,1,'x','Burn Bag'],[11,6,1,1,'x','Cash Bag'],[12,6,1,1,'x','Safe']]],
+// the basement under the lobby: an interrogation room. A bare table and two chairs, a one-way mirror, recording gear and files
+langley_basement:['Interrogation Room',16,10,'interior',[[1,1,3,1,'y','Recording Gear'],[5,1,4,1,'y','One-way Mirror'],[11,1,2,1,'y','Files'],[6,4,3,2,'u','Interrogation Table'],[14,7,1,1,'z','Stairs up']]],
+// the corridor at the top of the stairs at Langley: Chuck's office and George's office off it, a water cooler and a plant
+langley_hall:['Upstairs Corridor',22,6,'interior',[[1,1,1,1,'x','Plant'],[9,1,1,1,'x','Water Cooler'],[19,3,1,1,'z','Stairs down']]],
+// the office upstairs at Langley where you are briefed (off the Upstairs Corridor) before you leave for the island: the officer's desk, files and a safe, a
 // meeting table, a leather sofa, the Agency's seal and a map of the Baltic on the wall
-langley_office:['Langley Office',18,10,'interior',[[1,1,4,1,'y','Files'],[13,1,1,1,'x','Safe'],[7,2,4,2,'u','Desk'],[2,6,4,2,'u','Meeting Table'],[11,7,3,1,'x','Sofa'],[16,6,1,1,'x','Plant'],[16,8,1,1,'z','Stairs down']]],
+langley_office:['Langley Office',18,10,'interior',[[1,1,4,1,'y','Files'],[13,1,1,1,'x','Safe'],[7,2,4,2,'u','Desk'],[2,6,4,2,'u','Meeting Table'],[11,7,3,1,'x','Sofa'],[16,6,1,1,'x','Plant']]],
 transhut:['Transmitter Hut',16,10,'interior',[[1,1,5,1,'y','Transmitter'],[7,1,3,1,'y','Records'],[12,1,3,1,'y','Tape Recorder'],[3,4,6,2,'u','Mixing Desk'],[11,4,3,2,'u','Microphone Table'],[1,7,2,2,'x','Boxes']]],
 tent_pat:["Pat's Camp",8,6,'interior',[[1,1,2,2,'e','Bedroll'],[5,1,2,1,'x','Boxes'],[5,3,1,1,'i','Camp Stove']]],
 gunshop:['Gun Shop',12,8,'interior',[[2,1,8,1,'y','Gun Rack'],[3,3,6,1,'c','Counter'],[1,5,2,2,'x','Ammo Crates'],[9,5,2,2,'x','Ammo Crates']]],
@@ -404,6 +417,10 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'palace',x:7,y:13,dir:0,name:'Daphne',home:'royalrooms',loc:'palace',job:"Prince's sister",faction:'royal',gender:'female',body:'#9a4ab0',hair:'#e8c86a'},
 {m:'oilhq',x:8,y:7,dir:0,name:'Dario',home:'villa_dario',loc:'oilhq',job:'CEO of Diversified Petroleum',faction:'oil',gender:'male',body:'#37474f',hair:'#2a1a12'},
 {m:'clubroom',x:15,y:3,dir:0,name:'Gustavo',home:'villa_gustavo',loc:'clubroom',job:'Don',faction:'syndicate',gender:'male',body:'#1a1a22',hair:'#222222'},
+{m:'langley_cover',x:6,y:5,dir:0,name:'Doris',home:'none',loc:'langley_cover',job:'CIA cover story officer (at Langley)',faction:'cia',gender:'female',body:'#5a4a6a',hair:'#b5b5b5'},
+// George: the CIA's man for the dirty work Chuck won't put his name to, the jobs that need doing after dark. At Langley, eating in
+// the cafeteria (his office is off the Langley Office upstairs)
+{m:'langley_cafe',x:14,y:5,dir:3,name:'George',home:'none',loc:'langley_cafe',job:'CIA operative (the dirty work, after dark)',faction:'cia',gender:'male',body:'#6b5a40',hair:'#3a2a20'},
 {m:'langley_office',x:8,y:1,dir:0,name:'Chuck',home:'none',loc:'langley_office',job:'CIA handler (at Langley; reached by radio from the island)',faction:'cia',gender:'male',body:'#8a7a5a',hair:'#6b4a2a'},
 {m:'radio',x:12,y:5,dir:2,name:'Hekki',home:'shack_hekki',loc:'radio',job:'Radio tech (and CIA informant)',faction:'cia',gender:'male',body:'#5a6a4a',hair:'#c9a05a',hat:'#4a4a52'},
 {m:'beach',x:7,y:7,dir:0,name:'Pat',home:'tent_pat',loc:'beach',job:'Hobo',faction:'unemployed',gender:'male',body:'#6b5a40',hair:'#7a7a7a',hat:'#7a3a2a'},
@@ -545,6 +562,7 @@ book:{name:'Paperback novel',desc:'A well-thumbed spy thriller. The hero always 
 islandmap:{name:'Map of Sarivalto',desc:'A folding map of the island with every town, road and harbour.',actions:['Look at']},
 burger:{name:'Polar Burger',desc:'A cheeseburger in a sesame bun from Polar Burger.',actions:['Eat']},
 cola:{name:'Kelp Cola',desc:'The island\'s own cola, in a green glass bottle. It tastes faintly of the sea.',actions:['Drink']},
+beans:{name:'Imported coffee beans',desc:'A sack of fine Colombian coffee beans, brought in through Langley in the diplomatic pouch. For Maya at the Coffee Roasters.',actions:['Look at']},
 coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
 bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
 meal:{name:'Hot meal',desc:'Steak, potatoes and greens on a plate.',actions:['Eat']},
@@ -611,6 +629,9 @@ const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_l
 const CONVOS={
 // Otto sells tickets for the film at the cinema (js/film.js)
 Otto:{start:'a',nodes:{a:{say:"Two pictures tonight. STORMWING: the hottest pilots in the North, and one very unhappy control tower. And TOP COMRADE, all the way from the other side of the Iron Curtain: same story, more paperwork. Four dollars a ticket.",opts:[['Watch STORMWING ($4)',null,()=>watchFilm('stormwing')],['Watch TOP COMRADE ($4)',null,()=>watchFilm('topcomrade')],['Maybe later',null]]}}},
+George:{start:'a',nodes:{a:{say:"Pull up a chair, NIGHTJAR. Meatloaf's terrible. George. Chuck does the talking in the daytime; I'm the one who does the work after dark. Nothing for you yet. Once you're on the island, call Langley in the evening and you'll get me."}}},
+Doris:{start:'a',nodes:{a:{say:"Cover Story Department. Doris. Sit down, let's have a look at you. Hair, clothes, the lot: nobody believes a journalist in a government suit.",opts:[['Make me up.',null,()=>openCover()],['Not now.',null]]}}},
+Jonna:{start:'a',nodes:{a:{say:"Welcome to Ink and Pine. Something to remember the island by?",opts:[["I'd like a tattoo.",null,()=>openTattoo()],['Just looking.',null]]}}},
 Hekki:{start:'hello',nodes:{
   hello:{say:'So glad you made it.',opts:[['Me too.','metoo'],['This place sucks.','sucks'],['Is anyone on to you?','onto']]},
   metoo:{say:'Woo!'},
@@ -695,6 +716,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   give:item, to:name   talk to that person with the item in your inventory and agree to hand it over
 //   use:label, m:place   face that piece of furniture in that place and press E
 //   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say)
+//   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'alias',
+//                        leaving the Cover Story Department's character creator
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
@@ -702,6 +725,17 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
 // island map marks where they are.
 const QUESTS={
+// ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
+alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
+  done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
+  thanks:'Your alias is ready: a foreign journalist, come to write about the island. Chuck is waiting to brief you, upstairs in the Langley Office.'},
+briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in the Langley Office, up the stairs from the lobby. Go and get your briefing.',
+  done:[{talk:'Chuck',what:'Get your briefing from Chuck, in the Langley Office upstairs',chat:{start:'a',nodes:{
+    a:{say:"There you are. Sit down. Like the new look. You're going to Sarivalto, an island in the Baltic. Snow, fish, cola and not much else. Its king has just died, and right now nobody knows who's going to run the place.",opts:[['Who wants it?','b']]},
+    b:{say:"Everyone. The Communists want the island in the Soviet Union, and Moscow would love a harbour that far north. The royals want the crown kept on Prince Leopold's head. Kelp Cola wants whoever's best for business. The Democrats want a vote. And there's an oil company and a syndicate sniffing around too.",opts:[['And what do we want?','c']]},
+    c:{say:"An island that doesn't end up flying a red flag. Your codename is NIGHTJAR. Your cover's a foreign journalist, so ask all the questions you like. Our man there is Hekki, the radio tech: he's fixed you up a room under his shack, at the radio tower, with a radio set and a screen to reach me on.",opts:[['How long have I got?','d']]},
+    d:{say:"You fly out for the first of September, and the island's yours for thirty days. Talk to everyone, help the people who'll help us, and call me every morning. Good luck, NIGHTJAR."}}}}],
+  thanks:'"Don\'t trust anyone with a better cover than yours." You are ready to fly out on the first of September.'},
 meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
   offer:"Morning, NIGHTJAR. Glad you made it in one piece. Before anything else, report in properly: use the radio set there in the room, so Langley has it on the record that NIGHTJAR is in place. Then I'll give you your first job.",
   accept:"Good. Radio in and I'll brief you over the set.",wait:'Radioed in yet? Then get over to Saltwick and talk to Anna, at the Communist Party HQ. A friendly chat, nothing more.',
@@ -770,21 +804,64 @@ meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text
       b:{say:"Then he's either our best friend on this island or our biggest headache. We'll find out which. Good work: that's the household on file."},
       c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file."}}}}],
   thanks:"Chuck has your report on the royal household."},
-meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:4,call:true,seq:true,text:'Chuck wants you to learn the Kelp Cola company line before you go anywhere near its bosses: take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, then report back.',
-  offer:"Morning, NIGHTJAR. The road into Eastbrook's open. Today it's Kelp Cola: they bottle half the money on this island, and their man Harald wants to lead the Republicans. Before you go knocking on any doors at the company, learn the company line. There's a museum in Eastbrook, and the mascot gives a tour. Take it, then tell me what they're selling.",
-  accept:"Enjoy the tour. Buy a souvenir if it helps the cover.",wait:"Taken that museum tour yet? Kelp Cola Museum, Eastbrook. The mascot runs it.",
+meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq:true,text:'Kelp Cola HQ in Kingsgrad is open. Chuck wants you to meet Phil, the company\'s CEO, in his office upstairs at the HQ, then report back.',
+  offer:"Morning, NIGHTJAR. Kelp Cola's headquarters in Kingsgrad is open for business. They bottle half the money on this island, and their man Harald wants to lead the Republicans. Go and meet the CEO, Phil. His office is upstairs at the HQ. Find out what kind of man he is.",
+  accept:"Good. Drink whatever he pours you.",wait:"Met Phil yet? Kelp Cola HQ, Kingsgrad. His office is upstairs.",
   done:[
-    {tour:'Jaana',price:5,what:'Take the tour of the Kelp Cola Museum with Kelpy the mascot',said:'That was the Kelp Cola story, as the company tells it. Report back to Chuck on the big screen in the Hidden Radio Room.',chat:{start:'a',nodes:{
+    {talk:'Phil',what:'Meet Phil, the CEO of Kelp Cola, in his office at Kelp Cola HQ',gives:'colatour',said:'Phil wants you to take the tour at the Kelp Cola Museum in Eastbrook and tell him what you thought. Now report back to Chuck on the big screen in the Hidden Radio Room.',chat:{start:'a',nodes:{
+      a:{say:"Come in, come in! Phil, Kelp Cola. Sit down, have a cold one. On the house. Now, what brings you up to my office?",opts:[["What do you make of the king's death?",'b'],['How did Kelp Cola get started?','c']]},
+      b:{say:"A tragedy. And bad for business: nobody buys when nobody knows who's in charge. This island needs a steady hand, and a steady hand needs a good drink. But you'll never understand us till you've seen where we came from.",opts:[['Where you came from?','d']]},
+      c:{say:"Ha! That's a story my mascot tells better than I do.",opts:[['Your mascot?','d']]},
+      d:{say:"We've a museum in Eastbrook. Kelpy gives the tour. Once the snow's off the road, go and take it, then come back here and tell me what you thought. I want to know how it plays to a newcomer."}}}},
+    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. You met Phil? What's he like?",opts:[['Friendly. He wants me to take the tour at his museum.','b'],['He thinks the island needs a steady hand.','c']]},
+      b:{say:"Then take it, when you can get to Eastbrook. A man who wants you to hear his story wants you on his side. Find out what that's worth to him. Good work."},
+      c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work."}}}}],
+  thanks:"Chuck has your report on Phil and Kelp Cola."},
+// given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
+// can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
+// so on the morning it's ready (arrives).
+colatour:{title:'The Kelp Cola Tour',giver:'Phil',given:true,seq:true,text:'Phil wants you to take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, once you can get there, then go back to his office at Kelp Cola HQ and tell him what you thought.',
+  wait:"Been to the museum yet? Eastbrook, once the road's clear. Kelpy will look after you.",
+  done:[
+    {tour:'Jaana',price:5,what:'Take the tour of the Kelp Cola Museum in Eastbrook, with Kelpy the mascot',said:'That was the Kelp Cola story, as the company tells it. Now go back to Phil at Kelp Cola HQ and tell him what you thought.',chat:{start:'a',nodes:{
       a:{say:"Hiya, hiya! I'm Kelpy, the Kelp Cola cup! Welcome to the Kelp Cola Museum! The grand tour is five dollars. Ready for the fizz-tory of Kelp Cola?"},
       b:{say:"Follow me! A long, long time ago, before there was any Kelp Cola, there was a beach, and on that beach there was kelp. Lots and lots of kelp! It washed up on the sand after every storm.",opts:[['Go on.','c']]},
       c:{say:"Well, our CEO Phil's grandfather gathered up that kelp from the shore, took it home, and brewed it into a health tonic! Folk swore by it: for colds, for aches, for the long winter blues!",opts:[['A health tonic?','d']]},
       d:{say:"Yes indeedy! And over the years the recipe got better and better: a little less seaweed, a lot more fizz! It's been refined and passed down through the family, all the way to Phil.",opts:[["So what's in it?",'e']]},
       e:{say:"Ooh, nobody knows! The recipe is a closely guarded secret. Only the family knows it, and it's locked away somewhere very, very safe. Not even Kelpy knows, and I'm made of the stuff! Thanks for taking the tour! The gift shop is right this way!"}}}},
+    {talk:'Phil',what:'Go back to Phil at Kelp Cola HQ and tell him what you thought of the tour',chat:{start:'a',nodes:{
+      a:{say:"You took the tour! Well? What did you think?",opts:[['Seaweed off the beach to all this. Remarkable.','b'],['I was hoping to learn the secret recipe.','c'],["Kelpy's quite something.",'d']]},
+      b:{say:"Isn't it? My grandfather started with a cooking pot and a bucket of kelp. If he could see the bottling line now, he'd weep. Proud tears, mind."},
+      c:{say:"Ha! Everyone does. That recipe's the best-kept secret on this island, and that includes whatever's in the palace vault. It stays in the family."},
+      d:{say:"Best Kelpy we've ever had. Never once taken the head off in public. You'd be amazed how rare that is."}}}}],
+  thanks:'"Come back any time. There\'s always a cold one in the fridge for a friend of Kelp Cola."'},
+meetdems:{title:'Meet the Democrats',giver:'Chuck',main:true,day:4,call:true,seq:true,text:'Eastbrook is open. Chuck wants you to meet Erik, the Democratic Party leader, at the community centre in Eastbrook, then report back.',
+  offer:"Morning, NIGHTJAR. The road into Eastbrook's clear. That's Democrat country: timber, coffee and union cards. Their leader's a man called Erik, and he runs things out of the community centre. Go and meet him. Of everyone on this island, they're the likeliest friends we've got. Find out what they need.",
+  accept:"Good. Be useful to him. Useful people get told things.",wait:"Met Erik yet? Community centre, Eastbrook.",
+  done:[
+    {talk:'Erik',what:'Meet Erik, the Democratic Party leader, at the community centre in Eastbrook',gives:['tattoo','beans'],said:'Erik would be grateful if you helped out two of the Party\'s members: Jonna at the tattoo shop, and Maya at the Coffee Roasters. Now report back to Chuck on the big screen in the Hidden Radio Room.',chat:{start:'a',nodes:{
+      a:{say:"Welcome, welcome! Erik, Democratic Party. Mind the boxes, it's leaflet day. You're the foreign journalist everyone's talking about?",opts:[['What do the Democrats stand for?','b'],['How can I help?','c']]},
+      b:{say:"A free vote, a fair wage and nobody on this island answering to Moscow, a palace or a cola company. We're mill hands, shopkeepers, roasters, the people who keep Eastbrook running.",opts:[['How can I help?','c']]},
+      c:{say:"Help? Now there's a word I like. Two of our members could use a friend. Jonna at the tattoo shop hasn't had a customer since the snow came: if you're brave, sit in her chair. And Maya at the Coffee Roasters can't get decent beans since the harbour master started taxing imports. If you know anyone who can bring something in quietly...",opts:[["I'll see what I can do.",'d']]},
+      d:{say:"That's the spirit. Either one, or both if you're feeling generous. Eastbrook remembers its friends."}}}},
     {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
-      a:{say:"NIGHTJAR. So, what's the Kelp Cola story?",opts:[["Phil's grandfather brewed beach kelp into a health tonic.",'b'],["The recipe's a closely guarded family secret.",'c']]},
-      b:{say:"Seaweed off the beach, and now they own half the island. That's the American dream, NIGHTJAR, only it happened over here. Good work."},
-      c:{say:"Secrets are our business. Whoever holds that recipe holds the company, and whoever holds the company has a lot to say about who runs this island. Good work."}}}}],
-  thanks:"Chuck has your report on Kelp Cola."},
+      a:{say:"NIGHTJAR. You met Erik? What did he want?",opts:[['Help for his members: a tattoo, and some coffee beans.','b'],['He wants nobody answering to Moscow.','c']]},
+      b:{say:"Ha! Cheapest friendship we'll ever buy. If you need the beans brought in, call me: the diplomatic pouch has room. Good work."},
+      c:{say:"Then he's our man, or near enough. Help him out, and he'll help us when it counts. And if you need anything brought in, call me. Good work."}}}}],
+  thanks:"Chuck has your report on Erik and the Democrats."},
+tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
+  done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
+  thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
+beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says Maya at the Coffee Roasters in Eastbrook can\'t get decent coffee beans since the harbour master started taxing imports. Ask Chuck to have some brought in; they come the next day, and Hekki will give them to you. Then take them to Maya.',
+  done:[
+    {talk:'Chuck',what:'Ask Chuck on the big screen to have some coffee beans brought in',chat:{start:'a',nodes:{
+      a:{say:"Coffee beans? You want me to put coffee beans in the diplomatic pouch?",opts:[["They're for a friend of a friend. A Democrat.",'b']]},
+      b:{say:"Fine. The good stuff, from Colombia. It'll come in on tonight's drop, and Hekki will have it for you in the morning. Don't make a habit of this."}}}},
+    {talk:'Hekki',days:1,gift:'beans',arrives:'Hekki has a package for you: the coffee beans came in on the night drop.',what:'Collect the coffee beans from Hekki (they come the day after you ask Chuck)',chat:{start:'a',nodes:{
+      a:{say:"Package for you, came in on the night drop. Smells like a coffee shop in Rio. Here you go."}}}},
+    {give:'beans',to:'Maya',what:'Take the coffee beans to Maya at the Coffee Roasters in Eastbrook'}],
+  thanks:"Colombian? Real Colombian beans? Oh, you wonderful person. Your coffee's on the house, forever. Well, for a week."},
 pizza:{title:'Pizza for Buttons',giver:'Buttons',opens:['lake','town'],text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
   offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
   accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',
@@ -807,7 +884,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,8,0,1,'apartments3',22,10,0,-1],['skyapts2',22,8,0,1,'skyapts3',22,10,0,-1],['skyapts3',22,8,0,1,'skyapts4',22,10,0,-1],['eblofts2',22,8,0,1,'eblofts3',22,10,0,-1],['eblofts3',22,8,0,1,'eblofts4',22,10,0,-1],['kgapts2',22,8,0,1,'kgapts3',22,10,0,-1],['kgapts3',22,8,0,1,'kgapts4',22,10,0,-1],['hsresid',22,8,0,1,'hsresid2',22,10,0,-1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,10,0,-1],['skyapts',22,8,0,1,'skyapts2',22,10,0,-1],['eblofts',22,8,0,1,'eblofts2',22,10,0,-1],['kgapts',22,8,0,1,'kgapts2',22,10,0,-1],
-['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_office',16,8,0,-1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
+['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
@@ -1057,5 +1134,5 @@ const TRACK_INFO={chant:['Gregorian chant','A small choir of men\'s voices sings
   army:['Fife and drum','A fife and drum corps of the 1860s plays a march across the parade ground: two fifes in thirds over a snare drum\'s accents, flams and rolls, and a bass drum on every beat.'],
   pizzeria:['Italian waltz','An accordion carries a waltz tune over a trembling mandolin and an oom-pah-pah bass.'],
   ocean:['The sea','Waves roll in every few seconds and break in a hiss of surf, gulls cry now and then from one side or the other, and a bell buoy clangs far out.']};
-const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach'],jazz:['jazz_in'],regal:['palace','palacehall','throne','royalrooms','dining','library','chapel','crypt','kitchen','servants','winecellar','vault'],romani:['bigtop_in','caravan1_in','caravan2_in','caravan3_in'],mill:['millroad','mill_in'],rig:['oilrig','derrick_in'],plant:['plant'],cola:['kcfac_in','kcwhs_in'],casino:['casino'],cafe:['cafe'],spy:['langley','langley_office','hekki_room'],woods:['north','east','south','southwest','west','forest'],army:['barracks','barrA_in','barrB_in','gp_in','arm_in','offhq_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
+const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach'],jazz:['jazz_in'],regal:['palace','palacehall','throne','royalrooms','dining','library','chapel','crypt','kitchen','servants','winecellar','vault'],romani:['bigtop_in','caravan1_in','caravan2_in','caravan3_in'],mill:['millroad','mill_in'],rig:['oilrig','derrick_in'],plant:['plant'],cola:['kcfac_in','kcwhs_in'],casino:['casino'],cafe:['cafe'],spy:['langley','langley_hall','langley_office','langley_cover','langley_cafe','langley_george','langley_basement','hekki_room'],woods:['north','east','south','southwest','west','forest'],army:['barracks','barrA_in','barrB_in','gp_in','arm_in','offhq_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
   shop:['bookshop','clothes_in','tailor','electro','fishingshop','fishshop','outfitters_in','gunshop','kcmuseum_in','mart','supermarket','records_in']};

@@ -6,3 +6,5 @@ Partner: None
 Job: Fishing shop owner
 Home: Jack's House (Kingsgrad)
 Bio:
+Owner of the fishing shop in Kingsgrad, who sells rods, tackle and bait and gives free advice on where the fish are biting.
+A Republican who votes for whoever will cut the harbour taxes.

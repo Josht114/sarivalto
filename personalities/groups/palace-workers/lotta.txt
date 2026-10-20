@@ -6,3 +6,5 @@ Partner: None
 Job: Maid
 Home: Servants' Quarters (Royal Palace)
 Bio:
+A maid who sets and clears the palace dining room.
+She serves the soup at every dinner, which means she hears what the guests talk about until she comes in with the fish.

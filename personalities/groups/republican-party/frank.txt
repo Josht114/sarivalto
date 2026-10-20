@@ -6,3 +6,5 @@ Partner: None
 Job: Gun shop owner
 Home: Frank's House (Kingsgrad)
 Bio:
+Owner of the gun shop in Kingsgrad and a firm Republican.
+Believes in hunting, self-reliance and keeping the government out of everything, and stocks a little more ammunition than the island strictly needs.

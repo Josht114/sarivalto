@@ -6,3 +6,5 @@ Partner: None
 Job: Syndicate bookie (in jail)
 Home: Kingsgrad Police Station (Kingsgrad)
 Bio:
+A Syndicate bookie currently sitting in a cell at the Kingsgrad Police Station.
+He took the fall for a betting ring rather than talk, and the Syndicate is grateful; he spends his days playing cards with the desk sergeant and waiting to be let out.

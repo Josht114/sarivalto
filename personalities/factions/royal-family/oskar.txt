@@ -6,3 +6,5 @@ Partner: None
 Job: Footman
 Home: Servants' Quarters (Royal Palace)
 Bio:
+The palace footman, who opens doors, carries bags and stands very still in the cold.
+Young, honest and observant; he has seen late-night visitors coming up the drive.

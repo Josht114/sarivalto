@@ -6,3 +6,5 @@ Partner: None
 Job: Lumber mill foreman
 Home: Timber Lofts (Eastbrook)
 Bio:
+Foreman of the lumber mill in Eastbrook, a big, grey-haired man with sawdust in his beard.
+A Democrat because he believes in a fair day's pay, he runs the mill hard but has never let a man go hungry.

@@ -6,3 +6,5 @@ Partner: None
 Job: Army cook
 Home: Barracks Block A (Army Barracks)
 Bio:
+The army cook at the barracks, who feeds the regiment from a single enormous pot.
+Cheerful, always singing, and a terrible shot.

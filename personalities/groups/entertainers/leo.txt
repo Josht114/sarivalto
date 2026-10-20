@@ -6,3 +6,5 @@ Partner: None
 Job: Saxophonist
 Home: Skyline Apartments (Frostholm)
 Bio:
+The saxophonist at The Midnight Note, the jazz club in Frostholm.
+Plays late into the night, sleeps until noon and says more through his horn than he ever does out loud.

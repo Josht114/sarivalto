@@ -6,3 +6,5 @@ Partner: None
 Job: Arcade attendant
 Home: Kingsgrad Apartments (Kingsgrad)
 Bio:
+The attendant at the arcade in Kingsgrad, who changes money for tokens and fixes the machines with a screwdriver and a kick.
+Holds the high score on every cabinet.

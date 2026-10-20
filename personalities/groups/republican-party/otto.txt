@@ -6,3 +6,5 @@ Partner: None
 Job: Cinema manager
 Home: Kingsgrad Apartments (Kingsgrad)
 Bio:
+Manager of the cinema in Kingsgrad, who shows STORMWING and TOP COMRADE and sells the tickets himself.
+A Republican and a film buff who knows every line of every picture.

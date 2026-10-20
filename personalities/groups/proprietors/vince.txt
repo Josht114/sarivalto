@@ -6,3 +6,5 @@ Partner: None
 Job: Casino worker
 Home: Vince's House (Kingsgrad)
 Bio:
+A casino worker who deals blackjack and watches the floor.
+He has seen fortunes made and lost and knows exactly who owes the Syndicate money.

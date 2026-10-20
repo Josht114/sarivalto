@@ -6,3 +6,5 @@ Partner: None
 Job: Bartender
 Home: Bar Flat (Saltwick)
 Bio:
+The bartender at the bar in Saltwick, who lives in the flat above it.
+Pours beer and whisky for the fishermen and the dockers and keeps the peace with a stare.

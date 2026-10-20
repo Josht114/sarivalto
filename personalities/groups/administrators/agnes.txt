@@ -6,3 +6,5 @@ Partner: None
 Job: Bank teller
 Home: Skyline Apartments (Frostholm)
 Bio:
+A bank teller in Frostholm who counts every coin twice.
+Has no politics at all and a great deal of information about who on the island has money, and where it came from.

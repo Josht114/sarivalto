@@ -1,0 +1,10 @@
+Name: Doris
+Gender: Female
+Faction: None
+Group: CIA
+Partner: None
+Job: CIA cover story officer (at Langley)
+Home: No fixed home
+Bio:
+The CIA's cover story officer at Langley, who runs the Cover Story Department off the lobby.
+She has dressed, disguised and invented a past for every officer the Agency has sent abroad in twenty years, and nobody believes a journalist in a government suit on her watch.
