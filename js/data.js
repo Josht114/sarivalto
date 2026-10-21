@@ -190,7 +190,10 @@ hotel_floor:['Hotel Aurora, upstairs',24,12,'interior',[[8,1,1,6,'W'],[16,1,1,6,
 [17,1,2,2,'e','Bed'],[20,1,3,1,'y','Radio Equipment'],[21,3,2,2,'y','Screens'],[17,5,2,1,'y','Tape Recorder']]],
 // Interiors of the island's other buildings: offices, warehouses, the farm, the barracks and the harbour sheds
 crewq:['Crew Quarters',16,9,'interior',[[1,1,2,2,'e','Bunk'],[4,1,2,2,'e','Bunk'],[7,1,2,2,'e','Bunk'],[10,1,2,2,'e','Bunk'],[13,1,2,1,'y','Lockers'],[2,5,4,2,'u','Table'],[12,4,2,1,'i','Stove'],[11,6,3,1,'y','Shelves']]],
-dphq_in:['Diversified Petroleum HQ',20,12,'interior',[[1,1,4,1,'y','Files'],[15,1,4,1,'y','Files'],[7,1,6,1,'y','Screens'],[7,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[16,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[16,8,3,2,'u','Desk'],[7,6,6,2,'u','Meeting Table']]],
+// Dario's office, up the stairs at Diversified Petroleum HQ: a private bowling lane across the room (the ball return at one end,
+// the pins at the other), his milkshake machine, an executive desk, shelves of oil samples and a safe
+dphq_office:["Dario's Office",24,12,'interior',[[1,2,18,2,'u','Bowling Lane'],[20,1,3,1,'y','Milkshake Machine'],[9,6,4,2,'u','Executive Desk'],[1,7,3,1,'y','Oil Samples'],[20,7,1,1,'x','Safe'],[21,9,1,1,'z','Stairs down']]],
+dphq_in:['Diversified Petroleum HQ',20,12,'interior',[[14,1,1,1,'z','Stairs up'],[1,1,4,1,'y','Files'],[15,1,4,1,'y','Files'],[7,1,6,1,'y','Screens'],[7,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[16,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[16,8,3,2,'u','Desk'],[7,6,6,2,'u','Meeting Table']]],
 depot_in:['Depot',16,10,'interior',[[1,1,3,2,'x','Oil Drums'],[5,1,6,1,'y','Pipes'],[12,1,3,2,'x','Supply Boxes'],[1,5,2,2,'x','Oil Drums'],[13,5,2,3,'x','Oil Drums'],[5,5,5,1,'u','Workbench']]],
 // Frostholm's Republican Party HQ: the leadership election hall, with the podium, the ballot box and a campaign desk for each candidate
 repubhq:['Republican Party HQ',20,12,'interior',[[1,1,3,1,'y','Files'],[16,1,3,1,'y','Files'],[8,2,4,1,'c','Podium'],[9,5,2,1,'x','Ballot Box'],[1,4,3,2,'u','Campaign Desk'],[16,4,3,2,'u','Campaign Desk'],[1,8,3,2,'u','Campaign Desk'],[6,8,3,1,'o'],[11,8,3,1,'o'],[16,8,3,2,'x','Leaflets']]],
@@ -415,7 +418,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'library',x:9,y:8,dir:0,name:'Augustus',home:'royalrooms',loc:'library',job:"Prince's brother",faction:'royal',also:['church'],gender:'male',body:'#4a2a6a',hair:'#c9a040'},
 {m:'monastery',x:11,y:9,dir:0,name:'Father Thyme',home:'house_thyme',loc:'monastery',job:'Abbot',faction:'church',gender:'male',body:'#2a2a33',hair:'#e8e8e8'},
 {m:'palace',x:7,y:13,dir:0,name:'Daphne',home:'royalrooms',loc:'palace',job:"Prince's sister",faction:'royal',gender:'female',body:'#9a4ab0',hair:'#e8c86a'},
-{m:'oilhq',x:8,y:7,dir:0,name:'Dario',home:'villa_dario',loc:'oilhq',job:'CEO of Diversified Petroleum',faction:'oil',gender:'male',body:'#37474f',hair:'#2a1a12'},
+{m:'dphq_office',x:10,y:5,dir:0,name:'Dario',home:'villa_dario',loc:'dphq_office',job:'CEO of Diversified Petroleum',faction:'oil',gender:'male',body:'#37474f',hair:'#2a1a12'},
 {m:'clubroom',x:15,y:3,dir:0,name:'Gustavo',home:'villa_gustavo',loc:'clubroom',job:'Don',faction:'syndicate',gender:'male',body:'#1a1a22',hair:'#222222'},
 {m:'langley_cover',x:6,y:5,dir:0,name:'Doris',home:'none',loc:'langley_cover',job:'CIA cover story officer (at Langley)',faction:'cia',gender:'female',body:'#5a4a6a',hair:'#b5b5b5'},
 // George: the CIA's man for the dirty work Chuck won't put his name to, the jobs that need doing after dark. At Langley, eating in
@@ -717,7 +720,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   use:label, m:place   face that piece of furniture in that place and press E
 //   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say)
 //   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'alias',
-//                        leaving the Cover Story Department's character creator
+//                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
@@ -818,6 +821,8 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
       b:{say:"Then take it, when you can get to Eastbrook. A man who wants you to hear his story wants you on his side. Find out what that's worth to him. Good work."},
       c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work."}}}}],
   thanks:"Chuck has your report on Phil and Kelp Cola."},
+// ring: offered by no one; on the morning of its day the telephone rings (what's said) and it's yours. meet: someone waits somewhere
+// while the quest is yours ({name, m, x, y, dir}) instead of keeping their routine. An event condition can need count times.
 // given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
 // can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
 // so on the morning it's ready (arrives).
@@ -850,6 +855,55 @@ meetdems:{title:'Meet the Democrats',giver:'Chuck',main:true,day:4,call:true,seq
       b:{say:"Ha! Cheapest friendship we'll ever buy. If you need the beans brought in, call me: the diplomatic pouch has room. Good work."},
       c:{say:"Then he's our man, or near enough. Help him out, and he'll help us when it counts. And if you need anything brought in, call me. Good work."}}}}],
   thanks:"Chuck has your report on Erik and the Democrats."},
+meetmonks:{title:'Meet the Monks',giver:'Chuck',main:true,day:5,call:true,text:'The road to the north-east is open. Chuck wants you to go up to the Mountain-Top Monastery and talk to Father Thyme, the Abbot, and each of his monks, then report back.',
+  offer:"Morning, NIGHTJAR. The north-east's open, and that means the monastery. Up on the mountain. Don't let the chanting fool you: Father Thyme heads the whole Orthodox Church on this island, and the Church has a lot of say over who sits on the throne. Talk to him, and to every one of his monks. Find out who they'd crown.",
+  accept:"Good. Mind the climb, and mind your manners.",wait:"Still up the mountain? Father Thyme and every one of his monks. The quarters, the church, the garden.",
+  done:[
+    {talk:'Father Thyme',what:'Talk to Father Thyme, the Abbot',chat:{start:'a',nodes:{
+      a:{say:"Welcome, child, and catch your breath; the mountain takes it from everyone. I am Father Thyme. Few journalists climb this far for a story. What is it you hope to find?",opts:[['What does the Church make of the king\'s death?','b'],['Who should wear the crown?','c']]},
+      b:{say:"We buried a king who was a sinner like any of us, and we prayed for him all the same. Now we pray for whoever comes next. The island has had a king for six hundred years, and the Church crowned every one of them."},
+      c:{say:"That is for God, and for the island. But I will say this: a crown is heavier than it looks, and it sits best on a head that has bowed. Prince Augustus comes up the mountain to borrow my books. His brother has never once made the climb."}}}},
+    {talk:'Brother Anselm',what:'Talk to Brother Anselm, the Prior',chat:{start:'a',nodes:{
+      a:{say:"Another visitor from the towns. Brother Anselm, Prior. You will keep to the paths, you will not photograph the icons, and you will be gone before vespers.",opts:[['I only want to understand the Church.','b'],['Do you get many visitors?','c']]},
+      b:{say:"Then come to the liturgy, and listen. The Church is not a party, whatever the Communists in Saltwick think, and it does not take sides. It simply knows which side is right."},
+      c:{say:"More since the king died than in the ten years before. Party men, oil men, a Russian businessman with expensive shoes. They all want the Abbot's blessing. None of them want his God."}}}},
+    {talk:'Brother Ilja',what:'Talk to Brother Ilja, the scribe',chat:{start:'a',nodes:{
+      a:{say:"Oh! Forgive me, I didn't hear you come in. Brother Ilja. I copy the old books, and keep the records. Every birth, death and coronation on Sarivalto since the first king.",opts:[['Anything interesting in the records?','b'],['What are you copying now?','c']]},
+      b:{say:"Always. The line of succession, for one. The late king's grandfather had a brother whom history rather forgot. I've been reading about him. It's probably nothing. It's usually nothing."},
+      c:{say:"The chronicle of the year the island almost had no king at all, two hundred years ago. History rhymes, they say. I'd rather it didn't."}}}},
+    {talk:'Brother Mikael',what:'Talk to Brother Mikael',chat:{start:'a',nodes:{
+      a:{say:"Hello. Brother Mikael. You've come up from Kingsgrad? How is it down there? I mean, I don't miss it. I just wondered.",opts:[['Why did you leave Kingsgrad?','b'],["It's busy. Everyone's worried about the succession.",'c']]},
+      b:{say:"I'd rather not say. Some debts you can pay with money, and some you pay with your whole life. Up here nobody comes looking. Usually."},
+      c:{say:"They should be. The prince has friends I wouldn't want, and so do the people trying to stop him. I used to know some of them. Please don't tell Brother Anselm I said that."}}}},
+    {talk:'Brother Paavo',what:'Talk to Brother Paavo, the gardener',chat:{start:'a',nodes:{
+      a:{say:"Mind the cabbages; they're sleeping under the snow. Brother Paavo. I keep the garden, such as it is up here.",opts:[['What grows on a mountain?','b'],['Is it quiet up here?','c']]},
+      b:{say:"Potatoes, cabbages, stubbornness. Things that put their roots down deep and wait out the winter. There's a lesson in that for people, but they never listen. The cabbages do."},
+      c:{say:"Quiet enough to hear everyone who comes up the path, and quiet enough to hear what they say to each other on the way down. They forget a monk has ears."}}}},
+    {talk:'Brother Teodor',what:'Talk to Brother Teodor, the cook',chat:{start:'a',nodes:{
+      a:{say:"A guest! Sit, sit, you'll have soup. Brother Teodor. Mushroom, from the forest below. A full stomach is the first step towards a full heart.",opts:[['Thank you. It smells wonderful.','b'],['What do the brothers talk about at supper?','c']]},
+      b:{say:"It is wonderful. I'd tell you the secret, but then you'd have to take vows. Ha! Eat up."},
+      c:{say:"Supper is in silence, but the washing up isn't. The king, mostly. Father Thyme thinks Augustus is a holy man. Brother Anselm thinks holy men make poor kings. They have been very polite to each other all week."}}}},
+    {talk:'Chuck',last:true,what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. You've been up the mountain? What's the Church thinking?",opts:[['Father Thyme would rather see Augustus crowned than Leopold.','b'],['Everyone wants the Abbot\'s blessing: the Party, the oil men, even a Russian.','c']]},
+      b:{say:"A pious king the Church can steer. Not the worst outcome for us, so long as Moscow doesn't get to Augustus first. Good work."},
+      c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work."}}}}],
+  thanks:"Chuck has your report on the monastery."},
+meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',main:true,day:6,seq:true,
+  ring:'The telephone in your room rings. A man\'s voice, slow and polite: "Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone." The line goes dead.',
+  meet:{name:'Gustavo',m:'pizzeria_in',x:9,y:2,dir:2},
+  text:'A stranger telephoned this morning: a friend would like to meet you in the back room of the pizzeria in Kingsgrad. Go, sit in at the card table, and play a few hands with whoever is waiting there. Then report back to Chuck.',
+  done:[
+    {event:'pokerdon',count:3,what:'Play three hands of poker at the card table in the back room of the pizzeria in Kingsgrad',said:'Three hands played. The old man in the dark suit lays down his cards and looks at you properly for the first time.'},
+    {talk:'Gustavo',what:'Talk to the man who called you, at the card table',chat:{start:'a',nodes:{
+      a:{say:"You play like a journalist: carefully, and you watch everyone's hands but your own. Gustavo. I run a few businesses on this island.",opts:[['Why did you call me?','b'],['What kind of businesses?','c']]},
+      b:{say:"Because everyone else will, sooner or later. The Party, the palace, the cola men, the Americans. I like to be first. This island is going to change hands, and when it does, the man holding the cards is the one who knew who was at the table.",opts:[["And who's at the table?",'d']]},
+      c:{say:"Pizza. Cards. Shipping. Whatever the island needs and can't get past the harbour master. Carlo is our candidate for the Republicans: a respectable man. Respectability is very good for business.",opts:[['Why tell me?','b']]},
+      d:{say:"Today? You. Write what you like about the island. But if you ever need something brought in, or someone found, you know where the back room is. And Rosaria makes a very good pizza."}}}},
+    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. I hear you spent the day playing cards. Who with?",opts:[['Gustavo, the Don. He wanted to meet me before anyone else did.','b'],['The Syndicate are backing Carlo for the Republicans.','c']]},
+      b:{say:"The Don called you himself? Then he knows more about you than I'd like. Play his game, but don't ever owe him anything. Good work."},
+      c:{say:"Organised crime buying itself a political party. Ain't democracy grand. Keep in with them, carefully. Good work."}}}}],
+  thanks:"Chuck has your report on the Syndicate."},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
@@ -884,7 +938,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,8,0,1,'apartments3',22,10,0,-1],['skyapts2',22,8,0,1,'skyapts3',22,10,0,-1],['skyapts3',22,8,0,1,'skyapts4',22,10,0,-1],['eblofts2',22,8,0,1,'eblofts3',22,10,0,-1],['eblofts3',22,8,0,1,'eblofts4',22,10,0,-1],['kgapts2',22,8,0,1,'kgapts3',22,10,0,-1],['kgapts3',22,8,0,1,'kgapts4',22,10,0,-1],['hsresid',22,8,0,1,'hsresid2',22,10,0,-1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,10,0,-1],['skyapts',22,8,0,1,'skyapts2',22,10,0,-1],['eblofts',22,8,0,1,'eblofts2',22,10,0,-1],['kgapts',22,8,0,1,'kgapts2',22,10,0,-1],
-['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
+['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['dphq_in',14,1,0,1,'dphq_office',21,9,0,-1],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);

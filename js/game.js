@@ -367,7 +367,7 @@ const qOf=id=>ME.quests.find(q=>q.id==id);
 // (a main quest only on its own morning, and only if you haven't taken on another main quest that day; a side quest from its
 // first day, once the places it needs are open)
 const mainTaken=()=>ME.quests.find(q=>QUESTS[q.id].main&&q.took==DAY);
-const offerable=id=>{const Q=QUESTS[id];if(qOf(id)||Q.given)return false;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
+const offerable=id=>{const Q=QUESTS[id];if(qOf(id)||Q.given||Q.ring)return false;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
 const offerOf=n=>Object.keys(QUESTS).filter(id=>QUESTS[id].giver==n.name&&offerable(id)).sort((a,b)=>!!QUESTS[b].main-!!QUESTS[a].main)[0];
 // the main quest standing between you and the evening: today's, taken on and not yet done ('offer' if there is one today you
 // haven't taken on), or nothing
@@ -380,16 +380,20 @@ const questPlaces=()=>{const at={};for(const n of NPCS){const id=n.m&&offerOf(n)
 const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id],cs=Q.done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]);
   return Q.seq?cs.slice(0,1).filter(([q,i,c])=>!c.days||DAY>=(q.when?.[i-1]??DAY)+c.days):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
 // meeting a condition; with all of them met, the quest is done (and if what's left is a last step, or the next in order, it says so)
-function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;(q.when??=[])[i]=DAY;
+function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet&&Q.done.every((_,k)=>q.met[k]))setTimeout(applyRoutine,0);(q.when??=[])[i]=DAY;
   const gv=[Q.done[i].gives||[]].flat().filter(id=>!qOf(id));gv.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
   const gift=Q.done[i].gift;if(gift){const mine=has(gift);if(mine)mine.n++;else ME.items.push({id:gift,n:1})}
   const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave,quiet?4000:7000)}
   else{const said=Q.done[i].said,left=Q.done.filter((_,k)=>!q.met[k]),next=!said&&(Q.seq||left.every(c=>c.last))?' Next: '+left[0].what.replace(/^./,c=>c.toLowerCase())+'.':'';
     say((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next+gave,said||next||gave?12000:4000)}}
 // something happening in the game (a tattoo, say) meets the conditions waiting for it
-function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev)meet(q,i)}
+function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev){const n=((q.cnt??={})[i]||0)+1;q.cnt[i]=n;
+  if(n>=(c.count||1))meet(q,i);else say(QUESTS[q.id].title+': '+n+' of '+c.count+'.',2500)}}
 // what's arrived this morning for a condition that had to wait (said when the day begins)
-const arrivals=()=>openConds().filter(([q,i,c])=>c.arrives&&q.when?.[i-1]!=null&&DAY==q.when[i-1]+(c.days||0)).map(([,,c])=>' '+c.arrives).join('');
+// (a quest that comes by telephone, ring, rings on the morning of its day and is yours; someone it has waiting somewhere goes there)
+function morningCalls(){if(NIGHT)return'';const rung=Object.keys(QUESTS).filter(id=>QUESTS[id].ring&&QUESTS[id].day==DAY&&!qOf(id));rung.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
+  if(rung.length)applyRoutine();return rung.map(id=>' '+QUESTS[id].ring+' New main quest: '+QUESTS[id].title+'.').join('')}
+const arrivals=()=>morningCalls()+openConds().filter(([q,i,c])=>c.arrives&&q.when?.[i-1]!=null&&DAY==q.when[i-1]+(c.days||0)).map(([,,c])=>' '+c.arrives).join('');
 // ---- The video call: the big screen in your home links to Langley: to Chuck by day, and in the evening to George, who handles the
 // jobs that are done after dark. When the one on the line has a quest for you, or is waiting to hear about one, you can call them;
 // when they have a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts them in the conversation panel on
@@ -547,7 +551,9 @@ function draw(t){
 // exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
-function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork))}
+function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork));
+  // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
+  for(const q of ME.quests){const w=!q.done&&QUESTS[q.id].meet;if(!w)continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));
@@ -575,7 +581,7 @@ function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1]
 // the apartment blocks' floors, and each flat's residents there by its bed (FLATS[place][bed x,y]); a flat's label names them
 var FLATS={};const FLAT_BLOCK=/^(apartments|skyapts|kgapts|eblofts|hsresid)/;
 const flatLabel=(m,x,y)=>{const ns=FLATS[m]?.[x+','+y];return!ns?'Empty flat':(ns.length>1?ns.slice(0,-1).join(', ')+' & '+ns.at(-1):ns[0])+"'s flat"};
-ROUTINE=planRoutine();applyRoutine();
+ROUTINE=planRoutine();applyRoutine();setTimeout(()=>{const t=morningCalls();if(t)say(t.trim(),12000)},1200);
 // once the saves are read, the title screen (js/title.js): Continue there loads the most recent save. (A test start, ?new, ?day,
 // ?night or a proof of concept, goes straight into the game.) It waits for the page to finish loading, so js/title.js is there.
 store.init().then(()=>{const go=()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search))showTitle()};

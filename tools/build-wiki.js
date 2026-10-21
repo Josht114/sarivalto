@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>eveningAt(n,night)?n.evening.m:atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!eveningAt(n,night)&&!atWorkWhen(n,night)&&!!L[n.home];
@@ -149,21 +149,38 @@ function orgChart(c,id){const t=FACTION_TREE[id]||{},col=FACTIONS[id][1],mem=NPC
   const head=Array.isArray(t.lead)?`<div class="node lead joint" style="border-top-color:${col}">${t.lead.map(nm=>`<span>${npcA(c,by(nm))}<small>${esc(by(nm).job)}</small></span>`).join('')}</div>`:t.lead?node(by(t.lead),'lead'):`<div class="node lead vacant" style="border-top-color:${col}"><b>${esc(t.vacant||'Leader: vacant')}</b></div>`;
   return `<div class="org"><ul><li>${head}${below?`<ul>${below}</ul>`:''}</li></ul></div>`}
 // the Quests page: the whole 30-day schedule, a row per day grouped into weeks, a column per main faction and the CIA, with the
-// island-wide days across every column; then each faction's totals
+// island-wide days across every column (an intro day, or day 0, shows the main quests made for it so far, from QUESTS); then each
+// faction's totals; then every quest in the game so far, main quests by day and then side quests, with their steps
 const Q_COLS=['communist','royal','cola','oil','church','syndicate','democrat','cia'];
 const weekOf=d=>d==0?0:Math.min(5,Math.ceil(d/7));
+// the main quests made for a day of the schedule (day 0 is 22 August, before the month begins: day -9 in the game)
+const mainsOn=d=>Object.keys(QUESTS).filter(id=>QUESTS[id].main&&QUESTS[id].day==(d==0?-9:d));
+const qDate=d=>d<1?(31+d)+' August':d+' September';
+// a quest step, as the Quests tab lists it, with what it gives you
+function qStep(c,st){const extra=[st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
+    ...[st.gives||[]].flat().map(id=>(QUESTS[id].main?'gives the main quest ':'gives the side quest ')+QUESTS[id].title)].filter(Boolean);
+  return`<li>${esc(st.what)}${extra.length?` <small>(${esc(extra.join('; '))})</small>`:''}</li>`}
+function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));
+  const how=Q.main?(Q.start?'Yours from the start of a new game':Q.ring?'A telephone call on the morning of '+qDate(Q.day):Q.given?'Given when '+QUESTS[from].title+' is done':(Q.call?'Offered on the morning video call':'Offered in person')+' on '+qDate(Q.day)):
+    Q.given?'Given during '+(from?QUESTS[from].title:'another quest'):Q.opens?'Offered once '+Q.opens.map(p=>L[p][0]).join(' and ')+' are open':'Offered from '+qDate(Q.from??1);
+  return`<div class="qcard"><h3>${esc(Q.title)} <small>${Q.main?'Main quest':'Side quest'}</small></h3>${info([['From',g?npcA(c,g):esc(Q.giver)],['How you get it',esc(how)]])}<p>${esc(Q.text)}</p><ol>${Q.done.map(st=>qStep(c,st)).join('')}</ol></div>`}
 function questsBody(c){const head=Q_COLS.map(f=>`<th><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</th>`).join('');
   const rows=Array.from({length:31},(_,d)=>{const w=weekOf(d),first=d==0||d==1||(d-1)%7==0&&d<=29,span=Array.from({length:31},(_,k)=>k).filter(k=>weekOf(k)==w).length,ev=QUEST_EVENTS[d];
     const wk=first?`<th class="wk" rowspan="${span}">${w?'Week '+w:''}</th>`:'';
     const cells=ev&&!ev[1]?`<td class="evrow" colspan="${Q_COLS.length}">${esc(ev[0])}</td>`:Q_COLS.map(f=>{const q=QUEST_DAYS[f],col=FACTIONS[f][1];
-      if(ev&&ev[1]==f)return`<td class="qi" style="border-color:${col}">${esc(ev[0])}</td>`;
-      if(q&&q.intro==d)return`<td><span class="qi" style="border-color:${col};color:${col}">Intro</span></td>`;
+      const made=mainsOn(d).map(id=>QUESTS[id].title).join(', then ');
+      if(ev&&ev[1]==f)return`<td class="qi" style="border-color:${col}">${esc(made||ev[0])}</td>`;
+      if(q&&q.intro==d)return`<td><span class="qi" style="border-color:${col};color:${col}">${esc(made||'Intro')}</span></td>`;
       if(q&&q.days.includes(d))return`<td><span class="qq" style="background:${col}">${esc(QUEST_TITLES[d]?.[f]||'Quest')}</span></td>`;return'<td></td>'}).join('');
     return`<tr class="${first&&d?'wkstart':''}">${wk}<td class="day">${d}</td>${cells}</tr>`}).join('');
   const sum=Q_COLS.filter(f=>QUEST_DAYS[f]).map(f=>`<tr><td><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</td><td>${QUEST_DAYS[f].intro}</td><td>${QUEST_DAYS[f].days.map(d=>QUEST_TITLES[d]?.[f]?`${d} (${esc(QUEST_TITLES[d][f])})`:d).join(', ')}</td><td>${QUEST_DAYS[f].days.length}</td></tr>`).join('');
-  return `<h1>Quests</h1><p>The game runs over the 30 days of September. It opens on day 0 with the CIA's game intro; over the first week each of the seven main factions is introduced on its own day, and from then on two factions (or more) have quests on most days. Three days belong to the whole island: Event 1 on day 14, the volcano on day 21 and the finale on day 30.</p>
+  const mains=Object.keys(QUESTS).filter(id=>QUESTS[id].main).sort((a,b)=>QUESTS[a].day-QUESTS[b].day),sides=Object.keys(QUESTS).filter(id=>!QUESTS[id].main);
+  return `<h1>Quests</h1><p>The game runs over the 30 days of September. It opens on day 0 (22 August, at CIA Headquarters) with the CIA's game intro; over the first week each of the seven main factions is introduced on its own day, and from then on two factions (or more) have quests on most days. Three days belong to the whole island: Event 1 on day 14, the volcano on day 21 and the finale on day 30. The intro quests made so far are named in the schedule; <a href="#made">the quests in the game so far</a> are described below it.</p>
+<p>There are two kinds of quest. A <b>main quest</b> belongs to a day: its giver offers it that morning (a gold star), you can take on only one main quest a day, and you can't sit and wait for the evening until it's done. A <b>side quest</b> (a silver star, or given to you during another quest) can be taken on and done at any time. Chuck offers his on the morning video call, on the big screen in the Hidden Radio Room; George, at Langley, takes the evening calls.</p>
 <div class="qtable"><table class="sched"><thead><tr><th>Week</th><th>Day</th>${head}</tr></thead><tbody>${rows}</tbody></table></div>
-<h2>By faction</h2><table class="sched sum"><thead><tr><th>Faction</th><th>Intro</th><th>Quest days</th><th>Quests</th></tr></thead><tbody>${sum}</tbody></table>`}
+<h2>By faction</h2><table class="sched sum"><thead><tr><th>Faction</th><th>Intro</th><th>Quest days</th><th>Quests</th></tr></thead><tbody>${sum}</tbody></table>
+<h2 id="made">The quests in the game so far</h2><h3>Main quests</h3>${mains.map((id,i)=>(i&&QUESTS[mains[i-1]].day==QUESTS[id].day?'':`<h4>${esc(qDate(QUESTS[id].day))}</h4>`)+questBlock(c,id)).join('')}
+<h3>Side quests</h3>${sides.map(id=>questBlock(c,id)).join('')}`}
 // the Hierarchies page: every faction's chart side by side, main factions first, for comparing them
 function hierBody(c){const ids=Object.keys(FACTIONS),card=id=>`<section class="hcard" style="border-top-color:${FACTIONS[id][1]}"><h3><span class="sw" style="background:${FACTIONS[id][1]}"></span>${A(c,'factions',id,FACTIONS[id][0])} <small>${NPCS.filter(n=>inFac(n,id)).length} people</small></h3>${orgChart(c,id)}</section>`;
   return `<h1>Hierarchies</h1><p>Every faction's hierarchy side by side: its leader at the top, its important members below, and everyone else beneath them. Click a faction for its page.</p>
@@ -245,7 +262,9 @@ function mapView(c){const ov=svg.replace(/href="\.\.\/wiki\/locations\/(\w+)\.ht
     Object.keys(POS).map(id=>`<div class="plan" data-plan="${id}" hidden><div class="planbar"><button type="button" class="back">← Island map</button><b>${esc(L[id][0])}</b><a href="${href(c,'locations',id)}">About this place →</a></div>${plan(c,id)}</div>`).join('')+'</div>'}
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${mapView(c)}
 <ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length-GROUPS.length}</b> <a href="${lst(c,'factions')}">factions</a> and <b>${GROUPS.length}</b> groups</li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
-const CSS=`/* faction hierarchy charts: boxes joined by lines, scrolling sideways on a narrow screen */
+const CSS=`/* the Quests page: a card per quest */
+.qcard{border:1px solid #c8d2dc;border-radius:6px;padding:8px 12px;margin:8px 0 14px}.qcard h3{margin:2px 0 6px}.qcard h3 small{font-weight:normal;opacity:.7;font-size:.75em;margin-left:6px}.qcard ol{margin:6px 0 2px 1.2em;padding:0}.qcard small{opacity:.75}
+/* faction hierarchy charts: boxes joined by lines, scrolling sideways on a narrow screen */
 .org{overflow-x:auto;padding:4px 0 12px;margin:0 0 8px}
 .org ul{display:flex;justify-content:center;position:relative;margin:0;padding:18px 0 0;list-style:none}
 .org li{position:relative;display:flex;flex-direction:column;align-items:center;padding:18px 5px 0;margin:0}

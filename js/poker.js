@@ -37,7 +37,8 @@ function equity(hole,board,opp,sims=180){const used=new Set([...hole,...board].m
 const chipsOf=p=>p.me?ME.cash:p.chips,addChips=(p,n)=>{if(p.me)ME.cash+=n;else p.chips+=n};
 function sitDownPoker(){const T=POKER_AT[P.m];if(ME.cash<T.bb*2){say(`You need at least ${money(T.bb*2)} of your own money to sit in.`,4000);return}
   PK.at=P.m;PK.h=null;PK.note='You take a seat. Press Space to deal.';
-  PK.seats=[{name:'You',me:true},...T.who.map((nm,i)=>{const n=NPCS.find(x=>x.name==nm)||{name:nm,body:'#5a5f68',hair:'#3a2a20'};
+  const who=P.m=='pizzeria_in'&&typeof openConds=='function'&&openConds().some(([,,c])=>c.event=='pokerdon')?['Gustavo','Paolo','Nico']:T.who;
+  PK.seats=[{name:'You',me:true},...who.map((nm,i)=>{const n=NPCS.find(x=>x.name==nm)||{name:nm,body:'#5a5f68',hair:'#3a2a20'};
     return{name:nm,chips:T.stack,pic:portrait(n).toDataURL(),temper:[.0,.06,-.05][i]}})];PK.dealer=Math.floor(Math.random()*4);startPlay('poker')}
 const inHand=()=>PK.seats.filter(p=>!p.folded&&!p.out),canAct=p=>!p.folded&&!p.out&&!p.allin;
 const nextSeat=(i,f)=>{for(let k=1;k<=4;k++){const j=(i+k)%4;if(f(PK.seats[j]))return j}return-1};
@@ -83,7 +84,8 @@ function finish(){const h=PK.h;h.over=true;h.turn=-1;const pot=potTotal(),live=i
   else{while(h.board.length<5)h.board.push(h.deck.pop());live.forEach(p=>{p.show=true;p.val=bestOf([...p.cards,...h.board])});const top=Math.max(...live.map(p=>p.val)),ws=live.filter(p=>p.val==top),share=Math.floor(pot/ws.length);
     ws.forEach((w,i)=>{const n=share+(i==0?pot-share*ws.length:0);addChips(w,n);w.won=n});h.winCards=new Set(ws.flatMap(w=>bestFive([...w.cards,...h.board])));const nm=handDesc(top);
     msg=ws.length>1?`Split pot: ${ws.map(w=>w.me?'you':w.name).join(' and ')} with ${nm}.`:ws[0].me?`You win ${money(pot)} with ${nm}!`:`${ws[0].name} wins ${money(pot)} with ${nm}.`}
-  PK.note=msg+' Press Space for the next hand.';renderStart()}
+  PK.note=msg+' Press Space for the next hand.';renderStart();
+  if(PK.at=='pizzeria_in'&&PK.seats.some(p=>p.name=='Gustavo')&&typeof questEvent=='function')questEvent('pokerdon')}
 PLAYS.poker={
   render(){const T=POKER_AT[PK.at],h=PK.h,me=PK.seats[0],live=h&&!h.over,myTurn=live&&h.turn==0,call=live?h.cur-me.bet:0;
     const card=(c,hide)=>{const t=cardHtml(c,hide);return!hide&&h&&h.winCards.has(c)?t.replace('class="card','class="card win'):t},named=p=>p.show&&h.board.length==5?`<small class="hname">${handDesc(bestOf([...p.cards,...h.board]))}</small>`:'';

@@ -1449,6 +1449,7 @@ commcentre:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c
 hotel_lobby:{fl:'carpet',f:['#6a3442','#5a2a38'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#8a6a45',rug:'#c9a040',deco:[[2,'win'],[7,'clock'],[10,'neon','AURORA','#ffd23a'],[14,'portrait'],[18,'win']]},
 hotel_floor:{fl:'carpet',f:['#6a3442','#5a2a38'],wall:'#e8dcc0',wall2:'#d8ccb0',pap:'flower',quilt:'#6a3442',curtain:'#6a3442',deco:[[1,'pic'],[5,'win'],[10,'pic'],[13,'win'],[18,'map']]},
 crewq:{fl:'tile',f:['#8d959e','#7d858e'],wall:'#d8dce0',wall2:'#e8792a',pap:'panel',base:'#4a5058',quilt:'#e8792a',deco:[[3,'win'],[9,'clock'],[13,'win']]},
+dphq_office:{fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#3a2e28',wall2:'#2a201a',pap:'panel',base:'#1f1814',rug:'#7a1a1a',deco:[[4,'map'],[9,'portrait'],[14,'win'],[18,'map']]},
 dphq_in:{fl:'carpet',f:['#37474f','#455a64'],wall:'#d8dce2',wall2:'#8a9aa8',pap:'panel',base:'#37474f',rug:'#e0a100',deco:[[2,'win'],[6,'map'],[10,'clock'],[13,'map'],[17,'win']]},
 depot_in:{fl:'stone',f:[],wall:'#7d8a96',wall2:'#5b636c',pap:'tiles',base:'#2b2f3a',deco:[[4,'safety'],[11,'win']]},
 repubhq:{fl:'carpet',f:['#2b3a5a','#33456a'],wall:'#ece6da',wall2:'#9aa8b8',pap:'panel',base:'#2b2f3a',rug:'#a3123a',deco:[[2,'win'],[6,'rbanner'],[10,'portrait'],[13,'rbanner'],[17,'win']]},
@@ -1714,6 +1715,11 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       for(let k=0,x=2;x<W-2;x+=3,k++)if([0,1,3,4,5].includes(k%7))r('#16141c',x+1,ky+2,2,3);r('#2a2830',0,ky+7,W,1);
       // the legs, and a little shine along the case
       for(const lx of[2,W-5])r('#16141c',lx,ky+8,3,H+oy-ky-8);r('#16141c',(W>>1)-1,bb-4,2,4);r('#4a4858',2,bt+1,1,bb-bt-3)})}}
+  if(ch=='u'&&l.includes('bowling')){const oy=0;return{oy,c:mk(W,H,r=>{r('#2a2a33',0,0,W,H);r('#3a3d44',0,0,W,3);r('#3a3d44',0,H-3,W,3);
+      for(let x=0;x<W;x++)r(x%6<3?'#e0b878':'#d4a96a',x,3,1,H-6);r('#f4e0b0',0,4,W,1);for(let x=0;x<W;x+=3)r('#c4995a',x,(x*7)%(H-8)+4,2,1);
+      r('#1a1a22',22,3,1,H-6);for(let k=0;k<5;k++){const y=6+k*((H-12)/4);r('#5a3a26',70-Math.abs(k-2)*4,y,3,1);r('#5a3a26',71-Math.abs(k-2)*4,y-1,1,3)}
+      const px0=W-26,cy=H>>1;[[0,0],[5,-3],[5,3],[10,-6],[10,0],[10,6],[15,-9],[15,-3],[15,3],[15,9]].forEach(([dx,dy])=>{r('#f4f4f0',px0+dx,cy+dy-1,3,3);r('#c0392b',px0+dx+1,cy+dy-1,1,1)});
+      r('#1a1a22',W-6,3,6,H-6);r('#4a4f58',2,H-10,14,7);r('#2a2a33',3,H-9,12,5);r('#1f3a6f',4,H-8,4,4);r('#7a1a1a',9,H-8,4,4);r('#ffffff',5,H-8,1,1);r('#ffffff',10,H-8,1,1)})}}
   if(ch=='u'&&l.includes('pew')){const oy=5,TT=H+oy;return{oy,c:mk(W,TT,r=>{
     // a wooden pew: a carved back rail with the seat in front of it
     r('#5a3d2a',0,0,W,6);r('#7a5436',0,0,W,1);for(let x=3;x<W-2;x+=8)r('#4a3222',x,2,2,3);
@@ -1740,7 +1746,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
         if(meet){for(let x=12;x<W-12;x+=14)r('#f4f4f0',x,oy+(H>>1)-3,6,5);r('#7d838a',W>>1,oy+3,4,3)}
         else if(W>=32){r('#f4e6c0',(W>>1)-1,oy+(H>>1)-4,2,4);r('#ffd23a',(W>>1)-1,oy+(H>>1)-6,2,2)}}
       seats.forEach(x=>chair(x,oy+H-1,false))})}}
-  if(ch=='y'&&/gun|cloth|rail|wig|mirror|passport|cigarette|wiretap|forged|recording|fridge|rods|tackle|slot|pipes/.test(l)){const oy=12,TT=H+oy-2;let an=null;const c=mk(W,TT,r=>{
+  if(ch=='y'&&/gun|cloth|rail|wig|mirror|passport|cigarette|wiretap|forged|recording|milkshake|samples|fridge|rods|tackle|slot|pipes/.test(l)){const oy=12,TT=H+oy-2;let an=null;const c=mk(W,TT,r=>{
     if(l.includes('gun')){r('#8a7a5a',0,0,W,TT);for(let y=2;y<TT;y+=4)for(let x=2;x<W;x+=4)r('#7a6a4a',x,y);
       for(let y=3;y<TT-4;y+=6)for(let x=2;x<W-14;x+=16){r('#6b4a2e',x,y+1,5,2);r('#2a2a33',x+5,y+1,9,1);r('#2a2a33',x+5,y,2,1)}}
     else if(l.includes('cloth')){r('#5a3d2a',0,TT-3,W,3);for(let x=1;x<W-3;x+=5){const col=['#c0392b','#2e6f9a','#e0a100','#3d7a5a','#7d3c98','#e8e8e8'][hash(x,1,v*7)*6|0];r(col,x,2,4,TT-5);r(shade(col,.3),x,2,4,1);r(shade(col,-.2),x+3,3,1,TT-6)}}
@@ -1750,6 +1756,11 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     // a one-way mirror: dark glass in a plain steel frame
     else if(l.includes('one-way')){r('#7d838a',0,0,W,TT-2);r('#1a2028',2,2,W-4,TT-6);r('#2e3a48',4,3,4,TT-9);r('#3a4656',W-10,5,2,6)}
     // the cigarette machine: red, with rows of packs behind glass, the price and a coin slot
+    // oil samples: a shelf of glass jars of crude, each labelled
+    else if(l.includes('samples')){r('#5a3d2a',0,0,W,TT);for(let y=2;y<TT-3;y+=8){r('#3a2a1a',1,y+6,W-2,1);for(let x=2;x<W-4;x+=5){r('#d8e4ea',x,y,4,6);r(['#1a1410','#2a1e14','#3a2a12'][(x+y)%3],x,y+2,4,4);r('#f4f0e0',x,y+3,4,1);r('#9aa3ad',x,y-1,4,1)}}}
+    else if(l.includes('milkshake')){r('#5a3d2a',0,TT-6,W,6);r('#7a5436',0,TT-6,W,1);r('#d8dde2',3,2,W-14,TT-9);r('#f4f6f8',4,2,W-16,2);r('#9aa3ad',W-12,2,1,TT-9);r('#c0392b',3,TT-10,W-14,2);
+      for(let k=0;k<3;k++){const x=6+k*((W-20)/3|0);r('#b8c0c8',x,6,5,3);r('#5a5f68',x+2,9,1,4);r('#c9ced4',x,13,5,TT-20);r('#e8ecef',x,13,1,TT-20)}
+      r('#f4f4f0',W-9,TT-16,5,10);r('#f2a6c0',W-8,TT-14,3,7);r('#ffffff',W-8,TT-16,3,2);r('#c0392b',W-7,TT-19,1,3);r('#e8e8e8',W-5,TT-18,1,8)}
     else if(l.includes('cigarette')){r('#8a1a1a',1,0,W-2,TT);r('#c0392b',2,1,W-4,2);r('#1a1a22',3,4,W-12,TT-9);for(let y=5;y<TT-6;y+=5)for(let x=4;x<W-11;x+=4)r(['#e8e8e8','#c0392b','#2e86c1','#e0a100'][(x+y)%4],x,y,3,3);
       r('#c9ced4',W-8,5,4,6);r('#1a1a22',W-7,7,2,1);r('#ffd23a',W-8,13,4,2);r('#2a2a33',3,TT-4,W-6,2)}
     // George's office: wiretap gear (reels and a headset on a bench), forged papers (stamps, passports, a lamp)
