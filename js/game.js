@@ -26,7 +26,8 @@ sel.appendChild(document.createElement('hr'));
 Object.keys(AREAS).filter(a=>a).sort(byName).forEach(a=>group('Inside: '+NM[a],AREAS[a]));
 // places not on the island at all (CIA Headquarters at Langley)
 if(AREAS[''])group('Off the island',AREAS['']);
-const showHere=id=>{here.text=NM[id];sel.selectedIndex=0};
+// (arriving anywhere, by a door, an exit, the tram or Jump to: a quest may have someone waiting to speak there, questEnter)
+const showHere=id=>{here.text=NM[id];sel.selectedIndex=0;try{questEnter(id)}catch(e){}};  // (not until the game's set up)
 function go(id){P.m=id;[P.x,P.y]=inw(EX[id][0]);P.rx=P.x;P.ry=P.y;P.mv=null;showHere(id)}
 // The game starts at home: the living space behind the Hidden Radio Room, beside the player's bed.
 P.m='hekki_room';P.x=P.rx=17;P.y=P.ry=3;P.dir=0;showHere(P.m);
@@ -423,7 +424,7 @@ function questTalk(n){
   // (today's main quest comes before a reminder, and the reminder is about the latest quest you took on from them)
   const id=offerOf(n),w=[...ME.quests].reverse().find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w&&!(id&&QUESTS[id].main))return{start:'a',nodes:{a:{say:QUESTS[w.id].wait}}};
   if(!id)return null;const Q=QUESTS[id];
-  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false,took:DAY});say((Q.main?'New main quest: ':'New side quest: ')+Q.title+'.',4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
+  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false,took:DAY});if(Q.meet)applyRoutine();say((Q.main?'New main quest: ':'New side quest: ')+Q.title+'.',4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
 // talking to someone: their quest business first, then their own conversation (CONVOS), a shopkeeper's welcome, or a line about
 // themselves; all of it in the conversation panel
 function talk(n){n.dir=P.dir^1;
@@ -431,6 +432,9 @@ function talk(n){n.dir=P.dir^1;
   converse(n,c)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
+// going into a place where a quest of yours has someone waiting to speak (enter): they start speaking a moment after you arrive
+function questEnter(m){const e=openConds().find(([,,c])=>c.enter==m);if(!e)return;const[q,i,c]=e;
+  setTimeout(()=>{const n=NPCS.find(p=>p.name==c.speaker);if(n&&P.m==m&&!CONVO&&!openConds().every(([,,x])=>x!=c))converse(n,{...c.chat,onEnd:()=>meet(q,i)})},600)}
 // where to put someone getting off: the free platform tile (in front of the track) nearest the tram's door, or failing that
 // the ground just in front of the platform
 function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+48)/16,w=MAPS[m][0].length,c=[];
@@ -553,7 +557,7 @@ var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
 function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork));
   // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
-  for(const q of ME.quests){const w=!q.done&&QUESTS[q.id].meet;if(!w)continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
+  for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));

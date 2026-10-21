@@ -721,6 +721,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say)
 //   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'alias',
 //                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
+//   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
@@ -822,7 +823,7 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
       c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work."}}}}],
   thanks:"Chuck has your report on Phil and Kelp Cola."},
 // ring: offered by no one; on the morning of its day the telephone rings (what's said) and it's yours. meet: someone waits somewhere
-// while the quest is yours ({name, m, x, y, dir}) instead of keeping their routine. An event condition can need count times.
+// while the quest is yours ({name, m, x, y, dir}, or a list of them) instead of keeping their routine. An event condition can need count times.
 // given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
 // can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
 // so on the morning it's ready (arrives).
@@ -904,6 +905,35 @@ meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',ma
       b:{say:"The Don called you himself? Then he knows more about you than I'd like. Play his game, but don't ever owe him anything. Good work."},
       c:{say:"Organised crime buying itself a political party. Ain't democracy grand. Keep in with them, carefully. Good work."}}}}],
   thanks:"Chuck has your report on the Syndicate."},
+meetoil:{title:'Meet the Oil Company',giver:'Chuck',main:true,day:7,call:true,seq:true,text:'The north-west is open. Chuck wants you to go to Diversified Petroleum HQ in Frostholm and meet Dario, the company\'s CEO, then report back.',
+  offer:"Morning, NIGHTJAR. The north-west's open: Frostholm, the oil rig, the lot. Today it's Diversified Petroleum. Their CEO's an American called Dario: self-made, rich, and he wants everything under the sea round this island. He's one of ours, in a manner of speaking, which is exactly why I don't trust him. Go to their HQ in Frostholm and meet him.",
+  accept:"Good. Let him do the talking. He will.",wait:"Met Dario yet? Diversified Petroleum HQ, Frostholm.",
+  meet:[{name:'Dario',m:'dphq_in',x:10,y:8,dir:0},{name:'Magnus',m:'dphq_in',x:8,y:9,dir:1},{name:'Ruth',m:'dphq_in',x:12,y:9,dir:1},{name:'Britta',m:'dphq_in',x:6,y:9,dir:1},{name:'Sven',m:'dphq_in',x:14,y:9,dir:1},{name:'Mats',m:'dphq_in',x:7,y:10,dir:1},{name:'Lars',m:'dphq_in',x:13,y:10,dir:1}],
+  done:[
+    {enter:'dphq_in',speaker:'Dario',what:'Go to Diversified Petroleum HQ in Frostholm',said:'The staff applaud, a little too quickly. Over their heads, Dario has spotted you at the back of the room.',chat:{start:'a',nodes:{
+      a:{say:"Ladies and gentlemen. Sit down, sit down. You all know me. I'm not a speech-maker. I'm a working man, the same as every one of you.",opts:[['(Listen)','b']]},
+      b:{say:"Twenty years ago I had a pick, a bucket and a hole in the ground in Oklahoma. No partners. No investors. Nobody telling me how deep to dig. I dug, and I kept digging.",opts:[['(Listen)','c']]},
+      c:{say:"Under the sea out there is more oil than this little island has ever dreamed of. And I am going to bring it up. Every drop of it.",opts:[['(Listen)','d']]},
+      d:{say:"There are people on Sarivalto who'd like to stop me. Communists. Cola men. Priests. A prince. They'll talk to you about the island's future. I'll tell you what the island's future is. It's black, and it burns.",opts:[['(Listen)','e']]},
+      e:{say:"So you work hard, and you'll be looked after, like family. You work against me, and... well. Let's not talk about that today. Back to work, all of you."}}}},
+    {talk:'Dario',what:'Talk to Dario',chat:{start:'a',nodes:{
+      a:{say:"You. At the back. The journalist. I don't give interviews, but I do enjoy a conversation. Tell me something: is a man born good, or does he make himself good?",opts:[['Born good. The world spoils him.','b'],['He makes himself, one choice at a time.','c'],['Neither. Men are whatever they need to be.','d']]},
+      b:{say:"Spoiled by the world. That's a comfortable thing to believe, if you've never met one. Next question.",opts:[['Go on.','e']]},
+      c:{say:"One choice at a time. Yes. I've made a great many choices. Next question.",opts:[['Go on.','e']]},
+      d:{say:"Ha! Now that's an honest answer. You might go far, or you might get yourself killed. Next question.",opts:[['Go on.','e']]},
+      e:{say:"If there's a fortune under another man's land, and he hasn't the wit or the will to dig for it, whose fortune is it?",opts:[["His. It's his land.",'f'],['Whoever brings it up.','g'],['The people who live there.','h']]},
+      f:{say:"His land. You'd make a fine lawyer. I have a great many lawyers. Last question.",opts:[['Go on.','i']]},
+      g:{say:"Whoever brings it up. You were listening. Last question.",opts:[['Go on.','i']]},
+      h:{say:"The people. You've been talking to that woman in Saltwick. The people never dug a hole in their lives. Last question.",opts:[['Go on.','i']]},
+      i:{say:"What do you want, journalist? Not for your newspaper. For you.",opts:[['The truth.','j'],['A good story.','k'],['To be on the winning side.','l']]},
+      j:{say:"The truth. Nobody wants the truth. They want to be told they're right. Go on, get out of my building. You're more interesting than most."},
+      k:{say:"A good story. Well, you've got one now. Go on, get out of my building. You're more interesting than most."},
+      l:{say:"Then we understand each other. Come back when you've decided which side that is. Go on, get out of my building."}}}},
+    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+      a:{say:"NIGHTJAR. You met Dario? What's he like?",opts:[["He wants every drop under the sea, and he'll fight anyone for it.",'b'],['He gave me a lecture on philosophy.','c']]},
+      b:{say:"Then he and this island are going to fall out. An oilman's a fine friend to have, right up until he isn't. Good work."},
+      c:{say:"Philosophy. From an oilman. Next he'll be writing poetry. Keep him talking: men like that tell you everything if you let them think they're winning. Good work."}}}}],
+  thanks:"Chuck has your report on Dario and Diversified Petroleum."},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},

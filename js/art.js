@@ -1252,7 +1252,7 @@ function npcSprite(n,d,fr){const key=[n.name,d,fr,n.body,n.hair,n.hat].join();if
     else if(st=='bald'){if(d==1)r(H,4,4,8,2);else if(side)r(H,9,4,3,2);else{r(H,4,4,1,2);r(H,11,4,1,2)}}
     else{r(H,5,0,6,1);r(H,4,1,8,2);
       if(d==0){r(H,4,3,1,len-2);r(H,11,3,1,len-2);if(st=='long'||st=='bob'){r(H,3,2,1,len-1);r(H,12,2,1,len-1)}if(st=='side')r(H,5,3,4,1);if(st=='curly'){r(H,3,1,1,3);r(H,12,1,1,3)}}
-      else if(d==1){r(H,4,1,8,Math.min(len,8));if(st=='long'||st=='bob')r(H,3,2,10,len-1);r(L.hd,5,Math.min(len,8)+1,6,1)}
+      else if(d==1){const bl=Math.max(len,7);r(H,4,1,8,Math.min(bl,8));if(st=='long'||st=='bob')r(H,3,2,10,len-1);r(L.hd,5,Math.min(bl,8),6,1)}  // (from behind, hair covers the head down to the nape)
       else{r(H,8,1,4,Math.min(len,8));if(st=='long'||st=='bob')r(H,8,2,5,len-1)}
       if(st=='ponytail'){if(d==1)r(H,7,8,2,4);else if(side){r(H,12,2,2,2);r(H,13,4,1,4)}}
       if(st=='bun'){if(side)r(H,11,1,3,3);else if(d==1)r(H,6,2,4,3);else r(H,6,-1,4,2)}
