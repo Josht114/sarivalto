@@ -5,7 +5,12 @@ Group: The Union
 Partner: Bob
 Job: Union leader
 Home: Apartment Block (Saltwick)
+
 Bio:
-Leader of the Union and Anna's right hand at the Party HQ in Saltwick.
-She has led every strike on the docks for fifteen years and can bring the harbour to a standstill with one speech.
-Lives with Bob, the fishmonger, who brings her supper when the meetings run late.
+Leader of the Union and Anna's right hand
+at the Party HQ in Saltwick.
+She has led every strike on the docks for
+fifteen years and can bring the harbour to
+a standstill with one speech.
+Lives with Bob, the fishmonger, who brings
+her supper when the meetings run late.

@@ -5,6 +5,11 @@ Group: The Unemployed
 Partner: None
 Job: Hobo
 Home: Pat's Camp (Beach)
+
 Bio:
-A hobo who lives in a camp on the beach, beachcombing and fishing and sleeping under the stars when the weather lets him.
-Has seen everything that washes up on the island's shore, and some things that didn't wash up by accident.
+A hobo who lives in a camp on the beach,
+beachcombing and fishing and sleeping
+under the stars when the weather lets him.
+Has seen everything that washes up on the
+island's shore, and some things that
+didn't wash up by accident.

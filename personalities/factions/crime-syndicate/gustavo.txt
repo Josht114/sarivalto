@@ -4,7 +4,14 @@ Faction: Crime Syndicate
 Group: None
 Partner: None
 Job: Don
-Home: Gustavo's Villa (Hope Springs Gated Community)
+Home: Gustavo's Villa (Hope Springs Gated
+Community)
+
 Bio:
-The Don of the Crime Syndicate, who runs the island's gambling, smuggling and protection rackets from his villa in Hope Springs.
-Old, courteous and frightening, he speaks softly, never raises his voice and never forgets a slight.
+The Don of the Crime Syndicate, who runs
+the island's gambling, smuggling and
+protection rackets from his villa in Hope
+Springs.
+Old, courteous and frightening, he speaks
+softly, never raises his voice and never
+forgets a slight.

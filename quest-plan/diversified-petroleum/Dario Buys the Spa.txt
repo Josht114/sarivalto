@@ -1,0 +1,10 @@
+Quest: Dario Buys the Spa
+Faction: Diversified Petroleum
+Day: 26 (morning)
+Linked with: None
+From the plan: Help Dario buy the spa
+Plan:
+Dario has set his heart on the spa in
+Kingsgrad, and the owner won't sell.
+Help him get it, by fair means or
+otherwise.

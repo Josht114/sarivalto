@@ -5,6 +5,11 @@ Group: The Union
 Partner: None
 Job: Bottling line worker
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-A worker on the Kelp Cola bottling line, which she describes as the loudest place on the island.
-A Union member who would like the company to share a little more of its money with the people who bottle it.
+A worker on the Kelp Cola bottling line,
+which she describes as the loudest place
+on the island.
+A Union member who would like the company
+to share a little more of its money with
+the people who bottle it.

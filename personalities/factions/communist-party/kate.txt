@@ -5,6 +5,11 @@ Group: The Union
 Partner: None
 Job: Fishmonger
 Home: Kate's House (Saltwick)
+
 Bio:
-A Saltwick fishmonger who sells off the boats at dawn and turns up to every Party meeting with scales still on her sleeves.
-Loud, funny and fiercely loyal to the Union, she knows every fisherman's debts and every family's troubles.
+A Saltwick fishmonger who sells off the
+boats at dawn and turns up to every Party
+meeting with scales still on her sleeves.
+Loud, funny and fiercely loyal to the
+Union, she knows every fisherman's debts
+and every family's troubles.

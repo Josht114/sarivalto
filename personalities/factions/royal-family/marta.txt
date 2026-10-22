@@ -5,6 +5,10 @@ Group: The Palace Workers
 Partner: None
 Job: Cook
 Home: Servants' Quarters (Royal Palace)
+
 Bio:
-The palace cook, who feeds the royal family, the staff and anyone else who wanders into her kitchen.
-Brusque, loyal and the true ruler of the servants' quarters.
+The palace cook, who feeds the royal
+family, the staff and anyone else who
+wanders into her kitchen.
+Brusque, loyal and the true ruler of the
+servants' quarters.

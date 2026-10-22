@@ -5,6 +5,13 @@ Group: KGB
 Partner: None
 Job: KGB agent (posing as a businessman)
 Home: Hotel Aurora, upstairs (Frostholm)
+
 Bio:
-A KGB agent posing as a timber businessman, living upstairs at the Hotel Aurora in Frostholm.
-Charming, generous with the vodka and always buying rounds, he reports everything to Moscow and is steering the Party towards a vote to join the Soviet Union.
+A KGB agent posing as a timber
+businessman, living upstairs at the Hotel
+Aurora in Frostholm.
+Charming, generous with the vodka and
+always buying rounds, he reports
+everything to Moscow and is steering the
+Party towards a vote to join the Soviet
+Union.

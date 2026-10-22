@@ -5,6 +5,10 @@ Group: The Union
 Partner: None
 Job: Sawyer
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-A sawyer at the lumber mill in Eastbrook, missing the tip of one finger and proud of the story behind it.
-A Union man and a Democrat who drinks at the tavern every evening.
+A sawyer at the lumber mill in Eastbrook,
+missing the tip of one finger and proud of
+the story behind it.
+A Union man and a Democrat who drinks at
+the tavern every evening.

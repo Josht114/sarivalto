@@ -5,6 +5,11 @@ Group: None
 Partner: None
 Job: Factory foreman
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-Foreman of the Kelp Cola factory, who keeps the bottling line running to the minute.
-A company man through and through, with a Kelp Cola in his hand from morning to night.
+Foreman of the Kelp Cola factory, who
+keeps the bottling line running to the
+minute.
+A company man through and through, with a
+Kelp Cola in his hand from morning to
+night.

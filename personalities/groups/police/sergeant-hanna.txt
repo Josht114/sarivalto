@@ -5,6 +5,10 @@ Group: The Police
 Partner: None
 Job: Desk sergeant
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-The desk sergeant at the Kingsgrad Police Station.
-Tough, fair and overworked, she keeps the town's few cells in order, including the one with Mario in it.
+The desk sergeant at the Kingsgrad Police
+Station.
+Tough, fair and overworked, she keeps the
+town's few cells in order, including the
+one with Mario in it.

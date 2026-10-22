@@ -5,6 +5,11 @@ Group: The Proprietors
 Partner: None
 Job: Hotel receptionist
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-The receptionist at the Hotel Aurora in Frostholm, who knows every guest's name and room number.
-She has noticed that the businessman upstairs gets a great many late-night visitors.
+The receptionist at the Hotel Aurora in
+Frostholm, who knows every guest's name
+and room number.
+She has noticed that the businessman
+upstairs gets a great many late-night
+visitors.

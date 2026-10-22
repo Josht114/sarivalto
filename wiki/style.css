@@ -1,3 +1,5 @@
+/* the Quests table: each day a morning row and a lighter evening row */
+.sched td.tod{font-size:.8em;opacity:.75;white-space:nowrap}.sched tr.eve td{border-top-style:dotted}
 /* the Quests page: a card per quest */
 .qcard{border:1px solid #c8d2dc;border-radius:6px;padding:8px 12px;margin:8px 0 14px}.qcard h3{margin:2px 0 6px}.qcard h3 small{font-weight:normal;opacity:.7;font-size:.75em;margin-left:6px}.qcard ol{margin:6px 0 2px 1.2em;padding:0}.qcard small{opacity:.75}
 /* faction hierarchy charts: boxes joined by lines, scrolling sideways on a narrow screen */

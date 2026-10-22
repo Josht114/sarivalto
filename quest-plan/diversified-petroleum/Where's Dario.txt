@@ -1,0 +1,11 @@
+Quest: Where's Dario?
+Faction: Diversified Petroleum
+Day: 17 (morning)
+Linked with: Executive Decision (Crime
+Syndicate), on the same day
+From the plan: Find the CEO
+Plan:
+Dario has gone missing, and the company is
+in a panic.
+Retrace his steps across the island and
+find him before anyone else does.

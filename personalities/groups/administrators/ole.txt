@@ -5,6 +5,11 @@ Group: The Administrators
 Partner: None
 Job: Harbourmaster
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-The harbourmaster in Frostholm, who decides which boats come and go and what they pay.
-His new taxes on imports have made him unpopular with every shopkeeper on the island.
+The harbourmaster in Frostholm, who
+decides which boats come and go and what
+they pay.
+His new taxes on imports have made him
+unpopular with every shopkeeper on the
+island.

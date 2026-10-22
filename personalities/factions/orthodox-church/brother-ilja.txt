@@ -4,7 +4,12 @@ Faction: Orthodox Church
 Group: None
 Partner: None
 Job: Monk (scribe)
-Home: Monks' Quarters (Mountain-Top Monastery)
+Home: Monks' Quarters (Mountain-Top
+Monastery)
+
 Bio:
-The monastery's scribe, who copies the old books by candlelight and keeps the records of the Church.
-Gentle and short-sighted, he knows more of the island's history than anyone alive.
+The monastery's scribe, who copies the old
+books by candlelight and keeps the records
+of the Church.
+Gentle and short-sighted, he knows more of
+the island's history than anyone alive.

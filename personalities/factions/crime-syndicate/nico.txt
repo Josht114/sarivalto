@@ -5,6 +5,11 @@ Group: None
 Partner: None
 Job: Syndicate bookie
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-A Syndicate bookie in Frostholm who runs a poker game at the pizzeria's back table and takes bets on everything from football to the weather.
-Quick with numbers, slow to pay out, and convinced he can read any bluff.
+A Syndicate bookie in Frostholm who runs a
+poker game at the pizzeria's back table
+and takes bets on everything from football
+to the weather.
+Quick with numbers, slow to pay out, and
+convinced he can read any bluff.

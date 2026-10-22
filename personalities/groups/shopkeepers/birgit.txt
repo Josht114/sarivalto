@@ -5,6 +5,10 @@ Group: The Shopkeepers
 Partner: None
 Job: Nordmart manager
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-Manager of the Nordmart supermarket in Frostholm, who runs it with clipboards and strict schedules.
-Has no time for politics or for anyone blocking an aisle.
+Manager of the Nordmart supermarket in
+Frostholm, who runs it with clipboards and
+strict schedules.
+Has no time for politics or for anyone
+blocking an aisle.

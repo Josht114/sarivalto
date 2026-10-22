@@ -1,0 +1,11 @@
+Quest: The Palace Job
+Faction: Crime Syndicate
+Day: 20 (morning)
+Linked with: None
+From the plan: Steal an artifact from the
+palace
+Plan:
+Gustavo wants a priceless artifact from
+the Royal Palace.
+Case the palace, plan the job and get it
+out without being caught.

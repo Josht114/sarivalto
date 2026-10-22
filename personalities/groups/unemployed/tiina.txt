@@ -5,6 +5,10 @@ Group: The Unemployed
 Partner: None
 Job: Unemployed
 Home: Apartment Block (Saltwick)
+
 Bio:
-Unemployed in Saltwick, a former net-maker whose boat went down with her husband's last season.
-Sits with Sirpa most days and is warier than she looks.
+Unemployed in Saltwick, a former net-maker
+whose boat went down with her husband's
+last season.
+Sits with Sirpa most days and is warier
+than she looks.

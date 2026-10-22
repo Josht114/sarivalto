@@ -5,6 +5,10 @@ Group: Republican Party
 Partner: None
 Job: Doctor
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-The island's doctor in Kingsgrad, who treats everyone from fishermen to royals.
-A Republican and a pragmatist who thinks the island needs fewer revolutionaries and more hospitals.
+The island's doctor in Kingsgrad, who
+treats everyone from fishermen to royals.
+A Republican and a pragmatist who thinks
+the island needs fewer revolutionaries and
+more hospitals.

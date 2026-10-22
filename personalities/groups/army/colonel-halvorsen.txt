@@ -4,7 +4,13 @@ Faction: None
 Group: The Army
 Partner: None
 Job: Army commander
-Home: Hope Springs Residences (Hope Springs Gated Community)
+Home: Hope Springs Residences (Hope
+Springs Gated Community)
+
 Bio:
-Commander of the island's small army, based at the barracks.
-A stiff, proud professional who swears the army will stay out of politics, and dines at the palace more often than that would suggest.
+Commander of the island's small army,
+based at the barracks.
+A stiff, proud professional who swears the
+army will stay out of politics, and dines
+at the palace more often than that would
+suggest.

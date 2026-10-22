@@ -5,6 +5,11 @@ Group: The Reporters
 Partner: None
 Job: Newspaper editor
 Home: Henrik's House (Eastbrook)
+
 Bio:
-The editor of the island's newspaper in Eastbrook, who has run it for twenty years and printed every headline from the king's coronation to his death.
-Sharp, cynical and desperate for a story nobody else has.
+The editor of the island's newspaper in
+Eastbrook, who has run it for twenty years
+and printed every headline from the king's
+coronation to his death.
+Sharp, cynical and desperate for a story
+nobody else has.

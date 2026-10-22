@@ -5,6 +5,10 @@ Group: The Army
 Partner: None
 Job: Sentry
 Home: Barracks Block A (Army Barracks)
+
 Bio:
-The sentry at the barracks' guard post, who checks every visitor's papers and counts the hours until his shift ends.
-Bored, cold and secretly reading adventure novels.
+The sentry at the barracks' guard post,
+who checks every visitor's papers and
+counts the hours until his shift ends.
+Bored, cold and secretly reading adventure
+novels.

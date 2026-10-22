@@ -5,6 +5,10 @@ Group: The Shopkeepers
 Partner: None
 Job: Fish shop owner
 Home: Apartment Block (Saltwick)
+
 Bio:
-Owner of the fish shop in Saltwick, who buys the fishermen's catch and sells it on.
-Shrewd, loud and the best judge of a fresh herring on the island.
+Owner of the fish shop in Saltwick, who
+buys the fishermen's catch and sells it
+on.
+Shrewd, loud and the best judge of a fresh
+herring on the island.

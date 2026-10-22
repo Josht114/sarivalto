@@ -4,7 +4,11 @@ Faction: Orthodox Church
 Group: None
 Partner: None
 Job: Monk (cook)
-Home: Monks' Quarters (Mountain-Top Monastery)
+Home: Monks' Quarters (Mountain-Top
+Monastery)
+
 Bio:
-The monastery's cook, round and cheerful and famous for his mushroom soup.
-He believes a full stomach is the first step towards a full heart.
+The monastery's cook, round and cheerful
+and famous for his mushroom soup.
+He believes a full stomach is the first
+step towards a full heart.

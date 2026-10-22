@@ -1,0 +1,10 @@
+Quest: Flat Cola
+Faction: CIA
+Day: 8 (evening)
+Linked with: None
+From the plan: Sabotage cola production
+Plan:
+George wants Kelp Cola's bottling line
+stopped.
+Get into the factory and sabotage the
+production.

@@ -1,0 +1,12 @@
+Quest: Deep Repairs
+Faction: Diversified Petroleum
+Day: 23 (morning)
+Linked with: Spanner in the Works
+(Communist Party), on the same day
+From the plan: Underwater welding
+Plan:
+Something has broken below the waterline
+at the oil rig, and it needs welding
+before the rig floods.
+Go out to the rig, suit up and make the
+repair, and find out how it broke.

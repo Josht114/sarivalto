@@ -1,0 +1,10 @@
+Quest: Tinderbox
+Faction: CIA
+Day: 16 (evening)
+Linked with: None
+From the plan: Set a wildfire
+Plan:
+George wants a fire in the island's forest
+to cause chaos.
+Start it, and make sure it can't be traced
+back to you.

@@ -5,6 +5,11 @@ Group: The Unemployed
 Partner: None
 Job: Unemployed
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-Unemployed in Frostholm since the cannery closed, and spending his days in the cafés and the library.
-Bitter about the oil company and the politicians, and ready to listen to anyone who promises work.
+Unemployed in Frostholm since the cannery
+closed, and spending his days in the cafés
+and the library.
+Bitter about the oil company and the
+politicians, and ready to listen to anyone
+who promises work.

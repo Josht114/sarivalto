@@ -5,6 +5,11 @@ Group: The Union
 Partner: None
 Job: Dock worker
 Home: Apartment Block (Saltwick)
+
 Bio:
-A dock worker at the warehouse in Saltwick, who unloads every boat that comes into the harbour.
-A Union member who knows exactly what is in every crate, and what isn't on the manifest.
+A dock worker at the warehouse in
+Saltwick, who unloads every boat that
+comes into the harbour.
+A Union member who knows exactly what is
+in every crate, and what isn't on the
+manifest.

@@ -5,6 +5,10 @@ Group: The Farmers
 Partner: Hilda
 Job: Farmer
 Home: Farmhouse (East Farm)
+
 Bio:
-A farmer at East Farm with his partner Hilda.
-Grows potatoes, keeps cows and complains about the weather, the prices and the politicians, in that order.
+A farmer at East Farm with his partner
+Hilda.
+Grows potatoes, keeps cows and complains
+about the weather, the prices and the
+politicians, in that order.

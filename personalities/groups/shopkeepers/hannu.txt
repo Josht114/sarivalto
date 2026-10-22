@@ -5,6 +5,10 @@ Group: The Shopkeepers
 Partner: None
 Job: Newsstand vendor
 Home: Apartment Block (Saltwick)
+
 Bio:
-The newsstand vendor in Saltwick, who sells papers and cigarettes and knows the headlines before they are printed.
-Talks politics with every customer and changes his opinion with every one.
+The newsstand vendor in Saltwick, who
+sells papers and cigarettes and knows the
+headlines before they are printed.
+Talks politics with every customer and
+changes his opinion with every one.

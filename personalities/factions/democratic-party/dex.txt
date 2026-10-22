@@ -5,6 +5,10 @@ Group: The Food Vendors
 Partner: None
 Job: Hot dog vendor
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-A hot dog vendor on the streets of Eastbrook and a Democrat who hands out leaflets with every sausage.
-Knows every regular by name and every rumour by lunchtime.
+A hot dog vendor on the streets of
+Eastbrook and a Democrat who hands out
+leaflets with every sausage.
+Knows every regular by name and every
+rumour by lunchtime.

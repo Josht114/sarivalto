@@ -5,6 +5,11 @@ Group: The Food Vendors
 Partner: None
 Job: Pizzeria owner
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-Owner of the pizzeria in Kingsgrad, the best pizza on the island and the Syndicate's favourite meeting place.
-She feeds anyone who's hungry, asks no questions and keeps the back room free for poker and for business.
+Owner of the pizzeria in Kingsgrad, the
+best pizza on the island and the
+Syndicate's favourite meeting place.
+She feeds anyone who's hungry, asks no
+questions and keeps the back room free for
+poker and for business.

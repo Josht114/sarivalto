@@ -1,0 +1,13 @@
+Quest: The State Visit
+Faction: Royal Family
+Day: 28 (morning)
+Linked with: None
+From the plan: Visit from another king (a
+state visit)
+Plan:
+A foreign king arrives on Sarivalto for a
+state visit, and the palace must put on a
+good show.
+Help the household prepare, and find out
+what the visitor really wants from the
+island.

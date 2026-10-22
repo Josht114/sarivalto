@@ -1,0 +1,11 @@
+Quest: Black Tide
+Faction: Diversified Petroleum
+Day: 8 (morning)
+Linked with: None
+From the plan: Deal with an oil spill
+Plan:
+Oil is washing up on the beaches, and
+Diversified Petroleum wants it cleaned up
+before anyone blames them.
+Clean up the spill, and decide what to
+tell the newspaper.

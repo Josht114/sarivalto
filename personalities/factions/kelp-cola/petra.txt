@@ -5,6 +5,10 @@ Group: The Union
 Partner: None
 Job: Warehouse worker
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-A warehouse worker at Kelp Cola who stacks crates by day and organises the Union by night.
-Wants better pay, better heating and a word with Phil.
+A warehouse worker at Kelp Cola who stacks
+crates by day and organises the Union by
+night.
+Wants better pay, better heating and a
+word with Phil.

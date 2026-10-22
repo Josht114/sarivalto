@@ -5,6 +5,10 @@ Group: The Palace Workers
 Partner: None
 Job: Groundskeeper
 Home: Servants' Quarters (Royal Palace)
+
 Bio:
-The palace groundskeeper, who keeps the hedges and the gardens under the snow.
-His shed overlooks the front gate, so he sees everyone who comes and goes, and nobody thinks to ask a gardener.
+The palace groundskeeper, who keeps the
+hedges and the gardens under the snow.
+His shed overlooks the front gate, so he
+sees everyone who comes and goes, and
+nobody thinks to ask a gardener.

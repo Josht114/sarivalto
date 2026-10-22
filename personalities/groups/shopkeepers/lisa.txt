@@ -5,6 +5,9 @@ Group: The Shopkeepers
 Partner: None
 Job: Supermarket worker
 Home: Lisa's House (Kingsgrad)
+
 Bio:
-A worker at the supermarket in Kingsgrad, who stacks the shelves and runs the till.
-Friendly, chatty and saving every penny to leave the island one day.
+A worker at the supermarket in Kingsgrad,
+who stacks the shelves and runs the till.
+Friendly, chatty and saving every penny to
+leave the island one day.

@@ -4,7 +4,12 @@ Faction: Orthodox Church
 Group: None
 Partner: None
 Job: Monk (gardener)
-Home: Monks' Quarters (Mountain-Top Monastery)
+Home: Monks' Quarters (Mountain-Top
+Monastery)
+
 Bio:
-The monastery's gardener, who coaxes vegetables out of the mountain soil in the short summers.
-Patient and quiet, he talks to his plants more than to his brothers.
+The monastery's gardener, who coaxes
+vegetables out of the mountain soil in the
+short summers.
+Patient and quiet, he talks to his plants
+more than to his brothers.

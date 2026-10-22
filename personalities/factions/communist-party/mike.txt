@@ -5,6 +5,11 @@ Group: The Union
 Partner: Lucia
 Job: Fisherman
 Home: Apartment Block (Saltwick)
+
 Bio:
-A Saltwick fisherman and staunch Party man who sings the Internationale on his boat.
-His secret is Lucia, the Syndicate enforcer, whom he has been seeing for a year; neither the Party nor the Syndicate knows, and both would be furious.
+A Saltwick fisherman and staunch Party man
+who sings the Internationale on his boat.
+His secret is Lucia, the Syndicate
+enforcer, whom he has been seeing for a
+year; neither the Party nor the Syndicate
+knows, and both would be furious.

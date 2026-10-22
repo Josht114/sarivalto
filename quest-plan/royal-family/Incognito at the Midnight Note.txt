@@ -1,0 +1,12 @@
+Quest: Incognito at the Midnight Note
+Faction: Royal Family
+Day: 19 (morning)
+Linked with: None
+From the plan: Undercover jazz visit
+Plan:
+Prince Leopold wants a night out at The
+Midnight Note without anyone knowing it's
+him.
+Disguise him, get him to Frostholm and
+back, and keep the newspaper from hearing
+about it.

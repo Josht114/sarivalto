@@ -5,6 +5,10 @@ Group: The Army
 Partner: None
 Job: Soldier
 Home: Barracks Block A (Army Barracks)
+
 Bio:
-A young soldier at the barracks, two months into his service and terrified of Sergeant Rask.
-Writes long letters home to his mother every evening.
+A young soldier at the barracks, two
+months into his service and terrified of
+Sergeant Rask.
+Writes long letters home to his mother
+every evening.

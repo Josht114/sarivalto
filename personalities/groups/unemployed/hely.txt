@@ -5,6 +5,11 @@ Group: The Unemployed
 Partner: None
 Job: Unemployed
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-Unemployed in Eastbrook after the mill cut a shift.
-Young, restless and spending too much time in the tavern, she is waiting for something to happen on the island and wouldn't mind making it happen.
+Unemployed in Eastbrook after the mill cut
+a shift.
+Young, restless and spending too much time
+in the tavern, she is waiting for
+something to happen on the island and
+wouldn't mind making it happen.

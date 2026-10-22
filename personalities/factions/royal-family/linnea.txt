@@ -5,6 +5,10 @@ Group: The Proprietors
 Partner: None
 Job: Bartender
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-The bartender at the Timberline Tavern in Eastbrook.
-A royalist in a Democrat town, she keeps the late king's photograph behind the bar and the peace in front of it.
+The bartender at the Timberline Tavern in
+Eastbrook.
+A royalist in a Democrat town, she keeps
+the late king's photograph behind the bar
+and the peace in front of it.

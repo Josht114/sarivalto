@@ -1,0 +1,12 @@
+Quest: Retreat to the Peaks
+Faction: Orthodox Church
+Day: 24 (morning)
+Linked with: None
+From the plan: Go on a retreat in the
+mountains
+Plan:
+The monks are going on a retreat into the
+mountains, and you are invited.
+Join them, keep up, and listen to what the
+brothers say when they think they're
+alone.

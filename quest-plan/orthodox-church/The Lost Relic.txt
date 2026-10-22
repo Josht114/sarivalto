@@ -1,0 +1,10 @@
+Quest: The Lost Relic
+Faction: Orthodox Church
+Day: 18 (morning)
+Linked with: None
+From the plan: Find a relic
+Plan:
+A holy relic has gone missing from the
+monastery, and Father Thyme wants it back.
+Follow its trail across the island and
+bring it home.

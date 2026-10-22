@@ -5,7 +5,13 @@ Group: The Food Vendors
 Partner: None
 Job: Coffee roaster
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-The coffee roaster at Coffee Roasters in Eastbrook.
-Obsessed with beans, she has been miserable since the harbour master's import taxes cut her off from anything better than ordinary.
-A Democrat who serves the strongest coffee on the island.
+The coffee roaster at Coffee Roasters in
+Eastbrook.
+Obsessed with beans, she has been
+miserable since the harbour master's
+import taxes cut her off from anything
+better than ordinary.
+A Democrat who serves the strongest coffee
+on the island.

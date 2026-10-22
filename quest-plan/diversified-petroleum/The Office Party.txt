@@ -1,0 +1,10 @@
+Quest: The Office Party
+Faction: Diversified Petroleum
+Day: 28 (morning)
+Linked with: None
+From the plan: Office party
+Plan:
+Dario is throwing a party at the HQ, with
+bowling and milkshakes for everyone.
+Keep the party going, and keep an ear open
+for what the drink loosens.

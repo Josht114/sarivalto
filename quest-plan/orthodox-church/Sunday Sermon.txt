@@ -1,0 +1,11 @@
+Quest: Sunday Sermon
+Faction: Orthodox Church
+Day: 8 (morning)
+Linked with: None
+From the plan: Give a sermon
+Plan:
+Father Thyme wants a sermon preached to
+the islanders on what the king's death
+means for them.
+Help write it and deliver it, and see how
+the island takes it.

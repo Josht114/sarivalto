@@ -5,6 +5,11 @@ Group: None
 Partner: None
 Job: Syndicate bookie
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-A Syndicate bookie in Eastbrook who takes bets in the tavern and keeps the ledger in his head.
-Friendly with everyone, he hears the gossip from the mill and the cafés and passes it all to Gustavo.
+A Syndicate bookie in Eastbrook who takes
+bets in the tavern and keeps the ledger in
+his head.
+Friendly with everyone, he hears the
+gossip from the mill and the cafés and
+passes it all to Gustavo.

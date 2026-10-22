@@ -5,6 +5,11 @@ Group: CIA
 Partner: None
 Job: Radio tech (and CIA informant)
 Home: Hekki's Shack (Radio Tower)
+
 Bio:
-A radio technician at the radio tower and the CIA's informant on Sarivalto.
-Nervous, loyal and a little too pleased to be a spy, he fixed up the hidden room under his shack for NIGHTJAR and collects the packages from the night drop.
+A radio technician at the radio tower and
+the CIA's informant on Sarivalto.
+Nervous, loyal and a little too pleased to
+be a spy, he fixed up the hidden room
+under his shack for NIGHTJAR and collects
+the packages from the night drop.

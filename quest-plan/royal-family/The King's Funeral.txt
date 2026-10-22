@@ -1,0 +1,11 @@
+Quest: The King's Funeral
+Faction: Royal Family
+Day: 10 (morning)
+Linked with: None
+From the plan: Attend the funeral
+Plan:
+The late king is laid to rest in the Royal
+Chapel, and everyone who matters on the
+island will be there.
+Attend the funeral, pay your respects, and
+watch who talks to whom.

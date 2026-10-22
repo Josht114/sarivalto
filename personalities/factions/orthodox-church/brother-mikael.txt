@@ -4,7 +4,12 @@ Faction: Orthodox Church
 Group: None
 Partner: None
 Job: Monk
-Home: Monks' Quarters (Mountain-Top Monastery)
+Home: Monks' Quarters (Mountain-Top
+Monastery)
+
 Bio:
-A young monk at the mountain-top monastery who joined to escape something in Kingsgrad he won't talk about.
-Sings in the choir and still looks down the mountain at night.
+A young monk at the mountain-top monastery
+who joined to escape something in
+Kingsgrad he won't talk about.
+Sings in the choir and still looks down
+the mountain at night.

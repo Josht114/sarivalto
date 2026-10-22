@@ -1,0 +1,12 @@
+Quest: Trouble at the Farm
+Faction: Kelp Cola
+Day: 22 (morning)
+Linked with: A Little Something for Daphne
+(Royal Family), on the same day
+From the plan: Fix a problem at the farm
+Plan:
+Something is wrong at East Farm, which
+supplies Kelp Cola, and the bosses want it
+sorted quietly.
+Go to the farm, find out what is really
+growing there, and fix it.

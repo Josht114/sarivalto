@@ -1,0 +1,10 @@
+Quest: The Herbal Rite
+Faction: Orthodox Church
+Day: 28 (morning)
+Linked with: None
+From the plan: Do a herbal ceremony
+Plan:
+The monks keep an old herbal ceremony,
+held once a year on the mountain.
+Help gather the herbs and take part in the
+rite.

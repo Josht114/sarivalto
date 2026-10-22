@@ -5,6 +5,9 @@ Group: None
 Partner: None
 Job: Receptionist
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-The receptionist at Diversified Petroleum's headquarters in Frostholm.
-She knows who has an appointment with whom, and who came in by the back door.
+The receptionist at Diversified
+Petroleum's headquarters in Frostholm.
+She knows who has an appointment with
+whom, and who came in by the back door.

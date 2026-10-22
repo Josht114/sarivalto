@@ -5,6 +5,11 @@ Group: The Shopkeepers
 Partner: None
 Job: Book shop owner
 Home: Mary's House (Kingsgrad)
+
 Bio:
-Owner of the book shop in Kingsgrad, who reads everything she sells and has opinions about all of it.
-Quietly worried that books will be the first thing banned if the wrong people take over.
+Owner of the book shop in Kingsgrad, who
+reads everything she sells and has
+opinions about all of it.
+Quietly worried that books will be the
+first thing banned if the wrong people
+take over.

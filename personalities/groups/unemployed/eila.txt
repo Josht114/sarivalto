@@ -5,6 +5,10 @@ Group: The Unemployed
 Partner: None
 Job: Unemployed
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-Unemployed in Kingsgrad after years as a seamstress, now taking in mending to get by.
-Proud, resourceful and quietly angry at how little anyone in charge seems to care.
+Unemployed in Kingsgrad after years as a
+seamstress, now taking in mending to get
+by.
+Proud, resourceful and quietly angry at
+how little anyone in charge seems to care.

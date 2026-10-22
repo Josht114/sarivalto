@@ -5,6 +5,10 @@ Group: The Unemployed
 Partner: None
 Job: Unemployed
 Home: Apartment Block (Saltwick)
+
 Bio:
-Unemployed in Saltwick since the fish plant cut its hours.
-Sits outside with her friend Tiina most days, watching the street and talking about everyone who passes.
+Unemployed in Saltwick since the fish
+plant cut its hours.
+Sits outside with her friend Tiina most
+days, watching the street and talking
+about everyone who passes.

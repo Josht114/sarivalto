@@ -5,7 +5,12 @@ Group: None
 Partner: Mike
 Job: Syndicate enforcer
 Home: Apartment Block (Saltwick)
+
 Bio:
-A Syndicate enforcer who lives in Saltwick to keep an eye on the docks.
-She collects debts with a smile and a short temper.
-Her secret is Mike, the Communist fisherman, the one thing in her life that has nothing to do with business.
+A Syndicate enforcer who lives in Saltwick
+to keep an eye on the docks.
+She collects debts with a smile and a
+short temper.
+Her secret is Mike, the Communist
+fisherman, the one thing in her life that
+has nothing to do with business.

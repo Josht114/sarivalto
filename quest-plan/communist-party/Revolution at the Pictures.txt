@@ -1,0 +1,11 @@
+Quest: Revolution at the Pictures
+Faction: Communist Party
+Day: 27 (morning)
+Linked with: None
+From the plan: Convince the cinema to show
+a propaganda film
+Plan:
+The Party has a film reel from Moscow and
+wants it shown at the cinema in Kingsgrad.
+Talk Otto into putting it on in place of
+STORMWING, by charm, money or pressure.

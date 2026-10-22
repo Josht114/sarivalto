@@ -5,6 +5,12 @@ Group: None
 Partner: None
 Job: Prince's brother
 Home: Royal Apartments (Royal Palace)
+
 Bio:
-The late king's younger son and Prince Leopold's brother.
-Bookish and devout, he spends his days in the Royal Library with the lives of the saints and his evenings at prayer, and the Church would be very happy to see him on the throne.
+The late king's younger son and Prince
+Leopold's brother.
+Bookish and devout, he spends his days in
+the Royal Library with the lives of the
+saints and his evenings at prayer, and the
+Church would be very happy to see him on
+the throne.

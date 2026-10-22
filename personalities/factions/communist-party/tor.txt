@@ -5,6 +5,11 @@ Group: None
 Partner: None
 Job: Warehouseman
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-A warehouseman in Eastbrook and one of the Party's few members on that side of the island.
-Lifts crates for a living and argues dialectics on his lunch break, mostly with Democrats who wish he wouldn't.
+A warehouseman in Eastbrook and one of the
+Party's few members on that side of the
+island.
+Lifts crates for a living and argues
+dialectics on his lunch break, mostly with
+Democrats who wish he wouldn't.

@@ -3,8 +3,15 @@ Gender: Male
 Faction: None
 Group: CIA
 Partner: None
-Job: CIA handler (off the island; reached by radio)
+Job: CIA handler (off the island; reached
+by radio)
 Home: No fixed home
+
 Bio:
-NIGHTJAR's CIA handler at Langley, reached from the island on the big screen in the Hidden Radio Room.
-Gruff, dry and practical, he hands out the daytime jobs and wants one thing: an island that doesn't end up flying a red flag.
+NIGHTJAR's CIA handler at Langley, reached
+from the island on the big screen in the
+Hidden Radio Room.
+Gruff, dry and practical, he hands out the
+daytime jobs and wants one thing: an
+island that doesn't end up flying a red
+flag.

@@ -5,6 +5,10 @@ Group: The Circus
 Partner: None
 Job: Strongman
 Home: Ringmaster's Caravan (Lake Ilmari)
+
 Bio:
-The circus strongman, who bends iron bars and lifts the ringmaster over his head.
-Shares Bruno's caravan and, out of the ring, is the gentlest person in the troupe.
+The circus strongman, who bends iron bars
+and lifts the ringmaster over his head.
+Shares Bruno's caravan and, out of the
+ring, is the gentlest person in the
+troupe.

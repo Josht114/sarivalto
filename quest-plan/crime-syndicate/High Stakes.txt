@@ -1,0 +1,10 @@
+Quest: High Stakes
+Faction: Crime Syndicate
+Day: 27 (morning)
+Linked with: None
+From the plan: Poker tournament
+Plan:
+The Syndicate is holding a poker
+tournament in the pizzeria's back room,
+and everyone who matters is playing.
+Win it, or lose to the right person.

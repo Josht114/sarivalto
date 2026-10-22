@@ -5,7 +5,10 @@ Group: None
 Partner: None
 Job: Oil rig worker
 Home: Crew Quarters (Oil Rig)
+
 Bio:
-An oil rig worker who lives in the crew quarters out on the rig.
-Two weeks on, one week off, and he spends most of the week off asleep.
+An oil rig worker who lives in the crew
+quarters out on the rig.
+Two weeks on, one week off, and he spends
+most of the week off asleep.
 Knows exactly how unsafe the rig is.

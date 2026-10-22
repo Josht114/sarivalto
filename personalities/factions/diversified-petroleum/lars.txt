@@ -5,6 +5,11 @@ Group: None
 Partner: None
 Job: Oil rig worker
 Home: Crew Quarters (Oil Rig)
+
 Bio:
-An oil rig worker on Diversified Petroleum's platform, young and reckless and paid more than he has ever been in his life.
-Spends it all in Frostholm's bars on his weeks ashore.
+An oil rig worker on Diversified
+Petroleum's platform, young and reckless
+and paid more than he has ever been in his
+life.
+Spends it all in Frostholm's bars on his
+weeks ashore.

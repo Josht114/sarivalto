@@ -5,6 +5,9 @@ Group: The Unemployed
 Partner: None
 Job: Unemployed
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-Unemployed in Kingsgrad, a former palace maid let go after the king's death.
-Knows more about the royal household than she lets on, and holds a grudge.
+Unemployed in Kingsgrad, a former palace
+maid let go after the king's death.
+Knows more about the royal household than
+she lets on, and holds a grudge.

@@ -5,5 +5,9 @@ Group: The Shopkeepers
 Partner: None
 Job: Newsstand vendor
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-The newsstand vendor in Kingsgrad, who sells papers from a kiosk by the palace and watches the comings and goings with great interest.
+The newsstand vendor in Kingsgrad, who
+sells papers from a kiosk by the palace
+and watches the comings and goings with
+great interest.

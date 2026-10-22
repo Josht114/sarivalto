@@ -5,6 +5,12 @@ Group: None
 Partner: None
 Job: Customs officer
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-A customs officer in Eastbrook, which makes her the Party's quiet eyes on everything that comes in and goes out of the island.
-She stamps forms by the book, but the Communists hear about every interesting crate before its owner does.
+A customs officer in Eastbrook, which
+makes her the Party's quiet eyes on
+everything that comes in and goes out of
+the island.
+She stamps forms by the book, but the
+Communists hear about every interesting
+crate before its owner does.

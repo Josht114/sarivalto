@@ -1,0 +1,11 @@
+Quest: Alms for the Poor
+Faction: Orthodox Church
+Day: 11 (morning)
+Linked with: None
+From the plan: Help the homeless
+Plan:
+The Church is reaching out to the island's
+homeless and unemployed.
+Help gather food and blankets and take
+them to those in need, starting with Pat
+on the beach.

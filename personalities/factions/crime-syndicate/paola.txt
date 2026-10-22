@@ -4,7 +4,12 @@ Faction: Crime Syndicate
 Group: None
 Partner: None
 Job: Syndicate enforcer
-Home: Hope Springs Residences (Hope Springs Gated Community)
+Home: Hope Springs Residences (Hope
+Springs Gated Community)
+
 Bio:
-A Syndicate enforcer in Hope Springs and Gustavo's most trusted muscle.
-Quiet, patient and precise, she handles the jobs the Don doesn't want anyone to talk about.
+A Syndicate enforcer in Hope Springs and
+Gustavo's most trusted muscle.
+Quiet, patient and precise, she handles
+the jobs the Don doesn't want anyone to
+talk about.

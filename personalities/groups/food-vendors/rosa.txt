@@ -5,6 +5,10 @@ Group: The Food Vendors
 Partner: None
 Job: Hot dog vendor
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-A hot dog vendor in Kingsgrad who sells from her cart in the square and knows everything that happens there.
-Cheerful, nosy and generous with the mustard.
+A hot dog vendor in Kingsgrad who sells
+from her cart in the square and knows
+everything that happens there.
+Cheerful, nosy and generous with the
+mustard.

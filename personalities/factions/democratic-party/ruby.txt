@@ -5,6 +5,10 @@ Group: The Shopkeepers
 Partner: None
 Job: Record shop owner
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-Owner of the record shop in Eastbrook, with the best collection of jazz and rock and roll on the island.
-A Democrat who thinks the island needs more music and fewer speeches.
+Owner of the record shop in Eastbrook,
+with the best collection of jazz and rock
+and roll on the island.
+A Democrat who thinks the island needs
+more music and fewer speeches.

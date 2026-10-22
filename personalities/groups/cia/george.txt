@@ -3,8 +3,15 @@ Gender: Male
 Faction: None
 Group: CIA
 Partner: None
-Job: CIA operative (the dirty work, after dark)
+Job: CIA operative (the dirty work, after
+dark)
 Home: No fixed home (at Langley)
+
 Bio:
-A CIA operative at Langley who handles the jobs Chuck won't put his name to: the dirty work, done after dark.
-Calm, unshowy and quietly dangerous, he eats in the cafeteria, keeps a gun rack in his office and takes the night shift on the big screen.
+A CIA operative at Langley who handles the
+jobs Chuck won't put his name to: the
+dirty work, done after dark.
+Calm, unshowy and quietly dangerous, he
+eats in the cafeteria, keeps a gun rack in
+his office and takes the night shift on
+the big screen.

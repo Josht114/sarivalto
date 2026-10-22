@@ -1,0 +1,9 @@
+Quest: A Royal Accident
+Faction: CIA
+Day: 28 (evening)
+Linked with: None
+From the plan: Assassinate a royal
+Plan:
+George wants one of the royal family dead,
+and it must look like an accident.
+Decide whether you will do it.

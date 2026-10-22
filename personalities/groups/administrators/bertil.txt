@@ -5,6 +5,10 @@ Group: The Administrators
 Partner: None
 Job: Civil servant
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-A civil servant in Kingsgrad who keeps the island's government running whoever is in charge.
-Grey suit, grey hair, endless forms, and an encyclopaedic knowledge of the rules.
+A civil servant in Kingsgrad who keeps the
+island's government running whoever is in
+charge.
+Grey suit, grey hair, endless forms, and
+an encyclopaedic knowledge of the rules.

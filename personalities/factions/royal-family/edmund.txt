@@ -5,6 +5,10 @@ Group: The Palace Workers
 Partner: None
 Job: Butler
 Home: Servants' Quarters (Royal Palace)
+
 Bio:
-Butler to the royal household for thirty-one years.
-Formal, discreet and devoted, he knows every room, key and secret in the palace and keeps them all.
+Butler to the royal household for
+thirty-one years.
+Formal, discreet and devoted, he knows
+every room, key and secret in the palace
+and keeps them all.

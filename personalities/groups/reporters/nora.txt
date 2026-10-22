@@ -5,6 +5,10 @@ Group: The Reporters
 Partner: None
 Job: Reporter
 Home: Nora's House (Eastbrook)
+
 Bio:
-A young reporter at the newspaper in Eastbrook, ambitious, fearless and always on the trail of a scoop.
-Has already started asking questions about the foreign journalist.
+A young reporter at the newspaper in
+Eastbrook, ambitious, fearless and always
+on the trail of a scoop.
+Has already started asking questions about
+the foreign journalist.

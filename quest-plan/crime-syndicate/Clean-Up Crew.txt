@@ -1,0 +1,10 @@
+Quest: Clean-Up Crew
+Faction: Crime Syndicate
+Day: 24 (morning)
+Linked with: None
+From the plan: Help dispose of a body
+Plan:
+A problem needs to disappear, and the
+Syndicate needs a discreet pair of hands.
+Help them get rid of it without anyone
+ever finding it.

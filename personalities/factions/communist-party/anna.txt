@@ -5,7 +5,15 @@ Group: The Union
 Partner: None
 Job: Communist Party leader
 Home: Apartment Block (Saltwick)
+
 Bio:
-The leader of Sarivalto's Communist Party, run from its HQ in Saltwick.
-A true believer who grew up gutting herring on the quay, she wants the island to join the Soviet Union as a Soviet republic and belong to the fishermen, mill hands and miners.
-Warm with visitors and ruthless in a meeting, she calls everyone comrade and means it.
+The leader of Sarivalto's Communist Party,
+run from its HQ in Saltwick.
+A true believer who grew up gutting
+herring on the quay, she wants the island
+to join the Soviet Union as a Soviet
+republic and belong to the fishermen, mill
+hands and miners.
+Warm with visitors and ruthless in a
+meeting, she calls everyone comrade and
+means it.

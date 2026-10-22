@@ -4,7 +4,12 @@ Faction: None
 Group: The Circus
 Partner: None
 Job: Fortune teller
-Home: Fortune Teller's Caravan (Lake Ilmari)
+Home: Fortune Teller's Caravan (Lake
+Ilmari)
+
 Bio:
-The circus fortune teller, who reads palms and crystal balls in her caravan by night.
-Mysterious and theatrical, and surprisingly often right about what is coming for the island.
+The circus fortune teller, who reads palms
+and crystal balls in her caravan by night.
+Mysterious and theatrical, and
+surprisingly often right about what is
+coming for the island.

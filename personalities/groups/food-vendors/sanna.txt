@@ -5,6 +5,10 @@ Group: The Food Vendors
 Partner: None
 Job: Polar Burger cook
 Home: Skyline Apartments (Frostholm)
+
 Bio:
-The cook at Polar Burger in Frostholm, who flips burgers late into the night for the oil workers and the jazz crowd.
-Tired, quick-witted and fond of her regulars.
+The cook at Polar Burger in Frostholm, who
+flips burgers late into the night for the
+oil workers and the jazz crowd.
+Tired, quick-witted and fond of her
+regulars.

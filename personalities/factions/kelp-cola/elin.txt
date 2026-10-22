@@ -5,6 +5,11 @@ Group: None
 Partner: Mats
 Job: Secretary
 Home: Kingsgrad Apartments (Kingsgrad)
+
 Bio:
-Secretary to the bosses at Kelp Cola HQ in Kingsgrad, who types every letter and knows every secret.
-Her partner is Mats, who works for Diversified Petroleum, and both companies would be alarmed to know it.
+Secretary to the bosses at Kelp Cola HQ in
+Kingsgrad, who types every letter and
+knows every secret.
+Her partner is Mats, who works for
+Diversified Petroleum, and both companies
+would be alarmed to know it.

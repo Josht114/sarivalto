@@ -5,6 +5,9 @@ Group: The Shopkeepers
 Partner: None
 Job: Clothes shop owner
 Home: Timber Lofts (Eastbrook)
+
 Bio:
-Owner of the clothes shop in Eastbrook and a devout member of the Orthodox Church.
-Kind, old-fashioned and very particular about hems.
+Owner of the clothes shop in Eastbrook and
+a devout member of the Orthodox Church.
+Kind, old-fashioned and very particular
+about hems.

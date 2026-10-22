@@ -1,0 +1,12 @@
+Quest: The People's Cola
+Faction: Communist Party
+Day: 11 (morning)
+Linked with: New Formula (Kelp Cola), on
+the same day
+From the plan: Attempt to make comu-cola
+Plan:
+The Party wants a cola of its own, made by
+the workers for the workers, to break Kelp
+Cola's hold on the island.
+Find a recipe, a still and some bottles,
+and brew the first batch of comu-cola.

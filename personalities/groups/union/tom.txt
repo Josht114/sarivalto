@@ -5,6 +5,10 @@ Group: The Union
 Partner: None
 Job: Fisherman
 Home: Tom's House (Saltwick)
+
 Bio:
-A fisherman in Saltwick who lives in a little house on the main street.
-A Union member and a steady, good-humoured man who will lend his boat to anyone who asks nicely.
+A fisherman in Saltwick who lives in a
+little house on the main street.
+A Union member and a steady, good-humoured
+man who will lend his boat to anyone who
+asks nicely.

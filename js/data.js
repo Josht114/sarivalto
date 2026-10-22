@@ -1197,8 +1197,30 @@ const PROP_PASS=['cabbage','wheat','potato','pumpkin','steamgrate','sled','rope'
 // day 0 is the game's opening, before September begins.
 const QUEST_DAYS={communist:{intro:1,days:[11,16,19,23,27,28,29]},royal:{intro:2,days:[10,15,19,22,25,28,29]},cola:{intro:3,days:[9,13,18,22,26,28,29]},oil:{intro:7,days:[8,12,17,23,26,28,29]},church:{intro:5,days:[8,11,15,18,24,28,29]},syndicate:{intro:6,days:[10,13,17,20,24,27,29]},democrat:{intro:4,days:[9,12,16,20,25,28,29]}};
 const QUEST_EVENTS={0:['Game intro','cia'],14:['Event 1'],21:['Volcano'],30:['Finale']};
-// the quests that have a title so far, by day and faction (the rest are just "Quest")
-const QUEST_TITLES={29:{cola:'Republican primary',oil:'Republican primary',syndicate:'Republican primary',royal:'Line of succession',church:'Line of succession',communist:'Friendly rivalry',democrat:'Friendly rivalry'}};
+// the quests that have a title so far, by day and faction (the rest are just "Quest"): the ones from the quest plan (quest-plan/, a folder
+// for each faction), and the day-29 quests. A faction's quests are main quests, in the morning
+const QUEST_TITLES={8:{oil:'Black Tide',church:'Sunday Sermon'},
+9:{democrat:"Fair Day's Pay"},
+10:{royal:"The King's Funeral",syndicate:'Special Delivery'},
+11:{communist:"The People's Cola",church:'Alms for the Poor'},
+12:{oil:'Creative Accounting',democrat:'A Record for Ruby'},
+13:{cola:'Free Samples!',syndicate:'The Secret Recipe'},
+15:{royal:'Crown Before Cross',church:'Cross Before Crown'},
+16:{communist:'The Great Debate',democrat:'The Great Debate'},
+17:{oil:"Where's Dario?",syndicate:'Executive Decision'},
+18:{cola:'Inside Kelpy',church:'The Lost Relic'},
+19:{communist:'Comrades Wanted',royal:'Incognito at the Midnight Note'},
+20:{syndicate:'The Palace Job',democrat:'The Man at the Hotel Aurora'},
+22:{royal:'A Little Something for Daphne',cola:'Trouble at the Farm'},
+23:{communist:'Spanner in the Works',oil:'Deep Repairs'},
+24:{church:'Retreat to the Peaks',syndicate:'Clean-Up Crew'},
+25:{royal:'A Crown for Everyone',democrat:'A Princess for Democracy'},
+26:{cola:'A Prince in Every Bottle',oil:'Dario Buys the Spa'},
+27:{communist:'Revolution at the Pictures',syndicate:'High Stakes'},
+28:{communist:'Red Flag Over Kingsgrad',royal:'The State Visit',cola:'Kelp Cola Goes Abroad',oil:'The Office Party',church:'The Herbal Rite'},
+29:{cola:'Republican primary',oil:'Republican primary',syndicate:'Republican primary',royal:'Line of succession',church:'Line of succession',communist:'Friendly rivalry',democrat:'Friendly rivalry'}};
+// the evening quests: George's jobs for the CIA, every fourth day (his are always in the evening)
+const QUEST_EVENINGS={4:{cia:'Lights Out'},8:{cia:'Flat Cola'},12:{cia:'Last Tram to Nowhere'},16:{cia:'Tinderbox'},20:{cia:'Dry Well'},24:{cia:'Bridge Out'},28:{cia:'A Royal Accident'}};
 // ---- Background audio, made as it plays by js/music.js: each track's name and what you hear (TRACK_INFO), and the places it
 // plays in (MUSIC_AT; a building only where it is listed). Radio Sarivalto, when it is switched on, plays instead, anywhere.
 const TRACK_INFO={chant:['Gregorian chant','A small choir of men\'s voices sings the Salve Regina, one line in the Dorian mode, over a low hummed drone, in a long stone-church echo.'],
