@@ -3,10 +3,31 @@ Faction: Orthodox Church
 Day: 8 (morning)
 Linked with: None
 From the plan: Give a sermon
+Status: In the game
 
 Plan:
-Father Thyme wants a sermon preached to
-the islanders on what the king's death
-means for them.
-Help write it and deliver it, and see how
-the island takes it.
+Father Thyme offers it at the monastery on
+the morning of 8 September. He can't find
+the words for a sermon on the king's
+death, and his voice is failing, so he
+asks you, a writer, to write it and read
+it.
+Choose what the island should hear:
+Grief: the island mourns its king
+together. Orthodox Church +1, Royal Family
++1.
+Unity: whoever rules, the island must
+stand together. Orthodox Church +1.
+Faith over crowns: kings pass away, and
+the Church endures. Orthodox Church +1,
+Royal Family -1.
+Change: the Church must modernise, or be
+left behind. Orthodox Church -1.
+The congregation gathers in the Monastery
+Church: Juniper, Pirkko, Hilda, Olaf,
+Augustus and the monks. Step up to the
+altar and preach, and see how they take
+it.
+Then talk to Father Thyme.
+It shares day 8 with Black Tide: whichever
+you take on first is the day's main quest.

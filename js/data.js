@@ -947,6 +947,35 @@ meetoil:{title:'Meet the Oil Company',giver:'Chuck',main:true,day:7,call:true,se
       b:{say:"Then he and this island are going to fall out. An oilman's a fine friend to have, right up until he isn't. Good work."},
       c:{say:"Philosophy. From an oilman. Next he'll be writing poetry. Keep him talking: men like that tell you everything if you let them think they're winning. Good work."}}}}],
   thanks:"Chuck has your report on Dario and Diversified Petroleum."},
+// Sunday Sermon (the Orthodox Church, 8 September): Father Thyme can't find the words for the island, and asks the writer to
+// write the sermon and read it. Grief (the Church +1, the Royal Family +1), unity (the Church +1), or faith over crowns (the
+// Church +1, the Royal Family -1), or that the Church must modernise (the Church -1); the congregation gathers in the Monastery Church to hear it
+sermon:{title:'Sunday Sermon',giver:'Father Thyme',main:true,day:8,seq:true,choices:{grief:'preach of grief',unity:'preach of unity',faith:'preach faith over the crown',modern:'preach that the Church must modernise'},text:'Father Thyme cannot find the words for a sermon on the king\'s death, and has asked you, a writer, to write it and read it to the island in the Monastery Church.',
+  offer:"Ah, our reporter. This morning I must preach to the island about the king's death, and for the first time in forty years I cannot find the words. And my voice is failing me, besides. You are a writer. Will you help an old priest?",
+  accept:"Bless you. Come, sit with me a moment, and tell me what the island should hear.",
+  meet:[{name:'Father Thyme',m:'monchurch',x:13,y:2,dir:2,after:0},{name:'Brother Anselm',m:'monchurch',x:8,y:3,dir:0,after:0},{name:'Brother Ilja',m:'monchurch',x:15,y:3,dir:0,after:0},
+    {name:'Juniper',m:'monchurch',x:4,y:6,dir:1,after:0},{name:'Pirkko',m:'monchurch',x:6,y:6,dir:1,after:0},{name:'Hilda',m:'monchurch',x:15,y:6,dir:1,after:0},{name:'Olaf',m:'monchurch',x:17,y:6,dir:1,after:0},
+    {name:'Augustus',m:'monchurch',x:5,y:8,dir:1,after:0},{name:'Brother Paavo',m:'monchurch',x:16,y:8,dir:1,after:0},{name:'Brother Teodor',m:'monchurch',x:3,y:10,dir:1,after:0},{name:'Brother Mikael',m:'monchurch',x:17,y:10,dir:1,after:0}],
+  done:[
+    {talk:'Father Thyme',what:'Help Father Thyme decide what the sermon should say',said:'The congregation is gathering in the Monastery Church. Step up to the altar and preach.',chat:{start:'a',nodes:{
+      a:{say:"What should the island hear, on the first Sunday without its king?",opts:[['Grief. That we have lost a king, and may mourn him together.','g',()=>questChoice('sermon','grief')],['Unity. That whoever rules, the island must stand together.','u',()=>questChoice('sermon','unity')],['Faith. That kings pass away, and the Church endures.','f',()=>questChoice('sermon','faith')],['Change. That the Church must modernise, or be left behind.','m',()=>questChoice('sermon','modern')]]},
+      g:{say:"Grief. Yes. A people that cannot mourn cannot heal. The palace will be glad of it. Go on: the lectern is yours. Write it as you would speak it."},
+      u:{say:"Unity. Wise, and safe; no one can be angry with a sermon about neighbours. Go on: the lectern is yours."},
+      m:{say:"Modernise? From my own altar? ...Well, I asked a writer, and a writer has answered. Brother Anselm will need a chair. Go on: the lectern is yours, God help us both."},
+      f:{say:"Faith above the crown. Bold. Brother Anselm will love you for it, and the palace will not. Well, I did ask for honesty. Go on: the lectern is yours."}}}},
+    {if:'grief',use:'Altar',m:'monchurch',what:'Preach the sermon from the altar of the Monastery Church',points:{church:1,royal:1},
+      said:'You step up to the altar. "We have lost a king, and every one of us has lost something with him: a face on the coins, a voice on the wireless, a certainty. There is no shame in grief. Let us mourn him together, as one island." By the end Hilda is weeping, and even Brother Anselm bows his head. The palace will hear of it. Orthodox Church: +1 point. Royal Family: +1 point.'},
+    {if:'unity',use:'Altar',m:'monchurch',what:'Preach the sermon from the altar of the Monastery Church',points:{church:1},
+      said:'You step up to the altar. "Kings come and go; this island remains. Fisherman and prince, comrade and cola man: when the crown is settled, we will all still be neighbours, and we will still need each other." Heads nod along the pews, and Olaf says "Amen" loudly enough to embarrass Hilda. Orthodox Church: +1 point.'},
+    {if:'faith',use:'Altar',m:'monchurch',what:'Preach the sermon from the altar of the Monastery Church',points:{church:1,royal:-1},
+      said:'You step up to the altar. "A crown is gold, and gold tarnishes. The Church crowned every king of Sarivalto, and buried every one of them, and it will be here long after the last." Brother Anselm smiles for the first time anyone can remember; Augustus stares at his hands. The palace will not like it. Orthodox Church: +1 point. Royal Family: -1 point.'},
+    {if:'modern',use:'Altar',m:'monchurch',what:'Preach the sermon from the altar of the Monastery Church',points:{church:-1},
+      said:'You step up to the altar. "The island is changing: the radio, the tram, the oil rig, the cola. A Church that speaks only of the past will be left in it. If we want the young to fill these pews, we must open the windows and let the world in." Brother Anselm goes white, Juniper walks out, and Pirkko whispers "Hear, hear" a little too loudly. Orthodox Church: -1 point.'},
+    {if:'modern',talk:'Father Thyme',what:'Talk to Father Thyme after the sermon',chat:{start:'a',nodes:{a:{say:"Brother Anselm has gone to pray for your soul, and possibly for mine. Half of them will never forgive you, and the young ones in the back row will be talking about it for a month. Perhaps you were right. Perhaps that is what frightens them."}}}},
+    {if:'grief',talk:'Father Thyme',what:'Talk to Father Thyme after the sermon',chat:{start:'a',nodes:{a:{say:"You made old farmers weep and a stern prior bow his head. The king would have liked it. So, I think, will his family. Thank you, my child."}}}},
+    {if:'unity',talk:'Father Thyme',what:'Talk to Father Thyme after the sermon',chat:{start:'a',nodes:{a:{say:"A sermon about neighbours, on an island of neighbours who can't stand each other. They will remember it longer than they think. Thank you, my child."}}}},
+    {if:'faith',talk:'Father Thyme',what:'Talk to Father Thyme after the sermon',chat:{start:'a',nodes:{a:{say:"Well. Brother Anselm wants you to take holy orders, and Augustus has gone very quiet. The palace will be writing to me by the evening. It was the truth, though. Thank you, my child."}}}}],
+  thanks:'The island has heard its sermon.'},
 gazette:{title:'Hold the Front Page',giver:'Henrik',from:4,seq:true,text:'Your cover is a British reporter, come to cover the king\'s death. A reporter would introduce themselves to the local paper: meet the team at the Eastbrook Gazette, get past Nora\'s questions, and file your first story with Henrik.',
   offer:"Ah! You'll be the reporter from London. Henrik, editor of the Eastbrook Gazette, such as it is: four pages, three staff and a printing press older than me. London sends a reporter to cover our dead king! We're honoured. Come in, come in, meet the team.",
   accept:"Splendid. Nora's over there. She's been dying to meet you. Literally asking everyone in town about you, in fact.",wait:"Met Nora yet? Then come and tell me what you're filing. A story on the king, I hope.",
@@ -966,7 +995,7 @@ gazette:{title:'Hold the Front Page',giver:'Henrik',from:4,seq:true,text:'Your c
 // Black Tide (Diversified Petroleum, 8 September): Dario telephones; a valve has burst at the oil rig and the sea round it is black.
 // Take Lars and Einar to the slick, then choose: build a pump and clean it up (Diversified Petroleum +1), or send the men off for
 // buckets and knock the work lamp into the slick, as if by accident (the rig burns; Diversified Petroleum -1)
-blacktide:{title:'Black Tide',giver:'Dario',main:true,day:8,seq:true,
+blacktide:{title:'Black Tide',giver:'Dario',main:true,day:8,seq:true,choices:{pump:'build the pump',fire:'set the fire'},
   caller:'Dario',ring:'Journalist? Dario. Diversified Petroleum. I need your help, and I need it this morning. Come to my office at the HQ, and don\'t dawdle.',
   text:'Dario telephoned: something has gone wrong at the oil rig, and he wants your help. Go to his office at Diversified Petroleum HQ in Frostholm.',
   aftermath:[{flag:'fired',name:'Einar',m:'doctor',x:9,y:3,dir:1,hat:'#f4f4f0',

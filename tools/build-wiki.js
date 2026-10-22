@@ -158,13 +158,13 @@ const weekOf=d=>d==0?0:Math.min(5,Math.ceil(d/7));
 const mainsOn=d=>Object.keys(QUESTS).filter(id=>QUESTS[id].main&&QUESTS[id].day==(d==0?-9:d));
 const qDate=d=>d<1?(31+d)+' August':d+' September';
 // a quest step, as the Quests tab lists it, with what it gives you
-function qStep(c,st){const extra=[st.if?'only if you choose to '+({pump:'build the pump',fire:'set the fire'}[st.if]||st.if):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+' point for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
+function qStep(c,st,Q){const extra=[st.if?'only if you choose to '+(Q.choices?.[st.if]||st.if):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+' point for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
     ...[st.gives||[]].flat().map(id=>(QUESTS[id].main?'gives the main quest ':'gives the side quest ')+QUESTS[id].title)].filter(Boolean);
   return`<li>${esc(st.what)}${extra.length?` <small>(${esc(extra.join('; '))})</small>`:''}</li>`}
 function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));
   const how=Q.main?(Q.start?'Yours from the start of a new game':Q.ring?'A telephone call on the morning of '+qDate(Q.day):Q.given?'Given when '+QUESTS[from].title+' is done':(Q.call?'Offered on the morning video call':'Offered in person')+' on '+qDate(Q.day)):
     Q.given?'Given during '+(from?QUESTS[from].title:'another quest'):Q.opens?'Offered once '+Q.opens.map(p=>L[p][0]).join(' and ')+' are open':'Offered from '+qDate(Q.from??1);
-  return`<div class="qcard"><h3>${esc(Q.title)} <small>${Q.main?'Main quest':'Side quest'}</small></h3>${info([['From',g?npcA(c,g):esc(Q.giver)],['How you get it',esc(how)]])}<p>${esc(Q.text)}</p><ol>${Q.done.map(st=>qStep(c,st)).join('')}</ol></div>`}
+  return`<div class="qcard"><h3>${esc(Q.title)} <small>${Q.main?'Main quest':'Side quest'}</small></h3>${info([['From',g?npcA(c,g):esc(Q.giver)],['How you get it',esc(how)]])}<p>${esc(Q.text)}</p><ol>${Q.done.map(st=>qStep(c,st,Q)).join('')}</ol></div>`}
 // the day a side quest can first be had: its first day (from), the day the places it needs are open (opens), or the day of the
 // quest that gives it to you (given)
 function sideDay(id){const Q=QUESTS[id];if(Q.given){const from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));return from?Math.max(0,QUESTS[from].day??1):1}

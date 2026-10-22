@@ -402,7 +402,7 @@ function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev){const n=(
 // ---- The telephone in your room (the Hidden Radio Room): a quest that comes by telephone (ring) rings on the morning of its day,
 // and stays ringing until you answer it (face it and press E); the caller speaks in the conversation panel, and the quest is yours.
 // Someone it has waiting somewhere goes there then.
-const phoneRinging=()=>NIGHT||DAY<1?null:Object.keys(QUESTS).find(id=>QUESTS[id].ring&&QUESTS[id].day==DAY&&!qOf(id));
+const phoneRinging=()=>NIGHT||DAY<1||mainTaken()?null:Object.keys(QUESTS).find(id=>QUESTS[id].ring&&QUESTS[id].day==DAY&&!qOf(id));
 const phoneAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Telephone'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 // a caller who doesn't give a name
 const STRANGER={name:'Unknown caller',job:'On the telephone',faction:'none',gender:'male',body:'#2a2a33',hair:'#222222'};
