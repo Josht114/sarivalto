@@ -1,0 +1,15 @@
+Name: Freja
+Gender: Female
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Furniture shop owner
+Home: Kingsgrad Apartments
+(Kingsgrad)
+
+Bio:
+Owner of Nordhem Furniture in Kingsgrad,
+who sells beds, sofas and fireplaces to
+anyone with a home to fill.
+Brisk, house-proud and full of opinions
+about where a sofa should go.

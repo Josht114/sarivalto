@@ -53,7 +53,7 @@ fsb.onclick=()=>{toggleFS();fsb.blur()};
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
-const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0,tattoos:[]};
+const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0,tattoos:[],homes:[],placed:{},home:'hekki_room',moved:false};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start&&(QUESTS[id].day??DAY)==DAY).map(id=>({id,met:[],done:false,took:DAY}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save'],['opts','Options']];
@@ -104,6 +104,7 @@ function itemState(id){return id=='camera'?` ${ME.filmIn?'Loaded: '+ME.filmIn+' 
 function loadFilm(){if(ME.filmIn)return'The camera already has film in it.';if(!has('film'))return'You have no film.';take('film');ME.filmIn=50;return'You load a fresh roll of film into the Minox: 50 exposures.'}
 const HEADLINES=['THE KING IS DEAD: ISLAND MOURNS','WHO WILL RULE SARIVALTO? PARTIES PREPARE','REPUBLICANS STILL WITHOUT A LEADER','KELP COLA PROFITS UP AGAIN','OIL RIG PRODUCTION AT RECORD HIGH','SOVIET TRAWLERS SEEN OFF THE NORTH COAST','CHURCH CALLS FOR CALM'];
 function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase();
+  if(a=='Place'){startPlace(id);return}
   // holding something: one thing at a time
   if(a=='Equip'||a=='Unequip'){const was=ME.equipped&&ME.equipped!=id&&ITEMS[ME.equipped];ME.equipped=a=='Equip'?id:null;
     ME.note=id=='cigarettes'?(a=='Equip'?`You light a cigarette${was?` and put away the ${was.name.toLowerCase()}`:''}. You'll smoke as you go.`:'You stub out your cigarette.')
@@ -159,7 +160,7 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos},stock:STOCK,stocked:STOCKED,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos,homes:ME.homes,placed:ME.placed,home:ME.home,moved:ME.moved},stock:STOCK,stocked:STOCKED,fp:FP};
   // (if storing fails, say so once it has)
   store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -169,7 +170,7 @@ async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))
   loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
 function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;ME.tattoos=v.me.tattoos||[];for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;ME.tattoos=v.me.tattoos||[];ME.homes=v.me.homes||[];ME.placed=v.me.placed||{};ME.home=v.me.home||'hekki_room';ME.moved=!!v.me.moved;if(typeof applyHomes=='function')applyHomes();for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -340,7 +341,9 @@ const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
 const barsAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/bars/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
 const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
 // your own bed (in the living space behind the Hidden Radio Room) is the tile you're facing
-const HOME='hekki_room',bedAhead=()=>{const[dx,dy]=DIR[P.dir];return P.m==HOME&&MAPS[P.m][P.y+dy]?.[P.x+dx]=='e'};
+// your home: the Hidden Radio Room, until you buy a home of your own and move your things into it (js/homes.js); you can sleep in
+// any bed of yours
+let HOME='hekki_room';const bedAhead=()=>{const[dx,dy]=DIR[P.dir];return(P.m==HOME||P.m=='hekki_room'||ME.homes.includes(P.m))&&MAPS[P.m][P.y+dy]?.[P.x+dx]=='e'};
 // a table to sit at (or the hotel lobby's seats) in one of the WAIT_AT places is the tile you're facing
 const seatAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return WAIT_AT.includes(P.m)&&
   FL[P.m].some(([fx,fy,w,h,ch,l])=>x>=fx&&x<fx+w&&y>=fy&&y<fy+h&&(ch=='o'||ch=='u'&&/table/i.test(l||'')))};
@@ -527,6 +530,8 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
   if(spotAhead()&&!P.mv)return'Press E to '+spotAhead()[2].what.replace(/^./,c=>c.toLowerCase());
   if(lookAhead()&&!P.mv)return'Press E to '+lookAhead()[1].what.replace(/^./,c=>c.toLowerCase());
+  if(typeof PLACE!='undefined'&&PLACE)return'Arrows move it, Enter puts it down, Escape keeps it';
+  if(typeof placedAhead=='function'&&placedAhead()&&!P.mv&&!/^eq_/.test(placedAhead()[6])&&!bedAhead())return'Press P to pick up the '+ITEMS[placedAhead()[6]].name.toLowerCase();
   if(phoneAhead()&&!P.mv)return phoneRinging()?'Press E to answer the telephone':'The telephone';
   if(screenAhead()&&!P.mv)return chuckCalling()?`Press E to answer ${CALLER().name}'s call`:`Press E to call Langley (${CALLER().name})`;
   if(mapAhead()&&!P.mv)return'Press E to look at the map';

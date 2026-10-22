@@ -275,6 +275,8 @@ const ICON_ART={
   reel:r=>{for(let y=0;y<17;y++)for(let x=0;x<17;x++){const d=Math.hypot(x-8,y-8);if(d<=8.2)r(d>7.2?'#2a2a30':'#7a8088',x,y)}
     for(const[a,b]of[[7,2],[12,5],[11,11],[4,11],[2,5]])r('#1a1a1e',a,b,3,3);r('#c9a040',7,7,3,3);r('#2a2a30',8,8,1,1);r('#1a1a1e',13,14,5,2);r('#3a3a44',14,16,4,2)},
   // a little house, for the estate agent
+  // a chair: a ladder back, a seat and legs
+  chair:r=>{r('#7a5232',3,1,2,16);r('#7a5232',12,1,2,16);for(const y of[2,5,8])r('#8a6a45',5,y,7,2);r('#a07a50',2,10,13,3);r('#5a3d24',3,13,2,4);r('#5a3d24',12,13,2,4)},
   house:r=>{for(let k=0;k<8;k++)r('#2e6f9a',8-k,1+k,2+k*2,1);r('#1f4a6a',1,8,16,1);r('#f2ede0',3,9,12,9);r('#d8d0c0',3,9,12,1);r('#5b3a26',8,12,3,6);r('#bcd9ea',4,11,3,3);r('#bcd9ea',12,11,2,3);r('#7a4234',12,2,2,4)},
   // a fish on a hook, for the fishing shop
   fish:r=>{r('#9aa3ad',13,0,1,6);for(let x=12;x<15;x++)r('#9aa3ad',x,6,1,1);r('#9aa3ad',11,5,1,1);
@@ -1854,6 +1856,12 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     const oy=8,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#4a5058',0,6,W,TT-6);r('#e8eef2',0,6,W,3);r('#a9d4e8',1,9,W-2,TT-12);r('#e8f6fc',1,TT-6,W-2,3);
       for(let x=4;x<W-20;x+=8){r('#9fb3c4',x,TT-9,5,2);r('#d8e4ee',x,TT-8,5,1);r('#7d93a6',x+5,TT-9,2,2)}r('rgba(255,255,255,.5)',3,10,1,4);r('rgba(255,255,255,.5)',4,10,1,2);
       r('#3a3d44',W-15,0,11,8);r('#7fd0a0',W-13,1,7,3);r('#555a62',W-14,5,9,2)})}}
+  // an armchair: a high back, cushions and rolled arms, on short legs, in one of a few fabrics
+  if(ch=='x'&&l=='armchair'){const oy=10,TT=H+oy,c=['#7a2a2a','#2e5a8a','#3d6a4a','#8a6a3a'][v*4|0];return{oy,c:mk(W,TT,r=>{
+      r(shade(c,-.25),1,1,W-2,11);r(shade(c,.1),2,1,W-4,2);r(c,1,11,W-2,TT-14);r(shade(c,.2),3,11,W-6,2);
+      r(shade(c,-.15),0,6,4,TT-9);r(shade(c,-.15),W-4,6,4,TT-9);r(shade(c,.15),0,6,4,2);r(shade(c,.15),W-4,6,4,2);r('#3a2414',2,TT-3,2,3);r('#3a2414',W-4,TT-3,2,3)})}}
+  // a standard lamp: a cream shade on a tall brass stem, on a round base
+  if(ch=='x'&&l=='lamp'){const oy=18,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#e8d8b0',4,0,8,2);r('#e8d8b0',3,2,10,5);r('#d8c49a',3,6,10,1);r('#fff3c0',5,7,6,1);r('#c9a040',7,7,2,TT-10);r('#8a6a2a',4,TT-3,8,3);r('#c9a040',5,TT-3,6,1)})}}
   if(ch=='x'&&l.includes('telephone')){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#6b4a2e',2,9,12,TT-12);r('#8a6a45',2,9,12,2);r('#4a3020',3,TT-3,2,3);r('#4a3020',11,TT-3,2,3);
       r('#1a1a22',4,5,8,5);r('#2a2a33',5,4,6,1);r('#c9ced4',6,6,4,3);r('#1a1a22',7,7,2,1);r('#1a1a22',3,2,10,2);r('#1a1a22',3,4,2,1);r('#1a1a22',11,4,2,1);r('#3a3a44',5,2,6,1);r('#1a1a22',12,8,1,4)})}}
   if(ch=='x'&&l.includes('tomb')){const oy=6,TT=H+oy,king=l.includes('king');return{oy,c:mk(W,TT,r=>{
@@ -1902,6 +1910,9 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     r('#c0392b',cx-11,cy-12,22,3);r('#e04a3a',cx-11,cy-12,22,1);r('#8e2620',cx-11,cy-10,2,6);r('#8e2620',cx+9,cy-10,2,6);r('#e0a100',cx-14,TT-8,28,2)})}}
   if(ch=='g'){const oy=4,TT=H+oy,bw=W-30;return{oy,an:{t:'belt',x:0,y:oy+4,w:bw,h:H-8,bot:l.includes('bottl')},c:mk(W,TT,r=>{r('#5a5f68',2,TT-4,2,4);r('#5a5f68',bw-4,TT-4,2,4);r('#9aa3ad',0,oy,bw,4);r('#c3cad1',0,oy,bw,1);
     r('#2b2f3a',0,oy+4,bw,H-8);r('#9aa3ad',0,oy+H-6,bw,3);r('#5b8fb9',bw,0,30,TT);r('#7fb0d0',bw,0,30,2);r('#3d6b8f',W-4,0,4,TT);r('#2b2f3a',bw+6,6,14,8);r('#7fd0a0',bw+8,8,3,2);r('#e8321e',bw+13,8,3,2);r('#e0a100',bw+2,TT-8,26,2)})}}
+  // a fireplace: a stone surround and mantelpiece, a fire in the hearth
+  if(ch=='i'&&l=='fireplace'){const oy=14,TT=H+oy,bw=W-6;return{oy,an:{t:'stove',x:6,y:oy+5,w:W-12},c:mk(W,TT,r=>{r('#8a8278',0,0,W,TT);for(let y=2;y<TT;y+=4)for(let x=(y%8?0:3);x<W;x+=7)r('#76706a',x,y,6,1);
+      r('#5a3d2a',0,0,W,3);r('#7a5436',0,0,W,1);r('#1a1410',5,oy,W-10,TT-oy-1);r('#3a2a1e',4,TT-2,W-8,2)})}}
   if(ch=='i'){const oy=18,bw=W>16?W-8:12,bx=(W-bw)>>1;return{oy,an:{t:'stove',x:bx+2,y:oy+4,w:bw-4},c:mk(W,H+oy,r=>{r('#3a3d44',bx+(bw>>1)-2,0,4,oy+2);r('#555a62',bx+(bw>>1)-2,0,1,oy+2);
     r('#2b2f3a',bx,oy+1,bw,12);r('#4a4f58',bx-1,oy,bw+2,3);r('#1a1c22',bx+2,oy+4,bw-4,6);r('#2b2f3a',bx+1,oy+13,2,2);r('#2b2f3a',bx+bw-3,oy+13,2,2)})}}
   if(ch=='t'&&l.includes('altar')){const oy=12,TT=H+oy;return{oy,an:[4,W-6].map(x=>({t:'candle',x:x+1,y:-1})),c:mk(W,TT,r=>{
@@ -2127,6 +2138,7 @@ function drawWorld2(m,cx,cy,t,frame){
     Ls.push([ty-1,1.5,()=>{const X=Math.round(x)-cx,Y=ty*16-TRAM_UP-cy;px('rgba(30,50,80,.25)',X+4,Y+35,90,3);ctx.drawImage(tramArt,X-1,Y-1)}])});
   // snow banks blocking the roads into places not open yet, each with its DANGER sign
   if(typeof snowBlocks=='function')snowBlocks(m).forEach(b=>{Ls.push([b.y,.9,()=>ctx.drawImage(snowBankArt(),b.x*16-cx-6,b.y*16-cy-8)]);Ls.push([b.sy,.9,()=>ctx.drawImage(dangerSignArt(),b.sx*16-cx-6,b.sy*16-cy-14)])});
+  if(typeof placeFx=='function')placeFx(m,cx,cy,t,px,Ls);
   if(typeof phoneRinging=='function'&&m==HOME&&phoneRinging()){const f=FL[m].find(([,,,,,l])=>l=='Telephone');if(f&&((t/180)|0)%2){const X=f[0]*16-cx,Y=f[1]*16-cy-6;
     Ls.push([f[1]+.5,3,()=>{for(const[dx,s]of[[-3,-1],[17,1]])for(let k=0;k<3;k++)px('#ffd23a',X+dx+s*k,Y+2+k*3,1,2);px('#1a1a22',X+3,Y-1,10,2)}])}}
   NPCS.filter(n=>n.m==m).forEach((n,i)=>{const b=Math.sin(t/700+i*1.7)>.85?1:0;Ls.push([n.y,1,()=>{n.costume?costumed(n.x*16-cx,n.y*16-cy+b,n.dir,n.costume,t):person(n.x*16-cx,n.y*16-cy+b,n.dir,0,n);
@@ -2795,6 +2807,8 @@ const FISH_SHAPE=`
 .....kkk........`,{k:'#262330',G:'#3a7a3a',g:'#6aa85a'}]}
 const ITEM_ICONS={};
 function itemIcon(id){if(ITEM_ICONS[id])return ITEM_ICONS[id];
+  if(!ITEM_ART[id]&&typeof FURN!='undefined'&&FURN[id]){const[w,h,ch,lb]=FURN[id],fu=furn(ch,w,h,lb,INT.default||{},.3),c=cnv(64,64),g=c.getContext('2d');g.imageSmoothingEnabled=false;
+    if(fu){const s=Math.min(60/fu.c.width,60/fu.c.height);g.drawImage(fu.c,(64-fu.c.width*s)/2,(64-fu.c.height*s)/2,fu.c.width*s,fu.c.height*s)}return ITEM_ICONS[id]=c.toDataURL()}
   if(!ITEM_ART[id]&&CLOTHES[id]){const c=cnv(64,64),g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(lookChar(0,0,{...PLAYER.look,[CLOTHES[id].slot]:id}),8,2,48,60);return ITEM_ICONS[id]=c.toDataURL()}const[art,pal]=ITEM_ART[id]||ITEM_ART.notebook,rows=art.trim().split('\n'),c=cnv(64,64),g=c.getContext('2d');
   rows.forEach((row,y)=>[...row].forEach((ch,x)=>{if(pal[ch]){g.fillStyle=pal[ch];g.fillRect(x*4,(y+(16-rows.length>>1))*4,4,4)}}));
   return ITEM_ICONS[id]=c.toDataURL()}

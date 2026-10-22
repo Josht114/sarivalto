@@ -25,7 +25,7 @@ east:['North East Road',24,12,'snow',[[3,2,4,2,'T'],[16,8,4,2,'T']]],
 farm:['East Farm',30,16,'farm',[[1,1,28,6,'.'],[21,2,1,5,';'],[22,2,4,1,';'],[3,3,6,4,'#','Farmhouse','farmhouse'],[6,6,1,1,'d'],[13,3,5,3,'#','Barn','barn'],[14,5,1,1,'d'],[22,3,6,4,'#','Old Barn','oldbarn'],[25,3,1,1,'d']]],
 palace:['Royal Palace',24,18,'snow',[[4,1,16,6,'#','Royal Palace','palace'],[12,6,1,1,'d'],[5,6,1,1,'d'],[12,7,1,2,','],[5,7,7,1,','],[3,12,19,1,','],[5,10,1,2,','],[18,10,1,2,','],
 [4,8,3,2,'#','Fountain','fountain'],[17,8,3,2,'#','Fountain','fountain'],[1,14,3,3,'T'],[20,14,3,3,'T']]],
-town:['Kingsgrad',52,38,'snow',[[1,35,50,1,','],[8,30,7,5,'#','Pizzeria','pizzeria'],[11,34,1,1,'d'],[30,31,3,2,'#','Fountain','fountain'],[1,30,3,3,'T'],[18,30,3,2,'T'],[37,30,3,3,'T'],[43,31,4,2,'T'],[8,5,6,5,'#','Civil Service Bureau','civilservice'],[11,9,1,1,'d'],[15,5,5,5,'#','Gun Shop','gunshop'],[17,9,1,1,'d'],[21,5,5,5,'#','Bar','citybar'],[23,9,1,1,'d'],[8,13,8,7,'#','Supermarket','supermarket'],[11,19,1,1,'d'],[17,15,4,5,'#','Tailor','tailor'],[18,19,1,1,'d'],[22,15,4,5,'#','Book Shop','bookshop'],[23,19,1,1,'d'],[8,23,4,5,'#',"Frank's House",'th1'],[9,27,1,1,'d'],[13,23,4,5,'#',"Lisa's House",'th2'],[14,27,1,1,'d'],[18,23,4,5,'#',"Eddie's House",'th3'],[19,27,1,1,'d'],[22,23,4,5,'#',"Grace's House",'th4'],[23,27,1,1,'d'],[28,1,8,6,'#','Cinema','cinema'],[31,6,1,1,'d'],[37,2,5,5,'#','Estate Agent','estate'],[39,6,1,1,'d'],[28,10,5,5,'#','Fishing Shop','fishingshop'],[30,14,1,1,'d'],[34,10,4,5,'#','House for Sale','th5'],[35,14,1,1,'d'],[39,10,4,5,'#',"Vince's House",'th2'],[40,14,1,1,'d'],[28,17,4,5,'#',"Mary's House",'th4'],[29,21,1,1,'d'],[33,17,4,5,'#',"Jack's House",'th1'],[34,21,1,1,'d'],[38,17,4,5,'#',"Sally's House",'th3'],[39,21,1,1,'d'],[30,28,1,1,'d','Sewer Entrance','manhole'],[40,27,4,2,'T'],[27,24,25,1,'l'],[27,25,18,1,'P'],[34,26,5,2,'#','Tram Stop','tramshelter'],[9,1,8,4,'#','Kingsgrad Apartments','kgapt'],[14,4,1,1,'d'],[18,1,3,2,'T'],[1,1,2,3,'T'],[4,2,2,2,'T'],[1,6,2,2,'T'],[2,13,2,3,'T'],[5,16,1,2,'T'],[1,24,3,2,'T'],[4,27,2,1,'T'],[45,1,6,6,'#','Police Station','police'],[48,6,1,1,'d'],[45,9,6,5,'#',"Doctor's Office",'doctor'],[48,13,1,1,'d'],[48,17,3,3,'T'],[46,26,4,2,'T']]],
+town:['Kingsgrad',52,38,'snow',[[1,35,50,1,','],[43,17,5,5,'#','Nordhem Furniture','furniture'],[45,21,1,1,'d'],[8,30,7,5,'#','Pizzeria','pizzeria'],[11,34,1,1,'d'],[30,31,3,2,'#','Fountain','fountain'],[1,30,3,3,'T'],[18,30,3,2,'T'],[37,30,3,3,'T'],[43,31,4,2,'T'],[8,5,6,5,'#','Civil Service Bureau','civilservice'],[11,9,1,1,'d'],[15,5,5,5,'#','Gun Shop','gunshop'],[17,9,1,1,'d'],[21,5,5,5,'#','Bar','citybar'],[23,9,1,1,'d'],[8,13,8,7,'#','Supermarket','supermarket'],[11,19,1,1,'d'],[17,15,4,5,'#','Tailor','tailor'],[18,19,1,1,'d'],[22,15,4,5,'#','Book Shop','bookshop'],[23,19,1,1,'d'],[8,23,4,5,'#',"Frank's House",'th1'],[9,27,1,1,'d'],[13,23,4,5,'#',"Lisa's House",'th2'],[14,27,1,1,'d'],[18,23,4,5,'#',"Eddie's House",'th3'],[19,27,1,1,'d'],[22,23,4,5,'#',"Grace's House",'th4'],[23,27,1,1,'d'],[28,1,8,6,'#','Cinema','cinema'],[31,6,1,1,'d'],[37,2,5,5,'#','Estate Agent','estate'],[39,6,1,1,'d'],[28,10,5,5,'#','Fishing Shop','fishingshop'],[30,14,1,1,'d'],[34,10,4,5,'#','House for Sale','th5'],[35,14,1,1,'d'],[39,10,4,5,'#',"Vince's House",'th2'],[40,14,1,1,'d'],[28,17,4,5,'#',"Mary's House",'th4'],[29,21,1,1,'d'],[33,17,4,5,'#',"Jack's House",'th1'],[34,21,1,1,'d'],[38,17,4,5,'#',"Sally's House",'th3'],[39,21,1,1,'d'],[30,28,1,1,'d','Sewer Entrance','manhole'],[40,27,4,2,'T'],[27,24,25,1,'l'],[27,25,18,1,'P'],[34,26,5,2,'#','Tram Stop','tramshelter'],[9,1,8,4,'#','Kingsgrad Apartments','kgapt'],[14,4,1,1,'d'],[18,1,3,2,'T'],[1,1,2,3,'T'],[4,2,2,2,'T'],[1,6,2,2,'T'],[2,13,2,3,'T'],[5,16,1,2,'T'],[1,24,3,2,'T'],[4,27,2,1,'T'],[45,1,6,6,'#','Police Station','police'],[48,6,1,1,'d'],[45,9,6,5,'#',"Doctor's Office",'doctor'],[48,13,1,1,'d'],[48,17,3,3,'T'],[46,26,4,2,'T']]],
 colahq:['Kelp Cola HQ',18,14,'snow',[[3,1,10,5,'#','Kelp Cola HQ','kchq'],[8,5,1,1,'d'],[3,9,2,2,'#','Newsstand','newsstand'],[8,9,2,2,'#','Hot Dog Cart','hotdog'],[0,12,18,1,'l']]],
 tramstop:['Tram Stop',22,14,'snow',[[0,3,22,1,'l'],[3,4,16,1,'P'],[9,5,5,2,'#','Tram Stop','tramshelter']]],
 forest:['Pine Forest',26,18,'snow',[[1,1,5,4,'T'],[8,2,3,3,'T'],[17,1,4,3,'T'],[22,4,3,5,'T'],[2,7,4,3,'T'],[15,6,4,2,'T'],[8,7,4,3,'~'],[7,12,5,3,'T'],[18,11,5,4,'T'],[1,13,3,3,'T'],[13,14,2,2,'T'],[20,9,1,1,'R'],[4,11,1,1,'R']]],
@@ -128,6 +128,8 @@ tailor:["Tailor's Shop",12,9,'interior',[[1,1,4,1,'y','Cloth'],[6,1,5,1,'y','Clo
 casino:['Casino',20,12,'interior',[[2,1,7,1,'y','Slot Machines'],[11,1,7,1,'y','Slot Machines'],[3,4,4,2,'u','Card Table'],[13,4,4,2,'u','Roulette'],[3,8,4,2,'u','Poker Table'],[13,8,3,1,'c','Cashier']]],
 bookshop:['Book Shop',12,9,'interior',[[1,1,4,1,'y','Bookcase'],[7,1,4,1,'y','Bookcase'],[2,4,3,1,'y','Bookcase'],[7,4,3,1,'y','Bookcase'],[8,6,3,1,'c','Counter'],[2,6,2,2,'u','Reading Table']]],
 fishingshop:['Fishing Shop',12,9,'interior',[[1,1,5,1,'y','Fishing Rods'],[7,1,4,1,'y','Tackle'],[3,3,6,1,'c','Counter'],[1,5,2,2,'x','Bait'],[9,5,2,2,'x','Fishing Nets']]],
+// Nordhem Furniture, Kingsgrad: a showroom of beds, sofas, chairs, tables and lamps, with Freja's counter
+furniture_in:['Nordhem Furniture',20,12,'interior',[[2,2,2,2,'e','Bed'],[6,2,3,1,'x','Sofa'],[11,2,1,1,'x','Armchair'],[13,1,3,1,'y','Bookcase'],[17,2,1,1,'x','Lamp'],[2,6,2,2,'u','Table'],[7,6,1,1,'x','Plant'],[16,6,2,1,'i','Fireplace'],[11,8,4,1,'c','Counter']]],
 estateagent:['Estate Agent',12,8,'interior',[[1,1,4,1,'y','Files'],[9,1,2,1,'y','Shelf'],[2,3,3,2,'u','Desk'],[7,3,3,2,'u','Desk']]],
 sewers:['Sewers',24,12,'interior',[[1,5,22,2,'~'],[6,5,1,2,'f'],[17,5,1,2,'f'],[2,1,2,1,'x','Junk'],[18,8,2,2,'x','Junk'],[9,1,4,1,'y','Pipes']]],
 house_frank:["Frank's House",10,9,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[7,1,2,1,'i','Stove'],[2,5,3,1,'y','Shelf']]],
@@ -434,6 +436,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'casino',x:14,y:9,dir:1,name:'Vince',home:'house_vince',loc:'casino',job:'Casino worker',faction:'proprietors',gender:'male',body:'#2a1a3a',hair:'#1a1a1a'},
 {m:'bookshop',x:9,y:7,dir:1,name:'Mary',home:'house_mary',loc:'bookshop',job:'Book shop owner',faction:'shops',gender:'female',body:'#8a3a2a',hair:'#d9c9a0'},
 {m:'fishingshop',x:5,y:2,dir:0,name:'Jack',home:'house_jack',loc:'fishingshop',job:'Fishing shop owner',faction:'republican',also:['shops'],gender:'male',body:'#2e6f9a',hair:'#7a5a3a',hat:'#e0a100'},
+{m:'furniture_in',x:12,y:7,dir:0,name:'Freja',home:'kgapts',loc:'furniture_in',job:'Furniture shop owner',faction:'shops',gender:'female',body:'#8a6a3a',hair:'#c9a05a'},
 {m:'estateagent',x:8,y:5,dir:1,name:'Sally',home:'house_sally',loc:'estateagent',job:'Estate agent',faction:'proprietors',gender:'female',body:'#2e6f9a',hair:'#e8c86a'},
 {m:'palacehall',x:12,y:5,dir:0,name:'Edmund',home:'servants',loc:'palacehall',job:'Butler',faction:'royal',also:['palace'],gender:'male',body:'#1a1a22',hair:'#b5b5b5',evening:{m:'throne',x:12,y:2,dir:2}},
 {m:'palace',x:11,y:7,dir:0,name:'Oskar',home:'servants',loc:'palace',job:'Footman',faction:'royal',also:['palace'],gender:'male',body:'#5e2a75',hair:'#3a2a20',evening:{m:'palacehall',x:10,y:9,dir:0}},
@@ -565,6 +568,21 @@ book:{name:'Paperback novel',desc:'A well-thumbed spy thriller. The hero always 
 islandmap:{name:'Map of Sarivalto',desc:'A folding map of the island with every town, road and harbour.',actions:['Look at']},
 burger:{name:'Polar Burger',desc:'A cheeseburger in a sesame bun from Polar Burger.',actions:['Eat']},
 cola:{name:'Kelp Cola',desc:'The island\'s own cola, in a green glass bottle. It tastes faintly of the sea.',actions:['Drink']},
+f_bed:{name:'Bed',desc:'A good wooden bed with a warm quilt, from Nordhem Furniture. Put it down in a home of yours, and sleep in it.',actions:['Place']},
+f_sofa:{name:'Sofa',desc:'A three-seater sofa, from Nordhem Furniture.',actions:['Place']},
+f_armchair:{name:'Armchair',desc:'A deep armchair, from Nordhem Furniture.',actions:['Place']},
+f_table:{name:'Table',desc:'A kitchen table for four, from Nordhem Furniture.',actions:['Place']},
+f_desk:{name:'Desk',desc:'A writing desk, from Nordhem Furniture. Every reporter needs one.',actions:['Place']},
+f_bookcase:{name:'Bookcase',desc:'A tall bookcase, from Nordhem Furniture, filled with books to look well read.',actions:['Place']},
+f_lamp:{name:'Floor lamp',desc:'A standard lamp with a cream shade, from Nordhem Furniture.',actions:['Place']},
+f_plant:{name:'Pot plant',desc:'A leafy pot plant, from Nordhem Furniture. It will need watering.',actions:['Place']},
+f_stove:{name:'Stove',desc:'A cast-iron stove, from Nordhem Furniture, for cooking and keeping warm.',actions:['Place']},
+f_fireplace:{name:'Fireplace',desc:'A stone fireplace, from Nordhem Furniture, for long winter evenings.',actions:['Place']},
+eq_screen:{name:'Big screen',desc:'Your big screen, for video calls to Langley: Chuck by day, George in the evening. Put it down at home.',actions:['Place']},
+eq_radio:{name:'Radio set',desc:'Your radio set. Put it down at home.',actions:['Place']},
+eq_phone:{name:'Telephone',desc:'Your telephone, for the calls that come in the morning. Put it down at home.',actions:['Place']},
+eq_computer:{name:'Computer',desc:'Your computer, with the Faction Tracker on it. Put it down at home.',actions:['Place']},
+eq_wardrobe:{name:'Wardrobe',desc:'Your wardrobe, with all your clothes in it. Put it down at home.',actions:['Place']},
 hose:{name:'Hose',desc:'A good long rubber hose, from the fishing shop in Kingsgrad.',actions:['Look at']},
 motor:{name:'Small motor',desc:'A little electric motor, from the electronics store in Frostholm. It would drive a pump.',actions:['Look at']},
 floats:{name:'Boom of floats',desc:'A long line of cork floats, from Harbour Outfitters in Saltwick, for holding something in on the water.',actions:['Look at']},
@@ -636,6 +654,7 @@ const CONVOS={
 // Otto sells tickets for the film at the cinema (js/film.js)
 Otto:{start:'a',nodes:{a:{say:"Two pictures tonight. STORMWING: the hottest pilots in the North, and one very unhappy control tower. And TOP COMRADE, all the way from the other side of the Iron Curtain: same story, more paperwork. Four dollars a ticket.",opts:[['Watch STORMWING ($4)',null,()=>watchFilm('stormwing')],['Watch TOP COMRADE ($4)',null,()=>watchFilm('topcomrade')],['Maybe later',null]]}}},
 George:{start:'a',nodes:{a:{say:"Pull up a chair, NIGHTJAR. Meatloaf's terrible. George. Chuck does the talking in the daytime; I'm the one who does the work after dark. Nothing for you yet. Once you're on the island, call Langley in the evening and you'll get me."}}},
+get Sally(){const n=typeof NPCS!='undefined'&&NPCS.find(p=>p.name=='Sally');return typeof estateConvo=='function'&&n?estateConvo(n):{start:'a',nodes:{a:{say:'Sarivalto Homes!'}}}},
 Doris:{start:'a',nodes:{a:{say:"Cover Story Department. Doris. Sit down, let's have a look at you. Hair, clothes, the lot: nobody believes a journalist in a government suit.",opts:[['Make me up.',null,()=>openCover()],['Not now.',null]]}}},
 Jonna:{start:'a',nodes:{a:{say:"Welcome to Ink and Pine. Something to remember the island by?",opts:[["I'd like a tattoo.",null,()=>openTattoo()],['Just looking.',null]]}}},
 Hekki:{start:'hello',nodes:{
@@ -708,6 +727,7 @@ Ville:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Hannu:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Pirkko:{stock:[['burger',20,2],['hotdog',20,1],['coffee',30,1],['cola',20,1]]},
 Rosaria:{stock:[['pizza',20,4],['wine',12,6]]},
+Freja:{stock:[['f_bed',3,60],['f_sofa',3,80],['f_armchair',4,35],['f_table',3,30],['f_desk',3,40],['f_bookcase',3,45],['f_lamp',5,15],['f_plant',6,10],['f_stove',2,55],['f_fireplace',2,90]]},
 Rosa:{stock:[['hotdog',30,1],['cola',20,1]]},
 Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 };
@@ -1045,6 +1065,16 @@ pizza:{title:'Pizza for Buttons',giver:'Buttons',opens:['lake','town'],text:'But
   done:[{give:'pizza',to:'Buttons',what:'Give Buttons a slice of pizza'}],
   thanks:'"Mmm, pizza! You\'re a true friend. Have a free juggle on me!"'}};
 
+// ---- Homes. The homes for sale: id: [price, the town, Sally's description]; and the furniture (and your equipment) you can put
+// down in a home of your own: item: [width, height, tile, label] (see js/homes.js)
+const HOMES_FOR_SALE={house_bob:[800,'Saltwick','Bob\'s old house on the main street in Saltwick: small, but the stove works, and the fishermen are friendly.'],
+  house_forsale_eb:[1200,'Eastbrook','A timber house at the top of Eastbrook, near the coffee and the record shop. Very fashionable.'],
+  house_forsale_fh:[1300,'Frostholm','A neat little house on the main street in Frostholm, handy for the jazz club.'],
+  house_forsale:[1500,'Kingsgrad','A handsome house in Kingsgrad, a short walk from the palace. Very respectable.'],
+  villa_forsale:[5000,'Hope Springs','A villa in the Hope Springs gated community, with Phil, Dario and Gustavo for neighbours. It has a fireplace.']};
+const FURN={f_bed:[2,2,'e','Bed'],f_sofa:[3,1,'x','Sofa'],f_armchair:[1,1,'x','Armchair'],f_table:[2,2,'u','Table'],f_desk:[3,2,'u','Desk'],f_bookcase:[3,1,'y','Bookcase'],
+  f_lamp:[1,1,'x','Lamp'],f_plant:[1,1,'x','Plant'],f_stove:[2,1,'i','Stove'],f_fireplace:[2,1,'i','Fireplace'],
+  eq_screen:[4,1,'y','Big Screen'],eq_radio:[4,1,'y','Radio Equipment'],eq_phone:[1,1,'x','Telephone'],eq_computer:[2,2,'y','Computer'],eq_wardrobe:[1,1,'y','Wardrobe']};
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).
 const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['second',19,8,0,1,'kcmuseum_in'],['second',28,8,0,1,'house_henrik'],
@@ -1059,7 +1089,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['monastery',15,13,0,1,'house_thyme'],['monastery',6,13,0,1,'monks'],['monastery',10,7,0,1,'monchurch'],['radio',14,3,0,1,'shack_hekki'],['shack_hekki',8,1,0,1,'hekki_room',7,8],['radio',3,5,0,1,'transhut'],['beach',9,5,0,1,'tent_pat'],
 ['town',17,9,0,1,'gunshop'],['town',23,9,0,1,'citybar'],['town',11,19,0,1,'supermarket'],['town',18,19,0,1,'tailor'],['town',23,19,0,1,'bookshop'],
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
-['town',39,6,0,1,'estateagent'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
+['town',39,6,0,1,'estateagent'],['town',45,21,0,1,'furniture_in'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,8,0,1,'apartments3',22,10,0,-1],['skyapts2',22,8,0,1,'skyapts3',22,10,0,-1],['skyapts3',22,8,0,1,'skyapts4',22,10,0,-1],['eblofts2',22,8,0,1,'eblofts3',22,10,0,-1],['eblofts3',22,8,0,1,'eblofts4',22,10,0,-1],['kgapts2',22,8,0,1,'kgapts3',22,10,0,-1],['kgapts3',22,8,0,1,'kgapts4',22,10,0,-1],['hsresid',22,8,0,1,'hsresid2',22,10,0,-1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,10,0,-1],['skyapts',22,8,0,1,'skyapts2',22,10,0,-1],['eblofts',22,8,0,1,'eblofts2',22,10,0,-1],['kgapts',22,8,0,1,'kgapts2',22,10,0,-1],
 ['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['dphq_in',14,1,0,1,'dphq_office',21,9,0,-1],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
@@ -1111,6 +1141,7 @@ pizzeria:{icon:'pizza',kind:'gable',wall:'#e8d8b8',roof:'#7a2a1e',trim:'#2e6f3a'
 estate:{icon:'house',kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#2e6f9a',win:'#bcd9ea',sign:'ESTATE AGENT',signc:'#2e6f9a'},
 fishingshop:{icon:'fish',kind:'gable',wall:'#cfe6ee',roof:'#2e6f9a',trim:'#f2f2f2',win:'#a9d4e8',sign:'TACKLE',signc:'#2e6f9a',awn:'#2e6f9a'},
 kgapt:{kind:'tall',wall:'#b8735a',roof:'#5b5b56',trim:'#f2ede0',win:'#bcd9ea',tex:'brick'},
+furniture:{icon:'chair',kind:'flat',wall:'#d8c8a8',roof:'#5a3d2a',trim:'#8a5a36',win:'#f2d16b',awn:'#3d6a4a',sign:'NORDHEM FURNITURE',signc:'#3a2a1a'},
 doctor:{icon:'cross',kind:'flat',wall:'#f2ede0',roof:'#8a9099',trim:'#c0392b',win:'#bcd9ea',sign:'DOCTOR',signc:'#c0392b'},
 police:{icon:'badge',kind:'flat',wall:'#3a4a6a',roof:'#2b2f3a',trim:'#e8ecef',win:'#bcd9ea',tex:'brick',sign:'POLICE',signc:'#1f3a5f',flag:'#1f3a5f'},
 th1:{kind:'gable',wall:'#e8c88a',roof:'#7a4234',trim:'#ffffff',win:'#bcd9ea',chim:.25},
