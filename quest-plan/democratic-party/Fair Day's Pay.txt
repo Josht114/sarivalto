@@ -3,6 +3,7 @@ Faction: Democratic Party
 Day: 9 (morning)
 Linked with: None
 From the plan: Help the mill workers
+
 Plan:
 The workers at the lumber mill want better
 pay and safer conditions.

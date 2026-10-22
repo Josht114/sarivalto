@@ -1,8 +1,9 @@
 Quest: Bridge Out
 Faction: CIA
-Day: 24 (evening)
+Day: 25 (evening)
 Linked with: None
 From the plan: Blow up a bridge
+
 Plan:
 George wants a bridge brought down to cut
 off part of the island.

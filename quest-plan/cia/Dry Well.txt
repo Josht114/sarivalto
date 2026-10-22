@@ -1,8 +1,9 @@
 Quest: Dry Well
 Faction: CIA
-Day: 20 (evening)
+Day: 22 (evening)
 Linked with: None
 From the plan: Block up the oil rig
+
 Plan:
 George wants the oil rig stopped up so it
 produces nothing.

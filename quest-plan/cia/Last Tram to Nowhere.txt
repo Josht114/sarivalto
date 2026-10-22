@@ -1,8 +1,9 @@
 Quest: Last Tram to Nowhere
 Faction: CIA
-Day: 12 (evening)
+Day: 15 (evening)
 Linked with: None
 From the plan: Blow up the tram
+
 Plan:
 George wants the island's tram out of
 action, and he wants it to look like

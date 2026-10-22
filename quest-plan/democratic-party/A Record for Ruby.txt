@@ -3,6 +3,7 @@ Faction: Democratic Party
 Day: 12 (morning)
 Linked with: None
 From the plan: Deliver a record for Ruby
+
 Plan:
 Ruby has a rare record that needs
 delivering across the island.

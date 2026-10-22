@@ -1,8 +1,9 @@
 Quest: Lights Out
 Faction: CIA
-Day: 4 (evening)
+Day: 8 (evening)
 Linked with: None
 From the plan: Sabotage the lighthouse
+
 Plan:
 George wants the lighthouse at Eastbrook
 Harbour dark for a night.

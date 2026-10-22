@@ -97,7 +97,7 @@ villa_gustavo:["Gustavo's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,6,1,
 house_thyme:["Father Thyme's House",10,9,'interior',[[2,1,2,2,'e','Bed'],[5,1,3,1,'y','Bookcase'],[6,4,2,2,'u','Table'],[2,5,1,1,'i','Stove']]],
 shack_hekki:["Hekki's Shack",10,7,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Radio Set'],[4,4,2,1,'u','Table'],[8,1,1,1,'q']]],
 // The Hidden Radio Room, with a small living space behind a partition on the right (through the doorway at x14, y5)
-hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment'],[5,1,4,1,'y','Big Screen'],[9,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
+hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment'],[5,1,4,1,'y','Big Screen'],[9,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[9,4,1,1,'x','Telephone'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
 [14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[18,1,1,1,'y','Wardrobe'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
 // CIA Headquarters at Langley, Virginia, where the game's story begins: not on the island, and reached only from the Jump to list.
 // The lobby has the Agency's seal set in its granite floor, the Memorial Wall of stars between two flags with the Book of Honor in
@@ -565,6 +565,9 @@ book:{name:'Paperback novel',desc:'A well-thumbed spy thriller. The hero always 
 islandmap:{name:'Map of Sarivalto',desc:'A folding map of the island with every town, road and harbour.',actions:['Look at']},
 burger:{name:'Polar Burger',desc:'A cheeseburger in a sesame bun from Polar Burger.',actions:['Eat']},
 cola:{name:'Kelp Cola',desc:'The island\'s own cola, in a green glass bottle. It tastes faintly of the sea.',actions:['Drink']},
+hose:{name:'Hose',desc:'A good long rubber hose, from the fishing shop in Kingsgrad.',actions:['Look at']},
+motor:{name:'Small motor',desc:'A little electric motor, from the electronics store in Frostholm. It would drive a pump.',actions:['Look at']},
+floats:{name:'Boom of floats',desc:'A long line of cork floats, from Harbour Outfitters in Saltwick, for holding something in on the water.',actions:['Look at']},
 beans:{name:'Imported coffee beans',desc:'A sack of fine Colombian coffee beans, brought in through Langley in the diplomatic pouch. For Maya at the Coffee Roasters.',actions:['Look at']},
 coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
 bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
@@ -692,10 +695,10 @@ Maya:{stock:[['coffee',30,1],['bun',12,2]]},
 Arvid:{stock:[['meal',10,12],['beer',12,3]]},
 Juniper:{stock:[['shirt',5,25],['beanie',6,8],['sweater',4,30],['cords',4,35],['sneakers',3,40],['flatcap',4,12],['ushanka',3,20],['snowboots',3,45],['beret',3,15]]},
 Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['fedora',3,35]]},
-Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10]]},
-Jack:{stock:[['fishrod',3,30],['flashlight',2,10]]},
+Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10],['motor',2,30]]},
+Jack:{stock:[['fishrod',3,30],['flashlight',2,10],['hose',3,8]]},
 Olga:{stock:[['smokedfish',12,4]]},
-Helmi:{stock:[['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
+Helmi:{stock:[['floats',3,12],['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
 Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
 Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
 Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
@@ -721,6 +724,9 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say)
 //   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'alias',
 //                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
+//   bring:[items], to:name   talk to that person with all of those items and hand them over (alt: an option to change your
+//                        choice instead, {label, choice, say}, with need: a flag the quest must have)
+//   spot:{m,x,y}         face that tile of that place (y can be a range, [from, to]) and press E
 //   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
@@ -732,12 +738,12 @@ const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
-  thanks:'Your alias is ready: a foreign journalist, come to write about the island. Chuck is waiting to brief you, upstairs in the Langley Office.'},
+  thanks:'Your alias is ready: a British reporter, from a London paper, come to cover the king\'s death. Chuck is waiting to brief you, upstairs in the Langley Office.'},
 briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in the Langley Office, up the stairs from the lobby. Go and get your briefing.',
   done:[{talk:'Chuck',what:'Get your briefing from Chuck, in the Langley Office upstairs',chat:{start:'a',nodes:{
     a:{say:"There you are. Sit down. Like the new look. You're going to Sarivalto, an island in the Baltic. Snow, fish, cola and not much else. Its king has just died, and right now nobody knows who's going to run the place.",opts:[['Who wants it?','b']]},
     b:{say:"Everyone. The Communists want the island in the Soviet Union, and Moscow would love a harbour that far north. The royals want the crown kept on Prince Leopold's head. Kelp Cola wants whoever's best for business. The Democrats want a vote. And there's an oil company and a syndicate sniffing around too.",opts:[['And what do we want?','c']]},
-    c:{say:"An island that doesn't end up flying a red flag. Your codename is NIGHTJAR. Your cover's a foreign journalist, so ask all the questions you like. Our man there is Hekki, the radio tech: he's fixed you up a room under his shack, at the radio tower, with a radio set and a screen to reach me on.",opts:[['How long have I got?','d']]},
+    c:{say:"An island that doesn't end up flying a red flag. Your codename is NIGHTJAR. Your cover's a British reporter, from a London paper, there to cover the king's death, so ask all the questions you like. When you're settled in, go and introduce yourself to the island's newspaper, the Eastbrook Gazette: a reporter would. Our man there is Hekki, the radio tech: he's fixed you up a room under his shack, at the radio tower, with a radio set and a screen to reach me on.",opts:[['How long have I got?','d']]},
     d:{say:"You fly out for the first of September, and the island's yours for thirty days. Talk to everyone, help the people who'll help us, and call me every morning. Good luck, NIGHTJAR."}}}}],
   thanks:'"Don\'t trust anyone with a better cover than yours." You are ready to fly out on the first of September.'},
 meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
@@ -822,8 +828,15 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
       b:{say:"Then take it, when you can get to Eastbrook. A man who wants you to hear his story wants you on his side. Find out what that's worth to him. Good work."},
       c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work."}}}}],
   thanks:"Chuck has your report on Phil and Kelp Cola."},
-// ring: offered by no one; on the morning of its day the telephone rings (what's said) and it's yours. meet: someone waits somewhere
-// while the quest is yours ({name, m, x, y, dir}, or a list of them) instead of keeping their routine. An event condition can need count times.
+// ring: offered by no one; on the morning of its day the telephone in your room rings, and answering it, you hear what's said (ring)
+// by the caller (caller: who it is; a stranger if left out) and the quest is yours. meet: someone waits somewhere
+// while the quest is yours ({name, m, x, y, dir}, or a list of them; after: only once that condition is met; if: only on that
+// choice) instead of keeping their routine. A conversation option can make a choice (questChoice(quest, choice), and the choice can be changed until its conditions are met; an option's fourth part, a
+// function, decides whether it's offered); aftermath: what a flag on the quest does to someone from then on, for the rest of the
+// game, done or not ({flag, name, m, x, y, dir, hat: a hat colour, such as a bandage, say: what they say}); looks: things to look at while the quest is yours ({spot, flag, say, what, day, not: a
+// choice it's not for}), which set a flag; a condition with
+// if: belongs to that choice only. A condition can also give points to factions as it's met (points: {faction: n}) and set a flag
+// on the quest (flag), which the art can show (the oil on the rig in Black Tide). An event condition can need count times.
 // given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
 // can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
 // so on the morning it's ready (arrives).
@@ -890,7 +903,7 @@ meetmonks:{title:'Meet the Monks',giver:'Chuck',main:true,day:5,call:true,text:'
       c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work."}}}}],
   thanks:"Chuck has your report on the monastery."},
 meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',main:true,day:6,seq:true,
-  ring:'The telephone in your room rings. A man\'s voice, slow and polite: "Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone." The line goes dead.',
+  ring:'Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone.',
   meet:{name:'Gustavo',m:'pizzeria_in',x:9,y:2,dir:2},
   text:'A stranger telephoned this morning: a friend would like to meet you in the back room of the pizzeria in Kingsgrad. Go, sit in at the card table, and play a few hands with whoever is waiting there. Then report back to Chuck.',
   done:[
@@ -934,6 +947,57 @@ meetoil:{title:'Meet the Oil Company',giver:'Chuck',main:true,day:7,call:true,se
       b:{say:"Then he and this island are going to fall out. An oilman's a fine friend to have, right up until he isn't. Good work."},
       c:{say:"Philosophy. From an oilman. Next he'll be writing poetry. Keep him talking: men like that tell you everything if you let them think they're winning. Good work."}}}}],
   thanks:"Chuck has your report on Dario and Diversified Petroleum."},
+gazette:{title:'Hold the Front Page',giver:'Henrik',from:4,seq:true,text:'Your cover is a British reporter, come to cover the king\'s death. A reporter would introduce themselves to the local paper: meet the team at the Eastbrook Gazette, get past Nora\'s questions, and file your first story with Henrik.',
+  offer:"Ah! You'll be the reporter from London. Henrik, editor of the Eastbrook Gazette, such as it is: four pages, three staff and a printing press older than me. London sends a reporter to cover our dead king! We're honoured. Come in, come in, meet the team.",
+  accept:"Splendid. Nora's over there. She's been dying to meet you. Literally asking everyone in town about you, in fact.",wait:"Met Nora yet? Then come and tell me what you're filing. A story on the king, I hope.",
+  done:[
+    {talk:'Nora',what:'Meet Nora, the Gazette\'s reporter, and keep your cover',chat:{start:'a',nodes:{
+      a:{say:"So you're the reporter from London. Funny: I telephoned three London papers this week, and none of them had heard of you. Which paper did you say you were from?",opts:[["A small one. We cover royal affairs.",'b'],["I'm freelance. I sell to whoever pays.",'c'],["You checked up on me? I'm flattered.",'d']]},
+      b:{say:"A small paper that can afford to fly a man to Sarivalto for a funeral. Must be a very generous small paper.",opts:[["The royal family sells newspapers.",'e']]},
+      c:{say:"Freelance. Of course. No editor to telephone, no office to visit. Very convenient.",opts:[["Very cheap, too. Ask my bank manager.",'e']]},
+      d:{say:"Don't be. I check up on everyone. It's the only way to find out anything on this island.",opts:[["Then we'll get on well.",'e']]},
+      e:{say:"Hm. Well, welcome to the Gazette, London. If you hear anything about the king's death worth printing, you'll tell me before you tell London. Won't you?"}}}},
+    {talk:'Henrik',what:'File your first story with Henrik',chat:{start:'a',nodes:{
+      a:{say:"So, our reporter from London! You've met Nora. Don't mind her, she suspects the milkman. Now: what's your story on the king? We'll run it in tomorrow's Gazette too, if it's good.",opts:[['A nation in mourning: the island says goodbye.','b'],['The empty throne: who will rule Sarivalto?','c'],['Questions over the king\'s last days.','d']]},
+      b:{say:"Warm, respectful, and nobody will be offended. Safe. London will love it, and the palace will send you a thank-you note."},
+      c:{say:"Now that's a front page! Every faction on the island will buy a copy to see if they're mentioned. Careful, mind: some of them will read it twice."},
+      d:{say:"Questions? About the king's death? You'll want to tread carefully with that one. Nora's been asking the same questions, and the palace has stopped returning her calls. I'll run it. Small, on page three."}}}}],
+  thanks:'"Welcome to the Gazette, London. Drop in any time: the coffee\'s terrible, but the gossip is excellent."'},
+// Black Tide (Diversified Petroleum, 8 September): Dario telephones; a valve has burst at the oil rig and the sea round it is black.
+// Take Lars and Einar to the slick, then choose: build a pump and clean it up (Diversified Petroleum +1), or send the men off for
+// buckets and knock the work lamp into the slick, as if by accident (the rig burns; Diversified Petroleum -1)
+blacktide:{title:'Black Tide',giver:'Dario',main:true,day:8,seq:true,
+  caller:'Dario',ring:'Journalist? Dario. Diversified Petroleum. I need your help, and I need it this morning. Come to my office at the HQ, and don\'t dawdle.',
+  text:'Dario telephoned: something has gone wrong at the oil rig, and he wants your help. Go to his office at Diversified Petroleum HQ in Frostholm.',
+  aftermath:[{flag:'fired',name:'Einar',m:'doctor',x:9,y:3,dir:1,hat:'#f4f4f0',
+    say:"(Einar is bandaged from his shoulder to his ear.) The lamp... I should never have left it hanging there. Doctor Lind says I'll keep the arm. Dario hasn't been to see me. Not once."}],
+  looks:[{spot:{m:'oilrig',x:0,y:[6,10]},day:8,flag:'lampIdea',not:'fire',what:'Look at the work lamp on the west rail',
+    say:'You look at the work lamp, hanging from the rail right over the black water. One knock, and the whole slick would go up. With Lars and Einar out of the way, it would look like an accident.'}],
+  meet:[{name:'Lars',m:'oilrig',x:3,y:8,dir:2,after:1},{name:'Einar',m:'oilrig',x:2,y:9,dir:1,after:2},{name:'Lars',m:'crewq',x:5,y:4,dir:0,if:'fire'},{name:'Einar',m:'crewq',x:7,y:4,dir:0,if:'fire'}],
+  done:[
+    {talk:'Dario',what:'Go to Dario\'s office at Diversified Petroleum HQ',said:'Dario wants the spill cleaned up before anyone notices. Fetch Lars from the crew quarters on the rig, and Einar from the deck.',chat:{start:'a',nodes:{
+      a:{say:"There you are. Sit. We've had an accident out at the rig: a valve gave way in the night, and there's oil all over the sea around it. If the newspaper gets wind of it, or the Communists, or that prince, I'm finished on this island.",opts:[['What do you need from me?','b']]},
+      b:{say:"Hands. My people are good, but they're scared of me, and scared men are slow. Take two of my rig men, Lars and Einar, and get that sea clean before anyone notices. Lars will be in the crew quarters; Einar on the deck."}}}},
+    {talk:'Lars',what:'Fetch Lars from the crew quarters on the oil rig',chat:{start:'a',nodes:{
+      a:{say:"An oil spill? Again? I mean... an oil spill! Terrible. Give me a minute to find my boots. I'll meet you by the west rail, where the slick is."}}}},
+    {talk:'Einar',what:'Fetch Einar from the deck of the oil rig',chat:{start:'a',nodes:{
+      a:{say:"Dario sent you? Then it's bad. The valve on the west pipe's been weeping for a month; I told them. Come on, it's on the west side, by the rail."}}}},
+    {talk:'Einar',what:'Go to the slick at the west rail of the rig, and decide what to do with Lars and Einar',chat:{start:'a',nodes:{
+      a:{say:"Look at it. Half the sea round the rig is black. We could pump it into drums, if we had a pump. Lars and I could build one, with the right parts.",opts:[['Build a pump. What do you need?','p',()=>questChoice('blacktide','pump')],["Go and fetch buckets from the quarters, both of you. I'll keep an eye on it.",'f',()=>questChoice('blacktide','fire'),()=>qOf('blacktide')?.flags?.lampIdea]]},
+      p:{say:"A good long hose, from the fishing shop in Kingsgrad. A little motor: the electronics place in Frostholm has them. And a boom of cork floats to hold the slick in, from Harbour Outfitters in Saltwick. Bring them here and we'll have it built by lunchtime."},
+      f:{say:"Buckets? For all that? ...Well, you're the boss today. Come on, Lars. Leave the lamp; it'll get dark under the rail."}}}},
+    {if:'pump',bring:['hose','motor','floats'],to:'Einar',alt:{need:'lampIdea',choice:'fire',label:'Change of plan: go and fetch buckets from the quarters, both of you.',
+      say:"Buckets? We were building a pump! ...Fine, you're the boss today. Come on, Lars. Leave the lamp; it'll get dark under the rail."},what:'Bring Einar a hose (the fishing shop, Kingsgrad), a motor (the electronics store, Frostholm) and a boom of floats (Harbour Outfitters, Saltwick)',
+      flag:'cleaned',points:{oil:1},said:'Einar and Lars bolt the motor to the hose, lay the boom of floats round the slick and start the pump. By the afternoon the oil is in drums and the sea round the rig is clean. Diversified Petroleum: +1 point.'},
+    {if:'fire',spot:{m:'oilrig',x:0,y:[6,10]},what:'Knock the work lamp on the west rail into the slick, as if by accident',flag:'fired',points:{oil:-1},
+      said:'You lean on the rail, and the work lamp "slips" from its hook into the black water. For a moment nothing happens; then the sea catches with a soft whump. Lars and Einar come running back with their buckets just as it goes up, and Einar, nearest the rail, is caught by the flames. By the time they have beaten them out, the west side of the rig is scorched and Einar is badly burned; they take him to the doctor\'s office in Kingsgrad. Everyone agrees: the wind must have knocked the lamp down. Diversified Petroleum: -1 point.'},
+    {if:'fire',talk:'Dario',what:'Tell Dario what happened at the rig',chat:{start:'a',nodes:{
+      a:{say:"An accident. A lamp, and the wind. Half my west deck burned, Einar's in the doctor's office with burns down one side, the newspaper's sniffing round, and Magnus says the insurance won't cover acts of God. I don't believe in God, journalist, and I'm not sure I believe in the wind either.",opts:[['It was an accident.','b'],['Lars and Einar left the lamp burning.','c']]},
+      b:{say:"So everyone keeps telling me. Get out."},
+      c:{say:"Did they, now. I'll have a word with them. Get out."}}}},
+    {if:'pump',talk:'Dario',what:'Tell Dario the spill is cleaned up',chat:{start:'a',nodes:{
+      a:{say:"Clean. Not a drop on the water. The newspaper's got nothing, and the Communists have got nothing. You've done me a favour, journalist, and I remember favours."}}}}],
+  thanks:'Dario will remember this.'},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
@@ -1219,8 +1283,9 @@ const QUEST_TITLES={8:{oil:'Black Tide',church:'Sunday Sermon'},
 27:{communist:'Revolution at the Pictures',syndicate:'High Stakes'},
 28:{communist:'Red Flag Over Kingsgrad',royal:'The State Visit',cola:'Kelp Cola Goes Abroad',oil:'The Office Party',church:'The Herbal Rite'},
 29:{cola:'Republican primary',oil:'Republican primary',syndicate:'Republican primary',royal:'Line of succession',church:'Line of succession',communist:'Friendly rivalry',democrat:'Friendly rivalry'}};
-// the evening quests: George's jobs for the CIA, every fourth day (his are always in the evening)
-const QUEST_EVENINGS={4:{cia:'Lights Out'},8:{cia:'Flat Cola'},12:{cia:'Last Tram to Nowhere'},16:{cia:'Tinderbox'},20:{cia:'Dry Well'},24:{cia:'Bridge Out'},28:{cia:'A Royal Accident'}};
+// the evening quests: George's jobs for the CIA, every three or four days from the second week (his are always in the evening; none in
+// the first week, nor on the island-wide days)
+const QUEST_EVENINGS={8:{cia:'Lights Out'},11:{cia:'Flat Cola'},15:{cia:'Last Tram to Nowhere'},18:{cia:'Tinderbox'},22:{cia:'Dry Well'},25:{cia:'Bridge Out'},28:{cia:'A Royal Accident'}};
 // ---- Background audio, made as it plays by js/music.js: each track's name and what you hear (TRACK_INFO), and the places it
 // plays in (MUSIC_AT; a building only where it is listed). Radio Sarivalto, when it is switched on, plays instead, anywhere.
 const TRACK_INFO={chant:['Gregorian chant','A small choir of men\'s voices sings the Salve Regina, one line in the Dorian mode, over a low hummed drone, in a long stone-church echo.'],

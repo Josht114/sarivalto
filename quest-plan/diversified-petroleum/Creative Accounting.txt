@@ -3,6 +3,7 @@ Faction: Diversified Petroleum
 Day: 12 (morning)
 Linked with: None
 From the plan: Help embezzle
+
 Plan:
 Someone at Diversified Petroleum wants to
 move company money where nobody will look.

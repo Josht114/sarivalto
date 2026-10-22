@@ -3,6 +3,7 @@ Faction: Crime Syndicate
 Day: 10 (morning)
 Linked with: None
 From the plan: Smuggle drugs
+
 Plan:
 The Syndicate has a shipment that must get
 past the harbour master and customs.

@@ -1,3 +1,5 @@
+/* a side quest in the Quests table: a silver-outlined chip */
+.sched .qs{display:inline-block;margin:1px 0;padding:1px 6px;border:1px solid #9aa6b4;border-radius:10px;font-size:.85em;white-space:nowrap}
 /* the Quests table: each day a morning row and a lighter evening row */
 .sched td.tod{font-size:.8em;opacity:.75;white-space:nowrap}.sched tr.eve td{border-top-style:dotted}
 /* the Quests page: a card per quest */

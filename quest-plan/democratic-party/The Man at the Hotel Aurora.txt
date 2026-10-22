@@ -3,6 +3,7 @@ Faction: Democratic Party
 Day: 20 (morning)
 Linked with: None
 From the plan: Investigate the KGB guy
+
 Plan:
 The Democrats are suspicious of the
 Russian businessman staying at the Hotel

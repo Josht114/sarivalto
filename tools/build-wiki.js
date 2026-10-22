@@ -158,30 +158,35 @@ const weekOf=d=>d==0?0:Math.min(5,Math.ceil(d/7));
 const mainsOn=d=>Object.keys(QUESTS).filter(id=>QUESTS[id].main&&QUESTS[id].day==(d==0?-9:d));
 const qDate=d=>d<1?(31+d)+' August':d+' September';
 // a quest step, as the Quests tab lists it, with what it gives you
-function qStep(c,st){const extra=[st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
+function qStep(c,st){const extra=[st.if?'only if you choose to '+({pump:'build the pump',fire:'set the fire'}[st.if]||st.if):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+' point for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
     ...[st.gives||[]].flat().map(id=>(QUESTS[id].main?'gives the main quest ':'gives the side quest ')+QUESTS[id].title)].filter(Boolean);
   return`<li>${esc(st.what)}${extra.length?` <small>(${esc(extra.join('; '))})</small>`:''}</li>`}
 function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));
   const how=Q.main?(Q.start?'Yours from the start of a new game':Q.ring?'A telephone call on the morning of '+qDate(Q.day):Q.given?'Given when '+QUESTS[from].title+' is done':(Q.call?'Offered on the morning video call':'Offered in person')+' on '+qDate(Q.day)):
     Q.given?'Given during '+(from?QUESTS[from].title:'another quest'):Q.opens?'Offered once '+Q.opens.map(p=>L[p][0]).join(' and ')+' are open':'Offered from '+qDate(Q.from??1);
   return`<div class="qcard"><h3>${esc(Q.title)} <small>${Q.main?'Main quest':'Side quest'}</small></h3>${info([['From',g?npcA(c,g):esc(Q.giver)],['How you get it',esc(how)]])}<p>${esc(Q.text)}</p><ol>${Q.done.map(st=>qStep(c,st)).join('')}</ol></div>`}
-function questsBody(c){const head=Q_COLS.map(f=>`<th><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</th>`).join('');
+// the day a side quest can first be had: its first day (from), the day the places it needs are open (opens), or the day of the
+// quest that gives it to you (given)
+function sideDay(id){const Q=QUESTS[id];if(Q.given){const from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));return from?Math.max(0,QUESTS[from].day??1):1}
+  return Math.max(Q.from??1,...(Q.opens||[]).map(openDay))}
+function questsBody(c){const sides0=Object.keys(QUESTS).filter(id=>!QUESTS[id].main),sideOn=d=>sides0.filter(id=>sideDay(id)==d);const head=Q_COLS.map(f=>`<th><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</th>`).join('');
   const rows=Array.from({length:31},(_,d)=>{const w=weekOf(d),first=d==0||d==1||(d-1)%7==0&&d<=29,span=Array.from({length:31},(_,k)=>k).filter(k=>weekOf(k)==w).length,ev=QUEST_EVENTS[d];
     const wk=first?`<th class="wk" rowspan="${span*2}">${w?'Week '+w:''}</th>`:'';
-    const cells=ev&&!ev[1]?`<td class="evrow" colspan="${Q_COLS.length}" rowspan="2">${esc(ev[0])}</td>`:Q_COLS.map(f=>{const q=QUEST_DAYS[f],col=FACTIONS[f][1];
+    const side=`<td>${sideOn(d).map(id=>`<span class="qs" title="From ${esc(QUESTS[id].giver)}">${esc(QUESTS[id].title)}</span>`).join(' ')}</td>`;
+    const cells=ev&&!ev[1]?`<td class="evrow" colspan="${Q_COLS.length}" rowspan="2">${esc(ev[0])}</td>`+side:Q_COLS.map(f=>{const q=QUEST_DAYS[f],col=FACTIONS[f][1];
       const made=mainsOn(d).map(id=>QUESTS[id].title).join(', then ');
       if(ev&&ev[1]==f)return`<td class="qi" style="border-color:${col}">${esc(made||ev[0])}</td>`;
       if(q&&q.intro==d)return`<td><span class="qi" style="border-color:${col};color:${col}">${esc(made||'Intro')}</span></td>`;
-      if(q&&q.days.includes(d))return`<td><span class="qq" style="background:${col}">${esc(QUEST_TITLES[d]?.[f]||'Quest')}</span></td>`;return'<td></td>'}).join('');
+      if(q&&q.days.includes(d))return`<td><span class="qq" style="background:${col}">${esc(QUEST_TITLES[d]?.[f]||'Quest')}</span></td>`;return'<td></td>'}).join('')+(ev&&!ev[1]?'':side);
     // the evening: George's jobs for the CIA (an island-wide day already fills both rows)
-    const eve=ev&&!ev[1]?'':Q_COLS.map(f=>{const t=QUEST_EVENINGS[d]?.[f];return t?`<td><span class="qq" style="background:${FACTIONS[f][1]}">${esc(t)}</span></td>`:'<td></td>'}).join('');
+    const eve=(ev&&!ev[1]?'':Q_COLS.map(f=>{const t=QUEST_EVENINGS[d]?.[f];return t?`<td><span class="qq" style="background:${FACTIONS[f][1]}">${esc(t)}</span></td>`:'<td></td>'}).join(''))+'<td></td>';
     return`<tr class="${first&&d?'wkstart':''}">${wk}<td class="day" rowspan="2">${d}</td><td class="tod">Morning</td>${cells}</tr><tr class="eve"><td class="tod">Evening</td>${eve}</tr>`}).join('');
   const sum=Q_COLS.filter(f=>QUEST_DAYS[f]).map(f=>`<tr><td><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</td><td>${QUEST_DAYS[f].intro}</td><td>${QUEST_DAYS[f].days.map(d=>QUEST_TITLES[d]?.[f]?`${d} (${esc(QUEST_TITLES[d][f])})`:d).join(', ')}</td><td>${QUEST_DAYS[f].days.length}</td></tr>`).join('')+
     `<tr><td><span class="sw" style="background:${FACTIONS.cia[1]}"></span>${A(c,'factions','cia',FACTIONS.cia[0])} <small>(George, evenings)</small></td><td>0</td><td>${Object.keys(QUEST_EVENINGS).map(d=>`${d} (${esc(QUEST_EVENINGS[d].cia)})`).join(', ')}</td><td>${Object.keys(QUEST_EVENINGS).length}</td></tr>`;
   const mains=Object.keys(QUESTS).filter(id=>QUESTS[id].main).sort((a,b)=>QUESTS[a].day-QUESTS[b].day),sides=Object.keys(QUESTS).filter(id=>!QUESTS[id].main);
-  return `<h1>Quests</h1><p>The game runs over the 30 days of September. It opens on day 0 (22 August, at CIA Headquarters) with the CIA's game intro; over the first week each of the seven main factions is introduced on its own day, and from then on two factions (or more) have quests on most mornings, and every fourth evening George at Langley has a job for the CIA. Three days belong to the whole island: Event 1 on day 14, the volcano on day 21 and the finale on day 30. The intro quests made so far are named in the schedule; <a href="#made">the quests in the game so far</a> are described below it.</p>
-<p>There are two kinds of quest. A <b>main quest</b> belongs to a day: its giver offers it that morning (a gold star), you can take on only one main quest a day, and you can't sit and wait for the evening until it's done. A <b>side quest</b> (a silver star, or given to you during another quest) can be taken on and done at any time. Chuck offers his on the morning video call, on the big screen in the Hidden Radio Room; George, at Langley, takes the evening calls.</p>
-<div class="qtable"><table class="sched"><thead><tr><th>Week</th><th>Day</th><th></th>${head}</tr></thead><tbody>${rows}</tbody></table></div>
+  return `<h1>Quests</h1><p>The game runs over the 30 days of September. It opens on day 0 (22 August, at CIA Headquarters) with the CIA's game intro; over the first week each of the seven main factions is introduced on its own day, and from then on two factions (or more) have quests on most mornings, and from the second week, every three or four evenings, George at Langley has a job for the CIA. Three days belong to the whole island: Event 1 on day 14, the volcano on day 21 and the finale on day 30. The intro quests made so far are named in the schedule; <a href="#made">the quests in the game so far</a> are described below it.</p>
+<p>There are two kinds of quest. A <b>main quest</b> belongs to a day: its giver offers it that morning (a gold star), you can take on only one main quest a day, and you can't sit and wait for the evening until it's done. A <b>side quest</b> (a silver star, or given to you during another quest) can be taken on and done at any time. Chuck offers his on the morning video call, on the big screen in the Hidden Radio Room; George, at Langley, takes the evening calls. The side quests are listed on the day they can first be had.</p>
+<div class="qtable"><table class="sched"><thead><tr><th>Week</th><th>Day</th><th></th>${head}<th>Side quests</th></tr></thead><tbody>${rows}</tbody></table></div>
 <h2>By faction</h2><table class="sched sum"><thead><tr><th>Faction</th><th>Intro</th><th>Quest days</th><th>Quests</th></tr></thead><tbody>${sum}</tbody></table>
 <h2 id="made">The quests in the game so far</h2><h3>Main quests</h3>${mains.map((id,i)=>(i&&QUESTS[mains[i-1]].day==QUESTS[id].day?'':`<h4>${esc(qDate(QUESTS[id].day))}</h4>`)+questBlock(c,id)).join('')}
 <h3>Side quests</h3>${sides.map(id=>questBlock(c,id)).join('')}`}
@@ -266,7 +271,9 @@ function mapView(c){const ov=svg.replace(/href="\.\.\/wiki\/locations\/(\w+)\.ht
     Object.keys(POS).map(id=>`<div class="plan" data-plan="${id}" hidden><div class="planbar"><button type="button" class="back">← Island map</button><b>${esc(L[id][0])}</b><a href="${href(c,'locations',id)}">About this place →</a></div>${plan(c,id)}</div>`).join('')+'</div>'}
 function homeBody(c){return `<h1>Sarivalto Wiki</h1><p>${esc(NOTES.about)}</p>${mapView(c)}
 <ul class="cols"><li><b>${Object.keys(L).filter(i=>POS[i]).length}</b> places and <b>${Object.keys(L).filter(i=>!POS[i]).length}</b> building interiors: <a href="${lst(c,'locations')}">all locations</a></li><li><b>${Object.keys(FACTIONS).length-GROUPS.length}</b> <a href="${lst(c,'factions')}">factions</a> and <b>${GROUPS.length}</b> groups</li><li><b>${NPCS.length}</b> <a href="${lst(c,'npcs')}">people</a></li></ul>`}
-const CSS=`/* the Quests table: each day a morning row and a lighter evening row */
+const CSS=`/* a side quest in the Quests table: a silver-outlined chip */
+.sched .qs{display:inline-block;margin:1px 0;padding:1px 6px;border:1px solid #9aa6b4;border-radius:10px;font-size:.85em;white-space:nowrap}
+/* the Quests table: each day a morning row and a lighter evening row */
 .sched td.tod{font-size:.8em;opacity:.75;white-space:nowrap}.sched tr.eve td{border-top-style:dotted}
 /* the Quests page: a card per quest */
 .qcard{border:1px solid #c8d2dc;border-radius:6px;padding:8px 12px;margin:8px 0 14px}.qcard h3{margin:2px 0 6px}.qcard h3 small{font-weight:normal;opacity:.7;font-size:.75em;margin-left:6px}.qcard ol{margin:6px 0 2px 1.2em;padding:0}.qcard small{opacity:.75}

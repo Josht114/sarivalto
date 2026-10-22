@@ -70,7 +70,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     <div class="inv"><div class="slots" role="listbox" aria-label="Items">${slots}</div><div class="item">${d?`<div class="ihead"><img src="${itemIcon(it.id)}" alt=""><h3>${esc(d.name)}${it.n>1?' &times;'+it.n:''}${ME.equipped==it.id?' <small class="eqd">Equipped</small>':''}</h3></div>
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
   if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>${Q.main?'Main quest':'Side quest'}, from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
-      `<ul class="qconds">${Q.done.map((c,i)=>`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
+      `<ul class="qconds">${Q.done.map((c,i)=>c.if&&q.choice!=c.if?'':`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
     const on=ME.quests.filter(q=>!q.done),off=ME.quests.filter(q=>q.done);
     body=(on.length?`<h3>Active</h3><ul class="quests">${on.map(li).join('')}</ul>`:'<p>No active quests.</p>')+(off.length?`<h3>Completed</h3><ul class="quests">${off.map(li).join('')}</ul>`:'')}
   if(START=='map'){// you are marked at your place on the island map (indoors, at the place the building is in)
@@ -193,10 +193,10 @@ function renderTracker(){const rank=MAIN_FACTIONS.slice().sort((a,b)=>FP.pts[b]-
   startEl.querySelector('.close').onclick=closeStart}
 // the computer in your home: the bank of screens labelled Computer, on the tile you're facing
 const computerAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Computer'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
-// the test tools beside Jump to: add or take away 10 points for a faction, or move on a day
+// the test tools beside Jump to: add or take away 1 point for a faction, or move on a day
 const tfac=document.getElementById('tfac');tfac.innerHTML=MAIN_FACTIONS.map(f=>`<option value="${f}">${FACTIONS[f][0]}</option>`).join('');
-document.getElementById('tplus').onclick=e=>{addPoints(tfac.value,10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
-document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-10);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
+document.getElementById('tplus').onclick=e=>{addPoints(tfac.value,1);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
+document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-1);say(FACTIONS[tfac.value][0]+': '+FP.pts[tfac.value]+' points.');e.target.blur()};
 // moving to another day: the calendar on the wall and anything showing the date are drawn again
 function setDay(d){const was=DAY;DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAYS,d));for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dayjump.value=DAY;BLOCKS.clear();
   // (from 22 August into the month you arrive on the island, at home; back to 22 August, you are at Langley again)
@@ -354,7 +354,7 @@ function pass(change,msg){BUSY=true;stack=[];fadeEl.style.opacity=1;setTimeout((
 // sitting and waiting takes you from day to night; sleeping in your bed takes you from night to the next morning
 function sitDown(){if(NIGHT){say('It is already night. Go home and get some sleep.',4000);return}
   // (not until today's main quest is done)
-  const due=mainDue();if(due){say(due=='offer'?"You can't call it a day yet: there's a main quest for you today. Look for the gold star.":"You can't call it a day yet: finish today's main quest first ("+QUESTS[due.id].title+').',5000);return}
+  const due=mainDue();if(due){say(due=='offer'?(phoneRinging()?"You can't call it a day yet: the telephone in your room is ringing.":"You can't call it a day yet: there's a main quest for you today. Look for the gold star."):"You can't call it a day yet: finish today's main quest first ("+QUESTS[due.id].title+').',5000);return}
   choose('Sit and wait for the evening?',[['Sit and wait until night',()=>pass(()=>{setNight(true);needsPass(20,30,60)},()=>'You sit and wait. The day goes by, and night falls.')],['Not now']])}
 // a map on the wall (an interior's back-wall decoration 'map', in your home and elsewhere): facing up at it, from the floor below
 // it or with furniture in between, and pressing E opens the island map
@@ -381,19 +381,35 @@ const questPlaces=()=>{const at={};for(const n of NPCS){const id=n.m&&offerOf(n)
 const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id],cs=Q.done.map((c,i)=>[q,i,c]).filter(([,i])=>!q.met[i]);
   return Q.seq?cs.slice(0,1).filter(([q,i,c])=>!c.days||DAY>=(q.when?.[i-1]??DAY)+c.days):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
 // meeting a condition; with all of them met, the quest is done (and if what's left is a last step, or the next in order, it says so)
-function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet&&Q.done.every((_,k)=>q.met[k]))setTimeout(applyRoutine,0);(q.when??=[])[i]=DAY;
+function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet)setTimeout(applyRoutine,0);
+  const C=Q.done[i];if(C.points)for(const f in C.points)addPoints(f,C.points[f]);if(C.flag)(q.flags??={})[C.flag]=true;(q.when??=[])[i]=DAY;
   const gv=[Q.done[i].gives||[]].flat().filter(id=>!qOf(id));gv.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
   const gift=Q.done[i].gift;if(gift){const mine=has(gift);if(mine)mine.n++;else ME.items.push({id:gift,n:1})}
   const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave,quiet?4000:7000)}
   else{const said=Q.done[i].said,left=Q.done.filter((_,k)=>!q.met[k]),next=!said&&(Q.seq||left.every(c=>c.last))?' Next: '+left[0].what.replace(/^./,c=>c.toLowerCase())+'.':'';
     say((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next+gave,said||next||gave?12000:4000)}}
 // something happening in the game (a tattoo, say) meets the conditions waiting for it
+// a choice made in a quest's conversation: the conditions of the other choices fall away
+function questChoice(id,ch){const q=qOf(id);if(!q)return;q.choice=ch;QUESTS[id].done.forEach((c,i)=>{if(c.if)q.met[i]=c.if!=ch});applyRoutine()}
+// something a quest of yours has you look at (looks), in the tile you're facing
+const lookAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;for(const q of ME.quests){if(q.done)continue;for(const L of QUESTS[q.id].looks||[]){const s=L.spot;
+  if(s.m==P.m&&s.x==x&&(Array.isArray(s.y)?y>=s.y[0]&&y<=s.y[1]:y==s.y)&&q.choice!=L.not&&!q.flags?.cleaned&&(L.day==null||L.day==DAY))return[q,L]}}return null};
+// facing a spot a quest needs you to act at
+const spotAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.spot&&c.spot.m==P.m&&c.spot.x==x&&(Array.isArray(c.spot.y)?y>=c.spot.y[0]&&y<=c.spot.y[1]:c.spot.y==y))};
 function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev){const n=((q.cnt??={})[i]||0)+1;q.cnt[i]=n;
   if(n>=(c.count||1))meet(q,i);else say(QUESTS[q.id].title+': '+n+' of '+c.count+'.',2500)}}
 // what's arrived this morning for a condition that had to wait (said when the day begins)
-// (a quest that comes by telephone, ring, rings on the morning of its day and is yours; someone it has waiting somewhere goes there)
-function morningCalls(){if(NIGHT)return'';const rung=Object.keys(QUESTS).filter(id=>QUESTS[id].ring&&QUESTS[id].day==DAY&&!qOf(id));rung.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
-  if(rung.length)applyRoutine();return rung.map(id=>' '+QUESTS[id].ring+' New main quest: '+QUESTS[id].title+'.').join('')}
+// ---- The telephone in your room (the Hidden Radio Room): a quest that comes by telephone (ring) rings on the morning of its day,
+// and stays ringing until you answer it (face it and press E); the caller speaks in the conversation panel, and the quest is yours.
+// Someone it has waiting somewhere goes there then.
+const phoneRinging=()=>NIGHT||DAY<1?null:Object.keys(QUESTS).find(id=>QUESTS[id].ring&&QUESTS[id].day==DAY&&!qOf(id));
+const phoneAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Telephone'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+// a caller who doesn't give a name
+const STRANGER={name:'Unknown caller',job:'On the telephone',faction:'none',gender:'male',body:'#2a2a33',hair:'#222222'};
+function answerPhone(){const id=phoneRinging();if(!id){say('The telephone is quiet.',2500);return}const Q=QUESTS[id],n=NPCS.find(p=>p.name==Q.caller)||STRANGER;
+  converse(n,{start:'a',nodes:{a:{say:Q.ring}},onEnd:()=>{if(qOf(id))return;ME.quests.push({id,met:[],done:false,took:DAY});applyRoutine();say((Q.caller?'':'The line goes dead. ')+'New main quest: '+Q.title+'.',5000)}});cvEl.classList.add('phone')}
+// (said as the morning begins)
+function morningCalls(){return phoneRinging()?' The telephone '+(P.m==HOME?'in your room':'back in your room')+' is ringing.':''}
 const arrivals=()=>morningCalls()+openConds().filter(([q,i,c])=>c.arrives&&q.when?.[i-1]!=null&&DAY==q.when[i-1]+(c.days||0)).map(([,,c])=>' '+c.arrives).join('');
 // ---- The video call: the big screen in your home links to Langley: to Chuck by day, and in the evening to George, who handles the
 // jobs that are done after dark. When the one on the line has a quest for you, or is waiting to hear about one, you can call them;
@@ -412,6 +428,11 @@ const useAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds()
 // offered a new one. Returns the conversation, or nothing if they have no quest business with you.
 const unquote=t=>t.replace(/^"|"$/g,'');
 function questTalk(n){
+  // bringing them everything a condition asks for: hand it all over, or be told what's still missing
+  const br=openConds().find(([,,c])=>c.bring&&c.to==n.name);if(br){const[q,i,c]=br,miss=c.bring.filter(id=>!has(id));
+    const alt=c.alt&&(!c.alt.need||q.flags?.[c.alt.need])?[[c.alt.label,'alt',()=>questChoice(q.id,c.alt.choice)]]:[],altNode={say:c.alt?.say||''};
+    if(miss.length)return{start:'a',nodes:{a:{say:'Still need: '+miss.map(id=>ITEMS[id].name.toLowerCase()).join(', ')+'.',opts:alt.length?[['All right.',null],...alt]:undefined},alt:altNode}};
+    return{start:'a',nodes:{a:{say:'Got everything?',opts:[['Hand over the '+c.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '),'ok',()=>{c.bring.forEach(id=>take(id));meet(q,i,true)}],...alt,['Not yet',null]]},ok:{say:c.said||'Thanks.'},alt:altNode}}}
   // a tour: pay for it (from CIA funds) and it's yours; the quest moves on once it's over, if you paid
   const tr=openConds().find(([,,c])=>c.tour==n.name);if(tr){const[q,i,c]=tr;let paid=false;
     const a={...c.chat.nodes.a,opts:ME.cia>=c.price?[['Pay $'+c.price+' for the tour (CIA funds)','b',()=>{ME.cia-=c.price;paid=true}],['Not now',null]]:[["Not now (you don't have $"+c.price+')',null]]};
@@ -428,7 +449,8 @@ function questTalk(n){
 // talking to someone: their quest business first, then their own conversation (CONVOS), a shopkeeper's welcome, or a line about
 // themselves; all of it in the conversation panel
 function talk(n){n.dir=P.dir^1;
-  const c=questTalk(n)||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],...(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk)?[['Sell my catch',null,sellCatch]]:[]),['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
+  const af=aftermaths().find(a=>a.name==n.name&&a.say);
+  const c=questTalk(n)||(af&&{start:'a',nodes:{a:{say:af.say}}})||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],...(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk)?[['Sell my catch',null,sellCatch]]:[]),['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
   converse(n,c)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
@@ -445,6 +467,9 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
   const u=useAhead();if(u){meet(u[0],u[1]);return}
+  const sp=spotAhead();if(sp){meet(sp[0],sp[1]);return}
+  const lk=lookAhead();if(lk){(lk[0].flags??={})[lk[1].flag]=true;say(lk[1].say,9000);return}
+  if(phoneAhead()){answerPhone();return}
   if(screenAhead()){videoCall();return}
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
@@ -480,13 +505,13 @@ function converse(n,c=CONVOS[n.name]){CONVO={n,c,at:c.start,sel:0};stack=[];MSG=
   // a small badge in the faction's colour with its short name (and the faction's full name on hover)
   const F=FACTIONS[n.faction];cvEl.querySelector('.fac').innerHTML=F?`<i style="background:${F[1]}" title="${esc(F[0])}">${esc(F[2])}</i> ${esc(F[0])}`:'<i class="none" title="Unaligned">&ndash;</i> Unaligned';
   cvEl.hidden=false;renderConvo()}
-const replies=()=>CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]];
+const replies=()=>(CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]]).filter(o=>!o[3]||o[3]());
 function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
   cvEl.querySelector('.said').innerHTML=`<b>${esc(CONVO.n.name)}</b><p>"${esc(nd.say)}"</p>`;
   cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
   cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
 function reply(i){const o=replies()[i];if(!o)return;if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}
-function endConvo(){const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call');f?.()}
+function endConvo(){const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call','phone');f?.()}
 addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==1?e.key.toLowerCase():e.key,n=replies().length;
   if(k=='ArrowDown'||k=='s')CONVO.sel=(CONVO.sel+1)%n;else if(k=='ArrowUp'||k=='w')CONVO.sel=(CONVO.sel+n-1)%n;
   else if(/^[1-9]$/.test(k)&&+k<=n)reply(+k-1);else if(k=='e'||k==' '||k=='Enter')reply(CONVO.sel);else if(k=='Escape')endConvo();else return;
@@ -500,6 +525,9 @@ document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefau
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
   if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
+  if(spotAhead()&&!P.mv)return'Press E to '+spotAhead()[2].what.replace(/^./,c=>c.toLowerCase());
+  if(lookAhead()&&!P.mv)return'Press E to '+lookAhead()[1].what.replace(/^./,c=>c.toLowerCase());
+  if(phoneAhead()&&!P.mv)return phoneRinging()?'Press E to answer the telephone':'The telephone';
   if(screenAhead()&&!P.mv)return chuckCalling()?`Press E to answer ${CALLER().name}'s call`:`Press E to call Langley (${CALLER().name})`;
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
@@ -555,9 +583,13 @@ function draw(t){
 // exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
+const aftermaths=()=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>q.flags?.[a.flag]));
 function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork));
   // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
-  for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}}
+  // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first)
+  NPCS.forEach(n=>{if(n._hat0!==undefined){n.hat=n._hat0;delete n._hat0}});
+  for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){if(w.after!=null&&!q.met[w.after]||w.if&&q.choice!=w.if)continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
+  for(const a of aftermaths()){const n=NPCS.find(p=>p.name==a.name);if(!n)continue;Object.assign(n,{m:a.m,x:a.x,y:a.y,dir:a.dir});if(a.hat){n._hat0=n.hat??null;n.hat=a.hat}}}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));

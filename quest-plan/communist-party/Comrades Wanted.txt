@@ -3,6 +3,7 @@ Faction: Communist Party
 Day: 19 (morning)
 Linked with: None
 From the plan: Recruit members
+
 Plan:
 Anna wants new blood for the Party: go
 round Saltwick and the docks and sign up

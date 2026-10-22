@@ -3,6 +3,7 @@ Faction: Royal Family
 Day: 19 (morning)
 Linked with: None
 From the plan: Undercover jazz visit
+
 Plan:
 Prince Leopold wants a night out at The
 Midnight Note without anyone knowing it's

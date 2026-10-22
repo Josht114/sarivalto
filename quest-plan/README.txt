@@ -6,7 +6,8 @@ is on the wiki's quest table (except the
 flagged one, below): a faction's quests
 are main quests, in the morning, on one of
 its quest days; George's CIA quests are in
-the evening, every fourth day.
+the evening, every three or four days from
+the second week.
 
 Communist Party:
   Comrades Wanted (day 19, morning)
@@ -71,13 +72,20 @@ Democratic Party:
   morning)
 
 CIA:
-  Last Tram to Nowhere (day 12, evening)
-  Bridge Out (day 24, evening)
+  Last Tram to Nowhere (day 15, evening)
+  Bridge Out (day 25, evening)
   A Royal Accident (day 28, evening)
-  Dry Well (day 20, evening)
-  Lights Out (day 4, evening)
-  Tinderbox (day 16, evening)
-  Flat Cola (day 8, evening)
+  Dry Well (day 22, evening)
+  Lights Out (day 8, evening)
+  Tinderbox (day 18, evening)
+  Flat Cola (day 11, evening)
+
+Side quests (in the game, in side-quests):
+  The Kelp Cola Tour (day 3)
+  Hold the Front Page (day 4)
+  Jonna's First Customer (day 4)
+  Beans for Maya (day 4)
+  Pizza for Buttons (day 7)
 
 Flagged:
   New Formula (Kelp Cola) is on day 11,

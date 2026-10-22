@@ -3,9 +3,42 @@ Faction: Diversified Petroleum
 Day: 8 (morning)
 Linked with: None
 From the plan: Deal with an oil spill
+Status: In the game
+
 Plan:
-Oil is washing up on the beaches, and
-Diversified Petroleum wants it cleaned up
-before anyone blames them.
-Clean up the spill, and decide what to
-tell the newspaper.
+Dario telephones in the morning: he needs
+your help, and you're to come to his
+office at the HQ.
+He tells you a valve has burst at the oil
+rig and the sea round it is covered in
+oil. On this day the rig's map shows it:
+black water with an oily sheen, and oil
+splashed over the west of the deck.
+Fetch two rig workers, Lars from the crew
+quarters and Einar from the deck, and meet
+them at the slick by the west rail.
+Then choose. At first the only plan is the
+pump; looking at the work lamp on the west
+rail gives you the idea of setting the
+slick alight, and from then on you can
+send the workers away for buckets, even
+after you have told them to build the
+pump.
+Clean it up: the workers suggest building
+a pump. Bring Einar a hose from the
+fishing shop in Kingsgrad, a motor from
+the electronics store in Frostholm and a
+boom of floats from Harbour Outfitters in
+Saltwick. The pump clears the sea.
+Diversified Petroleum +1.
+Set it on fire: once you have had the
+idea, send the workers off to the quarters
+for buckets, then knock the work lamp into
+the slick so it looks like an accident.
+The sea burns, and the west of the deck
+stays scorched from then on. Einar,
+running back with his bucket, is caught by
+the flames: for the rest of the game he
+lies bandaged at the doctor's office in
+Kingsgrad. Diversified Petroleum -1.
+Either way, tell Dario what happened.
