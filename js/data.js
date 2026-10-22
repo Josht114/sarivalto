@@ -1293,7 +1293,7 @@ const QUEST_EVENTS={0:['Game intro','cia'],14:['Event 1'],21:['Volcano'],30:['Fi
 // the quests that have a title so far, by day and faction (the rest are just "Quest"): the ones from the quest plan (quest-plan/, a folder
 // for each faction), and the day-29 quests. A faction's quests are main quests, in the morning
 const QUEST_TITLES={8:{oil:'Black Tide',church:'Sunday Sermon'},
-9:{democrat:"Fair Day's Pay"},
+9:{cola:'New Formula',democrat:"Fair Day's Pay"},
 10:{royal:"The King's Funeral",syndicate:'Special Delivery'},
 11:{communist:"The People's Cola",church:'Alms for the Poor'},
 12:{oil:'Creative Accounting',democrat:'A Record for Ruby'},
@@ -1310,7 +1310,7 @@ const QUEST_TITLES={8:{oil:'Black Tide',church:'Sunday Sermon'},
 25:{royal:'A Crown for Everyone',democrat:'A Princess for Democracy'},
 26:{cola:'A Prince in Every Bottle',oil:'Dario Buys the Spa'},
 27:{communist:'Revolution at the Pictures',syndicate:'High Stakes'},
-28:{communist:'Red Flag Over Kingsgrad',royal:'The State Visit',cola:'Kelp Cola Goes Abroad',oil:'The Office Party',church:'The Herbal Rite'},
+28:{communist:'Red Flag Over Kingsgrad',royal:'The State Visit',cola:'Kelp Cola Goes Abroad',oil:'The Office Party',church:'The Herbal Rite',democrat:'The Big Rally'},
 29:{cola:'Republican primary',oil:'Republican primary',syndicate:'Republican primary',royal:'Line of succession',church:'Line of succession',communist:'Friendly rivalry',democrat:'Friendly rivalry'}};
 // the evening quests: George's jobs for the CIA, every three or four days from the second week (his are always in the evening; none in
 // the first week, nor on the island-wide days)

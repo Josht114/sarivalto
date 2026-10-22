@@ -1,9 +1,9 @@
 Quest: New Formula
 Faction: Kelp Cola
-Day: 11, morning (FLAGGED: not one of Kelp
-Cola's quest days)
+Day: 9 (morning)
 Linked with: The People's Cola (Communist
-Party), on the same day
+Party), on day 11: the Party answers Kelp
+Cola's new flavour with a cola of its own
 From the plan: Make a new cola
 
 Plan:

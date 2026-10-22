@@ -2,12 +2,11 @@ Quest plan
 
 A folder for each faction, and a text file
 for each quest planned for it. Every quest
-is on the wiki's quest table (except the
-flagged one, below): a faction's quests
-are main quests, in the morning, on one of
-its quest days; George's CIA quests are in
-the evening, every three or four days from
-the second week.
+is on the wiki's quest table: a faction's
+quests are main quests, in the morning, on
+one of its quest days; George's CIA quests
+are in the evening, every three or four
+days from the second week.
 
 Communist Party:
   Comrades Wanted (day 19, morning)
@@ -32,7 +31,7 @@ Royal Family:
 Kelp Cola:
   Free Samples! (day 13, morning)
   Trouble at the Farm (day 22, morning)
-  New Formula (day 11, morning)
+  New Formula (day 9, morning)
   Inside Kelpy (day 18, morning)
   A Prince in Every Bottle (day 26,
   morning)
@@ -70,6 +69,7 @@ Democratic Party:
   morning)
   A Princess for Democracy (day 25,
   morning)
+  The Big Rally (day 28, morning)
 
 CIA:
   Last Tram to Nowhere (day 15, evening)
@@ -86,8 +86,3 @@ Side quests (in the game, in side-quests):
   Jonna's First Customer (day 4)
   Beans for Maya (day 4)
   Pizza for Buttons (day 7)
-
-Flagged:
-  New Formula (Kelp Cola) is on day 11,
-  but day 11 is not one of Kelp Cola's
-  quest days (9, 13, 18, 22, 26, 28, 29)
