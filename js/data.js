@@ -226,8 +226,10 @@ oldbarn_in:['Old Barn',18,10,'interior',[[2,2,5,2,'x','Grow Bed'],[11,2,5,2,'x',
 // the drill floor inside the oil rig's drill tower: steel plating slick with oil, the rotary table with the drill pipe going down
 // through it, a mud pump, the drawworks winch, a generator, the driller's console and a pipe rack
 derrick_in:['Drill Floor',16,10,'interior',[[1,1,3,2,'y','Pipe Rack'],[5,1,3,1,'y',"Driller's Console"],[11,1,4,2,'x','Drawworks'],[6,3,3,3,'x','Rotary Table'],[1,5,3,3,'x','Mud Pump'],[12,5,3,2,'x','Generator']]],
+// the lamp room at the top of the lighthouse: the great lamp in its glass lens, windows all round, and the spiral stair down
+lighthouse_top:['Lamp Room',10,9,'interior',[[3,1,4,4,'x','Great Lamp'],[7,6,2,2,'z','Spiral Stair down'],[1,6,2,1,'y','Lamp Oil']]],
 // the lighthouse keeper's room at the foot of the tower: the spiral stair up to the lamp, a bed, a table, a stove, tide charts and lamp oil
-lighthouse_in:['Lighthouse',10,9,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Lamp Oil'],[7,1,2,2,'y','Spiral Stair'],[3,4,2,2,'u','Table'],[8,5,1,1,'i','Stove'],[1,6,2,1,'y','Tide Charts']]],
+lighthouse_in:['Lighthouse',10,9,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Lamp Oil'],[7,1,2,2,'z','Spiral Stair up'],[3,4,2,2,'u','Table'],[8,5,1,1,'i','Stove'],[1,6,2,1,'y','Tide Charts']]],
 // Phil's office, the second floor of Kelp Cola's headquarters: a panelled room with his executive desk, a bookcase, a drinks cabinet,
 // a trophy shelf of the company's awards and a table for guests
 kchq2:["Phil's Office",16,10,'interior',[[1,1,4,1,'y','Bookcase'],[10,1,4,1,'y','Bottles'],[5,3,5,2,'u','Executive Desk'],[2,6,2,2,'u','Table'],[10,6,4,1,'y','Trophy Shelf'],[14,3,1,1,'z','Stairs down']]],
@@ -301,7 +303,7 @@ radio:['Radio Tower',18,14,'snow',[[7,2,4,4,'#','Radio Tower','mast'],[2,3,4,3,'
 kalanharbour:['North Frostholm Harbour',24,14,'harbour',[[1,1,22,6,'~'],[4,3,12,4,'p'],[17,3,4,2,'b','Fishing Boat'],[3,8,5,3,'#','Fuel Dock','fueldock'],[5,10,1,1,'d'],[16,8,5,3,'#','Port Office','portoffice'],[18,10,1,1,'d']]],
 // Eastbrook Harbour: the quay on the west, a long pier out to the boat berths, a jetty with fishing boats, and a lighthouse on a
 // rocky spit to the north-east, at the end of the pier
-savilaharbour:['Eastbrook Harbour',36,20,'harbour',[[18,1,17,18,'~'],[28,1,6,7,'.'],[14,8,18,4,'p'],[18,13,7,1,'p'],[21,3,4,2,'b','Fishing Boat'],[21,14,4,2,'b','Fishing Boat'],[27,15,4,2,'b','Fishing Boat'],[2,2,6,3,'#','Customs Shed','customs'],[5,4,1,1,'d'],[2,14,6,3,'#','Warehouse','ebwhs'],[3,16,1,1,'d'],[30,3,3,4,'#','Lighthouse','lighthouse'],[31,6,1,1,'d']]]};
+savilaharbour:['Eastbrook Harbour',36,20,'harbour',[[18,1,17,18,'~'],[28,1,6,7,'.'],[14,8,18,4,'p'],[18,13,7,1,'p'],[21,3,4,2,'b','Fishing Boat'],[21,14,4,2,'b',"Signe's Boat"],[27,15,4,2,'b','Fishing Boat'],[2,2,6,3,'#','Customs Shed','customs'],[5,4,1,1,'d'],[2,14,6,3,'#','Warehouse','ebwhs'],[3,16,1,1,'d'],[30,3,3,4,'#','Lighthouse','lighthouse'],[31,6,1,1,'d']]]};
 // Links from the sketch: "A side B side". Order of links sets the order of exits along a side.
 const LINKS=['oilrig R oilhq L','oilhq R fishing L','fishing B north T','volcano R mountains L','lake R north L','lake B beach R','north R town L','west R town L',
 'mountains B east T','mountains R monastery L','east L town R','east R farm L','palace B town T','town R colahq L','colahq R tramstop L',
@@ -583,6 +585,7 @@ eq_radio:{name:'Radio set',desc:'Your radio set. Put it down at home.',actions:[
 eq_phone:{name:'Telephone',desc:'Your telephone, for the calls that come in the morning. Put it down at home.',actions:['Place']},
 eq_computer:{name:'Computer',desc:'Your computer, with the Faction Tracker on it. Put it down at home.',actions:['Place']},
 eq_wardrobe:{name:'Wardrobe',desc:'Your wardrobe, with all your clothes in it. Put it down at home.',actions:['Place']},
+drill:{name:'Hand drill',desc:'A carpenter\'s brace and bit, from the supermarket or Harbour Outfitters. It goes through ship\'s planking like butter.',actions:['Look at']},
 hose:{name:'Hose',desc:'A good long rubber hose, from the fishing shop in Kingsgrad.',actions:['Look at']},
 motor:{name:'Small motor',desc:'A little electric motor, from the electronics store in Frostholm. It would drive a pump.',actions:['Look at']},
 floats:{name:'Boom of floats',desc:'A long line of cork floats, from Harbour Outfitters in Saltwick, for holding something in on the water.',actions:['Look at']},
@@ -717,11 +720,11 @@ Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['
 Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10],['motor',2,30]]},
 Jack:{stock:[['fishrod',3,30],['flashlight',2,10],['hose',3,8]]},
 Olga:{stock:[['smokedfish',12,4]]},
-Helmi:{stock:[['floats',3,12],['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
+Helmi:{stock:[['floats',3,12],['drill',2,35],['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
 Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
 Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
 Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
-Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2]]},
+Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2],['drill',2,35]]},
 Ruby:{stock:[['record',12,9]]},
 Ville:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Hannu:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
@@ -750,6 +753,9 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
+// evening: offered on its day once night has fallen (George's jobs), not in the morning. A spot condition can need an item in
+// your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
+// makes if its conversation didn't make one.
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
 // call (the big screen in your home), not in person.
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
@@ -1047,6 +1053,34 @@ blacktide:{title:'Black Tide',giver:'Dario',main:true,day:8,seq:true,choices:{pu
     {if:'pump',talk:'Dario',what:'Tell Dario the spill is cleaned up',chat:{start:'a',nodes:{
       a:{say:"Clean. Not a drop on the water. The newspaper's got nothing, and the Communists have got nothing. You've done me a favour, journalist, and I remember favours."}}}}],
   thanks:'Dario will remember this.'},
+// Lights Out: George's first job after dark (the evening of day 8). Get Signe out of the lighthouse (talk her into a drink at the
+// Timberline Tavern, or, if that fails, drill a hole in her boat and tell her it's sinking), climb to the lamp room and smash the
+// lamp. It stays smashed for the rest of the game: the lighthouse is dark from then on.
+lightsout:{title:'Lights Out',giver:'George',day:8,evening:true,call:true,seq:true,choices:{drink:'take Signe for a drink',boat:'sink her boat'},
+  text:'George wants the lighthouse at Eastbrook Harbour dark tonight. Get Signe, the keeper, out of the lighthouse, climb to the lamp room and smash the lamp.',
+  offer:"NIGHTJAR. George. I've a job for you, and it has to be tonight. A boat's coming into Eastbrook after dark with something for us, and it can't come in under that lighthouse. I want the light out. The keeper, Signe, never leaves the tower. Get her out of there, go up to the lamp room, and smash the lamp. Make it look like hooligans.",
+  accept:"Good. How you shift her is your business. Just don't hurt her.",wait:"Is that light still burning? Get Signe out of the tower and smash the lamp. Tonight.",
+  meet:[{name:'Signe',m:'tavern',x:11,y:8,dir:1,after:0,if:'drink'},{name:'Signe',m:'savilaharbour',x:23,y:13,dir:0,after:2,if:'boat'}],
+  aftermath:[{flag:'smashed',name:'Signe',say:"Somebody smashed my lamp. Twenty years I kept it, and not a ship lost on these rocks. That lens came from Paris before the war; there isn't another like it, and the harbour board says there's no money for a new one. So the light's out for good. Ships will have to find their own way in now."}],
+  done:[
+    {talk:'Signe',orChoice:'boat',what:'Get Signe out of the lighthouse: talk her into a night off, in the keeper\'s room at the foot of the tower',chat:{start:'a',nodes:{
+      a:{say:"Evening. Nobody climbs out here at this hour without a reason. What is it?",opts:[['You look like you could use a night off.','b'],["I'd like to see the lamp.",'x',()=>questChoice('lightsout','boat')],['Just passing. Lovely view.','y',()=>questChoice('lightsout','boat')]]},
+      b:{say:"A night off? Twenty years I've kept this light, and not a ship lost. The lamp doesn't mind itself.",opts:[["Once it's lit, it burns till dawn on its own, doesn't it?",'c'],['What if a ship goes down tonight?','x',()=>questChoice('lightsout','boat')]]},
+      c:{say:"...Well, yes. Fill it, light it, and it'll burn till morning. I only sit up here for the company of it.",opts:[["Then come and have some proper company. The Timberline Tavern; I'm buying.",'d',()=>questChoice('lightsout','drink')],['Fair enough. Goodnight.','y',()=>questChoice('lightsout','boat')]]},
+      d:{say:"Oh, go on then. One drink. Just the one, mind. Let me find my coat. (Signe locks nothing behind her: she heads off to the Timberline Tavern.)"},
+      x:{say:"That lamp's not for gawping at, and I'm not one for questions. I think you'd better go."},
+      y:{say:"Mm. Goodnight, then. Mind the rocks on your way down. (Signe isn't going anywhere. If talking won't shift her, something else will have to: her boat's moored at the jetty.)"}}}},
+    {if:'boat',spot:{m:'savilaharbour',x:[21,24],y:14},item:'drill',what:"Drill a hole in Signe's boat, moored at the jetty (a hand drill: the supermarket, open late, or Harbour Outfitters in Saltwick by day)",
+      lacks:"You'd need a drill to put a hole in her boat. The supermarket sells them, and it's open late; so does Harbour Outfitters in Saltwick, by day.",
+      said:"You kneel on the jetty and drill through the planks below the waterline. The sea starts to bubble in. Now tell Signe."},
+    {if:'boat',talk:'Signe',what:'Tell Signe her boat is sinking',chat:{start:'a',nodes:{
+      a:{say:"You again? I've told you: I'm not leaving my lamp.",opts:[["Your boat! It's sinking, down at the jetty!",'b']]},
+      b:{say:"My boat? Oh, no. No, no, no. Out of my way! (Signe grabs a bucket and runs for the jetty, leaving the lighthouse to you.)"}}}},
+    {use:'Great Lamp',m:'lighthouse_top',what:'Climb the spiral stair to the lamp room and smash the lamp',flag:'smashed',
+      said:"You take a swing at the great lamp. The prisms shatter, the flame gutters and dies, and glass rains down the spiral stair. Out at sea, Eastbrook Harbour has gone dark. Report to George on the big screen."},
+    {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
+      a:{say:"The light's out. Our boat came in without a soul seeing it. Nice work, NIGHTJAR. Nobody needs to know who swung the hammer, and nobody's going to replace that lens in a hurry."}}}}],
+  thanks:'The lighthouse at Eastbrook Harbour is dark, and will stay that way.'},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
@@ -1091,7 +1125,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',9,27,0,1,'house_frank'],['town',14,27,0,1,'house_lisa'],['town',19,27,0,1,'house_eddie'],['town',23,27,0,1,'house_grace'],['town',31,6,0,1,'cinemain'],
 ['town',39,6,0,1,'estateagent'],['town',45,21,0,1,'furniture_in'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,19,0,1,'spa_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,8,0,1,'apartments3',22,10,0,-1],['skyapts2',22,8,0,1,'skyapts3',22,10,0,-1],['skyapts3',22,8,0,1,'skyapts4',22,10,0,-1],['eblofts2',22,8,0,1,'eblofts3',22,10,0,-1],['eblofts3',22,8,0,1,'eblofts4',22,10,0,-1],['kgapts2',22,8,0,1,'kgapts3',22,10,0,-1],['kgapts3',22,8,0,1,'kgapts4',22,10,0,-1],['hsresid',22,8,0,1,'hsresid2',22,10,0,-1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,10,0,-1],['skyapts',22,8,0,1,'skyapts2',22,10,0,-1],['eblofts',22,8,0,1,'eblofts2',22,10,0,-1],['kgapts',22,8,0,1,'kgapts2',22,10,0,-1],
-['town',11,34,0,1,'pizzeria_in',9,11],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['dphq_in',14,1,0,1,'dphq_office',21,9,0,-1],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
+['town',11,34,0,1,'pizzeria_in',9,11],['lighthouse_in',7,2,0,1,'lighthouse_top',7,6,0,-1],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['dphq_in',14,1,0,1,'dphq_office',21,9,0,-1],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
 ['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);

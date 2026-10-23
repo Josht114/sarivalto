@@ -16,4 +16,8 @@ for(const id in L){const[name,w,h,th,fs]=L[id],[g,b]=TH[th],cx=w>>1,cy=h>>1;NM[i
   EX[id].forEach(e=>G[e.y][e.x]=e.s=='F'?'F':'E');MAPS[id]=G.map(r=>r.join(''))}
 DOORS.forEach(([o,dx,dy,fx,fy,i,ix,iy,iax,iay])=>{const[,w,h]=L[i];ix??=w>>1;iy??=h-1;iax??=0;iay??=-1;
   EX[o].push({x:dx,y:dy,s:'O',to:i,ax:dx+fx,ay:dy+fy});EX[i].push({x:ix,y:iy,s:'O',to:o,ax:ix+iax,ay:iy+iay})});
+// a stair bigger than one tile: only its door tile is walked onto (stairs are one-way); the rest of it is solid, so no one can step
+// onto its far side and find every way off it refused
+for(const id in L)if(L[id][3]=='interior'){const doors=new Set(EX[id].map(e=>e.x+','+e.y));
+  MAPS[id]=MAPS[id].map((row,y)=>[...row].map((c,x)=>c=='z'&&!doors.has(x+','+y)?'x':c).join(''))}
 const inw=e=>e.ax!==undefined?[e.ax,e.ay]:[e.x+(e.s=='L'?1:e.s=='R'?-1:0),e.y+(e.s=='T'?1:e.s=='B'?-1:0)];

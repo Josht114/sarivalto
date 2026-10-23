@@ -371,7 +371,7 @@ const qOf=id=>ME.quests.find(q=>q.id==id);
 // (a main quest only on its own morning, and only if you haven't taken on another main quest that day; a side quest from its
 // first day, once the places it needs are open)
 const mainTaken=()=>ME.quests.find(q=>QUESTS[q.id].main&&q.took==DAY);
-const offerable=id=>{const Q=QUESTS[id];if(qOf(id)||Q.given||Q.ring)return false;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
+const offerable=id=>{const Q=QUESTS[id];if(qOf(id)||Q.given||Q.ring)return false;if(Q.evening)return Q.day==DAY&&NIGHT;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
 const offerOf=n=>Object.keys(QUESTS).filter(id=>QUESTS[id].giver==n.name&&offerable(id)).sort((a,b)=>!!QUESTS[b].main-!!QUESTS[a].main)[0];
 // the main quest standing between you and the evening: today's, taken on and not yet done ('offer' if there is one today you
 // haven't taken on), or nothing
@@ -385,7 +385,7 @@ const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id
   return Q.seq?cs.slice(0,1).filter(([q,i,c])=>!c.days||DAY>=(q.when?.[i-1]??DAY)+c.days):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
 // meeting a condition; with all of them met, the quest is done (and if what's left is a last step, or the next in order, it says so)
 function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet)setTimeout(applyRoutine,0);
-  const C=Q.done[i];if(C.points)for(const f in C.points)addPoints(f,C.points[f]);if(C.flag)(q.flags??={})[C.flag]=true;(q.when??=[])[i]=DAY;
+  const C=Q.done[i];if(C.orChoice&&!q.choice)questChoice(q.id,C.orChoice);if(C.points)for(const f in C.points)addPoints(f,C.points[f]);if(C.flag){(q.flags??={})[C.flag]=true;for(const k in SC)delete SC[k]}(q.when??=[])[i]=DAY;
   const gv=[Q.done[i].gives||[]].flat().filter(id=>!qOf(id));gv.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
   const gift=Q.done[i].gift;if(gift){const mine=has(gift);if(mine)mine.n++;else ME.items.push({id:gift,n:1})}
   const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave,quiet?4000:7000)}
@@ -398,7 +398,8 @@ function questChoice(id,ch){const q=qOf(id);if(!q)return;q.choice=ch;QUESTS[id].
 const lookAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;for(const q of ME.quests){if(q.done)continue;for(const L of QUESTS[q.id].looks||[]){const s=L.spot;
   if(s.m==P.m&&s.x==x&&(Array.isArray(s.y)?y>=s.y[0]&&y<=s.y[1]:y==s.y)&&q.choice!=L.not&&!q.flags?.cleaned&&(L.day==null||L.day==DAY))return[q,L]}}return null};
 // facing a spot a quest needs you to act at
-const spotAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.spot&&c.spot.m==P.m&&c.spot.x==x&&(Array.isArray(c.spot.y)?y>=c.spot.y[0]&&y<=c.spot.y[1]:c.spot.y==y))};
+const inSpan=(v,s)=>Array.isArray(s)?v>=s[0]&&v<=s[1]:v==s;
+const spotAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.spot&&c.spot.m==P.m&&inSpan(x,c.spot.x)&&(Array.isArray(c.spot.y)?y>=c.spot.y[0]&&y<=c.spot.y[1]:c.spot.y==y))};
 function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev){const n=((q.cnt??={})[i]||0)+1;q.cnt[i]=n;
   if(n>=(c.count||1))meet(q,i);else say(QUESTS[q.id].title+': '+n+' of '+c.count+'.',2500)}}
 // what's arrived this morning for a condition that had to wait (said when the day begins)
@@ -470,7 +471,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
   const u=useAhead();if(u){meet(u[0],u[1]);return}
-  const sp=spotAhead();if(sp){meet(sp[0],sp[1]);return}
+  const sp=spotAhead();if(sp){if(sp[2].item&&!has(sp[2].item)){say(sp[2].lacks||'You need the '+ITEMS[sp[2].item].name.toLowerCase()+'.',4000);return}meet(sp[0],sp[1]);return}
   const lk=lookAhead();if(lk){(lk[0].flags??={})[lk[1].flag]=true;say(lk[1].say,9000);return}
   if(phoneAhead()){answerPhone();return}
   if(screenAhead()){videoCall();return}
@@ -594,7 +595,7 @@ function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveni
   // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first)
   NPCS.forEach(n=>{if(n._hat0!==undefined){n.hat=n._hat0;delete n._hat0}});
   for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){if(w.after!=null&&!q.met[w.after]||w.if&&q.choice!=w.if)continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
-  for(const a of aftermaths()){const n=NPCS.find(p=>p.name==a.name);if(!n)continue;Object.assign(n,{m:a.m,x:a.x,y:a.y,dir:a.dir});if(a.hat){n._hat0=n.hat??null;n.hat=a.hat}}}
+  for(const a of aftermaths()){const n=NPCS.find(p=>p.name==a.name);if(!n)continue;if(a.m)Object.assign(n,{m:a.m,x:a.x,y:a.y,dir:a.dir});if(a.hat){n._hat0=n.hat??null;n.hat=a.hat}}}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));

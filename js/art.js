@@ -1488,6 +1488,7 @@ langley_cover:{fl:'carpet',f:['#5a3a4a','#4e3240'],wall:'#e6e0d0',wall2:'#5a3a4a
 langley_office:{fl:'carpet',f:['#3a4a5e','#33425a'],wall:'#e6e0d0',wall2:'#7a5232',pap:'panel',base:'#4a3020',rug:'#7a2a2a',deco:[[6,'cseal'],[9,'portrait'],[11,'map'],[15,'win']]},
 oldbarn_in:{grime:2,fl:'wood',f:['#5a3e27','#4e3622','#64462c'],wall:'#5a3d2a',wall2:'#4a3020',pap:'panel',base:'#2e2016',quilt:'#5a5a4a',deco:[[4,'win'],[13,'win']]},
 derrick_in:{grime:2,oil:1,fl:'tile',f:['#4a4f58','#3e434b'],wall:'#5a6068',wall2:'#e0a100',pap:'stripe',base:'#2b2f3a',deco:[[2,'safety'],[7,'clock'],[12,'safety']]},
+lighthouse_top:{fl:'check',f:['#5f666e','#4a4f5a'],wall:'#e8e4dc',wall2:'#c0392b',pap:'panel',base:'#2b2f3a',deco:[[1,'win'],[3,'win'],[5,'win'],[7,'win']]},
 lighthouse_in:{fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#e8e4dc',wall2:'#c0392b',pap:'stripe',base:'#2e4a6a',rug:'#2e4a6a',curtain:'#2e4a6a',quilt:'#2e5f8f',deco:[[2,'win'],[5,'map'],[8,'clock']]},
 jazz_in:{fl:'carpet',f:['#1a1c3a','#24264a'],wall:'#2a1a2e',wall2:'#5a2a3a',pap:'panel',base:'#c9a040',rug:'#7a1e2a',curtain:'#7a1e2a',deco:[[2,'neon','BAR','#ff5fa8'],[10,'neon','JAZZ','#3b8bff'],[17,'poster']]},
 villa_gustavo:{fl:'check',f:['#e8e2d4','#2a2a33'],wall:'#5a2a2a',wall2:'#4a2222',pap:'stripe',rug:'#c9a040',quilt:'#8a1a1a',curtain:'#8a1a1a',deco:[[4,'portrait'],[12,'pic'],[15,'win']]},
@@ -1829,6 +1830,9 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:{t:'blink',x:W-6,y:4,c:'#ff8a3a'},c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
     for(let x=2;x<W-4;x+=11){r('#2b2f3a',x,4,9,8);r('#7fd0a0',x+1,5,7,3);r('#d0d4d8',x+2,9,2,2);r('#d0d4d8',x+6,9,2,2)}r('#6b4a2e',0,TT-8,W,8);r('#8a6a45',0,TT-8,W,1);r('#2b2f3a',4,TT-12,6,4);r('#d0d4d8',W-12,TT-13,1,5)})}}
   // a wooden shelf stacked with folded towels in soft colours
+  // cans of lamp oil on a plank shelf: red and green cans with spouts and labels
+  if(ch=='y'&&l.includes('oil')){const oy=12,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#7a5232',0,0,W,TT);r('#946640',0,0,W,1);for(const sy of[2,12,22]){r('#5a3a22',1,sy+9,W-2,2);
+    for(let x=2,i=0;x<W-6;x+=7,i++){const c=['#c0392b','#3d7a4e','#c0392b','#2e5f8f'][(i+sy)%4];r(c,x,sy+1,6,8);r(shade(c,.2),x,sy+1,2,8);r(shade(c,-.3),x+5,sy+1,1,8);r('#e8dcc0',x+1,sy+4,4,2);r('#9aa3ad',x+4,sy,1,2)}}})}}
   if(ch=='y'&&l.includes('towel')){const oy=12,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#7a5232',0,0,W,TT);r('#946640',0,0,W,1);
     for(const sy of[2,12,22]){r('#5a3a22',1,sy+8,W-2,2);for(let x=3,i=0;x<W-8;x+=8,i++){const c=['#f4efe4','#9fd6c0','#f2c4c4','#cfe0f0','#f4efe4'][(i+sy)%5];
       for(let k=0;k<3;k++){r(c,x,sy+6-k*2,6,2);r(shade(c,-.15),x,sy+7-k*2,6,1)}}}})}}
@@ -1857,6 +1861,18 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       for(let x=4;x<W-20;x+=8){r('#9fb3c4',x,TT-9,5,2);r('#d8e4ee',x,TT-8,5,1);r('#7d93a6',x+5,TT-9,2,2)}r('rgba(255,255,255,.5)',3,10,1,4);r('rgba(255,255,255,.5)',4,10,1,2);
       r('#3a3d44',W-15,0,11,8);r('#7fd0a0',W-13,1,7,3);r('#555a62',W-14,5,9,2)})}}
   // an armchair: a high back, cushions and rolled arms, on short legs, in one of a few fabrics
+  // the lighthouse's great lamp: a beehive of glass prism rings in a brass frame, the lamp glowing amber inside, on an iron pedestal
+  // (smashed in Lights Out, for the rest of the game: dark, its prisms broken and glass scattered round it)
+  if(ch=='x'&&/lens|great lamp/.test(l)&&lighthouseOut()){const oy=10,TT=H+oy,cx=W>>1;return{oy,c:mk(W,TT,r=>{
+    r('#2b2f3a',cx-10,TT-6,20,6);r('#4a4f5a',cx-10,TT-6,20,1);r('#3a3d48',cx-4,TT-12,8,6);const top=8,bot=TT-12;
+    for(let y=top;y<bot;y++){const w=Math.round(4+Math.sin(Math.PI*(y-top)/(bot-top))*(W/2-8)),ring=(y-top)%4;for(let x=cx-w;x<cx+w;x++){if(hash(x,y,77)>.72&&ring)continue;r(ring==0?'#8a7030':hash(x,y,78)>.5?'#5a7080':'#3a4a58',x,y)}}
+    r('#2a2a30',cx-3,top+8,6,bot-top-14);for(let k=0;k<14;k++){const x=2+(hash(k,1,79)*(W-4)|0),y=TT-4-(hash(k,2,79)*8|0);r('#cfe6f0',x,y,1+(k&1),1)}})}}
+  if(ch=='x'&&/lens|great lamp/.test(l)){const oy=10,TT=H+oy,cx=W>>1;return{oy,an:{t:'blink',x:cx,y:oy+4,c:'#ffd27a'},c:mk(W,TT,r=>{
+    r('#2b2f3a',cx-10,TT-6,20,6);r('#4a4f5a',cx-10,TT-6,20,1);r('#3a3d48',cx-4,TT-12,8,6);
+    const top=1,bot=TT-12,hw=y=>Math.round(5+Math.sin(Math.PI*(y-top)/(bot-top))*(W/2-6));
+    for(let y=top;y<bot;y++){const w=hw(y),ring=(y-top)%4;for(let x=cx-w;x<cx+w;x++){const f=(x-(cx-w))/(w*2);let c=ring==0?'#c9a040':f<.25?'#d8eef8':f>.8?'#7fb0c8':'#a8d4e8';
+        if(Math.abs(x-cx)<4&&y>bot*.35&&y<bot*.75)c=ring==0?'#e0b040':'#ffd27a';r(c,x,y)}}
+    r('#c9a040',cx-2,0,4,2);r('#e8c860',cx-1,0,1,2)})}}
   if(ch=='x'&&l=='armchair'){const oy=10,TT=H+oy,c=['#7a2a2a','#2e5a8a','#3d6a4a','#8a6a3a'][v*4|0];return{oy,c:mk(W,TT,r=>{
       r(shade(c,-.25),1,1,W-2,11);r(shade(c,.1),2,1,W-4,2);r(c,1,11,W-2,TT-14);r(shade(c,.2),3,11,W-6,2);
       r(shade(c,-.15),0,6,4,TT-9);r(shade(c,-.15),W-4,6,4,TT-9);r(shade(c,.15),0,6,4,2);r(shade(c,.15),W-4,6,4,2);r('#3a2414',2,TT-3,2,3);r('#3a2414',W-4,TT-3,2,3)})}}
@@ -1926,6 +1942,16 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     r('#8a6a45',0,TT-4,W,4);r('#a8855a',0,TT-4,W,1)})}}
   if(ch=='n'){const oy=8,col=['#7d3c98','#2e6f9a','#c0392b'][v*3|0];return{oy,c:mk(W,H+oy,r=>{r('#3a3d44',4,H+oy-2,8,2);r('#5a5f68',7,13,2,H+oy-15);
     r(col,4,6,8,9);r(shade(col,.2),4,6,2,9);r(col,3,7,1,5);r(col,12,7,1,5);r('#e8dcc0',6,1,4,5);r('#d8ccb0',9,1,1,5);r('#c9a040',7,8,1,1);r('#c9a040',7,11,1,1)})}}
+  // a spiral stair, seen from above: wedge-shaped iron treads winding round a central post, lighter as they climb (or darker as
+  // they go down), inside a ring of handrail, with the floor showing at the foot of the stair where you step on
+  if(ch=='z'&&l.includes('spiral')){const dn=l.includes('down');return{oy:0,c:mk(W,H,r=>{const cx=W/2-.5,cy=H/2-.5,R=Math.min(W,H)/2-.5,n=12;
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){const d=Math.hypot(x-cx,y-cy);if(d>R)continue;let a=Math.atan2(y-cy,x-cx)/(Math.PI*2);a=(a+1.25)%1;  // 0 at the bottom, round clockwise
+      const k=Math.floor(a*n),u=a*n-k;
+      if(d>R-2){r(d>R-1?'#5a3d2a':((k&1)&&u<.2?'#5a3d2a':'#c9a040'),x,y);continue}                                // the brass handrail, with posts
+      if(d<3.2){r(d<1.8?'#c3cad1':'#4a4f5a',x,y);continue}                                                        // the post at the centre
+      if(k==0&&!dn){r(((x>>2)+(y>>1))&1?'#8a6a48':'#7a5d3e',x,y);continue}                                       // the floor, where you step on
+      const h=dn?1-k/n:k/n,tread=mix('#3a2418','#d8a868',h);  // wooden treads, dark at the foot, light at the top
+      r(u>.84?shade(tread,.3):u<.16?'#1a1210':((x+y*2)%5==0?shade(tread,-.1):tread),x,y)}})}}
   if(ch=='z'){const dn=l.includes('down');return{oy:0,c:mk(W,H,r=>{for(let k=0;k<5;k++){const y=k*3+1,c=shade('#8a6a45',dn?-k*.12:.15-k*.08);r(c,1,y,14,3);r(shade(c,-.3),1,y+2,14,1)}
     r('#5a3d2a',0,0,1,16);r('#5a3d2a',15,0,1,16)})}}
   return null}
@@ -1980,7 +2006,7 @@ function sceneOf(m,wx){
     if(st&&BLD[st]&&BLD[st].kind=='hotspring'){g.drawImage(poolArt(w,h),x*16,y*16);for(let i=0;i<Math.max(2,w*h/3|0);i++)an.push({t:'steam',ph:hash(i,3,x*7+y),x:x*16+10+hash(i,1,x*7+y)*(w*16-20),y:y*16+16+hash(i,2,x*7+y)*(h*16-22)});return}
     if(st&&BLD[st]&&BLD[st].kind=='fountain'){put(y+h-1,x*16-1,y*16-17,fountainArt(w,h));return}
     if(st&&BLD[st]&&BLD[st].kind=='lighthouse'){const ox=x*16-1,oy=y*16-LHX-1,lx=x*16+w*8,ly=y*16-LHX+LHTOP-9;put(y+h-1,ox,oy,lighthouseArt(w,h));
-      an.push({t:'beam',x:lx,y:ly});lights.push({x:lx,y:ly,r:70,col:'255,232,160',f:0});return}
+      if(!lighthouseOut()){an.push({t:'beam',x:lx,y:ly});lights.push({x:lx,y:ly,r:70,col:'255,232,160',f:0})}return}
     if(st&&BLD[st]&&BLD[st].kind=='shelter'){put(y+h-1,x*16-1,y*16-13,shelterArt(w,h,BLD[st].stop));return}
     if(ch=='v'){an.push({t:'lava',x:(x+w/2)*16,y:(y+h/2)*16,rx:w*8-6,ry:h*8-6});for(let k=0;k<3;k++)an.push({t:'smoke',x:x*16+w*4+k*w*4,y:y*16+8,big:1});return}
     if(st&&BLD[st]){const row=M[y+h-1],ds=[];for(let i=0;i<w;i++)if(row[x+i]=='d')ds.push(i);
@@ -2249,6 +2275,8 @@ function drawWorld2(m,cx,cy,t,frame){
         if(on){px('rgba(200,255,120,.25)',X-1,Y-1,3,3);px('#e8ff90',X,Y,1,1)}}}}
   if(!(DET(m)&&!NIGHT))ctx.drawImage(vignette(),0,0);if(GOTH(m))ctx.drawImage(vignette(),0,0)}
 
+// whether the lighthouse's lamp has been smashed (in Lights Out): from then on the lighthouse stays dark
+const lighthouseOut=()=>typeof qOf=='function'&&!!qOf('lightsout')?.flags?.smashed;
 // ---- Item sprites for the inventory: one character per pixel ('.' is clear), coloured by the palette after it.
 // itemIcon(id) gives a data URL of the sprite, drawn 4x.
 const ITEM_ART={
@@ -2443,6 +2471,21 @@ cola:[`
 ....kGGGGGGk....
 ....kGGGGGGk....
 .....kkkkkk.....`,{k:'#262330',G:'#3a7a5a',R:'#c0392b',w:'#f1ead6'}],
+drill:[`
+................
+................
+...kkkk.........
+...kWWk.........
+...kkkkkkkkkk...
+......kWk..kk...
+......kWk...k...
+......kWk..kk...
+...kkkkkkkkk....
+...kWWk.........
+...kkkk.k.......
+........kSk.....
+........kSk.....
+.........k......`,{k:'#262330',W:'#a8794c',S:'#c3cad1'}],
 hose:[`
 ................
 ................
