@@ -71,7 +71,7 @@ function snowPx(X,Y){const nz=vnoise(X/14,Y/14,1)*.7+vnoise(X/5,Y/5,2)*.3;return
 // medium snow: snow with patches of tired grass showing through, a slushy rim round each
 // ---- Snow-free zones inside a snowy place, warmed from below: [x, y, w, h] in tiles. The volcano is bare from its first cliff
 // upwards; only its lower slopes keep their snow. Ground there is volcanic rock, and snow is stripped from props and rocks.
-const BARE={volcano:[0,0,30,13]},inBare=(m,x,y)=>{const b=BARE[m];return!!b&&x>=b[0]&&y>=b[1]&&x<b[0]+b[2]&&y<b[1]+b[3]};
+const BARE={volcano:[0,0,30,18],volcano_in:[0,0,14,10]},inBare=(m,x,y)=>{const b=BARE[m];return!!b&&x>=b[0]&&y>=b[1]&&x<b[0]+b[2]&&y<b[1]+b[3]};
 function volcPx(X,Y){const n=vnoise(X/10,Y/10,660)*.7+vnoise(X/3,Y/3,661)*.3,h=hash(X,Y,662);let c=n>.62?'#6e6258':n<.36?'#4a423c':'#5c524a';
   if(h>.97)c='#2e2826';else if(h>.94)c='#7a6c60';if(vnoise(X/6,Y/6,663)>.72)c=mix(c,'#8a4a32',.35);
   // a few patches of snow still lying where the heat doesn't reach
@@ -190,6 +190,13 @@ function groundLayer(m){if(DET(m))return detailedGround(m);if(typeof MOD=='funct
         // tram platform: concrete slabs with a yellow safety line along the track edge
         col=(X&15)==15||(Y&15)==15?'#8a9099':hash(X,Y,68)>.97?'#9aa0a6':'#b1b7be';if(ly>=12&&ly<14)col='#e0a100';if(ly>=14)col='#6b7178';
         if(vnoise(X/6,Y/6,69)>sth(.7)&&ly<12)col=mix(col,'#e8eff5',.7)}
+      else if(ch=='d'&&at(tx,ty-1)=='C'||ch=='C'&&at(tx,ty+1)=='d'&&at(tx,ty+2)!='C'){
+        // a cave mouth in a cliff (a door tile with cliff above it): a rough arch of stones, dark inside, lit orange from below by
+        // the lava within, rising into the cliff tile above
+        const yy=ly+(ch=='d'?16:0),e=((lx-7.5)/6)**2+((yy-17)/9)**2,o=((lx-7.5)/7.6)**2+((yy-17)/10.6)**2,inside=yy>=17?lx>=2&&lx<=13:e<1,frame=yy>=17?lx>=1&&lx<=14:o<1;
+        if(inside)col=yy>28?(hash(X,Y,85)>.5?'#e8501e':'#ff8a3a'):yy>24?mix('#1a1012','#a8401a',(yy-24)/5):'#1a1012';
+        else if(frame)col=hash(X>>1,Y>>1,86)>.5?'#4a3f38':'#3e342e';
+        else{const band=((Y+(hash(X>>3,0,81)*3|0))/4|0);col=['#6e6056','#5e5248','#7a6b5e','#655850'][band%4];if(Y%4==0)col='#4a3f38'}}
       else if(ch=='C'){
         // a cliff face: rock laid down in strata, split by cracks, with a snowy lip where it meets the level above, a shadowed foot
         // where it meets the level below, and its sides lit or shaded where it turns a corner
@@ -1428,6 +1435,7 @@ kcmuseum_in:{fl:'check',f:['#e8f2ea','#2e9d57'],wall:'#e8f2ea',wall2:'#9fd6c0',p
 clothes_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#3d5a4a',wall2:'#2f4a3c',pap:'stripe',base:'#2f2a26',rug:'#c0392b',curtain:'#e0a100',deco:[[1,'win'],[4,'pic'],[9,'poster'],[12,'win']]},
 records_in:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#2f2a26',rug:'#7a1e2a',deco:[[1,'poster'],[4,'poster'],[7,'neon','VINYL','#ff8a3a'],[11,'poster']]},
 mill_in:{grime:1,fl:'wood',f:['#7a5232','#6b4a2e','#8a5a36'],wall:'#8a6a45',wall2:'#6b4a2e',pap:'panel',base:'#3a2a20',deco:[[2,'win'],[6,'safety'],[11,'clock'],[16,'win'],[21,'win']]},
+volcano_in:{fl:'basalt',f:[],wall:'#4a3c38',wall2:'#3a2e2c',pap:'rock',base:'#1e1818',deco:[]},
 spa_in:{fl:'wood',f:['#b08658','#a37a4e','#bb9062'],wall:'#8a6a45',wall2:'#6b4a2e',pap:'panel',base:'#3a2a20',rug:'#3d7a7a',deco:[[2,'win'],[6,'pic'],[11,'clock'],[15,'win'],[19,'win']]},
 cedargrill:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',rug:'#3d5a4a',curtain:'#3d5a4a',deco:[[12,'pic'],[16,'win']]},
 tattoo:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#2a2a30',wall2:'#3a3a44',pap:'stripe',base:'#7a1e2a',quilt:'#1a1a22',deco:[[1,'pic'],[3,'poster'],[5,'pic'],[7,'poster'],[10,'win']]},
@@ -1535,11 +1543,14 @@ function floorPx(X,Y,f){
     return(Y&3)==3||(sx&31)==0?shade(c,-.28):(Y&3)==0?shade(c,.07):hash(X,Y,42)>.94?shade(c,-.1):c}
   if(f.fl=='granite'){const c=f.f[hash(X>>5,Y>>5,47)*f.f.length|0];return(X&31)==31||(Y&31)==31?shade(c,-.16):hash(X,Y,48)>.92?shade(c,-.12):hash(X,Y,49)>.96?shade(c,.2):c}
   if(f.fl=='sand')return sandPx(X,Y);
+  if(f.fl=='basalt'){const v=Math.abs(vnoise(X/14,Y/14,53)-.5)+Math.abs(vnoise(X/5,Y/5,54)-.5)*.15;if(v<.012)return'#c8501e';if(v<.024)return'#5a2418';
+    const b=hash(X>>2,Y>>2,45);return b>.7?'#3c3438':b>.35?'#332c30':hash(X,Y,46)>.9?'#28232a':'#2e282c'}
   if(f.fl=='stone'){const row=Y>>3,sx=X+(row&1)*4;return(Y&7)==7||(sx&7)==7?'#4a4f50':hash(sx>>3,row,44)>.5?'#7a7f80':'#6e7374'}
   if(f.fl=='tile')return(X&7)==7||(Y&7)==7?'#8a9398':((X>>3)+(Y>>3))&1?f.f[1]:f.f[0];
   if(f.fl=='check'){const c=((X>>3)+(Y>>3))&1?f.f[1]:f.f[0];return(X&7)==7||(Y&7)==7?shade(c,-.12):c}
   return(X%6==0&&Y%6==0)||((X+3)%6==0&&(Y+3)%6==0)?f.f[1]:f.f[0]}
-function wallPx(X,fy,f){if(f.pap=='brick'){const row=fy>>2;return(fy&3)==3||((X+(row&1)*4)&7)==7?f.wall2:f.wall}
+function wallPx(X,fy,f){if(f.pap=='rock'){const b=hash(X>>2,(fy+(hash(X>>3,0,52)*4|0))>>2,51);return b>.66?f.wall:b>.33?f.wall2:shade(f.wall,-.18)}
+  if(f.pap=='brick'){const row=fy>>2;return(fy&3)==3||((X+(row&1)*4)&7)==7?f.wall2:f.wall}
   if(f.pap=='stripe')return(X>>2)&1?f.wall:f.wall2;if(f.pap=='tiles')return(X&3)==3||(fy&3)==3?f.wall2:f.wall;
   if(f.pap=='flower')return(X%6==2&&fy%6==2)||(X%6==5&&fy%6==5)?f.wall2:f.wall;if(f.pap=='panel'&&fy>5)return fy==6?shade(f.wall2,.2):f.wall2;return f.wall}
 // The back wall is drawn WU pixels taller than its tile row, reaching above the map (game.js lets the camera show it).
@@ -1862,6 +1873,17 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       r('#3a3d44',W-15,0,11,8);r('#7fd0a0',W-13,1,7,3);r('#555a62',W-14,5,9,2)})}}
   // an armchair: a high back, cushions and rolled arms, on short legs, in one of a few fabrics
   // the lighthouse's great lamp: a beehive of glass prism rings in a brass frame, the lamp glowing amber inside, on an iron pedestal
+  // a pool of lava, seen from above: a ring of black crust round molten rock, bright where it churns, dark where a skin has cooled
+  if(ch=='x'&&l.includes('lava')){return{oy:0,an:{t:'blink',x:W>>1,y:H>>1,c:'#ff8a3a'},c:mk(W,H,r=>{const cx=W/2-.5,cy=H/2-.5;
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){const q=((x-cx)/(W/2))**2+((y-cy)/(H/2))**2+(hash(x>>1,y>>1,87)-.5)*.12;if(q>1)continue;
+      const nz=Math.sin(x*.35+y*.2)+Math.sin(y*.45-x*.15)+hash(x>>1,y>>1,88)*.8;
+      r(q>.8?(q>.9?'#1e1818':'#3a2a28'):q>.7?'#7a2a18':nz>1.6?'#ffd23a':nz>.9?'#ff8a3a':nz<-1.2?'#5a2418':'#e8501e',x,y)}})}}
+  // heaps of obsidian: glassy black rocks with sharp blue-white glints
+  if(ch=='x'&&l.includes('obsidian')){const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{for(let k=0;k<W*H/40;k++){const bx=hash(k,1,89)*(W-8)|0,by=oy+(hash(k,2,89)*(H-8)|0),s=5+(hash(k,3,89)*5|0);
+      for(let y=0;y<s;y++){const hw=Math.round((s-y)*.6+1);for(let x=-hw;x<=hw;x++)r(x<0?'#1a1620':y<2?'#3a3448':'#24202c',bx+s/2+x|0,by+y)}r('#b8c8e0',bx+(s>>1),by+1,1,1)}})}}
+  // yellow sulphur crystals growing in a crust on the rock
+  if(ch=='x'&&l.includes('sulphur')){const oy=4,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#3a3236',1,TT-6,W-2,6);for(let k=0;k<W/3;k++){const x=1+(hash(k,4,90)*(W-4)|0),hh=3+(hash(k,5,90)*7|0);
+      r('#c9a820',x,TT-4-hh,2,hh);r('#f2e04a',x,TT-4-hh,1,hh-1);r('#fff6a0',x,TT-4-hh,1,1)}})}}
   // (smashed in Lights Out, for the rest of the game: dark, its prisms broken and glass scattered round it)
   if(ch=='x'&&/lens|great lamp/.test(l)&&lighthouseOut()){const oy=10,TT=H+oy,cx=W>>1;return{oy,c:mk(W,TT,r=>{
     r('#2b2f3a',cx-10,TT-6,20,6);r('#4a4f5a',cx-10,TT-6,20,1);r('#3a3d48',cx-4,TT-12,8,6);const top=8,bot=TT-12;
