@@ -601,6 +601,7 @@ drill:{name:'Hand drill',desc:'A carpenter\'s brace and bit, from the supermarke
 hose:{name:'Hose',desc:'A good long rubber hose, from the fishing shop in Kingsgrad.',actions:['Look at']},
 motor:{name:'Small motor',desc:'A little electric motor, from the electronics store in Frostholm. It would drive a pump.',actions:['Look at']},
 floats:{name:'Boom of floats',desc:'A long line of cork floats, from Harbour Outfitters in Saltwick, for holding something in on the water.',actions:['Look at']},
+parcel:{name:'Oilcloth parcel',desc:'A heavy parcel wrapped in oilcloth and tied with tarred string, off the boat at Eastbrook Harbour. For Gustavo. Do not open it.',actions:['Look at']},
 lava:{name:'Tin of lava',desc:'An old tin of lava from the pool in the Lava Tube, crusted black as it cooled and still warm through your gloves.',actions:['Look at']},
 peoplescola:{name:"The People's Cola",desc:"A bottle of the Party's own cola, brewed from volcano lava in Kelp Cola's lab: dark, smoky, with a kick like a mule. For Helen.",actions:['Look at']},
 beans:{name:'Imported coffee beans',desc:'A sack of fine Colombian coffee beans, brought in through Langley in the diplomatic pouch. For Maya at the Coffee Roasters.',actions:['Look at']},
@@ -769,6 +770,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
+// tested: true once the quest has been played through and checked (the wiki's Quests page shows which are; none yet).
 // evening: offered on its day once night has fallen (George's jobs), not in the morning. A spot condition can need an item in
 // your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
 // makes if its conversation didn't make one.
@@ -883,7 +885,7 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
 // function, decides whether it's offered); aftermath: what a flag on the quest does to someone from then on, for the rest of the
 // game, done or not ({flag, name, m, x, y, dir, hat: a hat colour, such as a bandage, say: what they say}); looks: things to look at while the quest is yours ({spot, flag, say, what, day, not: a
 // choice it's not for}), which set a flag; a condition with
-// if: belongs to that choice only. A condition can also give points to factions as it's met (points: {faction: n}) and set a flag
+// if: belongs to that choice only (or to any of a list of choices: a step on more than one path). A condition can also give points to factions as it's met (points: {faction: n}) and set a flag
 // on the quest (flag), which the art can show (the oil on the rig in Black Tide). An event condition can need count times.
 // given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
 // can also use up items as it's met (takes: an item, or a list of them). A meet can wait for a flag on the quest (flag), set
@@ -1180,6 +1182,45 @@ newformula:{title:'New Formula',giver:'Saara',main:true,day:9,seq:true,choices:{
     {if:'bad',talk:'Phil',what:'Take a bottle of the new formula up to Phil, in his office at Kelp Cola HQ',chat:{start:'a',nodes:{
       a:{say:"Saara says you've cracked it. Go on, then. (Phil opens the bottle. A smell of rotten eggs fills the office.) Good grief. What is THAT? ...We've a thousand crates of this on the line already! Kelp Cola Volcano is dead before it's born. Get Saara up here. No, don't. I need to sit down."}}}}],
   thanks:"That's the end of the new formula, one way or another."},
+// Special Delivery (the Crime Syndicate, 10 September): Gustavo has a parcel coming in by boat to Eastbrook Harbour. Get Liv, the
+// customs officer, out of the customs shed (bribe her, or threaten her), collect the parcel from Lucia at the jetty and bring it to
+// Gustavo at the pizzeria: he pays you, and the Syndicate +1. Or tell Liv what's coming (she waits on the jetty, the boat turns
+// back) and tell Gustavo it went wrong (the Syndicate -1). Or, the secret way: sell the parcel to Buttons, and tell Gustavo it was
+// lost (the Syndicate -1, but Buttons pays better).
+specialdelivery:{title:'Special Delivery',giver:'Gustavo',main:true,day:10,seq:true,choices:{deliver:'deliver the parcel to Gustavo',told:'tell Liv what is going on',sell:'sell the parcel to Buttons'},
+  text:'Gustavo has a parcel coming in by boat to Eastbrook Harbour this morning. Get Liv, the customs officer, out of the customs shed on the quay, collect the parcel from the boat when it pulls up at the jetty, and bring it to Gustavo in the back room of the pizzeria in Kingsgrad. Don\'t open it.',
+  offer:"Journalist. Sit. A boat comes into Eastbrook Harbour this morning with a parcel for me. Small. Valuable. The trouble is the customs shed on the quay, and the woman in it, Liv, who has never once in her life looked the other way. Get her out of that shed. Take my parcel off the boat, and bring it to me at the pizzeria.",
+  accept:"Good. How you move Liv is your business. I'll be in the back room at the pizzeria. And journalist: don't open it.",
+  wait:"Where's my parcel? Get Liv out of the customs shed, take it off the boat at Eastbrook Harbour, and bring it to me here.",
+  meet:[{name:'Gustavo',m:'pizzeria_in',x:9,y:2,dir:2},{name:'Lucia',m:'savilaharbour',x:24,y:13,dir:2,flag:'clear'},
+    {name:'Liv',m:'cafe',x:3,y:11,dir:1,flag:'bribed'},{name:'Liv',m:'eblofts',x:12,y:9,dir:0,flag:'threatened'},{name:'Liv',m:'savilaharbour',x:16,y:13,dir:3,if:'told'}],
+  done:[
+    {talk:'Liv',ok:q=>q.flags?.clear||q.choice=='told',what:'Get Liv, the customs officer, out of the customs shed on the quay at Eastbrook Harbour',chat:{start:'a',nodes:{
+      a:{say:"Customs. Anything to declare? No? Then you're standing in my light.",opts:[
+        ["A boat's due in this morning that nobody needs to look at. Here's $50: go and have a long coffee somewhere. ($50 of your own)",'b',()=>{ME.cash-=50;qFlag('specialdelivery','bribed');qFlag('specialdelivery','clear')},()=>ME.cash>=50],
+        ["Some friends of mine would hate for anything to happen to you. Take the day off, Liv.",'t',()=>{qFlag('specialdelivery','threatened');qFlag('specialdelivery','clear')}],
+        ["You should know: the Syndicate is bringing something in by boat this morning.",'x',()=>questChoice('specialdelivery','told')],
+        ['Nothing to declare.',null]]},
+      b:{say:"(Liv looks at the money, then out of the window, then pockets it.) I've been meaning to try the Coffee Roasters. I'll be a good hour. I didn't see you, and you didn't see me."},
+      t:{say:"(Liv goes white.) I... I wasn't feeling well anyway. I'll go home. (She grabs her coat and hurries out, leaving the shed unlocked.)"},
+      x:{say:"Are they, now. Thank you. Then I'll be on the jetty when it comes in, with my notebook, and the harbour master. You'd better tell your friends their boat isn't landing anything today."}}}},
+    {if:['deliver','sell'],talk:'Lucia',gift:'parcel',what:'Collect the parcel from the boat that pulls up at the jetty in Eastbrook Harbour',chat:{start:'a',nodes:{
+      a:{say:"You're Gustavo's journalist? Quick, then. (Lucia swings a heavy parcel, wrapped in oilcloth, up onto the jetty from the boat.) Straight to the pizzeria. Don't open it, don't drop it, and don't stop for coffee."}}}},
+    {if:'deliver',talk:['Gustavo','Buttons'],ok:q=>q.choice=='deliver',points:{syndicate:1},what:'Bring the parcel to Gustavo in the back room of the pizzeria in Kingsgrad',chats:{
+      Gustavo:{start:'a',nodes:{
+        a:{say:"You have it? Let me see.",opts:[['Hand over the parcel','b',()=>{take('parcel');questChoice('specialdelivery','deliver');ME.cash+=200}],['Not yet',null]]},
+        b:{say:"(Gustavo weighs the parcel in his hands, and smiles.) Good. Very good. Two hundred dollars, for your trouble, and the gratitude of my family. The gratitude is worth more. (You have $200 more of your own. Crime Syndicate: +1 point.)"}}},
+      Buttons:{start:'a',nodes:{
+        a:{say:"Ooh! A parcel! Is it my birthday? (Buttons sniffs the oilcloth, and his painted smile goes very still.) I know what that is. Three hundred dollars, cash, and nobody need ever know.",opts:[['Sell it to Buttons ($300)','s',()=>{take('parcel');questChoice('specialdelivery','sell');ME.cash+=300}],["It's not for sale.",'n']]},
+        s:{say:"Pleasure! You never saw me. I'm a clown: nobody ever does. (You have $300 more of your own. Now somebody had better tell Gustavo his parcel is gone.)"},
+        n:{say:"Shame. The offer stands, if it gets heavy."}}}}},
+    {if:'sell',talk:'Gustavo',points:{syndicate:-1},what:'Tell Gustavo his parcel was lost',chat:{start:'a',nodes:{
+      a:{say:"You're late, and your hands are empty. Where is my parcel?",opts:[["It went off the end of the jetty. It's at the bottom of the harbour.",'b'],['It got soaked through in the boat. Ruined.','b']]},
+      b:{say:"(Gustavo looks at you for a long time.) Accidents happen. They happen to everyone, journalist. Remember that. (Crime Syndicate: -1 point.)"}}}},
+    {if:'told',talk:'Gustavo',points:{syndicate:-1},what:'Tell Gustavo that things went wrong at the harbour',chat:{start:'a',nodes:{
+      a:{say:"My boat turned round at the harbour mouth and went back out to sea. Customs was standing on the jetty, with the harbour master and a notebook. How did that happen?",opts:[["Liv wouldn't budge. Someone must have tipped her off.",'b'],['Bad luck. She was out on the jetty when it came in.','b']]},
+      b:{say:"Someone. Yes. I'll find out who. Get out of my back room. (Crime Syndicate: -1 point.)"}}}}],
+  thanks:"That's the end of Gustavo's special delivery, one way or another."},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},

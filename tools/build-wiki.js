@@ -160,7 +160,7 @@ const inGame=(t,d)=>Object.values(QUESTS).some(Q=>Q.title==t&&(Q.day==d||Q.day==
 const mainsOn=d=>Object.keys(QUESTS).filter(id=>QUESTS[id].main&&QUESTS[id].day==(d==0?-9:d));
 const qDate=d=>d<1?(31+d)+' August':d+' September';
 // a quest step, as the Quests tab lists it, with what it gives you
-function qStep(c,st,Q){const extra=[st.if?'only if you choose to '+(Q.choices?.[st.if]||st.if):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+' point for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
+function qStep(c,st,Q){const extra=[st.if?'only if you choose to '+[st.if].flat().map(k=>Q.choices?.[k]||k).join(', or to '):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+' point for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
     ...[st.gives||[]].flat().map(id=>(QUESTS[id].main?'gives the main quest ':'gives the side quest ')+QUESTS[id].title)].filter(Boolean);
   return`<li>${esc(st.what)}${extra.length?` <small>(${esc(extra.join('; '))})</small>`:''}</li>`}
 function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));
@@ -170,15 +170,26 @@ function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),fro
 // a quest's endings (its choices), each with what it does to the factions' points: the points of the steps on that choice's path
 // (the steps for that choice, and the ones every path shares)
 function questEndings(Q){if(!Q.choices)return'';
-  const row=k=>{const pts={};Q.done.filter(st=>!st.if||st.if==k).forEach(st=>{for(const f in st.points||{})pts[f]=(pts[f]||0)+st.points[f]});
+  const row=k=>{const pts={};Q.done.filter(st=>!st.if||[st.if].flat().includes(k)).forEach(st=>{for(const f in st.points||{})pts[f]=(pts[f]||0)+st.points[f]});
     const fx=Object.entries(pts).filter(([,n])=>n).map(([f,n])=>`${FACTIONS[f][0]} ${n>0?'+':''}${n} point${Math.abs(n)==1?'':'s'}`);
     return`<li><b>${esc(Q.choices[k].replace(/^./,ch=>ch.toUpperCase()))}</b>: ${esc(fx.length?fx.join(', '):'no change to the factions’ points')}</li>`};
   return`<p><b>Endings</b></p><ul class="qend">${Object.keys(Q.choices).map(row).join('')}</ul>`}
+// every named quest on the schedule, in day order (the day's main quests in the game, the factions' planned quests, George's
+// evening jobs and the side quests), with whether it's in the game yet (added) and whether it has been tested (tested:true on
+// the quest in QUESTS)
+function questProgress(sideOn){const rows=[],seen=new Set(),add=(t,d,kind)=>{if(seen.has(d+'|'+t))return;seen.add(d+'|'+t);rows.push({t,d,kind})};
+  const find=(t,d)=>Object.values(QUESTS).find(Q=>Q.title==t&&(Q.day==null||Q.day==(d==0?-9:d)));
+  for(let d=0;d<=30;d++){mainsOn(d).forEach(id=>add(QUESTS[id].title,d,''));Q_COLS.forEach(f=>{const t=QUEST_TITLES[d]?.[f];if(t)add(t,d,'')});
+    for(const f in QUEST_EVENINGS[d]||{})add(QUEST_EVENINGS[d][f],d,'evening');sideOn(d).forEach(id=>add(QUESTS[id].title,d,'side quest'))}
+  const yes='<b class="tick">&#10003;</b>',added=rows.filter(r=>find(r.t,r.d)).length,tested=rows.filter(r=>find(r.t,r.d)?.tested).length;
+  return`<h2 id="progress">Progress</h2><p>Every named quest on the schedule: ${added} of ${rows.length} added to the game, ${tested} tested.</p>
+<table class="sched sum"><thead><tr><th>Quest</th><th>Added</th><th>Tested</th></tr></thead><tbody>${rows.map(r=>{const Q=find(r.t,r.d);
+    return`<tr><td>${esc(r.t)} <small>(${esc(qDate(r.d==0?-9:r.d))}${r.kind?', '+r.kind:''})</small></td><td>${Q?yes:''}</td><td>${Q?.tested?yes:''}</td></tr>`}).join('')}</tbody></table>`}
 // the day a side quest can first be had: its first day (from), the day the places it needs are open (opens), or the day of the
 // quest that gives it to you (given)
 function sideDay(id){const Q=QUESTS[id];if(Q.given){const from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));return from?Math.max(0,QUESTS[from].day??1):1}
   return Math.max(Q.from??1,...(Q.opens||[]).map(openDay))}
-function questsBody(c){const sides0=Object.keys(QUESTS).filter(id=>!QUESTS[id].main),sideOn=d=>sides0.filter(id=>sideDay(id)==d);const head=Q_COLS.map(f=>`<th><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</th>`).join('');
+function questsBody(c){const sides0=Object.keys(QUESTS).filter(id=>!QUESTS[id].main&&!QUESTS[id].evening),sideOn=d=>sides0.filter(id=>sideDay(id)==d);const head=Q_COLS.map(f=>`<th><span class="sw" style="background:${FACTIONS[f][1]}"></span>${A(c,'factions',f,FACTIONS[f][0])}</th>`).join('');
   const rows=Array.from({length:31},(_,d)=>{const w=weekOf(d),first=d==0||d==1||(d-1)%7==0&&d<=29,span=Array.from({length:31},(_,k)=>k).filter(k=>weekOf(k)==w).length,ev=QUEST_EVENTS[d];
     const wk=first?`<th class="wk" rowspan="${span}">${w?'Week '+w:''}</th>`:'';
     const side=`<td>${sideOn(d).map(id=>`<span class="qs" title="From ${esc(QUESTS[id].giver)}">${tick(true)}${esc(QUESTS[id].title)}</span>`).join(' ')}</td>`;
@@ -196,6 +207,7 @@ function questsBody(c){const sides0=Object.keys(QUESTS).filter(id=>!QUESTS[id].m
 <p>There are two kinds of quest. A <b>main quest</b> belongs to a day: its giver offers it that morning (a gold star), you can take on only one main quest a day, and you can't sit and wait for the evening until it's done. A <b>side quest</b> (a silver star, or given to you during another quest) can be taken on and done at any time. Chuck offers his on the morning video call, on the big screen in the Hidden Radio Room; George, at Langley, takes the evening calls. The side quests are listed on the day they can first be had. George's evening quests are marked with a moon (&#9790;). A tick (&#10003;) marks the quests that are in the game already.</p>
 <div class="qtable"><table class="sched"><thead><tr><th>Week</th><th>Day</th>${head}<th>Side quests</th></tr></thead><tbody>${rows}</tbody></table></div>
 <h2>By faction</h2><table class="sched sum"><thead><tr><th>Faction</th><th>Intro</th><th>Quest days</th><th>Quests</th></tr></thead><tbody>${sum}</tbody></table>
+${questProgress(sideOn)}
 <h2 id="made">The quests in the game so far</h2><h3>Main quests</h3>${mains.map((id,i)=>(i&&QUESTS[mains[i-1]].day==QUESTS[id].day?'':`<h4>${esc(qDate(QUESTS[id].day))}</h4>`)+questBlock(c,id)).join('')}
 <h3>Side quests</h3>${sides.map(id=>questBlock(c,id)).join('')}`}
 // the Hierarchies page: every faction's chart side by side, main factions first, for comparing them

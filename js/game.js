@@ -392,8 +392,8 @@ function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet)setTimeout
   else{const said=Q.done[i].said,left=Q.done.filter((_,k)=>!q.met[k]),next=!said&&(Q.seq||left.every(c=>c.last))?' Next: '+left[0].what.replace(/^./,c=>c.toLowerCase())+'.':'';
     say((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next+gave,said||next||gave?12000:4000)}}
 // something happening in the game (a tattoo, say) meets the conditions waiting for it
-// a choice made in a quest's conversation: the conditions of the other choices fall away
-function questChoice(id,ch){const q=qOf(id);if(!q)return;q.choice=ch;QUESTS[id].done.forEach((c,i)=>{if(c.if)q.met[i]=c.if!=ch});applyRoutine()}
+// a choice made in a quest's conversation: the conditions of the other choices fall away (the steps already done stay done)
+function questChoice(id,ch){const q=qOf(id);if(!q)return;q.choice=ch;QUESTS[id].done.forEach((c,i)=>{if(c.if&&q.when?.[i]==null)q.met[i]=![c.if].flat().includes(ch)});applyRoutine()}
 // a flag set on a quest from its conversation (which may send someone somewhere: meet with flag)
 function qFlag(id,f){const q=qOf(id);if(!q)return;(q.flags??={})[f]=true;applyRoutine()}
 // a spot can be in someone's flat ({flatOf: name}): the bed they sleep by, in their apartment block

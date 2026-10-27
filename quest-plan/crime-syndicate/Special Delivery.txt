@@ -3,9 +3,33 @@ Faction: Crime Syndicate
 Day: 10 (morning)
 Linked with: None
 From the plan: Smuggle drugs
+Status: In the game
 
 Plan:
 The Syndicate has a shipment that must get
 past the harbour master and customs.
 Bring it in and get it where it needs to
 go.
+
+
+
+quest is given by the don 
+you have to distract liv in customers
+take a package from a boat that pulls up
+and bring it to the don in the pizza parlour
+
+you can distract liv by bribing her
+threatening her 
+
+successfully delivering the package gets +1 factions
+point to the Syndicate
+
+
+you can tell liv whats going onand not delievering the package
+you then have to tell the don things went wrong
+this give the syndicate -1 
+
+delivering the package gets you some money as a reward
+
+there is a secret option where you can sell the package to button
+and tell the don that is was lost /damaged
