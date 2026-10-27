@@ -12,7 +12,7 @@ Communist Party:
   Comrades Wanted (day 19, morning)
   Red Flag Over Kingsgrad (day 28,
   morning)
-  The People's Cola (day 11, morning)
+  The People's Cola (day 9, morning)
   The Great Debate (day 16, morning)
   Spanner in the Works (day 23, morning)
   Revolution at the Pictures (day 27,
@@ -62,7 +62,7 @@ Crime Syndicate:
   High Stakes (day 27, morning)
 
 Democratic Party:
-  Fair Day's Pay (day 9, morning)
+  Fair Day's Pay (day 11, morning)
   The Great Debate (day 16, morning)
   A Record for Ruby (day 12, morning)
   The Man at the Hotel Aurora (day 20,

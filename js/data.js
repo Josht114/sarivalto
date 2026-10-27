@@ -1358,14 +1358,14 @@ const PROP_PASS=['cabbage','wheat','potato','pumpkin','steamgrate','sled','rope'
 // 1-7, 8-14, 15-21 and 22-28, with days 29 and 30 to finish. QUEST_DAYS: for each main faction, the day it is introduced (intro)
 // and the days it has quests. QUEST_EVENTS: the days given to the whole island, as [name, the faction that runs it (optional)];
 // day 0 is the game's opening, before September begins.
-const QUEST_DAYS={communist:{intro:1,days:[11,16,19,23,27,28,29]},royal:{intro:2,days:[10,15,19,22,25,28,29]},cola:{intro:3,days:[9,13,18,22,26,28,29]},oil:{intro:7,days:[8,12,17,23,26,28,29]},church:{intro:5,days:[8,11,15,18,24,28,29]},syndicate:{intro:6,days:[10,13,17,20,24,27,29]},democrat:{intro:4,days:[9,12,16,20,25,28,29]}};
+const QUEST_DAYS={communist:{intro:1,days:[9,16,19,23,27,28,29]},royal:{intro:2,days:[10,15,19,22,25,28,29]},cola:{intro:3,days:[9,13,18,22,26,28,29]},oil:{intro:7,days:[8,12,17,23,26,28,29]},church:{intro:5,days:[8,11,15,18,24,28,29]},syndicate:{intro:6,days:[10,13,17,20,24,27,29]},democrat:{intro:4,days:[11,12,16,20,25,28,29]}};
 const QUEST_EVENTS={0:['Game intro','cia'],14:['Event 1'],21:['Volcano'],30:['Finale']};
 // the quests that have a title so far, by day and faction (the rest are just "Quest"): the ones from the quest plan (quest-plan/, a folder
 // for each faction), and the day-29 quests. A faction's quests are main quests, in the morning
 const QUEST_TITLES={8:{oil:'Black Tide',church:'Sunday Sermon'},
-9:{cola:'New Formula',democrat:"Fair Day's Pay"},
+9:{communist:"The People's Cola",cola:'New Formula'},
 10:{royal:"The King's Funeral",syndicate:'Special Delivery'},
-11:{communist:"The People's Cola",church:'Alms for the Poor'},
+11:{church:'Alms for the Poor',democrat:"Fair Day's Pay"},
 12:{oil:'Creative Accounting',democrat:'A Record for Ruby'},
 13:{cola:'Free Samples!',syndicate:'The Secret Recipe'},
 15:{royal:'Crown Before Cross',church:'Cross Before Crown'},

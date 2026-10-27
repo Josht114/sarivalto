@@ -18,9 +18,9 @@ Weeks: 1 is days 1-7, 2 is days 8-14, 3 is days 15-21, 4 is days 22-28, and 5 is
 | 1 | 6 | Crime Syndicate (intro) |
 | 1 | 7 | Diversified Petroleum (intro) |
 | 2 | 8 | Diversified Petroleum, Orthodox Church |
-| 2 | 9 | Kelp Cola, Democratic Party |
+| 2 | 9 | Communist Party, Kelp Cola |
 | 2 | 10 | Royal Family, Crime Syndicate |
-| 2 | 11 | Communist Party, Orthodox Church |
+| 2 | 11 | Orthodox Church, Democratic Party |
 | 2 | 12 | Diversified Petroleum, Democratic Party |
 | 2 | 13 | Kelp Cola, Crime Syndicate |
 | 2 | 14 | Event 1 (whole island) |
@@ -45,10 +45,10 @@ Weeks: 1 is days 1-7, 2 is days 8-14, 3 is days 15-21, 4 is days 22-28, and 5 is
 
 | Faction | Intro day | Quest days | Quests |
 |---|---|---|---|
-| Communist Party | 1 | 11, 16, 19, 23, 27, 28, 29 (Friendly rivalry) | 7 |
+| Communist Party | 1 | 9, 16, 19, 23, 27, 28, 29 (Friendly rivalry) | 7 |
 | Royal Family | 2 | 10, 15, 19, 22, 25, 28, 29 (Line of succession) | 7 |
 | Kelp Cola | 3 | 9, 13, 18, 22, 26, 28, 29 (Republican primary) | 7 |
 | Diversified Petroleum | 7 | 8, 12, 17, 23, 26, 28, 29 (Republican primary) | 7 |
 | Orthodox Church | 5 | 8, 11, 15, 18, 24, 28, 29 (Line of succession) | 7 |
 | Crime Syndicate | 6 | 10, 13, 17, 20, 24, 27, 29 (Republican primary) | 7 |
-| Democratic Party | 4 | 9, 12, 16, 20, 25, 28, 29 (Friendly rivalry) | 7 |
+| Democratic Party | 4 | 11, 12, 16, 20, 25, 28, 29 (Friendly rivalry) | 7 |

@@ -1,9 +1,9 @@
 Quest: The People's Cola
 Faction: Communist Party
-Day: 11 (morning)
+Day: 9 (morning)
 Linked with: New Formula (Kelp Cola), on
-day 9: the Party's answer to Kelp Cola's
-new flavour
+the same day: the Party's answer to
+Kelp Cola's new flavour
 From the plan: Attempt to make comu-cola
 
 Plan:

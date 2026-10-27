@@ -1,6 +1,6 @@
 Quest: Fair Day's Pay
 Faction: Democratic Party
-Day: 9 (morning)
+Day: 11 (morning)
 Linked with: None
 From the plan: Help the mill workers
 
