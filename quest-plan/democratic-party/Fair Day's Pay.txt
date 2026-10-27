@@ -3,9 +3,28 @@ Faction: Democratic Party
 Day: 11 (morning)
 Linked with: None
 From the plan: Help the mill workers
+Status: In the game
 
 Plan:
 The workers at the lumber mill want better
 pay and safer conditions.
 Help them organise and make their case to
 the bosses.
+
+
+you get the quest from the union leader,
+you then need to negotiate better pay and condition with the lumber millowner
+
+better pay
+can bribe 
+threatenin
+or find some evidence to convince them 
+
+better conditions
+can bribe 
+threatenin
+or find some evidence to convince them 
+
+getting 1 improvement give the dem party plu2 one, getting both gives plus 2
+
+dems get minus 1 if you give up and dont get either

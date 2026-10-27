@@ -160,7 +160,7 @@ const inGame=(t,d)=>Object.values(QUESTS).some(Q=>Q.title==t&&(Q.day==d||Q.day==
 const mainsOn=d=>Object.keys(QUESTS).filter(id=>QUESTS[id].main&&QUESTS[id].day==(d==0?-9:d));
 const qDate=d=>d<1?(31+d)+' August':d+' September';
 // a quest step, as the Quests tab lists it, with what it gives you
-function qStep(c,st,Q){const extra=[st.if?'only if you choose to '+[st.if].flat().map(k=>Q.choices?.[k]||k).join(', or to '):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+' point for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
+function qStep(c,st,Q){const extra=[st.if?'only if you choose to '+[st.if].flat().map(k=>Q.choices?.[k]||k).join(', or to '):'',...Object.entries(st.points||{}).map(([f,n])=>(n>0?'+':'')+n+(Math.abs(n)==1?' point':' points')+' for '+FACTIONS[f][0]),st.bring?'hand over '+st.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '):'',st.enter?st.speaker+' is waiting there to speak':'',st.gift?'you get the '+ITEMS[st.gift].name.toLowerCase():'',st.price?'$'+st.price+' from CIA funds':'',
     ...[st.gives||[]].flat().map(id=>(QUESTS[id].main?'gives the main quest ':'gives the side quest ')+QUESTS[id].title)].filter(Boolean);
   return`<li>${esc(st.what)}${extra.length?` <small>(${esc(extra.join('; '))})</small>`:''}</li>`}
 function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));

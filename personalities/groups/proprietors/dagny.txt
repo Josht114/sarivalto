@@ -1,0 +1,15 @@
+Name: Dagny
+Gender: Female
+Faction: None
+Group: The Proprietors
+Partner: None
+Job: Owner of the Eastbrook Lumber Company
+Home: Skyline Apartments (Frostholm)
+
+Bio:
+Owns the lumber mill outside Eastbrook,
+and is on its floor most days, counting
+the timber.
+Sharp, tight-fisted and proud of it, she
+calls Helen a Communist agitator and pays
+her mill hands as little as she can.

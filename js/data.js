@@ -537,6 +537,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'mill_in',x:20,y:7,dir:0,name:'Bjarne',home:'eblofts',loc:'mill_in',job:'Lumber mill foreman',faction:'democrat',gender:'male',body:'#a33b2f',hair:'#b5b5b5',hat:'#e8792a'},
 {m:'mill_in',x:8,y:4,dir:1,name:'Knut',home:'eblofts',loc:'mill_in',job:'Sawyer',faction:'democrat',also:['union'],gender:'male',body:'#3d5a4a',hair:'#c9a05a',hat:'#e0a100'},
 {m:'millroad',x:6,y:5,dir:1,name:'Ilse',home:'eblofts',loc:'millroad',job:'Log loader',faction:'democrat',also:['union'],gender:'female',body:'#c0392b',hair:'#e8c86a',hat:'#2f4a3c'},
+// the mill's owner, who comes down to the mill floor most days to count the timber
+{m:'mill_in',x:19,y:4,dir:2,name:'Dagny',home:'skyapts',loc:'mill_in',job:'Owner of the Eastbrook Lumber Company',faction:'proprietors',gender:'female',body:'#3a3d4a',hair:'#b5b5b5'},
 // the Crime Syndicate's people working the towns, one in each
 {m:'fishing',x:24,y:8,dir:0,name:'Nico',home:'skyapts',loc:'fishing',job:'Syndicate bookie',faction:'syndicate',gender:'male',body:'#3a2a2a',hair:'#2a1a12',hat:'#3a3d44'},
 {m:'second',x:24,y:17,dir:0,name:'Paolo',home:'eblofts',loc:'second',job:'Syndicate bookie',faction:'syndicate',gender:'male',body:'#2a2a33',hair:'#5a3a26'},
@@ -791,6 +793,12 @@ const VOLCANO_IDEA={
   Rosa:{start:'a',nodes:{a:{say:"A new cola flavour? Ha! If you ask me, they should bottle the volcano. Been up to the hot springs? The water comes up fizzy all by itself and tastes of smoke. Go up the Lava Tube and bring some of the real stuff down, that's what I'd do. Hot dog?"}}},
   Saga:{start:'a',nodes:{a:{say:"A flavour? Taste the springs: everyone says they taste of the volcano. Smoky, salty, a bit of a kick. If you want the real thing, the Lava Tube's through the cave mouth on the ledge above us. Mind your eyebrows."}}},
   'Brother Teodor':{start:'a',nodes:{a:{say:"Flavour is in the earth, my friend. My soup tastes of the forest because the mushrooms do. You want a cola that tastes of this island? Then go to its heart: the volcano. There's a cave on its lower ledge where the rock still runs like honey."}}}};
+// Fair Day's Pay: the flags on the quest (pay, nopay: the wages settled; safe, nosafe: the saw line settled), and Dagny's
+// topics, until each is settled. Once both are, the choice is made: both won, one, or none.
+const FP_FLAGS=()=>qOf('fairpay')?.flags||{};
+const fpSettle=f=>{qFlag('fairpay',f);const g=FP_FLAGS();if((g.pay||g.nopay)&&(g.safe||g.nosafe))questChoice('fairpay',g.pay&&g.safe?'both':g.pay||g.safe?'one':'none')};
+const FP_TOPICS=[['About the wages.','w',null,()=>!FP_FLAGS().pay&&!FP_FLAGS().nopay],['About the saw line.','s',null,()=>{const g=FP_FLAGS();return!g.safe&&!g.nosafe}],
+  ["That's all, for now.",null,null,()=>{const g=FP_FLAGS();return!(g.pay||g.nopay)||!(g.safe||g.nosafe)}],["That's all.",null,null,()=>{const g=FP_FLAGS();return(g.pay||g.nopay)&&(g.safe||g.nosafe)}]];
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1228,6 +1236,57 @@ specialdelivery:{title:'Special Delivery',giver:'Gustavo',main:true,day:10,seq:t
       a:{say:"My boat turned round at the harbour mouth and went back out to sea. Customs was standing on the jetty, with the harbour master and a notebook. How did that happen?",opts:[["Liv wouldn't budge. Someone must have tipped her off.",'b'],['Bad luck. She was out on the jetty when it came in.','b']]},
       b:{say:"Someone. Yes. I'll find out who. Get out of my back room. (Crime Syndicate: -1 point.)"}}}}],
   thanks:"That's the end of Gustavo's special delivery, one way or another."},
+// Fair Day's Pay (the Democratic Party, 11 September): Helen, the union leader, wants the mill hands' case made to Dagny, who owns
+// the lumber mill. Hear Knut out at the mill, then talk Dagny round on the wages and on the saw line, each by bribing her ($100 of
+// your own), threatening her, or showing her the evidence (the ledger on Bjarne's desk; the saw line itself), or give up on it.
+// Then tell Helen: both won, the Democrats +2; one, +1; neither, -1.
+fairpay:{title:"Fair Day's Pay",giver:'Helen',main:true,day:11,seq:true,choices:{both:'win better pay and safer conditions',one:'win one of the two',none:'give up on both'},
+  text:"The mill hands at the Eastbrook Lumber Company want better pay and a safer mill. Helen, the union leader, wants you to hear them out at the lumber mill, at the Mill outside Eastbrook, and make their case to Dagny, who owns it. She can be paid, pushed, or shown the evidence. Then tell Helen how it went, at the Communist Party HQ in Saltwick.",
+  offer:"Sit down, comrade. The lads at the lumber mill in Eastbrook haven't had a rise in six years, and the big saw there has taken more fingers than I can count. They're Erik's people, Democrats most of them, but a union card's a union card. Dagny, who owns the mill, won't see me: she says I'm a Communist agitator, which is true. She might see a journalist. Will you make their case?",
+  accept:"Good. Go to the mill and hear Knut out first: he runs the saw. Then talk Dagny round, however you can. Better pay, and a safer mill. Get both if you can, and come and tell me.",
+  wait:"How did it go at the mill? Hear Knut out, then talk Dagny round: better pay, and a safer mill.",
+  looks:[{spot:{m:'mill_in',x:[19,22],y:8},flag:'ledger',what:"Read the ledger on Bjarne's desk",
+    say:"Bjarne sees you reading, and finds something to do at the far end of the mill. The ledger shows the Eastbrook Lumber Company's best year since the war: timber for Kelp Cola's new warehouse, for the palace, for half of Kingsgrad. Wages haven't moved in six years. And in Dagny's own hand: \"Deposit, new motor car.\""},
+    {spot:{m:'mill_in',x:[2,13],y:3},flag:'saw',what:'Look the saw line over',
+    say:"The guard over the big blade has been wired up out of the way, to keep the logs moving faster, and the stop lever is tied off with string. Nailed to a post is the accident book: eleven injuries since the spring, four of them hands."}],
+  done:[
+    {talk:'Knut',what:'Hear the mill hands out: Knut, the sawyer, at the lumber mill at the Mill',
+      said:"Now make the case to Dagny, the owner, on the mill floor. If you want something to show her, look the saw line over, and the ledger on Bjarne's desk.",chat:{start:'a',nodes:{
+      a:{say:"Helen sent you? Good on her. I'll tell you what we want, and it isn't much. A rise: six years, and not a penny, while the price of bread's gone up twice. And a guard on that saw. Dagny had it wired back to speed the line up. One of the lads lost two fingers to it in June.",opts:[["Has anyone told Dagny?",'b']]},
+      b:{say:"Told her? Bjarne's told her every week. She says the mill can't afford it. Funny, that: Bjarne keeps the books on his desk there, and he says it's never done better. Have a look, if you like. He won't stop you. And look at the saw line while you're at it. Dagny's over by the timber stacks, counting her money."}}}},
+    {talk:'Dagny',ok:q=>!!q.choice,what:'Make the mill hands\' case to Dagny, the owner, on the mill floor: better pay, and a safer mill',chat:{start:'a',nodes:{
+      a:{say:"Dagny. I own this mill, and everything in it. You're the journalist? If Helen sent you, you've wasted a walk. Say your piece.",opts:FP_TOPICS},
+      h:{say:"Anything else?",opts:FP_TOPICS},
+      w:{say:"Wages? The men are paid what the mill can afford, and the mill can afford very little. Timber's a hard trade.",opts:[
+        ["$100 says it can afford a little more. ($100 of your own)",'wb',()=>{ME.cash-=100;fpSettle('pay')},()=>ME.cash>=100],
+        ["The men walk out tomorrow, and I'll be there with a camera. Front page, every day, until the saws start again.",'wt',()=>fpSettle('pay')],
+        ["I've read the ledger. Your best year since the war, and a new motor car on order.",'we',()=>fpSettle('pay'),()=>FP_FLAGS().ledger],
+        ["Then forget the wages.",'wn',()=>fpSettle('nopay')],
+        ["Let me come back to that.",'h']]},
+      wb:{say:"(Dagny folds the notes into her pocket without looking at them.) Well. Perhaps the mill can stretch to ten per cent, from Monday. Don't make a habit of this.",opts:[['(Go on)','h']]},
+      wt:{say:"You wouldn't. ...You would. Fine. Ten per cent, from Monday. And you keep that camera out of my mill.",opts:[['(Go on)','h']]},
+      we:{say:"(Dagny goes red.) Bjarne leaves that book lying about like a tea towel. ...Fine. Ten per cent, from Monday, and not a word about the car.",opts:[['(Go on)','h']]},
+      wn:{say:"Sensible. The wages stay as they are.",opts:[['(Go on)','h']]},
+      s:{say:"The saw line? It's a saw. Saws cut things. A careful man keeps his fingers, and a careless one learns.",opts:[
+        ["$100 for a new guard, and a stop lever that works. ($100 of your own)",'sb',()=>{ME.cash-=100;fpSettle('safe')},()=>ME.cash>=100],
+        ["Dry old place, this. Sawdust everywhere. Be a shame if somebody dropped a cigarette.",'st',()=>fpSettle('safe')],
+        ["The guard's wired back and the stop lever's tied off with string. Eleven injuries since the spring. The inspector would close you down.",'se',()=>fpSettle('safe'),()=>FP_FLAGS().saw],
+        ["Then forget the saw line.",'sn',()=>fpSettle('nosafe')],
+        ["Let me come back to that.",'h']]},
+      sb:{say:"(Dagny takes the money.) The guard goes back on tomorrow, and I'll have the lever seen to. It'll slow the line down, mind.",opts:[['(Go on)','h']]},
+      st:{say:"(Dagny looks at the sawdust sacks, and then at you, for a long moment.) ...The guard goes back on tomorrow. And a fire bucket by every post. Are we done?",opts:[['(Go on)','h']]},
+      se:{say:"Eleven? Bjarne never said it was eleven. ...Very well. The guard goes back on, and the lever gets mended. Keep the inspector out of it.",opts:[['(Go on)','h']]},
+      sn:{say:"Good. The line runs as it is.",opts:[['(Go on)','h']]}}}},
+    {if:'both',talk:'Helen',points:{democrat:2},what:'Tell Helen how it went, at the Communist Party HQ in Saltwick',chat:{start:'a',nodes:{
+      a:{say:"Well? Did Dagny listen?",opts:[["A rise for the men, and a guard back on the saw.",'b']]},
+      b:{say:"Both? From Dagny? I'd have settled for either. The mill hands will be buying you drinks at the Timberline for a month. And Erik will tell everyone his Democrats did it, but let him: it's the lads that matter. (Democratic Party: +2 points.)"}}}},
+    {if:'one',talk:'Helen',points:{democrat:1},what:'Tell Helen how it went, at the Communist Party HQ in Saltwick',chat:{start:'a',nodes:{
+      a:{say:"Well? Did Dagny listen?",opts:[["To half of it.",'b']]},
+      b:{say:"Half's more than she's ever given anyone. It's a start, comrade, and starts are how it's done. The mill hands will take it, and come back for the rest. (Democratic Party: +1 point.)"}}}},
+    {if:'none',talk:'Helen',points:{democrat:-1},what:'Tell Helen how it went, at the Communist Party HQ in Saltwick',chat:{start:'a',nodes:{
+      a:{say:"Well? Did Dagny listen?",opts:[["No. I gave up on it.",'b']]},
+      b:{say:"Gave up. The mill hands were told someone was coming to speak for them, and you came away with nothing. They'll remember that, and so will Erik. (Democratic Party: -1 point.)"}}}}],
+  thanks:"That's the end of the mill hands' case, one way or another."},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
