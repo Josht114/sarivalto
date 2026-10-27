@@ -1,0 +1,13 @@
+Name: Noora
+Gender: Female
+Faction: Kelp Cola
+Group: None
+Partner: None
+Job: Lab technician
+Home: Apartment Block (Saltwick)
+
+Bio:
+Lab technician in Kelp Cola's research
+lab, who runs the equipment, washes the
+glassware and mixes the test batches for
+Saara, the head chemist.

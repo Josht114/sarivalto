@@ -1469,6 +1469,7 @@ farmhouse_in:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#e8dcc0',wall2:'
 barn_in:{fl:'wood',f:['#8a6a45','#7a5d3c','#94754e'],wall:'#a33b2f',wall2:'#8a3026',pap:'stripe',base:'#4a3222',deco:[[9,'win']]},
 civil_in:{fl:'check',f:['#d8d4cc','#b8b2a6'],wall:'#e8e2d4',wall2:'#c9c2b0',pap:'panel',base:'#3a3d44',deco:[[3,'clock'],[9,'portrait'],[15,'win']]},
 kchq2:{fl:'carpet',f:['#1f4a32','#245638'],wall:'#5a3a22',wall2:'#3e2816',pap:'panel',base:'#c9a040',rug:'#7a1e2a',curtain:'#2e9d57',deco:[[2,'win'],[4,'kcad',2],[6,'portrait'],[8,'clock'],[11,'win'],[13,'kcad',0]]},
+kclab:{fl:'tile',f:['#dfe6e8','#d2dadd'],wall:'#e8eef0',wall2:'#9fd6c0',pap:'tiles',base:'#2e5a3a',deco:[[4,'safety'],[10,'clock'],[15,'formula']]},
 kchq_in:{fl:'tile',f:['#e8f2ea','#d8e8dc'],wall:'#e8f2ea',wall2:'#2e9d57',pap:'tiles',base:'#2e9d57',rug:'#2e9d57',deco:[[2,'kcad',0],[4,'kcad',1],[6,'win'],[8,'kcad',2],[11,'neon','KELP COLA','#2e9d57'],[14,'kcad',3],[16,'win'],[19,'clock']]},
 kcfac_in:{fl:'tile',f:['#b4bcc0','#a7b0b5'],wall:'#e8f2ea',wall2:'#9fd6c0',pap:'tiles',base:'#2e5a3a',deco:[[2,'win'],[7,'safety'],[12,'clock'],[17,'win'],[21,'win']]},
 kcwhs_in:{fl:'stone',f:[],wall:'#8aa898',wall2:'#6b8a7a',pap:'tiles',base:'#2e5a3a',deco:[[9,'win']]},
@@ -1632,6 +1633,11 @@ function interiorLayer(m){
     // a tear-off wall calendar: the month (SEP, or AUG before it) across a red header, today's date below it (drawn each frame, so it follows DAY)
     if(k=='calendar'){r('#3a3a44',X+4,-11,1,2);r('#3a3a44',X+11,-11,1,2);r(OUT,X,-9,16,20);r('#f4f1e8',X+1,-8,14,18);r('#c0392b',X+1,-8,14,6);ptext(r,typeof DAY!='undefined'&&DAY<1?'AUG':'SEP',X+3,-7,'#ffffff');
       r('#d8d2c0',X+1,9,14,1);an.push({t:'calendar',x:X+1,y:-1})}
+    // a blackboard of formulas (two tiles wide): lines of chalk sums and a sketch of a bottle, in a wooden frame with a chalk ledge
+    if(k=='formula'){const C='rgba(240,240,230,.8)';r('#5a3d2a',X-1,-11,34,21);r('#2a3a30',X,-10,32,18);
+      for(let y=-8;y<6;y+=3)for(let x=X+2;x<X+21;x++)if(hash(x,y,95)>.45)r(C,x,y,1,1);
+      r(C,X+25,-8,2,1);r(C,X+24,-7,4,1);r(C,X+23,-6,1,9);r(C,X+28,-6,1,9);r(C,X+23,3,6,1);r(C,X+23,-2,6,1);
+      r('#8a6a45',X-1,8,34,2);r('#f4f4f0',X+6,7,3,1);r('#f2c230',X+12,7,2,1)}
     if(k=='cross'){r('#c9a040',X+7,-8,2,16);r('#c9a040',X+4,-4,8,2);r('#e8c860',X+7,-8,1,16)}
     if(k=='listing')for(let i=0;i<4;i++){const x=X+1+(i&1)*7,y=-8+(i>>1)*9;r(OUT,x,y,7,8);r('#f4f4f0',x+1,y+1,5,6);r(['#c88a7a','#9ab8c8','#e8c88a','#b8d0a8'][i],x+2,y+4,3,3);r('#4a4f58',x+2,y+2,3,2)}
     if(k=='neon'){const s=d[2]||'BAR',nw=s.length*4+3;r('#1a1520',X+8-(nw>>1),-5,nw,10);an.push({t:'neon',x:X+10-(nw>>1),y:-2,s,col:d[3]})}
@@ -1750,6 +1756,46 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     const mx=W>>1;r('#5a5f68',mx,2,1,oy+2);r('#5a5f68',mx-8,2,9,1);r('#2b2f3a',mx-11,0,4,7);r('#8d959e',mx-10,1,2,5);r('#1a1c22',mx-2,oy+2,5,2);
     r('#2b2f3a',6,oy+4,8,2);r('#c0392b',5,oy+3,3,4);r('#c0392b',12,oy+3,3,4);r('#f4f4f0',W-14,oy+3,8,6);r('#d0d4d8',W-13,oy+5,6,1);
     r('#2b2f3a',mx-4,oy+H-1,8,3);r('#3a3d44',mx-4,oy+H-1,8,1);r('#1a1c22',mx-1,oy+H+2,2,4)})}}
+  // ---- Kelp Cola's research lab
+  // a lab bench: a pale epoxy top on grey cabinets, crowded with glassware (conical flasks and beakers of trial colas and syrups, a
+  // rack of test tubes, a notebook) and a gas burner heating a flask on a tripod, which steams
+  if(ch=='u'&&l.includes('lab bench')){const oy=16,TT=H+oy,an=[],liq=['#4a2414','#3d8a4a','#d08a2a','#b8322a','#6a3a1e','#3a7ab8'],G='#d8eef4';
+    const c=mk(W,TT,r=>{r('#c9d0d4',0,oy,W,4);r('#e4e9ec',0,oy,W,1);r('#8d959e',0,oy+4,W,1);r('#4a5560',0,oy+5,W,H-5);
+      for(let x=0;x+16<=W;x+=16){r('#5a6670',x+2,oy+7,12,H-9);r('#c3cad1',x+7,oy+9,2,1)}
+      const top=oy+1;let k=Math.floor(v*5);
+      for(let x=3;x<W-14;){const t=(k++)%5,col=liq[(k*7+Math.floor(v*11))%liq.length];
+        if(t==0){r('#9aa3ad',x+1,top-12,5,1);r(G,x+2,top-11,3,5);for(let y=0;y<6;y++){const hw=1+y;r(G,x+3-hw,top-6+y,hw*2+1,1);if(y>2)r(col,x+4-hw,top-6+y,hw*2-1,1)}x+=11}  // a conical flask
+        else if(t==1){r(G,x,top-7,7,7);r('#f4fbfd',x,top-7,1,7);r(col,x+1,top-4,5,4);r(shade(col,.25),x+1,top-4,5,1);x+=10}  // a beaker
+        else if(t==2){r('#8a6038',x,top-3,12,3);r('#a57a4a',x,top-3,12,1);for(let i=0;i<4;i++){r(G,x+1+i*3,top-9,2,7);r(liq[(k+i)%liq.length],x+1+i*3,top-6,2,4)}x+=15}  // test tubes
+        else if(t==3){r('#3a3d44',x+1,top-1,7,1);r('#5a5f68',x+3,top-5,3,4);r('#2b2f3a',x,top-8,9,1);r('#2b2f3a',x,top-8,1,7);r('#2b2f3a',x+8,top-8,1,7);  // the burner and tripod
+          r(G,x+2,top-13,5,5);r(col,x+3,top-11,3,3);r(G,x+3,top-15,3,2);an.push({t:'steam',x:x+4,y:top-16,ph:v},{t:'gasflame',x:x+4,y:top-7});x+=13}
+        else{r('#f4f1e8',x,top-2,9,3);r('#c9c2b0',x,top,9,1);r('#2e5f8f',x+1,top-1,6,1);r('#e0a100',x+3,top-3,6,1);x+=12}}});  // a notebook and pencil
+    return{oy,c,an}}
+  // a fume hood: a steel cabinet with an extractor grille, its glass sash raised on a retort stand and flasks, a duct up through the
+  // ceiling, and cupboards below
+  if(ch=='y'&&l.includes('fume')){const oy=20,TT=H+oy;return{oy,an:{t:'steam',x:16,y:16,ph:.4},c:mk(W,TT,r=>{
+    r('#8d959e',(W>>1)-6,0,12,4);r('#a9b0b8',(W>>1)-6,0,12,1);r('#b9c0c7',0,4,W,TT-4);r('#dfe4e8',0,4,W,1);
+    r('#5a6670',3,7,W-6,2);for(let x=5;x<W-5;x+=3)r('#3a4048',x,7,1,2);
+    r('#2b3038',3,11,W-6,14);r('#9fc8d8',3,11,W-6,4);r('rgba(255,255,255,.5)',4,12,W-10,1);r('#c3cad1',3,15,W-6,1);
+    r('#6b737c',10,16,1,8);r('#6b737c',8,24,6,1);r('#6b737c',10,17,6,1);r('#d8eef4',14,18,5,6);r('#3d8a4a',15,21,3,3);r('#d8eef4',W-16,20,6,4);r('#d08a2a',W-15,22,4,2);
+    r('#d8dee2',0,25,W,2);r('#4a5560',0,27,W,TT-27);for(let x=0;x+16<=W;x+=16){r('#5a6670',x+2,28,12,TT-30);r('#c3cad1',x+7,30,2,1)}})}}
+  // shelves of flavour syrups: rows of glass jars and tall bottles, each a different colour, each with a handwritten label
+  if(ch=='y'&&/syrup|flavour/.test(l)){const oy=12,TT=H+oy-2,cols=['#4a2414','#3d8a4a','#d08a2a','#b8322a','#7d3c98','#e0c040','#6a3a1e','#2e86c1','#e87a9a'];return{oy,c:mk(W,TT,r=>{
+    r('#8d959e',0,0,W,TT);r('#6b737c',1,1,W-2,TT-2);
+    [[1,8],[10,17],[19,TT-3]].forEach(([a,b],ri)=>{for(let x=2;x<W-5;){const k=hash(x,ri,v*13+5),col=cols[k*cols.length|0],tall=k>.55;
+        if(tall){r('#d8eef4',x+1,a,2,2);r(col,x,a+2,4,b-a-2);r(shade(col,.3),x,a+2,1,b-a-2);r('#f4f1e8',x,b-4,4,2);x+=5}
+        else{r('#d8eef4',x,b-6,5,1);r(col,x,b-5,5,5);r(shade(col,.3),x,b-5,1,5);r('#f4f1e8',x+1,b-3,3,1);x+=6}}
+      r('#a9b0b8',0,b,W,2);r('#c3cad1',0,b,W,1)})})}}
+  // a tall tank of seawater on a steel stand, where the company grows its own kelp: fronds swaying up from the gravel, bubbles
+  // rising from an air stone, and a lamp in the lid
+  if(ch=='x'&&l.includes('kelp tank')){const oy=6,TT=H+oy;return{oy,an:{t:'bubbles',x:W-8,y:TT-12,h:TT-18},c:mk(W,TT,r=>{
+    r('#3a3d44',0,0,W,3);r('#5a5f68',0,0,W,1);r('#fff2c0',8,2,W-16,1);
+    for(let y=3;y<TT-8;y++)r(mix('#5ab0c0','#1a4a5a',(y-3)/(TT-11)),1,y,W-2,1);
+    r('#c9b48a',1,TT-10,W-2,2);for(let x=1;x<W-1;x+=2)r(hash(x,1,71)>.5?'#a8946a':'#e0d0a8',x,TT-10+(x&1),1,1);
+    for(let k=0;k<6;k++){const x0=4+k*7+(hash(k,2,72)*3|0),hh=12+(hash(k,3,72)*(TT-26)|0);
+      for(let y=0;y<hh;y++){const x=x0+Math.round(Math.sin(y/4+k)*1.5);r(k%2?'#3d8a4a':'#5a7a2a',x,TT-11-y,2,1);if(y%5==2)r('#6ab04a',x+(k%2?2:-2),TT-11-y,2,1)}}
+    r('rgba(255,255,255,.35)',3,5,1,TT-16);r('rgba(255,255,255,.2)',5,5,1,8);r('#8d959e',0,3,1,TT-11);r('#8d959e',W-1,3,1,TT-11);
+    r('#5a6670',0,TT-8,W,8);r('#6b737c',0,TT-8,W,1);r('#3a3d44',2,TT-2,3,2);r('#3a3d44',W-5,TT-2,3,2)})}}
   if(ch=='u'){const desk=l.includes('desk'),meet=l.includes('meeting'),oy=desk?0:5,TT=H+oy+6,seats=[];for(let x=8;x<W;x+=16)seats.push(x);
     return{oy,c:mk(W,TT,r=>{const chair=(cx,y,back)=>{if(back){r('#5a3d2a',cx-3,y,6,3);r('#7a5436',cx-3,y,6,1)}r('#8a6a45',cx-3,y+3,6,3);r('#6b4a2e',cx-3,y+5,6,1)};
       if(!desk)seats.forEach(x=>chair(x,0,true));
@@ -2231,6 +2277,8 @@ function drawWorld2(m,cx,cy,t,frame){
         for(let r=0;r<4;r++)px('#5fe08a',cx+Math.round(Math.cos(an)*r*a.w/8),cy+Math.round(Math.sin(an)*r*a.h/8),1,1);if(((t/600)|0)%3==0)px('#ff3b2f',cx+2,cy-1,1,1)}}
     if(a.t=='reel'){const an=t/180;for(const o of[0,2.09,4.19])px('#5a5f68',X+Math.round(Math.cos(an+o)*2),Y+Math.round(Math.sin(an+o)*2),1,1);px('#2b2f3a',X,Y,1,1)}
     if(a.t=='vu')for(let i=0;i<a.w;i+=2){const hh=1+(hash(i,t/110|0,a.x)*a.h|0);px(hh>=a.h?'#ff3b2f':hh>a.h/2?'#ffd23a':'#5fe08a',X+i,Y+a.h-hh,1,hh)}
+    if(a.t=='gasflame'){const f=hash(a.x,t/90|0,9);px('#3a6aff',X-1,Y,3,2);px(f>.5?'#a8c8ff':'#6a9aff',X,Y-1,1,1)}
+    if(a.t=='bubbles')for(let k=0;k<4;k++){const g=(t/2400+k/4)%1;px('rgba(225,245,255,.8)',X+Math.round(Math.sin(g*9+k)),Y-g*a.h,1+(k&1),1+(k&1))}
     if(a.t=='candle'){const f=hash(a.x,t/120|0,8);px('rgba(255,200,90,.22)',X-2,Y-3,5,6);px(f>.3?'#ffd23a':'#ff8a3a',X,Y-1,1,2);if(f>.6)px('#fff2a0',X,Y-2,1,1)}
     if(a.t=='scan'){const yy=(t/40|0)%a.h;px('rgba(255,255,255,.22)',X,Y+yy,a.w,1);if(hash(t/200|0,a.x|0,7)>.93)px('rgba(255,60,200,.3)',X+2,Y+(hash(t/90|0,a.x|0,8)*a.h|0),a.w-4,2)}
     if(a.t=='calendar'&&typeof DAY!='undefined'){const s=String(DAY<1?31+DAY:DAY),w=s.length*8-2,x0=X+((14-w)>>1);

@@ -221,7 +221,7 @@ bank_in:['Nordbank',20,12,'interior',[[1,1,3,1,'y','Files'],[8,1,4,1,'x','Safe']
 farmhouse_in:['Farmhouse',14,10,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Shelf'],[9,1,2,1,'i','Stove'],[12,1,1,2,'x','Sacks'],[5,4,4,2,'u','Kitchen Table'],[1,6,2,2,'x','Sacks'],[11,6,2,1,'y','Bookcase']]],
 barn_in:['Barn',18,10,'interior',[[1,1,3,2,'x','Hay Bales'],[5,1,3,2,'x','Hay Bales'],[10,1,3,1,'y','Shelves'],[14,1,3,2,'x','Feed Sacks'],[2,5,4,1,'u','Workbench'],[12,5,4,2,'x','Hay Bales']]],
 civil_in:['Civil Service Bureau',20,12,'interior',[[1,1,4,1,'y','Files'],[6,1,4,1,'y','Files'],[11,1,4,1,'y','Files'],[16,1,3,1,'y','Archive'],[2,2,3,2,'u','Desk'],[8,2,3,2,'u','Desk'],[14,2,3,2,'u','Desk'],[2,5,16,1,'c','Service Counter'],[2,8,5,1,'o'],[13,8,5,1,'o']]],
-kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up'],[4,1,3,1,'y','Bottle Display'],[15,9,4,1,'y','Bottle Display'],[1,10,2,1,'x','Kelp Cola Crates']]],
+kchq_in:['Kelp Cola HQ',22,12,'interior',[[1,1,3,1,'y','Fridge'],[8,1,6,1,'y','Shelves'],[18,1,3,1,'y','Files'],[8,3,6,1,'c','Reception'],[1,5,3,2,'u','Desk'],[1,8,3,2,'u','Desk'],[17,5,4,2,'u','Desk'],[6,7,6,2,'u','Meeting Table'],[15,1,1,1,'z','Stairs up'],[17,1,1,1,'z','Stairs down'],[4,1,3,1,'y','Bottle Display'],[15,9,4,1,'y','Bottle Display'],[1,10,2,1,'x','Kelp Cola Crates']]],
 // Rosaria's pizzeria in Kingsgrad: the oven, the counter and checked tables in front, and behind a door at the back, a shady back
 // room with a card table, a safe, crates and a desk of ledgers, where the Crime Syndicate counts its money
 pizzeria_in:['Pizzeria',24,12,'interior',[[1,1,3,1,'y','Safe'],[5,1,4,2,'u','Card Table'],[11,1,3,2,'x','Crates'],[15,1,2,2,'u','Desk'],[1,4,12,1,'W'],[14,4,3,1,'W'],[1,5,3,2,'i','Pizza Oven'],[5,6,6,1,'c','Counter'],[14,5,2,1,'y','Bottles'],[2,8,2,2,'u','Table'],[6,8,2,2,'u','Table'],[12,8,2,2,'u','Table'],[17,1,1,5,'W'],[17,7,1,4,'W'],[18,1,2,1,'i','Stove'],[21,1,2,1,'y','Fridge'],[22,3,1,3,'y','Pantry Shelves'],[19,8,3,1,'u','Kitchen Table'],[18,10,2,1,'x','Sink']]],
@@ -235,6 +235,11 @@ derrick_in:['Drill Floor',16,10,'interior',[[1,1,3,2,'y','Pipe Rack'],[5,1,3,1,'
 lighthouse_top:['Lamp Room',10,9,'interior',[[3,1,4,4,'x','Great Lamp'],[7,6,2,2,'z','Spiral Stair down'],[1,6,2,1,'y','Lamp Oil']]],
 // the lighthouse keeper's room at the foot of the tower: the spiral stair up to the lamp, a bed, a table, a stove, tide charts and lamp oil
 lighthouse_in:['Lighthouse',10,9,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Lamp Oil'],[7,1,2,2,'z','Spiral Stair up'],[3,4,2,2,'u','Table'],[8,5,1,1,'i','Stove'],[1,6,2,1,'y','Tide Charts']]],
+// Kelp Cola's research lab, in the basement of its headquarters, down the stairs from reception: a fume hood, shelves of flavour
+// syrups, two lab benches of glassware with a gas burner, a tank where the company grows its own kelp, a tasting table, the head
+// chemist's desk, and a blackboard of formulas
+kclab:['Research Lab',20,12,'interior',[[18,1,1,1,'z','Stairs up'],[1,1,3,1,'y','Fume Hood'],[5,1,5,1,'y','Flavour Syrups'],[11,1,3,1,'y','Files'],
+[2,4,6,1,'u','Lab Bench'],[11,4,6,1,'u','Lab Bench'],[1,7,3,2,'x','Kelp Tank'],[6,8,6,1,'u','Tasting Table'],[14,7,3,2,'u','Desk'],[16,10,2,1,'x','Sugar Sacks']]],
 // Phil's office, the second floor of Kelp Cola's headquarters: a panelled room with his executive desk, a bookcase, a drinks cabinet,
 // a trophy shelf of the company's awards and a table for guests
 kchq2:["Phil's Office",16,10,'interior',[[1,1,4,1,'y','Bookcase'],[10,1,4,1,'y','Bottles'],[5,3,5,2,'u','Executive Desk'],[2,6,2,2,'u','Table'],[10,6,4,1,'y','Trophy Shelf'],[14,3,1,1,'z','Stairs down']]],
@@ -490,6 +495,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'kchq_in',x:11,y:2,dir:0,name:'Elin',home:'kgapts',loc:'kchq_in',job:'Secretary',faction:'cola',gender:'female',partner:'Mats',body:'#2e9d57',hair:'#2a1a12'},
 {m:'kcfac_in',x:12,y:5,dir:1,name:'Kurt',home:'kgapts',loc:'kcfac_in',job:'Factory foreman',faction:'cola',gender:'male',body:'#2e5a3a',hair:'#5a3a26',hat:'#2e9d57'},
 {m:'kcwhs_in',x:9,y:4,dir:0,name:'Petra',home:'kgapts',loc:'kcwhs_in',job:'Warehouse worker',faction:'cola',also:['union'],gender:'female',body:'#8aa898',hair:'#c9822a'},
+{m:'kclab',x:5,y:3,dir:0,name:'Noora',home:'apartments',loc:'kclab',job:'Lab technician',faction:'cola',gender:'female',body:'#f2f2f2',hair:'#e8c86a'},
+{m:'kclab',x:13,y:3,dir:0,name:'Saara',home:'kgapts',loc:'kclab',job:"Kelp Cola's head chemist",faction:'cola',gender:'female',body:'#f2f2f2',hair:'#8a4a2a'},
 {m:'kcfac_in',x:6,y:4,dir:1,name:'Aino',home:'kgapts',loc:'kcfac_in',job:'Bottling line worker',faction:'cola',also:['union'],gender:'female',body:'#2e9d57',hair:'#e8c86a',hat:'#f2f2f2'},
 {m:'whs_in',x:8,y:4,dir:0,name:'Gunnar',home:'apartments',loc:'whs_in',job:'Dock worker',faction:'none',also:['union'],gender:'male',body:'#4a5a5a',hair:'#6b4a2a',hat:'#3a3d44'},
 {m:'barrA_in',x:10,y:4,dir:0,name:'Private Aho',home:'barrA_in',loc:'barrA_in',job:'Soldier',faction:'army',gender:'male',body:'#4a5a3a',hair:'#3a2a20',hat:'#3a4a2a'},
@@ -1121,7 +1128,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['second',21,14,0,1,'tattoo'],['second',29,14,0,1,'clothes_in'],['second',36,14,0,1,'newsroom'],['second',44,14,0,1,'tavern'],['millroad',10,5,0,1,'mill_in'],
 ['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],
 ['village',14,18,0,1,'fishshop'],['village',21,26,0,1,'outfitters_in'],['village',21,18,0,1,'house_tom'],['village',27,18,0,1,'house_sam'],
-['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,2,0,-1],['kchq_in',15,1,0,1,'kchq2',14,3,0,-1],
+['village',33,18,0,1,'house_bob'],['village',39,18,0,1,'house_kate'],['bar',16,2,0,1,'barflat',10,2,0,-1],['kchq_in',15,1,0,1,'kchq2',14,3,0,-1],['kchq_in',17,1,0,1,'kclab',18,1,0,1],
 ['palace',12,6,0,1,'palacehall'],['palacehall',5,0,0,1,'royalrooms'],['palacehall',12,0,0,1,'throne'],['palacehall',19,0,0,1,'library'],
 ['palacehall',0,6,1,0,'dining',19,6,-1,0],['palacehall',23,6,-1,0,'chapel'],['dining',0,6,1,0,'kitchen',17,6,-1,0],['kitchen',0,6,1,0,'servants',17,6,-1,0],['palace',5,6,0,1,'servants'],
 ['kitchen',15,2,0,-1,'winecellar',16,7,0,1],['library',18,1,0,1,'vault'],['gated',13,7,0,1,'villa_phil'],['gated',27,7,0,1,'villa_dario'],['gated',13,15,0,1,'villa_gustavo'],['gated',27,15,0,1,'clubroom'],

@@ -1,0 +1,14 @@
+Name: Saara
+Gender: Female
+Faction: Kelp Cola
+Group: None
+Partner: None
+Job: Kelp Cola's head chemist
+Home: Kingsgrad Apartments (Kingsgrad)
+
+Bio:
+Head chemist at Kelp Cola, who works in
+the research lab under the company's
+headquarters, mixing and tasting new
+flavours.
+Her lab technician is Noora.

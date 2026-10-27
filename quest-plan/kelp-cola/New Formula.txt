@@ -12,3 +12,16 @@ Kelp Cola wants a new flavour to keep
 ahead of the competition.
 Help the factory test new recipes, and
 find out who is copying them.
+
+
+
+quest is given from a cola worker
+they ask you to do some research for a new flaovour 
+you need to talk to people to find someone with an idea 
+a few characters will mention a volcano flavour
+you then have to go collet some lava 
+bring it to the lab at the hq and make a new recipes
+
+the poitive ending is where you make a good new flavour
+the bad ending for the cola company is where you sabbotage it with 
+something to make it bad and the product fails 
