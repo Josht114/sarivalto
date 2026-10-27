@@ -1,0 +1,12 @@
+Name: Peggy
+Gender: Female
+Faction: None
+Group: CIA
+Partner: None
+Job: CIA pilot (at Langley)
+Home: No fixed home (at Langley)
+
+Bio:
+The CIA's pilot, who flies you out from
+the airstrip at Langley to a fishing boat
+waiting off Sarivalto.

@@ -24,7 +24,7 @@ function gradeImage(p){const at=(R,k)=>{const f=Math.max(0,Math.min(.999,k))*(R.
 // ---- Weather by region (outdoor places only). snow: deep snow, as the north and the south-west have; medium: Kingsgrad and the
 // rest of the centre and south, with grass showing through; autumn: the south-east, olive grass, fallen leaves and trees turning,
 // with only the last patches of snow; curated: Hope Springs, a mown lawn and clipped trees with no snow at all.
-const WEATHER_IN={southeast:'autumn',central:'medium',south:'medium'},WEATHER_AT={gated:'curated',privbeach:'curated',privharbour:'curated'};
+const WEATHER_IN={southeast:'autumn',central:'medium',south:'medium'},WEATHER_AT={gated:'curated',privbeach:'curated',privharbour:'curated',langley_out:'curated'};
 const weatherOf=m=>WEATHER_AT[m]||WEATHER_IN[DISTRICT_OF[m]]||'snow',WXSNOW={snow:1,medium:.45,autumn:.12,curated:0};
 // While a scene is built (see scene()), WMAP recolours what is drawn: in snow-free weather the snow on roofs, sills, props and
 // rocks is dropped (null), leaving what lies under it. WXID names the weather, so sprites are cached per weather.
@@ -197,6 +197,11 @@ function groundLayer(m){if(DET(m))return detailedGround(m);if(typeof MOD=='funct
         if(inside)col=yy>28?(hash(X,Y,85)>.5?'#e8501e':'#ff8a3a'):yy>24?mix('#1a1012','#a8401a',(yy-24)/5):'#1a1012';
         else if(frame)col=hash(X>>1,Y>>1,86)>.5?'#4a3f38':'#3e342e';
         else{const band=((Y+(hash(X>>3,0,81)*3|0))/4|0);col=['#6e6056','#5e5248','#7a6b5e','#655850'][band%4];if(Y%4==0)col='#4a3f38'}}
+      else if(ch=='A'){
+        // tarmac (Langley's runway): dark asphalt, white edge lines along its sides, and a dashed white centre line along its middle
+        const nz=vnoise(X/3,Y/3,90);col=nz>.62?'#4a4d52':nz<.38?'#3a3d42':'#43464b';if(hash(X,Y,91)>.97)col='#55585e';
+        const up=at(tx,ty-1)=='A',dn=at(tx,ty+1)=='A';if(!up&&ly>=1&&ly<3||!dn&&ly>=13&&ly<15)col='#e8e6e0';
+        if(up&&dn&&(ly==7||ly==8)&&X%32<18)col='#f2f0ea'}
       else if(ch=='C'){
         // a cliff face: rock laid down in strata, split by cracks, with a snowy lip where it meets the level above, a shadowed foot
         // where it meets the level below, and its sides lit or shaded where it turns a corner
@@ -1082,6 +1087,15 @@ function poolArt(w,h){const W=w*16,H=h*16,c=cnv(W,H),g=c.getContext('2d'),r=(col
 const spireArt=(roof)=>mk(22,40,r=>{for(let y=6;y<40;y++){const hw=Math.max(1,Math.round((y-6)/34*10));for(let x=11-hw;x<11+hw;x++)r(x==11-hw||x==10+hw?shade(roof,-.3):(x==11||x==10)?shade(roof,.15):(y%4==0?shade(roof,-.15):roof),x,y);
     if(y%7==3)r(SNOW,11-hw,y,2,1)}r('#c9a040',10,0,2,7);r('#c9a040',8,2,6,2);r('#e8c860',10,0,1,7);for(const ly of[24,32])r('#2a2a33',10,ly,2,3)});
 // A frozen fountain: a stone basin of ice around a pillar with a snowy bowl on top. Drawn 16 pixels taller than its tiles.
+// the little seaplane on Langley's airstrip, side on: white, high-winged, with a blue stripe, its propeller at the nose (on the
+// left), on two floats with wheels in them for the runway
+function planeArt(w,h){const W=w*16,H=h*16+12;return mk(W,H,r=>{const B='#f2f2ee',S='#2e4a6e',D='#3a3d44',G='#9aa3ad';
+  r(D,22,30,2,H-39);r(D,W-34,30,2,H-39);r(G,10,H-9,W-22,4);r('#c3cad1',10,H-9,W-22,1);r(G,6,H-8,4,2);for(const x of[20,W-30]){r(D,x,H-5,5,5);r('#6b737c',x+1,H-4,3,3)}
+  for(let x=6;x<W-4;x++){const t=x<W-28?0:(x-(W-28))/24,top=Math.round(15+t*7),bot=Math.round(29-t*4);r(B,x,top,1,bot-top);r(shade(B,-.12),x,bot-2,1,2);r(S,x,top+Math.round((bot-top)*.55),1,2)}
+  for(let y=2;y<22;y++){const x0=W-14-Math.round((22-y)*.35);r(B,x0,y,W-5-x0,1)}r(S,W-13,4,6,3);r(B,W-22,20,18,2);
+  r(D,20,11,40,4);r('#5a5f68',20,11,40,1);for(let k=0;k<14;k++)r(D,44-k,15+k,2,1);
+  r('#9cc6e0',24,16,8,6);r('#9cc6e0',34,16,8,6);r('#cfe6f2',24,16,8,1);r('#cfe6f2',34,16,8,1);r(shade(B,-.2),46,16,1,11);
+  r('#c0392b',2,18,5,8);r(D,0,8,2,28);r('#6b737c',0,8,1,28);for(let i=0;i<5;i++)r(D,52+i*4,24,3,3)})}
 function fountainArt(w,h){const W=w*16,H=h*16+16;return mk(W,H,r=>{
   for(let y=14;y<H-1;y++)for(let x=0;x<W;x++){const q=((x-W/2+.5)/(W/2))**2+((y-H+16)/14)**2;if(q<1)r(q>.62?(y<H-10?'#c9ced4':'#8a9099'):q>.5?'#6b737c':hash(x,y,80)>.93?'#ffffff':(x+y)%7==0?'#cfe6f2':'#9fc6e0',x,y)}
   const cx=W>>1;r('#a9b0b8',cx-3,6,6,16);r('#c9ced4',cx-3,6,2,16);r('#8a9099',cx-9,4,18,4);r('#c9ced4',cx-9,4,18,1);r(SNOW,cx-9,3,18,2);r('#cfe6f2',cx-7,8,2,6);r('#cfe6f2',cx+5,8,2,5);
@@ -2072,6 +2086,7 @@ function sceneOf(m,wx){
       g.fillStyle='rgba(30,50,80,.22)';g.fillRect(x*16+2,(y+h)*16-2,w*16-2,3);put(y+h-1,x*16-1,y*16-21,bigtopArt(w,h,dx));an.push({t:'flag',x:x*16+w*8+1,y:y*16-20,col:'#e0a100'});return}
     if(st&&BLD[st]&&BLD[st].kind=='wagon'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+4,(y+h)*16-2,w*16-6,3);put(y+h-1,x*16-1,y*16-11,wagonArt(w,h,BLD[st]));an.push({t:'smoke',x:x*16+w*16-11,y:y*16-11});return}
     if(st&&BLD[st]&&BLD[st].kind=='hotspring'){g.drawImage(poolArt(w,h),x*16,y*16);for(let i=0;i<Math.max(2,w*h/3|0);i++)an.push({t:'steam',ph:hash(i,3,x*7+y),x:x*16+10+hash(i,1,x*7+y)*(w*16-20),y:y*16+16+hash(i,2,x*7+y)*(h*16-22)});return}
+    if(st&&BLD[st]&&BLD[st].kind=='plane'){g.fillStyle='rgba(30,50,80,.25)';g.fillRect(x*16+8,(y+h)*16-2,w*16-16,3);put(y+h-1,x*16-1,y*16-13,planeArt(w,h));return}
     if(st&&BLD[st]&&BLD[st].kind=='fountain'){put(y+h-1,x*16-1,y*16-17,fountainArt(w,h));return}
     if(st&&BLD[st]&&BLD[st].kind=='lighthouse'){const ox=x*16-1,oy=y*16-LHX-1,lx=x*16+w*8,ly=y*16-LHX+LHTOP-9;put(y+h-1,ox,oy,lighthouseArt(w,h));
       if(!lighthouseOut()){an.push({t:'beam',x:lx,y:ly});lights.push({x:lx,y:ly,r:70,col:'255,232,160',f:0})}return}

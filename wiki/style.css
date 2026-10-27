@@ -54,6 +54,11 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .sched .qi{display:inline-block;border:2px solid;font-size:.82em;font-weight:bold;padding:0 6px;border-radius:3px}
 .sched td.qi{display:table-cell}.sched .evrow{font-weight:bold;letter-spacing:.04em;background:repeating-linear-gradient(45deg,var(--card) 0 6px,transparent 6px 12px)}
 .sched.sum td{text-align:left}
+.prog{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}.prog .sched{margin-top:0}
+.pstats{position:sticky;top:12px;display:flex;flex-direction:column;gap:12px;min-width:180px}
+.pstat{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:12px 16px}.pnum{font-size:2.2em;font-weight:bold;line-height:1;font-variant-numeric:tabular-nums}
+.plb{color:var(--mut);margin:2px 0 8px}.pbar{height:8px;border-radius:4px;background:var(--bd);overflow:hidden}.pbar i{display:block;height:100%;background:#1f7a3f}.pof{font-size:.85em;color:var(--mut);margin-top:6px}
+@media (max-width:640px){.pstats{position:static;flex-direction:row;flex-wrap:wrap;order:-1}.pstat{flex:1}}
 .weeks .on{color:#fff;font-weight:bold}
 [hidden]{display:none!important}a.loc{cursor:pointer}a.loc:hover rect,a.loc:focus rect{filter:brightness(1.08)}.mapview .hint{margin:0 0 6px;color:var(--mut);font-size:14px}
 .plan{margin:8px 0}.plan-svg{display:block;width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;margin:0 auto}a.bld:hover rect{stroke:#1f6f9a;stroke-width:3}a.exit:hover text{fill:#0b4a6e}

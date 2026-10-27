@@ -220,6 +220,12 @@ function openWardrobe(all){if(MENU||RIDE||BUSY)return;SHOP=null;WARD.all=!!all;S
 // leaving it, the clothes you have on go into your wardrobe at home, and your alias is done (questEvent 'alias').
 const openCover=()=>openWardrobe(true);
 function leaveCover(){WARD.all=false;for(const k of['hat','top','legs','shoes'])if(ME.look[k]&&ME.look[k]!='nohat'&&!ME.clothes.includes(ME.look[k]))ME.clothes.push(ME.look[k]);questEvent('alias')}
+// the seaplane on the airstrip at Langley: once Chuck has briefed you, it flies you out to the island. A fishing boat meets it at
+// sea at dawn and brings you into West Saltwick Harbour, on the morning of 1 September
+const planeAhead=()=>{if(P.m!='langley_out')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Plane'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+function boardPlane(){if(!qOf('briefing')?.done){say("Peggy won't take off until Chuck has briefed you, upstairs in his office.",4500);return}
+  choose('Fly out to Sarivalto?',[['Board the plane',()=>pass(()=>{setDay(1);place('harbour',[7,8],3)},
+    ()=>"The little plane climbs out over Virginia and turns east. Hours later, at dawn, it puts down on a grey sea off Sarivalto, beside a fishing boat; you climb across, and the boat brings you in to West Saltwick Harbour. It is 1 September. Chuck will be calling: the big screen is in your room under Hekki's shack, at the radio tower.")],['Not yet']])}
 // the cigarette machine in the Langley cafeteria: a pack for $2 of your own money
 const vendingAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return P.m=='langley_cafe'&&FL[P.m].some(([fx,fy,w,h,,l])=>l=='Cigarette Machine'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function cigMachine(){choose('A cigarette machine. Twenty to a pack, $2.',[['Buy a pack ($2)',()=>{if(ME.cash<2){say("You don't have $2 of your own.",3500);return}ME.cash-=2;const c=has('cigarettes');if(c)c.n++;else ME.items.push({id:'cigarettes',n:1});say('Clunk. A pack of cigarettes drops into the tray.',3500)}],['Not now']])}
@@ -334,11 +340,13 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
 let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
 // ---- Talking: the person on the tile the player is facing, or just across a counter (tile c: bar counters, shop counters,
-// reception desks) or a cell's bars from it, and what they say (a placeholder line for everyone for now)
+// reception desks), a desk (a feature labelled as one) or a cell's bars from it, and what they say (a placeholder line for everyone for now)
 const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
-  for(let i=0;i<3;i++){const n=NPCS.find(n=>n.m==P.m&&n.x==x&&n.y==y);if(n)return n;if(MAPS[P.m][y]?.[x]!='c'&&!barsAt(x,y))return;x+=dx;y+=dy}};
+  for(let i=0;i<3;i++){const n=NPCS.find(n=>n.m==P.m&&n.x==x&&n.y==y);if(n)return n;if(MAPS[P.m][y]?.[x]!='c'&&!barsAt(x,y)&&!deskAt(x,y))return;x+=dx;y+=dy}};
 // cell bars (a feature labelled as bars): you can talk to someone through them, as across a counter
 const barsAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/bars/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
+// a desk (any feature labelled a desk): you can talk to whoever sits behind it, as across a counter
+const deskAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/desk/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
 const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
 // your own bed (in the living space behind the Hidden Radio Room) is the tile you're facing
 // your home: the Hidden Radio Room, until you buy a home of your own and move your things into it (js/homes.js); you can sleep in
@@ -484,6 +492,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(wardrobeAhead()){openWardrobe();return}
   if(mirrorAhead()){openCover();return}
   if(vendingAhead()){cigMachine();return}
+  if(planeAhead()){boardPlane();return}
   if(typeof canFish=='function'&&canFish()){startFishing();return}
   if(typeof waterAhead=='function'&&has('fishrod')&&ME.equipped!='fishrod'&&waterAhead()){say('Equip your fishing rod first: open the menu (M), choose it in your inventory and press Equip.',4500);return}
   const sg=signAhead();if(sg){say('DANGER! SNOW. NO ACCESS. The road to '+NM[sg.to]+' is buried in drifts.',5000);return}
@@ -544,6 +553,7 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
   if(mirrorAhead()&&!P.mv)return'Press E to work on your alias';
   if(vendingAhead()&&!P.mv)return'Press E to buy cigarettes';
+  if(planeAhead()&&!P.mv)return'Press E to board the plane';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
   if(signAhead()&&!P.mv)return'Press E to read the sign';
   if(typeof canFish=='function'&&canFish()&&!P.mv)return'Press E to fish';
@@ -565,6 +575,13 @@ function drawLabels(){
   for(const[s,x,y,al,k]of LB){const fs=Math.round((k=='h'?14:12)*d);og.font='bold '+fs+'px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif';
     const m=og.measureText(s).width,pad=5*d,Y=y*f-fs*.4,X=x*f;let x0=al=='left'?X:al=='right'?X-m:X-m/2;x0=Math.max(pad+1,Math.min(w-m-pad-1,x0));
     if(k=='s'){og.lineWidth=3.5*d;og.strokeStyle='rgba(11,18,10,.9)';og.strokeText(s,x0,Y);og.fillStyle='#ffffff';og.fillText(s,x0,Y);continue}
+    // a message (h): wrapped onto as many lines as it needs to fit the screen, in one box that grows up from the bottom of the
+    // screen (or down from the top, for one up there)
+    if(k=='h'){const maxW=w-pad*6,lines=[];let cur='';for(const wd of s.split(' ')){const t2=cur?cur+' '+wd:wd;if(cur&&og.measureText(t2).width>maxW){lines.push(cur);cur=wd}else cur=t2}lines.push(cur);
+      const lh=fs*1.25,bw=Math.max(...lines.map(l=>og.measureText(l).width)),bh=fs*1.36+lh*(lines.length-1),top=Y<h/2?Y-fs*.68:Y+fs*.68-bh;
+      let bx=al=='left'?X:al=='right'?X-bw:X-bw/2;bx=Math.max(pad+1,Math.min(w-bw-pad-1,bx));
+      og.fillStyle='rgba(11,18,10,.82)';rr(bx-pad,top,bw+pad*2,bh,fs*.5);og.fill();og.fillStyle='#ffffff';
+      lines.forEach((l,i)=>og.fillText(l,al=='center'?bx+(bw-og.measureText(l).width)/2:bx,top+fs*.68+lh*i));continue}
     og.fillStyle=k=='x'?'rgba(11,26,43,.9)':'rgba(11,18,10,.82)';rr(x0-pad,Y-fs*.68,m+pad*2,fs*1.36,fs*.5);og.fill();
     og.fillStyle=k=='x'?'#9fe870':k=='n'?'#ffe9a8':'#ffffff';og.fillText(s,x0,Y)}
   LB=[]}

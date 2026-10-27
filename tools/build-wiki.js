@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>eveningAt(n,night)?n.evening.m:atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!eveningAt(n,night)&&!atWorkWhen(n,night)&&!!L[n.home];
@@ -181,10 +181,14 @@ function questProgress(sideOn){const rows=[],seen=new Set(),add=(t,d,kind)=>{if(
   const find=(t,d)=>Object.values(QUESTS).find(Q=>Q.title==t&&(Q.day==null||Q.day==(d==0?-9:d)));
   for(let d=0;d<=30;d++){mainsOn(d).forEach(id=>add(QUESTS[id].title,d,''));Q_COLS.forEach(f=>{const t=QUEST_TITLES[d]?.[f];if(t)add(t,d,'')});
     for(const f in QUEST_EVENINGS[d]||{})add(QUEST_EVENINGS[d][f],d,'evening');sideOn(d).forEach(id=>add(QUESTS[id].title,d,'side quest'))}
+  QUEST_SIDES_PLANNED.forEach(t=>add(t,null,'side quest'));
   const yes='<b class="tick">&#10003;</b>',added=rows.filter(r=>find(r.t,r.d)).length,tested=rows.filter(r=>find(r.t,r.d)?.tested).length;
+  // beside the table, a panel for each: the percentage, a bar, and the count (it stays in view as the table scrolls past)
+  const pct=n=>Math.round(n/rows.length*100),stat=(lb,n)=>`<div class="pstat"><div class="pnum">${pct(n)}%</div><div class="plb">${lb}</div><div class="pbar"><i style="width:${pct(n)}%"></i></div><div class="pof">${n} of ${rows.length} quests</div></div>`;
   return`<h2 id="progress">Progress</h2><p>Every named quest on the schedule: ${added} of ${rows.length} added to the game, ${tested} tested.</p>
-<table class="sched sum"><thead><tr><th>Quest</th><th>Added</th><th>Tested</th></tr></thead><tbody>${rows.map(r=>{const Q=find(r.t,r.d);
-    return`<tr><td>${esc(r.t)} <small>(${esc(qDate(r.d==0?-9:r.d))}${r.kind?', '+r.kind:''})</small></td><td>${Q?yes:''}</td><td>${Q?.tested?yes:''}</td></tr>`}).join('')}</tbody></table>`}
+<div class="prog"><table class="sched sum"><thead><tr><th>Quest</th><th>Added</th><th>Tested</th></tr></thead><tbody>${rows.map(r=>{const Q=find(r.t,r.d);
+    return`<tr><td>${esc(r.t)} <small>(${esc(r.d==null?'day not set':qDate(r.d==0?-9:r.d))}${r.kind?', '+r.kind:''})</small></td><td>${Q?yes:''}</td><td>${Q?.tested?yes:''}</td></tr>`}).join('')}</tbody></table>
+<aside class="pstats">${stat('added to the game',added)}${stat('tested',tested)}</aside></div>`}
 // the day a side quest can first be had: its first day (from), the day the places it needs are open (opens), or the day of the
 // quest that gives it to you (given)
 function sideDay(id){const Q=QUESTS[id];if(Q.given){const from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));return from?Math.max(0,QUESTS[from].day??1):1}
@@ -347,6 +351,11 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .sched .qi{display:inline-block;border:2px solid;font-size:.82em;font-weight:bold;padding:0 6px;border-radius:3px}
 .sched td.qi{display:table-cell}.sched .evrow{font-weight:bold;letter-spacing:.04em;background:repeating-linear-gradient(45deg,var(--card) 0 6px,transparent 6px 12px)}
 .sched.sum td{text-align:left}
+.prog{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}.prog .sched{margin-top:0}
+.pstats{position:sticky;top:12px;display:flex;flex-direction:column;gap:12px;min-width:180px}
+.pstat{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:12px 16px}.pnum{font-size:2.2em;font-weight:bold;line-height:1;font-variant-numeric:tabular-nums}
+.plb{color:var(--mut);margin:2px 0 8px}.pbar{height:8px;border-radius:4px;background:var(--bd);overflow:hidden}.pbar i{display:block;height:100%;background:#1f7a3f}.pof{font-size:.85em;color:var(--mut);margin-top:6px}
+@media (max-width:640px){.pstats{position:static;flex-direction:row;flex-wrap:wrap;order:-1}.pstat{flex:1}}
 .weeks .on{color:#fff;font-weight:bold}
 [hidden]{display:none!important}a.loc{cursor:pointer}a.loc:hover rect,a.loc:focus rect{filter:brightness(1.08)}.mapview .hint{margin:0 0 6px;color:var(--mut);font-size:14px}
 .plan{margin:8px 0}.plan-svg{display:block;width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;margin:0 auto}a.bld:hover rect{stroke:#1f6f9a;stroke-width:3}a.exit:hover text{fill:#0b4a6e}
