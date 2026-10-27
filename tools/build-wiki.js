@@ -166,7 +166,14 @@ function qStep(c,st,Q){const extra=[st.if?'only if you choose to '+(Q.choices?.[
 function questBlock(c,id){const Q=QUESTS[id],g=NPCS.find(n=>n.name==Q.giver),from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));
   const how=Q.main?(Q.start?'Yours from the start of a new game':Q.ring?'A telephone call on the morning of '+qDate(Q.day):Q.given?'Given when '+QUESTS[from].title+' is done':(Q.call?'Offered on the morning video call':'Offered in person')+' on '+qDate(Q.day)):
     Q.given?'Given during '+(from?QUESTS[from].title:'another quest'):Q.opens?'Offered once '+Q.opens.map(p=>L[p][0]).join(' and ')+' are open':'Offered from '+qDate(Q.from??1);
-  return`<div class="qcard"><h3>${esc(Q.title)} <small>${Q.main?'Main quest':'Side quest'}</small></h3>${info([['From',g?npcA(c,g):esc(Q.giver)],['How you get it',esc(how)]])}<p>${esc(Q.text)}</p><ol>${Q.done.map(st=>qStep(c,st,Q)).join('')}</ol></div>`}
+  return`<div class="qcard"><h3>${esc(Q.title)} <small>${Q.main?'Main quest':'Side quest'}</small></h3>${info([['From',g?npcA(c,g):esc(Q.giver)],['How you get it',esc(how)]])}<p>${esc(Q.text)}</p>${questEndings(Q)}<ol>${Q.done.map(st=>qStep(c,st,Q)).join('')}</ol></div>`}
+// a quest's endings (its choices), each with what it does to the factions' points: the points of the steps on that choice's path
+// (the steps for that choice, and the ones every path shares)
+function questEndings(Q){if(!Q.choices)return'';
+  const row=k=>{const pts={};Q.done.filter(st=>!st.if||st.if==k).forEach(st=>{for(const f in st.points||{})pts[f]=(pts[f]||0)+st.points[f]});
+    const fx=Object.entries(pts).filter(([,n])=>n).map(([f,n])=>`${FACTIONS[f][0]} ${n>0?'+':''}${n} point${Math.abs(n)==1?'':'s'}`);
+    return`<li><b>${esc(Q.choices[k].replace(/^./,ch=>ch.toUpperCase()))}</b>: ${esc(fx.length?fx.join(', '):'no change to the factions’ points')}</li>`};
+  return`<p><b>Endings</b></p><ul class="qend">${Object.keys(Q.choices).map(row).join('')}</ul>`}
 // the day a side quest can first be had: its first day (from), the day the places it needs are open (opens), or the day of the
 // quest that gives it to you (given)
 function sideDay(id){const Q=QUESTS[id];if(Q.given){const from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));return from?Math.max(0,QUESTS[from].day??1):1}
