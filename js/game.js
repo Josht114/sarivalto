@@ -453,7 +453,9 @@ function questTalk(n){
   const tr=openConds().find(([,,c])=>c.tour==n.name);if(tr){const[q,i,c]=tr;let paid=false;
     const a={...c.chat.nodes.a,opts:ME.cia>=c.price?[['Pay $'+c.price+' for the tour (CIA funds)','b',()=>{ME.cia-=c.price;paid=true}],['Not now',null]]:[["Not now (you don't have $"+c.price+')',null]]};
     return{start:'a',nodes:{...c.chat.nodes,a},onEnd:()=>{if(paid)meet(q,i)}}}
-  const tk=openConds().find(([,,c])=>[c.talk].flat().includes(n.name));if(tk){const[q,i,c]=tk;return{...(c.chats?.[n.name]||c.chat||QUESTS[q.id].chat),onEnd:()=>{if(!c.ok||c.ok(q))meet(q,i)}}}
+  const tk=openConds().find(([,,c])=>[c.talk].flat().includes(n.name));if(tk){const[q,i,c]=tk;return{...(c.chats?.[n.name]||c.chat||QUESTS[q.id].chat),onEnd:()=>{if(!c.ok||c.ok(q)){meet(q,i);return}
+    // a choice made in the conversation may have moved the quest on to another step with this same person, already settled
+    const o=openConds().find(([q2,,c2])=>q2==q&&c2.ok&&[c2.talk].flat().includes(n.name)&&c2.ok(q));if(o)meet(o[0],o[1])}}}
   const g=openConds().find(([,,c])=>c.give&&c.to==n.name),Qg=g&&QUESTS[g[0].id];
   if(g&&has(g[2].give)){const[q,i,c]=g,nm=ITEMS[c.give].name.toLowerCase();
     return{start:'a',nodes:{a:{say:Qg.giver==n.name&&Qg.wait?Qg.wait:'Have you got something for me?',opts:[['Give '+n.name+' the '+nm,'thanks',()=>{take(c.give);meet(q,i,true)}],['Not yet',null]]},

@@ -779,6 +779,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
+// note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
 // tested: true once the quest has been played through and checked (the wiki's Quests page shows which are; none yet).
 // evening: offered on its day once night has fallen (George's jobs), not in the morning. A spot condition can need an item in
 // your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
@@ -799,6 +800,31 @@ const FP_FLAGS=()=>qOf('fairpay')?.flags||{};
 const fpSettle=f=>{qFlag('fairpay',f);const g=FP_FLAGS();if((g.pay||g.nopay)&&(g.safe||g.nosafe))questChoice('fairpay',g.pay&&g.safe?'both':g.pay||g.safe?'one':'none')};
 const FP_TOPICS=[['About the wages.','w',null,()=>!FP_FLAGS().pay&&!FP_FLAGS().nopay],['About the saw line.','s',null,()=>{const g=FP_FLAGS();return!g.safe&&!g.nosafe}],
   ["That's all, for now.",null,null,()=>{const g=FP_FLAGS();return!(g.pay||g.nopay)||!(g.safe||g.nosafe)}],["That's all.",null,null,()=>{const g=FP_FLAGS();return(g.pay||g.nopay)&&(g.safe||g.nosafe)}]];
+// The King's Funeral: the mourners in the chapel, and what each says about the king (talking to one sets a heard flag on the
+// quest; three will do). Then the piece you write with Henrik, and a kind word in it for one other faction, if you like.
+const FUNERAL_SAY={
+  Leopold:"He was a better king than he was a father, and a better father than people think. He taught me to sail, and never to let a minister see you're tired. Write that he was loved. He was.",
+  Augustus:"Father made his peace with God last winter. I sat with him. He asked me to keep the family together. (Augustus looks across the aisle at Leopold.) I mean to.",
+  Daphne:"Daddy hated funerals. He'd have slipped out before the hymns and gone to the races. (She dabs her eyes.) Do you think black suits me? Be honest. No, don't.",
+  'Father Thyme':"He was generous to the monastery, and he came to confession more often than you'd think, which tells you something about kings. God has him now. The crown is a smaller matter.",
+  Anna:"I came to make sure he was really dead. ...No, that's unkind. He was an old man who believed in his crown. The crown is what we bury next.",
+  Erik:"He signed the island's first fishing laws, you know, and gave Eastbrook its school. He wasn't a bad man. He just never thought to ask anyone what they wanted.",
+  Phil:"Kelp Cola's oldest customer. A bottle every afternoon, for fifty years: we sent it up to the palace on ice. We've sent the biggest wreath, of course. You'll mention the wreath?",
+  Dario:"I met him once. He asked me whether oil smelled. I said only money does, and he laughed for a full minute. I liked him. I'd have liked to do business with him.",
+  Gustavo:"A great man. His family and mine understood each other, for a long time. (Gustavo crosses himself, slowly.) Write that the island has lost a friend."};
+const FUNERAL_MOURNERS=Object.keys(FUNERAL_SAY);
+const FUNERAL_CHATS=Object.fromEntries(FUNERAL_MOURNERS.map(n=>[n,{start:'a',nodes:{a:{say:'('+n+' nods to you, in the hush after the service.)',opts:[['Ask about the king','b',()=>qFlag('funeral','heard'+n)],['(Pay your respects, and move on)',null]]},b:{say:FUNERAL_SAY[n]}}}]));
+const FUNERAL_PRAISE=[['communist','Anna and the Communists, who came to pay their respects'],['democrat','Erik and the Democrats, and the king\'s fishing laws'],
+  ['cola','Phil and Kelp Cola, and the biggest wreath in the chapel'],['oil','Dario and Diversified Petroleum, the island\'s new friends'],
+  ['church','Father Thyme and the Church, for a fine service'],['syndicate','Gustavo, an old friend of the royal family']];
+const FUNERAL_PIECE={start:'a',nodes:{
+  a:{say:"You were at the funeral? Then write it up, and quickly. The Gazette goes all over the island, and the wire services abroad will take whatever we send them. What's your angle?",opts:[
+    ['A dignified piece: a good king, a grieving family, an island that loved him.','k',()=>questChoice('funeral','kind')],
+    ['The truth: a king who spent the island\'s money on his palace, and a family already squabbling over his crown.','h',()=>questChoice('funeral','harsh')]]},
+  k:{say:"Good. Readers like a good king, and so does the palace. (Royal Family: +1 point.) Anything else to go in? A word about who else was there?",opts:'praise'},
+  h:{say:"Strong stuff. I can't put a foreign name over that: the palace would have you on the next boat, and your embassy on my back. It runs under Nora's name. She'll have it: she's wanted to write that for years. (Royal Family: -1 point.) Anything else to go in? A word about who else was there?",opts:'praise'},
+  p:{say:"Done. It runs tomorrow morning, and goes out on the wire tonight."}}};
+['k','h'].forEach(k=>FUNERAL_PIECE.nodes[k].opts=[...FUNERAL_PRAISE.map(([f,t])=>['A kind word for '+t+'. ('+FACTIONS[f][0]+' +1)','p',()=>addPoints(f,1)]),['No, leave it there.','p']]);
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1197,7 +1223,36 @@ newformula:{title:'New Formula',giver:'Saara',main:true,day:9,seq:true,choices:{
     {if:'bad',talk:'Phil',what:'Take a bottle of the new formula up to Phil, in his office at Kelp Cola HQ',chat:{start:'a',nodes:{
       a:{say:"Saara says you've cracked it. Go on, then. (Phil opens the bottle. A smell of rotten eggs fills the office.) Good grief. What is THAT? ...We've a thousand crates of this on the line already! Kelp Cola Volcano is dead before it's born. Get Saara up here. No, don't. I need to sit down."}}}}],
   thanks:"That's the end of the new formula, one way or another."},
-// Special Delivery (the Crime Syndicate, 10 September): Gustavo has a parcel coming in by boat to Eastbrook Harbour. Get Liv, the
+// The King's Funeral (the Royal Family, 10 September): Leopold asks you to cover his father's funeral in the Royal Chapel for the
+// world's papers. Hear Father Thyme's service, talk to at least three of the mourners about the king (every faction's leader is
+// there), hear the gossip from Nora at the back, then write your piece with Henrik at the Gazette: a kind one (the Royal Family +1),
+// or an anti-royal one, run under Nora's name (the Royal Family -1). Either way you can add a kind word for one other faction (+1).
+funeral:{title:"The King's Funeral",giver:'Leopold',main:true,day:10,seq:true,choices:{kind:'write a kind piece on the king',harsh:"write an anti-royal piece, under Nora's name"},
+  text:"Prince Leopold's father, the late king, is laid to rest this morning in the Royal Chapel, off the great hall of the palace, and everyone who matters on the island will be there. Leopold wants you to cover it for the world's papers. Attend the funeral, talk to the mourners about the king, and watch who talks to whom. Then write your piece with Henrik, at the Eastbrook Gazette.",
+  offer:"Journalist. My father is buried this morning, in the Royal Chapel. The world's papers haven't come: a small island, a small king, they think. You're the only foreign paper here. Will you cover it? Let the world see how Sarivalto says goodbye to him.",
+  accept:"Thank you. The chapel is through the great hall. Everyone will be there: the Church, the parties, the cola men, the oil men, and men I would rather not name. Talk to whoever you like. And write it well.",
+  wait:"The funeral's in the Royal Chapel, through the great hall. Talk to the mourners, and then write it up for the Gazette.",
+  meet:[{name:'Father Thyme',m:'chapel',x:7,y:2,dir:0},{name:'Leopold',m:'chapel',x:5,y:3,dir:1},{name:'Augustus',m:'chapel',x:4,y:3,dir:1},{name:'Daphne',m:'chapel',x:10,y:3,dir:1},
+    {name:'Phil',m:'chapel',x:3,y:5,dir:1},{name:'Dario',m:'chapel',x:5,y:5,dir:1},{name:'Anna',m:'chapel',x:10,y:5,dir:1},{name:'Erik',m:'chapel',x:12,y:5,dir:1},
+    {name:'Gustavo',m:'chapel',x:11,y:7,dir:1},{name:'Nora',m:'chapel',x:13,y:9,dir:1}],
+  done:[
+    {enter:'chapel',speaker:'Father Thyme',what:'Go to the funeral in the Royal Chapel, through the great hall of the palace',
+      said:"Now talk to the mourners about the king: at least three of them.",chat:{start:'a',nodes:{
+      a:{say:"(The chapel is full, and the coffin lies before the altar under the island's flag. Father Thyme lifts his hands.) We are here to give back to God a king who was given to us for forty-one years. He was a sinner, as we all are, and generous, as few of us are. Let us pray for his soul, and for the island he leaves behind.",opts:[['(Bow your head)','b']]},
+      b:{say:"(The prayers end, the choir falls silent, and the mourners stand and turn to one another in low voices.) Go in peace. And may some of you, at least, go in charity."}}}},
+    {talk:FUNERAL_MOURNERS,chats:FUNERAL_CHATS,ok:q=>Object.keys(q.flags||{}).filter(k=>k.startsWith('heard')).length>=3,
+      what:'Talk to the mourners in the chapel about the king (at least three of them)',
+      said:"Nora, from the Eastbrook Gazette, is watching from the back of the chapel. She'll have seen who talked to whom."},
+    {talk:'Nora',what:'Talk to Nora, from the Eastbrook Gazette, at the back of the chapel',
+      said:"Now write your piece with Henrik, at the Eastbrook Gazette.",chat:{start:'a',nodes:{
+      a:{say:"The foreign press, at last. Did you see it? Phil and Dario sat together and never once looked at the altar. Gustavo kissed Daphne's hand on the way in, and Augustus saw. Anna didn't bow to the coffin; Erik did. And Leopold didn't cry until his brother did.",opts:[['You miss nothing.','b']]},
+      b:{say:"It's the job. Henrik wants your piece: he's back at the Gazette in Eastbrook, and the wire services abroad will take whatever we send them. Write it however you like. It's your name on it."}}}},
+    {if:'kind',talk:'Henrik',ok:q=>q.choice=='kind',points:{royal:1},chat:FUNERAL_PIECE,note:'+1 point for one other faction, if you add a kind word for it',
+      what:'Write your piece on the funeral with Henrik, at the Eastbrook Gazette'},
+    {if:'harsh',talk:'Henrik',ok:q=>q.choice=='harsh',points:{royal:-1},chat:FUNERAL_PIECE,note:'+1 point for one other faction, if you add a kind word for it',
+      what:'Write your piece on the funeral with Henrik, at the Eastbrook Gazette'}],
+  thanks:"The king is buried, and the island has read your piece."},
+// Special Delivery (the Crime Syndicate, 10 September):Gustavo has a parcel coming in by boat to Eastbrook Harbour. Get Liv, the
 // customs officer, out of the customs shed (bribe her, or threaten her), collect the parcel from Lucia at the jetty and bring it to
 // Gustavo at the pizzeria: he pays you, and the Syndicate +1. Or tell Liv what's coming (she waits on the jetty, the boat turns
 // back) and tell Gustavo it went wrong (the Syndicate -1). Or, the secret way: sell the parcel to Buttons, and tell Gustavo it was

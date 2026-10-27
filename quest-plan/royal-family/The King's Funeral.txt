@@ -3,6 +3,7 @@ Faction: Royal Family
 Day: 10 (morning)
 Linked with: None
 From the plan: Attend the funeral
+Status: In the game
 
 Plan:
 The late king is laid to rest in the Royal
