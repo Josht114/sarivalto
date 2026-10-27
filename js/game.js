@@ -385,7 +385,7 @@ const openConds=()=>ME.quests.filter(q=>!q.done).flatMap(q=>{const Q=QUESTS[q.id
   return Q.seq?cs.slice(0,1).filter(([q,i,c])=>!c.days||DAY>=(q.when?.[i-1]??DAY)+c.days):cs.every(([,,c])=>c.last)?cs:cs.filter(([,,c])=>!c.last)});
 // meeting a condition; with all of them met, the quest is done (and if what's left is a last step, or the next in order, it says so)
 function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet)setTimeout(applyRoutine,0);
-  const C=Q.done[i];if(C.orChoice&&!q.choice)questChoice(q.id,C.orChoice);if(C.points)for(const f in C.points)addPoints(f,C.points[f]);if(C.flag){(q.flags??={})[C.flag]=true;for(const k in SC)delete SC[k]}(q.when??=[])[i]=DAY;
+  const C=Q.done[i];if(C.orChoice&&!q.choice)questChoice(q.id,C.orChoice);[C.takes||[]].flat().forEach(take);if(C.points)for(const f in C.points)addPoints(f,C.points[f]);if(C.flag){(q.flags??={})[C.flag]=true;for(const k in SC)delete SC[k]}(q.when??=[])[i]=DAY;
   const gv=[Q.done[i].gives||[]].flat().filter(id=>!qOf(id));gv.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
   const gift=Q.done[i].gift;if(gift){const mine=has(gift);if(mine)mine.n++;else ME.items.push({id:gift,n:1})}
   const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;say((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave,quiet?4000:7000)}
@@ -394,12 +394,16 @@ function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet)setTimeout
 // something happening in the game (a tattoo, say) meets the conditions waiting for it
 // a choice made in a quest's conversation: the conditions of the other choices fall away
 function questChoice(id,ch){const q=qOf(id);if(!q)return;q.choice=ch;QUESTS[id].done.forEach((c,i)=>{if(c.if)q.met[i]=c.if!=ch});applyRoutine()}
+// a flag set on a quest from its conversation (which may send someone somewhere: meet with flag)
+function qFlag(id,f){const q=qOf(id);if(!q)return;(q.flags??={})[f]=true;applyRoutine()}
+// a spot can be in someone's flat ({flatOf: name}): the bed they sleep by, in their apartment block
+const spotOf=s=>{if(!s.flatOf)return s;for(const m in FLATS)for(const k in FLATS[m])if(FLATS[m][k].includes(s.flatOf)){const[x,y]=k.split(',').map(Number);return{m,x:[x,x+1],y:[y,y+1]}}return{}};
 // something a quest of yours has you look at (looks), in the tile you're facing
-const lookAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;for(const q of ME.quests){if(q.done)continue;for(const L of QUESTS[q.id].looks||[]){const s=L.spot;
-  if(s.m==P.m&&s.x==x&&(Array.isArray(s.y)?y>=s.y[0]&&y<=s.y[1]:y==s.y)&&q.choice!=L.not&&!q.flags?.cleaned&&(L.day==null||L.day==DAY))return[q,L]}}return null};
+const lookAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;for(const q of ME.quests){if(q.done)continue;for(const L of QUESTS[q.id].looks||[]){const s=spotOf(L.spot);
+  if(s.m==P.m&&inSpan(x,s.x)&&inSpan(y,s.y)&&(L.not==null||q.choice!=L.not)&&!q.flags?.cleaned&&(L.day==null||L.day==DAY))return[q,L]}}return null};
 // facing a spot a quest needs you to act at
 const inSpan=(v,s)=>Array.isArray(s)?v>=s[0]&&v<=s[1]:v==s;
-const spotAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>c.spot&&c.spot.m==P.m&&inSpan(x,c.spot.x)&&(Array.isArray(c.spot.y)?y>=c.spot.y[0]&&y<=c.spot.y[1]:c.spot.y==y))};
+const spotAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return openConds().find(([,,c])=>{if(!c.spot)return false;const s=spotOf(c.spot);return s.m==P.m&&inSpan(x,s.x)&&inSpan(y,s.y)})};
 function questEvent(ev){for(const[q,i,c]of openConds())if(c.event==ev){const n=((q.cnt??={})[i]||0)+1;q.cnt[i]=n;
   if(n>=(c.count||1))meet(q,i);else say(QUESTS[q.id].title+': '+n+' of '+c.count+'.',2500)}}
 // what's arrived this morning for a condition that had to wait (said when the day begins)
@@ -441,7 +445,7 @@ function questTalk(n){
   const tr=openConds().find(([,,c])=>c.tour==n.name);if(tr){const[q,i,c]=tr;let paid=false;
     const a={...c.chat.nodes.a,opts:ME.cia>=c.price?[['Pay $'+c.price+' for the tour (CIA funds)','b',()=>{ME.cia-=c.price;paid=true}],['Not now',null]]:[["Not now (you don't have $"+c.price+')',null]]};
     return{start:'a',nodes:{...c.chat.nodes,a},onEnd:()=>{if(paid)meet(q,i)}}}
-  const tk=openConds().find(([,,c])=>c.talk==n.name);if(tk){const[q,i,c]=tk;return{...(c.chat||QUESTS[q.id].chat),onEnd:()=>meet(q,i)}}
+  const tk=openConds().find(([,,c])=>[c.talk].flat().includes(n.name));if(tk){const[q,i,c]=tk;return{...(c.chats?.[n.name]||c.chat||QUESTS[q.id].chat),onEnd:()=>{if(!c.ok||c.ok(q))meet(q,i)}}}
   const g=openConds().find(([,,c])=>c.give&&c.to==n.name),Qg=g&&QUESTS[g[0].id];
   if(g&&has(g[2].give)){const[q,i,c]=g,nm=ITEMS[c.give].name.toLowerCase();
     return{start:'a',nodes:{a:{say:Qg.giver==n.name&&Qg.wait?Qg.wait:'Have you got something for me?',opts:[['Give '+n.name+' the '+nm,'thanks',()=>{take(c.give);meet(q,i,true)}],['Not yet',null]]},
@@ -594,7 +598,7 @@ function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveni
   // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
   // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first)
   NPCS.forEach(n=>{if(n._hat0!==undefined){n.hat=n._hat0;delete n._hat0}});
-  for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){if(w.after!=null&&!q.met[w.after]||w.if&&q.choice!=w.if)continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
+  for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){if(w.after!=null&&!q.met[w.after]||w.if&&q.choice!=w.if||w.flag&&!q.flags?.[w.flag])continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
   for(const a of aftermaths()){const n=NPCS.find(p=>p.name==a.name);if(!n)continue;if(a.m)Object.assign(n,{m:a.m,x:a.x,y:a.y,dir:a.dir});if(a.hat){n._hat0=n.hat??null;n.hat=a.hat}}}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place

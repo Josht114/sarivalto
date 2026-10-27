@@ -365,7 +365,7 @@ cia:{lead:'Chuck',top:['Hekki']},
 communist:{lead:'Anna',top:['Helen','Yuri']},
 democrat:{lead:'Erik',top:['Bjarne'],under:{Bjarne:['Knut','Ilse']}},
 royal:{lead:'Leopold',top:['Augustus','Daphne'],joint:true,next:['Edmund'],under:{Edmund:['Oskar','Marta']}},
-cola:{lead:'Phil',top:['Harald'],joint:true,next:['Kurt','Wilma'],under:{Kurt:['Petra','Aino'],Wilma:['Jaana']}},
+cola:{lead:'Phil',top:['Harald'],joint:true,next:['Kurt','Wilma','Saara'],under:{Kurt:['Petra','Aino'],Wilma:['Jaana'],Saara:['Noora']}},
 oil:{lead:'Dario',top:['Magnus'],joint:true},
 syndicate:{lead:'Gustavo',top:['Carlo'],joint:true},
 church:{lead:'Father Thyme',top:['Brother Anselm'],under:{'Brother Anselm':['Brother Paavo','Brother Ilja','Brother Teodor','Brother Mikael']}},
@@ -601,6 +601,8 @@ drill:{name:'Hand drill',desc:'A carpenter\'s brace and bit, from the supermarke
 hose:{name:'Hose',desc:'A good long rubber hose, from the fishing shop in Kingsgrad.',actions:['Look at']},
 motor:{name:'Small motor',desc:'A little electric motor, from the electronics store in Frostholm. It would drive a pump.',actions:['Look at']},
 floats:{name:'Boom of floats',desc:'A long line of cork floats, from Harbour Outfitters in Saltwick, for holding something in on the water.',actions:['Look at']},
+lava:{name:'Tin of lava',desc:'An old tin of lava from the pool in the Lava Tube, crusted black as it cooled and still warm through your gloves.',actions:['Look at']},
+peoplescola:{name:"The People's Cola",desc:"A bottle of the Party's own cola, brewed from volcano lava in Kelp Cola's lab: dark, smoky, with a kick like a mule. For Helen.",actions:['Look at']},
 beans:{name:'Imported coffee beans',desc:'A sack of fine Colombian coffee beans, brought in through Langley in the diplomatic pouch. For Maya at the Coffee Roasters.',actions:['Look at']},
 coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
 bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
@@ -756,7 +758,9 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // the Quests tab lists it), optionally said (what happens as it's met), and one of:
 //   give:item, to:name   talk to that person with the item in your inventory and agree to hand it over
 //   use:label, m:place   face that piece of furniture in that place and press E
-//   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say)
+//   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say); or
+//                        a list of names, any one of whom will do (chats: each one's conversation, by name). ok: a function of
+//                        the quest, whether the conversation got what the condition needs (if not, it stays open)
 //   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'alias',
 //                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
 //   bring:[items], to:name   talk to that person with all of those items and hand them over (alt: an option to change your
@@ -772,6 +776,12 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // call (the big screen in your home), not in person.
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
 // island map marks where they are.
+// The people who suggest a volcano flavour, in The People's Cola and New Formula (either of them meets the first condition)
+const VOLCANO_ASKED=['Rosa','Saga','Brother Teodor'];
+const VOLCANO_IDEA={
+  Rosa:{start:'a',nodes:{a:{say:"A new cola flavour? Ha! If you ask me, they should bottle the volcano. Been up to the hot springs? The water comes up fizzy all by itself and tastes of smoke. Go up the Lava Tube and bring some of the real stuff down, that's what I'd do. Hot dog?"}}},
+  Saga:{start:'a',nodes:{a:{say:"A flavour? Taste the springs: everyone says they taste of the volcano. Smoky, salty, a bit of a kick. If you want the real thing, the Lava Tube's through the cave mouth on the ledge above us. Mind your eyebrows."}}},
+  'Brother Teodor':{start:'a',nodes:{a:{say:"Flavour is in the earth, my friend. My soup tastes of the forest because the mushrooms do. You want a cola that tastes of this island? Then go to its heart: the volcano. There's a cave on its lower ledge where the rock still runs like honey."}}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -876,7 +886,9 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
 // if: belongs to that choice only. A condition can also give points to factions as it's met (points: {faction: n}) and set a flag
 // on the quest (flag), which the art can show (the oil on the rig in Black Tide). An event condition can need count times.
 // given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
-// can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
+// can also use up items as it's met (takes: an item, or a list of them). A meet can wait for a flag on the quest (flag), set
+// from a conversation with qFlag(quest, flag), and a looks spot (or a spot condition's) can be someone's flat ({flatOf: name}).
+// A condition can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
 // so on the morning it's ready (arrives).
 colatour:{title:'The Kelp Cola Tour',giver:'Phil',given:true,seq:true,text:'Phil wants you to take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, once you can get there, then go back to his office at Kelp Cola HQ and tell him what you thought.',
   wait:"Been to the museum yet? Eastbrook, once the road's clear. Kelpy will look after you.",
@@ -1093,6 +1105,81 @@ lightsout:{title:'Lights Out',giver:'George',day:8,evening:true,call:true,seq:tr
     {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
       a:{say:"The light's out. Our boat came in without a soul seeing it. Nice work, NIGHTJAR. Nobody needs to know who swung the hammer, and nobody's going to replace that lens in a hurry."}}}}],
   thanks:'The lighthouse at Eastbrook Harbour is dark, and will stay that way.'},
+// The People's Cola and New Formula (9 September: the Communist Party's quest and Kelp Cola's, so you can take on only one). Both
+// begin the same way: ask around for an idea for a flavour (any of the people in VOLCANO_IDEA suggests the volcano), scoop up lava
+// from the pool in the Lava Tube, and brew it in Kelp Cola's research lab.
+// The People's Cola: Helen wants a cola of the Party's own. Saara is at the factory all day, so get Noora, her lab technician, out
+// of the lab (buy her a long lunch at the Cedar Grill, or burst the pipe in her flat and tell her), and brew it. Phil catches you
+// at it and offers $200 for the recipe: refuse, and take the cola to Helen (the Party +1), or sell it to him (the Party -1, Kelp
+// Cola +1).
+peoplescola:{title:"The People's Cola",giver:'Helen',main:true,day:9,seq:true,choices:{party:'make it for the Party',sell:'sell the recipe to Phil'},
+  text:"Helen wants a cola of the Party's own, made by the workers for the workers, to break Kelp Cola's hold on the island. Find an idea for the flavour (the island's cooks and vendors know what people like: Rosa at the hot dog cart outside Kelp Cola HQ, say), then brew it with Kelp Cola's own equipment, in the research lab under their HQ in Kingsgrad.",
+  offer:"Comrade! Sit down. Every bottle of Kelp Cola on this island puts money in Phil's pocket, and every worker drinks it. So: the Party will make its own. The People's Cola. But none of us knows the first thing about flavours, and the only proper lab on the island is under Kelp Cola's own HQ. Will you help us?",
+  accept:"I knew you would. Ask about for an idea: the people who feed this island know what it likes. Then get yourself into that lab. Saara, their chemist, is at the factory all day today; her technician, Noora, will be minding it.",
+  wait:"How's our cola coming? Find a flavour, then get into Kelp Cola's lab. Their technician, Noora, will have to be got out of the way somehow.",
+  meet:[{name:'Saara',m:'kcfac_in',x:17,y:8,dir:1},{name:'Noora',m:'cedargrill',x:15,y:8,dir:0,flag:'lunch'},{name:'Noora',m:'apartments',x:12,y:9,dir:0,flag:'home'},
+    {name:'Phil',m:'kclab',x:17,y:2,dir:2,after:3}],
+  looks:[{spot:{flatOf:'Noora'},flag:'burst',what:"Burst the pipe in Noora's flat",
+    say:"You find Noora's flat, her name on the bed, and wrench the radiator pipe beside it off the wall. Water sprays across the floor and starts to pool under the door. Now go and tell her."}],
+  done:[
+    {talk:VOLCANO_ASKED,chats:VOLCANO_IDEA,what:'Ask around for an idea for the flavour (the island\'s cooks and vendors: Rosa at the hot dog cart outside Kelp Cola HQ, say)',
+      said:"A volcano flavour! Go up to the Lava Tube, through the cave mouth on the volcano's lower ledge, and scoop up some lava."},
+    {use:'Lava Pool',m:'volcano_in',gift:'lava',what:'Scoop up some lava from the pool in the Lava Tube, through the cave mouth on the volcano\'s lower ledge',
+      said:"You dip an old tin into the edge of the pool. The lava crusts over black as it cools, still warm through your gloves. Now get into Kelp Cola's research lab, down the stairs at their HQ in Kingsgrad."},
+    {talk:'Noora',ok:q=>q.flags?.lunch||q.flags?.home,what:'Get Noora, the lab technician, out of the research lab under Kelp Cola HQ',
+      said:"The lab is yours. Brew the People's Cola at one of the lab benches, before anyone comes back.",chat:{start:'a',nodes:{
+      a:{say:"Oh! Sorry, I didn't hear you on the stairs. Saara's at the factory all day, so it's just me minding the lab. Can I help you?",opts:[
+        ["You work too hard. Let me buy you lunch: the best table at the Cedar Grill in Eastbrook. ($25 of your own)",'l',()=>{ME.cash-=25;qFlag('peoplescola','lunch')},()=>ME.cash>=25],
+        ["Noora! I've just come from Saltwick: there's water pouring out of your flat!",'h',()=>qFlag('peoplescola','home'),()=>qOf('peoplescola')?.flags?.burst],
+        ['Do you ever get out of here?','o'],['Never mind.',null]]},
+      o:{say:"Not much. Home to the apartment block in Saltwick at night, the one with the pipes that rattle, and back here in the morning. I've not had a proper lunch since I started: Saara eats at her desk, so I eat at mine."},
+      l:{say:"The Cedar Grill? I could never afford it! Well... Saara won't be back till the evening, and the lab won't run away. Thank you! (Noora hangs up her lab coat and heads off to Eastbrook for a long lunch.)"},
+      h:{say:"My flat? Oh no. Oh no, no, no, my records! Mind the lab! (Noora runs for the stairs, still in her lab coat.)"}}}},
+    {use:'Lab Bench',m:'kclab',takes:'lava',gift:'peoplescola',what:"Brew the People's Cola at a lab bench in the research lab",
+      said:"You grind the lava, steep it in syrup over the burner and bottle it: dark, smoky and fiery, with a kick like a mule. The People's Cola. Then heavy footsteps come down the stairs: Phil wants to know who's in his lab."},
+    {talk:'Phil',orChoice:'party',what:'Deal with Phil, who has caught you in his lab',chat:{start:'a',nodes:{
+      a:{say:"What's all this? Who let you into my lab? Where's Noora? ...Wait. What is that smell?",opts:[['(Let him taste it)','b']]},
+      b:{say:"(Phil takes a swig, and his eyes water.) Smoke. Fire. Something deep down in it, like the island itself. That's the best thing I've tasted in thirty years. I'll give you two hundred dollars for the recipe, cash, and I never saw you down here.",
+        opts:[['Sell him the recipe ($200)','s',()=>{questChoice('peoplescola','sell');take('peoplescola');ME.cash+=200}],["It's not for sale. It's the People's Cola, and it belongs to the workers.",'r',()=>questChoice('peoplescola','party')]]},
+      s:{say:"Pleasure doing business. Kelp Cola Volcano: in the shops by the weekend. Now get out of my lab before Noora gets back. (You have $200 more of your own.)"},
+      r:{say:"The People's... The Communists? In MY lab? Then get it out of here before I call the police. And tell your comrades: Kelp Cola was here first."}}}},
+    {if:'party',talk:'Helen',what:"Take the People's Cola to Helen at the Communist Party HQ in Saltwick",chat:{start:'a',nodes:{
+      a:{say:"You're back! Well? Did you make it?",opts:[["Hand Helen the People's Cola",'b',()=>take('peoplescola')]]},
+      b:{say:"(Helen takes a long swig, and coughs, and laughs.) It's like drinking a bonfire! The comrades will love it. Made by the workers, in the bosses' own lab, under their noses. Anna will want it at every meeting. (Communist Party: +1 point.)"}}},points:{communist:1}},
+    {if:'sell',talk:'Helen',what:"Go back to Helen at the Communist Party HQ in Saltwick",points:{communist:-1,cola:1},chat:{start:'a',nodes:{
+      a:{say:"You're back! Well? Where's the People's Cola?",opts:[["It didn't work out.",'b']]},
+      b:{say:"Didn't work out. And yet Phil was on the radio an hour ago, boasting about a brand-new flavour, smoky, made from the island itself. Funny, that. Get out of my sight. (Communist Party: -1 point. Kelp Cola: +1 point.)"}}}}],
+  thanks:"That's the last of the People's Cola, one way or another."},
+// New Formula: Saara, Kelp Cola's head chemist, is out of ideas for a new flavour. Find one, bring her lava, and mix it with her at
+// the lab bench: carefully (Kelp Cola +1), or with the sulphur crystals from the Lava Tube tipped in while she isn't looking, and
+// the launch fails (Kelp Cola -1).
+newformula:{title:'New Formula',giver:'Saara',main:true,day:9,seq:true,choices:{good:'make a good flavour',bad:'sabotage it'},
+  text:"Saara, Kelp Cola's head chemist, needs a new flavour to keep the company ahead. Ask around for an idea (the island's cooks and vendors know what people like: Rosa at the hot dog cart outside Kelp Cola HQ, say), bring back what it needs, and make the new formula with her in the research lab under Kelp Cola HQ.",
+  offer:"Hello! You're the journalist? Saara, head chemist. Phil wants a new flavour by the end of the month, and I've tried everything: cloudberry, liquorice, pine, even herring. Nothing tastes like news. You talk to everybody on this island. Could you find me an idea?",
+  accept:"Wonderful. Ask about: the people who feed this island know what it likes. Bring me whatever it needs, and we'll make it here together.",
+  wait:"Any ideas yet? Ask the people who feed the island, and bring me whatever we need for it.",
+  looks:[{spot:{m:'volcano_in',x:[11,12],y:6},flag:'sulphur',what:'Pocket some sulphur crystals',
+    say:"You snap off a few yellow sulphur crystals and wrap them in a handkerchief. They smell of rotten eggs. A pinch of these in a batch of cola would ruin it."}],
+  done:[
+    {talk:VOLCANO_ASKED,chats:VOLCANO_IDEA,what:'Ask around for an idea for the flavour (the island\'s cooks and vendors: Rosa at the hot dog cart outside Kelp Cola HQ, say)',
+      said:"A volcano flavour! Go up to the Lava Tube, through the cave mouth on the volcano's lower ledge, and scoop up some lava for Saara."},
+    {use:'Lava Pool',m:'volcano_in',gift:'lava',what:'Scoop up some lava from the pool in the Lava Tube, through the cave mouth on the volcano\'s lower ledge',
+      said:"You dip an old tin into the edge of the pool. The lava crusts over black as it cools, still warm through your gloves. Take it to Saara, in the research lab under Kelp Cola HQ."},
+    {talk:'Saara',orChoice:'good',takes:'lava',what:'Bring the lava to Saara in the research lab under Kelp Cola HQ',chat:{start:'a',nodes:{
+      a:{say:"You found something? Lava! From the volcano itself? That's mad. That's brilliant. We'll grind it, steep it in syrup and balance it. Help me at the bench while I fetch the syrups.",opts:[
+        ['Work carefully, and get it right.','g',()=>questChoice('newformula','good')],
+        ['(While she fetches the syrups, tip the sulphur crystals into the batch)','b',()=>questChoice('newformula','bad'),()=>qOf('newformula')?.flags?.sulphur]]},
+      g:{say:"Right. The lab bench is yours: grind it fine, and go gently with the heat."},
+      b:{say:"(Saara comes back with an armful of syrups and doesn't notice a thing.) Right. The lab bench is yours: grind it fine, and go gently with the heat."}}}},
+    {if:'good',use:'Lab Bench',m:'kclab',points:{cola:1},what:'Mix the new formula at a lab bench in the research lab',
+      said:"Ground lava, steeped in syrup over the burner: dark, smoky and fiery, with a sweetness underneath. Saara takes a sip and closes her eyes. \"That's it. That's the one.\" Take a bottle up to Phil in his office. Kelp Cola: +1 point."},
+    {if:'bad',use:'Lab Bench',m:'kclab',points:{cola:-1},what:'Mix the new formula at a lab bench in the research lab',
+      said:"Ground lava, sulphur and syrup, steeped over the burner. It looks perfect, and the smell of rotten eggs hasn't come through yet. Saara bottles it, delighted. Take a bottle up to Phil in his office. Kelp Cola: -1 point."},
+    {if:'good',talk:'Phil',what:'Take a bottle of the new formula up to Phil, in his office at Kelp Cola HQ',chat:{start:'a',nodes:{
+      a:{say:"Saara says you've cracked it. Go on, then. (Phil takes a swig, and his eyes water.) Smoke. Fire. Something deep down in it, like the island itself. Kelp Cola Volcano! In the shops by the weekend. You've done this company a good turn, and I don't forget a good turn."}}}},
+    {if:'bad',talk:'Phil',what:'Take a bottle of the new formula up to Phil, in his office at Kelp Cola HQ',chat:{start:'a',nodes:{
+      a:{say:"Saara says you've cracked it. Go on, then. (Phil opens the bottle. A smell of rotten eggs fills the office.) Good grief. What is THAT? ...We've a thousand crates of this on the line already! Kelp Cola Volcano is dead before it's born. Get Saara up here. No, don't. I need to sit down."}}}}],
+  thanks:"That's the end of the new formula, one way or another."},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
