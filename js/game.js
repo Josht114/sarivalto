@@ -486,7 +486,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(bedAhead()){sleep();return}
   const u=useAhead();if(u){meet(u[0],u[1]);return}
   const sp=spotAhead();if(sp){if(sp[2].item&&!has(sp[2].item)){say(sp[2].lacks||'You need the '+ITEMS[sp[2].item].name.toLowerCase()+'.',4000);return}meet(sp[0],sp[1]);return}
-  const lk=lookAhead();if(lk){(lk[0].flags??={})[lk[1].flag]=true;say(lk[1].say,9000);return}
+  const lk=lookAhead();if(lk){const[q,L]=lk,again=L.again&&q.flags?.[L.flag];(q.flags??={})[L.flag]=true;if(L.gift&&!again)give(L.gift);say(again?L.again:L.say+(L.gift?' You get the '+ITEMS[L.gift].name.toLowerCase()+'.':''),9000);return}
   if(phoneAhead()){answerPhone();return}
   if(screenAhead()){videoCall();return}
   if(mapAhead()){openStart('map');return}
@@ -612,7 +612,8 @@ function draw(t){
 // exit, beside one, or anywhere that would cut off part of the room. Worked out once, when the game starts.
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
-const aftermaths=()=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>q.flags?.[a.flag]));
+// (open: only while the quest is still yours, such as a hint)
+const aftermaths=()=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>q.flags?.[a.flag]&&!(a.open&&q.done)));
 function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork));
   // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
   // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first)

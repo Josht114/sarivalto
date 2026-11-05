@@ -3,10 +3,22 @@ Faction: Orthodox Church
 Day: 11 (morning)
 Linked with: None
 From the plan: Help the homeless
+Status: In the game
 
 Plan:
 The Church is reaching out to the island's
 homeless and unemployed.
-Help gather food and blankets and take
-them to those in need, starting with Pat
-on the beach.
+
+
+given by the church you have to help Pat
+
+pat says he wants drugs and booze 
+you can buy the booze and other npc will hint that the farm has a secret weed stash
+
+giving these to pete will give -1 to the church and pete will be an addict for the rest of the game
+
+
+if instead you get him food and cola he will be happy and get plus 1 to the church
+
+you can also buy a house and give that to pat, getting +5 to the church 
+

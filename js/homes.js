@@ -21,16 +21,21 @@ function removeFeature(m,f){const i=FL[m].indexOf(f);if(i<0)return;FL[m].splice(
 function applyHomes(){for(const id in ORIG){const o=ORIG[id];FL[id].length=0;o.fs.forEach(f=>FL[id].push(f.slice()));MAPS[id]=o.map.slice();L[id][0]=NM[id]=o.name;if(o.out)o.out[5]=o.outName}
   if(ME.moved){const seen=new Set();for(const f of FL.hekki_room.slice())if(EQUIP_LABELS.includes(f[5])&&!seen.has(f[5])){seen.add(f[5]);removeFeature('hekki_room',f)}}
   for(const id of ME.homes){const villa=/villa/.test(id);for(const f of FL[id].slice())if(f[5]=='Boxes')removeFeature(id,f);L[id][0]=NM[id]=villa?'Your Villa':'Your House';if(ORIG[id].out)ORIG[id].out[5]=NM[id]}
+  // (a home you've given Pat, in Alms for the Poor, is his)
+  const pat=patsHome();if(pat){for(const f of FL[pat].slice())if(f[5]=='Boxes')removeFeature(pat,f);L[pat][0]=NM[pat]=/villa/.test(pat)?"Pat's Villa":"Pat's House";if(ORIG[pat].out)ORIG[pat].out[5]=NM[pat]}
   for(const id in ME.placed)for(const p of ME.placed[id]){const f=p.slice(0,6);FL[id].push(f);setTiles(id,f[0],f[1],f[2],f[3],f[4])}
   // the SALE sign stays up until the home is sold
-  for(const id in SALE_SIGN){const p=SALE_SIGN[id];if(!p)continue;const i=PROPS.indexOf(p);if(ownHome(id)&&i>=0)PROPS.splice(i,1);else if(!ownHome(id)&&i<0)PROPS.push(p)}
+  for(const id in SALE_SIGN){const p=SALE_SIGN[id];if(!p)continue;const i=PROPS.indexOf(p),sold=ownHome(id)||id==patsHome();if(sold&&i>=0)PROPS.splice(i,1);else if(!sold&&i<0)PROPS.push(p)}
   HOME=ME.home||'hekki_room';
   for(const id in ORIG){delete SC[id];delete PCACHE[id];const d=DOORS.find(x=>x[5]==id);if(d){delete SC[d[0]];delete PCACHE[d[0]]}}if(typeof showHere=='function'&&ORIG[P.m])here.text=NM[P.m]}
 const ownHome=m=>ME.homes.includes(m);
+// the home you gave Pat in Alms for the Poor (no longer yours, and no longer for sale), if you did
+const patsHome=()=>Object.keys(HOMES_FOR_SALE).find(id=>qOf('alms')?.flags?.['home_'+id]);
+function giveHome(id){const i=ME.homes.indexOf(id);if(i<0)return;ME.homes.splice(i,1);qFlag('alms','home_'+id);applyHomes()}
 // ---- Sally, at the estate agent's: buying a home, and moving your things into one
 const where=id=>HOMES_FOR_SALE[id][1],price=id=>HOMES_FOR_SALE[id][0],aHome=id=>/villa/.test(id)?'the villa in '+where(id):'the house in '+where(id);
 function estateConvo(n){if(n.m!=n.loc)return{start:'a',nodes:{a:{say:"Come and see me at the office in Kingsgrad, in the daytime. I've some lovely properties on my books."}}};
-  const nodes={},forSale=Object.keys(HOMES_FOR_SALE).filter(id=>!ownHome(id)),mine=ME.homes.filter(id=>id!=HOME);
+  const nodes={},forSale=Object.keys(HOMES_FOR_SALE).filter(id=>!ownHome(id)&&id!=patsHome()),mine=ME.homes.filter(id=>id!=HOME);
   nodes.a={say:ME.homes.length?"Back again! How's the new place? Anything else I can do for you?":"Sally, Sarivalto Homes! Looking for a place of your own while you're on the island? I've some lovely properties on my books.",
     opts:[...forSale.map(id=>[`${aHome(id)[0].toUpperCase()+aHome(id).slice(1)} (${money(price(id))})`,'h_'+id]),...mine.map(id=>[`Move my things into my ${/villa/.test(id)?'villa':'house'} in ${where(id)}`,'m_'+id,()=>moveInto(id)]),
       ...(ME.homes.length&&HOME!='hekki_room'?[['Move my things back to the radio tower','m_back',()=>moveInto('hekki_room')]]:[]),['Just looking.',null]]};

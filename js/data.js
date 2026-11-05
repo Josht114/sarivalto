@@ -648,6 +648,7 @@ record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at
 newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
 pizza:{name:'Slice of pizza',desc:'A hot slice of pizza, cheese and pepperoni, from the pizzeria in Kingsgrad.',actions:['Eat']},
 wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
+weed:{name:'Bag of weed',desc:'A sandwich bag of cannabis buds, pinched from the grow beds in the old barn at East Farm. It smells like a skunk.',actions:[]},
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
 // ---- Fish (js/fishing.js): where each bites (the sea, fresh water, or any), how often (w, and at night if it differs), how big the
@@ -825,6 +826,23 @@ const FUNERAL_PIECE={start:'a',nodes:{
   h:{say:"Strong stuff. I can't put a foreign name over that: the palace would have you on the next boat, and your embassy on my back. It runs under Nora's name. She'll have it: she's wanted to write that for years. (Royal Family: -1 point.) Anything else to go in? A word about who else was there?",opts:'praise'},
   p:{say:"Done. It runs tomorrow morning, and goes out on the wire tonight."}}};
 ['k','h'].forEach(k=>FUNERAL_PIECE.nodes[k].opts=[...FUNERAL_PRAISE.map(([f,t])=>['A kind word for '+t+'. ('+FACTIONS[f][0]+' +1)','p',()=>addPoints(f,1)]),['No, leave it there.','p']]);
+// Alms for the Poor: what you can give Pat (a drink and the weed; something to eat and a cola; or the keys to a house of yours that
+// your things aren't in), and the houses he can move into, with where he stands in each. Giving takes the things (or the house).
+const ALMS_BOOZE=['whisky','wine','beer'],ALMS_FOOD=['meal','pizza','burger','hotdog','smokedfish','bread','bun'];
+const almsHas=l=>l.find(id=>has(id));
+const ALMS_HOMES={house_bob:[4,3,'Saltwick'],house_forsale_eb:[4,3,'Eastbrook'],house_forsale_fh:[4,3,'Frostholm'],house_forsale:[4,4,'Kingsgrad'],villa_forsale:[9,4,'Hope Springs']};
+const almsCanGive=id=>ownHome(id)&&id!=HOME;
+const ALMS_GIFT={start:'a',nodes:{
+  a:{say:"(Pat looks up from the fire.) Back again, friend? What've you brought old Pat?",opts:[
+    ['Give Pat the bottle and the bag of weed','v',()=>{take(almsHas(ALMS_BOOZE));take('weed');qFlag('alms','addict');questChoice('alms','vice')},()=>almsHas(ALMS_BOOZE)&&has('weed')],
+    ['Give Pat something to eat and a Kelp Cola','f',()=>{take(almsHas(ALMS_FOOD));take('cola');qFlag('alms','fed');questChoice('alms','food')},()=>almsHas(ALMS_FOOD)&&has('cola')],
+    ...Object.keys(ALMS_HOMES).map(id=>['Give Pat the keys to your '+(/villa/.test(id)?'villa':'house')+' in '+ALMS_HOMES[id][2],'h',()=>{giveHome(id);questChoice('alms','house')},()=>almsCanGive(id)]),
+    ['Give Pat the keys to your house','x',null,()=>ME.homes.includes(HOME)&&!ME.homes.some(almsCanGive)],
+    ['Nothing yet.',null]]},
+  v:{say:"(Pat's hands shake as he takes them.) Now that's charity. That's the real thing. (He gets the bottle open with his teeth, and rolls a fat one from the bag with his other hand.) You tell the Father God bless. ...What Father? Never mind. Pass us a light. (Orthodox Church: -1 point.)"},
+  f:{say:"(Pat looks at the food a long while.) Not what I asked for. (He eats it anyway, fast, then slower, and washes it down with the cola.) ...Haven't had a proper feed since the summer. Thanks, friend. I mean it. Tell the Father thanks, too. (Orthodox Church: +1 point.)"},
+  h:{say:"A house? A real one, with a door? (Pat turns the keys over and over in his hand.) Nobody ever... I'll keep it nice. I'll wipe my feet. You tell the Father his Church did this, you hear? You tell everybody. (Orthodox Church: +5 points.)"},
+  x:{say:"Your house? Your things are in it, friend: your radio and that. I'm not living with a radio. Get Sally to move your things out first, or get me one of my own."}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -924,8 +942,9 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
 // while the quest is yours ({name, m, x, y, dir}, or a list of them; after: only once that condition is met; if: only on that
 // choice) instead of keeping their routine. A conversation option can make a choice (questChoice(quest, choice), and the choice can be changed until its conditions are met; an option's fourth part, a
 // function, decides whether it's offered); aftermath: what a flag on the quest does to someone from then on, for the rest of the
-// game, done or not ({flag, name, m, x, y, dir, hat: a hat colour, such as a bandage, say: what they say}); looks: things to look at while the quest is yours ({spot, flag, say, what, day, not: a
-// choice it's not for}), which set a flag; a condition with
+// game, done or not ({flag, name, m, x, y, dir, hat: a hat colour, such as a bandage, say: what they say; open: only while the quest
+// isn't done, such as a hint}); looks: things to look at while the quest is yours ({spot, flag, say, what, day, not: a
+// choice it's not for; gift: an item you get the first time, again: what's said after that}), which set a flag; a condition with
 // if: belongs to that choice only (or to any of a list of choices: a step on more than one path). A condition can also give points to factions as it's met (points: {faction: n}) and set a flag
 // on the quest (flag), which the art can show (the oil on the rig in Black Tide). An event condition can need count times.
 // given: offered by no one (no star); another quest's condition gives it to you (gives: a quest, or a list of them). A condition
@@ -1342,6 +1361,39 @@ fairpay:{title:"Fair Day's Pay",giver:'Helen',main:true,day:11,seq:true,choices:
       a:{say:"Well? Did Dagny listen?",opts:[["No. I gave up on it.",'b']]},
       b:{say:"Gave up. The mill hands were told someone was coming to speak for them, and you came away with nothing. They'll remember that, and so will Erik. (Democratic Party: -1 point.)"}}}}],
   thanks:"That's the end of the mill hands' case, one way or another."},
+// Alms for the Poor (the Orthodox Church, 11 September): Father Thyme sends you to help Pat, who lives in a tent on the beach. Pat
+// wants a bottle and some weed (the unemployed, and Olaf, hint at the grow room in East Farm's old barn): give him those, and the
+// Church -1, and he's an addict for the rest of the game. Or give him food and a Kelp Cola (+1), or buy a house from Sally and give
+// him the keys (+5): he lives there from then on.
+alms:{title:'Alms for the Poor',giver:'Father Thyme',main:true,day:11,seq:true,choices:{vice:'give Pat a bottle and the weed',food:'give Pat food and a Kelp Cola',house:'give Pat a house'},
+  text:"The Church is reaching out to the island's homeless and unemployed, and Father Thyme wants you to start with Pat, who lives in a tent on the beach, by the campfire. Find out what Pat needs and get it to him: what he asks for, or something better for him, like a hot meal and a Kelp Cola, or, if you can afford one, a house of his own (Sally, the estate agent in Kingsgrad, has houses for sale).",
+  offer:"My friend. The king is buried, and the island's eyes are on the palace and the parties. Ours should be on the poor. There is a man called Pat who lives in a tent on the beach, and has done for years. We have prayed for him a great deal, and done for him very little. Will you go to him for us, and give him what he needs?",
+  accept:"God bless you. He's camped by the fire on the beach, below Saltwick. Ask him what he needs. And remember that what a man asks for and what he needs are not always the same thing.",
+  wait:"Have you been to Pat, on the beach? Give him what he needs, and the Church will remember it.",
+  aftermath:[
+    {flag:'asked',open:true,name:'Veikko',say:"Pat's after a smoke, is he? (Veikko lowers his voice.) Not from me. But you didn't hear it here: there's lights on in the old barn out at East Farm, nights, and Olaf hasn't used that barn in years. Round the back, the boards are loose."},
+    {flag:'asked',open:true,name:'Sirpa',say:"The green stuff? Ha. Ask the farm. No, really: Tiina's cousin swears someone's growing it in the old barn at East Farm. Smells like a skunk out there when the wind's right."},
+    {flag:'asked',open:true,name:'Olaf',say:"Something's not right with my old barn. I padlocked it myself, years ago, and still there's a hum from it at night, a light under the door, and a smell like a skunk. Hilda says it's ghosts. Ghosts don't pay the electric."},
+    {flag:'addict',name:'Pat',say:"(Pat's eyes are red and far away.) Got any more of that green, friend? Or a bottle? Anything. ...No? Then what are you good for. Go on. (He scratches at his arm and stares at the sea.)"},
+    {flag:'fed',name:'Pat',say:"My friend from the Church! Still thinking about that feed, I am. The Father came down himself after, with a blanket. Didn't even sing at me."},
+    ...Object.entries(ALMS_HOMES).map(([id,[x,y]])=>({flag:'home_'+id,name:'Pat',m:id,x,y,dir:0,
+      say:"Come in, come in! Wipe your feet. (Pat has swept the floor, and put a jam jar of flowers from the dunes on the windowsill.) Never thought I'd have a door to shut. Father Thyme came round and blessed the place. Twice. I asked him to."}))],
+  looks:[{spot:{m:'oldbarn_in',x:[2,15],y:[2,6]},flag:'weed',gift:'weed',what:'Take some weed from the grow beds in the old barn at East Farm',
+    say:"You pinch a fistful of buds from the nearest plant and stuff them into a sandwich bag from beside the cot. Whoever grows this won't miss a little. Probably.",
+    again:"You've had some already. Whoever grows this will notice if you take any more."}],
+  done:[
+    {talk:'Pat',what:'Go to Pat, at his camp by the campfire on the beach, and ask what he needs',flag:'asked',
+      said:"Pat wants a bottle and some weed. Someone on the island must know where it grows. Or bring him something better for him: food and a Kelp Cola, or a house of his own.",chat:{start:'a',nodes:{
+      a:{say:"(Pat looks up from the campfire.) The Church sent you? Ha. Father Thyme's lot come down every Christmas with a blanket and a hymn. I don't need a hymn. I need a drink, friend: a proper bottle. And something to smoke. Not your tobacco: the green stuff. That's what gets a man through a winter on a beach.",opts:[["Where would I find the green stuff?",'b'],["I'll see what I can do.",'c']]},
+      b:{say:"On this island? Not from me, or I'd not be asking. Ask about. Somebody's growing it somewhere: the ones on the benches always know more than they let on."},
+      c:{say:"You do that. A bottle and a smoke. Or whatever you've got, friend: I'm not proud."}}}},
+    {if:'vice',talk:'Pat',ok:q=>q.choice=='vice',points:{church:-1},chat:ALMS_GIFT,note:'Pat is an addict for the rest of the game',
+      what:'Give Pat a bottle of booze and the weed'},
+    {if:'food',talk:'Pat',ok:q=>q.choice=='food',points:{church:1},chat:ALMS_GIFT,
+      what:'Give Pat something to eat and a Kelp Cola'},
+    {if:'house',talk:'Pat',ok:q=>q.choice=='house',points:{church:5},chat:ALMS_GIFT,note:'Pat lives in the house from then on',
+      what:'Buy a house from Sally, the estate agent in Kingsgrad, and give Pat the keys'}],
+  thanks:"Pat has had the Church's alms, one way or another."},
 tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
