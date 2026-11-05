@@ -629,6 +629,8 @@ trench:{name:'Trench coat',desc:'A belted tan trench coat with a turned-up colla
 slacks:{name:'Black trousers',desc:'Pressed black trousers to go with a jacket. It goes into your wardrobe.',actions:[]},
 oxfords:{name:'Black Oxfords',desc:'Polished black leather shoes. It goes into your wardrobe.',actions:[]},
 fedora:{name:'Grey fedora',desc:'A grey felt hat with a black band. It goes into your wardrobe.',actions:[]},
+stetson:{name:'Stetson',desc:'A tan ten-gallon hat with a wide brim, as worn by Texas oilmen. It goes into your wardrobe.',actions:[]},
+cowboyboots:{name:'Cowboy boots',desc:'Tooled tan leather boots with a heel. It goes into your wardrobe.',actions:[]},
 oilskin:{name:'Yellow oilskin',desc:'A stiff yellow oilskin jacket that keeps out the sea spray. It goes into your wardrobe.',actions:[]},
 cableknit:{name:'Cable-knit jumper',desc:'A heavy navy jumper in a cable knit. It goes into your wardrobe.',actions:[]},
 peacoat:{name:'Pea coat',desc:'A double-breasted navy wool coat, as worn on the bridge. It goes into your wardrobe.',actions:[]},
@@ -722,6 +724,7 @@ nohat:{slot:'hat',name:'No hat',style:'none'},
 beanie_yellow:{slot:'hat',name:'Yellow beanie',style:'beanie',col:'#e8c33a'},beanie:{slot:'hat',name:'Navy wool beanie',style:'beanie',col:'#2a3a5e'},
 flatcap:{slot:'hat',name:'Tweed flat cap',style:'flatcap',col:'#7a6a4a'},ushanka:{slot:'hat',name:'Fur ushanka',style:'ushanka',col:'#6b4a2e'},
 beret:{slot:'hat',name:'Black beret',style:'beret',col:'#2a2a33'},fedora:{slot:'hat',name:'Grey fedora',style:'fedora',col:'#5a5f68'},
+stetson:{slot:'hat',name:'Stetson',style:'stetson',col:'#c8a46a'},cowboyboots:{slot:'shoes',name:'Cowboy boots',style:'boots',col:'#a0703a'},
 parka_blue:{slot:'top',name:'Blue parka',style:'parka',col:'#2a5db0'},sweater_grey:{slot:'top',name:'Grey jumper',style:'sweater',col:'#7a7f88'},
 shirt:{slot:'top',name:'Flannel shirt',style:'flannel',col:'#b03a2e'},sweater:{slot:'top',name:"Fisherman's jumper",style:'sweater',col:'#3d6a4a'},
 suit:{slot:'top',name:'Tailored suit',style:'suit',col:'#2b2f3a'},trench:{slot:'top',name:'Trench coat',style:'trench',col:'#b8a070'},
@@ -741,7 +744,7 @@ Mary:{stock:[['book',6,8],['islandmap',3,5],['newspaper',10,1]]},
 Sanna:{stock:[['burger',20,3],['cola',20,1]]},
 Maya:{stock:[['coffee',30,1],['bun',12,2]]},
 Arvid:{stock:[['meal',10,12],['beer',12,3]]},
-Juniper:{stock:[['shirt',5,25],['beanie',6,8],['sweater',4,30],['cords',4,35],['sneakers',3,40],['flatcap',4,12],['ushanka',3,20],['snowboots',3,45],['beret',3,15]]},
+Juniper:{stock:[['shirt',5,25],['beanie',6,8],['sweater',4,30],['cords',4,35],['sneakers',3,40],['flatcap',4,12],['ushanka',3,20],['snowboots',3,45],['beret',3,15],['stetson',2,40],['cowboyboots',2,55]]},
 Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['fedora',3,35]]},
 Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10],['motor',2,30]]},
 Jack:{stock:[['fishrod',3,30],['flashlight',2,10],['hose',3,8]]},
@@ -846,6 +849,68 @@ const ALMS_GIFT={start:'a',nodes:{
   f:{say:"(Pat looks at the food a long while.) Not what I asked for. (He eats it anyway, fast, then slower, and washes it down with the cola.) ...Haven't had a proper feed since the summer. Thanks, friend. I mean it. Tell the Father thanks, too. (Orthodox Church: +1 point.)"},
   h:{say:"A house? A real one, with a door? (Pat turns the keys over and over in his hand.) Nobody ever... I'll keep it nice. I'll wipe my feet. You tell the Father his Church did this, you hear? You tell everybody. (Orthodox Church: +5 points.)"},
   x:{say:"Your house? Your things are in it, friend: your radio and that. I'm not living with a radio. Get Sally to move your things out first, or get me one of my own."}}};
+// Creative Accounting: the disguise you're wearing (a Texas oil baron: the Stetson and cowboy boots; a Wall Street broker: the
+// tailored suit, black trousers and Oxfords), and what Mats and Ruth say to each. One way through each conversation gets their
+// signature (a flag on the quest); any other blows it (the choice 'fail'). With both signatures, the choice is 'sign'.
+const caLook=()=>{const l=ME.look;return l.hat=='stetson'&&l.shoes=='cowboyboots'?'baron':l.top=='suit'&&l.legs=='slacks'&&l.shoes=='oxfords'&&l.hat!='stetson'?'broker':null};
+const CA_FLAGS=()=>qOf('creative')?.flags||{};
+const caSigned=who=>{qFlag('creative',who);const g=CA_FLAGS();if(g.mats&&g.ruth)questChoice('creative','sign')};
+const caFail=()=>questChoice('creative','fail');
+const CA_SAY={
+  Mats:{
+    none:"(Mats looks up from his filing.) You're that British reporter. I don't talk to the press, sorry. Company rules. (You'll need a disguise: a Texas oil baron, or a Wall Street broker.)",
+    done:"All signed and filed. Nobody reads that drawer, sir.",
+    baron:{a:["(Mats looks up from his filing, and then up a bit further, at the hat.) Can I help you, sir?",[
+        ["Howdy, son. Buck Calhoun, Calhoun Petroleum, Houston. Dario wants these signed before my plane leaves.",'b'],
+        ["I'm fixin' to buy this whole darn island, boy. Sign, or you're fired.",'x'],
+        ["Just sign at the bottom, quick. Nobody needs to see.",'y']]],
+      b:["Houston! A joint venture, then? I'll need a reference number for the file, sir. Everything gets a reference number.",[
+        ["A reference? Son, in Texas a handshake's the reference. (Stick out your hand.)",'z'],
+        ["File it under DP-1187, Gulf Holdings. Dario's own drawer, the one nobody opens.",'ok']]],
+      ok:"DP-1187. (Mats writes it on the folder in very neat capitals, and signs where you point.) There you are, Mr Calhoun. Have a good flight.",
+      x:"Fired? You can't fire me, sir. You don't work here. (He reaches for the telephone.) I think I'd better ask Dario about this.",
+      y:"Nobody needs to see? (Mats goes pale.) Then I definitely need to show someone. Dario will want to know about this.",
+      z:"(Mats looks at your hand, and doesn't take it.) I'm sorry, sir. No reference, no signature. I'll ask Dario to sort it out."},
+    broker:{a:["(Mats looks up from his filing, at the suit.) Can I help you, sir?",[
+        ["Whitfield, Whitfield Brothers, New York. We're handling Diversified's bond issue: these are the transfer forms for the escrow account.",'b'],
+        ["Wall Street, pal. Time is money. Sign.",'x'],
+        ["Psst. Want a tip on Kelp Cola stock? Your Elin would want to hear it.",'y']]],
+      b:["Escrow? Nobody's told me about a bond issue.",[
+        ["Ask Dario if you like. He'll be thrilled you interrupted him.",'z'],
+        ["It's confidential until the market opens in New York. That's why it's on your desk, and not on his secretary's.",'ok']]],
+      ok:"Confidential. Right. (Mats likes the sound of that. He signs, and slides the forms into a drawer.) I won't say a word, sir. I never do.",
+      x:"(Mats puts his pen down.) I don't sign anything in a hurry, sir. I'll ask Dario about it.",
+      y:"How do you know about Elin? (Mats stands up.) I think you'd better talk to Dario. I'm going to.",
+      z:"Oh, would he? Then I'll ask him. (Mats is already on his way to the stairs.) Wait here, sir."}},
+  Ruth:{
+    none:"Hello again. If it's Dario you want, he's upstairs, and he's busy. (She won't sign anything for a reporter. You'll need a disguise: a Texas oil baron, or a Wall Street broker.)",
+    done:"Signed, witnessed, and forgotten. Have a nice day.",
+    baron:{a:["Welcome to Diversified Petroleum. Do you have an appointment?",[
+        ["Darlin', a Calhoun don't need an appointment.",'x'],
+        ["Ten o'clock with Magnus, ma'am. Calhoun, Houston. Would you witness a signature? Just a formality, for our lawyers.",'b']]],
+      b:["Magnus? He's not in the book. (Ruth looks you up and down.) Funny, your accent comes and goes.",[
+        ["Yeehaw! (Tip your hat.)",'y'],
+        ["Magnus said you'd notice. He said you're the only one in this building who knows what's really going on.",'ok']]],
+      ok:"(Ruth smiles for the first time.) Well, he's not wrong. (She witnesses the papers with a flourish.) Don't tell him I said so.",
+      x:"Everybody needs an appointment, Mr Calhoun. Even Dario has to ask me. (She picks up the telephone.) Let's see what he makes of you.",
+      y:"(Ruth doesn't smile.) I've worked here eleven years. I know a hat with nobody under it. (She reaches for the telephone.)"},
+    broker:{a:["Good morning. Do you have an appointment?",[
+        ["Whitfield, Whitfield Brothers, here for Magnus. I need a witness on these: two minutes. I bill at five hundred an hour, so it's a bargain.",'b'],
+        ["I don't do appointments, sweetheart.",'x']]],
+      b:["Whitfield Brothers. I've never heard of you.",[
+        ["You will by Friday. (Slide your card across the desk, with a fifty under it.)",'y'],
+        ["We're a small house, and we like it that way: no newspapers, no fuss. Like you, I imagine.",'ok']]],
+      ok:"(Ruth looks at you for a long moment, and then witnesses the papers.) No fuss. I like that.",
+      x:"Sweetheart. (Ruth picks up the telephone.) Dario? There's a man in a suit down here you'll want to meet.",
+      y:"A bribe? In my lobby? (She pushes the money back.) Dario will want to hear about you."}}};
+// each one's conversation, as you look when you talk to them
+const caChat=who=>{const S=CA_SAY[who],g=CA_FLAGS(),lk=caLook(),me=who.toLowerCase();
+  if(g[me])return{start:'a',nodes:{a:{say:S.done}}};if(!lk)return{start:'a',nodes:{a:{say:S.none}}};
+  const D=S[lk],nodes={};for(const[k,v]of Object.entries(D)){if(Array.isArray(v))nodes[k]={say:v[0],opts:v[1].map(([t,to])=>[t,to,to=='ok'?()=>caSigned(me):'xyz'.includes(to)?caFail:null])};else nodes[k]={say:v}}
+  return{start:'a',nodes}};
+const CA_DARIO={start:'a',nodes:{
+  a:{say:"(Dario looks up from his desk.) Journalist. Make it quick.",opts:[["Magnus is trying to move company money where nobody will look. He asked me to help.",'b',()=>{qFlag('creative','reported');questChoice('creative','report')}],["Nothing. Sorry to bother you.",null]]},
+  b:{say:"Magnus. Of course it's Magnus. (He picks up the telephone.) Ruth? Have Magnus's keys on my desk in ten minutes, and get me the auditors. (He puts it down.) Thank you. Diversified Petroleum doesn't forget its friends. (Diversified Petroleum: +2 points.)"}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1170,6 +1235,25 @@ lightsout:{title:'Lights Out',giver:'George',day:8,evening:true,call:true,seq:tr
     {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
       a:{say:"The light's out. Our boat came in without a soul seeing it. Nice work, NIGHTJAR. Nobody needs to know who swung the hammer, and nobody's going to replace that lens in a hurry."}}}}],
   thanks:'The lighthouse at Eastbrook Harbour is dark, and will stay that way.'},
+// Creative Accounting (Diversified Petroleum, 12 September): Magnus wants company money moved where nobody will look, and needs Mats
+// (the clerk, in the Petro Tower) and Ruth (the receptionist, at the HQ) to sign the papers. Dress as a Texas oil baron or a Wall
+// Street broker (CA_SAY), and talk each into it: both, and Diversified Petroleum -1; a slip, and the scheme is blown (+1). Or tell
+// Dario (+2).
+creative:{title:'Creative Accounting',giver:'Magnus',main:true,day:12,seq:true,choices:{sign:'get both signatures',fail:'blow it',report:'tell Dario'},
+  text:"Magnus wants to move Diversified Petroleum's money where nobody will look, and he needs two signatures on the papers: Mats, the clerk in the Petro Tower in Frostholm, and Ruth, the receptionist at the HQ. They won't sign for a reporter. Go in disguise, as a Texas oil baron (a Stetson and cowboy boots: the clothes shop in Eastbrook) or a Wall Street broker (a tailored suit, black trousers and Oxfords: the tailor in Kingsgrad), and say the right things. Or tell Dario what Magnus is up to.",
+  offer:"(Magnus lowers his voice.) You're a man of the world, journalist. So am I. Dario runs this company like his own wallet, and when I'm leading the Republicans I'll need a war chest he can't touch. A few transfers, nothing anyone will miss. I need two signatures: Mats, in the Petro Tower, and Ruth, on reception. Neither will sign for me with Dario watching. They'd sign for a client. Will you help me?",
+  accept:"Good. Be somebody they'll want to please: a Texas oil baron, say, or a Wall Street man. The clothes shop in Eastbrook and the tailor in Kingsgrad will see you right. And don't say anything clever. Mats likes things done properly, and Ruth misses nothing.",
+  wait:"Have you got Mats and Ruth to sign? In disguise, mind: an oil baron, or a broker.",
+  aftermath:[{flag:'reported',name:'Magnus',say:"(Magnus doesn't look up.) Dario took my keys, my office and my expense account. I'm still the company's candidate, because he can't find anyone else. I won't forget it, journalist. Neither will the Republicans."}],
+  done:[
+    {talk:['Mats','Ruth','Dario'],chats:{get Mats(){return caChat('Mats')},get Ruth(){return caChat('Ruth')},Dario:CA_DARIO},ok:q=>!!q.choice,
+      what:'Get Mats, the clerk in the Petro Tower in Frostholm, and Ruth, the receptionist at Diversified Petroleum HQ, to sign Magnus\'s papers, in disguise (or tell Dario)'},
+    {if:'sign',talk:'Magnus',points:{oil:-1},what:'Take the signed papers to Magnus at Diversified Petroleum HQ',chat:{start:'a',nodes:{
+      a:{say:"Both signatures? (Magnus checks them twice, and locks them in his desk.) The money will be offshore by lunchtime, and Dario won't see it until the audit. There won't be an audit. (Diversified Petroleum: -1 point.)"}}}},
+    {if:'fail',talk:'Magnus',points:{oil:1},what:'Tell Magnus it went wrong',chat:{start:'a',nodes:{
+      a:{say:"(Magnus is white.) Dario had the auditors in an hour after you left. Every account checked, every signature counted twice, and new locks on the strongroom. The company's tighter than it's ever been, and it's your fault. Get out. (Diversified Petroleum: +1 point.)"}}}},
+    {if:'report',talk:'Dario',ok:q=>q.choice=='report',points:{oil:2},chat:CA_DARIO,what:'Tell Dario what Magnus is up to, in his office at Diversified Petroleum HQ'}],
+  thanks:"Magnus's creative accounting is settled, one way or another."},
 // Flat Cola (George, the evening of 11 September): George wants Kelp Cola's bottling line stopped. Pick the lock of the electronics
 // store in Frostholm, shut for the night, steal an industrial capacitor from its shelves, and feed it into the bottling line at the
 // Kelp Cola factory, empty at night (Kelp Cola -1). Then report to George. Kurt, the foreman, has something to say about it from then on.

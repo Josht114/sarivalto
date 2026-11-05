@@ -1349,6 +1349,7 @@ function lookChar(d,fr,lk){const key=d+','+fr+','+JSON.stringify(lk);if(LK[key])
     if(ht.style=='ushanka'){r(c,3,0,10,3);r(shade(c,.3),3,2,10,1);r(shade(c,.15),5,0,3,1);if(d==0){r(c,3,3,2,4);r(c,11,3,2,4)}else if(side)r(c,8,3,3,4);else r(c,3,3,10,3)}
     if(ht.style=='fedora'){r(c,5,0,6,2);r(shade(c,-.45),5,2,6,1);r(shade(c,-.15),2,3,12,1);r(shade(c,.2),6,0,2,1)}
     if(ht.style=='souwester'){r(c,4,0,8,3);r(shade(c,.25),5,0,3,1);r(shade(c,-.25),2,3,12,1);if(d==1)r(c,3,4,10,3);else if(side)r(c,9,3,5,4);else{r(c,2,3,2,2);r(c,12,3,2,2)}}
+    if(ht.style=='stetson'){r(c,5,0,6,2);r(shade(c,-.2),7,0,2,1);r('#4a2e1a',5,2,6,1);r(c,1,3,14,1);r(c,1,2,1,1);r(c,14,2,1,1);r(shade(c,.2),6,0,1,1)}
     if(ht.style=='beret'){r(c,3,1,9,2);r(c,4,0,6,1);r(shade(c,-.3),4,3,8,1);r(shade(c,.25),5,1,2,1)}})}
 function dressed(px,py,d,fr,lk){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
 // Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
