@@ -3,6 +3,7 @@ Faction: CIA
 Day: 11 (evening)
 Linked with: None
 From the plan: Sabotage cola production
+Status: In the game
 
 Plan:
 George wants Kelp Cola's bottling line

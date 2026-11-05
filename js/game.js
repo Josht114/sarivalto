@@ -288,7 +288,8 @@ document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.
 // the exit (map edge, door or boat berth) the player is standing on, if any, and taking it
 const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
 // a place that is shut at this time of day, and what its door says
-const shut=id=>NIGHT?DAY_ONLY.includes(id):NIGHT_ONLY.includes(id);
+// (a door whose lock you've picked for a quest stays open: js/lockpick.js)
+const shut=id=>(NIGHT?DAY_ONLY.includes(id):NIGHT_ONLY.includes(id))&&!(typeof picked=='function'&&picked(id));
 const shutMsg=id=>NM[id]+' is closed. It opens '+(NIGHT?'in the morning.':'at night.');
 // ---- Which places are open today (OPEN_ON, OPEN_AT in data.js); interiors and places off the map are always open (they're reached
 // through somewhere that is). A road out of a place into one that isn't open yet is blocked by a snow bank one tile in from the
@@ -313,7 +314,7 @@ function update(dt){
   if(!P.mv&&tramAt(P.m,P.x,P.y)){standClear();return}
   if(!P.mv&&stack.length){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
-    if(door){if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
+    if(door){const pk=typeof pickAt=='function'&&pickAt(door.to);if(pk)startPick(pk);else if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
     else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
     else if(stairsWay(nx,ny,d)){const t=stairsWay(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
     else if(snowAt(P.m,nx,ny)){const t=signAhead()?'The sign says: DANGER! SNOW. NO ACCESS.':'A deep bank of snow blocks the road.';if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}

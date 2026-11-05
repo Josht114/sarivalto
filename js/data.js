@@ -648,6 +648,7 @@ record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at
 newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
 pizza:{name:'Slice of pizza',desc:'A hot slice of pizza, cheese and pepperoni, from the pizzeria in Kingsgrad.',actions:['Eat']},
 wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
+capacitor:{name:'Industrial capacitor',desc:'A capacitor the size of a coffee tin, stolen from the back of the electronics store in Frostholm. Fed into a machine\'s drive, it would short out everything.',actions:[]},
 weed:{name:'Bag of weed',desc:'A sandwich bag of cannabis buds, pinched from the grow beds in the old barn at East Farm. It smells like a skunk.',actions:[]},
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
@@ -778,6 +779,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //                        choice instead, {label, choice, say}, with need: a flag the quest must have)
 //   spot:{m,x,y}         face that tile of that place (y can be a range, [from, to]) and press E
 //   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
+//   pick:place           walk into that place's shut door with your lock picks and pick its lock (js/lockpick.js); the
+//                        door then stays open while the quest is yours
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
 // note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
@@ -1167,6 +1170,24 @@ lightsout:{title:'Lights Out',giver:'George',day:8,evening:true,call:true,seq:tr
     {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
       a:{say:"The light's out. Our boat came in without a soul seeing it. Nice work, NIGHTJAR. Nobody needs to know who swung the hammer, and nobody's going to replace that lens in a hurry."}}}}],
   thanks:'The lighthouse at Eastbrook Harbour is dark, and will stay that way.'},
+// Flat Cola (George, the evening of 11 September): George wants Kelp Cola's bottling line stopped. Pick the lock of the electronics
+// store in Frostholm, shut for the night, steal an industrial capacitor from its shelves, and feed it into the bottling line at the
+// Kelp Cola factory, empty at night (Kelp Cola -1). Then report to George. Kurt, the foreman, has something to say about it from then on.
+flatcola:{title:'Flat Cola',giver:'George',day:11,evening:true,call:true,seq:true,
+  text:"George wants Kelp Cola's bottling line stopped. Break into the electronics store in Frostholm, shut for the night, steal something that will short out a machine, and feed it into the bottling line at the Kelp Cola factory. Then report to George.",
+  offer:"NIGHTJAR. George. Kelp Cola's getting too big for its boots: half the island's money goes through that factory, and Phil thinks that buys him a say in who runs the place. I want the bottling line stopped, tonight. Nils's electronics store in Frostholm has the kind of parts that make a machine go bang, and it's shut for the night. You've got your picks. Then get into the factory: there's nobody on the floor after dark.",
+  accept:"Good. Nothing that looks like a bomb, and nothing that looks like us. A machine that broke itself.",wait:"Is that bottling line still running? Get a part from the electronics store in Frostholm and put it into the line.",
+  aftermath:[{flag:'broken',name:'Kurt',say:"Some joker fed a capacitor into the bottling line's drive. Burned out both motors, and the conveyor with them. Phil's sending to Sweden for parts, and till they come, we're bottling by hand. By hand! The island's drinking flat cola out of the warehouse, and it's all on me."}],
+  done:[
+    {pick:'electro',what:'Pick the lock of the electronics store in Frostholm, shut for the night (walk into its door with your lock picks)',
+      said:"The door swings open on a dark shop. Find something on the shelves that would short out a machine."},
+    {use:'Shelves',m:'electro',gift:'capacitor',what:'Steal some technical equipment from the shelves in the electronics store',
+      said:"Behind the radios you find a box of industrial capacitors, the size of coffee tins. One of those would short out anything. Now get into the Kelp Cola factory, and put it into the bottling line."},
+    {use:'Bottling Line',m:'kcfac_in',takes:'capacitor',flag:'broken',points:{cola:-1},what:'Put the capacitor into the bottling line at the Kelp Cola factory',
+      said:"You wedge the capacitor into the drive under the conveyor and throw the switch. There's a bang, a shower of blue sparks and a smell of burning rubber, and the bottling line shudders to a stop. (Kelp Cola: -1 point.) Report to George on the big screen."},
+    {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
+      a:{say:"I hear Kelp Cola's bottling by hand tonight. Phil's on the telephone to Sweden, shouting. Nice work, NIGHTJAR. A machine that broke itself: that's how I like it."}}}}],
+  thanks:"Kelp Cola's bottling line is broken, and the island's cola has gone flat."},
 // The People's Cola and New Formula (9 September: the Communist Party's quest and Kelp Cola's, so you can take on only one). Both
 // begin the same way: ask around for an idea for a flavour (any of the people in VOLCANO_IDEA suggests the volcano), scoop up lava
 // from the pool in the Lava Tube, and brew it in Kelp Cola's research lab.

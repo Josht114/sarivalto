@@ -9,3 +9,22 @@ Someone at Diversified Petroleum wants to
 move company money where nobody will look.
 Help cook the books, and keep the auditors
 and Dario from noticing.
+
+
+
+
+magnus asks you to help embezzel some money
+to do this you need to get a disguese and get boths mats and ruth
+to sign some documents
+
+you have 2 disguise optionstexas oil baron
+wall street broker
+
+eachdisguise has its own dialoge options
+
+you have to get the right dialogue options to convince them 
+
+getting it right and doing the embezzeling gets DP -1
+getting it wrong gives them +1 
+
+reporting it to dario gets them +2
