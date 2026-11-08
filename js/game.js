@@ -614,7 +614,7 @@ function draw(t){
 var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 // (people who work somewhere open only at night are at home by day instead; EVENING_STAFF stay at work at night too)
 // (open: only while the quest is still yours, such as a hint)
-const aftermaths=()=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>q.flags?.[a.flag]&&!(a.open&&q.done)));
+const aftermaths=()=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>(a.flag?q.flags?.[a.flag]:a.open)&&!(a.open&&q.done)));
 function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork));
   // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
   // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first)

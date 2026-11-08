@@ -851,8 +851,11 @@ const ALMS_GIFT={start:'a',nodes:{
   x:{say:"Your house? Your things are in it, friend: your radio and that. I'm not living with a radio. Get Sally to move your things out first, or get me one of my own."}}};
 // Creative Accounting: the disguise you're wearing (a Texas oil baron: the Stetson and cowboy boots; a Wall Street broker: the
 // tailored suit, black trousers and Oxfords), and what Mats and Ruth say to each. One way through each conversation gets their
-// signature (a flag on the quest); any other blows it (the choice 'fail'). With both signatures, the choice is 'sign'.
+// signature (a flag on the quest); any other blows it (the choice 'fail'). With both signatures, the choice is 'sign'. Each has a
+// disguise that works best on them (CA_BEST: Mats likes a broker, Ruth an oilman); in the other, they ask one more, harder
+// question (c) before they sign. Elin, Mats's partner, and Britta, Ruth's neighbour, drop hints while the quest is yours.
 const caLook=()=>{const l=ME.look;return l.hat=='stetson'&&l.shoes=='cowboyboots'?'baron':l.top=='suit'&&l.legs=='slacks'&&l.shoes=='oxfords'&&l.hat!='stetson'?'broker':null};
+const CA_BEST={Mats:'broker',Ruth:'baron'};
 const CA_FLAGS=()=>qOf('creative')?.flags||{};
 const caSigned=who=>{qFlag('creative',who);const g=CA_FLAGS();if(g.mats&&g.ruth)questChoice('creative','sign')};
 const caFail=()=>questChoice('creative','fail');
@@ -867,6 +870,10 @@ const CA_SAY={
       b:["Houston! A joint venture, then? I'll need a reference number for the file, sir. Everything gets a reference number.",[
         ["A reference? Son, in Texas a handshake's the reference. (Stick out your hand.)",'z'],
         ["File it under DP-1187, Gulf Holdings. Dario's own drawer, the one nobody opens.",'ok']]],
+      c:["DP-1187... (Mats frowns down at the cowboy boots.) Sir, Gulf Holdings is a New York company in our files, not a Houston one. Why would a Texan be signing for it?",[
+        ["Because I bought it last Tuesday, son. The paperwork's in the post.",'ok'],
+        ["Er... I've got cousins in New York.",'w']]],
+      w:"(Mats closes the folder, very gently.) I think I'll keep this one for Dario, sir.",
       ok:"DP-1187. (Mats writes it on the folder in very neat capitals, and signs where you point.) There you are, Mr Calhoun. Have a good flight.",
       x:"Fired? You can't fire me, sir. You don't work here. (He reaches for the telephone.) I think I'd better ask Dario about this.",
       y:"Nobody needs to see? (Mats goes pale.) Then I definitely need to show someone. Dario will want to know about this.",
@@ -900,13 +907,18 @@ const CA_SAY={
       b:["Whitfield Brothers. I've never heard of you.",[
         ["You will by Friday. (Slide your card across the desk, with a fifty under it.)",'y'],
         ["We're a small house, and we like it that way: no newspapers, no fuss. Like you, I imagine.",'ok']]],
+      c:["(Ruth doesn't pick up her pen.) Men in suits come through here every month, Mr Whitfield, and every one of them wants something from Dario. Why should I put my name next to yours?",[
+        ["Because I asked nicely.",'w'],
+        ["Because when this goes through, Magnus will remember who helped him. So will I.",'ok']]],
+      w:"Nicely isn't enough, Mr Whitfield. (She picks up the telephone.) Dario? There's a broker down here you'll want to meet.",
       ok:"(Ruth looks at you for a long moment, and then witnesses the papers.) No fuss. I like that.",
       x:"Sweetheart. (Ruth picks up the telephone.) Dario? There's a man in a suit down here you'll want to meet.",
       y:"A bribe? In my lobby? (She pushes the money back.) Dario will want to hear about you."}}};
 // each one's conversation, as you look when you talk to them
 const caChat=who=>{const S=CA_SAY[who],g=CA_FLAGS(),lk=caLook(),me=who.toLowerCase();
   if(g[me])return{start:'a',nodes:{a:{say:S.done}}};if(!lk)return{start:'a',nodes:{a:{say:S.none}}};
-  const D=S[lk],nodes={};for(const[k,v]of Object.entries(D)){if(Array.isArray(v))nodes[k]={say:v[0],opts:v[1].map(([t,to])=>[t,to,to=='ok'?()=>caSigned(me):'xyz'.includes(to)?caFail:null])};else nodes[k]={say:v}}
+  const D=S[lk],best=CA_BEST[who]==lk,nodes={};for(const[k,v]of Object.entries(D)){if(best&&(k=='c'||k=='w'))continue;
+    if(Array.isArray(v))nodes[k]={say:v[0],opts:v[1].map(([t,to])=>{if(to=='ok'&&!best&&k!='c')to='c';return[t,to,to=='ok'?()=>caSigned(me):'xyzw'.includes(to)?caFail:null]})};else nodes[k]={say:v}}
   return{start:'a',nodes}};
 const CA_DARIO={start:'a',nodes:{
   a:{say:"(Dario looks up from his desk.) Journalist. Make it quick.",opts:[["Magnus is trying to move company money where nobody will look. He asked me to help.",'b',()=>{qFlag('creative','reported');questChoice('creative','report')}],["Nothing. Sorry to bother you.",null]]},
@@ -1242,9 +1254,12 @@ lightsout:{title:'Lights Out',giver:'George',day:8,evening:true,call:true,seq:tr
 creative:{title:'Creative Accounting',giver:'Magnus',main:true,day:12,seq:true,choices:{sign:'get both signatures',fail:'blow it',report:'tell Dario'},
   text:"Magnus wants to move Diversified Petroleum's money where nobody will look, and he needs two signatures on the papers: Mats, the clerk in the Petro Tower in Frostholm, and Ruth, the receptionist at the HQ. They won't sign for a reporter. Go in disguise, as a Texas oil baron (a Stetson and cowboy boots: the clothes shop in Eastbrook) or a Wall Street broker (a tailored suit, black trousers and Oxfords: the tailor in Kingsgrad), and say the right things. Or tell Dario what Magnus is up to.",
   offer:"(Magnus lowers his voice.) You're a man of the world, journalist. So am I. Dario runs this company like his own wallet, and when I'm leading the Republicans I'll need a war chest he can't touch. A few transfers, nothing anyone will miss. I need two signatures: Mats, in the Petro Tower, and Ruth, on reception. Neither will sign for me with Dario watching. They'd sign for a client. Will you help me?",
-  accept:"Good. Be somebody they'll want to please: a Texas oil baron, say, or a Wall Street man. The clothes shop in Eastbrook and the tailor in Kingsgrad will see you right. And don't say anything clever. Mats likes things done properly, and Ruth misses nothing.",
+  accept:"Good. Be somebody they'll want to please: a Texas oil baron, say, or a Wall Street man. The clothes shop in Eastbrook and the tailor in Kingsgrad will see you right. And don't say anything clever. Mats likes things done properly, and Ruth misses nothing. Find out what each of them likes before you go in: Elin, at Kelp Cola, lives with Mats, and Britta at the depot lives next door to Ruth.",
   wait:"Have you got Mats and Ruth to sign? In disguise, mind: an oil baron, or a broker.",
-  aftermath:[{flag:'reported',name:'Magnus',say:"(Magnus doesn't look up.) Dario took my keys, my office and my expense account. I'm still the company's candidate, because he can't find anyone else. I won't forget it, journalist. Neither will the Republicans."}],
+  aftermath:[
+    {open:true,name:'Elin',say:"Mats? He reads the financial pages over breakfast like they're love letters, and he's always on about New York: the bankers, the brokers, the suits. A man from Wall Street could get him to sign anything. Cowboys, though? He thinks they're all hat."},
+    {open:true,name:'Britta',say:"Ruth? She's my neighbour, up in the Skyline. Mad about cowboys: she's never missed a western at the cinema, and there's a signed rodeo poster over her bed. A man in a ten-gallon hat could charm her out of her stapler. Men in suits bore her stiff."},
+    {flag:'reported',name:'Magnus',say:"(Magnus doesn't look up.) Dario took my keys, my office and my expense account. I'm still the company's candidate, because he can't find anyone else. I won't forget it, journalist. Neither will the Republicans."}],
   done:[
     {talk:['Mats','Ruth','Dario'],chats:{get Mats(){return caChat('Mats')},get Ruth(){return caChat('Ruth')},Dario:CA_DARIO},ok:q=>!!q.choice,
       what:'Get Mats, the clerk in the Petro Tower in Frostholm, and Ruth, the receptionist at Diversified Petroleum HQ, to sign Magnus\'s papers, in disguise (or tell Dario)'},
