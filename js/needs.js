@@ -6,6 +6,17 @@
 // runs low you're told so now and then. Saved with the game.
 const NEED_DRAIN={hunger:100/480,nicotine:100/360};  // per second of play: hunger empties in eight minutes, nicotine in six
 const NEED_LOW=20,NEED_SAY={hunger:"Your stomach growls. You need something to eat.",nicotine:"You're craving a cigarette."};
+// talking to someone while hunger or nicotine is low: it's all you can think about. You ask for food (or a smoke), and they answer
+// (hunger first, if both are low). A shopkeeper at work still shows you what they sell, so you can always buy some.
+const NEED_BEG={
+  hunger:{ask:["I'm starving. Got anything to eat?","Sorry, I can't think straight. You don't have any food on you, do you?","Is there anything to eat round here? Anything at all?","Got a sandwich? A biscuit? I'd take a biscuit.","My stomach's eating itself. Any food going?"],
+    reply:["Food? (They look you up and down.) You look awful. Go and get something to eat, and then we'll talk.","Not on me, no. Try a café. You're no use to anyone like that.","I can hear your stomach from here. Go and eat something.","Sorry, I've nothing. There's food in town, if you've got the money.","(They step back a little.) You've gone a funny colour. Eat first, talk later."]},
+  nicotine:{ask:["Got a cigarette? I'm dying for a smoke.","You don't have a smoke on you, do you? Just the one.","Sorry. I need a cigarette before I can think. Got one?","Any chance of a fag? I'm climbing the walls here.","I'd kill for a cigarette. Not literally. Probably. Got one?"],
+    reply:["A cigarette? Buy your own. There's a machine in most bars.","(They pat their pockets.) No, sorry. You're twitching. Go and get a pack.","Not for you, no. Come back when you've calmed down.","I don't smoke. And from the look of you, neither should you. Go and buy a pack.","You're shaking. Get yourself some cigarettes, and then come back and talk to me."]}};
+const needBeg=n=>{const k=['hunger','nicotine'].find(k=>ME[k]<NEED_LOW);if(!k)return null;const B=NEED_BEG[k],pick=a=>a[Math.floor(Math.random()*a.length)];
+  const shop=SHOPS[n.name]&&n.m==n.loc;
+  return{start:'a',nodes:{a:{say:`"${pick(B.ask)}" you ask. ${shop?"Then you've come to the right person. Have a look at what I've got.":pick(B.reply)}`,
+    opts:shop?[['Show me your stock',null,()=>openShop(n)],['Goodbye',null]]:undefined}}}};
 const SOBER=100/300;  // how fast drink wears off, per second of play: from blind drunk to sober in five minutes
 const DRUNK_AT=60;  // over this the alcohol bar goes red
 // smoking as you go (cigarettes equipped): one cigarette lasts this many seconds of play, giving SMOKE_NIC nicotine over that time

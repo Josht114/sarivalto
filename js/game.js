@@ -56,7 +56,7 @@ addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0,tattoos:[],homes:[],placed:{},home:'hekki_room',moved:false};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start&&(QUESTS[id].day??DAY)==DAY).map(id=>({id,met:[],done:false,took:DAY}))}
-const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['map','Map'],['save','Save'],['opts','Options']];
+const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['journal','Journal'],['map','Map'],['save','Save'],['opts','Options']];
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
@@ -73,6 +73,11 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
       `<ul class="qconds">${Q.done.map((c,i)=>c.if&&q.choice!=c.if?'':`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
     const on=ME.quests.filter(q=>!q.done),off=ME.quests.filter(q=>q.done);
     body=(on.length?`<h3>Active</h3><ul class="quests">${on.map(li).join('')}</ul>`:'<p>No active quests.</p>')+(off.length?`<h3>Completed</h3><ul class="quests">${off.map(li).join('')}</ul>`:'')}
+  if(START=='journal'){// every conversation you've had, a day at a time (the arrows step through the days you talked to anyone)
+    const J=ME.journal||[],days=[...new Set(J.map(j=>j.d))];if(!days.includes(JDAY))JDAY=days[days.length-1];const i=days.indexOf(JDAY);
+    body=!days.length?'<p>No conversations yet. Everyone you talk to is written down here, day by day.</p>':
+      `<div class="jnav"><button data-jd="-1" ${i>0?'':'disabled'} aria-label="The day before">&larr;</button><b>${dateStr(JDAY)}</b><button data-jd="1" ${i<days.length-1?'':'disabled'} aria-label="The next day">&rarr;</button></div>`+
+      J.filter(j=>j.d==JDAY).map(j=>`<div class="jent"><h4>${esc(j.n)}${j.night?' <small>(evening)</small>':''}</h4>${j.l.map(([w,t])=>`<p${w=='You'?' class="me"':''}><b>${esc(w)}:</b> ${esc(t)}</p>`).join('')}</div>`).join('')}
   if(START=='map'){// you are marked at your place on the island map (indoors, at the place the building is in)
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
     body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${mapFog()}${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(([a,main])=>`<span class="qstar${main?'':' side'}" title="${esc(NM[a])}: someone here has a ${main?'main':'side'} quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
@@ -113,7 +118,7 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
   beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>smoke()},
   burger:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[((DAY-1)%HEADLINES.length+HEADLINES.length)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
-  islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},
+  islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},rarerecord:{'Look at':'A woman in a white dress at a microphone, and behind her a young pianist with his eyes shut. Midnight at the Aurora. Keep it flat.'},
   radio:{Listen:()=>typeof toggleRadio=='function'?toggleRadio():'Radio Sarivalto: Kaisa is playing slow songs for the late king.'},fishrod:{Fish:()=>ME.equipped!='fishrod'?'Equip the fishing rod first.':canFish()?(closeStart(),startFishing(),''):'Face some open water (the sea, the lake or the river) to fish in it.'},
   notebook:{'Read':`${dateStr(DAY)}: ${DAY==1?'Arrived on Sarivalto. Set up in the hidden room under the radio tower. Report to Chuck.':'Nothing new written yet.'}`,'Write a note':'Nothing worth writing down yet.'},
   camera:{'Take a photo':()=>ME.filmIn?'Nothing here worth photographing.':'There is no film in the camera.','Load film':loadFilm},
@@ -160,7 +165,7 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(d=='load'){loadGame(i);return}renderStart()}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos,homes:ME.homes,placed:ME.placed,home:ME.home,moved:ME.moved},stock:STOCK,stocked:STOCKED,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos,homes:ME.homes,journal:ME.journal,talked:ME.talked,placed:ME.placed,home:ME.home,moved:ME.moved},stock:STOCK,stocked:STOCKED,fp:FP};
   // (if storing fails, say so once it has)
   store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -464,12 +469,14 @@ function questTalk(n){
   // (today's main quest comes before a reminder, and the reminder is about the latest quest you took on from them)
   const id=offerOf(n),w=[...ME.quests].reverse().find(q=>!q.done&&QUESTS[q.id].giver==n.name&&QUESTS[q.id].wait);if(w&&!(id&&QUESTS[id].main))return{start:'a',nodes:{a:{say:QUESTS[w.id].wait}}};
   if(!id)return null;const Q=QUESTS[id];
-  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false,took:DAY});if(Q.meet)applyRoutine();say((Q.main?'New main quest: ':'New side quest: ')+Q.title+'.',4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
+  return{start:'a',nodes:{a:{say:Q.offer,opts:[['Accept: '+Q.title,'yes',()=>{ME.quests.push({id,met:[],done:false,took:DAY});if(Q.meet)applyRoutine();if(Q.gift)give(Q.gift);say((Q.main?'New main quest: ':'New side quest: ')+Q.title+'.'+(Q.gift?' You get the '+ITEMS[Q.gift].name.toLowerCase()+'.':''),4000)}],['Not now',null]]},yes:{say:Q.accept}}}}
 // talking to someone: their quest business first, then their own conversation (CONVOS), a shopkeeper's welcome, or a line about
 // themselves; all of it in the conversation panel
 function talk(n){n.dir=P.dir^1;
   const af=aftermaths().find(a=>a.name==n.name&&a.say);
-  const c=questTalk(n)||(af&&{start:'a',nodes:{a:{say:af.say}}})||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],...(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk)?[['Sell my catch',null,sellCatch]]:[]),['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
+  // too hungry, or desperate for a smoke, to talk about anything else (needs.js); then quest business, a hint or what a quest
+  // has just left behind (afNow), today's conversation (dailyConvo), and after that what a quest left behind for good
+  const c=needBeg(n)||questTalk(n)||(afNow(n)&&{start:'a',nodes:{a:{say:afNow(n).say}}})||dailyConvo(n)||(af&&{start:'a',nodes:{a:{say:af.say}}})||CONVOS[n.name]||(SHOPS[n.name]&&n.m==n.loc?{start:'a',nodes:{a:{say:"Welcome! Have a look at what I've got.",opts:[['Show me your stock',null,()=>openShop(n)],...(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk)?[['Sell my catch',null,sellCatch]]:[]),['Goodbye',null]]}}}:{start:'a',nodes:{a:{say:unquote(line(n))}}});
   converse(n,c)}
 const onPlatform=()=>TRAM_STOPS.includes(P.m)&&MAPS[P.m][P.y][P.x]=='P';
 const place=(m,[x,y],dir)=>{P.m=m;P.x=x;P.y=y;P.rx=x;P.ry=y;P.mv=null;P.dir=dir;showHere(m)};
@@ -519,19 +526,47 @@ function leaveTram(){const from=TRIP.from;TRIP=null;TRAMS[from]={ph:'wait',t0:pe
 // ---- Conversations (CONVOS): their portrait and what they say at the top left, your replies along the bottom. Up and down (or
 // W and S) choose a reply, E, Space or Enter says it (or press its number, or click it); when it ends, everything closes.
 const cvEl=document.getElementById('convo');
-function converse(n,c=CONVOS[n.name]){CONVO={n,c,at:c.start,sel:0};stack=[];MSG=null;
+function converse(n,c=CONVOS[n.name]){CONVO={n,c,at:c.start,sel:0};stack=[];MSG=null;(ME.journal??=[]).push({d:DAY,night:NIGHT,n:n.name,l:[[n.name,c.nodes[c.start].say]]});
   const pc=cvEl.querySelector('canvas'),g=pc.getContext('2d');g.clearRect(0,0,pc.width,pc.height);g.drawImage(portrait(n),0,0);
   cvEl.querySelector('.who').textContent=n.name;cvEl.querySelector('.job').textContent=n.job.replace(/ \(.*\)$/,'');
   // a small badge in the faction's colour with its short name (and the faction's full name on hover)
   const F=FACTIONS[n.faction];cvEl.querySelector('.fac').innerHTML=F?`<i style="background:${F[1]}" title="${esc(F[0])}">${esc(F[2])}</i> ${esc(F[0])}`:'<i class="none" title="Unaligned">&ndash;</i> Unaligned';
   cvEl.hidden=false;renderConvo()}
+// ---- The journal (the Journal tab): every conversation, as it goes (ME.journal: {d: the day, night, n: who, l: [[who, what]]})
+let JDAY=null;
+function jot(o,cv){const j=ME.journal?.[ME.journal.length-1];if(!j)return;if(!['End the conversation','Goodbye','Not now','Not yet'].includes(o[0]))j.l.push(['You',o[0]]);
+  if(o[1]!=null&&cv.c.nodes[o[1]])j.l.push([cv.n.name,cv.c.nodes[o[1]].say])}
+// (talking to someone again and hearing the very same thing isn't written down twice the same day)
+function jotDone(){const J=ME.journal,j=J?.[J.length-1];if(!j)return;const s=JSON.stringify(j.l);if(J.slice(0,-1).some(k=>k.d==j.d&&k.n==j.n&&JSON.stringify(k.l)==s))J.pop()}
+addEventListener('click',e=>{const b=e.target.closest?.('[data-jd]');if(!b||START!='journal')return;const days=[...new Set((ME.journal||[]).map(j=>j.d))];
+  JDAY=days[Math.max(0,Math.min(days.length-1,days.indexOf(JDAY)+ +b.dataset.jd))];renderStart()});
+// ---- Daily conversations (DAILY, in js/daily.js, built from content/daily/ by tools/build-daily.js): each person has their own
+// conversation for each day of September, DAILY[name][day] = [what they open with, [[your reply, their answer], ...], what they
+// say after]; an answer can be [what they say, [[your reply, their answer], ...]] to go on further. Once you've heard one answer
+// to the end, that's today's conversation done (ME.talked), and they only say the last part. Someone with nothing for today just
+// gives their name. Shopkeepers, and the people with a service of their own (SERVICE: its old conversation in CONVOS), offer it
+// at the end.
+const SERVICE={Otto:'About the pictures',Sally:'About a house',Jonna:"I'd like a tattoo."};
+function serviceOpts(n){const o=[];if(SHOPS[n.name]&&n.m==n.loc){o.push(['Show me your stock',null,()=>openShop(n)]);
+    if(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk))o.push(['Sell my catch',null,sellCatch])}
+  if(SERVICE[n.name]&&CONVOS[n.name])o.push([SERVICE[n.name],null,()=>converse(n,CONVOS[n.name])]);return o}
+function dailyConvo(n){if(DAY<1)return null;const D=typeof DAILY!='undefined'&&DAILY[n.name]?.[DAY];
+  if(!D)return SERVICE[n.name]||SHOPS[n.name]&&n.m==n.loc?null:{start:'a',nodes:{a:{say:`My name is ${n.name}.`}}};
+  const svc=serviceOpts(n),end=svc.length?[...svc,['Goodbye',null]]:undefined;
+  if((ME.talked??={})[n.name]==DAY)return{start:'a',nodes:{a:{say:D[2],opts:end}}};
+  const nodes={},done=()=>{ME.talked[n.name]=DAY};let k=0;
+  const build=(say,opts)=>{const id='n'+k++;nodes[id]={say};
+    nodes[id].opts=opts?.length?opts.map(([t,r])=>{const[rs,ro]=Array.isArray(r)?r:[r];return[t,build(rs,ro),ro?.length?null:done]}):end;return id};
+  return{start:build(D[0],D[1]),nodes}}
+// what a quest left someone saying that still comes first: a hint while the quest is yours, or anything on the day it's done
+const afNow=n=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>a.name==n.name&&a.say&&q.flags?.[a.flag]&&(!q.done||q.day==DAY&&!a.open)))[0];
 const replies=()=>(CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]]).filter(o=>!o[3]||o[3]());
 function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
   cvEl.querySelector('.said').innerHTML=`<b>${esc(CONVO.n.name)}</b><p>"${esc(nd.say)}"</p>`;
   cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
   cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
-function reply(i){const o=replies()[i];if(!o)return;if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}
-function endConvo(){const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call','phone');f?.()}
+function reply(i){const o=replies()[i];if(!o)return;jot(o,CONVO);if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}
+function endConvo(){if(CONVO)jotDone();const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call','phone');f?.()}
 addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==1?e.key.toLowerCase():e.key,n=replies().length;
   if(k=='ArrowDown'||k=='s')CONVO.sel=(CONVO.sel+1)%n;else if(k=='ArrowUp'||k=='w')CONVO.sel=(CONVO.sel+n-1)%n;
   else if(/^[1-9]$/.test(k)&&+k<=n)reply(+k-1);else if(k=='e'||k==' '||k=='Enter')reply(CONVO.sel);else if(k=='Escape')endConvo();else return;

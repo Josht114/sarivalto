@@ -647,6 +647,7 @@ ammo:{name:'Box of bullets',desc:'A box of bullets for the pistol.',actions:[]},
 souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola mascot, from the museum gift shop.',actions:['Look at']},
 bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
 record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at']},
+rarerecord:{name:'Rare record',desc:"Midnight at the Aurora, the Arvo Lind Quartet, live at the Hotel Aurora in 1959: one of two hundred ever pressed, in a stiff card mailer from Ruby's shop marked FRAGILE.",actions:['Look at']},
 newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
 pizza:{name:'Slice of pizza',desc:'A hot slice of pizza, cheese and pepperoni, from the pizzeria in Kingsgrad.',actions:['Eat']},
 wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
@@ -923,6 +924,38 @@ const caChat=who=>{const S=CA_SAY[who],g=CA_FLAGS(),lk=caLook(),me=who.toLowerCa
 const CA_DARIO={start:'a',nodes:{
   a:{say:"(Dario looks up from his desk.) Journalist. Make it quick.",opts:[["Magnus is trying to move company money where nobody will look. He asked me to help.",'b',()=>{qFlag('creative','reported');questChoice('creative','report')}],["Nothing. Sorry to bother you.",null]]},
   b:{say:"Magnus. Of course it's Magnus. (He picks up the telephone.) Ruth? Have Magnus's keys on my desk in ten minutes, and get me the auditors. (He puts it down.) Thank you. Diversified Petroleum doesn't forget its friends. (Diversified Petroleum: +2 points.)"}}};
+// A Record for Ruby: who wants Ruby's rare record, and what they say. Give it to Brother Ilja (the buyer: he played the piano on it,
+// before he took his vows), sell it to Dario (his mother sang on it), or keep it and tell Ruby it got lost. Each one is a choice.
+const rrGive=()=>{take('rarerecord');qFlag('ruby','delivered');questChoice('ruby','deliver')};
+const RR_ILJA={start:'a',nodes:{
+  a:{say:"(Brother Ilja looks at the parcel under your arm, and then at the door.) Is that... from Eastbrook? From the record shop? Shut the door. Please.",opts:[
+    ["Ruby says it's for the keeper of the records. That's you, I take it.",'b',null,()=>has('rarerecord')],
+    ["A monk, buying jazz records?",'c',null,()=>has('rarerecord')],
+    ["I was just passing.",null]]},
+  b:{say:"I keep all sorts of records. (He gives a small, guilty smile.) Will you give it to me? I've waited twenty years for that one.",opts:[
+    ["Give Brother Ilja the record",'d',rrGive],["Why that one?",'c'],["Not yet.",null]]},
+  c:{say:"(He lifts the lid of the chest at the end of his bed. Under the spare habits are records: dozens of them, in plastic sleeves, and a little battery record player with headphones.) Before I took my vows I played the piano in Kingsgrad, under another name, in Arvo Lind's quartet. That record is the only time I was ever any good, and I have never heard it. They pressed two hundred, and then the tapes burned. I listen after compline, very quietly. Brother Anselm thinks I'm praying. In a way, I am.",opts:[
+    ["Give Brother Ilja the record",'d',rrGive],["Someone else wants it too. Dario, the oil man.",'e'],["Not yet.",null]]},
+  e:{say:"Dario? (Ilja goes quiet.) Then he knows who sang on it. A girl from Frostholm called Lilja, with a voice like the first snow. She married an oil man, I heard, and never sang again. (He looks at the record.) It's yours to give, my friend. I won't beg. Monks shouldn't.",opts:[
+    ["Give Brother Ilja the record",'d',rrGive],["I need to think about it.",null]]},
+  d:{say:"(Ilja holds it the way Father Thyme holds the icons.) Thank you. Tell Ruby the money was from a friend of the Democrats, and that she should spend it on the party, not on the shop. Brother Anselm need never know. (Democratic Party: +1 point.)"}}};
+const RR_DARIO={start:'a',nodes:{
+  a:{say:"(Dario looks up from his desk.) Journalist. Make it quick.",opts:[
+    ["I've got the Arvo Lind record. Midnight at the Aurora.",'b',null,()=>has('rarerecord')],
+    ["Nothing. Sorry to bother you.",null]]},
+  b:{say:"(Dario is out of his chair.) Ruby wouldn't sell it to me. I offered her twice what it's worth. (He takes the mailer from you, very carefully, and looks at the cover for a long time.) That's my mother. The singer, there, in the white dress. Lilja Berg. She sang one summer at the Aurora, and then she married my father, and he never let her sing again. Every other copy I could find, I've bought. This is the last one. I want it.",opts:[
+    ["Then it's yours, for the right price.",'c'],
+    ["It's already sold. To someone up the mountain.",'x'],["I'll think about it.",'x']]},
+  c:{say:"Three hundred dollars, cash. (He counts it onto the desk.) And Diversified Petroleum doesn't forget a favour.",opts:[
+    ["Sell Dario the record ($300)",'d',()=>{take('rarerecord');ME.cash+=300;qFlag('ruby','sold');questChoice('ruby','sell')}],["No. It isn't mine to sell.",'x']]},
+  x:{say:"(Dario hands the record back, slowly.) Everything on this island is for sale, journalist. You'll see."},
+  d:{say:"(Dario puts the record in his desk drawer and locks it.) Tell Ruby whatever you like. She'll never see it again, and neither will her Democrats. (You get $300 of your own. Diversified Petroleum: +1 point. Democratic Party: -1 point.)"}}};
+const RR_RUBY={start:'a',nodes:{
+  a:{say:"(Ruby turns the music down.) Did it get there? Up the mountain, to the keeper of the records? I keep picturing it bouncing about in the back of the tram.",opts:[
+    ["Not yet. I'm on my way.",null],
+    ["I'm sorry, Ruby. It got lost.",'l',()=>{qFlag('ruby','kept');questChoice('ruby','lost')},()=>has('rarerecord')],
+    ["Show me your stock",null,()=>{const n=NPCS.find(n=>n.name=='Ruby');if(n&&n.m==n.loc)openShop(n)}]]},
+  l:{say:"Lost. (Ruby looks at you for a long moment.) Two hundred copies in the whole world, and you lost one. I'll have to give the money back, and the party could have used it. (She turns the music up again, and doesn't look at you.) (Democratic Party: -1 point. The record is still in your bag.)"}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1269,6 +1302,25 @@ creative:{title:'Creative Accounting',giver:'Magnus',main:true,day:12,seq:true,c
       a:{say:"(Magnus is white.) Dario had the auditors in an hour after you left. Every account checked, every signature counted twice, and new locks on the strongroom. The company's tighter than it's ever been, and it's your fault. Get out. (Diversified Petroleum: +1 point.)"}}}},
     {if:'report',talk:'Dario',ok:q=>q.choice=='report',points:{oil:2},chat:CA_DARIO,what:'Tell Dario what Magnus is up to, in his office at Diversified Petroleum HQ'}],
   thanks:"Magnus's creative accounting is settled, one way or another."},
+// A Record for Ruby (the Democratic Party, 12 September): Ruby, at the record shop in Eastbrook, has sold a rare jazz LP to a buyer
+// who won't give his name, and gives it to you to deliver to "the keeper of the records" at the monastery (Brother Ilja, who played the
+// piano on it, and keeps a secret record collection: Democratic Party +1). Or sell it to Dario, who wants it so badly because his
+// mother sang on it (Diversified Petroleum +1, Democratic Party -1, and $300 of your own), or keep it and tell Ruby it got lost (-1).
+ruby:{title:'A Record for Ruby',giver:'Ruby',main:true,day:12,seq:true,gift:'rarerecord',choices:{deliver:'deliver it to the buyer',sell:'sell it to Dario',lost:'keep it and say it got lost'},
+  text:"Ruby, at the record shop in Eastbrook, has sold a rare record, Midnight at the Aurora, to a buyer who won't give his name. Take it up to the Mountain-Top Monastery, to \"the keeper of the records\", in one piece. Dario, at Diversified Petroleum HQ in Frostholm, wants it too, and badly: find out why. Or keep it, and tell Ruby it got lost.",
+  offer:"(Ruby lifts a card mailer from under the counter as if it might break.) Midnight at the Aurora. The Arvo Lind Quartet, 1959. Two hundred pressed, and this might be the last one on the island. Someone's bought it: cash in an envelope, no name, and a note that says \"for the keeper of the records, at the monastery\". The money's going to the party. I can't leave the shop, and I wouldn't trust the post with this. Would you take it up the mountain for me?",
+  accept:"You're a star. Keep it flat, keep it out of the cold, and don't let anyone talk you out of it. Dario from the oil company was in here twice last week waving his chequebook, wanting it. I told him it was sold. He didn't like that one bit.",
+  wait:"Did the record get up the mountain? To the keeper of the records.",
+  aftermath:[
+    {flag:'delivered',name:'Brother Ilja',say:"(Brother Ilja is humming under his breath, with a little run of notes on the edge of the desk.) I've had it on every night after compline. I'm not as good as I remember. I'm better. Don't tell Brother Anselm."},
+    {flag:'sold',name:'Dario',say:"(Dario doesn't look up.) The record is in a drawer, and the drawer is locked. We don't need to talk about it again, journalist."}],
+  done:[
+    {talk:['Brother Ilja','Dario','Ruby'],chats:{'Brother Ilja':RR_ILJA,Dario:RR_DARIO,Ruby:RR_RUBY},ok:q=>!!q.choice,
+      what:"Take the record up to \"the keeper of the records\" at the Mountain-Top Monastery (or sell it to Dario at Diversified Petroleum HQ, or tell Ruby it got lost)"},
+    {if:'deliver',talk:'Brother Ilja',ok:q=>q.choice=='deliver',points:{democrat:1},chat:RR_ILJA,what:"Give the record to Brother Ilja, in the Monks' Quarters"},
+    {if:'sell',talk:'Dario',ok:q=>q.choice=='sell',points:{oil:1,democrat:-1},chat:RR_DARIO,what:'Sell the record to Dario, in his office at Diversified Petroleum HQ'},
+    {if:'lost',talk:'Ruby',ok:q=>q.choice=='lost',points:{democrat:-1},chat:RR_RUBY,what:'Tell Ruby the record got lost'}],
+  thanks:"Ruby's record has found a home, one way or another."},
 // Flat Cola (George, the evening of 11 September): George wants Kelp Cola's bottling line stopped. Pick the lock of the electronics
 // store in Frostholm, shut for the night, steal an industrial capacitor from its shelves, and feed it into the bottling line at the
 // Kelp Cola factory, empty at night (Kelp Cola -1). Then report to George. Kurt, the foreman, has something to say about it from then on.

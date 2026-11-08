@@ -3,9 +3,19 @@ Faction: Democratic Party
 Day: 12 (morning)
 Linked with: None
 From the plan: Deliver a record for Ruby
+Status: In the game
 
 Plan:
 Ruby has a rare record that needs
 delivering across the island.
 Get it there in one piece, and find out
 why someone else wants it so badly.
+
+
+ruby says a mysterious buy want a special record delieverd
+the buyer is a monk with a secret record collection
+
+you can give the record to the monk for +1 dems
+can sell it to dario for +1 oil company and -1 dems
+or you can keep the record and say it got lost -1 dems
+

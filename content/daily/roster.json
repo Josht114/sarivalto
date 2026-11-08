@@ -1,0 +1,863 @@
+[
+ {
+  "name": "Tom",
+  "slug": "tom",
+  "card": "personalities/groups/union/tom.txt",
+  "first": 1,
+  "faction": "none"
+ },
+ {
+  "name": "Sam",
+  "slug": "sam",
+  "card": "personalities/factions/communist-party/sam.txt",
+  "first": 1,
+  "faction": "communist"
+ },
+ {
+  "name": "Bob",
+  "slug": "bob",
+  "card": "personalities/groups/union/bob.txt",
+  "first": 1,
+  "faction": "none"
+ },
+ {
+  "name": "Kate",
+  "slug": "kate",
+  "card": "personalities/factions/communist-party/kate.txt",
+  "first": 1,
+  "faction": "communist"
+ },
+ {
+  "name": "Anna",
+  "slug": "anna",
+  "card": "personalities/factions/communist-party/anna.txt",
+  "first": 1,
+  "faction": "communist"
+ },
+ {
+  "name": "Mike",
+  "slug": "mike",
+  "card": "personalities/factions/communist-party/mike.txt",
+  "first": 1,
+  "faction": "communist"
+ },
+ {
+  "name": "Helen",
+  "slug": "helen",
+  "card": "personalities/factions/communist-party/helen.txt",
+  "first": 1,
+  "faction": "communist"
+ },
+ {
+  "name": "Ray",
+  "slug": "ray",
+  "card": "personalities/groups/proprietors/ray.txt",
+  "first": 1,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Phil",
+  "slug": "phil",
+  "card": "personalities/factions/kelp-cola/phil.txt",
+  "first": 3,
+  "faction": "cola"
+ },
+ {
+  "name": "Leopold",
+  "slug": "leopold",
+  "card": "personalities/factions/royal-family/leopold.txt",
+  "first": 2,
+  "faction": "royal"
+ },
+ {
+  "name": "Augustus",
+  "slug": "augustus",
+  "card": "personalities/factions/royal-family/augustus.txt",
+  "first": 2,
+  "faction": "royal"
+ },
+ {
+  "name": "Father Thyme",
+  "slug": "father-thyme",
+  "card": "personalities/factions/orthodox-church/father-thyme.txt",
+  "first": 5,
+  "faction": "church"
+ },
+ {
+  "name": "Daphne",
+  "slug": "daphne",
+  "card": "personalities/factions/royal-family/daphne.txt",
+  "first": 2,
+  "faction": "royal"
+ },
+ {
+  "name": "Dario",
+  "slug": "dario",
+  "card": "personalities/factions/diversified-petroleum/dario.txt",
+  "first": 6,
+  "faction": "oil"
+ },
+ {
+  "name": "Gustavo",
+  "slug": "gustavo",
+  "card": "personalities/factions/crime-syndicate/gustavo.txt",
+  "first": 6,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Hekki",
+  "slug": "hekki",
+  "card": "personalities/groups/cia/hekki.txt",
+  "first": 1,
+  "faction": "cia"
+ },
+ {
+  "name": "Pat",
+  "slug": "pat",
+  "card": "personalities/groups/unemployed/pat.txt",
+  "first": 1,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Frank",
+  "slug": "frank",
+  "card": "personalities/groups/republican-party/frank.txt",
+  "first": 2,
+  "faction": "republican"
+ },
+ {
+  "name": "Lisa",
+  "slug": "lisa",
+  "card": "personalities/groups/shopkeepers/lisa.txt",
+  "first": 2,
+  "faction": "shops"
+ },
+ {
+  "name": "Eddie",
+  "slug": "eddie",
+  "card": "personalities/groups/proprietors/eddie.txt",
+  "first": 2,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Grace",
+  "slug": "grace",
+  "card": "personalities/groups/shopkeepers/grace.txt",
+  "first": 2,
+  "faction": "shops"
+ },
+ {
+  "name": "Vince",
+  "slug": "vince",
+  "card": "personalities/groups/proprietors/vince.txt",
+  "first": 2,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Mary",
+  "slug": "mary",
+  "card": "personalities/groups/shopkeepers/mary.txt",
+  "first": 2,
+  "faction": "shops"
+ },
+ {
+  "name": "Jack",
+  "slug": "jack",
+  "card": "personalities/groups/republican-party/jack.txt",
+  "first": 2,
+  "faction": "republican"
+ },
+ {
+  "name": "Freja",
+  "slug": "freja",
+  "card": "personalities/groups/shopkeepers/freja.txt",
+  "first": 2,
+  "faction": "shops"
+ },
+ {
+  "name": "Sally",
+  "slug": "sally",
+  "card": "personalities/groups/proprietors/sally.txt",
+  "first": 2,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Edmund",
+  "slug": "edmund",
+  "card": "personalities/factions/royal-family/edmund.txt",
+  "first": 2,
+  "faction": "royal"
+ },
+ {
+  "name": "Oskar",
+  "slug": "oskar",
+  "card": "personalities/factions/royal-family/oskar.txt",
+  "first": 2,
+  "faction": "royal"
+ },
+ {
+  "name": "Marta",
+  "slug": "marta",
+  "card": "personalities/factions/royal-family/marta.txt",
+  "first": 2,
+  "faction": "royal"
+ },
+ {
+  "name": "Ingrid",
+  "slug": "ingrid",
+  "card": "personalities/groups/palace-workers/ingrid.txt",
+  "first": 2,
+  "faction": "palace"
+ },
+ {
+  "name": "Lotta",
+  "slug": "lotta",
+  "card": "personalities/groups/palace-workers/lotta.txt",
+  "first": 2,
+  "faction": "palace"
+ },
+ {
+  "name": "Viktor",
+  "slug": "viktor",
+  "card": "personalities/groups/palace-workers/viktor.txt",
+  "first": 2,
+  "faction": "palace"
+ },
+ {
+  "name": "Kaisa",
+  "slug": "kaisa",
+  "card": "personalities/groups/entertainers/kaisa.txt",
+  "first": 1,
+  "faction": "entertainers"
+ },
+ {
+  "name": "Pirkko",
+  "slug": "pirkko",
+  "card": "personalities/factions/orthodox-church/pirkko.txt",
+  "first": 4,
+  "faction": "church"
+ },
+ {
+  "name": "Brother Anselm",
+  "slug": "brother-anselm",
+  "card": "personalities/factions/orthodox-church/brother-anselm.txt",
+  "first": 5,
+  "faction": "church"
+ },
+ {
+  "name": "Brother Paavo",
+  "slug": "brother-paavo",
+  "card": "personalities/factions/orthodox-church/brother-paavo.txt",
+  "first": 5,
+  "faction": "church"
+ },
+ {
+  "name": "Brother Ilja",
+  "slug": "brother-ilja",
+  "card": "personalities/factions/orthodox-church/brother-ilja.txt",
+  "first": 5,
+  "faction": "church"
+ },
+ {
+  "name": "Brother Teodor",
+  "slug": "brother-teodor",
+  "card": "personalities/factions/orthodox-church/brother-teodor.txt",
+  "first": 5,
+  "faction": "church"
+ },
+ {
+  "name": "Brother Mikael",
+  "slug": "brother-mikael",
+  "card": "personalities/factions/orthodox-church/brother-mikael.txt",
+  "first": 5,
+  "faction": "church"
+ },
+ {
+  "name": "Henrik",
+  "slug": "henrik",
+  "card": "personalities/groups/reporters/henrik.txt",
+  "first": 4,
+  "faction": "reporters"
+ },
+ {
+  "name": "Nora",
+  "slug": "nora",
+  "card": "personalities/groups/reporters/nora.txt",
+  "first": 4,
+  "faction": "reporters"
+ },
+ {
+  "name": "Olga",
+  "slug": "olga",
+  "card": "personalities/groups/shopkeepers/olga.txt",
+  "first": 1,
+  "faction": "shops"
+ },
+ {
+  "name": "Helmi",
+  "slug": "helmi",
+  "card": "personalities/groups/shopkeepers/helmi.txt",
+  "first": 1,
+  "faction": "shops"
+ },
+ {
+  "name": "Nils",
+  "slug": "nils",
+  "card": "personalities/groups/republican-party/nils.txt",
+  "first": 7,
+  "faction": "republican"
+ },
+ {
+  "name": "Toni",
+  "slug": "toni",
+  "card": "personalities/groups/proprietors/toni.txt",
+  "first": 2,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Birgit",
+  "slug": "birgit",
+  "card": "personalities/groups/shopkeepers/birgit.txt",
+  "first": 7,
+  "faction": "shops"
+ },
+ {
+  "name": "Otto",
+  "slug": "otto",
+  "card": "personalities/groups/republican-party/otto.txt",
+  "first": 2,
+  "faction": "republican"
+ },
+ {
+  "name": "Sanna",
+  "slug": "sanna",
+  "card": "personalities/groups/food-vendors/sanna.txt",
+  "first": 7,
+  "faction": "food"
+ },
+ {
+  "name": "Maya",
+  "slug": "maya",
+  "card": "personalities/factions/democratic-party/maya.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Jonna",
+  "slug": "jonna",
+  "card": "personalities/factions/democratic-party/jonna.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Erik",
+  "slug": "erik",
+  "card": "personalities/factions/democratic-party/erik.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Sergeant Hanna",
+  "slug": "sergeant-hanna",
+  "card": "personalities/groups/police/sergeant-hanna.txt",
+  "first": 2,
+  "faction": "police"
+ },
+ {
+  "name": "Linnea",
+  "slug": "linnea",
+  "card": "personalities/factions/royal-family/linnea.txt",
+  "first": 4,
+  "faction": "royal"
+ },
+ {
+  "name": "Arvid",
+  "slug": "arvid",
+  "card": "personalities/factions/royal-family/arvid.txt",
+  "first": 4,
+  "faction": "royal"
+ },
+ {
+  "name": "Ville",
+  "slug": "ville",
+  "card": "personalities/groups/shopkeepers/ville.txt",
+  "first": 2,
+  "faction": "shops"
+ },
+ {
+  "name": "Rosa",
+  "slug": "rosa",
+  "card": "personalities/groups/food-vendors/rosa.txt",
+  "first": 2,
+  "faction": "food"
+ },
+ {
+  "name": "Doctor Lind",
+  "slug": "doctor-lind",
+  "card": "personalities/groups/republican-party/doctor-lind.txt",
+  "first": 2,
+  "faction": "republican"
+ },
+ {
+  "name": "Yuri",
+  "slug": "yuri",
+  "card": "personalities/factions/communist-party/yuri.txt",
+  "first": 7,
+  "faction": "communist"
+ },
+ {
+  "name": "Greta",
+  "slug": "greta",
+  "card": "personalities/groups/proprietors/greta.txt",
+  "first": 7,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Lars",
+  "slug": "lars",
+  "card": "personalities/factions/diversified-petroleum/lars.txt",
+  "first": 7,
+  "faction": "oil"
+ },
+ {
+  "name": "Einar",
+  "slug": "einar",
+  "card": "personalities/factions/diversified-petroleum/einar.txt",
+  "first": 7,
+  "faction": "oil"
+ },
+ {
+  "name": "Ruth",
+  "slug": "ruth",
+  "card": "personalities/factions/diversified-petroleum/ruth.txt",
+  "first": 7,
+  "faction": "oil"
+ },
+ {
+  "name": "Britta",
+  "slug": "britta",
+  "card": "personalities/factions/diversified-petroleum/britta.txt",
+  "first": 7,
+  "faction": "oil"
+ },
+ {
+  "name": "Mats",
+  "slug": "mats",
+  "card": "personalities/factions/diversified-petroleum/mats.txt",
+  "first": 2,
+  "faction": "oil"
+ },
+ {
+  "name": "Agnes",
+  "slug": "agnes",
+  "card": "personalities/groups/administrators/agnes.txt",
+  "first": 7,
+  "faction": "admin"
+ },
+ {
+  "name": "Hilda",
+  "slug": "hilda",
+  "card": "personalities/groups/farmers/hilda.txt",
+  "first": 5,
+  "faction": "farmers"
+ },
+ {
+  "name": "Olaf",
+  "slug": "olaf",
+  "card": "personalities/groups/farmers/olaf.txt",
+  "first": 5,
+  "faction": "farmers"
+ },
+ {
+  "name": "Bertil",
+  "slug": "bertil",
+  "card": "personalities/groups/administrators/bertil.txt",
+  "first": 2,
+  "faction": "admin"
+ },
+ {
+  "name": "Elin",
+  "slug": "elin",
+  "card": "personalities/factions/kelp-cola/elin.txt",
+  "first": 2,
+  "faction": "cola"
+ },
+ {
+  "name": "Kurt",
+  "slug": "kurt",
+  "card": "personalities/factions/kelp-cola/kurt.txt",
+  "first": 2,
+  "faction": "cola"
+ },
+ {
+  "name": "Petra",
+  "slug": "petra",
+  "card": "personalities/factions/kelp-cola/petra.txt",
+  "first": 2,
+  "faction": "cola"
+ },
+ {
+  "name": "Noora",
+  "slug": "noora",
+  "card": "personalities/factions/kelp-cola/noora.txt",
+  "first": 1,
+  "faction": "cola"
+ },
+ {
+  "name": "Saara",
+  "slug": "saara",
+  "card": "personalities/factions/kelp-cola/saara.txt",
+  "first": 2,
+  "faction": "cola"
+ },
+ {
+  "name": "Aino",
+  "slug": "aino",
+  "card": "personalities/factions/kelp-cola/aino.txt",
+  "first": 2,
+  "faction": "cola"
+ },
+ {
+  "name": "Gunnar",
+  "slug": "gunnar",
+  "card": "personalities/groups/union/gunnar.txt",
+  "first": 1,
+  "faction": "none"
+ },
+ {
+  "name": "Private Aho",
+  "slug": "private-aho",
+  "card": "personalities/groups/army/private-aho.txt",
+  "first": 6,
+  "faction": "army"
+ },
+ {
+  "name": "Corporal Niemi",
+  "slug": "corporal-niemi",
+  "card": "personalities/groups/army/corporal-niemi.txt",
+  "first": 6,
+  "faction": "army"
+ },
+ {
+  "name": "Private Koski",
+  "slug": "private-koski",
+  "card": "personalities/groups/army/private-koski.txt",
+  "first": 6,
+  "faction": "army"
+ },
+ {
+  "name": "Sergeant Rask",
+  "slug": "sergeant-rask",
+  "card": "personalities/groups/army/sergeant-rask.txt",
+  "first": 6,
+  "faction": "army"
+ },
+ {
+  "name": "Colonel Halvorsen",
+  "slug": "colonel-halvorsen",
+  "card": "personalities/groups/army/colonel-halvorsen.txt",
+  "first": 6,
+  "faction": "army"
+ },
+ {
+  "name": "Sven",
+  "slug": "sven",
+  "card": "personalities/factions/diversified-petroleum/sven.txt",
+  "first": 7,
+  "faction": "oil"
+ },
+ {
+  "name": "Ole",
+  "slug": "ole",
+  "card": "personalities/groups/administrators/ole.txt",
+  "first": 7,
+  "faction": "admin"
+ },
+ {
+  "name": "Signe",
+  "slug": "signe",
+  "card": "personalities/groups/administrators/signe.txt",
+  "first": 4,
+  "faction": "admin"
+ },
+ {
+  "name": "Rosaria",
+  "slug": "rosaria",
+  "card": "personalities/factions/crime-syndicate/rosaria.txt",
+  "first": 2,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Liv",
+  "slug": "liv",
+  "card": "personalities/factions/communist-party/liv.txt",
+  "first": 4,
+  "faction": "communist"
+ },
+ {
+  "name": "Tor",
+  "slug": "tor",
+  "card": "personalities/factions/communist-party/tor.txt",
+  "first": 4,
+  "faction": "communist"
+ },
+ {
+  "name": "Bruno",
+  "slug": "bruno",
+  "card": "personalities/groups/circus/bruno.txt",
+  "first": 7,
+  "faction": "circus"
+ },
+ {
+  "name": "Buttons",
+  "slug": "buttons",
+  "card": "personalities/groups/circus/buttons.txt",
+  "first": 7,
+  "faction": "circus"
+ },
+ {
+  "name": "Meg",
+  "slug": "meg",
+  "card": "personalities/groups/circus/meg.txt",
+  "first": 7,
+  "faction": "circus"
+ },
+ {
+  "name": "Igor",
+  "slug": "igor",
+  "card": "personalities/groups/circus/igor.txt",
+  "first": 7,
+  "faction": "circus"
+ },
+ {
+  "name": "Madame Zora",
+  "slug": "madame-zora",
+  "card": "personalities/groups/circus/madame-zora.txt",
+  "first": 7,
+  "faction": "circus"
+ },
+ {
+  "name": "Jaana",
+  "slug": "jaana",
+  "card": "personalities/factions/kelp-cola/jaana.txt",
+  "first": 4,
+  "faction": "cola"
+ },
+ {
+  "name": "Hannu",
+  "slug": "hannu",
+  "card": "personalities/groups/shopkeepers/hannu.txt",
+  "first": 1,
+  "faction": "shops"
+ },
+ {
+  "name": "Sid",
+  "slug": "sid",
+  "card": "personalities/groups/proprietors/sid.txt",
+  "first": 7,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Leo",
+  "slug": "leo",
+  "card": "personalities/groups/entertainers/leo.txt",
+  "first": 7,
+  "faction": "entertainers"
+ },
+ {
+  "name": "Rita",
+  "slug": "rita",
+  "card": "personalities/groups/entertainers/rita.txt",
+  "first": 7,
+  "faction": "entertainers"
+ },
+ {
+  "name": "Saga",
+  "slug": "saga",
+  "card": "personalities/groups/proprietors/saga.txt",
+  "first": 2,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Elsa",
+  "slug": "elsa",
+  "card": "personalities/groups/palace-workers/elsa.txt",
+  "first": 2,
+  "faction": "palace"
+ },
+ {
+  "name": "Dex",
+  "slug": "dex",
+  "card": "personalities/factions/democratic-party/dex.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Wilma",
+  "slug": "wilma",
+  "card": "personalities/factions/kelp-cola/wilma.txt",
+  "first": 4,
+  "faction": "cola"
+ },
+ {
+  "name": "Juniper",
+  "slug": "juniper",
+  "card": "personalities/factions/orthodox-church/juniper.txt",
+  "first": 4,
+  "faction": "church"
+ },
+ {
+  "name": "Ruby",
+  "slug": "ruby",
+  "card": "personalities/factions/democratic-party/ruby.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Bjarne",
+  "slug": "bjarne",
+  "card": "personalities/factions/democratic-party/bjarne.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Knut",
+  "slug": "knut",
+  "card": "personalities/factions/democratic-party/knut.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Ilse",
+  "slug": "ilse",
+  "card": "personalities/factions/democratic-party/ilse.txt",
+  "first": 4,
+  "faction": "democrat"
+ },
+ {
+  "name": "Dagny",
+  "slug": "dagny",
+  "card": "personalities/groups/proprietors/dagny.txt",
+  "first": 4,
+  "faction": "proprietors"
+ },
+ {
+  "name": "Nico",
+  "slug": "nico",
+  "card": "personalities/factions/crime-syndicate/nico.txt",
+  "first": 7,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Paolo",
+  "slug": "paolo",
+  "card": "personalities/factions/crime-syndicate/paolo.txt",
+  "first": 4,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Mario",
+  "slug": "mario",
+  "card": "personalities/factions/crime-syndicate/mario.txt",
+  "first": 2,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Lucia",
+  "slug": "lucia",
+  "card": "personalities/factions/crime-syndicate/lucia.txt",
+  "first": 1,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Sirpa",
+  "slug": "sirpa",
+  "card": "personalities/groups/unemployed/sirpa.txt",
+  "first": 1,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Tiina",
+  "slug": "tiina",
+  "card": "personalities/groups/unemployed/tiina.txt",
+  "first": 1,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Eila",
+  "slug": "eila",
+  "card": "personalities/groups/unemployed/eila.txt",
+  "first": 2,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Marjut",
+  "slug": "marjut",
+  "card": "personalities/groups/unemployed/marjut.txt",
+  "first": 2,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Veikko",
+  "slug": "veikko",
+  "card": "personalities/groups/unemployed/veikko.txt",
+  "first": 4,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Hely",
+  "slug": "hely",
+  "card": "personalities/groups/unemployed/hely.txt",
+  "first": 4,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Arto",
+  "slug": "arto",
+  "card": "personalities/groups/unemployed/arto.txt",
+  "first": 7,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Raili",
+  "slug": "raili",
+  "card": "personalities/groups/unemployed/raili.txt",
+  "first": 7,
+  "faction": "unemployed"
+ },
+ {
+  "name": "Paola",
+  "slug": "paola",
+  "card": "personalities/factions/crime-syndicate/paola.txt",
+  "first": 6,
+  "faction": "syndicate"
+ },
+ {
+  "name": "Margit",
+  "slug": "margit",
+  "card": "personalities/groups/republican-party/margit.txt",
+  "first": 7,
+  "faction": "republican"
+ },
+ {
+  "name": "Harald",
+  "slug": "harald",
+  "card": "personalities/factions/kelp-cola/harald.txt",
+  "first": 3,
+  "faction": "cola"
+ },
+ {
+  "name": "Magnus",
+  "slug": "magnus",
+  "card": "personalities/factions/diversified-petroleum/magnus.txt",
+  "first": 7,
+  "faction": "oil"
+ },
+ {
+  "name": "Carlo",
+  "slug": "carlo",
+  "card": "personalities/factions/crime-syndicate/carlo.txt",
+  "first": 6,
+  "faction": "syndicate"
+ }
+]
