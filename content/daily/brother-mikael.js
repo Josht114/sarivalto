@@ -52,7 +52,7 @@ DAILY['Brother Mikael']={
   ["What are you expecting down there?","Speeches, cold feet, and Teodor feeding the entire crowd out of one basket. Like the loaves and fishes, only with herring."],
   ["You don't have to go.","No. But the Abbot asked, and he didn't ask a single question when I came. I'll go wherever he asks."]],
  "If you see a monk in a hood next to a hamper, wave. Gently."],
-15:["(Brother Mikael is sweeping the cloister.) Prince Augustus is with the Abbot today. They're trying to decide what he should be. I hope they let him decide. Nobody let me decide anything until I walked out of town."],
+15:["(Brother Mikael is sweeping the cloister.) Prince Augustus is with the Abbot today. They're trying to decide what he should be. I hope they let him decide. Nobody let me decide anything until I walked out of town.",
  [["Do you know the royal family?","I know who the princes drink with, and who they owe, and who's trying to get to them. Or I did. It's not a list I'd want to be on, on either side."],
   ["Should Augustus be king?","He's a kind man in a city full of people who'll use kindness. If he goes down there, he'll need friends who aren't friends of anyone else. That's a short list."],
   ["Would you have liked to be a prince?","(He laughs.) I'd have lost the palace at cards by the second week. No. I'm made for a cloister. It just took me a while to find out."]],
