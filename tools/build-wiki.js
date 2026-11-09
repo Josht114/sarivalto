@@ -88,6 +88,29 @@ turns the music and place sounds off and on, and the volume is set on the Option
 <h2>Every location</h2><p><small>${n} of ${all.length} locations have background audio.</small></p>`+filter+
     Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(p=>`<section class="grp"><h3>${locA(c,p)}</h3><div class="wide"><table class="grid sortable">${head}<tbody>${
       g[p].sort((a,b)=>(a==p?-1:b==p?1:L[a][0].localeCompare(L[b][0]))).map(id=>`<tr data-s="${esc((L[id][0]+' '+L[p][0]+' '+(here(id)||'none')).toLowerCase())}"><td>${A(c,'locations',id,L[id][0])}</td><td data-v="${esc(here(id)||'~')}">${here(id)?esc(here(id)):'<small>None</small>'}</td></tr>`).join('')}</tbody></table></div></section>`).join('')}
+// ---- Dialogue: who wrote each person's daily conversations (content/daily/authors.json: 'opus', 'sonnet', or {model: [first day,
+// last day]} for someone written by both), with how many conversations each model wrote, from js/daily.js
+const DAILY=(()=>{const b={};vm.createContext(b);try{vm.runInContext(fs.readFileSync(path.join(root,'js/daily.js'),'utf8')+';this.D=DAILY',b);return b.D}catch(e){return{}}})();
+const AUTHORS=(()=>{try{return JSON.parse(fs.readFileSync(path.join(root,'content/daily/authors.json'),'utf8'))}catch(e){return{}}})();
+const MODEL={opus:['Opus','#7d3c98'],sonnet:['Sonnet','#2e86c1']};
+function dialogueBody(c){const days=n=>Object.keys(DAILY[n]||{}).map(Number),byDay=(n,d)=>{const a=AUTHORS[n];if(!a)return null;if(typeof a=='string')return a;return Object.keys(a).find(m=>d>=a[m][0]&&d<=a[m][1])||null};
+  const tot={opus:0,sonnet:0,unknown:0};const ppl={opus:0,sonnet:0,mixed:0};
+  const rows=NPCS.filter(n=>DAILY[n.name]).map(n=>{const ds=days(n.name),cnt={};ds.forEach(d=>{const m=byDay(n.name,d)||'unknown';cnt[m]=(cnt[m]||0)+1;tot[m]++});
+    const a=AUTHORS[n.name],kind=typeof a=='string'?a:a?'mixed':'unknown';ppl[kind]=(ppl[kind]||0)+1;
+    const badge=m=>`<span class="sw" style="background:${MODEL[m][1]}"></span>${MODEL[m][0]}`;
+    const who=typeof a=='string'?badge(a):a?Object.keys(a).map(m=>badge(m)+` <small>(${a[m][0]}-${a[m][1]} Sep)</small>`).join('<br>'):'<small>Unknown</small>';
+    const fac=n.faction=='none'?'Unaligned':FACTIONS[n.faction][0];
+    return`<tr data-s="${esc((n.name+' '+fac+' '+kind).toLowerCase())}"><td data-v="${esc(n.name)}">${npcA(c,n)}</td><td>${esc(fac)}</td><td data-v="${String(ds[0]).padStart(2,'0')}">${ds[0]}-${ds[ds.length-1]} Sep</td><td data-v="${String(ds.length).padStart(3,'0')}">${ds.length}</td><td data-v="${kind}">${who}</td></tr>`}).join('');
+  const all=tot.opus+tot.sonnet+tot.unknown,pc=x=>all?Math.round(x/all*100):0;
+  return `<h1>Dialogue</h1><p>Everyone on the island has their own conversation for each day of September they can be reached (content/daily/, bundled into js/daily.js).
+They were written by two Claude models: the first round by Claude Opus, and the rest, after the first round was cut short, by Claude Sonnet, which costs less but writes plainer
+conversations, with fewer branches. The Sonnet days are the ones to polish first.</p>
+<div class="qtable"><table class="sched sum"><thead><tr><th>Written by</th><th>People</th><th>Conversations</th><th>Share</th></tr></thead><tbody>
+<tr><td><span class="sw" style="background:${MODEL.opus[1]}"></span>Opus</td><td>${ppl.opus}</td><td>${tot.opus}</td><td>${pc(tot.opus)}%</td></tr>
+<tr><td><span class="sw" style="background:${MODEL.sonnet[1]}"></span>Sonnet</td><td>${ppl.sonnet}</td><td>${tot.sonnet}</td><td>${pc(tot.sonnet)}%</td></tr>
+<tr><td>Both (by day)</td><td>${ppl.mixed}</td><td>-</td><td>-</td></tr>
+<tr><td><b>All</b></td><td><b>${ppl.opus+ppl.sonnet+ppl.mixed}</b></td><td><b>${all}</b></td><td></td></tr></tbody></table></div>
+<h2>Everyone</h2>`+filter+`<div class="wide"><table class="grid sortable"><thead><tr><th data-col="0" class="asc">Person</th><th data-col="1">Faction</th><th data-col="2">Days</th><th data-col="3">Conversations</th><th data-col="4">Written by</th></tr></thead><tbody>${rows}</tbody></table></div>`}
 function accessBody(c){const place=id=>A(c,'locations',id,L[id][0]),list=a=>a.length?a.join(', '):'–';
   const rows=OPEN_DAYS.map(d=>{const opens=Object.keys(POS).filter(id=>openDay(id)==d),dists=[...new Set(opens.map(id=>DISTRICT_OF[id]))],whole=k=>Object.keys(POS).filter(i=>DISTRICT_OF[i]==k).every(i=>openDay(i)==d);
     return`<tr><th>${d} September</th><td>${dists.length?dists.map(k=>`<span class="sw" style="background:${DISTRICTS[k][1]}"></span>${esc(DISTRICTS[k][0])}${whole(k)?'':' <small>(part)</small>'}`).join(', '):'–'}</td><td>${list(opens.map(place))}</td><td>${Object.keys(POS).filter(id=>isOpenOn(id,d)).length} of ${Object.keys(POS).length}</td>`+
@@ -371,12 +394,13 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
 pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
 pages.push({k:'access',id:'access',title:'Access',body:accessBody,file:'access/index.html',pre:'../'});
 pages.push({k:'audio',id:'audio',title:'Audio',body:audioBody,file:'audio/index.html',pre:'../'});
+pages.push({k:'dialogue',id:'dialogue',title:'Dialogue',body:dialogueBody,file:'dialogue/index.html',pre:'../'});
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
 Object.keys(FACTIONS).forEach(i=>pages.push({id:'factions-'+i,title:FACTIONS[i][0],body:c=>facBody(c,i),file:'factions/'+i+'.html',pre:'../'}));

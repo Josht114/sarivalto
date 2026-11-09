@@ -10,3 +10,17 @@ Kelp Cola is launching a giveaway, and
 every islander should get a free bottle.
 Hand out samples across the island, and
 keep a crate from walking off.
+
+
+you can give out a sample to one member of each
+faction. 
+if you say positive thing to most of them kelp Cola gets +1
+if you say bad things about most of them
+kelp cola gets -1
+
+make the dialogue tricky so you don't know exactly what the person
+wants tp hear
+
+
+you can throw them in the ocean or keep them for -2 
+but 

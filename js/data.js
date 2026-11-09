@@ -648,6 +648,7 @@ souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola masc
 bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
 record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at']},
 rarerecord:{name:'Rare record',desc:"Midnight at the Aurora, the Arvo Lind Quartet, live at the Hotel Aurora in 1959: one of two hundred ever pressed, in a stiff card mailer from Ruby's shop marked FRAGILE.",actions:['Look at']},
+samplecrate:{name:'Crate of Kelp Cola samples',desc:"A wooden crate of green bottles packed in straw, stencilled FREE SAMPLE: NOT FOR RESALE. Phil wants one handed to someone from each of the island's seven camps.",actions:['Look at','Tip into the sea']},
 newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
 pizza:{name:'Slice of pizza',desc:'A hot slice of pizza, cheese and pepperoni, from the pizzeria in Kingsgrad.',actions:['Eat']},
 wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
@@ -956,6 +957,66 @@ const RR_RUBY={start:'a',nodes:{
     ["I'm sorry, Ruby. It got lost.",'l',()=>{qFlag('ruby','kept');questChoice('ruby','lost')},()=>has('rarerecord')],
     ["Show me your stock",null,()=>{const n=NPCS.find(n=>n.name=='Ruby');if(n&&n.m==n.loc)openShop(n)}]]},
   l:{say:"Lost. (Ruby looks at you for a long moment.) Two hundred copies in the whole world, and you lost one. I'll have to give the money back, and the party could have used it. (She turns the music up again, and doesn't look at you.) (Democratic Party: -1 point. The record is still in your bag.)"}}};
+// Free Samples! (Kelp Cola, 13 September): Phil gives you a crate of seven bottles, one for someone from each of seven factions.
+// Anyone in the faction will do. Each of them asks something awkward, and only one answer goes down well: which one depends on what
+// their faction cares about, and the obvious answer is often wrong. Win most of them over (4 of 7): Kelp Cola +1. Put most of them
+// off: Kelp Cola -1. Or tip the crate into the sea, or keep the bottles and tell Phil they've all gone: Kelp Cola -2 either way.
+// (Each line has @ for the person's name; [reply, 1 if it goes down well, their answer].)
+const SAMPLE_FACS=['communist','royal','oil','church','syndicate','democrat','republican'];
+const SAMPLE_ASK={
+  communist:["(@ looks at the crate, and then at you.) Free? Nothing a company hands out is free, comrade journalist. Who's paying for it?",[
+    ["Phil, out of the company's profits.",0,"Profits wrung out of the bottling line. So the workers pay for it twice. (The bottle goes into a pocket, unopened.)"],
+    ["The workers made it. It's theirs as much as anyone's.",1,"(A slow nod.) Now that's a way to drink it. (The cap comes off with a hiss.) To the bottling line, then."],
+    ["Nobody. It's free. Isn't that the dream?",0,"Don't make fun of the dream with sugar water. (The bottle is taken, without a word of thanks.)"]]],
+  royal:["(@ looks at the green bottle as if it might be catching.) Kelp Cola. Is it served at the palace?",[
+    ["Fit for a king, they say.",0,"The king was buried three days ago. (A long, cold look.) Perhaps choose your slogans with a little more care."],
+    ["Not yet. It's the people's drink.",0,"The people's drink. That's what the Reds call their beer. (The bottle is set down at arm's length.)"],
+    ["It's older than most things on this island. A bit like the crown.",1,"(A thin smile.) Old, and still here. Yes, there's something to be said for that. (The bottle is tucked carefully away.)"]]],
+  oil:["(@ turns the bottle round to read the label.) A present from the competition. What does Phil want?",[
+    ["Your custom, the same as you'd want his.",1,"(A short laugh.) An honest salesman. I didn't know Kelp Cola made them. All right: I'll call it market research. (The cap comes off.)"],
+    ["Nothing. It's goodwill.",0,"Nobody on this island gives anything away for goodwill. Now I'm worried. (The bottle goes into a drawer, unopened.)"],
+    ["Just taste it. It beats anything your lot make.",0,"We make oil, journalist. You'd need it to get that crate across the island. (The bottle is put down, unopened.)"]]],
+  church:["(@ makes the sign of the cross over the crate, out of habit.) We're keeping a fast this week. Is there sugar in it?",[
+    ["A little. Everything in moderation.",1,"An honest answer. We don't hear many. (The bottle is set aside.) It can wait for the feast day, and it'll taste better for the waiting."],
+    ["None at all. It's mostly seaweed.",0,"I can smell the sugar from here. (A sad look.) It's a poor sort of gift that comes with a lie."],
+    ["Plenty. It's sinfully good.",0,"Then it can wait in the cellar with the other temptations. (The bottle is taken, with a sigh.)"]]],
+  syndicate:["(@ watches your hands as you open the crate, not the bottles.) Who else gets one of these?",[
+    ["Everyone. It's for the whole island.",0,"Everyone. (The bottle is weighed in one hand.) A thing everyone gets is worth nothing. Remember that, journalist."],
+    ["You're the first on my list.",1,"First. (A slow smile.) Good. People should remember who comes first. Tell Phil I said thank you."],
+    ["Only the people who matter.",0,"And who decides who matters? Phil? (The look goes cold.) That isn't a cola man's decision to make."]]],
+  democrat:["(@ holds a bottle up to the light.) Free cola, with the island's future up for grabs. Does everyone get one, or only the people who'll vote the right way?",[
+    ["Phil hopes it'll win a few hearts before the fourteenth.",0,"Buying hearts with fizzy pop. I'll be writing to the Gazette about that. (The bottle is kept, as evidence.)"],
+    ["Whoever's nearest the crate.",0,"First come, first served. That's how it always works for people like Phil, isn't it? (The bottle is put down with a click.)"],
+    ["Everyone, whoever they vote for. One each.",1,"One each, whoever you vote for. (A grin.) Now that I can drink to. (The cap comes off.)"]]],
+  republican:["(@ squints at the crate.) Is this Harald's doing? Is he trying to buy the party leadership one bottle at a time?",[
+    ["Harald? He'd never stoop so low.",0,"Spoken like someone on his payroll. (The bottle is taken without a word of thanks.)"],
+    ["It's business, not politics.",0,"Everything on this island is politics this month. Don't take me for a fool. (The bottle goes, unopened, into a coat pocket.)"],
+    ["Yes. Is it working?",1,"(A bark of laughter.) Better than his speeches. (The cap comes off.) Tell him he can have my vote if the next crate comes colder."]]]};
+// the factions that have had their bottle (flags g_<faction> if it went down well, b_<faction> if it didn't)
+const sampleGiven=q=>SAMPLE_FACS.filter(f=>q?.flags?.['g_'+f]||q?.flags?.['b_'+f]);
+// giving a faction its bottle; the last one settles how the giveaway went
+function sampleGive(f,good){const q=qOf('samples');if(!q)return;(q.flags??={})[(good?'g_':'b_')+f]=true;
+  if(sampleGiven(q).length<SAMPLE_FACS.length)return;take('samplecrate');
+  questChoice('samples',SAMPLE_FACS.filter(f=>q.flags['g_'+f]).length*2>SAMPLE_FACS.length?'well':'badly')}
+// tipping the crate into the sea (the crate's own action, facing the sea): that's the end of it
+function sampleDump(){const q=qOf('samples');if(!q||q.done)return;take('samplecrate');(q.flags??={}).dumped=true;questChoice('samples','dump');
+  meet(q,0,true);meet(q,QUESTS.samples.done.findIndex(c=>c.if=='dump'))}
+// someone from a faction still waiting for its bottle: their question, or put the crate down and talk as usual
+function sampleChat(name){if(name=='Phil')return SF_PHIL;const n=NPCS.find(n=>n.name==name);if(!n||!SAMPLE_ASK[n.faction])return;
+  const[say,opts]=SAMPLE_ASK[n.faction],nm=s=>s.replace(/@/g,name);
+  return{start:'a',nodes:{
+    a:{say:nm(say),opts:[...opts.map(([t,g],i)=>[t,'r'+i,()=>sampleGive(n.faction,!!g)]),
+      ['(Keep the crate shut, and just talk)',null,()=>{const c=dailyConvo(n)||CONVOS[n.name];if(c)setTimeout(()=>converse(n,c),0)}]]},
+    ...Object.fromEntries(opts.map(([,,r],i)=>['r'+i,{say:nm(r)}]))}}}
+const SF_PHIL={start:'a',nodes:{
+  a:{say:"How's the giveaway? A green bottle for every camp on the island: the Reds, the royals, the oil men, the Church, Gustavo's people, the Democrats and the Republicans. Nobody can say Kelp Cola picks sides.",opts:[
+    ["Still going.",null],
+    ["Who's hardest to please?",'h'],
+    ["They've all gone. Every last bottle.",'k',()=>{take('samplecrate');const c=has('cola');if(c)c.n+=7;else ME.items.push({id:'cola',n:7});qFlag('samples','kept');questChoice('samples','keep')},()=>has('samplecrate')]]},
+  h:{say:"All of them. Everyone on this island has an opinion, and it's never the one you'd expect. Don't tell people what you think they want to hear: work out what they care about. (Phil goes back to his figures.)"},
+  k:{say:"All of them? Already? (Phil beams, and picks up the telephone to tell the Gazette.) By the end of the day, people are ringing Kelp Cola HQ to ask where their free bottle is. (Kelp Cola: -2 points. The seven bottles are in your bag.)"}}};
+const SF_WELL={start:'a',nodes:{a:{say:"(Phil waves a sheaf of telephone messages.) People ringing up to ask where they can buy it! Reds, royals, even a monk. Seven bottles, and the whole island's talking about Kelp Cola. You've a gift, journalist. (Kelp Cola: +1 point.)"}}};
+const SF_BADLY={start:'a',nodes:{a:{say:"(Phil has the Gazette open on his desk.) 'FREE COLA LEAVES A BAD TASTE.' Half the island got a bottle and a lecture to go with it, apparently. What did you SAY to them? (Kelp Cola: -1 point.)"}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1321,6 +1382,24 @@ ruby:{title:'A Record for Ruby',giver:'Ruby',main:true,day:12,seq:true,gift:'rar
     {if:'sell',talk:'Dario',ok:q=>q.choice=='sell',points:{oil:1,democrat:-1},chat:RR_DARIO,what:'Sell the record to Dario, in his office at Diversified Petroleum HQ'},
     {if:'lost',talk:'Ruby',ok:q=>q.choice=='lost',points:{democrat:-1},chat:RR_RUBY,what:'Tell Ruby the record got lost'}],
   thanks:"Ruby's record has found a home, one way or another."},
+// Free Samples! (Kelp Cola, 13 September): hand out Phil's crate of free bottles, one to someone from each of seven factions, and
+// win them over (see SAMPLE_ASK). Most won over: Kelp Cola +1; most put off: -1; the crate in the sea, or kept: -2.
+samples:{title:'Free Samples!',giver:'Phil',main:true,day:13,seq:true,gift:'samplecrate',choices:{well:'win most of them over',badly:'put most of them off',dump:'tip the crate into the sea',keep:'keep the bottles, and tell Phil they have all gone'},
+  text:"Kelp Cola is giving the island a free taste. Phil has given you a crate of seven bottles: hand one to someone from each of seven factions (the Communist Party, the Royal Family, Diversified Petroleum, the Orthodox Church, the Crime Syndicate, the Democrats and the Republicans) and win them over. Each of them wants to hear something different.",
+  offer:"Journalist! Just the person. (Phil pats a wooden crate of green bottles on his desk.) Kelp Cola is giving the island a free taste. Seven bottles, one for somebody in each of the island's camps: the Reds, the royals, the oil men, the Church, Gustavo's lot, the Democrats and the Republicans. Nobody can say we pick sides. You talk to everyone. Will you hand them out?",
+  accept:"Splendid. One bottle each, and a few kind words with it. Careful what you say, though: people on this island never want to hear what you'd expect.",
+  wait:"How's the giveaway going? One bottle for each camp on the island.",
+  aftermath:[{flag:'dumped',name:'Phil',say:"(Phil is at the window, holding the Gazette.) A crate of our bottles bobbing about in the harbour, and the fishermen pulling them out of their nets. 'KELP COLA: WASTE NOT, WANT NOT?' The crate had my samples in it. Yours, I believe."}],
+  done:[
+    {get talk(){if(typeof ME=='undefined')return['Phil'];const given=sampleGiven(ME.quests.find(q=>q.id=='samples'));
+      return['Phil',...(has('samplecrate')?NPCS.filter(n=>SAMPLE_FACS.includes(n.faction)&&!given.includes(n.faction)).map(n=>n.name):[])]},
+      chats:new Proxy({},{get:(_,name)=>sampleChat(name)}),ok:q=>!!q.choice,
+      what:"Give a free bottle to someone from each of seven factions: the Communists, the royals, the oil company, the Church, the Syndicate, the Democrats and the Republicans (or tip the crate into the sea, or keep it and tell Phil they've all gone)"},
+    {if:'well',talk:'Phil',points:{cola:1},chat:SF_WELL,what:'Tell Phil how the giveaway went, in his office at Kelp Cola HQ'},
+    {if:'badly',talk:'Phil',points:{cola:-1},chat:SF_BADLY,what:'Tell Phil how the giveaway went, in his office at Kelp Cola HQ'},
+    {if:'dump',points:{cola:-2},what:'Tip the crate into the sea'},
+    {if:'keep',talk:'Phil',ok:q=>q.choice=='keep',points:{cola:-2},chat:SF_PHIL,what:"Tell Phil the bottles have all gone, and keep them"}],
+  thanks:"Kelp Cola's free samples are gone, one way or another."},
 // Flat Cola (George, the evening of 11 September): George wants Kelp Cola's bottling line stopped. Pick the lock of the electronics
 // store in Frostholm, shut for the night, steal an industrial capacitor from its shelves, and feed it into the bottling line at the
 // Kelp Cola factory, empty at night (Kelp Cola -1). Then report to George. Kurt, the foreman, has something to say about it from then on.
