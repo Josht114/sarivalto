@@ -82,9 +82,18 @@ function audioBody(c){const trackOf=id=>Object.keys(MUSIC_AT).find(k=>MUSIC_AT[k
   const g={};Object.keys(L).filter(id=>id!='tram').forEach(id=>(g[top(id)]??=[]).push(id));
   const head='<colgroup><col style="width:50%"><col></colgroup><thead><tr><th data-col="0" class="asc">Location</th><th data-col="1">Background audio</th></tr></thead>';
   const all=Object.keys(L).filter(id=>id!='tram'),n=all.filter(trackOf).length;
+  // every piece of audio in the game, with the MP3 file it could be replaced by (the tapes' real recordings show their own file)
+  const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const RADIO_SONGS=(()=>{const m=fs.readFileSync(path.join(root,'js/music.js'),'utf8').match(/const RADIO_SONGS=(\[[\s\S]*?\]\]);/);try{return m?vm.runInNewContext(m[1]):[]}catch(e){return[]}})();
+  const files=[...Object.keys(TRACK_INFO).map(k=>[TRACK_INFO[k][0],'Background',MUSIC_AT[k].length+' place'+(MUSIC_AT[k].length==1?'':'s'),`assets/music/${k}.mp3`,null]),
+    ...RADIO_SONGS.map(([t,b])=>[`${t} (${b})`,'Radio song','Radio Sarivalto',`assets/music/radio/${slug(t)}.mp3`,null]),
+    ...Object.keys(TAPES).flatMap(k=>TAPES[k].songs.map((s,i)=>[s,'Tape',`<i>${esc(TAPES[k].album)}</i>, ${esc(TAPES[k].band)}, song ${i+1}`,TAPES[k].file||`assets/music/tapes/${k.replace('tape_','')}-${i+1}.mp3`,TAPES[k].file]))];
+  const fileList=`<h2>Audio files</h2><p>Every piece of audio in the game, and the MP3 file it could be swapped for. Only the files marked MP3 exist so far; the rest are made in the browser and the file names are suggestions. Kaisa the DJ's voice on the radio is the browser's own speech, not a file.</p><p><small>${files.filter(f=>f[4]).length} of ${files.length} are MP3s.</small></p>
+<div class="wide"><table class="grid sortable"><thead><tr><th data-col="0">Sound</th><th data-col="1" class="asc">Kind</th><th data-col="2">Where</th><th data-col="3">File</th><th data-col="4">Now</th></tr></thead><tbody>${
+    files.map(([s,k,w,f,mp3])=>`<tr><td>${esc(s)}</td><td>${k}</td><td>${w}</td><td><code>${esc(f)}</code></td><td>${mp3?'MP3':'<small>Made in the browser</small>'}</td></tr>`).join('')}</tbody></table></div>`;
   return `<h1>Audio</h1><p>The background sound each place has, made in the browser as you play. Places without any are quiet.
 Radio Sarivalto, when it is switched on (the Radio button, or Listen on a transistor radio), plays instead of all of it, anywhere. A cassette player (from Nils's electronics shop) with one of Ruby's tapes in it plays instead of the radio, while you hold it: ${Object.keys(TAPES).map(k=>`<i>${TAPES[k].album}</i> by ${TAPES[k].band}`).join(', ')}. The Music button
-turns the music and place sounds off and on, and the volume is set on the Options tab of the game's menu.</p><h2>Tracks</h2>${tracks}
+turns the music and place sounds off and on, and the volume is set on the Options tab of the game's menu.</p><h2>Tracks</h2>${tracks}${fileList}
 <h2>Every location</h2><p><small>${n} of ${all.length} locations have background audio.</small></p>`+filter+
     Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(p=>`<section class="grp"><h3>${locA(c,p)}</h3><div class="wide"><table class="grid sortable">${head}<tbody>${
       g[p].sort((a,b)=>(a==p?-1:b==p?1:L[a][0].localeCompare(L[b][0]))).map(id=>`<tr data-s="${esc((L[id][0]+' '+L[p][0]+' '+(here(id)||'none')).toLowerCase())}"><td>${A(c,'locations',id,L[id][0])}</td><td data-v="${esc(here(id)||'~')}">${here(id)?esc(here(id)):'<small>None</small>'}</td></tr>`).join('')}</tbody></table></div></section>`).join('')}

@@ -668,8 +668,11 @@ tape_harbour:{album:'Harbour in the Fog',band:'Lena Lumi',col:'#7ab0d8',style:'b
 tape_saltwick:{album:'Kelp Cola Summer',band:'The Saltwick Sound',col:'#3ac070',style:'surf',blurb:'Twangy guitars and a beat you can dance to. Their one hit was in an advert.',
   songs:['Kelp Cola Summer','Breakers at Saltwick','Fishermen\'s Stomp','Seagull Twist','Pier Party','Sunburn in September']},
 tape_valto:{album:'Pine Forest Road',band:'The Valto River Boys',col:'#d89040',style:'folk',blurb:'Accordion waltzes and dancing tunes, the music of every wedding on the island.',
-  songs:['Pine Forest Road','The Mill Waltz','Dance at the Lumberyard','Eastbrook Polka','Snow on the Valto','The Old King\'s Waltz']}};
-for(const k in TAPES){const T=TAPES[k];ITEMS[k]={name:`Cassette: ${T.album}`,desc:`${T.album}, by ${T.band}, on cassette. ${T.blurb} Side A: ${T.songs.slice(0,3).join(', ')}. Side B: ${T.songs.slice(3).join(', ')}.`,actions:['Play']}}
+  songs:['Pine Forest Road','The Mill Waltz','Dance at the Lumberyard','Eastbrook Polka','Snow on the Valto','The Old King\'s Waltz']},
+// a cassette single with a real recording on it (file): it plays the recording, round and round, instead of making songs
+tape_tanets:{album:'Синтетический танец',band:'fluidplatinum636',col:'#b04aff',style:'synth',file:'assets/music/sinteticheskiy-tanets.mp3',blurb:'A cassette single from across the water, sung in Russian: "Synthetic Dance". Nobody at Ruby\'s knows how it got into the shop.',
+  songs:['Синтетический танец (Synthetic Dance)']}};
+for(const k in TAPES){const T=TAPES[k],h=Math.ceil(T.songs.length/2);ITEMS[k]={name:`Cassette: ${T.album}`,desc:`${T.album}, by ${T.band}, on cassette. ${T.blurb} Side A: ${T.songs.slice(0,h).join(', ')}.${T.songs.length>1?` Side B: ${T.songs.slice(h).join(', ')}.`:''}`,actions:['Play']}}
 // ---- Fish (js/fishing.js): where each bites (the sea, fresh water, or any), how often (w, and at night if it differs), how big the
 // green zone is when you reel it in (smaller is harder, and it fights harder too), and what Olga at the fish shop pays for one.
 // Junk is caught like a fish but nobody buys it. Each is also an item.
@@ -770,7 +773,7 @@ Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
 Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
 Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
 Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2],['drill',2,35]]},
-Ruby:{stock:[['record',12,9],['tape_neon',6,6],['tape_harbour',6,6],['tape_saltwick',6,6],['tape_valto',6,6]]},
+Ruby:{stock:[['record',12,9],['tape_neon',6,6],['tape_harbour',6,6],['tape_saltwick',6,6],['tape_valto',6,6],['tape_tanets',6,6]]},
 Ville:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Hannu:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Pirkko:{stock:[['burger',20,2],['hotdog',20,1],['coffee',30,1],['cola',20,1]]},

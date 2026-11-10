@@ -1,7 +1,9 @@
-// ---- The title screen, shown when the game opens: a pixel-art picture (img/title.png, made with tools/make-title.html) of a dirty-blond man with a moustache
-// in a white suit and sunglasses, with a Kelp Cola, a hot dog and a cigarette, under a neon-pink sky on the island. Continue
+// ---- The title screen, shown when the game opens: a pixel-art picture (img/title.webp): "30 Days in Sarivalto", a dirty-blond man with a moustache
+// in a white suit and sunglasses, with a Kelp Cola and a slice of pizza, in front of a striped sunset, snowy mountains and a neon town. Continue
 // loads your most recent save, New game starts afresh (22 August, at Langley), Load game opens the saves. The game waits behind
 // it (BUSY) until you choose. Skipped when the address asks for a test start (?new, ?day, ?night and the proofs of concept).
+// The older picture, img/title.png (made with tools/make-title.html: a hot dog and a cigarette under a neon-pink sky), is kept to
+// choose between: to use it again, point #titleimg in index.html at it and add image-rendering:pixelated to #titleimg in css/style.css.
 const titleEl=document.getElementById('title');
 let TITLE=false;
 function showTitle(){const hasSave=SAVES.some(i=>readSave(i));titleEl.querySelector('[data-t="cont"]').hidden=!hasSave;TITLE=true;BUSY=true;stack=[];titleEl.hidden=false;

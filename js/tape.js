@@ -28,6 +28,10 @@ function startTape(id){const ac=audio();if(!ac)return null;const T=TAPES[id],S=S
   const bus=ac.createGain();bus.gain.value=1;bus.connect(wow);
   const echo=ac.createDelay(1),fb=ac.createGain(),eg=ac.createGain();echo.delayTime.value=60/((S.bpm[0]+S.bpm[1])/2)*.75;fb.gain.value=.3;eg.gain.value=.5;echo.connect(fb);fb.connect(echo);echo.connect(eg);eg.connect(bus);
   const noise=noiseBuf(ac,2,false),hiss=ac.createBufferSource(),hf=ac.createBiquadFilter(),hg=ac.createGain();hiss.buffer=noise;hiss.loop=true;hf.type='highpass';hf.frequency.value=5000;hg.gain.value=.007;hiss.connect(hf);hf.connect(hg);hg.connect(out);hiss.start();
+  // a tape with a real recording on it (T.file): play that through the same wobble and hiss, round and round
+  if(T.file){const el=new Audio(T.file);el.loop=true;const src=ac.createMediaElementSource(el);src.connect(bus);el.play().catch(()=>{});
+    TAPE_NOW.song=T.songs[0];tapeSay(`<small>&#128252; ${esc(T.band)}, ${esc(T.album)} &middot; Side A</small>&#9834; ${esc(T.songs[0])}`);
+    return{stop(){TAPE_NOW.song=null;tapeSay('');out.gain.setTargetAtTime(0,ac.currentTime,.15);setTimeout(()=>{el.pause();hiss.stop();lfo.stop();src.disconnect();out.disconnect()},1500)}}}
   // ---- the instruments: each plays one note (or hit) at time t
   const env=(g,t,a,att,dec)=>{g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a,t+att);g.gain.exponentialRampToValueAtTime(.0005,t+att+dec)};
   const osc=(type,f,t,len,dest,det=0)=>{const o=ac.createOscillator();o.type=type;o.frequency.value=f;o.detune.value=det;o.connect(dest);o.start(t);o.stop(t+len);return o};
@@ -54,7 +58,7 @@ function startTape(id){const ac=audio();if(!ac)return null;const T=TAPES[id],S=S
       g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a,t+.04);g.gain.setValueAtTime(a,t+len*.85);g.gain.linearRampToValueAtTime(0,t+len);tr.frequency.value=5.5;tg.gain.value=a*.25;tr.connect(tg);tg.connect(g.gain);tr.start(t);tr.stop(t+len+.1);
       f.connect(g);g.connect(bus);for(const d of[-9,9])osc('square',hz(s),t,len+.1,f,d)}};
   // ---- a song: its tempo, key, chords and a tune, all from its own seed
-  let n=ME.tapeN||0,song=null,bar=0,nextT=ac.currentTime+.4,gapTill=0,iv=0,stopped=false;
+  const L=T.songs.length;let n=(ME.tapeN||0)%L,song=null,bar=0,nextT=ac.currentTime+.4,gapTill=0,iv=0,stopped=false;
   const newSong=()=>{const r=rng([...id].reduce((h,c)=>h*31+c.charCodeAt(0)|0,7)+n*101),pick=a=>a[r()*a.length|0];
     const bpm=S.bpm[0]+r()*(S.bpm[1]-S.bpm[0])|0,beat=60/bpm,prog=pick(S.progs),key=pick(S.keys),scale=prog[0][1]=='m'?MIN:MAJ,slots=S.meter*2;
     const per=prog.length,sections=Math.max(4,Math.round(S.secs/(beat*S.meter*per)));
@@ -64,8 +68,8 @@ function startTape(id){const ac=audio();if(!ac)return null;const T=TAPES[id],S=S
     let p=12;const tune=prog.map(([root,q],b)=>{const out=[],on=rh[b%2];for(let i=0;i<slots;i++){if(!on[i])continue;
       if(i%2==0){const tones=[-12,0,12].flatMap(o=>TRI3[q].map(x=>root+x+o)).filter(x=>x>=3&&x<=22);p=tones.reduce((a,x)=>Math.abs(x-p+(r()-.5)*5)<Math.abs(a-p)?x:a,tones[0])}
       else p=inScale(p+(r()<.5?-2:2));p=Math.max(3,Math.min(22,p));let len=1;while(i+len<slots&&!on[i+len])len++;out.push([i,p,len])}return out});
-    return{title:T.songs[n%6],bpm,beat,prog,key,tune,slots,per,sections,bars:per*sections}};
-  const side=()=>n%6<3?'Side A':'Side B';
+    return{title:T.songs[n%L],bpm,beat,prog,key,tune,slots,per,sections,bars:per*sections}};
+  const side=()=>n%L<Math.ceil(L/2)?'Side A':'Side B';
   const caption=()=>{TAPE_NOW.song=song.title;tapeSay(`<small>&#128252; ${esc(T.band)}, ${esc(T.album)} &middot; ${side()}</small>&#9834; ${esc(song.title)}`)};
   // one bar of the song, for each band's sound
   const playBar=t=>{const{beat,prog,key,tune,slots,per}=song,i=bar%per,sec=Math.floor(bar/per),last=bar==song.bars-1,[root,q]=prog[i],R=key+root,ch=TRI3[q].map(x=>R+x),
@@ -89,7 +93,7 @@ function startTape(id){const ac=audio();if(!ac)return null;const T=TAPES[id],S=S
     if(!song){if(now<gapTill)return;song=newSong();ME.tapeN=n;bar=0;nextT=Math.max(nextT,now+.2);caption()}
     while(song&&nextT<now+1.5){playBar(nextT);nextT+=song.beat*S.meter*(bar==song.bars-1?2:1);if(++bar>=song.bars){
       // the end of the song: a little gap of hiss, then the next; at the end of side B the tape turns over
-      gapTill=nextT+1.5;n=(n+1)%6;song=null;setTimeout(()=>{if(!stopped){TAPE_NOW.song=null;if(n==0)tapeSay('<small>&#128252; The tape turns over</small>Back to side A.')}},Math.max(0,(gapTill-1.5-now)*1000))}}};
+      gapTill=nextT+1.5;n=(n+1)%L;song=null;setTimeout(()=>{if(!stopped){TAPE_NOW.song=null;if(n==0)tapeSay('<small>&#128252; The tape turns over</small>Back to side A.')}},Math.max(0,(gapTill-1.5-now)*1000))}}};
   tick();iv=setInterval(tick,200);
   return{stop(){stopped=true;clearInterval(iv);TAPE_NOW.song=null;tapeSay('');out.gain.setTargetAtTime(0,ac.currentTime,.15);setTimeout(()=>{hiss.stop();lfo.stop();out.disconnect()},1500)}}}
 for(const k in TAPES)TRACKS['tape:'+k]=()=>startTape(k);
@@ -102,7 +106,7 @@ function tapePlay(){if(!tapeIn())return"There's no tape in it. Ruby's record sho
   if(ME.equipped!='walkman')return'Equip the cassette player first, then press Play.';ME.tapeOn=true;MU.want=undefined;
   return`You put on the headphones and press Play. ${tapeName(ME.tape)}: "${TAPES[ME.tape].songs[ME.tapeN||0]}".`}
 function tapeStop(){ME.tapeOn=false;return'Click. You press Stop.'}
-function tapeNext(){if(!tapeIn())return"There's no tape in it.";ME.tapeN=((ME.tapeN||0)+1)%6;MU.want=undefined;
+function tapeNext(){if(!tapeIn())return"There's no tape in it.";const L=TAPES[ME.tape].songs.length;if(L<2)return`There's only one song on ${tapeName(ME.tape)}.`;ME.tapeN=((ME.tapeN||0)+1)%L;MU.want=undefined;
   return`You fast-forward to the next song: "${TAPES[ME.tape].songs[ME.tapeN]}".`}
 function tapeChange(){const all=tapeOwned();if(!all.length)return"You haven't got any tapes. Ruby's record shop sells them.";
   if(all.length==1&&ME.tape==all[0])return"It's the only tape you have.";ME.tape=all[(all.indexOf(ME.tape)+1)%all.length];ME.tapeN=0;MU.want=undefined;

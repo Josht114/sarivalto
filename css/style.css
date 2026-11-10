@@ -64,7 +64,7 @@ select hr{border:0;border-top:1px solid #000}
 /* the Save tab's import button: a label styled as a button around a hidden file input */
 #start .filebtn{display:inline-block;padding:3px 10px;border:1px solid #9fe870;border-radius:4px;cursor:pointer;color:#9fe870}#start .filebtn:hover,#start .filebtn:focus-within{background:#9fe870;color:#000}
 /* the title screen: the picture over the whole stage, the menu at the bottom right */
-#title{position:absolute;inset:0;z-index:20;line-height:1.3}#title[hidden]{display:none}#title #titleimg{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+#title{position:absolute;inset:0;z-index:20;line-height:1.3}#title[hidden]{display:none}#title #titleimg{position:absolute;inset:0;width:100%;height:100%}
 #title .tmenu{position:absolute;right:3%;bottom:3%;display:flex;flex-direction:row;gap:6px}
 #title .tmenu button{font:bold 13px ui-monospace,Consolas,monospace;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-radius:0;border:2px solid #ff4fc0;box-shadow:3px 3px 0 #4a0a6a;background:#1a0628;color:#5ff0ff;cursor:pointer;text-align:left}
 #title .tmenu button:hover,#title .tmenu button:focus{background:#ff4fc0;color:#1a0628;outline:none}#title .tmenu button:focus::before{content:'\25B6  '}
