@@ -11,7 +11,7 @@ function showTitle(){const hasSave=SAVES.some(i=>readSave(i));titleEl.querySelec
 function hideTitle(){TITLE=false;BUSY=false;titleEl.hidden=true}
 titleEl.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const k=b.dataset.t;hideTitle();
   if(k=='cont'){const i=SAVES.filter(i=>readSave(i)).sort((a,b)=>readSave(b).at-readSave(a).at)[0];if(i!=null)loadGame(i)}
-  if(k=='new')say(DAY<1?'22 August. CIA Headquarters, Langley, Virginia.':'A new game begins.',5000);
+  if(k=='new'){if(DAY<1&&typeof playIntro=='function')playIntro();else say(DAY<1?'22 August. CIA Headquarters, Langley, Virginia.':'A new game begins.',5000)}
   if(k=='load')openStart('save')});
 // on the title screen, the arrows (or WASD) choose, and E, Space or Enter picks (F still goes full screen)
 addEventListener('keydown',e=>{if(!TITLE)return;const k=e.key.length==1?e.key.toLowerCase():e.key,bs=[...titleEl.querySelectorAll('button:not([hidden])')],i=bs.indexOf(document.activeElement);

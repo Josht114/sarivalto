@@ -1,0 +1,17 @@
+Name: Joan
+Gender: Female
+Faction: None
+Group: CIA
+Partner: None
+Job: CIA secretary, at the front desk (at
+Langley)
+Home: No fixed home
+
+Bio:
+The secretary at the front desk in the
+lobby at Langley, with half-moon glasses
+and a telephone under her chin.
+She has watched every officer the Agency
+sends abroad walk in through its doors,
+and remembers all of their faces, though
+never the names they leave with.

@@ -641,7 +641,7 @@ function draw(t){
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
   if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
   const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
-  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-12,'center','h');
+  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-(OBJ_ON?21:12),'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
 // On opening the game, carry on from the most recent save (if there is one). Starting with ?new in the address starts a new game
@@ -692,7 +692,15 @@ ROUTINE=planRoutine();applyRoutine();setTimeout(()=>{const t=morningCalls();if(t
 store.init().then(()=>{const go=()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search))showTitle()};
   if(document.readyState=='complete')go();else addEventListener('load',go)});
 // what you're holding, in the top right of the screen: redrawn only when it changes
+// ---- The current objective, along the bottom of the game screen: the next step of your main quest (or, with none, of your most
+// recent side quest); with no quest under way, a nudge towards the day's main quest, if there is one. Hidden while you're talking,
+// in the menu or in a minigame, and before the game starts.
+const objEl=document.getElementById('objective'),stageEl=document.getElementById('stage');let objWas,OBJ_ON=false;
+function objectiveText(){if(CONVO||START||BUSY||RIDE||(typeof TITLE!='undefined'&&TITLE))return'';
+  const cs=openConds().sort(([a],[b])=>(QUESTS[b.id].main?1:0)-(QUESTS[a.id].main?1:0)||(b.took??0)-(a.took??0));if(cs.length)return cs[0][2].what;
+  return mainDue()=='offer'?"Today's main quest is waiting: look for someone with a gold star (the map, in the menu, shows where).":''}
+function showObjective(){const t=objectiveText();if(t===objWas)return;objWas=t;OBJ_ON=!!t;objEl.hidden=!t;stageEl.classList.toggle('hasobj',OBJ_ON);if(t)objEl.innerHTML='<b>Objective</b>'+esc(t)}
 const hudEq=document.getElementById('hudeq');let hudWas;
 function showHeld(){const id=ME.equipped&&has(ME.equipped)?ME.equipped:null,extra=id=='cigarettes'?` <small>${ME.cigsLeft} left in the pack</small>`:id=='walkman'&&typeof TAPE_NOW!='undefined'&&TAPE_NOW.song&&tapePlaying()?` <small>&#9834; ${esc(TAPE_NOW.song)}</small>`:'',key=id+extra;if(key===hudWas)return;hudWas=key;hudEq.hidden=!id;
   if(id)hudEq.innerHTML=`<img src="${itemIcon(id)}" alt=""><span><small>${id=='cigarettes'?'Smoking':'Equipped'}</small>${esc(ITEMS[id].name)}${extra}</span>`}
-let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;showHeld();if(typeof showNeeds=='function')showNeeds();requestAnimationFrame(loop)})(0);
+let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;showHeld();showObjective();if(typeof showNeeds=='function')showNeeds();requestAnimationFrame(loop)})(0);

@@ -438,6 +438,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'dphq_office',x:10,y:5,dir:0,name:'Dario',home:'villa_dario',loc:'dphq_office',job:'CEO of Diversified Petroleum',faction:'oil',gender:'male',body:'#37474f',hair:'#2a1a12'},
 {m:'clubroom',x:15,y:3,dir:0,name:'Gustavo',home:'villa_gustavo',loc:'clubroom',job:'Don',faction:'syndicate',gender:'male',body:'#1a1a22',hair:'#222222'},
 {m:'langley_cover',x:6,y:5,dir:0,name:'Doris',home:'none',loc:'langley_cover',job:'CIA cover story officer (at Langley)',faction:'cia',gender:'female',body:'#5a4a6a',hair:'#b5b5b5'},
+// Joan: the secretary at the front desk in the lobby at Langley, who meets you on your first morning back
+{m:'langley',x:17,y:7,dir:0,name:'Joan',home:'none',loc:'langley',job:'CIA secretary, at the front desk (at Langley)',faction:'cia',gender:'female',body:'#3a5a8a',hair:'#8a4a2a'},
 // Peggy: the CIA's pilot, waiting by the seaplane on the airstrip to fly you out to the island
 {m:'langley_out',x:16,y:11,dir:3,name:'Peggy',home:'none',loc:'langley_out',job:'CIA pilot (at Langley)',faction:'cia',gender:'female',body:'#5a5a3a',hair:'#c9822a',hat:'#6b4a2e'},
 // George: the CIA's man for the dirty work Chuck won't put his name to, the jobs that need doing after dark. At Langley, eating in
@@ -702,6 +704,7 @@ const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_l
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
 // and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
 const CONVOS={
+Joan:{start:'a',nodes:{a:{say:"(Joan doesn't stop typing.) Cover Story's through the door on the left, Chuck's up the stairs, and the coffee's in the cafeteria. I wouldn't, though."}}},
 // Otto sells tickets for the film at the cinema (js/film.js)
 Otto:{start:'a',nodes:{a:{say:"Two pictures tonight. STORMWING: the hottest pilots in the North, and one very unhappy control tower. And TOP COMRADE, all the way from the other side of the Iron Curtain: same story, more paperwork. Four dollars a ticket.",opts:[['Watch STORMWING ($4)',null,()=>watchFilm('stormwing')],['Watch TOP COMRADE ($4)',null,()=>watchFilm('topcomrade')],['Maybe later',null]]}}},
 George:{start:'a',nodes:{a:{say:"Pull up a chair, NIGHTJAR. Meatloaf's terrible. George. Chuck does the talking in the daytime; I'm the one who does the work after dark. Nothing for you yet. Once you're on the island, call Langley in the evening and you'll get me."}}},
@@ -1091,9 +1094,18 @@ const SD_HEKKI={start:'a',nodes:{
   w2:{say:"(He laughs, and swallows some bath water.) Don't tell Chuck.",opts:[["Something else.",'h'],["Time to get out.",null]]},
   w3:{say:"(Hekki looks at the ceiling for a long time.) Thank you. If I've gone red, it's the bath.",opts:[["Something else.",'h'],["Time to get out.",null]]},
   s:{say:"I know. That's why I asked you here, and not Chuck. Chuck would have brought a notebook.",opts:[["Why do you do it?",'w'],["Time to get out.",null]]}}};
+// First Morning: Joan at the front desk, sending you to the Cover Story Department before your new assignment from Chuck
+const FM_JOAN={start:'a',nodes:{
+  a:{say:"(The woman at the front desk looks up over her half-moon glasses, a telephone tucked under her chin.) You must be the one Chuck's waiting for. He's had me watching the door since seven. (She puts the telephone down.) Name? No, don't tell me. You won't have one by lunchtime.",opts:[["I'm here to see Chuck.",'b'],["What do you mean, no name?",'c']]},
+  b:{say:"Everybody's here to see Chuck. Chuck sees nobody who looks like they work for the government. Cover Story Department first, through the door on the left: Doris will see to your face and your wardrobe. Then up the stairs, and he'll give you your new assignment.",opts:[["Cover Story first. Got it.",null]]},
+  c:{say:"Wherever you're going, nobody there can know who you are. Doris, in the Cover Story Department, will make you somebody else: hair, clothes, a past. Through the door on the left. Then up the stairs to Chuck, for your new assignment.",opts:[["Right. Thank you, Joan.",null]]}}};
 const QUESTS={
-// ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
-alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
+// ---- 22 August, at Langley: Joan at the front desk (yours from the start of a new game: start:true), then your alias, then
+// your briefing.
+firstday:{title:'First Morning',giver:'Joan',main:true,day:-9,start:true,text:"Your first morning back at CIA Headquarters, with a new assignment waiting. Report to Joan, at the front desk in the lobby.",
+  done:[{talk:'Joan',chat:FM_JOAN,what:'Report to Joan, at the front desk in the lobby',gives:'alias'}],
+  thanks:"Joan has sent you to the Cover Story Department, through the door on the left of the lobby."},
+alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,given:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
   thanks:'Your alias is ready: a British reporter, from a London paper, come to cover the king\'s death. Chuck is waiting to brief you, upstairs in his office.'},
 briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in his office, up the stairs from the lobby. Go and get your briefing.',
