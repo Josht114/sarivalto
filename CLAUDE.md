@@ -6,9 +6,11 @@ its future after the old king's death. See `README.md` for the full picture.
 
 ## Running and checking
 
-- Serve the folder: the `sarivalto` entry in `.claude/launch.json` (`python -m http.server 8765`). Use the preview tools, not Bash.
+- Serve the folder: the `sarivalto` entry in `.claude/launch.json` (`python tools/serve.py 8765`). Use the preview tools, not Bash.
+  It keeps saves as files in `saves/` (the user commits them to carry them between machines): don't commit test saves.
 - Test starts: `?new` (a fresh game), `?day=N` (start on day N of September), `?night`. These skip the title screen.
-- Browsers cache hard here: after editing, re-fetch the changed files with `{cache:'reload'}` and reload before checking.
+- tools/serve.py tells the browser not to cache, but a page loaded before an edit can still hold old files: after editing,
+  re-fetch the changed files with `{cache:'reload'}` and reload before checking.
 - Quick syntax check of a file: `node -e "new Function(require('fs').readFileSync('js/data.js','utf8'))"`.
 
 ## Where things are
