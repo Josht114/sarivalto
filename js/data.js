@@ -1077,6 +1077,20 @@ const RC_GUS={start:'a',nodes:{
     ["Not yet.",null]]},
   r:{say:"(He reads both cards slowly, twice, and slips them into his breast pocket.) Three generations of secrets, and they fit in my pocket. My cousin in Palermo has a bottling plant doing nothing. Thank you, journalist. I will remember this. (Crime Syndicate: +1 point. Kelp Cola: -1 point.)"},
   f:{say:"(He reads the card slowly, twice, and smiles.) Three generations of secrets, and they fit on one card. My cousin in Palermo has a bottling plant doing nothing. Thank you, journalist. (Crime Syndicate: -1 point. Kelp Cola: +1 point, though nobody at Kelp Cola will ever know why.)"}}};
+// Spa Day: Hekki in the hot bath, talking about where he grew up and how he came to work for the CIA (hearing that sets story)
+const SD_TOPICS=[["Where did you grow up?",'g'],["How did you end up working for us?",'b'],["Time to get out.",null]];
+const SD_HEKKI={start:'a',nodes:{
+  a:{say:"(Hekki is up to his chin in the water, pink as a prawn, with a towel folded on his head.) NIGHTJAR. Isn't this the life? Nobody bugs a hot bath. The microphones rust. (He sinks a little lower.) Ask me anything. I'm too warm to lie.",opts:SD_TOPICS},
+  h:{say:"(Hekki blows a ripple across the water.) Go on. Ask me something else.",opts:SD_TOPICS},
+  g:{say:"Saltwick. My father mended nets and my mother ran the telephone exchange, so I grew up under a switchboard, listening to the whole island talk. I built my first wireless out of a cocoa tin when I was nine. At night I could hear Moscow, and Luxembourg, and a man in America selling cars.",opts:[["Then what?",'g2']]},
+  g2:{say:"Technical college, across the water. They taught me valves and soldering, and how to keep my mouth shut, which I'd mostly learned already. Then I came home and got the job at the tower, because nobody else could fix the transmitter.",opts:[["And then us.",'b'],["Something else.",'h']]},
+  b:{say:"Four winters ago I started hearing the Soviet trawlers off the north coast. Not fishing talk: numbers and call signs, every night at ten. So I wrote it all down and posted it to the American embassy in Helsinki. Forty-one letters. Nobody wrote back.",opts:[["Forty-one?",'b2']]},
+  b2:{say:"I numbered them. Then one wet evening a man in a raincoat knocked on my shack and asked for 'the letter writer'. He'd read every one. He said I had the best ears north of the Arctic Circle. (Hekki goes pinker.) Nobody had ever said anything like that to me.",opts:[["And he signed you up.",'b3',()=>qFlag('spaday','story')]]},
+  b3:{say:"He gave me a radio set, a codebook, and a voice to talk to, which turned out to be Chuck. They pay me a little, in dollars, in a tobacco tin. I built the hidden room myself, a board at a time, at night. My mother thinks I mend televisions.",opts:[["Why do you do it?",'w'],["Your secret's safe with me.",'s']]},
+  w:{say:"(He thinks about it, in the steam.) Because everyone on this island is shouting, and somebody ought to be listening. The Reds want it for Moscow, the oil men want it for the oil, and Gustavo wants it for Gustavo. I'd like it to stay ours. And, to be honest, NIGHTJAR, I like being a spy. Is that terrible?",opts:[["Not terrible. Maybe a little.",'w2'],["You're good at it.",'w3']]},
+  w2:{say:"(He laughs, and swallows some bath water.) Don't tell Chuck.",opts:[["Something else.",'h'],["Time to get out.",null]]},
+  w3:{say:"(Hekki looks at the ceiling for a long time.) Thank you. If I've gone red, it's the bath.",opts:[["Something else.",'h'],["Time to get out.",null]]},
+  s:{say:"I know. That's why I asked you here, and not Chuck. Chuck would have brought a notebook.",opts:[["Why do you do it?",'w'],["Time to get out.",null]]}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1488,6 +1502,19 @@ recipe:{title:'The Secret Recipe',giver:'Gustavo',main:true,day:13,seq:true,choi
     {if:'real',talk:'Gustavo',chat:RC_GUS,ok:q=>q.choice=='real',points:{syndicate:1,cola:-1},what:'Give Gustavo the real recipe (both halves)'},
     {if:'fake',talk:'Gustavo',chat:RC_GUS,ok:q=>q.choice=='fake',points:{syndicate:-1,cola:1},what:'Give Gustavo a forgery instead'}],
   thanks:"Gustavo has Kelp Cola's recipe, or thinks he has."},
+// Spa Day (side quest, from 9 September): Hekki asks you to the hot bath at the Hot Springs Spa (he waits there while it's
+// yours). Get in, and talk: where he grew up, and how a radio man from Saltwick came to work for the CIA.
+spaday:{title:'Spa Day',giver:'Hekki',from:9,seq:true,
+  text:"Hekki has had his headphones on for days, and wants a soak in the hot bath at the Hot Springs Spa, with you. Meet him there, get in, and ask him how he came to work for the CIA.",
+  offer:"(Hekki rubs the back of his neck.) NIGHTJAR. I've had headphones on for nine days straight, and my neck's gone stiff as a fence post. The Hot Springs Spa has a bath that comes straight up out of the volcano. Come with me? Two friends in a hot bath is the least suspicious thing on this island. I checked.",
+  accept:"Wonderful! I'll go on ahead and warm it up. Well. The volcano will. See you at the Hot Springs Spa.",
+  wait:"Get in, NIGHTJAR, the water's lovely. Nobody's listening. I'd know.",
+  meet:[{name:'Hekki',m:'spa_in',x:15,y:6,dir:1}],
+  done:[
+    {use:'Hot Bath',m:'spa_in',what:'Meet Hekki at the Hot Springs Spa, and get into the hot bath',
+      said:"You lower yourself into water as hot as soup. It smells of eggs and pine, and every muscle you own gives up at once. Hekki sighs beside you. Talk to him."},
+    {talk:'Hekki',chat:SD_HEKKI,ok:q=>q.flags?.story,what:'Talk to Hekki in the hot bath: ask him how he came to work for the CIA'}],
+  thanks:"You and Hekki come out of the Hot Springs Spa as pink as prawns, and better friends."},
 // Flat Cola (George, the evening of 11 September): George wants Kelp Cola's bottling line stopped. Pick the lock of the electronics
 // store in Frostholm, shut for the night, steal an industrial capacitor from its shelves, and feed it into the bottling line at the
 // Kelp Cola factory, empty at night (Kelp Cola -1). Then report to George. Kurt, the foreman, has something to say about it from then on.
