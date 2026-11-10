@@ -647,6 +647,8 @@ ammo:{name:'Box of bullets',desc:'A box of bullets for the pistol.',actions:[]},
 souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola mascot, from the museum gift shop.',actions:['Look at']},
 bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
 record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at']},
+walkman:{name:'Cassette player',desc:'A pocket cassette player in brushed silver, with foam headphones on a thin wire. Equip it, put a tape in and press Play to listen as you go. It plays instead of the music around you, and instead of the radio.',actions:['Play','Next song','Change tape'],equip:true},
+// (the cassettes Ruby sells are added from TAPES, below)
 rarerecord:{name:'Rare record',desc:"Midnight at the Aurora, the Arvo Lind Quartet, live at the Hotel Aurora in 1959: one of two hundred ever pressed, in a stiff card mailer from Ruby's shop marked FRAGILE.",actions:['Look at']},
 samplecrate:{name:'Crate of Kelp Cola samples',desc:"A wooden crate of green bottles packed in straw, stencilled FREE SAMPLE: NOT FOR RESALE. Phil wants one handed to someone from each of the island's seven camps.",actions:['Look at','Tip into the sea']},
 newspaper:{name:'Newspaper',desc:'Today\'s Eastbrook Gazette.',actions:['Read']},
@@ -656,6 +658,18 @@ capacitor:{name:'Industrial capacitor',desc:'A capacitor the size of a coffee ti
 weed:{name:'Bag of weed',desc:'A sandwich bag of cannabis buds, pinched from the grow beds in the old barn at East Farm. It smells like a skunk.',actions:[]},
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
 };
+// ---- Cassettes (js/tape.js plays them on the cassette player): the album, the band, its six songs (three a side), the label's
+// colour on the sprite, and its sound (style, in js/tape.js). Each is also an item, sold at Ruby's record shop.
+const TAPES={
+tape_neon:{album:'Neon on the Snow',band:'Frostholm Nights',col:'#ff4fb0',style:'synth',blurb:'Drum machines and synthesizers from the north: the closest thing Sarivalto has to a disco.',
+  songs:['Neon on the Snow','Polar Burger at 2 a.m.','Cold Signal','Aurora (Dance Mix)','Tram Lines','Satellite Girl']},
+tape_harbour:{album:'Harbour in the Fog',band:'Lena Lumi',col:'#7ab0d8',style:'ballad',blurb:'Slow piano songs for a grey morning. Lena Lumi sings in a café in Saltwick on Thursdays.',
+  songs:['Harbour in the Fog','The Lighthouse Keeper\'s Daughter','Grey Morning','Letters from Kingsgrad','Low Tide','Lantern']},
+tape_saltwick:{album:'Kelp Cola Summer',band:'The Saltwick Sound',col:'#3ac070',style:'surf',blurb:'Twangy guitars and a beat you can dance to. Their one hit was in an advert.',
+  songs:['Kelp Cola Summer','Breakers at Saltwick','Fishermen\'s Stomp','Seagull Twist','Pier Party','Sunburn in September']},
+tape_valto:{album:'Pine Forest Road',band:'The Valto River Boys',col:'#d89040',style:'folk',blurb:'Accordion waltzes and dancing tunes, the music of every wedding on the island.',
+  songs:['Pine Forest Road','The Mill Waltz','Dance at the Lumberyard','Eastbrook Polka','Snow on the Valto','The Old King\'s Waltz']}};
+for(const k in TAPES){const T=TAPES[k];ITEMS[k]={name:`Cassette: ${T.album}`,desc:`${T.album}, by ${T.band}, on cassette. ${T.blurb} Side A: ${T.songs.slice(0,3).join(', ')}. Side B: ${T.songs.slice(3).join(', ')}.`,actions:['Play']}}
 // ---- Fish (js/fishing.js): where each bites (the sea, fresh water, or any), how often (w, and at night if it differs), how big the
 // green zone is when you reel it in (smaller is harder, and it fights harder too), and what Olga at the fish shop pays for one.
 // Junk is caught like a fish but nobody buys it. Each is also an item.
@@ -748,7 +762,7 @@ Maya:{stock:[['coffee',30,1],['bun',12,2]]},
 Arvid:{stock:[['meal',10,12],['beer',12,3]]},
 Juniper:{stock:[['shirt',5,25],['beanie',6,8],['sweater',4,30],['cords',4,35],['sneakers',3,40],['flatcap',4,12],['ushanka',3,20],['snowboots',3,45],['beret',3,15],['stetson',2,40],['cowboyboots',2,55]]},
 Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['fedora',3,35]]},
-Nils:{stock:[['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10],['motor',2,30]]},
+Nils:{stock:[['walkman',3,35],['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10],['motor',2,30]]},
 Jack:{stock:[['fishrod',3,30],['flashlight',2,10],['hose',3,8]]},
 Olga:{stock:[['smokedfish',12,4]]},
 Helmi:{stock:[['floats',3,12],['drill',2,35],['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
@@ -756,7 +770,7 @@ Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
 Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
 Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
 Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2],['drill',2,35]]},
-Ruby:{stock:[['record',12,9]]},
+Ruby:{stock:[['record',12,9],['tape_neon',6,6],['tape_harbour',6,6],['tape_saltwick',6,6],['tape_valto',6,6]]},
 Ville:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Hannu:{stock:[['newspaper',20,1],['cigarettes',10,2],['islandmap',5,3]]},
 Pirkko:{stock:[['burger',20,2],['hotdog',20,1],['coffee',30,1],['cola',20,1]]},

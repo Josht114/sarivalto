@@ -552,9 +552,10 @@ function startRegal(){const ac=audio();if(!ac)return null;const[bus,t0]=trackBus
 const TRACKS={regal:startRegal,romani:startRomani,mill:()=>startIndustry('mill'),rig:()=>startIndustry('rig'),plant:()=>startIndustry('plant'),cola:()=>startIndustry('cola'),casino:startCasino,cafe:startCafe,spy:startSpy,woods:startWoods,army:startArmy,chant:startChant,ocean:startOcean,jazz:startJazz,arcade:startArcade,shop:startShop,pizzeria:startPizzeria};
 // which music belongs where you are (indoors, by the place the building stands in)
 function musicFor(m){for(const k in MUSIC_AT)if(MUSIC_AT[k].includes(m))return k;return null}
-// called every frame: start or fade the music for where you are
-function musicTick(){const ok=MU.ac&&MU.ac.state=='running',want=!ok?null:typeof RADIO!='undefined'&&RADIO.on?'radio':MU.on?musicFor(P.m):null;if(want===MU.want)return;MU.want=want;
-  if(MU.track){MU.track.stop();MU.track=null}if(want)MU.track=TRACKS[want]()}
+// called every frame: start or fade the music for where you are (a tape playing on your cassette player, js/tape.js, comes first,
+// then the radio)
+function musicTick(){const ok=MU.ac&&MU.ac.state=='running',want=!ok?null:(typeof tapeWant=='function'&&tapeWant())||(typeof RADIO!='undefined'&&RADIO.on?'radio':MU.on?musicFor(P.m):null);if(want===MU.want)return;MU.want=want;
+  if(MU.track){MU.track.stop();MU.track=null}if(want)MU.track=TRACKS[want]()||null}
 // the first click or key press lets the page make sound
 const wake=()=>{const ac=audio();if(ac&&ac.state!='running')ac.resume()};
 addEventListener('pointerdown',wake,true);addEventListener('keydown',wake,true);

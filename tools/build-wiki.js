@@ -2,8 +2,8 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
-const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT}=box.D,NOTES=box.N,MAP_GEO=box.G;
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT,TAPES};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
+const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT,TAPES}=box.D,NOTES=box.N,MAP_GEO=box.G;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
 const whereAt=(n,night)=>eveningAt(n,night)?n.evening.m:atWorkWhen(n,night)||!L[n.home]?n.m:n.home,atHomeWhen=(n,night)=>!eveningAt(n,night)&&!atWorkWhen(n,night)&&!!L[n.home];
@@ -83,7 +83,7 @@ function audioBody(c){const trackOf=id=>Object.keys(MUSIC_AT).find(k=>MUSIC_AT[k
   const head='<colgroup><col style="width:50%"><col></colgroup><thead><tr><th data-col="0" class="asc">Location</th><th data-col="1">Background audio</th></tr></thead>';
   const all=Object.keys(L).filter(id=>id!='tram'),n=all.filter(trackOf).length;
   return `<h1>Audio</h1><p>The background sound each place has, made in the browser as you play. Places without any are quiet.
-Radio Sarivalto, when it is switched on (the Radio button, or Listen on a transistor radio), plays instead of all of it, anywhere. The Music button
+Radio Sarivalto, when it is switched on (the Radio button, or Listen on a transistor radio), plays instead of all of it, anywhere. A cassette player (from Nils's electronics shop) with one of Ruby's tapes in it plays instead of the radio, while you hold it: ${Object.keys(TAPES).map(k=>`<i>${TAPES[k].album}</i> by ${TAPES[k].band}`).join(', ')}. The Music button
 turns the music and place sounds off and on, and the volume is set on the Options tab of the game's menu.</p><h2>Tracks</h2>${tracks}
 <h2>Every location</h2><p><small>${n} of ${all.length} locations have background audio.</small></p>`+filter+
     Object.keys(g).sort((a,b)=>L[a][0].localeCompare(L[b][0])).map(p=>`<section class="grp"><h3>${locA(c,p)}</h3><div class="wide"><table class="grid sortable">${head}<tbody>${
