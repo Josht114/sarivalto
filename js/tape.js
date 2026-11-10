@@ -29,9 +29,13 @@ function startTape(id){const ac=audio();if(!ac)return null;const T=TAPES[id],S=S
   const echo=ac.createDelay(1),fb=ac.createGain(),eg=ac.createGain();echo.delayTime.value=60/((S.bpm[0]+S.bpm[1])/2)*.75;fb.gain.value=.3;eg.gain.value=.5;echo.connect(fb);fb.connect(echo);echo.connect(eg);eg.connect(bus);
   const noise=noiseBuf(ac,2,false),hiss=ac.createBufferSource(),hf=ac.createBiquadFilter(),hg=ac.createGain();hiss.buffer=noise;hiss.loop=true;hf.type='highpass';hf.frequency.value=5000;hg.gain.value=.007;hiss.connect(hf);hf.connect(hg);hg.connect(out);hiss.start();
   // a tape with a real recording on it (T.file): play that through the same wobble and hiss, round and round
-  if(T.file){const el=new Audio(T.file);el.loop=true;const src=ac.createMediaElementSource(el);src.connect(bus);el.play().catch(()=>{});
+  // (opened straight from a file, not served, the browser won't let a recording through the effects, and it comes out silent:
+  // then it plays as it is, at the game's volume, with the hiss alongside)
+  if(T.file){const el=new Audio(T.file);el.loop=true;const direct=location.protocol=='file:',src=direct?null:ac.createMediaElementSource(el);
+    if(src)src.connect(bus);let vi=0,stopped=false;if(direct){el.volume=MU.vol*.85;vi=setInterval(()=>{el.volume=MU.vol*.85},250)}
+    el.play().catch(()=>{if(!stopped)tapeSay('<small>&#128252; The tape won\'t play</small>Click anywhere, then press Play again.')});
     TAPE_NOW.song=T.songs[0];tapeSay(`<small>&#128252; ${esc(T.band)}, ${esc(T.album)} &middot; Side A</small>&#9834; ${esc(T.songs[0])}`);
-    return{stop(){TAPE_NOW.song=null;tapeSay('');out.gain.setTargetAtTime(0,ac.currentTime,.15);setTimeout(()=>{el.pause();hiss.stop();lfo.stop();src.disconnect();out.disconnect()},1500)}}}
+    return{stop(){stopped=true;clearInterval(vi);TAPE_NOW.song=null;tapeSay('');out.gain.setTargetAtTime(0,ac.currentTime,.15);if(direct)el.pause();setTimeout(()=>{el.pause();hiss.stop();lfo.stop();if(src)src.disconnect();out.disconnect()},1500)}}}
   // ---- the instruments: each plays one note (or hit) at time t
   const env=(g,t,a,att,dec)=>{g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(a,t+att);g.gain.exponentialRampToValueAtTime(.0005,t+att+dec)};
   const osc=(type,f,t,len,dest,det=0)=>{const o=ac.createOscillator();o.type=type;o.frequency.value=f;o.detune.value=det;o.connect(dest);o.start(t);o.stop(t+len);return o};
