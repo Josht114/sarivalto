@@ -297,8 +297,8 @@ document.querySelectorAll('#pad button[data-d]').forEach(b=>{const d=+b.dataset.
 const exitHere=()=>EX[P.m].find(e=>e.x==P.x&&e.y==P.y);
 // a place that is shut at this time of day, and what its door says
 // (a door whose lock you've picked for a quest stays open: js/lockpick.js)
-const shut=id=>(NIGHT?DAY_ONLY.includes(id):NIGHT_ONLY.includes(id))&&!(typeof picked=='function'&&picked(id));
-const shutMsg=id=>NM[id]+' is closed. It opens '+(NIGHT?'in the morning.':'at night.');
+const shut=id=>((NIGHT?DAY_ONLY.includes(id):NIGHT_ONLY.includes(id))||(typeof lockedFor=='function'&&lockedFor(id)))&&!(typeof picked=='function'&&picked(id));
+const shutMsg=id=>typeof lockedFor=='function'&&lockedFor(id)?NM[id]+' is locked.':NM[id]+' is closed. It opens '+(NIGHT?'in the morning.':'at night.');
 // ---- Which places are open today (OPEN_ON, OPEN_AT in data.js); interiors and places off the map are always open (they're reached
 // through somewhere that is). A road out of a place into one that isn't open yet is blocked by a snow bank one tile in from the
 // edge, with a DANGER sign beside the road; both are solid, and the sign can be read.
@@ -495,7 +495,7 @@ function platformSpot(m){const tr=scene(m).trams.find(q=>q.plat),door=(tr.stop+4
 function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performance.now();if(now-CONVO_END<300)return;
   if(P.m=='tram'){openMenu();return}
   if(bedAhead()){sleep();return}
-  const u=useAhead();if(u){meet(u[0],u[1]);return}
+  const u=useAhead();if(u){if(u[2].play&&PLAYS[u[2].play]?.begin)PLAYS[u[2].play].begin(u[0],u[1]);else meet(u[0],u[1]);return}
   const sp=spotAhead();if(sp){if(sp[2].item&&!has(sp[2].item)){say(sp[2].lacks||'You need the '+ITEMS[sp[2].item].name.toLowerCase()+'.',4000);return}meet(sp[0],sp[1]);return}
   const lk=lookAhead();if(lk){const[q,L]=lk,again=L.again&&q.flags?.[L.flag];(q.flags??={})[L.flag]=true;if(L.gift&&!again)give(L.gift);say(again?L.again:L.say+(L.gift?' You get the '+ITEMS[L.gift].name.toLowerCase()+'.':''),9000);return}
   if(phoneAhead()){answerPhone();return}

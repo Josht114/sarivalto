@@ -93,7 +93,7 @@ winecellar:['Wine Cellar',18,10,'interior',[[1,1,5,1,'y','Wine Bottles'],[7,1,5,
 library:['Royal Library',20,12,'interior',[[1,1,4,1,'y','Bookcase'],[6,1,4,1,'y','Bookcase'],[11,1,4,1,'y','Bookcase'],[16,1,2,1,'y','Bookcase'],[18,1,1,1,'q'],
 [2,4,5,1,'y','Bookcase'],[13,4,5,1,'y','Bookcase'],[2,7,5,1,'y','Bookcase'],[13,7,5,1,'y','Bookcase'],[8,5,4,2,'u','Reading Table']]],
 vault:['Royal Vault',14,9,'interior',[[1,1,3,2,'x','Gold Bars'],[10,1,3,2,'x','Gold Bars'],[5,1,4,1,'y','Crown Jewels'],[1,5,2,2,'x','Treasure Chests'],[11,5,2,2,'x','Treasure Chests']]],
-villa_phil:["Phil's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,2,1,'i','Fireplace'],[10,1,4,1,'y','Bookcase'],[6,4,3,2,'u','Desk'],[11,5,3,2,'u','Table']]],
+villa_phil:["Phil's Villa",16,10,'interior',[[14,1,1,1,'x','Safe'],[2,1,2,2,'e','Bed'],[6,1,2,1,'i','Fireplace'],[10,1,4,1,'y','Bookcase'],[6,4,3,2,'u','Desk'],[11,5,3,2,'u','Table']]],
 villa_dario:["Dario's Villa",16,10,'interior',[[12,1,2,2,'e','Bed'],[2,1,4,1,'y','Bookcase'],[7,1,2,1,'i','Fireplace'],[3,5,3,2,'u','Desk'],[9,5,3,2,'u','Table']]],
 // The Club in Hope Springs: a bar along the back wall, Gustavo's table by the fire, and card tables for the members.
 clubroom:['The Club',20,12,'interior',[[13,4,5,2,'u','Meeting Table'],[1,1,6,1,'y','Bottles'],[1,3,6,1,'c','Bar Counter'],[9,1,2,1,'i','Fireplace'],[13,1,6,1,'y','Bookcase'],
@@ -646,6 +646,9 @@ pistol:{name:'Pistol',desc:'A small automatic pistol. Better kept hidden.',actio
 ammo:{name:'Box of bullets',desc:'A box of bullets for the pistol.',actions:[]},
 souvenir:{name:'Kelpy figurine',desc:'A little Kelpy the cup, the Kelp Cola mascot, from the museum gift shop.',actions:['Look at']},
 bread:{name:'Loaf of bread',desc:'A fresh rye loaf.',actions:['Eat']},
+recipe_home:{name:'Recipe card (first half)',desc:"A yellowed index card in a plastic sleeve, from Phil's safe: the first half of Kelp Cola's secret recipe, in green ink, in his grandfather's slanting copperplate hand.",actions:[]},
+recipe_office:{name:'Recipe card (second half)',desc:"A curl of yellowed index card, from the first bottle on Phil's office shelf: the second half of Kelp Cola's secret recipe, in the same green copperplate.",actions:[]},
+forgedcard:{name:'Forged recipe card',desc:"A yellowed index card in green ink and a slanting copperplate hand: Kelp Cola's recipe, near enough. Not one word of it is right.",actions:[]},
 record:{name:'Vinyl record',desc:'A jazz LP in a worn sleeve.',actions:['Look at']},
 walkman:{name:'Cassette player',desc:'A pocket cassette player in brushed silver, with foam headphones on a thin wire. Equip it, put a tape in and press Play to listen as you go. It plays instead of the music around you, and instead of the radio.',actions:['Play','Next song','Change tape'],equip:true},
 // (the cassettes Ruby sells are added from TAPES, below)
@@ -803,6 +806,9 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   enter:place, speaker going into that place: the speaker (someone waiting there) starts the condition's chat at once
 //   pick:place           walk into that place's shut door with your lock picks and pick its lock (js/lockpick.js); the
 //                        door then stays open while the quest is yours
+//                        (locked: true keeps the door locked from when the quest is yours until you pick it, even by day)
+//   use:label, m:place, play:'safe' or 'forge'   facing that furniture opens a minigame instead (js/heist.js): crack the safe, or
+//                        forge a card to match the recipe (that one needs the real card, and gives two forged cards)
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
 // note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
@@ -1034,6 +1040,43 @@ const SF_PHIL={start:'a',nodes:{
   k:{say:"All of them? Already? (Phil beams, and picks up the telephone to tell the Gazette.) By the end of the day, people are ringing Kelp Cola HQ to ask where their free bottle is. (Kelp Cola: -2 points. The seven bottles are in your bag.)"}}};
 const SF_WELL={start:'a',nodes:{a:{say:"(Phil waves a sheaf of telephone messages.) People ringing up to ask where they can buy it! Reds, royals, even a monk. Seven bottles, and the whole island's talking about Kelp Cola. You've a gift, journalist. (Kelp Cola: +1 point.)"}}};
 const SF_BADLY={start:'a',nodes:{a:{say:"(Phil has the Gazette open on his desk.) 'FREE COLA LEAVES A BAD TASTE.' Half the island got a bottle and a lecture to go with it, apparently. What did you SAY to them? (Kelp Cola: -1 point.)"}}};
+// The Secret Recipe: what Phil's people let slip about where he keeps the recipe (talking to them sets home: the safe in his villa,
+// or office: the first bottle on the shelf in his office). Once you know both, you can go after it.
+const RC_ASK={
+  Elin:{start:'a',nodes:{
+    a:{say:"Kelp Cola, good morning. (Elin looks up from her typewriter.) Oh, the journalist. If it's Phil you want, he's upstairs, and he's busy.",opts:[["Is it true about the secret recipe?",'b'],["Just admiring the bottles.",'c']]},
+    b:{say:"Everyone asks. (She lowers her voice.) There's no safe up there, if that's what you're thinking. There's a bottle: the first one his grandfather ever sold, on the shelf behind his desk, with something rolled up inside it. He looks at it every morning, like a man checking his watch.",opts:[["Thanks, Elin.",null,()=>qFlag('recipe','office')]]},
+    c:{say:"Phil dusts them himself. Nobody else is allowed to touch the first one.",opts:[["Why the first one?",'b']]}}},
+  Noora:{start:'a',nodes:{
+    a:{say:"(Noora is rinsing a rack of test tubes.) Mind the floor, it's wet. Can I help?",opts:[["Do you know the secret recipe?",'b'],["What goes into a test batch?",'c']]},
+    b:{say:"Me? I mix what I'm given. The concentrate comes in from Phil's villa in a locked case. I heard him tell Saara once that his half of the recipe never leaves the house: there's a safe in the corner of his study.",opts:[["Interesting. Thank you.",null,()=>qFlag('recipe','home')]]},
+    c:{say:"Kelp, sugar, water and Saara's ideas. Most of it goes down the sink."}}},
+  Saara:{start:'a',nodes:{
+    a:{say:"(Saara is holding a flask up to the light.) Hm? Oh, the journalist. I can spare a minute.",opts:[["Who knows the secret recipe?",'b'],["What are you working on?",'c']]},
+    b:{say:"Phil, and only Phil. His grandfather's rule: never the whole recipe in one building. Half of it lives in that silly bottle in his office, and he keeps the other half at home. I make cola from a concentrate, like a cook with a tin of soup.",opts:[["A tin of soup. I'll quote you.",null,()=>qFlag('recipe','office')]]},
+    c:{say:"A sugar-free cola. It tastes of regret."}}},
+  Kurt:{start:'a',nodes:{
+    a:{say:"(Kurt has a clipboard, and a pencil behind his ear.) If you're from the Gazette, the line's doing fine, whatever you've heard.",opts:[["Who mixes the secret syrup?",'b'],["How many bottles a day?",'c']]},
+    b:{say:"Phil, at home, on Sunday nights, like his father and his grandfather. He keeps his half of the recipe in a safe at his villa, up in Hope Springs. The whole island knows that much. Knowing it won't get you through his front door.",opts:[["I'm only curious.",null,()=>qFlag('recipe','home')]]},
+    c:{say:"Twelve thousand on a good day. Don't print that. Phil likes to say twenty."}}}};
+// The Secret Recipe: asking Elin to get Phil out of his office (flag out), with a white lie or with what you know about her and Mats
+// (flag mats, and she never forgives you)
+const RC_ELIN={start:'a',nodes:{
+  a:{say:"(Elin doesn't look up.) He's still upstairs, and he's still busy.",opts:[["Could you get Phil out of his office for ten minutes?",'b'],["Never mind.",null]]},
+  b:{say:"(She does look up, now.) Why on earth would I do that?",opts:[
+    ["It's a surprise for the Gazette: a photograph of his office.",'c',()=>qFlag('recipe','out')],
+    ["I know about you and Mats.",'d',()=>{qFlag('recipe','out');qFlag('recipe','mats')}],
+    ["Forget I asked.",null]]},
+  c:{say:"A picture of his precious bottles? (She sighs.) He'd like that more than he'd ever admit. All right. I'll tell him there's a call from Sweden on my line. Ten minutes, and you were never up there."},
+  d:{say:"(Her hands go still on the keys.) That's a nasty thing to say to a person. (She picks up the telephone.) Phil? There's a call for you down here. Sweden. (She puts it down, and looks at you, hard.) Ten minutes. Then I never want to see you again."}}};
+// The Secret Recipe: handing Gustavo the recipe, the real one (both halves) or a forgery
+const RC_GUS={start:'a',nodes:{
+  a:{say:"(Gustavo sets down his coffee.) Journalist. You have something for me, I think.",opts:[
+    ["Both halves of the recipe. The real thing.",'r',()=>{take('recipe_home');take('recipe_office');questChoice('recipe','real')},()=>has('recipe_home')&&has('recipe_office')],
+    ["Here it is: the whole recipe, copied onto one card.",'f',()=>{take('forgedcard');questChoice('recipe','fake')},()=>has('forgedcard')],
+    ["Not yet.",null]]},
+  r:{say:"(He reads both cards slowly, twice, and slips them into his breast pocket.) Three generations of secrets, and they fit in my pocket. My cousin in Palermo has a bottling plant doing nothing. Thank you, journalist. I will remember this. (Crime Syndicate: +1 point. Kelp Cola: -1 point.)"},
+  f:{say:"(He reads the card slowly, twice, and smiles.) Three generations of secrets, and they fit on one card. My cousin in Palermo has a bottling plant doing nothing. Thank you, journalist. (Crime Syndicate: -1 point. Kelp Cola: +1 point, though nobody at Kelp Cola will ever know why.)"}}};
 const QUESTS={
 // ---- 22 August, at Langley: your alias, then your briefing. They're yours from the start of a new game (start:true).
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,start:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
@@ -1417,6 +1460,34 @@ samples:{title:'Free Samples!',giver:'Phil',main:true,day:13,seq:true,gift:'samp
     {if:'dump',points:{cola:-2},what:'Tip the crate into the sea'},
     {if:'keep',talk:'Phil',ok:q=>q.choice=='keep',points:{cola:-2},chat:SF_PHIL,what:"Tell Phil the bottles have all gone, and keep them"}],
   thanks:"Kelp Cola's free samples are gone, one way or another."},
+// The Secret Recipe (Crime Syndicate, 13 September): Gustavo wants Kelp Cola's recipe. Ask Phil's people where he keeps it (half in
+// a safe at his villa, half rolled up in the first bottle on his office shelf), pick the villa's lock, crack the safe, forge a card
+// to match at the desk in your Hidden Radio Room, get Elin to call Phil out of his office, and swap the office half for your
+// forgery. Give Gustavo the real recipe (Syndicate +1, Kelp Cola -1), or a forgery (Syndicate -1, Kelp Cola +1).
+recipe:{title:'The Secret Recipe',giver:'Gustavo',main:true,day:13,seq:true,choices:{real:'give Gustavo the real recipe',fake:'give Gustavo a forgery'},
+  text:"Gustavo wants Kelp Cola's secret recipe, so the Syndicate can make cola of its own. Ask Phil's people at Kelp Cola where he keeps it, get it without anyone knowing it's gone, and take it to Gustavo. Or give him a forgery instead.",
+  offer:"(Gustavo pours two small coffees, and pushes one across to you.) Journalist. Every bottle of Kelp Cola on this island puts money in Phil's pocket, and not one cent in mine. I would like to make cola too, and for that I need the recipe. His family has kept it for three generations. You ask questions for a living. Find out where he keeps it, and bring me a copy. Will you do this for an old man?",
+  accept:"Thank you. Start with Phil's people at Kelp Cola: secretaries and chemists hear everything. And, journalist: nobody must know it has gone.",
+  wait:"The recipe, journalist. Phil's people know where it is. Somebody always does.",
+  meet:[{name:'Phil',m:'kchq_in',x:13,y:4,dir:1,flag:'out'}],
+  aftermath:[{flag:'mats',name:'Elin',say:"(Elin types on, and doesn't look up.) Phil's busy. He's always busy, for you."}],
+  done:[
+    {talk:['Elin','Noora','Saara','Kurt'],chats:RC_ASK,ok:q=>q.flags?.home&&q.flags?.office,
+      what:"Find out where Phil keeps the recipe: ask his people at Kelp Cola (Elin at HQ in Kingsgrad, Noora and Saara in the lab, Kurt at the factory)",
+      said:"Half the recipe is in a safe at Phil's Villa in Hope Springs, and half is rolled up in the first bottle on the shelf in his office. Phil's at work all day: start with the villa."},
+    {pick:'villa_phil',locked:true,what:"Break into Phil's Villa in Hope Springs (walk into its door with your lock picks)",
+      said:"The lock gives, and the door swings open on a warm, quiet house that smells of pipe smoke. Find the safe."},
+    {use:'Safe',m:'villa_phil',play:'safe',gift:'recipe_home',what:"Crack the safe in the corner of Phil's study",
+      said:"The last wheel drops, the handle turns, and the door swings open. Under a bundle of share certificates is a yellowed index card in a plastic sleeve: the first half of Kelp Cola's recipe. Now forge a card to leave in the office in place of the other half: there's a desk in your Hidden Radio Room."},
+    {use:'Desk',m:'hekki_room',play:'forge',what:'Forge a recipe card to match the real one, at the desk in your Hidden Radio Room',
+      said:"Two forged cards, in a hand Phil's grandfather would swear was his own. Now get Elin, at reception in Kelp Cola HQ, to call Phil out of his office."},
+    {talk:'Elin',chat:RC_ELIN,ok:q=>q.flags?.out,what:'Get Elin, at reception in Kelp Cola HQ, to call Phil out of his office',
+      said:"A minute later Phil comes down the stairs, straightening his tie, to take a call at reception. His office is empty: go up."},
+    {use:'Bottles',m:'kchq2',takes:'forgedcard',gift:'recipe_office',what:"Swap the card in the first bottle on Phil's shelf for one of your forgeries",
+      said:"You lift the first bottle down. A curl of yellowed card is rolled up inside it. You tease it out with a pencil, roll your forgery in its place, and put the bottle back exactly where it was, label out. Now take the recipe to Gustavo: the real one, or your other forgery."},
+    {if:'real',talk:'Gustavo',chat:RC_GUS,ok:q=>q.choice=='real',points:{syndicate:1,cola:-1},what:'Give Gustavo the real recipe (both halves)'},
+    {if:'fake',talk:'Gustavo',chat:RC_GUS,ok:q=>q.choice=='fake',points:{syndicate:-1,cola:1},what:'Give Gustavo a forgery instead'}],
+  thanks:"Gustavo has Kelp Cola's recipe, or thinks he has."},
 // Flat Cola (George, the evening of 11 September): George wants Kelp Cola's bottling line stopped. Pick the lock of the electronics
 // store in Frostholm, shut for the night, steal an industrial capacitor from its shelves, and feed it into the bottling line at the
 // Kelp Cola factory, empty at night (Kelp Cola -1). Then report to George. Kurt, the foreman, has something to say about it from then on.

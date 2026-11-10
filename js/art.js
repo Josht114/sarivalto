@@ -3043,6 +3043,22 @@ ITEM_ART.walkman=[`
 .kCCkCCCCCCkCCk.
 .kkkkkkkkkkkkkk.`;
   for(const k in TAPES)ITEM_ART[k]=[SHAPE,{k:'#262330',C:'#2e2e36',L:TAPES[k].col,w:'#f1ead6',T:'#f1ead6',d:'#6a5a4a'}]}
+// the recipe cards from Phil's safe and his office, and the forgery (the same yellowed card, green ink, slanting hand)
+{const CARD=`
+................
+................
+.kkkkkkkkkkkkkk.
+.kYYYYYYYYYYYYk.
+.kYooooooooooYk.
+.kYYYYYYYYYYYYk.
+.kYggYggYgggYYk.
+.kYYYYYYYYYYYYk.
+.kYYgggYggYgYYk.
+.kYYYYYYYYYYYYk.
+.kYggYgggYYYYYk.
+.kYYYYYYYYYYYYk.
+.kkkkkkkkkkkkkk.`;
+  for(const k of['recipe_home','recipe_office','forgedcard'])ITEM_ART[k]=[CARD,{k:'#262330',Y:'#e8d49a',o:'#c9b070',g:'#2e7a3a'}]}
 const ITEM_ICONS={};
 function itemIcon(id){if(ITEM_ICONS[id])return ITEM_ICONS[id];
   if(!ITEM_ART[id]&&typeof FURN!='undefined'&&FURN[id]){const[w,h,ch,lb]=FURN[id],fu=furn(ch,w,h,lb,INT.default||{},.3),c=cnv(64,64),g=c.getContext('2d');g.imageSmoothingEnabled=false;

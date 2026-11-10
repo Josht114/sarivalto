@@ -11,6 +11,8 @@ function lpZone(){const w=.26-LP.pins*.035,a=.1+Math.random()*(.8-w);LP.zone=[a,
 const lpNeedle=t=>{const p=((t-LP.t0)/1000*LP.speed)%2;return p<1?p:2-p};
 // the shut door you're walking into, if a quest of yours has you pick its lock
 const pickAt=to=>openConds().find(([,,c])=>c.pick==to);
+// a place a quest keeps locked until you pick it (a pick condition with locked:true, not yet met, in a quest that's yours)
+const lockedFor=id=>ME.quests.some(q=>!q.done&&QUESTS[q.id].done.some((c,i)=>c.pick==id&&c.locked&&!q.met[i]));
 // a place whose lock you've picked, while the quest is still yours: its door stays open
 const picked=id=>ME.quests.some(q=>!q.done&&QUESTS[q.id].done.some((c,i)=>c.pick==id&&q.met[i]));
 function startPick([q,i]){if(!has('lockpicks')){say("The door's locked. You'd need your lock picks.",3500);return}
