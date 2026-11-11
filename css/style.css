@@ -18,12 +18,11 @@ select hr{border:0;border-top:1px solid #000}
 /* what's on the radio, in the bottom left of the game screen */
 #radiocap{position:absolute;left:1.5%;bottom:3%;max-width:46%;padding:4px 8px;font-size:11px;line-height:1.3;color:#fff;background:rgba(11,26,43,.82);border:1px solid #ff7ad8;border-radius:6px;pointer-events:none}#radiocap[hidden]{display:none}#radiocap small{display:block;font-size:9px;color:#ff7ad8;text-transform:uppercase;letter-spacing:1px}
 #musicbtn{background:#fff;color:#000;border:2px solid var(--bd);font:inherit;padding:4px 10px;cursor:pointer;min-width:5.5em}#musicbtn[aria-pressed="false"]{background:#3a3a3a;color:#aaa}
-/* the current objective, along the bottom of the game screen (the radio's caption moves up above it) */
-#objective{position:absolute;left:0;right:0;bottom:0;padding:4px 12px;font-size:15px;line-height:1.3;color:#fff;background:rgba(11,26,43,.85);border-top:1px solid #ffd23a;pointer-events:none;text-align:center}
-#objective[hidden]{display:none}#objective b{color:#ffd23a;text-transform:uppercase;font-size:12px;letter-spacing:1px;margin-right:8px}
-#stage.hasobj #radiocap{bottom:calc(3% + var(--objh,28px))}
+/* the current objective, in a strip just under the game screen (two lines high always, so the page doesn't jump) */
+#objective{width:min(100%,720px);box-sizing:border-box;margin-top:-8px;min-height:calc(2.6em + 10px);display:flex;align-items:center;justify-content:center;padding:5px 12px;font-size:15px;line-height:1.3;color:#fff;background:#0b1a2b;border:4px solid var(--bd);border-top:1px solid #ffd23a;text-align:center}
+#objective b{color:#ffd23a;text-transform:uppercase;font-size:12px;letter-spacing:1px;margin-right:8px}
 /* quest news (a step done and what's next, a new quest, a quest complete): stays above the objective until you close it */
-#qmsg{position:absolute;left:8%;right:8%;bottom:calc(2% + var(--objh,0px));max-height:58%;overflow-y:auto;padding:6px 30px 6px 10px;font-size:12px;line-height:1.35;color:#fff;background:rgba(11,26,43,.92);border:1px solid #ffd23a;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.4)}
+#qmsg{position:absolute;left:8%;right:8%;bottom:3%;max-height:58%;overflow-y:auto;padding:6px 30px 6px 10px;font-size:12px;line-height:1.35;color:#fff;background:rgba(11,26,43,.92);border:1px solid #ffd23a;border-radius:6px;box-shadow:0 2px 0 rgba(0,0,0,.4)}
 #qmsg[hidden]{display:none}#qmsg p{margin:0}#qmsg p+p{margin-top:5px;padding-top:5px;border-top:1px solid rgba(255,210,58,.3)}
 #qmsg .x{position:absolute;top:3px;right:4px;width:22px;height:22px;padding:0;font:bold 16px/1 inherit;color:#ffd23a;background:none;border:1px solid transparent;border-radius:4px;cursor:pointer}
 #qmsg .x:hover,#qmsg .x:focus-visible{border-color:#ffd23a;background:rgba(255,210,58,.15)}

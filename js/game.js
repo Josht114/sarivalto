@@ -650,7 +650,7 @@ function draw(t){
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
   if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
   const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
-  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-12-OBJ_OFF-QN_OFF,'center','h');
+  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-12-QN_OFF,'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
 // On opening the game, carry on from the most recent save (if there is one). Starting with ?new in the address starts a new game
@@ -701,7 +701,7 @@ ROUTINE=planRoutine();applyRoutine();setTimeout(()=>{const t=morningCalls();if(t
 store.init().then(()=>{const go=()=>{if(!GOTHIC&&!DETAILED&&!MODERN&&!STEAM&&!STEAM2&&!CLASSIC&&!/[?&](new|day|night)\b/.test(location.search))showTitle()};
   if(document.readyState=='complete')go();else addEventListener('load',go)});
 // what you're holding, in the top right of the screen: redrawn only when it changes
-// ---- The current objective, along the bottom of the game screen: the next step of your main quest (or, with none, of your most
+// ---- The current objective, in a strip under the game screen: the next step of your main quest (or, with none, of your most
 // recent side quest); with no quest under way, a nudge towards the day's main quest, if there is one. Hidden while you're talking,
 // in the menu or in a minigame, and before the game starts.
 const objEl=document.getElementById('objective'),stageEl=document.getElementById('stage');let objWas,OBJ_ON=false;
@@ -713,10 +713,7 @@ function objectiveText(){if(CONVO||START||BUSY||RIDE||(typeof TITLE!='undefined'
   if(today.some(Q=>Q.call))return"Chuck has a job for you: call him on the big screen in your room, under Hekki's shack at the Radio Tower.";
   if(today.some(Q=>Q.ring))return"Someone will ring with a job: answer the telephone in your room, under Hekki's shack at the Radio Tower.";
   return"Today's main quest is waiting: look for someone with a gold star (the map, in the menu, shows where)."}
-let OBJ_OFF=0;
-function showObjective(){const t=objectiveText();if(t!==objWas){objWas=t;OBJ_ON=!!t;objEl.hidden=!t;stageEl.classList.toggle('hasobj',OBJ_ON);if(t)objEl.innerHTML='<b>Objective</b>'+esc(t)}
-  // how tall it is, for what sits above it: the radio caption and quest news (--objh), and the game's own messages (in the canvas's pixels)
-  const h=OBJ_ON?objEl.offsetHeight:0;if(h!==showObjective.h){showObjective.h=h;stageEl.style.setProperty('--objh',h+'px')}OBJ_OFF=OBJ_ON?Math.ceil(h*cv.height/(cv.clientHeight||cv.height)):0}
+function showObjective(){const t=objectiveText();if(t===objWas)return;objWas=t;OBJ_ON=!!t;objEl.innerHTML=t?'<span><b>Objective</b>'+esc(t)+'</span>':''}
 // ---- Quest news (a step done and what's next, a new quest, a quest complete), in a box above the objective that stays until you
 // close it (the cross). News that comes while it's open is added to it (the last four). Hidden while you're talking, in the menu,
 // on the title screen or in the opening film, and shown again after.

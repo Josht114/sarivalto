@@ -1,6 +1,6 @@
 Notes
 
-the intro should make it clear you already know teh CIA and the peeople working there
+the intro should make it clear you already know the CIA and the peeople working there
 
 disguise talk at the start should mention your alias yet
 
@@ -15,3 +15,10 @@ make the NPC conversation text bigger
 
 removing the incomming call from chuck at the start of the game and have hekki tell you to call
 chuck instead 
+
+ann mentions miners but there are no miners 
+
+
+remove teh maps from behind the radio equipment
+
+when hekki talks about his code you can talk about it being old before he exaplins it to you
