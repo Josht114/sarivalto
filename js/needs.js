@@ -21,8 +21,12 @@ const SOBER=100/300;  // how fast drink wears off, per second of play: from blin
 const DRUNK_AT=60;  // over this the alcohol bar goes red
 // smoking as you go (cigarettes equipped): one cigarette lasts this many seconds of play, giving SMOKE_NIC nicotine over that time
 const SMOKE_EACH=25,SMOKE_NIC=45;
+// the first time hunger or nicotine runs low in a game: how it works (ME.tips remembers it's been said)
+const NEED_TIP={hunger:"You're getting hungry. The Hunger bar, at the top right, runs down as you play, and faster when time passes. Buy food at a café, a bar, a stall or a shop (talk to whoever's behind the counter), then choose it in your inventory (M) and press Eat: a meal fills you up more than a bun. Let it run low and you can't think of anything else, and nobody will talk business with you until you've eaten (though shopkeepers will still sell to you). In a hurry, there's a vending machine in the hall of the apartment block in Saltwick, open all hours, but it's dearer than anywhere else.",
+  nicotine:"You're craving a cigarette. The Nicotine bar, at the top right, runs down as you play. Buy a pack of twenty at a bar, a kiosk or a shop, then choose it in your inventory (M) and press Smoke for one cigarette, or Equip it to smoke one after another as you go. Let it run low and you can't think of anything else, and nobody will talk business with you until you've had one. There's a cigarette machine in the hall of the apartment block in Saltwick, open all hours, but it's dearer than anywhere else."};
 let needNag=0;
-function needsTick(dt){for(const k in NEED_DRAIN)ME[k]=Math.max(0,ME[k]-NEED_DRAIN[k]*dt);ME.alcohol=Math.max(0,ME.alcohol-SOBER*dt);
+function needsTick(dt){for(const k in NEED_DRAIN)ME[k]=Math.max(0,ME[k]-NEED_DRAIN[k]*dt);
+  for(const k in NEED_TIP)if(ME[k]<NEED_LOW&&!(ME.tips??={})[k]){ME.tips[k]=true;questSay(NEED_TIP[k])}ME.alcohol=Math.max(0,ME.alcohol-SOBER*dt);
   // smoking as you go: nicotine all the while, and a cigarette gone every SMOKE_EACH seconds
   if(ME.equipped=='cigarettes'){if(!has('cigarettes')){ME.equipped=null;say('You\'re out of cigarettes.',3500)}
     else{ME.nicotine=Math.min(100,ME.nicotine+SMOKE_NIC/SMOKE_EACH*dt);if((ME.smokeT=(ME.smokeT||0)+dt)>=SMOKE_EACH){ME.smokeT=0;ME.cigsLeft=(ME.cigsLeft||20)-1;

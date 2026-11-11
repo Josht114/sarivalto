@@ -52,7 +52,7 @@ privbeach:"The beach belonging to Hope Springs Gated Community, with sun lounger
 privharbour:"The harbour belonging to Hope Springs Gated Community. No boats run to or from it: it can only be reached on foot from the gated community.",
 plant:"The fish processing plant where the fishmongers Bob and Kate work.",
 hq:"The Communist Party's headquarters on Saltwick's main street: two desks, a long meeting table, and cabinets of files and party archives. Anna, the party's leader, works at one desk and Helen, who leads the Union, at the other.",
-apartments:"The village's apartment block: three floors of five flats each, joined by stairs from the corridor. The communists Anna, Mike and Helen live here, along with Kaisa the radio DJ, Olga from the fish shop and Gunnar from the harbour warehouse, Sirpa and Tiina, who are out of work, and the Crime Syndicate's Lucia.",
+apartments:"The village's apartment block: three floors of five flats each, joined by stairs from the corridor. The communists Anna, Mike and Helen live here, along with Kaisa the radio DJ, Olga from the fish shop and Gunnar from the harbour warehouse, Sirpa and Tiina, who are out of work, and the Crime Syndicate's Lucia. In the corridor stand a vending machine (crisps, buns and cola) and a cigarette machine, open all hours and dearer than anywhere else on the island.",
 bar:"The village's bar. The bartender, Ray, lives in the flat above. In the evenings Sirpa and Tiina, out of work, sit at its tables.",
 barflat:"The flat above the bar, where Ray lives.",
 fishshop:"The village's fish shop, selling fresh and smoked fish.",

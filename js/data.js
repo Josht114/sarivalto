@@ -66,7 +66,7 @@ hq:['Communist Party HQ',20,14,'interior',[[2,2,5,2,'u','Desk'],[13,2,5,2,'u','D
 // Apartment blocks with five flats: three along the top, a corridor, then two more either side of the entrance passage.
 apartments:['Apartment Block',24,20,'interior',[[8,1,1,6,'W'],[16,1,1,6,'W'],[1,7,3,1,'W'],[5,7,7,1,'W'],[13,7,7,1,'W'],[21,7,2,1,'W'],
 [1,11,4,1,'W'],[6,11,5,1,'W'],[13,11,5,1,'W'],[19,11,4,1,'W'],[10,12,1,7,'W'],[13,12,1,7,'W'],
-[2,1,2,2,'e','Bed'],[5,3,2,1,'u'],[10,1,2,2,'e','Bed'],[13,3,2,1,'u'],[18,1,2,2,'e','Bed'],[21,3,1,2,'u'],[1,8,3,1,'y','Mailboxes'],
+[2,1,2,2,'e','Bed'],[5,3,2,1,'u'],[10,1,2,2,'e','Bed'],[13,3,2,1,'u'],[18,1,2,2,'e','Bed'],[21,3,1,2,'u'],[1,8,3,1,'y','Mailboxes'],[6,8,2,1,'y','Vending Machine'],[14,8,1,1,'y','Cigarette Machine'],
 [2,13,2,2,'e','Bed'],[6,15,2,1,'u'],[1,17,2,1,'x','Boxes'],[20,13,2,2,'e','Bed'],[15,15,2,1,'u'],[21,17,1,1,'i','Stove'],[22,8,1,1,'z','Stairs up']]],
 bar:['Bar',20,12,'interior',[[3,1,10,1,'y','Bottles'],[3,3,10,1,'c','Bar Counter'],[3,7,3,2,'u','Table'],[9,7,3,2,'u','Table'],[15,7,3,2,'u','Table'],[16,2,1,1,'z','Stairs up']]],
 barflat:['Bar Flat',12,8,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[2,5,3,1,'y','Shelf'],[10,2,1,1,'z','Stairs down']]],
@@ -615,6 +615,7 @@ lava:{name:'Tin of lava',desc:'An old tin of lava from the pool in the Lava Tube
 peoplescola:{name:"The People's Cola",desc:"A bottle of the Party's own cola, brewed from volcano lava in Kelp Cola's lab: dark, smoky, with a kick like a mule. For Helen.",actions:['Look at']},
 beans:{name:'Imported coffee beans',desc:'A sack of fine Colombian coffee beans, brought in through Langley in the diplomatic pouch. For Maya at the Coffee Roasters.',actions:['Look at']},
 coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
+crisps:{name:'Packet of crisps',desc:'A small packet of salted crisps from a vending machine, mostly air.',actions:['Eat']},
 bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
 meal:{name:'Hot meal',desc:'Steak, potatoes and greens on a plate.',actions:['Eat']},
 shirt:{name:'Flannel shirt',desc:'A red checked flannel shirt. In Eastbrook it makes you look like a local. It goes into your wardrobe.',actions:[]},
@@ -698,7 +699,7 @@ const FISH_BUYER='Olga';
 // ---- How much each thing you eat or drink fills your hunger (out of 100; js/needs.js)
 // ---- How drunk each drink makes you (the alcohol meter goes up by this, out of 100)
 const ALCOHOL={beer:15,wine:25,whisky:20};
-const FOOD={meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
+const FOOD={crisps:10,meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
 const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
@@ -1099,12 +1100,23 @@ const FM_JOAN={start:'a',nodes:{
   a:{say:"(The woman at the front desk looks up over her half-moon glasses, a telephone tucked under her chin.) You must be the one Chuck's waiting for. He's had me watching the door since seven. (She puts the telephone down.) Name? No, don't tell me. You won't have one by lunchtime.",opts:[["I'm here to see Chuck.",'b'],["What do you mean, no name?",'c']]},
   b:{say:"Everybody's here to see Chuck. Chuck sees nobody who looks like they work for the government. Cover Story Department first, through the door on the left: Doris will see to your face and your wardrobe. Then up the stairs, and he'll give you your new assignment.",opts:[["Cover Story first. Got it.",null]]},
   c:{say:"Wherever you're going, nobody there can know who you are. Doris, in the Cover Story Department, will make you somebody else: hair, clothes, a past. Through the door on the left. Then up the stairs to Chuck, for your new assignment.",opts:[["Right. Thank you, Joan.",null]]}}};
+// Find Hekki: meeting Hekki at the Radio Tower when you land, and where your room is
+const FH_HEKKI={start:'a',nodes:{
+  a:{say:"(Hekki looks both ways along the path, twice.) You're NIGHTJAR. You must be. You look exactly like a British reporter, which is the idea, I suppose. I'm Hekki. Radio. And, well. The other thing.",opts:[["Nice to meet you, Hekki.",'b'],["Not so loud.",'c']]},
+  b:{say:"Honoured. Really. Your room's ready, under my shack: go in, find the bookcase, and lean on the third shelf. It swings. I oiled it twice.",opts:[["What's down there?",'d']]},
+  c:{say:"(He drops to a whisper.) Sorry. Sorry. I've been practising. Your room's under my shack: the bookcase, third shelf. Lean on it. It swings.",opts:[["What's down there?",'d']]},
+  d:{say:"Radio sets, tape recorders, a bed, a stove, and more tinned soup than one person needs. And the big screen: Chuck calls on it every morning, and he'll want to hear you've landed. (He swallows.) Welcome to Sarivalto, NIGHTJAR."}}};
 const QUESTS={
 // ---- 22 August, at Langley: Joan at the front desk (yours from the start of a new game: start:true), then your alias, then
 // your briefing.
 firstday:{title:'First Morning',giver:'Joan',main:true,day:-9,start:true,text:"Your first morning back at CIA Headquarters, with a new assignment waiting. Report to Joan, at the front desk in the lobby.",
   done:[{talk:'Joan',chat:FM_JOAN,what:'Report to Joan, at the front desk in the lobby',gives:'alias'}],
   thanks:"Joan has sent you to the Cover Story Department, through the door on the left of the lobby."},
+// Find Hekki (yours as you land at West Saltwick Harbour on 1 September): meet the CIA's man on the island, at the Radio Tower,
+// who tells you where your room is
+findhekki:{title:'Find Hekki',giver:'Hekki',given:true,text:"You've landed at West Saltwick Harbour. Find Hekki, the CIA's man on the island: a radio tech who works at the Radio Tower, up from Saltwick. He has a room ready for you.",
+  done:[{talk:'Hekki',chat:FH_HEKKI,what:'Find Hekki at the Radio Tower, up from Saltwick, and talk to him'}],
+  thanks:"Your room is under Hekki's shack, through the bookcase. The big screen there is how you reach Chuck."},
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,given:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
   thanks:'Your alias is ready: a British reporter, from a London paper, come to cover the king\'s death. Chuck is waiting to brief you, upstairs in his office.'},
