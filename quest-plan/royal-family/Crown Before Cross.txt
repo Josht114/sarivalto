@@ -12,3 +12,11 @@ the crown, and the family needs him to
 choose the crown.
 Persuade him that his duty is to the
 throne and his family, not the monastery.
+
+
+you have a conversation with him 
+you can convince him to side with the family for +1
+
+if you fail the royals ger -1 and the church gets +1
+
+

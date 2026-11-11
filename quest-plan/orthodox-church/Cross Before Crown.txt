@@ -11,3 +11,12 @@ The Church wants Augustus to choose God
 over the throne.
 Persuade him that his calling is to the
 monastery, not the crown.
+
+
+
+you have a conversation with him 
+you can convince him to side with the church  for +1
+
+if you fail the church get -1 and the royals gets +1
+
+

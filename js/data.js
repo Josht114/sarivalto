@@ -1143,6 +1143,36 @@ const CB_JETTY={start:'a',nodes:{
   a:{say:"(Solveig is at the end of the jetty, her coat buttoned to the chin, watching the water.) Well, I'm here, and nobody else is. So, what are you?",opts:[
     ["(Do it.)",'b',()=>qFlag('coverblown','jetty')],["Not yet.",null]]},
   b:{say:"(It's over quickly. The water closes over her, and the jetty is empty again. Her notebook goes in after her.)"}}};
+// Crown Before Cross and Cross Before Crown (15 September), mirror images: one conversation with Augustus, his three worries, and
+// the same three replies to each in both quests (one for the crown, one for the cross, one blunt line that wins nobody over). Each
+// reply sets a flag on the quest (crown1, cross2 and so on). Two of the three your side's way and he chooses it; otherwise he
+// chooses the other side. His choice is a flag too (crown or cross), for what he says afterwards.
+const AUG_N=(id,side)=>['1','2','3'].filter(i=>qOf(id)?.flags?.[side+i]).length;
+const AUG_TALK=(id,side)=>{const other=side=='crown'?'cross':'crown',won=()=>AUG_N(id,side)>=2,
+  end=s=>()=>{qFlag(id,s);questChoice(id,s==side?'won':'lost')},
+  // a worry: the replies in the order given (c: for the crown, x: for the cross, b: blunt)
+  ask=(i,say,r,order,next)=>({say,opts:order.map(k=>[r[k],next,k=='b'?null:()=>qFlag(id,(k=='c'?'crown':'cross')+i)])});
+  return{start:'a',nodes:{
+    a:{say:"(Augustus has two letters on the reading table, side by side, and his hands flat between them.) My brother sent you. Or was it Father Thyme? Everyone has sent someone today. One letter says the crown, one says the cross, and both want an answer by tonight.",
+      opts:[["Tell me what's troubling you.",'q1',()=>{const q=qOf(id);if(q)q.flags={}}]]},
+    q1:ask('1',"My father, on his last night, held my hand and said: 'Look after your brother.' Only that. Leopold says it means stand by him. Father Thyme says it means pray for him. Which is it?",
+      {c:"Stand by him. You can pray in the palace just as well.",x:"Pray for him. That's the one thing nobody else can do.",b:"It means keep your head down and don't make trouble."},['c','x','b'],'q2'),
+    q2:ask('2',"Leopold will be a proud king, and a lonely one. If I go up the mountain, he has nobody. If I stay, the Church says I'll only ever be his shadow. Is that all I'd be?",
+      {c:"A king needs one honest man beside him. That's no shadow.",x:"Up the mountain you'd be yourself, not anybody's shadow.",b:"The Church could make you king instead. Think about that."},['b','x','c'],'q3'),
+    q3:ask('3',"And God. I've asked Him every night this week, and He hasn't said a word. Father Thyme says silence is an answer. What do you say?",
+      {c:"Perhaps He's saying: serve where you're needed. That's here.",x:"Perhaps He's waiting for you to go somewhere quiet and listen.",b:"Stop asking, and decide for yourself."},['x','b','c'],'d'),
+    d:{say:"(Augustus closes the book on his finger, and is quiet for a long time.)",opts:[
+      ["(Wait for his answer.)",side,end(side),won],["(Wait for his answer.)",other,end(other),()=>!won()]]},
+    crown:{say:"(He folds the cross's letter in half.) Then I'll stay. Leopold will have his brother beside him, and God will have to make do with the palace chapel. Will you tell them? I haven't the courage to tell Father Thyme myself."},
+    cross:{say:"(He folds the crown's letter in half.) Then I'll go up the mountain. Leopold will have his crown, and I'll pray for him every day, as Father asked. Will you tell them? I haven't the courage to tell my brother myself."}}}};
+// what Leopold and Father Thyme say when you bring them Augustus's answer
+const CBX_LEO_WON={start:'a',nodes:{a:{say:"(Leopold lets out a breath he seems to have held all week.) He's staying. My brother, beside me. (He straightens his collar, and his face.) The crown is grateful, journalist. So am I. (Royal Family: +1 point.)"}}};
+const CBX_LEO_LOST={start:'a',nodes:{a:{say:"(Leopold goes very still.) The mountain. Of course. Father Thyme has had him for years, one book at a time. (He turns to the window.) Leave me, please. (Royal Family: -1 point. Orthodox Church: +1 point.)"}}};
+const CBX_THYME_WON={start:'a',nodes:{a:{say:"(Father Thyme closes his eyes and crosses himself.) He'll come. God be thanked, and you with Him. There's a cell ready, with a window to the east. There always has been. (Orthodox Church: +1 point.)"}}};
+const CBX_THYME_LOST={start:'a',nodes:{a:{say:"(Father Thyme nods slowly, as if he'd known.) The palace, then. Well, God is in the palace too, whatever Leopold thinks. We'll pray for them both. (Orthodox Church: -1 point. Royal Family: +1 point.)"}}};
+// what Augustus says once he's chosen (the same in both quests)
+const CBX_AFTER=[{flag:'crown',name:'Augustus',say:"(Augustus is back with the saints, but the library door's open now.) I'm staying. Leopold has started asking my opinion at breakfast. It's terrifying."},
+  {flag:'cross',name:'Augustus',say:"(Augustus has a small bag packed by the library door.) Father Thyme says there's a cell with a window to the east. I've never had a window of my own."}];
 const QUESTS={
 // ---- 22 August, at Langley: Joan at the front desk (yours from the start of a new game: start:true), then your alias, then
 // your briefing.
@@ -1834,6 +1864,32 @@ beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says M
       a:{say:"Package for you, came in on the night drop. Smells like a coffee shop in Rio. Here you go."}}}},
     {give:'beans',to:'Maya',what:'Take the coffee beans to Maya at the Coffee Roasters in Eastbrook'}],
   thanks:"Colombian? Real Colombian beans? Oh, you wonderful person. Your coffee's on the house, forever. Well, for a week."},
+// Crown Before Cross (the Royal Family, 15 September) and Cross Before Crown (the Orthodox Church, the same day), mirror images:
+// Leopold wants his brother Augustus to choose the crown and the family; Father Thyme wants him to choose God and the monastery.
+// Talk to Augustus in the Royal Library (AUG_TALK: two of his three worries answered your side's way wins him over), then tell the
+// one who sent you. Won: +1 for them. Lost: -1 for them, and +1 for the other side. Both are main quests, so you can take on only one.
+crownbeforecross:{title:'Crown Before Cross',giver:'Leopold',main:true,day:15,seq:true,choices:{won:'persuade Augustus to choose the crown',lost:'fail, and he chooses the Church'},
+  text:"Prince Leopold needs his brother Augustus beside him, but the Church wants Augustus for itself. Talk to Augustus, in the Royal Library at the palace in Kingsgrad, and persuade him that his duty is to the crown and his family. Then tell Leopold, in the throne room.",
+  offer:"Journalist. A word, between us. My brother Augustus spends his days with the saints and his evenings with Father Thyme's books, and the monks want him up the mountain, away from us. I need him here. Will you talk to him? He listens to strangers more than he listens to me.",
+  accept:"He's in the library. He always is. Be gentle: he startles like a deer.",
+  wait:"Have you talked to Augustus? He's in the library.",
+  aftermath:CBX_AFTER,
+  done:[
+    {talk:'Augustus',ok:q=>!!q.choice,chat:AUG_TALK('crownbeforecross','crown'),what:'Talk to Augustus, in the Royal Library at the palace, and persuade him to choose the crown'},
+    {if:'won',talk:'Leopold',points:{royal:1},chat:CBX_LEO_WON,what:'Tell Leopold, in the throne room at the palace'},
+    {if:'lost',talk:'Leopold',points:{royal:-1,church:1},chat:CBX_LEO_LOST,what:'Tell Leopold, in the throne room at the palace'}],
+  thanks:"Augustus has chosen, one way or the other."},
+crossbeforecrown:{title:'Cross Before Crown',giver:'Father Thyme',main:true,day:15,seq:true,choices:{won:'persuade Augustus to choose the Church',lost:'fail, and he chooses the crown'},
+  text:"Father Thyme believes Prince Augustus is called to the monastery, but the palace wants him for the crown. Talk to Augustus, in the Royal Library at the palace in Kingsgrad, and persuade him that his calling is to God and the Church. Then tell Father Thyme, at the Mountain-Top Monastery.",
+  offer:"(Father Thyme lays a hand on a worn book.) Augustus borrowed this from me when he was nine. He has been reading his way up this mountain ever since, and today the palace will try to keep him down there. Will you talk to him? He listens to strangers more than he listens to me.",
+  accept:"He'll be in the Royal Library. He always is. Be gentle: nobody has ever pushed that boy towards anything good.",
+  wait:"Have you spoken to Augustus? He'll be in the Royal Library.",
+  aftermath:CBX_AFTER,
+  done:[
+    {talk:'Augustus',ok:q=>!!q.choice,chat:AUG_TALK('crossbeforecrown','cross'),what:'Talk to Augustus, in the Royal Library at the palace, and persuade him to choose the Church'},
+    {if:'won',talk:'Father Thyme',points:{church:1},chat:CBX_THYME_WON,what:'Tell Father Thyme, at the Mountain-Top Monastery'},
+    {if:'lost',talk:'Father Thyme',points:{church:-1,royal:1},chat:CBX_THYME_LOST,what:'Tell Father Thyme, at the Mountain-Top Monastery'}],
+  thanks:"Augustus has chosen, one way or the other."},
 // Cover Blown (a side quest, from 26 September): Solveig, the Gazette's sub-editor, back from Fleet Street, has worked out you're no
 // reporter. Talk her round (three questions about Fleet Street; one wrong answer and only the other two ways are left), pay her $500
 // of your own for her silence, or ask her to the jetty at Eastbrook Harbour and silence her for good: she's gone for the rest of the
