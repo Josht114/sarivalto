@@ -207,20 +207,20 @@ function questEndings(Q){if(!Q.choices)return'';
     return`<li><b>${esc(Q.choices[k].replace(/^./,ch=>ch.toUpperCase()))}</b>: ${esc(fx.length?fx.join(', '):'no change to the factions’ points')}</li>`};
   return`<p><b>Endings</b></p><ul class="qend">${Object.keys(Q.choices).map(row).join('')}</ul>`}
 // every named quest on the schedule, in day order (the day's main quests in the game, the factions' planned quests, George's
-// evening jobs and the side quests), with whether it's in the game yet (added) and whether it has been tested (tested:true on
-// the quest in QUESTS)
+// evening jobs and the side quests), with whether it's in the game yet (added), whether it has been tested (tested:true on
+// the quest in QUESTS) and whether it's finished (completed:true)
 function questProgress(sideOn){const rows=[],seen=new Set(),add=(t,d,kind)=>{if(seen.has(d+'|'+t))return;seen.add(d+'|'+t);rows.push({t,d,kind})};
   const find=(t,d)=>Object.values(QUESTS).find(Q=>Q.title==t&&(Q.day==null||Q.day==(d==0?-9:d)));
   for(let d=0;d<=30;d++){mainsOn(d).forEach(id=>add(QUESTS[id].title,d,''));Q_COLS.forEach(f=>{const t=QUEST_TITLES[d]?.[f];if(t)add(t,d,'')});
     for(const f in QUEST_EVENINGS[d]||{})add(QUEST_EVENINGS[d][f],d,'evening');sideOn(d).forEach(id=>add(QUESTS[id].title,d,'side quest'))}
   QUEST_SIDES_PLANNED.forEach(t=>add(t,null,'side quest'));
-  const yes='<b class="tick">&#10003;</b>',added=rows.filter(r=>find(r.t,r.d)).length,tested=rows.filter(r=>find(r.t,r.d)?.tested).length;
+  const yes='<b class="tick">&#10003;</b>',added=rows.filter(r=>find(r.t,r.d)).length,tested=rows.filter(r=>find(r.t,r.d)?.tested).length,completed=rows.filter(r=>find(r.t,r.d)?.completed).length;
   // beside the table, a panel for each: the percentage, a bar, and the count (it stays in view as the table scrolls past)
   const pct=n=>Math.round(n/rows.length*100),stat=(lb,n)=>`<div class="pstat"><div class="pnum">${pct(n)}%</div><div class="plb">${lb}</div><div class="pbar"><i style="width:${pct(n)}%"></i></div><div class="pof">${n} of ${rows.length} quests</div></div>`;
-  return`<h2 id="progress">Progress</h2><p>Every named quest on the schedule: ${added} of ${rows.length} added to the game, ${tested} tested.</p>
-<div class="prog"><table class="sched sum"><thead><tr><th>Quest</th><th>Added</th><th>Tested</th></tr></thead><tbody>${rows.map(r=>{const Q=find(r.t,r.d);
-    return`<tr><td>${esc(r.t)} <small>(${esc(r.d==null?'day not set':qDate(r.d==0?-9:r.d))}${r.kind?', '+r.kind:''})</small></td><td>${Q?yes:''}</td><td>${Q?.tested?yes:''}</td></tr>`}).join('')}</tbody></table>
-<aside class="pstats">${stat('added to the game',added)}${stat('tested',tested)}</aside></div>`}
+  return`<h2 id="progress">Progress</h2><p>Every named quest on the schedule: ${added} of ${rows.length} added to the game, ${tested} tested, ${completed} completed.</p>
+<div class="prog"><table class="sched sum"><thead><tr><th>Quest</th><th>Added</th><th>Tested</th><th>Completed</th></tr></thead><tbody>${rows.map(r=>{const Q=find(r.t,r.d);
+    return`<tr><td>${esc(r.t)} <small>(${esc(r.d==null?'day not set':qDate(r.d==0?-9:r.d))}${r.kind?', '+r.kind:''})</small></td><td>${Q?yes:''}</td><td>${Q?.tested?yes:''}</td><td>${Q?.completed?yes:''}</td></tr>`}).join('')}</tbody></table>
+<aside class="pstats">${stat('added to the game',added)}${stat('tested',tested)}${stat('completed',completed)}</aside></div>`}
 // the day a side quest can first be had: its first day (from), the day the places it needs are open (opens), or the day of the
 // quest that gives it to you (given)
 function sideDay(id){const Q=QUESTS[id];if(Q.given){const from=Object.keys(QUESTS).find(k=>QUESTS[k].done.some(st=>[st.gives||[]].flat().includes(id)));return from?Math.max(0,QUESTS[from].day??1):1}

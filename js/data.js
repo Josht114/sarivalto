@@ -819,6 +819,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //                        options are made for you: pay, or not now)
 // note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
 // tested: true once the quest has been played through and checked (the wiki's Quests page shows which are; none yet).
+// completed: true once the quest is finished, nothing left to add or fix (the Completed column on the wiki's Quests page).
 // evening: offered on its day once night has fallen (George's jobs), not in the morning. A spot condition can need an item in
 // your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
 // makes if its conversation didn't make one.
@@ -1833,11 +1834,11 @@ beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says M
       a:{say:"Package for you, came in on the night drop. Smells like a coffee shop in Rio. Here you go."}}}},
     {give:'beans',to:'Maya',what:'Take the coffee beans to Maya at the Coffee Roasters in Eastbrook'}],
   thanks:"Colombian? Real Colombian beans? Oh, you wonderful person. Your coffee's on the house, forever. Well, for a week."},
-// Cover Blown (a side quest, from 9 September): Solveig, the Gazette's sub-editor, back from Fleet Street, has worked out you're no
+// Cover Blown (a side quest, from 26 September): Solveig, the Gazette's sub-editor, back from Fleet Street, has worked out you're no
 // reporter. Talk her round (three questions about Fleet Street; one wrong answer and only the other two ways are left), pay her $500
 // of your own for her silence, or ask her to the jetty at Eastbrook Harbour and silence her for good: she's gone for the rest of the
 // game, and Henrik and Nora wonder where she is.
-coverblown:{title:'Cover Blown',giver:'Solveig',from:9,seq:true,choices:{convince:'convince her she is wrong',pay:'pay her $500 for her silence',kill:'silence her for good'},
+coverblown:{title:'Cover Blown',giver:'Solveig',from:26,seq:true,choices:{convince:'convince her she is wrong',pay:'pay her $500 for her silence',kill:'silence her for good'},
   text:"Solveig, the sub-editor at the Eastbrook Gazette, spent eleven years on Fleet Street, and she's worked out you're no reporter. Convince her she's wrong, pay her for her silence, or make sure she never tells anyone. She's at her desk in the Gazette's office in Eastbrook.",
   offer:"(Solveig shuts the archive door behind you.) I did eleven years on Fleet Street before I came home. I've cut the copy of a thousand reporters, and you don't talk like any of them. You never take notes. You never moan about your expenses. And nobody in London has heard of you: I rang. Shall we talk about what you really are?",
   accept:"(She folds her arms.) Go on, then. I'm listening.",

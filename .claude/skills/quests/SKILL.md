@@ -99,7 +99,8 @@ A quest item goes in `ITEMS` (`{name, desc, actions:[]}`) and needs a sprite in 
    JavaScript tool to jump ahead where walking would take long: `ME.quests`, `qOf('id')`, `meet(q,i)`, `questChoice`,
    `qFlag`, and moving the player with `place(m,[x,y],dir)`. Check every ending: each one completes, gives the right
    points (`FP.pts`), and nothing is left open on the Quests tab. Look at the console for errors.
-5. Tell the user which endings you tested and anything you couldn't.
+5. Tell the user which endings you tested and anything you couldn't. Don't set `tested:true` or `completed:true` on the quest
+   yourself: those are the user's to mark (they fill the Tested and Completed columns of the wiki's Quests page).
 
 ## Rules
 

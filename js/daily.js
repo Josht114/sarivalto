@@ -16002,10 +16002,10 @@ DAILY['Sirpa']={
   ["It's been quite a month.","A king buried, a mountain blown, a scarf given. (She grins.) I'll be telling this one for years, love."]],
  "Whatever happens, there'll be tea at Ray's after. Come along."],
 };
-// Solveig, sub-editor at the Eastbrook Gazette (The Reporters). Threads: her suspicion of the foreign journalist (days 4 to 8; from
-// day 9, after Cover Blown, a wry 'very bad memory' that fits talking her round or paying her off), her eleven years on Fleet Street
-// and coming home for her mother's funeral, subbing Nora's and Henrik's copy, the Gazette crossword she sets, her neighbours in the
-// Timber Lofts.
+// Solveig, sub-editor at the Eastbrook Gazette (The Reporters). Threads: her suspicion of the foreign journalist (days 4 to 25,
+// needling; from day 26, after Cover Blown, a wry 'very bad memory' that fits talking her round or paying her off), her eleven
+// years on Fleet Street and coming home for her mother's funeral, subbing Nora's and Henrik's copy, the Gazette crossword she sets,
+// her neighbours in the Timber Lofts.
 DAILY['Solveig']={
 4:["(Solveig doesn't get up. She's marking a proof with a blue pencil.) Solveig. I sub the Gazette: I cut what Nora writes and fix what Henrik writes. You'll be the one from London. Which paper?",[
   ["A daily. You won't have read it.","I read all of them, for eleven years, on the night train home. Try me another day."],
@@ -16037,7 +16037,7 @@ DAILY['Solveig']={
 9:["(Solveig has two glasses on her desk: one of Kelp Cola, one of something brown and suspicious.) The Party's making its own cola, and Kelp's making a new one. Henrik wants a taste test on the front page. I drew the short straw.",[
   ["Which is better?","Neither. Both taste of a committee."],
   ["Is that really news?","On this island, a new fizzy drink is news. In London it'd be a paragraph on page nine, next to the weather."],
-  ["Are we all right, you and me?","(She doesn't look up.) I've a very bad memory, journalist. It's served me well in this trade."]],
+  ["Still checking up on me?","(She doesn't look up.) The London exchange keeps dropping my calls. I'm a patient woman, journalist."]],
  "Drink the Kelp. It's safer."],
 10:["(Solveig is ruling a black border round the front page, slowly, with a steel rule.) The king's funeral. I did the border for the old queen too, when I was seventeen. Henrik let me hold the ruler. It was the first thing I ever did for this paper.",[
   ["Did you know the king?","I shook his hand once, at a school prize-giving. He asked what I wanted to be. I said 'a sub-editor', and he looked very sorry for me."],
