@@ -83,7 +83,13 @@ class Handler(SimpleHTTPRequestHandler):
         self.reply(200, {'ok': True})
 
 
+# the game asks for some twenty-five files at once: let them all queue (the default is five, and on Windows the rest are refused)
+class Server(ThreadingHTTPServer):
+    request_queue_size = 128
+    daemon_threads = True
+
+
 if __name__ == '__main__':
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
     print('Sarivalto on http://localhost:%d (saves in %s)' % (port, SAVES))
-    ThreadingHTTPServer(('localhost', port), Handler).serve_forever()
+    Server(('localhost', port), Handler).serve_forever()
