@@ -664,10 +664,11 @@ var ROUTINE=null;  // (var: setNight runs before this line on the first load)
 const aftermaths=()=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>(a.flag?q.flags?.[a.flag]:a.open)&&!(a.open&&q.done)));
 function applyRoutine(){if(!ROUTINE)return;NPCS.forEach(n=>Object.assign(n,eveningAt(n,NIGHT)||!atWorkWhen(n,NIGHT)&&ROUTINE.get(n)||n.atWork));
   // (and someone a quest of yours has waiting somewhere, while it's yours: meet)
-  // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first)
+  // (and what a quest left behind: someone hurt, say, for the rest of the game: aftermath; a hat it changed comes back first;
+  // gone: someone no longer on the island at all)
   NPCS.forEach(n=>{if(n._hat0!==undefined){n.hat=n._hat0;delete n._hat0}});
   for(const q of ME.quests){if(q.done||!QUESTS[q.id].meet)continue;for(const w of[QUESTS[q.id].meet].flat()){if(w.after!=null&&!q.met[w.after]||w.if&&q.choice!=w.if||w.flag&&!q.flags?.[w.flag])continue;const n=NPCS.find(p=>p.name==w.name);if(n)Object.assign(n,{m:w.m,x:w.x,y:w.y,dir:w.dir})}}
-  for(const a of aftermaths()){const n=NPCS.find(p=>p.name==a.name);if(!n)continue;if(a.m)Object.assign(n,{m:a.m,x:a.x,y:a.y,dir:a.dir});if(a.hat){n._hat0=n.hat??null;n.hat=a.hat}}}
+  for(const a of aftermaths()){const n=NPCS.find(p=>p.name==a.name);if(!n)continue;if(a.m)Object.assign(n,{m:a.m,x:a.x,y:a.y,dir:a.dir});if(a.gone)n.m=null;if(a.hat){n._hat0=n.hat??null;n.hat=a.hat}}}
 function planRoutine(){const R=new Map(),taken=new Set(),use={},D4=[[0,1],[0,-1],[-1,0],[1,0]];
   // the tiles of a place that are solid whoever is standing where (walls, furniture, props), worked out once per place
   const G={},grid=m=>G[m]??=MAPS[m].map((row,y)=>[...row].map((t,x)=>SOLID.includes(t)||PROPS.some(p=>{const sp=propSpan(p[3]),x0=p[1]-((sp-1)>>1);return p[0]==m&&x>=x0&&x<x0+sp&&p[2]==y&&!PROP_PASS.includes(p[3])})));

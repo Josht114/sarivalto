@@ -287,6 +287,13 @@
   "faction": "reporters"
  },
  {
+  "name": "Solveig",
+  "slug": "solveig",
+  "card": "personalities/groups/reporters/solveig.txt",
+  "first": 4,
+  "faction": "reporters"
+ },
+ {
   "name": "Olga",
   "slug": "olga",
   "card": "personalities/groups/shopkeepers/olga.txt",

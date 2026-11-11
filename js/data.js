@@ -472,6 +472,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 {m:'monks',x:13,y:2,dir:0,name:'Brother Mikael',home:'monks',loc:'monks',job:'Monk',faction:'church',gender:'male',body:'#3a3d44',hair:'#e8e8e8'},
 {m:'newsroom',x:14,y:3,dir:0,name:'Henrik',home:'house_henrik',loc:'newsroom',job:'Newspaper editor',faction:'reporters',gender:'male',body:'#5a5f68',hair:'#9a9a9a'},
 {m:'newsroom',x:8,y:6,dir:1,name:'Nora',home:'house_nora',loc:'newsroom',job:'Reporter',faction:'reporters',gender:'female',body:'#c9822a',hair:'#3a2a20'},
+// the Gazette's sub-editor, back from eleven years on Fleet Street: she knows what a London reporter sounds like (Cover Blown)
+{m:'newsroom',x:3,y:6,dir:1,name:'Solveig',home:'eblofts',loc:'newsroom',job:'Sub-editor',faction:'reporters',gender:'female',body:'#4a5a4a',hair:'#8a6a4a'},
 {m:'fishshop',x:6,y:2,dir:0,name:'Olga',home:'apartments',loc:'fishshop',job:'Fish shop owner',faction:'shops',gender:'female',body:'#5b8fb9',hair:'#8a8a8a',hat:'#3d5a40'},
 {m:'outfitters_in',x:11,y:6,dir:0,name:'Helmi',home:'apartments',loc:'outfitters_in',job:'Outfitter',faction:'shops',gender:'female',body:'#e0a100',hair:'#c8a060'},
 {m:'electro',x:5,y:2,dir:0,name:'Nils',home:'skyapts',loc:'electro',job:'Electronics store owner',faction:'republican',also:['shops'],gender:'male',body:'#3a3d44',hair:'#d9c9a0'},
@@ -1106,6 +1108,40 @@ const FH_HEKKI={start:'a',nodes:{
   b:{say:"Honoured. Really. Your room's ready, under my shack: go in, find the bookcase, and lean on the third shelf. It swings. I oiled it twice.",opts:[["What's down there?",'d']]},
   c:{say:"(He drops to a whisper.) Sorry. Sorry. I've been practising. Your room's under my shack: the bookcase, third shelf. Lean on it. It swings.",opts:[["What's down there?",'d']]},
   d:{say:"Radio sets, tape recorders, a bed, a stove, and more tinned soup than one person needs. And the big screen: Chuck calls on it every morning, and he'll want to hear you've landed. (He swallows.) Welcome to Sarivalto, NIGHTJAR."}}};
+
+// Cover Blown: Solveig's questions about Fleet Street (one wrong answer and she won't be talked round: the flag doubt), her price,
+// and the meeting on the jetty at Eastbrook Harbour
+const CB_DOUBT=()=>!!qOf('coverblown')?.flags?.doubt;
+const CB_DEAL=[["Everyone has a price. What's yours?",'pay'],["(Silence her for good: ask her to meet you on the harbour jetty.)",'kill',()=>questChoice('coverblown','kill')],["I need to think.",null]];
+const CB_WRONG={say:"(Solveig writes something down, and underlines it twice.) No. A reporter wouldn't say that. Nice try. So: what are you going to do about me?",opts:CB_DEAL};
+const CB_TALK={start:'a',nodes:{
+  a:{say:"(Solveig sits on the corner of her desk, a pencil behind her ear.) Well? Who are you really? A policeman? Or something with an embassy behind it?",opts:[
+    ["I'm a reporter. Ask me anything you like.",'q1',null,()=>!CB_DOUBT()],...CB_DEAL]},
+  q1:{say:"All right. Where do you drink, on Fleet Street?",opts:[
+    ["I don't, while I'm working.",'w',()=>qFlag('coverblown','doubt')],
+    ["El Vino's, when someone else is paying.",'q2'],
+    ["Wherever the embassy people go.",'w',()=>qFlag('coverblown','doubt')]]},
+  q2:{say:"(She makes a note.) And when your copy reaches the subs, what do they do to it?",opts:[
+    ["Check it for anything that shouldn't be printed.",'w',()=>qFlag('coverblown','doubt')],
+    ["Send it down the wire to the printers.",'w',()=>qFlag('coverblown','doubt')],
+    ["Cut it in half, and give it a headline I hate.",'q3']]},
+  q3:{say:"Last one. Why would a London paper send anybody to Sarivalto, for a dead king nobody there has heard of?",opts:[
+    ["Sarivalto matters more than London thinks.",'w',()=>qFlag('coverblown','doubt')],
+    ["They didn't. I begged. It was this or the magistrates' courts.",'yes',()=>{qFlag('coverblown','convinced');questChoice('coverblown','convince')}],
+    ["The king was an old friend of my proprietor.",'w',()=>qFlag('coverblown','doubt')]]},
+  w:CB_WRONG,
+  yes:{say:"(Solveig laughs, for the first time, and puts the pencil back behind her ear.) The magistrates' courts. God, I remember those. All right, journalist: you're a hack, like the rest of us. Forget I said anything. You can buy me a drink at El Vino's when we're both home."},
+  pay:{say:"(She looks at you over her glasses.) Five hundred dollars. Cash, not a cheque. For that, I never saw you, and I've a very bad memory.",opts:[
+    ["Here. Five hundred.",'paid',()=>{ME.cash-=500;qFlag('coverblown','paid');questChoice('coverblown','pay')},()=>ME.cash>=500],
+    ["I haven't got that on me.",'broke',null,()=>ME.cash<500],
+    ["Too much. Forget it.",null]]},
+  paid:{say:"(She counts it twice, and it goes into her handbag.) A pleasure doing business. Don't come in here asking me for a story, will you? I've forgotten you exist."},
+  broke:{say:"Then come back when you have. I'm not going anywhere. Neither is my notebook."},
+  kill:{say:"(She looks at you for a long moment.) The south jetty at Eastbrook Harbour? All right. I'll be there. And I'll tell Henrik where I've gone, so don't get any ideas."}}};
+const CB_JETTY={start:'a',nodes:{
+  a:{say:"(Solveig is at the end of the jetty, her coat buttoned to the chin, watching the water.) Well, I'm here, and nobody else is. So, what are you?",opts:[
+    ["(Do it.)",'b',()=>qFlag('coverblown','jetty')],["Not yet.",null]]},
+  b:{say:"(It's over quickly. The water closes over her, and the jetty is empty again. Her notebook goes in after her.)"}}};
 const QUESTS={
 // ---- 22 August, at Langley: Joan at the front desk (yours from the start of a new game: start:true), then your alias, then
 // your briefing.
@@ -1214,7 +1250,8 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
 // while the quest is yours ({name, m, x, y, dir}, or a list of them; after: only once that condition is met; if: only on that
 // choice) instead of keeping their routine. A conversation option can make a choice (questChoice(quest, choice), and the choice can be changed until its conditions are met; an option's fourth part, a
 // function, decides whether it's offered); aftermath: what a flag on the quest does to someone from then on, for the rest of the
-// game, done or not ({flag, name, m, x, y, dir, hat: a hat colour, such as a bandage, say: what they say; open: only while the quest
+// game, done or not ({flag, name, m, x, y, dir, hat: a hat colour, such as a bandage, gone: true to take them off the island for
+// good, say: what they say; open: only while the quest
 // isn't done, such as a hint}); looks: things to look at while the quest is yours ({spot, flag, say, what, day, not: a
 // choice it's not for; gift: an item you get the first time, again: what's said after that}), which set a flag; a condition with
 // if: belongs to that choice only (or to any of a list of choices: a step on more than one path). A condition can also give points to factions as it's met (points: {faction: n}) and set a flag
@@ -1796,6 +1833,26 @@ beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says M
       a:{say:"Package for you, came in on the night drop. Smells like a coffee shop in Rio. Here you go."}}}},
     {give:'beans',to:'Maya',what:'Take the coffee beans to Maya at the Coffee Roasters in Eastbrook'}],
   thanks:"Colombian? Real Colombian beans? Oh, you wonderful person. Your coffee's on the house, forever. Well, for a week."},
+// Cover Blown (a side quest, from 9 September): Solveig, the Gazette's sub-editor, back from Fleet Street, has worked out you're no
+// reporter. Talk her round (three questions about Fleet Street; one wrong answer and only the other two ways are left), pay her $500
+// of your own for her silence, or ask her to the jetty at Eastbrook Harbour and silence her for good: she's gone for the rest of the
+// game, and Henrik and Nora wonder where she is.
+coverblown:{title:'Cover Blown',giver:'Solveig',from:9,seq:true,choices:{convince:'convince her she is wrong',pay:'pay her $500 for her silence',kill:'silence her for good'},
+  text:"Solveig, the sub-editor at the Eastbrook Gazette, spent eleven years on Fleet Street, and she's worked out you're no reporter. Convince her she's wrong, pay her for her silence, or make sure she never tells anyone. She's at her desk in the Gazette's office in Eastbrook.",
+  offer:"(Solveig shuts the archive door behind you.) I did eleven years on Fleet Street before I came home. I've cut the copy of a thousand reporters, and you don't talk like any of them. You never take notes. You never moan about your expenses. And nobody in London has heard of you: I rang. Shall we talk about what you really are?",
+  accept:"(She folds her arms.) Go on, then. I'm listening.",
+  wait:"Still here. Still waiting. Who are you really?",
+  meet:{name:'Solveig',m:'savilaharbour',x:24,y:13,dir:2,if:'kill'},
+  aftermath:[{flag:'killed',name:'Solveig',gone:true},
+    {flag:'killed',name:'Henrik',say:"(Henrik puts the telephone down as you come in.) Solveig hasn't been back. She's never missed an edition in her life. She said she was meeting somebody at the harbour. You haven't seen her, have you?"},
+    {flag:'killed',name:'Nora',say:"(Nora's desk is covered in notes, all of them about Solveig.) Her coat's still on its hook. The police say she'll turn up. People don't just walk off an island this size."},
+    {flag:'convinced',name:'Solveig',say:"(Solveig doesn't look up from the proofs.) El Vino's. You owe me a drink. Don't think I'll forget."},
+    {flag:'paid',name:'Solveig',say:"(Solveig glances up from the proofs, and down again.) Sorry, have we met?"}],
+  done:[
+    {talk:'Solveig',ok:q=>!!q.choice,chat:CB_TALK,note:'$500 of your own cash to pay her off',
+      what:"Deal with Solveig, at her desk in the Eastbrook Gazette: talk her round, pay her off, or get her alone"},
+    {if:'kill',talk:'Solveig',ok:q=>!!q.flags?.jetty,flag:'killed',chat:CB_JETTY,what:'Meet Solveig on the south jetty at Eastbrook Harbour, and silence her for good'}],
+  thanks:"Your cover holds, one way or another."},
 pizza:{title:'Pizza for Buttons',giver:'Buttons',opens:['lake','town'],text:'Buttons the jester is starving. Bring him a slice of pizza from the pizzeria in Kingsgrad.',
   offer:"Psst! A jester can't live on laughs alone. Fetch me a slice of pizza from Kingsgrad and I'll be forever in your debt!",
   accept:'Splendid! Pepperoni, if they have it. Hurry back!',wait:'No pizza yet? My stomach is doing somersaults!',

@@ -1,0 +1,18 @@
+Name: Solveig
+Gender: Female
+Faction: None
+Group: The Reporters
+Partner: None
+Job: Sub-editor
+Home: Timber Lofts (Eastbrook)
+
+Bio:
+The Eastbrook Gazette's sub-editor, back
+on the island after eleven years on Fleet
+Street in London.
+Precise, patient and hard to fool: she has
+cut a thousand reporters' copy, and knows
+how they talk, drink and lie.
+Thinks the foreign journalist has never
+filed a story in their life, and means to
+find out who they really are.

@@ -86,6 +86,7 @@ Side quests (in the game, in side-quests):
   Jonna's First Customer (day 4)
   Beans for Maya (day 4)
   Pizza for Buttons (day 7)
+  Cover Blown (day 9)
 
 Planned side quests (not in the game yet, in side-quests):
   DJ CIA
