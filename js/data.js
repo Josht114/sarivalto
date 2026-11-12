@@ -59,7 +59,7 @@ village:['Saltwick',44,30,'snow',[
 [20,14,4,5,'#',"Tom's House",'h1'],[21,18,1,1,'d'],
 [26,14,4,5,'#',"Sam's House",'h2'],[27,18,1,1,'d'],
 [32,14,4,5,'#','House for Sale','h3'],[33,18,1,1,'d'],
-[38,14,4,5,'#',"Kate's House",'h4'],[29,22,8,5,'#',"Aili's Diner",'diner'],[32,26,1,1,'d'],[22,27,11,1,','],[39,18,1,1,'d'],
+[38,14,4,5,'#',"Kate's House",'h4'],[29,22,8,5,'#',"Aili's Diner",'diner'],[32,26,1,1,'d'],[22,27,11,1,','],[10,23,6,4,'#','Barber','barber'],[12,26,1,1,'d'],[12,27,5,1,','],[39,18,1,1,'d'],
 [6,11,1,1,','],[20,11,1,1,','],[35,11,1,1,','],[2,19,40,1,','],[10,13,1,6,','],[36,13,1,6,',']]],
 plant:['Fish Processing Plant',20,12,'interior',[[3,2,14,2,'g','Processing Line'],[2,6,3,2,'x','Fish Crates'],[15,6,3,2,'x','Ice Crates'],[8,6,4,1,'c','Packing Bench']]],
 hq:['Communist Party HQ',20,14,'interior',[[2,2,5,2,'u','Desk'],[13,2,5,2,'u','Desk'],[6,6,8,2,'u','Meeting Table'],[2,9,2,3,'y','Files'],[16,9,2,3,'y','Archive']]],
@@ -184,6 +184,8 @@ arcadein:['Arcade',16,10,'interior',[[1,1,6,1,'y','Arcade Screens'],[9,1,6,1,'y'
 mart:['Nordmart',18,12,'interior',[[1,1,6,1,'y','Fridge'],[8,1,9,1,'y','Shelves'],[2,4,6,1,'y','Shelves'],[10,4,6,1,'y','Shelves'],[2,7,6,1,'y','Shelves'],[10,7,6,1,'y','Shelves'],[12,9,4,1,'c','Checkout']]],
 cinemain:['Cinema',18,12,'interior',[[2,3,6,1,'o'],[10,3,6,1,'o'],[2,5,6,1,'o'],[10,5,6,1,'o'],[2,7,6,1,'o'],[10,7,6,1,'o'],[1,9,3,1,'y','Shelves'],[12,9,4,1,'c','Ticket Counter']]],
 cafe:['Coffee Roasters',12,13,'interior',[[1,5,4,1,'y','Shelves'],[6,5,2,1,'i','Roaster'],[2,7,6,1,'c','Counter'],[2,10,2,1,'u','Table'],[7,10,3,1,'u','Table'],[1,4,4,1,'W'],[6,4,5,1,'W'],[1,1,2,1,'i','Oven'],[4,1,3,1,'y','Pantry Shelves'],[8,1,2,1,'x','Sink'],[10,1,1,1,'y','Fridge'],[8,3,3,1,'u','Kitchen Table']]],
+// Tove's barber shop in Saltwick: a long mirror along the back wall over three red barber chairs, a bench to wait on and a till
+barber_in:['Barber Shop',12,9,'interior',[[1,1,10,1,'y','Barber Mirrors'],[2,3,1,1,'x','Barber Chair'],[5,3,1,1,'x','Barber Chair'],[8,3,1,1,'x','Barber Chair'],[1,6,3,1,'x','Bench'],[8,6,3,1,'c','Counter']]],
 tattoo:['Tattoo Shop',12,9,'interior',[[1,1,3,1,'y','Inks'],[8,1,3,1,'y','Shelves'],[2,3,2,2,'e','Tattoo Bench'],[7,3,2,2,'e','Tattoo Bench'],[8,6,3,1,'c','Counter']]],
 // Kingsgrad Police Station: three cells behind bars along the back wall, a corridor, then the front desk and the officers' desks.
 police:['Kingsgrad Police Station',20,12,'interior',[[7,1,1,4,'W'],[13,1,1,4,'W'],[1,1,2,2,'e','Bunk'],[8,1,2,2,'e','Bunk'],[14,1,2,2,'e','Bunk'],
@@ -478,6 +480,9 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 // the Gazette's sub-editor, back from eleven years on Fleet Street: she knows what a London reporter sounds like (Cover Blown)
 {m:'newsroom',x:3,y:6,dir:1,name:'Solveig',home:'eblofts',loc:'newsroom',job:'Sub-editor',faction:'reporters',gender:'female',body:'#4a5a4a',hair:'#8a6a4a'},
 {m:'fishshop',x:6,y:2,dir:0,name:'Olga',home:'apartments',loc:'fishshop',job:'Fish shop owner',faction:'shops',gender:'female',body:'#5b8fb9',hair:'#8a8a8a',hat:'#3d5a40'},
+// Tove cuts the hair and trims the beards of Saltwick, at the barber shop by the path down to the harbour; the only place on the
+// island to change your hair
+{m:'barber_in',x:6,y:3,dir:0,name:'Tove',home:'apartments',loc:'barber_in',job:'Barber',faction:'shops',gender:'female',body:'#e8e4da',hair:'#222222'},
 // Aili runs the diner, day and night, after twenty years behind a diner counter in Minnesota
 {m:'diner_in',x:7,y:2,dir:0,name:'Aili',home:'apartments',loc:'diner_in',job:'Diner owner',faction:'food',gender:'female',body:'#d8d0b8',hair:'#8a8a8a'},
 {m:'outfitters_in',x:11,y:6,dir:0,name:'Helmi',home:'apartments',loc:'outfitters_in',job:'Outfitter',faction:'shops',gender:'female',body:'#e0a100',hair:'#c8a060'},
@@ -578,7 +583,7 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 
 // ---- The player at the start of the game (placeholders): the CIA's operating funds, the player's own money, and what they carry
 // as [item id, how many] (ids are keys in ITEMS). QUESTS (below) are the quests. Both are shown in the start menu.
-const PLAYER={ciaFunds:5000,funds:250,hunger:80,nicotine:70,look:{hair:'short',hairCol:'#4a2e1a',beard:'none',beardCol:'#4a2e1a',hat:'beanie_yellow',top:'parka_blue',legs:'jeans_blue',shoes:'boots_brown'},clothes:['beanie_yellow','parka_blue','sweater_grey','jeans_blue','khakis','boots_brown'],items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
+const PLAYER={ciaFunds:5000,funds:250,hunger:80,nicotine:70,look:{hair:'short',hairCol:'#4a2e1a',beard:'none',beardCol:'#4a2e1a',hat:'beanie_yellow',top:'parka_blue',legs:'jeans_blue',shoes:'boots_brown'},clothes:['beanie_yellow','parka_blue','jeans_blue','boots_brown'],items:[['notebook',1],['camera',1],['film',3],['codebook',1],['lockpicks',1],['flashlight',1]]};
 // ---- Items: the name, the description shown in the inventory, and the actions you can take with it (each action is handled in
 // game.js; ones it doesn't handle yet say so). Their sprites are ITEM_ART in art.js.
 // ITEMS: each thing you can carry: its name, description and what you can do with it (actions); equip:true means it can be held
@@ -721,6 +726,7 @@ get Sally(){const n=typeof NPCS!='undefined'&&NPCS.find(p=>p.name=='Sally');retu
 // Peggy flies you out, once Chuck has briefed you
 get Peggy(){const ok=typeof qOf=='function'&&qOf('briefing')?.done;if(ok&&!flySupplied())return{start:'a',nodes:{a:{say:PEGGY_SUPPLIES}}};return{start:'a',nodes:{a:ok?{say:"Me again: I'm your ride. It's a long way to the Baltic, and we don't land anywhere anyone can see: a fishing boat meets us off the island at dawn and takes you the rest of the way in. Ready?",opts:[["Let's go.",null,()=>boardPlane()],['Not yet.',null]]}:{say:"(Peggy grins.) Back for more? I'm flying you, wherever it is. We're not going anywhere until Chuck's had his talk with you, upstairs. Then she's all yours."}}}},
 Doris:{start:'a',nodes:{a:{say:"(Doris looks you up and down.) You again. Sit down, let's have a look at you. Hair, clothes, the lot: wherever Chuck's sending you this time, you're not going in a government suit.",opts:[['Make me up.',null,()=>openCover()],['Not now.',null]]}}},
+Tove:{start:'a',nodes:{a:{say:"(Tove snaps a towel and lays it over the chair.) Sit down. A haircut is $15, a shave or a beard trim $8. Half of Saltwick pays me in fish, so anyone with cash is my favourite.",opts:[["A haircut or a shave, please.",null,()=>openBarber()],['Just looking.',null]]}}},
 Jonna:{start:'a',nodes:{a:{say:"Welcome to Ink and Pine. Something to remember the island by?",opts:[["I'd like a tattoo.",null,()=>openTattoo()],['Just looking.',null]]}}},
 Hekki:{start:'hello',nodes:{
   hello:{say:'So glad you made it.',opts:[['Me too.','metoo'],['This place sucks.','sucks'],['Is anyone on to you?','onto']]},
@@ -750,9 +756,14 @@ const DAY_ONLY_STALLS=[['colahq','newsstand'],['colahq','hotdog'],['colafactory'
 // ---- The wardrobe: what you can look like. Hair and facial hair styles and colours are free to change; clothes (CLOTHES, by slot:
 // hat, top, legs, shoes) must be owned. You start with PLAYER.clothes; the ones with an entry in ITEMS can be bought in the shops
 // and go straight into the wardrobe. style picks how each is drawn (js/art.js lookChar), col its colour.
+// (PLAYER.clothes is one outfit, the one you arrive at Langley in; the Cover Story Department adds the disguise you leave wearing.
+// Everything else in the home wardrobe has to be bought.)
 const HAIR_STYLES=[['short','Short'],['long','Long'],['bob','Bob'],['ponytail','Ponytail'],['curly','Curly'],['buzz','Buzz cut'],['bald','Bald']];
 const BEARD_STYLES=[['none','Clean-shaven'],['stubble','Stubble'],['moustache','Moustache'],['goatee','Goatee'],['beard','Full beard']];
 const HAIR_COLS=[['#1a1414','Black'],['#3a2418','Dark brown'],['#4a2e1a','Brown'],['#6b4423','Chestnut'],['#8a3a1e','Auburn'],['#c0662a','Ginger'],['#d8b060','Blonde'],['#ece0b0','Platinum'],['#8a8a8a','Grey'],['#e8e8e8','White']];
+// the barber (Tove, in Saltwick): the only place to change your hair and facial hair, from your own money. A new hairstyle or hair
+// colour costs hair; a new beard, moustache or stubble (or a clean shave), or its colour, costs shave
+const BARBER={name:'Tove',hair:15,shave:8};
 const CLOTHES={
 nohat:{slot:'hat',name:'No hat',style:'none'},
 beanie_yellow:{slot:'hat',name:'Yellow beanie',style:'beanie',col:'#e8c33a'},beanie:{slot:'hat',name:'Navy wool beanie',style:'beanie',col:'#2a3a5e'},
@@ -1998,7 +2009,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',39,6,0,1,'estateagent'],['town',45,21,0,1,'furniture_in'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,24,0,1,'spa_in'],['volcano',15,12,0,1,'volcano_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,8,0,1,'apartments3',22,10,0,-1],['skyapts2',22,8,0,1,'skyapts3',22,10,0,-1],['skyapts3',22,8,0,1,'skyapts4',22,10,0,-1],['eblofts2',22,8,0,1,'eblofts3',22,10,0,-1],['eblofts3',22,8,0,1,'eblofts4',22,10,0,-1],['kgapts2',22,8,0,1,'kgapts3',22,10,0,-1],['kgapts3',22,8,0,1,'kgapts4',22,10,0,-1],['hsresid',22,8,0,1,'hsresid2',22,10,0,-1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,10,0,-1],['skyapts',22,8,0,1,'skyapts2',22,10,0,-1],['eblofts',22,8,0,1,'eblofts2',22,10,0,-1],['kgapts',22,8,0,1,'kgapts2',22,10,0,-1],
 ['town',11,34,0,1,'pizzeria_in',9,11],['lighthouse_in',7,2,0,1,'lighthouse_top',7,6,0,-1],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['dphq_in',14,1,0,1,'dphq_office',21,9,0,-1],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['langley_out',15,5,0,1,'langley'],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
-['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['village',32,26,0,1,'diner_in'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
+['gated',34,7,0,1,'hsresid'],['village',12,26,0,1,'barber_in'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['village',32,26,0,1,'diner_in'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
 // ---- How each building looks from outside (feature style key -> look). kind: gable, flat or tall
@@ -2032,6 +2043,7 @@ hotpool:{kind:'hotspring'},
 villa4:{kind:'gable',wall:'#f2e8e0',roof:'#4a5a6a',trim:'#c9a040',win:'#a9d4e8',chim:.7,porch:1,planter:['#f2f2f2','#e07a9a','#ffd23a']},
 villa3:{kind:'gable',wall:'#e2d4b4',roof:'#2f4a3a',trim:'#c9a040',win:'#a9d4e8',chim:.3,porch:1,planter:['#7d3c98','#e07a9a','#f2f2f2']},
 hsresid:{kind:'tall',wall:'#f7f2e6',roof:'#4a6a9a',trim:'#c9a040',win:'#a9d4e8',planter:['#e07a9a','#f2f2f2','#ffd23a'],sign:'RESIDENCES',signk:'brass'},
+barber:{icon:'scissors',kind:'gable',wall:'#c8bca8',roof:'#5b5b56',trim:'#7a2a24',win:'#c9b878',chim:.3,awn:'#c0392b',sign:'BARBER',signk:'wood'},
 club:{kind:'flat',wall:'#2f3d4a',roof:'#3a3d44',trim:'#c9a040',win:'#f2d16b',cols:'#e8e2d4',sign:'THE CLUB',signk:'brass'},
 shack:{kind:'gable',wall:'#7a6048',roof:'#5a5f68',trim:'#4a3a2a',win:'#a9c7da',chim:.2,cable:'#b8322a'},
 tent:{kind:'tent'},
@@ -2151,7 +2163,7 @@ const PROPS=[
 ['village',12,11,'lamp'],['village',27,11,'lamp'],['village',8,13,'lamp'],['village',24,13,'lamp'],['village',40,13,'lamp'],
 ['village',23,11,'bench'],['village',11,9,'barrel'],['village',11,10,'crate'],['village',12,10,'crate'],['village',2,20,'barrel'],['village',3,20,'barrel'],
 ['village',24,17,'woodpile'],['village',30,17,'woodpile'],['village',22,20,'mailbox'],['village',28,20,'mailbox'],['village',34,20,'mailbox'],['village',40,20,'mailbox'],
-['village',31,13,'phone'],['village',14,22,'junk'],['village',25,27,'lamp'],['village',15,20,'tyre'],['village',8,21,'junk'],['village',9,22,'tyre'],['village',4,21,'tyre'],['village',12,13,'tyre'],['village',2,11,'junk'],['village',13,11,'trashbin'],
+['village',31,13,'phone'],['village',11,27,'barberpole'],['village',25,27,'lamp'],['village',15,20,'tyre'],['village',8,21,'junk'],['village',9,22,'tyre'],['village',4,21,'tyre'],['village',12,13,'tyre'],['village',2,11,'junk'],['village',13,11,'trashbin'],
 ['village',25,11,'cat'],['village',16,13,'litter'],['village',30,21,'litter'],['village',38,11,'litter'],['village',40,21,'bfence'],['village',41,21,'bfence'],['village',19,13,'trashbin'],['village',36,21,'cat'],['village',5,22,'bush'],['village',26,22,'bush'],['village',42,22,'bush'],['village',42,4,'bush'],['village',41,8,'bush'],
 ['harbour',21,4,'barrel'],['harbour',22,4,'barrel'],['harbour',22,3,'crate'],['harbour',19,5,'crate'],['harbour',20,5,'crate'],['harbour',16,6,'lamp'],['harbour',20,8,'lamp'],
 ['harbour',9,5,'bollard'],['harbour',4,8,'bollard'],['harbour',9,8,'bollard'],['harbour',7,6,'rope'],['harbour',15,10,'net'],['harbour',16,10,'net'],

@@ -647,7 +647,10 @@ buoy:[12,r=>{r('#c0392b',2,4,7,7);r('#f2f2f2',2,6,7,2);r('#e04a3a',3,4,2,3);r('#
 bollard:[9,r=>{r('#3a3d44',5,3,6,6);r('#5a5f68',4,1,8,3);r('#7a808a',5,1,3,1);r('#c9a36a',3,5,10,1);r('#c9a36a',11,6,3,1)}],
 rope:[6,r=>{r('#c9a36a',2,0,12,6);r('#a8834a',4,1,8,4);r('#8a6a3a',6,2,4,2);r('#e0c08a',3,0,4,1)}],
 anchor:[12,r=>{r('#4a4f58',7,0,2,10);r('#4a4f58',4,2,8,1);r('#4a4f58',2,8,2,3);r('#4a4f58',12,8,2,3);r('#4a4f58',3,10,10,2);r('#6a707a',7,0,1,10)}],
-sled:[8,r=>{r('#a8323a',1,1,13,4);r('#c94a50',1,1,13,1);r('#3a3a44',0,6,15,1);r('#3a3a44',2,5,1,1);r('#3a3a44',12,5,1,1);r(SNOW,3,0,6,1)}]};
+sled:[8,r=>{r('#a8323a',1,1,13,4);r('#c94a50',1,1,13,1);r('#3a3a44',0,6,15,1);r('#3a3a44',2,5,1,1);r('#3a3a44',12,5,1,1);r(SNOW,3,0,6,1)}],
+// a barber's pole: a glass tube striped red, white and blue on the slant, with a brass cap and foot on an iron post
+barberpole:[26,r=>{r('#c9a040',5,0,6,3);r('#e8c860',6,0,3,1);r('#c9a040',5,19,6,2);r('#3a3a44',7,21,2,4);r('#3a3a44',4,24,8,2);r(SNOW,4,23,8,1);
+  for(let y=3;y<19;y++)for(let x=0;x<4;x++){const k=(x+y)%6;r(k<2?'#c0392b':k<3||k==5?'#f4f4f0':'#2a5db0',6+x,y,1,1)}r('rgba(255,255,255,.35)',6,3,1,16);r('rgba(0,0,0,.18)',9,3,1,16)}]};
 // A prop's sprite is 16 pixels wide unless its entry gives a width (PA[k][2]): a wide one covers that many tiles, centred on its own tile.
 const PCACHE={},propArt=k=>PCACHE[k+(WMAP?'|'+WXID:'')]??=(k=='rock'?rocksNow()[1]:mk(PA[k][2]||16,PA[k][0],PA[k][1])),propSpan=k=>Math.round((PA[k]?.[2]||16)/16);
 
@@ -1454,6 +1457,7 @@ mill_in:{grime:1,fl:'wood',f:['#7a5232','#6b4a2e','#8a5a36'],wall:'#8a6a45',wall
 volcano_in:{fl:'basalt',f:[],wall:'#4a3c38',wall2:'#3a2e2c',pap:'rock',base:'#1e1818',deco:[]},
 spa_in:{fl:'wood',f:['#b08658','#a37a4e','#bb9062'],wall:'#8a6a45',wall2:'#6b4a2e',pap:'panel',base:'#3a2a20',rug:'#3d7a7a',deco:[[2,'win'],[6,'pic'],[11,'clock'],[15,'win'],[19,'win']]},
 cedargrill:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',rug:'#3d5a4a',curtain:'#3d5a4a',deco:[[12,'pic'],[16,'win']]},
+barber_in:{fl:'check',f:['#1e1e24','#f2f0ea'],wall:'#e8e4da',wall2:'#bcd0dc',pap:'stripe',base:'#7a1e1e',deco:[[0,'clock'],[11,'win']]},
 tattoo:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#2a2a30',wall2:'#3a3a44',pap:'stripe',base:'#7a1e2a',quilt:'#1a1a22',deco:[[1,'pic'],[3,'poster'],[5,'pic'],[7,'poster'],[10,'win']]},
 skyapts:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
 skyapts4:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',base:'#5a5f68',quilt:'#2e86c1',curtain:'#3a3d44',deco:[[5,'win'],[13,'win'],[21,'win'],[1,'poster'],[15,'clock']]},
@@ -1682,6 +1686,14 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   // a bronze statue of a man in a long coat on a granite plinth
   if(l=='statue'){const oy=20,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#7a7a76',1,TT-10,14,10);r('#9a9a96',1,TT-10,14,1);r('#5a5a56',1,TT-1,14,1);r('#c9a040',5,TT-6,6,2);
     r('#5a4028',6,1,4,5);r('#7a5a38',7,1,2,2);r('#4a3420',4,6,8,TT-17);r('#6b4a2e',5,6,2,TT-17);r('#4a3420',3,8,2,8);r('#4a3420',11,8,2,8);r('#3a2818',5,TT-11,2,1);r('#3a2818',9,TT-11,2,1)})}}
+  // the barber's mirror: one long looking glass along the back wall in a gilt frame, a marble shelf under it with tonic bottles,
+  // combs in a jar of blue Barbicide and a strop
+  if(l=='barber mirrors'){const oy=14,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#c9a040',0,0,W,TT-8);r('#e8c860',0,0,W,1);r('#9fc0cc',2,2,W-4,TT-12);
+    for(let x=6;x<W-4;x+=18){r('#cfe6f2',x,3,2,TT-15);r('#cfe6f2',x+3,3,1,TT-17)}r('#e8e4dc',0,TT-8,W,4);r('#c8c4bc',0,TT-5,W,1);r('#8a8478',0,TT-4,W,4);
+    for(let x=4;x<W-6;x+=12){const c=['#3a7ab8','#c0392b','#2e9d57','#e0a020'][(x>>2)%4];r(c,x,TT-12,3,4);r('#f4f4f0',x+1,TT-13,1,1)}for(let x=10;x<W-6;x+=40){r('#5ab0d0',x,TT-13,4,5);r('#2a2a30',x+1,TT-15,1,2);r('#2a2a30',x+2,TT-16,1,3)}})}}
+  // a barber's chair: red leather on a chrome pedestal, with a headrest and a footrest
+  if(l=='barber chair'){const oy=10,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#8a1e1e',4,0,8,3);r('#a52a2a',5,0,6,1);r('#9a9ea6',7,3,2,2);r('#8a1e1e',2,5,12,9);r('#b03030',3,5,10,2);r('#6a1414',2,12,12,2);
+    r('#c8ccd4',1,7,2,6);r('#c8ccd4',13,7,2,6);r('#c8ccd4',7,14,2,8);r('#e0e4ea',7,14,1,8);r('#9a9ea6',3,TT-3,10,3);r('#c8ccd4',3,TT-3,10,1);r('#9a9ea6',5,TT-6,6,2)})}}
   // a long wooden bench on black iron legs
   if(l=='bench'){const oy=4,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#2a2a30',3,9,2,TT-9);r('#2a2a30',W-5,9,2,TT-9);r('#2a2a30',(W>>1)-1,9,2,TT-9);for(const y of[3,6]){r('#8a6038',1,y,W-2,3);r('#a57a4a',1,y,W-2,1)}})}}
   // a potted plant: a broad-leaved fern in a white pot

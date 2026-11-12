@@ -235,14 +235,24 @@ document.getElementById('tday').onclick=e=>{if(DAY<DAYS){const n=setDay(nextDay(
 // the date picker beside Jump to: any day of the month
 const dayjump=document.getElementById('dayjump');DATES.forEach(d=>dayjump.appendChild(new Option(dateStr(d),d)));dayjump.value=DAY;
 dayjump.onchange=()=>{const n=setDay(+dayjump.value);say('It is now '+dateStr(DAY)+'.'+n);dayjump.blur()};
-// ---- The wardrobe in your home: your hair and facial hair (style and colour) and the clothes you own, with a preview of you from
-// each side. Up and down (or W and S) choose a row, left and right (or A and D) change it; the arrows on each row do the same.
-const WARD={row:0};
+// ---- The wardrobe in your home: the clothes you own, with a preview of you from each side. (Your hair and facial hair, style and
+// colour, are changed at the barber's in Saltwick, for a fee: the same screen with only those rows, WARD.barber.) Up and down (or W and S) choose a row, left and right (or A and D) change it; the arrows on each row do the same.
+const WARD={row:0,all:false,barber:false,was:null};
 // (in the Cover Story Department, WARD.all: every outfit in the game, and what you leave wearing is yours)
 const ownedOf=slot=>Object.keys(CLOTHES).filter(id=>CLOTHES[id].slot==slot&&(id=='nohat'||WARD.all||ME.clothes.includes(id))).map(id=>[id,CLOTHES[id].name]);
 const WROWS=[['hair','Hair',()=>HAIR_STYLES],['hairCol','Hair colour',()=>HAIR_COLS],['beard','Facial hair',()=>BEARD_STYLES],['beardCol','Facial hair colour',()=>HAIR_COLS],
   ['hat','Headwear',()=>ownedOf('hat')],['top','Top',()=>ownedOf('top')],['legs','Trousers',()=>ownedOf('legs')],['shoes','Shoes',()=>ownedOf('shoes')]];
-function openWardrobe(all){if(MENU||RIDE||BUSY)return;SHOP=null;WARD.all=!!all;START='wardrobe';stack=[];startEl.hidden=false;renderStart()}
+// the rows shown: all of them in the Cover Story Department, the hair ones at the barber's, the clothes at home
+const wrows=()=>WARD.all?WROWS:WARD.barber?WROWS.slice(0,4):WROWS.slice(4);
+function openWardrobe(all,barber){if(MENU||RIDE||BUSY)return;SHOP=null;WARD.all=!!all;WARD.barber=!!barber;WARD.row=0;
+  WARD.was=barber?{hair:ME.look.hair,hairCol:ME.look.hairCol,beard:ME.look.beard,beardCol:ME.look.beardCol}:null;START='wardrobe';stack=[];startEl.hidden=false;renderStart()}
+// ---- The barber's chair (Tove, in Saltwick): change your hair and facial hair, and pay as you get up: BARBER.hair for a new
+// hairstyle or colour, BARBER.shave for new facial hair or its colour, from your own money. Short of it, it's all put back.
+const barberFee=()=>{const w=WARD.was,l=ME.look;if(!w)return 0;return(w.hair!=l.hair||w.hairCol!=l.hairCol?BARBER.hair:0)+(w.beard!=l.beard||w.beardCol!=l.beardCol?BARBER.shave:0)};
+function openBarber(){if(P.m!='barber_in'){say(BARBER.name+' only cuts hair in the shop.',3500);return}openWardrobe(false,true)}
+function leaveBarber(){const fee=barberFee(),w=WARD.was;WARD.barber=false;WARD.was=null;if(!fee)return;
+  if(ME.cash<fee){Object.assign(ME.look,w);say(`That would be ${money(fee)}, and you don't have it of your own. ${BARBER.name} sighs and puts it all back the way it was.`,5500);return}
+  ME.cash-=fee;say(`${BARBER.name} brushes the hair off your collar. That's ${money(fee)}, paid from your own money.`,4500)}
 // ---- The Cover Story Department at Langley: the character creator. Every hairstyle, colour and outfit in the game to choose from;
 // leaving it, the clothes you have on go into your wardrobe at home, and your alias is done (questEvent 'alias').
 const openCover=()=>openWardrobe(true);
@@ -274,13 +284,13 @@ function cigMachine(){const lb=vendingAhead(),stock=VENDING[P.m][lb],cigs=lb=='C
     ...stock.map(([id,p,nm])=>[`Buy ${nm} (${money(p)})`,()=>{if(ME.cash<p){say(`You don't have ${money(p)} of your own.`,3500);return}
       ME.cash-=p;const c=has(id);if(c)c.n++;else ME.items.push({id,n:1});say(`Clunk. ${cigs?'A pack of cigarettes':nm.replace(/^./,c=>c.toUpperCase())} drops into the tray.`,3500);supplyCheck()}]),['Not now']])}
 const mirrorAhead=()=>{if(P.m!='langley_cover')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Dressing Mirror'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
-function wstep(i,dd){const[k,,f]=WROWS[i],o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k]));ME.look[k]=o[(j+dd+o.length)%o.length][0];WARD.row=i;renderStart()}
-function renderWardrobe(){const rows=WROWS.map(([k,label,f],i)=>{const o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k])),lc=label.toLowerCase();
+function wstep(i,dd){const[k,,f]=wrows()[i],o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k]));ME.look[k]=o[(j+dd+o.length)%o.length][0];WARD.row=i;renderStart()}
+function renderWardrobe(){const rows=wrows().map(([k,label,f],i)=>{const o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k])),lc=label.toLowerCase();
     return`<div class="wrow${i==WARD.row?' on':''}"><span class="wl">${label}</span><button data-w="${i}" data-d="-1" aria-label="Previous ${lc}">&#9664;</button>`+
       `<span class="wv">${k.endsWith('Col')?`<i class="wsw" style="background:${o[j][0]}"></i>`:''}${esc(o[j][1])} <small>${j+1}/${o.length}</small></span><button data-w="${i}" data-d="1" aria-label="Next ${lc}">&#9654;</button></div>`}).join('');
-  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">${WARD.all?'Cover Story Department <small>your alias</small>':'Wardrobe'}</h3><button class="close" aria-label="${WARD.all?'Done':'Close the wardrobe'}">&times;</button></div>
+  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">${WARD.all?'Cover Story Department <small>your alias</small>':WARD.barber?`Barber <small>${esc(BARBER.name)}'s chair</small>`:'Wardrobe'}</h3><button class="close" aria-label="${WARD.all||WARD.barber?'Done':'Close the wardrobe'}">&times;</button></div>
     <div class="wardrobe"><div class="wprev" aria-label="How you look">${[0,3,1,2].map(()=>'<canvas width="48" height="60"></canvas>').join('')}</div><div class="wopts">${rows}</div></div>
-    <p class="note">Up and down choose, left and right change. ${WARD.all?'Anything you leave wearing goes into your wardrobe. Close when you are done.':`More clothes are for sale at ${esc(NM.clothes_in)}, ${esc(NM.tailor)} and ${esc(NM.outfitters_in)}.`}</p>`;
+    <p class="note">Up and down choose, left and right change. ${WARD.all?'Anything you leave wearing goes into your wardrobe. Close when you are done.':WARD.barber?`A new hairstyle or colour is ${money(BARBER.hair)}, new facial hair (or a clean shave) ${money(BARBER.shave)}, from your own money. So far: <b>${money(barberFee())}</b>. Close when you are done, and pay on the way out.`:`More clothes are for sale at ${esc(NM.clothes_in)}, ${esc(NM.tailor)} and ${esc(NM.outfitters_in)}. For your hair, see ${esc(BARBER.name)}, the barber in Saltwick.`}</p>`;
   startEl.querySelectorAll('.wprev canvas').forEach((c,i)=>{const g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(lookChar([0,3,1,2][i],0,ME.look),0,0,48,60)});
   startEl.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>wstep(+b.dataset.w,+b.dataset.d));startEl.querySelector('.close').onclick=closeStart}
 // the wardrobe in your home is the tile you're facing
@@ -294,7 +304,7 @@ function mapFog(){if(typeof MAP_GEO=='undefined')return'';const G=MAP_GEO,shut=O
       `<path d="M14 7V-14" stroke="#4a3020" stroke-width="2.5"/><rect x="6" y="-22" width="18" height="10" rx="1.5" fill="#c0392b" stroke="#fff" stroke-width="1.5"/><path d="M15 -20V-15M15 -13.5V-13" stroke="#fff" stroke-width="2"/></g>`}).join('');
   return`<svg class="fog" viewBox="0 0 1700 860" aria-hidden="true"><defs><clipPath id="fogisl"><polygon points="${G.coast}"/></clipPath></defs><g clip-path="url(#fogisl)" fill="#1a2430" fill-opacity=".42">${cells}</g>${banks}</svg>`}
 function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
-function closeStart(){if(START=='wardrobe'&&WARD.all)leaveCover();START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
+function closeStart(){const cut=START=='wardrobe'&&WARD.barber;if(START=='wardrobe'&&WARD.all)leaveCover();START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false');if(cut)leaveBarber()}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // Z closes everything that's open at once: the menu (and any shop, game or map in it), a conversation (as Escape would), a menu of
 // choices, the quest news box, a message along the bottom, and furniture you're placing. Not the title screen or the opening film.
@@ -311,7 +321,7 @@ addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;co
   // in the casino and arcade games, the game takes the keys
   else if(typeof PLAYS!='undefined'&&PLAYS[START]){if(PLAYS[START].key(k,e))e.preventDefault()}
   else if(START=='wardrobe'){const m={ArrowUp:-1,w:-1,ArrowDown:1,s:1}[k.length==1?k.toLowerCase():k],c={ArrowLeft:-1,a:-1,ArrowRight:1,d:1}[k.length==1?k.toLowerCase():k];
-    if(m){WARD.row=(WARD.row+m+WROWS.length)%WROWS.length;renderStart();e.preventDefault()}else if(c){wstep(WARD.row,c);e.preventDefault()}}
+    if(m){const n=wrows().length;WARD.row=(WARD.row+m+n)%n;renderStart();e.preventDefault()}else if(c){wstep(WARD.row,c);e.preventDefault()}}
   else if(START=='shop'){const st=stockOf(SHOP.n),d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k];
     if(d){const n=SHOP.sel+d;if(n>=0&&n<st.length){SHOP.sel=n;SHOP.note=''}renderStart();e.preventDefault()}
     else if(k=='c'||k=='C'){buy('cia');e.preventDefault()}else if(k=='p'||k=='P'){buy('cash');e.preventDefault()}else if(k=='Tab')e.preventDefault()}
@@ -601,7 +611,7 @@ addEventListener('click',e=>{const b=e.target.closest?.('[data-jd]');if(!b||STAR
 // to the end, that's today's conversation done (ME.talked), and they only say the last part. Someone with nothing for today just
 // gives their name. Shopkeepers, and the people with a service of their own (SERVICE: its old conversation in CONVOS), offer it
 // at the end.
-const SERVICE={Otto:'About the pictures',Sally:'About a house',Jonna:"I'd like a tattoo."};
+const SERVICE={Otto:'About the pictures',Sally:'About a house',Jonna:"I'd like a tattoo.",Tove:'A haircut or a shave.'};
 function serviceOpts(n){const o=[];if(SHOPS[n.name]&&n.m==n.loc){o.push(['Show me your stock',null,()=>openShop(n)]);
     if(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk))o.push(['Sell my catch',null,sellCatch])}
   if(SERVICE[n.name]&&CONVOS[n.name])o.push([SERVICE[n.name],null,()=>converse(n,CONVOS[n.name])]);return o}

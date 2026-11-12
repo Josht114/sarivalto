@@ -301,6 +301,13 @@
   "faction": "shops"
  },
  {
+  "name": "Tove",
+  "slug": "tove",
+  "card": "personalities/groups/shopkeepers/tove.txt",
+  "first": 1,
+  "faction": "shops"
+ },
+ {
   "name": "Aili",
   "slug": "aili",
   "card": "personalities/groups/food-vendors/aili.txt",

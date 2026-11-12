@@ -1,0 +1,16 @@
+Name: Tove
+Gender: Female
+Faction: None
+Group: The Shopkeepers
+Partner: None
+Job: Barber
+Home: Apartment Block (Saltwick)
+
+Bio:
+The barber in Saltwick, down the path to
+the harbour, and the only one on the
+island. She shaves fishermen, Party men
+and the odd oilman, and keeps every word
+they say under the hot towel.
+Brisk, dry and fond of the town, which
+pays her in fish when it's short.
