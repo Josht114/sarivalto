@@ -234,8 +234,10 @@ function leaveCover(){WARD.all=false;for(const k of['hat','top','legs','shoes'])
 const ARRIVE_TIP="Welcome to Sarivalto. Press M (or the Menu button) for the menu. The Map tab shows the whole island and where you are, and a star marks anyone with a quest to give: gold for the day's main quest, silver for a side quest. Walk up to them and press E to talk. The Quests tab lists your quests and what each needs, and the objective along the bottom of the screen shows your next step.";
 const planeAhead=()=>{if(P.m!='langley_out')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Plane'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function boardPlane(){if(!qOf('briefing')?.done){say("Peggy won't take off until Chuck has briefed you, upstairs in his office.",4500);return}
-  choose('Fly out to Sarivalto?',[['Board the plane',()=>{const go=()=>pass(()=>{setDay(1);place('harbour',[7,8],3);if(!qOf('findhekki'))ME.quests.push({id:'findhekki',met:[],done:false,took:DAY});questSay('New side quest: Find Hekki.');questSay(ARRIVE_TIP)},
-    ()=>"The little plane climbs out over Virginia and turns east. Hours later, at dawn, it puts down on a grey sea off Sarivalto, beside a fishing boat; you climb across, and the boat brings you in to West Saltwick Harbour. It is 1 September. Chuck will be calling: the big screen is in your room under Hekki's shack, at the radio tower.");if(typeof playFilm=='function')playFilm('flight',go);else go()}],['Not yet']])}
+  choose('Fly out to Sarivalto?',[['Board the plane',()=>{const go=()=>pass(()=>{setDay(1);place('harbour',[7,8],3);say(FLIGHT_SAY);questEvent('board');if(!qOf('findhekki'))ME.quests.push({id:'findhekki',met:[],done:false,took:DAY});questSay('New side quest: Find Hekki.');questSay(ARRIVE_TIP)},
+    ()=>'');if(typeof playFilm=='function')playFilm('flight',go);else go()}],['Not yet']])}
+// what happens on the flight, said as you land
+const FLIGHT_SAY="The little plane climbs out over Virginia and turns east. Hours later, at dawn, it puts down on a grey sea off Sarivalto, beside a fishing boat; you climb across, and the boat brings you in to West Saltwick Harbour. It is 1 September. Find Hekki at the Radio Tower, up from Saltwick: he has a room ready for you.";
 // the cigarette machine in the Langley cafeteria: a pack for $2 of your own money
 // vending machines, by place and the machine's label: what each sells and for how much, from your own money. The cigarette machine
 // in the Langley cafeteria; and in the hall of the apartment block in Saltwick, a food machine and a cigarette machine, open all
@@ -331,16 +333,16 @@ function update(dt){
   if(typeof needsTick=='function')needsTick(dt);
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
     if(m.t>=1){P.mv=null;const e=exitHere();
-      if(e&&!PRESS_DOORS.has(e.to)){if(isOpen(e.to))useExit(e);else say('The boat to '+NM[e.to]+" isn't running: the harbour there is snowed in.",4000)}
+      if(e&&!PRESS_DOORS.has(e.to)){if(isOpen(e.to))useExit(e);else note('The boat to '+NM[e.to]+" isn't running: the harbour there is snowed in.",4000)}
       else if(P.m=='tram'&&MAPS.tram[P.y][P.x]=='m')leaveTram()}}
   if(!P.mv&&tramAt(P.m,P.x,P.y)){standClear();return}
   if(!P.mv&&stack.length&&!newsUp()){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
-    if(door){const pk=typeof pickAt=='function'&&pickAt(door.to);if(pk)startPick(pk);else if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
+    if(door){const pk=typeof pickAt=='function'&&pickAt(door.to);if(pk)startPick(pk);else note(shutMsg(door.to))}
     else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
-    else if(stairsWay(nx,ny,d)){const t=stairsWay(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
-    else if(snowAt(P.m,nx,ny)){const t=signAhead()?'The sign says: DANGER! SNOW. NO ACCESS.':'A deep bank of snow blocks the road.';if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
-    else if(lockedFront(nx,ny,d)){const t=lockedFront(nx,ny,d);if(!MSG||MSG.s!=t||performance.now()-MSG.t>MSG.d)say(t)}
+    else if(stairsWay(nx,ny,d))note(stairsWay(nx,ny,d));
+    else if(snowAt(P.m,nx,ny)){const t=signAhead()?'The sign says: DANGER! SNOW. NO ACCESS.':'A deep bank of snow blocks the road.';note(t)}
+    else if(lockedFront(nx,ny,d))note(lockedFront(nx,ny,d));
     else if(!solid(P.m,nx,ny)){P.mv={fx:P.x,fy:P.y,tx:nx,ty:ny,t:0};P.x=nx;P.y=ny;P.par^=1}}
 }
 // a warehouse's or barn's big sliding doors (BLD deco 'whs', drawn across the middle of its front): walking up into them is
@@ -357,7 +359,7 @@ function bigDoor(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,f
 // a tram has come along where the player is standing: move them to the nearest free tile (preferring in front of the track)
 function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6;dx++){const x=P.x+dx,y=P.y+dy;
     if(!solid(P.m,x,y)){const d=Math.abs(dx)+Math.abs(dy)*1.5-(dy>0?.5:0);if(!best||d<best[2])best=[x,y,d]}}
-  if(best){place(P.m,[best[0],best[1]],P.dir);say('Mind the tram!')}}
+  if(best){place(P.m,[best[0],best[1]],P.dir);note('Mind the tram!')}}
 // ---- Riding the tram. On a platform, the action key (E, Space or Enter, or the E button) calls the tram; once it has stopped,
 // pressing it again gets on. Inside the tram the action key opens a menu of stops; picking one plays a short ride and then
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
@@ -365,7 +367,10 @@ let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const 
   // a message: in the box in the middle of the screen (with the quest news), until it's closed (d, how long it used to show, is
   // no longer used); the same message twice in a row is shown once. (Said while the page is still loading, it shows along the
   // bottom of the screen for a moment instead.)
-  say=(s,d=3000)=>{try{if(QNEWS.at(-1)!==s)questSay(s)}catch(e){MSG={s,t:performance.now(),d}}},menu=document.getElementById('menu');
+  say=(s,d=3000)=>{try{if(QNEWS.at(-1)!==s)questSay(s)}catch(e){MSG={s,t:performance.now(),d}}},
+  // a passing note: along the bottom of the screen for a moment, then it fades (bumping into stairs from the wrong side, a shut or
+  // locked door, a snow bank, a snowed-in harbour, the tram); shown again only once it has faded
+  note=(s,d=3000)=>{if(!MSG||MSG.s!=s||performance.now()-MSG.t>MSG.d)MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
 // ---- Talking: the person on the tile the player is facing, or just across a counter (tile c: bar counters, shop counters,
 // reception desks), a desk (a feature labelled as one) or a cell's bars from it, and what they say (a placeholder line for everyone for now)
 const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
@@ -388,7 +393,7 @@ function choose(q,opts){MENU=performance.now();stack=[];menu.setAttribute('aria-
   menu.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(performance.now()-MENU<250)return;closeMenu();opts[+b.dataset.i][1]?.()});menu.hidden=false;menu.querySelector('button').focus()}
 // time passing: the screen fades to black, the change happens, and it fades back in with a message
 const fadeEl=document.getElementById('fade');
-function pass(change,msg){BUSY=true;stack=[];fadeEl.style.opacity=1;setTimeout(()=>{change();fadeEl.style.opacity=0;say(msg(),5000);setTimeout(()=>BUSY=false,800)},1100)}
+function pass(change,msg){BUSY=true;stack=[];fadeEl.style.opacity=1;setTimeout(()=>{change();fadeEl.style.opacity=0;const m=msg();if(m)say(m,5000);setTimeout(()=>BUSY=false,800)},1100)}
 // sitting and waiting takes you from day to night; sleeping in your bed takes you from night to the next morning
 function sitDown(){if(NIGHT){say('It is already night. Go home and get some sleep.',4000);return}
   // (not until today's main quest is done)
@@ -740,8 +745,10 @@ qmsgEl.querySelectorAll('.x,.ok').forEach(b=>b.onclick=e=>{closeNews();e.current
 addEventListener('keydown',e=>{if(!newsUp()||/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName))return;const k=e.key.length==1?e.key.toLowerCase():e.key;
   if(['e',' ','Enter','Escape'].includes(k)){if(!e.repeat)closeNews()}else if(!/^(Arrow(Up|Down|Left|Right)|[wasd])$/.test(k))return;
   e.preventDefault();e.stopImmediatePropagation()},true);
+// in a message, each quest line on a line of its own: Quest complete, Quest updated, New main quest, New side quest and Next
+const newsLines=h=>h.replace(/\s+(?=(Quest complete|Quest updated|New main quest|New side quest|Next):)/g,'<br>');
 function showQuestNews(){const on=newsUp(),key=on?QNEWS.join('\n'):'';
-  if(key!==qnWas){qnWas=key;qmsgEl.hidden=!on;stageEl.classList.toggle('hasqmsg',!!on);if(on){qmsgEl.querySelector('.txt').innerHTML=QNEWS.map(t=>'<p>'+esc(t)+'</p>').join('');stack=[]}}
+  if(key!==qnWas){qnWas=key;qmsgEl.hidden=!on;stageEl.classList.toggle('hasqmsg',!!on);if(on){qmsgEl.querySelector('.txt').innerHTML=QNEWS.map(t=>'<p>'+newsLines(esc(t))+'</p>').join('');stack=[]}}
   // (the game's own messages stay at the bottom: the box is in the middle)
   QN_OFF=0}
 const hudEq=document.getElementById('hudeq');let hudWas;

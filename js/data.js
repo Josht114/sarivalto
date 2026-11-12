@@ -804,7 +804,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   talk:name            have a conversation with that person (the condition's own chat, or the quest's, is what they say); or
 //                        a list of names, any one of whom will do (chats: each one's conversation, by name). ok: a function of
 //                        the quest, whether the conversation got what the condition needs (if not, it stays open)
-//   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'alias',
+//   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'board',
+//                        boarding the plane at Langley; 'alias',
 //                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
 //   bring:[items], to:name   talk to that person with all of those items and hand them over (alt: an option to change your
 //                        choice instead, {label, choice, say}, with need: a flag the quest must have)
@@ -1190,12 +1191,16 @@ alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,given:true,text
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
   thanks:'Your new look is ready. Chuck is waiting to brief you, upstairs in his office.'},
 briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in his office, up the stairs from the lobby. Go and get your briefing.',
-  done:[{talk:'Chuck',what:'Get your briefing from Chuck, in his office upstairs',chat:{start:'a',nodes:{
+  done:[{talk:'Chuck',what:'Get your briefing from Chuck, in his office upstairs',gives:'flyout',chat:{start:'a',nodes:{
     a:{say:"There you are. Sit down. Good to have you back. Like the new look. You're going to Sarivalto, an island in the Baltic. Snow, fish, cola and not much else. Its king has just died, and right now nobody knows who's going to run the place.",opts:[['Who wants it?','b']]},
     b:{say:"Everyone. The Communists want the island in the Soviet Union, and Moscow would love a harbour that far north. The royals want the crown kept on Prince Leopold's head. Kelp Cola wants whoever's best for business. The Democrats want a vote. And there's an oil company and a syndicate sniffing around too.",opts:[['And what do we want?','c']]},
     c:{say:"An island that doesn't end up flying a red flag. Your codename is NIGHTJAR. Your cover's a British reporter, from a London paper, there to cover the king's death, so ask all the questions you like. When you're settled in, go and introduce yourself to the island's newspaper, the Eastbrook Gazette: a reporter would. Our man there is Hekki, the radio tech: he's fixed you up a room under his shack, at the radio tower, with a radio set and a screen to reach me on.",opts:[['How long have I got?','d']]},
     d:{say:"You fly out for the first of September, and the island's yours for thirty days. Talk to everyone, help the people who'll help us, and call me every morning. Good luck, NIGHTJAR."}}}}],
   thanks:'"Don\'t trust anyone with a better cover than yours." You are ready to fly out on the first of September. Peggy and the plane are waiting on the airstrip, out of the lobby\'s front doors.'},
+// Board the Plane (given by your briefing): Peggy flies you out from the airstrip at Langley; boarding meets it (questEvent 'board')
+flyout:{title:'Board the Plane',giver:'Peggy',main:true,day:-9,given:true,text:"You're briefed. Peggy is waiting with the seaplane on the airstrip, out through the lobby's front doors at CIA Headquarters. Board it, and fly out to Sarivalto.",
+  done:[{event:'board',what:"Board the plane with Peggy, on the airstrip out of the lobby's front doors"}],
+  thanks:"You fly out to Sarivalto."},
 meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,quiet:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
   offer:"Morning, NIGHTJAR. Glad you made it in one piece. Before anything else, report in properly: use the radio set there in the room, so Langley has it on the record that NIGHTJAR is in place. Then I'll give you your first job.",
   accept:"Good. Radio in and I'll brief you over the set.",wait:'Radioed in yet? Then get over to Saltwick and talk to Anna, at the Communist Party HQ. A friendly chat, nothing more.',

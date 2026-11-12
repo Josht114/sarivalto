@@ -100,7 +100,7 @@ function controlsBody(c){const k=s=>s.split(' / ').map(x=>x.split('+').map(y=>`<
     ['E / Space / Enter','On the Inventory tab, do the first thing the chosen item can do.'],
     ['Q','Quick save, any time you\'re not talking or travelling.']])+
   sec('Closing things','',[
-    ['E / Space / Enter / Escape','Close the message box in the middle of the screen (or click Continue). Every message and piece of quest news waits there until you close it, and the game waits too.'],
+    ['E / Space / Enter / Escape','Close the message box in the middle of the screen (or click Continue). Messages and quest news wait there until you close it, and the game waits too. (Bumping into things, such as stairs that go the other way or a shut door, gives a short note along the bottom of the screen that fades on its own.)'],
     ['Escape','Close the one thing on top: the menu, a conversation, a list of choices or a game.'],
     ['Z','Close everything that\'s open at once: the menu, a conversation, a list of choices, the message box, and furniture you\'re placing.']])+
   sec('Lists of choices','Such as the tram\'s stops, a vending machine or a card table.',[
