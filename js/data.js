@@ -714,7 +714,7 @@ Otto:{start:'a',nodes:{a:{say:"Two pictures tonight. STORMWING: the hottest pilo
 George:{start:'a',nodes:{a:{say:"Pull up a chair. Meatloaf's still terrible. Chuck's got something for you, I hear: he still does the talking in the daytime, and I still do the work after dark. Once you're out there, call Langley in the evening and you'll get me."}}},
 get Sally(){const n=typeof NPCS!='undefined'&&NPCS.find(p=>p.name=='Sally');return typeof estateConvo=='function'&&n?estateConvo(n):{start:'a',nodes:{a:{say:'Sarivalto Homes!'}}}},
 // Peggy flies you out, once Chuck has briefed you
-get Peggy(){const ok=typeof qOf=='function'&&qOf('briefing')?.done;return{start:'a',nodes:{a:ok?{say:"Me again: I'm your ride. It's a long way to the Baltic, and we don't land anywhere anyone can see: a fishing boat meets us off the island at dawn and takes you the rest of the way in. Ready?",opts:[["Let's go.",null,()=>boardPlane()],['Not yet.',null]]}:{say:"(Peggy grins.) Back for more? I'm flying you, wherever it is. We're not going anywhere until Chuck's had his talk with you, upstairs. Then she's all yours."}}}},
+get Peggy(){const ok=typeof qOf=='function'&&qOf('briefing')?.done;if(ok&&!flySupplied())return{start:'a',nodes:{a:{say:PEGGY_SUPPLIES}}};return{start:'a',nodes:{a:ok?{say:"Me again: I'm your ride. It's a long way to the Baltic, and we don't land anywhere anyone can see: a fishing boat meets us off the island at dawn and takes you the rest of the way in. Ready?",opts:[["Let's go.",null,()=>boardPlane()],['Not yet.',null]]}:{say:"(Peggy grins.) Back for more? I'm flying you, wherever it is. We're not going anywhere until Chuck's had his talk with you, upstairs. Then she's all yours."}}}},
 Doris:{start:'a',nodes:{a:{say:"(Doris looks you up and down.) You again. Sit down, let's have a look at you. Hair, clothes, the lot: wherever Chuck's sending you this time, you're not going in a government suit.",opts:[['Make me up.',null,()=>openCover()],['Not now.',null]]}}},
 Jonna:{start:'a',nodes:{a:{say:"Welcome to Ink and Pine. Something to remember the island by?",opts:[["I'd like a tattoo.",null,()=>openTattoo()],['Just looking.',null]]}}},
 Hekki:{start:'hello',nodes:{
@@ -806,7 +806,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //                        a list of names, any one of whom will do (chats: each one's conversation, by name). ok: a function of
 //                        the quest, whether the conversation got what the condition needs (if not, it stays open)
 //   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'board',
-//                        boarding the plane at Langley; 'alias',
+//                        boarding the plane at Langley; 'supply:food' and 'supply:cigs', having food or cigarettes; 'alias',
 //                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
 //   bring:[items], to:name   talk to that person with all of those items and hand them over (alt: an option to change your
 //                        choice instead, {label, choice, say}, with need: a flag the quest must have)
@@ -1205,9 +1205,15 @@ briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'
     c:{say:"An island that doesn't end up flying a red flag. Your codename is NIGHTJAR. Your cover's a British reporter, from a London paper, there to cover the king's death, so ask all the questions you like. When you're settled in, go and introduce yourself to the island's newspaper, the Eastbrook Gazette: a reporter would. Our man there is Hekki, the radio tech: he's fixed you up a room under his shack, at the radio tower, with a radio set and a screen to reach me on.",opts:[['How long have I got?','d']]},
     d:{say:"You fly out for the first of September, and the island's yours for thirty days. Talk to everyone, help the people who'll help us, and call me every morning. Good luck, NIGHTJAR."}}}}],
   thanks:'"Don\'t trust anyone with a better cover than yours." You are ready to fly out on the first of September. Peggy and the plane are waiting on the airstrip, out of the lobby\'s front doors.'},
-// Board the Plane (given by your briefing): Peggy flies you out from the airstrip at Langley; boarding meets it (questEvent 'board')
-flyout:{title:'Board the Plane',giver:'Peggy',main:true,day:-9,given:true,text:"You're briefed. Peggy is waiting with the seaplane on the airstrip, out through the lobby's front doors at CIA Headquarters. Board it, and fly out to Sarivalto.",
-  done:[{event:'board',what:"Board the plane with Peggy, on the airstrip out of the lobby's front doors"}],
+// Board the Plane (given by your briefing): first get something to eat and a pack of cigarettes from the machines in the cafeteria
+// (having them meets those steps: supplyCheck in game.js, events 'supply:food' and 'supply:cigs'; what's said explains hunger and
+// nicotine), then Peggy flies you out from the airstrip at Langley (boarding: questEvent 'board'). She won't go until you have both.
+flyout:{title:'Board the Plane',giver:'Peggy',main:true,day:-9,given:true,text:"You're briefed. It's a long way to Sarivalto, so get supplies first: something to eat from the vending machine in the cafeteria, off the lobby, and a pack of cigarettes from the cigarette machine beside it (pay with your own money). Then board the seaplane with Peggy, on the airstrip out through the lobby's front doors.",
+  done:[{event:'supply:food',what:'Get something to eat: the vending machine in the cafeteria, off the lobby, sells candy bars',
+      said:"Something to eat for the journey. Food keeps up the Hunger bar at the top right of the screen, which runs down as you play (and faster when time passes). To eat, open your inventory (M), choose the food and press Eat: a meal fills you up more than a snack."},
+    {event:'supply:cigs',what:'Get a pack of cigarettes from the cigarette machine in the cafeteria, off the lobby',
+      said:"A pack of twenty. The Nicotine bar runs down as you play too. Choose the pack in your inventory (M) and press Smoke for one cigarette, or Equip it to smoke one after another as you go. Let hunger or nicotine run low, and you can't think of anything else: nobody will talk business with you until you've eaten or had a smoke (though shopkeepers will still sell to you)."},
+    {event:'board',last:true,what:"Board the plane with Peggy, on the airstrip out of the lobby's front doors"}],
   thanks:"You fly out to Sarivalto."},
 meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,quiet:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
   offer:"Morning, NIGHTJAR. Glad you made it in one piece. Before anything else, report in properly: use the radio set there in the room, so Langley has it on the record that NIGHTJAR is in place. Then I'll give you your first job.",

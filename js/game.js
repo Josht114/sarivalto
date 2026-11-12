@@ -233,7 +233,13 @@ function leaveCover(){WARD.all=false;for(const k of['hat','top','legs','shoes'])
 // arriving on the island: how to find your way and your quests (in the quest news box, until you close it)
 const ARRIVE_TIP="Welcome to Sarivalto. Press M (or the Menu button) for the menu. The Map tab shows the whole island and where you are, and a star marks anyone with a quest to give: gold for the day's main quest, silver for a side quest. Walk up to them and press E to talk. The Quests tab lists your quests and what each needs, and the objective along the bottom of the screen shows your next step.";
 const planeAhead=()=>{if(P.m!='langley_out')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Plane'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+// supplies for the flight (Board the Plane): having something to eat, and cigarettes, meets those steps; and whether you have them
+function supplyCheck(){if(ME.items.some(i=>FOOD[i.id]&&!ALCOHOL[i.id]))questEvent('supply:food');if(has('cigarettes'))questEvent('supply:cigs')}
+const flySupplied=()=>{supplyCheck();const q=qOf('flyout');return!q||q.done||QUESTS.flyout.done.every((c,i)=>c.last||q.met[i])};
+// what Peggy says if you try to leave without them
+const PEGGY_SUPPLIES="(Peggy looks you over.) Got supplies? It's a long way to the Baltic, and there's no stewardess on this plane. Get yourself something to eat and a pack of cigarettes from the machines in the cafeteria, off the lobby. Then we'll go.";
 function boardPlane(){if(!qOf('briefing')?.done){say("Peggy won't take off until Chuck has briefed you, upstairs in his office.",4500);return}
+  if(!flySupplied()){say(PEGGY_SUPPLIES);return}
   choose('Fly out to Sarivalto?',[['Board the plane',()=>{const go=()=>pass(()=>{setDay(1);place('harbour',[7,8],3);say(FLIGHT_SAY);questEvent('board');if(!qOf('findhekki'))ME.quests.push({id:'findhekki',met:[],done:false,took:DAY});questSay('New side quest: Find Hekki.');questSay(ARRIVE_TIP)},
     ()=>'');if(typeof playFilm=='function')playFilm('flight',go);else go()}],['Not yet']])}
 // what happens on the flight, said as you land
@@ -247,7 +253,7 @@ const vendingAhead=()=>{const V=VENDING[P.m];if(!V)return null;const[dx,dy]=DIR[
 function cigMachine(){const lb=vendingAhead(),stock=VENDING[P.m][lb],cigs=lb=='Cigarette Machine';
   choose(cigs?`A cigarette machine. Twenty to a pack, ${money(stock[0][1])}.`:P.m=='langley_cafe'?'A vending machine, humming to itself, its rows full of candy bars. It never runs out.':'A vending machine, humming to itself. Everything costs too much.',[
     ...stock.map(([id,p,nm])=>[`Buy ${nm} (${money(p)})`,()=>{if(ME.cash<p){say(`You don't have ${money(p)} of your own.`,3500);return}
-      ME.cash-=p;const c=has(id);if(c)c.n++;else ME.items.push({id,n:1});say(`Clunk. ${cigs?'A pack of cigarettes':nm.replace(/^./,c=>c.toUpperCase())} drops into the tray.`,3500)}]),['Not now']])}
+      ME.cash-=p;const c=has(id);if(c)c.n++;else ME.items.push({id,n:1});say(`Clunk. ${cigs?'A pack of cigarettes':nm.replace(/^./,c=>c.toUpperCase())} drops into the tray.`,3500);supplyCheck()}]),['Not now']])}
 const mirrorAhead=()=>{if(P.m!='langley_cover')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Dressing Mirror'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function wstep(i,dd){const[k,,f]=WROWS[i],o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k]));ME.look[k]=o[(j+dd+o.length)%o.length][0];WARD.row=i;renderStart()}
 function renderWardrobe(){const rows=WROWS.map(([k,label,f],i)=>{const o=f(),j=Math.max(0,o.findIndex(([v])=>v==ME.look[k])),lc=label.toLowerCase();
