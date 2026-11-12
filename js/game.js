@@ -89,7 +89,8 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
   if(START=='opts'){// the volume of everything you hear (the music, the place sounds and the radio), remembered in this browser
     const v=typeof MU!='undefined'?Math.round(MU.vol*100):100;
     body=`<h3>Sound</h3><p><label for="volume">Volume</label> <input type="range" id="volume" min="0" max="100" step="5" value="${v}"> <b id="volval">${v}%</b></p>
-      <p><small>The volume of everything: the music, the sounds of each place and the radio. The Music button turns the music and place sounds off and on; the Radio button plays Radio Sarivalto instead.</small></p>`}
+      <p><small>The volume of everything: the music, the sounds of each place and the radio. The Music button turns the music and place sounds off and on; the Radio button plays Radio Sarivalto instead.</small></p>
+      <h3>Quit</h3><p><button id="quitbtn" type="button">Quit to the title screen</button></p><p><small>You'll be asked whether to save first.</small></p>`}
   if(START=='save'){// the save slots: where and when each was saved, and buttons to save over it, load it or delete it
     // (overwriting, loading and deleting ask again on the button first)
     const btn=(d,i,t)=>`<button data-do="${d}" data-slot="${i}">${ME.confirm==d+i?t+'?':t}</button>`;
@@ -100,6 +101,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
       <p><small>${esc(store.where)}</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
   startEl.innerHTML=`<div class="tabs" role="tablist">${tabsNow().map(([k,t])=>`<button role="tab" data-tab="${k}" aria-selected="${k==START}">${t}</button>`).join('')}<button class="close" aria-label="Close the menu">&times;</button></div><div>${body}</div>`;
   startEl.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{START=b.dataset.tab;ME.note='';ME.confirm='';renderStart()});
+  const qb=startEl.querySelector('#quitbtn');if(qb)qb.onclick=askQuit;
   const vol=startEl.querySelector('#volume');if(vol)vol.oninput=()=>{if(typeof setVolume=='function')setVolume(vol.value/100);startEl.querySelector('#volval').textContent=vol.value+'%'};
   const fi=startEl.querySelector('.filebtn input');if(fi)fi.onchange=()=>{if(fi.files[0])importSave(fi.files[0])};
   startEl.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>slotAction(b.dataset.do,b.dataset.slot=='quick'?'quick':+b.dataset.slot));
@@ -170,11 +172,19 @@ function slotAction(d,i){if(d=='exp'){exportSave(i);return}const ask=d!='save'||
   if(ask&&ME.confirm!=d+i){ME.confirm=d+i;ME.note='';renderStart();return}ME.confirm='';
   if(d=='save')ME.note=saveGame(i);if(d=='del'){store.remove(i).catch(e=>console.warn(e));ME.note=slotName(i)+' deleted.'}
   if(d=='load'){loadGame(i);return}renderStart()}
+// the save being written (store.put), so quitting can wait until it's stored
+let LAST_SAVE=null;
+// Quit to the title screen (the Options tab): asks whether to save first (in the quick save), then, once the save is stored, starts
+// the page afresh on the title screen (which also clears the game you were playing). Not on the tram, where you can't save.
+function askQuit(){closeStart();choose('Quit to the title screen? Anything since your last save is lost unless you save now.',[
+  ['Save and quit (quick save)',()=>quitGame(true)],['Quit without saving',()=>quitGame(false)],['Cancel']])}
+function quitGame(save){if(save){const r=saveGame('quick');if(!/^Quick saved/.test(r)){say(r);return}}
+  BUSY=true;fadeEl.style.opacity=1;Promise.resolve(save&&LAST_SAVE).finally(()=>setTimeout(()=>{location.href=location.pathname},600))}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
     me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,tips:ME.tips,tape:ME.tape,tapeN:ME.tapeN,tapeOn:ME.tapeOn,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos,homes:ME.homes,journal:ME.journal,talked:ME.talked,placed:ME.placed,home:ME.home,moved:ME.moved},stock:STOCK,stocked:STOCKED,fp:FP};
   // (if storing fails, say so once it has)
-  store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
+  LAST_SAVE=store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
 function exportSave(i){const v=readSave(i);if(!v)return;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(v,null,1)],{type:'application/json'}));
   a.download=`sarivalto-${i=='quick'?'quicksave':'slot-'+(i+1)}-day-${v.day}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);ME.note=slotName(i)+' exported as a file.';renderStart()}

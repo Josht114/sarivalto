@@ -99,6 +99,7 @@ function controlsBody(c){const k=s=>s.split(' / ').map(x=>x.split('+').map(y=>`<
     ['Arrows / W A S D','On the Inventory tab, move through what you\'re carrying.'],
     ['E / Space / Enter','On the Inventory tab, do the first thing the chosen item can do.'],
     ['Q','Quick save, any time you\'re not talking or travelling.']])+
+  `<p>The Options tab has the volume, and <b>Quit to the title screen</b>, which asks whether to save first (in the quick save).</p>`+
   sec('Closing things','',[
     ['E / Space / Enter / Escape','Close the message box in the middle of the screen (or click Continue). Messages and quest news wait there until you close it, and the game waits too. (Bumping into things, such as stairs that go the other way or a shut door, gives a short note along the bottom of the screen that fades on its own.)'],
     ['Escape','Close the one thing on top: the menu, a conversation, a list of choices or a game.'],
