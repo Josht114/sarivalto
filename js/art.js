@@ -566,14 +566,15 @@ function bld2(w,h,s,dx,more=[]){
   // the sign over the front. signk: 'wood' (a hand-painted board), 'brass' (an engraved plaque), 'neon' (glowing letters in signc
   // on a dark board), or a plain printed board. On a worn building letters have fallen off and the board hangs crooked.
   if(s.sign){const tw=s.sign.length*4-1,bw=tw+6,bx=(W-bw)>>1,by=Math.max(1,ry-15),k=s.signk;nt=by-1;
-    const txt=s.wear?[...s.sign].map((ch,i)=>hash(i,9,sd+W)<s.wear*.25?' ':ch).join(''):s.sign;
+    // (signdead: the letters, by position, that stay on a neon sign but never light up)
+    const dead=s.signdead||[],txt=s.wear?[...s.sign].map((ch,i)=>!dead.includes(i)&&hash(i,9,sd+W)<s.wear*.25?' ':ch).join(''):s.sign;
     const bg=k=='wood'?'#7a5232':k=='brass'?'#c9a040':k=='neon'?'#1a1520':'#f4f1e8',fg=k=='wood'?'#f2e6c8':k=='brass'?'#3a2a14':s.signc||'#2b2f3a';
     const sc=cnv(bw+2,11),sg=sc.getContext('2d'),sr=(col,x,y,a=1,b=1)=>{sg.fillStyle=col;sg.fillRect(x,y,a,b)};
     sr(OUT,0,0,bw+2,11);sr(bg,1,1,bw,9);if(k=='wood'){for(let y=4;y<10;y+=3)sr(shade(bg,-.15),1,y,bw,1);sr(shade(bg,.2),1,1,bw,1)}
     if(k=='brass'){sr(shade(bg,.35),1,1,bw,1);sr(shade(bg,-.3),1,9,bw,1)}sr(SNOW,0,0,bw+2,1);if(k!='neon')ptext(sr,txt,4,3,fg);
     if(by+10<ry){r('#3a3a44',bx+3,by+9,1,ry-by-9);r('#3a3a44',bx+bw-4,by+9,1,ry-by-9)}
     const tilt=s.wear?(hash(3,3,sd+W)-.5)*s.wear*.14:0;for(let i=0;i<bw+2;i++)g.drawImage(sc,i,0,1,11,bx-1+i,by-1+Math.round(i*tilt),1,11);
-    if(k=='neon')an.push({t:'neon',x:bx+3,y:by+2,s:txt,col:s.signc,fl:s.wear?1:0})}
+    if(k=='neon')an.push({t:'neon',x:bx+3,y:by+2,s:txt,col:s.signc,fl:s.wear?1:0,dead})}
   // blade: a tall neon sign down the left of the front, one letter above the next
   if(s.blade){const[t,col]=s.blade,bh=t.length*6+3,by=ry+4;r(OUT,3,by-1,9,bh+2);r('#1a1520',4,by,7,bh);r(SNOW,3,by-1,9,1);r('#5a5f68',12,by+3,2,1);r('#5a5f68',12,by+bh-4,2,1);
     an.push({t:'neon',x:6,y:by+2,s:t,col,v:1})}
@@ -2323,7 +2324,7 @@ function drawWorld2(m,cx,cy,t,frame){
     // neon letters (v: stacked vertically). fl: a failing tube that keeps cutting out.
     if(a.t=='neon'){const c0=a.col||'#ff5fa8',on=a.off?false:a.fl?hash(t/140|0,3,7+a.x)<.72:hash(t/90|0,3,7)<.96,col=on?c0:shade(c0,a.off?-.3:-.65);  // (a sign switched off for the night stays readable: unlit glass, not a dead flicker)
       if(on){const[R,G,B]=rgb(c0);ctx.fillStyle=`rgba(${R},${G},${B},.28)`;if(a.v)ctx.fillRect(X-2,Y-2,7,a.s.length*6+3);else ctx.fillRect(X-2,Y-2,a.s.length*4+3,9)}
-      if(a.v)[...a.s].forEach((ch,i)=>ptext(px,ch,X,Y+i*6,col));else ptext(px,a.s,X,Y,col)}
+      if(a.v)[...a.s].forEach((ch,i)=>ptext(px,ch,X,Y+i*6,col));else if(a.dead?.length)[...a.s].forEach((ch,i)=>ptext(px,ch,X+i*4,Y,a.dead.includes(i)?shade(c0,-.72):col));else ptext(px,a.s,X,Y,col)}
     // a flat's door: shut (a panelled door filling the doorway) unless the player is within a step of it, when it stands open
     // against the frame
     if(a.t=='adoor'){const open=typeof P!='undefined'&&Math.abs(P.rx*16-a.x)<=20&&Math.abs(P.ry*16-a.y)<=20,wood='#7a5232',dk='#4a3020',lt='#9a6a42';

@@ -813,7 +813,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //                        the quest, whether the conversation got what the condition needs (if not, it stays open)
 //   event:name           something happening in the game (questEvent): 'tattoo', getting a tattoo at Jonna's shop; 'board',
 //                        boarding the plane at Langley; 'supply:food' and 'supply:cigs', having food or cigarettes; 'alias',
-//                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo
+//                        leaving the Cover Story Department's character creator; 'pokerdon', a hand of poker with Gustavo; 'buy:item',
+//                        buying that item in a shop
 //   bring:[items], to:name   talk to that person with all of those items and hand them over (alt: an option to change your
 //                        choice instead, {label, choice, say}, with need: a flag the quest must have)
 //   spot:{m,x,y}         face that tile of that place (y can be a range, [from, to]) and press E
@@ -1201,6 +1202,21 @@ firstday:{title:'First Morning',giver:'Joan',main:true,day:-9,start:true,text:"Y
 findhekki:{title:'Find Hekki',giver:'Hekki',given:true,text:"You've landed at West Saltwick Harbour. Find Hekki, the CIA's man on the island: a radio tech who works at the Radio Tower, up from Saltwick. He has a room ready for you.",
   done:[{talk:'Hekki',chat:FH_HEKKI,what:'Find Hekki at the Radio Tower, up from Saltwick, and talk to him',gives:'checkin'}],
   thanks:"Your room is under Hekki's shack, through the bookcase. Call Chuck on the radio set there."},
+// Buy a Map (side quest, from 2 September): Hekki thinks you should have a map of the island. Buy one (Hannu's newsstand in
+// Saltwick sells them, and so do Ville's in Kingsgrad and Mary's book shop), and show it to Hekki, who marks a few places on it.
+buymap:{title:'Buy a Map',giver:'Hekki',from:2,seq:true,
+  text:"Hekki thinks a spy should know where they are. Buy a map of Sarivalto (Hannu sells them at his newsstand in Saltwick, for a few dollars) and show it to Hekki at the Radio Tower.",
+  offer:"(Hekki watches you squint down the road.) NIGHTJAR, can I say something? You've walked past my tower three times this morning. A spy should know where they are. Hannu sells maps at his newsstand in Saltwick. Three dollars. Will you get one?",
+  accept:"Good. Bring it here and I'll mark a few things on it. Small marks. Nothing anyone would notice.",
+  wait:"No map yet? Hannu's newsstand, on the main street in Saltwick. He's the one in the hat, reading his own newspapers.",
+  done:[
+    {event:'buy:islandmap',what:"Buy a map of the island (Hannu's newsstand in Saltwick sells them)",said:'You have a map of Sarivalto. Show it to Hekki at the Radio Tower.'},
+    {talk:'Hekki',what:'Show Hekki your map, at the Radio Tower',chat:{start:'a',nodes:{
+      a:{say:"(Hekki unfolds it across his knees and takes out a pencil.) Oh, it's the good one. With the contour lines. May I?",opts:[["Go ahead.",'b'],["Small marks, you said.",'c']]},
+      b:{say:"(He draws a very small circle.) The Radio Tower. That's us. And a dot by the harbour, where the boats come in at night. If anyone asks, they're places I like the view.",opts:[["What else should I know?",'d']]},
+      c:{say:"Tiny. Look. (He draws a circle you have to squint at.) That's us. And a dot by the harbour, for the night boats. Anyone asks, I like the view.",opts:[["What else should I know?",'d']]},
+      d:{say:"The snow's still blocking the roads north and east. They'll open a bit at a time. Look at the map from your bag whenever you're lost, and you won't walk past my tower again. (He folds it back up, wrongly.)"}}}}],
+  thanks:"You have a map of Sarivalto: the menu (M) has a Map tab now, for whenever you're lost."},
 // Check In with Chuck (given by Find Hekki): call Chuck on the radio in your room; he gives you your first job, Meet the Communists.
 // incoming: the radio flashes INCOMING CALL while the call is waiting
 checkin:{title:'Check In with Chuck',giver:'Chuck',given:true,incoming:true,text:"Chuck will want to hear that you've landed. Go down to your room, under Hekki's shack at the Radio Tower (lean on the third shelf of the bookcase), tune in the radio set and call Langley.",
@@ -2082,7 +2098,7 @@ cedargrill:{icon:'grill',kind:'gable',wall:'#3d5a4a',roof:'#2f2a26',trim:'#e0c89
 tattoo:{icon:'heart',kind:'gable',wall:'#2a2a30',roof:'#3a3530',trim:'#e07a9a',win:'#f2d16b',tex:'siding',awn:'#7a1e2a',sign:'INK AND PINE',signk:'wood'},
 gazette:{kind:'gable',wall:'#4a5f78',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,sign:'EASTBROOK GAZETTE',signk:'wood'},
 records:{icon:'vinyl',kind:'flat',wall:'#6a3a5a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'brick',mural:['#ff8a3a','#e07a9a','#7a4a8a','#2e86c1'],sign:'VINYL RESTING PLACE',signk:'wood'},
-diner:{kind:'flat',wall:'#a89a86',roof:'#5b5b56',trim:'#7a2a24',win:'#c9b878',awn:'#7a2a24',sign:'DINER',signk:'neon',signc:'#ff5a3a',wear:.9},
+diner:{kind:'flat',wall:'#a89a86',roof:'#5b5b56',trim:'#7a2a24',win:'#c9b878',awn:'#7a2a24',sign:'DINER',signk:'neon',signc:'#ff5a3a',signdead:[0],wear:.9},
 outfitters:{icon:'souwester',kind:'gable',wall:'#2e5a7a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#e0a100',sign:'HARBOUR OUTFITTERS',signk:'wood'},
 clothes:{icon:'flannel',kind:'gable',wall:'#7a2a3a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#2f4a3c',planter:['#e0a100','#f2f2f2','#e07a9a'],sign:'FLANNEL AND FOLK',signk:'wood'},
 kcmuseum:{icon:'cola',kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',tex:'brick',awn:'#2e9d57',flag:'#2e9d57',sign:'KELP COLA MUSEUM - GIFT SHOP',signk:'brass'},

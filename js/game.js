@@ -167,7 +167,7 @@ function buy(how){const st=stockOf(SHOP.n),t=st[SHOP.sel];if(!t)return;const nm=
   if(CLOTHES[t.id]&&ME.clothes.includes(t.id)){SHOP.note=`You already have the ${nm} in your wardrobe.`;renderStart();return}
   if(ME[how]<t.p){SHOP.note=`You don't have enough ${how=='cia'?'CIA funds':'money of your own'} for the ${nm}.`;renderStart();return}
   ME[how]-=t.p;if(CLOTHES[t.id])ME.clothes.push(t.id);else{const mine=has(t.id);if(mine)mine.n++;else ME.items.push({id:t.id,n:1})}if(--t.n<=0)st.splice(SHOP.sel,1);
-  SHOP.note=`You buy the ${nm} for ${money(t.p)}, paid from ${how=='cia'?'CIA funds':'your own money'}.`+(CLOTHES[t.id]?' It will be waiting in your wardrobe at home.':'');renderStart()}
+  SHOP.note=`You buy the ${nm} for ${money(t.p)}, paid from ${how=='cia'?'CIA funds':'your own money'}.`+(CLOTHES[t.id]?' It will be waiting in your wardrobe at home.':'');questEvent('buy:'+t.id);renderStart()}
 // ---- Saving and loading: a quick save and three slots, kept by store (js/store.js: in the browser, or as files in the app). A save holds where you are, the date and time of day, your money,
 // items and quests, and what is left in every shop.
 // the quick save (Q, or its button) has its own slot, saved over without asking; then the three ordinary slots
