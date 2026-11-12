@@ -269,6 +269,11 @@ function mapFog(){if(typeof MAP_GEO=='undefined')return'';const G=MAP_GEO,shut=O
 function openStart(tab='inv'){if(MENU||RIDE||BUSY||CONVO)return;START=tab;stack=[];startEl.hidden=false;startBtn.setAttribute('aria-expanded','true');renderStart()}
 function closeStart(){if(START=='wardrobe'&&WARD.all)leaveCover();START=null;SHOP=null;startEl.hidden=true;startBtn.setAttribute('aria-expanded','false')}
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
+// Z closes everything that's open at once: the menu (and any shop, game or map in it), a conversation (as Escape would), a menu of
+// choices, the quest news box, a message along the bottom, and furniture you're placing. Not the title screen or the opening film.
+function closeAll(){if(typeof PLACE!='undefined'&&PLACE)PLACE=null;if(START)closeStart();if(CONVO)endConvo();if(MENU)closeMenu();QNEWS.length=0;qnWas=null;MSG=null}
+addEventListener('keydown',e=>{if(e.key!='z'&&e.key!='Z'||e.repeat||/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName))return;
+  if(typeof TITLE!='undefined'&&TITLE||typeof IN!='undefined'&&IN.on)return;closeAll();e.preventDefault();e.stopImmediatePropagation()},true);
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
 addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;const k=e.key;
   if(k=='m'||k=='M'){START?closeStart():openStart();e.preventDefault()}
