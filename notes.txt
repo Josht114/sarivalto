@@ -22,3 +22,5 @@ ann mentions miners but there are no miners
 remove teh maps from behind the radio equipment
 
 when hekki talks about his code you can talk about it being old before he exaplins it to you
+
+setup test
