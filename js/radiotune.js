@@ -13,7 +13,7 @@ const rtMHz=v=>(RT_LO+v*(RT_HI-RT_LO)).toFixed(2);
 function rtBegin(then,q=null,i=0){const r=rng(DAY*7919+13);
   RT.target=.12+r()*.76;RT.mark=RT.target+(r()-.5)*.05;
   RT.dial=Math.max(0,Math.min(1,RT.target>.5?RT.target-.3-r()*.15:RT.target+.3+r()*.15));
-  Object.assign(RT,{q,i,then,hold:0,last:performance.now(),ok:false,note:"Turn the dial until the static clears, then hold it there. Hekki's red pencil mark is close."});startPlay('radiotune')}
+  Object.assign(RT,{q,i,then,hold:0,last:performance.now(),ok:false,note:"Turn the dial until the static clears, then hold it there. Hekki's red pencil mark is close. Hold Shift to move the dial faster."});startPlay('radiotune')}
 function rtTurn(by){if(RT.ok)return;RT.dial=Math.max(0,Math.min(1,RT.dial+by));renderStart()}
 // the sound in the headphones: static that fades as you tune in, and Langley's carrier tone that grows
 function rtSound(s){const ac=typeof audio=='function'&&audio();if(!ac||ac.state!='running')return;
@@ -47,7 +47,7 @@ PLAYS.radiotune={
   // from a quest condition: connecting meets it
   begin(q,i){rtBegin(()=>meet(q,i),q,i)},
   render(){startEl.innerHTML=gameHead('Tuning the Radio','Calling Langley')+
-    `<div class="gamebox"><div><canvas id="radioc" width="240" height="104"></canvas><p class="note" aria-live="polite">${esc(RT.note)}</p>
+    `<div class="gamebox"><div><canvas id="radioc" width="240" height="104"></canvas><p class="note rtnote" aria-live="polite">${esc(RT.note)}</p>
       <div class="acts"><button data-g="l5"${RT.ok?' disabled':''}>&laquo;</button><button data-g="l1"${RT.ok?' disabled':''}>&lsaquo; Down</button><button data-g="r1"${RT.ok?' disabled':''}>Up &rsaquo;</button><button data-g="r5"${RT.ok?' disabled':''}>&raquo;</button></div>
       <p>The dial reads <b>${rtMHz(RT.dial)} MHz</b>.<br><small>Left and right arrows turn the dial (hold Shift to turn it faster). Escape to hang up.</small></p></div></div>`;
     wire();drawRadio(performance.now());if(!RT.raf&&!RT.ok){RT.raf=true;RT.last=performance.now();requestAnimationFrame(rtLoop)}},
