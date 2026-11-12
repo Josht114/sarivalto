@@ -50,8 +50,9 @@ function toggleFS(){if(inFS())(document.exitFullscreen||document.webkitExitFulls
 fsb.onclick=()=>{toggleFS();fsb.blur()};
 ['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{const on=inFS();fsb.setAttribute('aria-pressed',on);fsb.innerHTML=on?'Exit full screen':'&#9974; Full screen';
   if(matchMedia('(pointer:coarse)').matches){if(on)stage.appendChild(pad);else controls.after(pad)}
-  // the objective strip goes into full screen with the game, along the bottom (and back under the game after)
-  const ob=document.getElementById('objective');if(on)stage.appendChild(ob);else stage.after(ob)}));
+  // the objective strip goes into full screen with the game, along the bottom (and back under the game after); it goes in first, so
+  // conversations, the menu and messages are drawn over it
+  const ob=document.getElementById('objective');if(on)stage.prepend(ob);else stage.after(ob)}));
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
 // a Quests tab (active quests) and a Map tab (the island map, with where you are; only with a map in your bag). The game pauses while it is open.
