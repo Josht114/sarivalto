@@ -239,13 +239,13 @@ function boardPlane(){if(!qOf('briefing')?.done){say("Peggy won't take off until
 // what happens on the flight, said as you land
 const FLIGHT_SAY="The little plane climbs out over Virginia and turns east. Hours later, at dawn, it puts down on a grey sea off Sarivalto, beside a fishing boat; you climb across, and the boat brings you in to West Saltwick Harbour. It is 1 September. Find Hekki at the Radio Tower, up from Saltwick: he has a room ready for you.";
 // the cigarette machine in the Langley cafeteria: a pack for $2 of your own money
-// vending machines, by place and the machine's label: what each sells and for how much, from your own money. The cigarette machine
-// in the Langley cafeteria; and in the hall of the apartment block in Saltwick, a food machine and a cigarette machine, open all
+// vending machines, by place and the machine's label: what each sells and for how much, from your own money (they never run out).
+// The cigarette machine and the candy bar machine in the Langley cafeteria; and in the hall of the apartment block in Saltwick, a food machine and a cigarette machine, open all
 // hours and dearer than anywhere else on the island
-const VENDING={langley_cafe:{'Cigarette Machine':[['cigarettes',2,'a pack']]},apartments:{'Vending Machine':[['crisps',4,'a packet of crisps'],['bun',5,'a cinnamon bun'],['cola',3,'a Kelp Cola']],'Cigarette Machine':[['cigarettes',5,'a pack']]}};
+const VENDING={langley_cafe:{'Cigarette Machine':[['cigarettes',2,'a pack']],'Vending Machine':[['candybar',1,'a candy bar']]},apartments:{'Vending Machine':[['crisps',4,'a packet of crisps'],['bun',5,'a cinnamon bun'],['cola',3,'a Kelp Cola']],'Cigarette Machine':[['cigarettes',5,'a pack']]}};
 const vendingAhead=()=>{const V=VENDING[P.m];if(!V)return null;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;const f=FL[P.m].find(([fx,fy,w,h,,l])=>V[l]&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);return f?f[5]:null};
 function cigMachine(){const lb=vendingAhead(),stock=VENDING[P.m][lb],cigs=lb=='Cigarette Machine';
-  choose(cigs?`A cigarette machine. Twenty to a pack, ${money(stock[0][1])}.`:'A vending machine, humming to itself. Everything costs too much.',[
+  choose(cigs?`A cigarette machine. Twenty to a pack, ${money(stock[0][1])}.`:P.m=='langley_cafe'?'A vending machine, humming to itself, its rows full of candy bars. It never runs out.':'A vending machine, humming to itself. Everything costs too much.',[
     ...stock.map(([id,p,nm])=>[`Buy ${nm} (${money(p)})`,()=>{if(ME.cash<p){say(`You don't have ${money(p)} of your own.`,3500);return}
       ME.cash-=p;const c=has(id);if(c)c.n++;else ME.items.push({id,n:1});say(`Clunk. ${cigs?'A pack of cigarettes':nm.replace(/^./,c=>c.toUpperCase())} drops into the tray.`,3500)}]),['Not now']])}
 const mirrorAhead=()=>{if(P.m!='langley_cover')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Dressing Mirror'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
@@ -280,7 +280,7 @@ addEventListener('keydown',e=>{if(e.key!='z'&&e.key!='Z'||e.repeat||/^(INPUT|SEL
 addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;const k=e.key;
   if(k=='m'||k=='M'){START?closeStart():openStart();e.preventDefault()}
   else if((k=='f'||k=='F')&&!CONVO&&!fsb.hidden){toggleFS();e.preventDefault()}
-  else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY&&!CONVO){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else say(r,2500);e.preventDefault()}
+  else if((k=='q'||k=='Q')&&!MENU&&!RIDE&&!BUSY&&!CONVO){const r=saveGame('quick');if(START=='save'){ME.note=r;renderStart()}else note(r,2500);e.preventDefault()}
   else if(START&&k=='Escape'){closeStart();e.preventDefault()}
   // in a shop the arrows (or WASD) move through the stock, C pays with CIA funds and P with your own money
   // in the casino and arcade games, the game takes the keys
@@ -369,7 +369,7 @@ let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const 
   // bottom of the screen for a moment instead.)
   say=(s,d=3000)=>{try{if(QNEWS.at(-1)!==s)questSay(s)}catch(e){MSG={s,t:performance.now(),d}}},
   // a passing note: along the bottom of the screen for a moment, then it fades (bumping into stairs from the wrong side, a shut or
-  // locked door, a snow bank, a snowed-in harbour, the tram); shown again only once it has faded
+  // locked door, a snow bank, a snowed-in harbour, the tram; a quick save); shown again only once it has faded
   note=(s,d=3000)=>{if(!MSG||MSG.s!=s||performance.now()-MSG.t>MSG.d)MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
 // ---- Talking: the person on the tile the player is facing, or just across a counter (tile c: bar counters, shop counters,
 // reception desks), a desk (a feature labelled as one) or a cell's bars from it, and what they say (a placeholder line for everyone for now)

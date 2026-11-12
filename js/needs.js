@@ -13,7 +13,7 @@ const NEED_BEG={
     reply:["Food? (They look you up and down.) You look awful. Go and get something to eat, and then we'll talk.","Not on me, no. Try a café. You're no use to anyone like that.","I can hear your stomach from here. Go and eat something.","Sorry, I've nothing. There's food in town, if you've got the money.","(They step back a little.) You've gone a funny colour. Eat first, talk later."]},
   nicotine:{ask:["Got a cigarette? I'm dying for a smoke.","You don't have a smoke on you, do you? Just the one.","Sorry. I need a cigarette before I can think. Got one?","Any chance of a fag? I'm climbing the walls here.","I'd kill for a cigarette. Not literally. Probably. Got one?"],
     reply:["A cigarette? Buy your own. There's a machine in most bars.","(They pat their pockets.) No, sorry. You're twitching. Go and get a pack.","Not for you, no. Come back when you've calmed down.","I don't smoke. And from the look of you, neither should you. Go and buy a pack.","You're shaking. Get yourself some cigarettes, and then come back and talk to me."]}};
-const needBeg=n=>{const k=['hunger','nicotine'].find(k=>ME[k]<NEED_LOW);if(!k)return null;const B=NEED_BEG[k],pick=a=>a[Math.floor(Math.random()*a.length)];
+const needBeg=n=>{const k=['hunger','nicotine'].find(k=>ME[k]<NEED_LOW);if(!k)return null;if(n.name=='Hekki'&&openConds().some(([q])=>q.id=='beghekki'))return null;const B=NEED_BEG[k],pick=a=>a[Math.floor(Math.random()*a.length)];
   const shop=SHOPS[n.name]&&n.m==n.loc;
   return{start:'a',nodes:{a:{say:`"${pick(B.ask)}" you ask. ${shop?"Then you've come to the right person. Have a look at what I've got.":pick(B.reply)}`,
     opts:shop?[['Show me your stock',null,()=>openShop(n)],['Goodbye',null]]:undefined}}}};
@@ -25,7 +25,13 @@ const SMOKE_EACH=25,SMOKE_NIC=45;
 const NEED_TIP={hunger:"You're getting hungry. The Hunger bar, at the top right, runs down as you play, and faster when time passes. Buy food at a café, a bar, a stall or a shop (talk to whoever's behind the counter), then choose it in your inventory (M) and press Eat: a meal fills you up more than a bun. Let it run low and you can't think of anything else, and nobody will talk business with you until you've eaten (though shopkeepers will still sell to you). In a hurry, there's a vending machine in the hall of the apartment block in Saltwick, open all hours, but it's dearer than anywhere else.",
   nicotine:"You're craving a cigarette. The Nicotine bar, at the top right, runs down as you play. Buy a pack of twenty at a bar, a kiosk or a shop, then choose it in your inventory (M) and press Smoke for one cigarette, or Equip it to smoke one after another as you go. Let it run low and you can't think of anything else, and nobody will talk business with you until you've had one. There's a cigarette machine in the hall of the apartment block in Saltwick, open all hours, but it's dearer than anywhere else."};
 let needNag=0;
-function needsTick(dt){for(const k in NEED_DRAIN)ME[k]=Math.max(0,ME[k]-NEED_DRAIN[k]*dt);
+// broke and in need: hunger or nicotine low with nothing in your bag to eat (or smoke), and less than $2 of your own money and of
+// the CIA's, from 1 September: a side quest to ask Hekki for help (Beg from Hekki, in data.js); again, if it happens again later
+const BROKE_AT=2;
+const needsBroke=()=>DAY>=1&&ME.cash<BROKE_AT&&ME.cia<BROKE_AT&&(ME.hunger<NEED_LOW&&!ME.items.some(i=>FOOD[i.id]&&!ALCOHOL[i.id])||ME.nicotine<NEED_LOW&&!has('cigarettes'));
+function begCheck(){if(!needsBroke())return;const q=qOf('beghekki');if(q&&!q.done)return;if(q)ME.quests.splice(ME.quests.indexOf(q),1);
+  ME.quests.push({id:'beghekki',met:[],done:false,took:DAY});questSay("You're broke: no money of your own, and nothing left in the CIA's funds. Hekki, at the Radio Tower, might help a friend out. New side quest: Beg from Hekki.")}
+function needsTick(dt){for(const k in NEED_DRAIN)ME[k]=Math.max(0,ME[k]-NEED_DRAIN[k]*dt);begCheck();
   for(const k in NEED_TIP)if(ME[k]<NEED_LOW&&!(ME.tips??={})[k]){ME.tips[k]=true;questSay(NEED_TIP[k])}ME.alcohol=Math.max(0,ME.alcohol-SOBER*dt);
   // smoking as you go: nicotine all the while, and a cigarette gone every SMOKE_EACH seconds
   if(ME.equipped=='cigarettes'){if(!has('cigarettes')){ME.equipped=null;say('You\'re out of cigarettes.',3500)}

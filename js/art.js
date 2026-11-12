@@ -1828,7 +1828,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
         if(meet){for(let x=12;x<W-12;x+=14)r('#f4f4f0',x,oy+(H>>1)-3,6,5);r('#7d838a',W>>1,oy+3,4,3)}
         else if(W>=32){r('#f4e6c0',(W>>1)-1,oy+(H>>1)-4,2,4);r('#ffd23a',(W>>1)-1,oy+(H>>1)-6,2,2)}}
       seats.forEach(x=>chair(x,oy+H-1,false))})}}
-  if(ch=='y'&&/gun|cloth|rail|wig|mirror|passport|cigarette|wiretap|forged|recording|milkshake|samples|fridge|rods|tackle|slot|pipes/.test(l)){const oy=12,TT=H+oy-2;let an=null;const c=mk(W,TT,r=>{
+  if(ch=='y'&&/gun|cloth|rail|wig|mirror|passport|cigarette|vending|wiretap|forged|recording|milkshake|samples|fridge|rods|tackle|slot|pipes/.test(l)){const oy=12,TT=H+oy-2;let an=null;const c=mk(W,TT,r=>{
     if(l.includes('gun')){r('#8a7a5a',0,0,W,TT);for(let y=2;y<TT;y+=4)for(let x=2;x<W;x+=4)r('#7a6a4a',x,y);
       for(let y=3;y<TT-4;y+=6)for(let x=2;x<W-14;x+=16){r('#6b4a2e',x,y+1,5,2);r('#2a2a33',x+5,y+1,9,1);r('#2a2a33',x+5,y,2,1)}}
     else if(l.includes('cloth')){r('#5a3d2a',0,TT-3,W,3);for(let x=1;x<W-3;x+=5){const col=['#c0392b','#2e6f9a','#e0a100','#3d7a5a','#7d3c98','#e8e8e8'][hash(x,1,v*7)*6|0];r(col,x,2,4,TT-5);r(shade(col,.3),x,2,4,1);r(shade(col,-.2),x+3,3,1,TT-6)}}
@@ -1843,6 +1843,9 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     else if(l.includes('milkshake')){r('#5a3d2a',0,TT-6,W,6);r('#7a5436',0,TT-6,W,1);r('#d8dde2',3,2,W-14,TT-9);r('#f4f6f8',4,2,W-16,2);r('#9aa3ad',W-12,2,1,TT-9);r('#c0392b',3,TT-10,W-14,2);
       for(let k=0;k<3;k++){const x=6+k*((W-20)/3|0);r('#b8c0c8',x,6,5,3);r('#5a5f68',x+2,9,1,4);r('#c9ced4',x,13,5,TT-20);r('#e8ecef',x,13,1,TT-20)}
       r('#f4f4f0',W-9,TT-16,5,10);r('#f2a6c0',W-8,TT-14,3,7);r('#ffffff',W-8,TT-16,3,2);r('#c0392b',W-7,TT-19,1,3);r('#e8e8e8',W-5,TT-18,1,8)}
+    // the vending machine: blue, with rows of snacks behind glass, the coin slot and the tray
+    else if(l.includes('vending')){r('#1f4f7a',1,0,W-2,TT);r('#4a7fb0',2,1,W-4,2);r('#1a1a22',3,4,W-12,TT-9);for(let y=5;y<TT-6;y+=5)for(let x=4;x<W-11;x+=4)r(['#c0392b','#ffd23a','#5a3418','#2e9d57'][(x+y)%4],x,y,3,3);
+      r('#c9ced4',W-8,5,4,6);r('#1a1a22',W-7,7,2,1);r('#f4f4f0',W-8,13,4,2);r('#2a2a33',3,TT-4,W-6,2)}
     else if(l.includes('cigarette')){r('#8a1a1a',1,0,W-2,TT);r('#c0392b',2,1,W-4,2);r('#1a1a22',3,4,W-12,TT-9);for(let y=5;y<TT-6;y+=5)for(let x=4;x<W-11;x+=4)r(['#e8e8e8','#c0392b','#2e86c1','#e0a100'][(x+y)%4],x,y,3,3);
       r('#c9ced4',W-8,5,4,6);r('#1a1a22',W-7,7,2,1);r('#ffd23a',W-8,13,4,2);r('#2a2a33',3,TT-4,W-6,2)}
     // George's office: wiretap gear (reels and a headset on a bench), forged papers (stamps, passports, a lamp)
@@ -2695,6 +2698,20 @@ coffee:[`
 ...kWWWWWWWkkk..
 ...kWWWWWWWk....
 ....kkkkkkk.....`,{k:'#262330',s:'#cfd6dc',W:'#f1ead6',C:'#5a3a22'}],
+candybar:[`
+................
+................
+................
+................
+..kkkkkkkkkkkkk.
+.kCCRRRRRRRRRRRk
+.kCCRWWWWWWWRRRk
+.kCCRWYYYYYWRRRk
+.kCCRWWWWWWWRRRk
+.kCCRRRRRRRRRRRk
+..kkkkkkkkkkkkk.
+................
+................`,{k:'#262330',C:'#5a3418',R:'#c0392b',W:'#f1ead6',Y:'#ffd23a'}],
 crisps:[`
 ................
 ................

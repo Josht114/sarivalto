@@ -113,7 +113,7 @@ langley:['CIA Headquarters',22,12,'interior',[[1,1,1,1,'x','Plant'],[20,1,1,1,'x
 // of clothes, a wig stand, passports, a dressing mirror, two mannequins and Doris's desk
 langley_cover:['Cover Story Department',16,10,'interior',[[1,1,4,1,'y','Costume Rail'],[6,1,2,1,'y','Wig Stand'],[9,1,2,1,'y','Passports'],[12,1,2,1,'y','Dressing Mirror'],[2,5,3,2,'u','Desk'],[9,5,1,1,'n','Mannequin'],[11,5,1,1,'n','Mannequin']]],
 // the cafeteria, off the right of the lobby: the serving counter, a drinks fridge, a cigarette machine and tables
-langley_cafe:['Cafeteria',20,12,'interior',[[1,1,6,1,'c','Serving Counter'],[9,1,2,1,'y','Fridge'],[13,1,2,1,'y','Cigarette Machine'],[3,5,3,2,'u','Table'],[9,5,3,2,'u','Table'],[15,5,3,2,'u','Table'],[3,9,3,2,'u','Table'],[9,9,3,2,'u','Table'],[15,9,3,2,'u','Table']]],
+langley_cafe:['Cafeteria',20,12,'interior',[[1,1,6,1,'c','Serving Counter'],[9,1,2,1,'y','Fridge'],[13,1,2,1,'y','Cigarette Machine'],[16,1,2,1,'y','Vending Machine'],[3,5,3,2,'u','Table'],[9,5,3,2,'u','Table'],[15,5,3,2,'u','Table'],[3,9,3,2,'u','Table'],[9,9,3,2,'u','Table'],[15,9,3,2,'u','Table']]],
 // George's office, off the Upstairs Corridor along from Chuck's: the jobs that don't go in the reports. A gun rack, locked
 // files, wiretap gear, forged papers, a shredder, a burn bag, a bag of cash and a safe
 langley_george:["George's Office",14,9,'interior',[[1,1,3,1,'y','Gun Rack'],[5,1,2,1,'y','Locked Files'],[8,1,2,1,'y','Wiretap Gear'],[11,1,2,1,'y','Forged Papers'],[5,4,4,2,'u','Desk'],[1,6,1,1,'x','Shredder'],[2,6,1,1,'x','Burn Bag'],[11,6,1,1,'x','Cash Bag'],[12,6,1,1,'x','Safe']]],
@@ -617,6 +617,7 @@ lava:{name:'Tin of lava',desc:'An old tin of lava from the pool in the Lava Tube
 peoplescola:{name:"The People's Cola",desc:"A bottle of the Party's own cola, brewed from volcano lava in Kelp Cola's lab: dark, smoky, with a kick like a mule. For Helen.",actions:['Look at']},
 beans:{name:'Imported coffee beans',desc:'A sack of fine Colombian coffee beans, brought in through Langley in the diplomatic pouch. For Maya at the Coffee Roasters.',actions:['Look at']},
 coffee:{name:'Cup of coffee',desc:'Strong black coffee, roasted in Eastbrook.',actions:['Drink']},
+candybar:{name:'Candy bar',desc:'A chocolate candy bar from the vending machine in the CIA cafeteria at Langley: peanuts, caramel and enough sugar to get you to lunch.',actions:['Eat']},
 crisps:{name:'Packet of crisps',desc:'A small packet of salted crisps from a vending machine, mostly air.',actions:['Eat']},
 bun:{name:'Cinnamon bun',desc:'A sticky cinnamon bun, still warm.',actions:['Eat']},
 meal:{name:'Hot meal',desc:'Steak, potatoes and greens on a plate.',actions:['Eat']},
@@ -701,7 +702,7 @@ const FISH_BUYER='Olga';
 // ---- How much each thing you eat or drink fills your hunger (out of 100; js/needs.js)
 // ---- How drunk each drink makes you (the alcohol meter goes up by this, out of 100)
 const ALCOHOL={beer:15,wine:25,whisky:20};
-const FOOD={crisps:10,meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
+const FOOD={candybar:12,crisps:10,meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
 const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
@@ -1176,6 +1177,13 @@ const CBX_THYME_LOST={start:'a',nodes:{a:{say:"(Father Thyme nods slowly, as if 
 // what Augustus says once he's chosen (the same in both quests)
 const CBX_AFTER=[{flag:'crown',name:'Augustus',say:"(Augustus is back with the saints, but the library door's open now.) I'm staying. Leopold has started asking my opinion at breakfast. It's terrifying."},
   {flag:'cross',name:'Augustus',say:"(Augustus has a small bag packed by the library door.) Father Thyme says there's a cell with a window to the east. I've never had a window of my own."}];
+// Beg from Hekki: Hekki helps you out when you're broke, with $20 from his tobacco tin, a loaf of bread and his emergency cigarettes
+const BH_GIVE=()=>{ME.cash+=20;give('bread');give('cigarettes')};
+const BH_HEKKI={start:'a',nodes:{
+  a:{say:"(Hekki takes one look at you and goes pale.) NIGHTJAR. You look terrible. When did you last eat? Or sleep? Or anything?",opts:[["I'm broke, Hekki. Completely.",'b',BH_GIVE],["Don't tell Chuck.",'c',BH_GIVE]]},
+  b:{say:"Broke? On an expense account? (He opens a tobacco tin and presses some notes into your hand, then a loaf, then, after a pause, a pack of cigarettes from his drawer.) Twenty dollars, a loaf of bread, and my emergency cigarettes. I don't smoke. They're for emergencies. This is one.",opts:[["Thank you, Hekki.",'d']]},
+  c:{say:"I won't. He'd only send a memo. (He opens a tobacco tin and presses some notes into your hand, then a loaf, then, after a pause, a pack of cigarettes from his drawer.) Twenty dollars, a loaf of bread, and my emergency cigarettes. I don't smoke. They're for emergencies. This is one.",opts:[["Thank you, Hekki.",'d']]},
+  d:{say:"Eat something. Please. (He shuts the tin.) And if you could not mention the tin to anyone, I'd be grateful. It's my holiday."}}};
 const QUESTS={
 // ---- 22 August, at Langley: Joan at the front desk (yours from the start of a new game: start:true), then your alias, then
 // your briefing.
@@ -1897,6 +1905,12 @@ crossbeforecrown:{title:'Cross Before Crown',giver:'Father Thyme',main:true,day:
     {if:'won',talk:'Father Thyme',points:{church:1},chat:CBX_THYME_WON,what:'Tell Father Thyme, at the Mountain-Top Monastery'},
     {if:'lost',talk:'Father Thyme',points:{church:-1,royal:1},chat:CBX_THYME_LOST,what:'Tell Father Thyme, at the Mountain-Top Monastery'}],
   thanks:"Augustus has chosen, one way or the other."},
+// Beg from Hekki (a side quest the game gives you, given: js/needs.js begCheck): broke (less than $2 of your own and of the CIA's)
+// and starving with nothing to eat, or craving a smoke with no cigarettes. Hekki gives you $20, a loaf of bread and a pack of
+// cigarettes. If you go broke again later, it comes back.
+beghekki:{title:'Beg from Hekki',giver:'Hekki',given:true,text:"You're broke: no money of your own, and nothing left in the CIA's funds either. Go and ask Hekki for help, at the Radio Tower up from Saltwick (or in his shack there, at night).",
+  done:[{talk:'Hekki',chat:BH_HEKKI,what:'Ask Hekki for help, at the Radio Tower up from Saltwick'}],
+  thanks:"Hekki has seen you right: $20, a loaf of bread and a pack of cigarettes."},
 // Cover Blown (a side quest, from 26 September): Solveig, the Gazette's sub-editor, back from Fleet Street, has worked out you're no
 // reporter. Talk her round (three questions about Fleet Street; one wrong answer and only the other two ways are left), pay her $500
 // of your own for her silence, or ask her to the jetty at Eastbrook Harbour and silence her for good: she's gone for the rest of the
