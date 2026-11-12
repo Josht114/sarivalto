@@ -32,7 +32,7 @@ function needsTick(dt){for(const k in NEED_DRAIN)ME[k]=Math.max(0,ME[k]-NEED_DRA
     else{ME.nicotine=Math.min(100,ME.nicotine+SMOKE_NIC/SMOKE_EACH*dt);if((ME.smokeT=(ME.smokeT||0)+dt)>=SMOKE_EACH){ME.smokeT=0;ME.cigsLeft=(ME.cigsLeft||20)-1;
       if(ME.cigsLeft<=0){take('cigarettes');ME.cigsLeft=20;if(!has('cigarettes')){ME.equipped=null;say('You stub out your last cigarette. The pack is empty, and you have no more.',4500)}else say('You crumple the empty pack and open another.',3500)}}}}
   // a reminder when something's low, every half a minute or so (and not over another message)
-  if((needNag-=dt)<=0){const low=Object.keys(NEED_DRAIN).find(k=>ME[k]<NEED_LOW);if(low&&!MSG){say(NEED_SAY[low]+(ME[low]<=0?' Badly.':''),4000);needNag=30}else needNag=5}}
+  if((needNag-=dt)<=0){const low=Object.keys(NEED_DRAIN).find(k=>ME[k]<NEED_LOW);if(low&&!QNEWS.length){say(NEED_SAY[low]+(ME[low]<=0?' Badly.':''),4000);needNag=30}else needNag=5}}
 // time passing in a moment (sitting until evening, sleeping): the meters drop by this much
 function needsPass(h,n,a){ME.hunger=Math.max(0,ME.hunger-h);ME.nicotine=Math.max(0,ME.nicotine-n);ME.alcohol=Math.max(0,ME.alcohol-a)}
 function eat(id){const f=FOOD[id]||0,a=ALCOHOL[id]||0;ME.hunger=Math.min(100,ME.hunger+f);const was=ME.alcohol;ME.alcohol=Math.min(100,ME.alcohol+a);

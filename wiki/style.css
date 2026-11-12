@@ -63,4 +63,5 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 [hidden]{display:none!important}a.loc{cursor:pointer}a.loc:hover rect,a.loc:focus rect{filter:brightness(1.08)}.mapview .hint{margin:0 0 6px;color:var(--mut);font-size:14px}
 .plan{margin:8px 0}.plan-svg{display:block;width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;margin:0 auto}a.bld:hover rect{stroke:#1f6f9a;stroke-width:3}a.exit:hover text{fill:#0b4a6e}
 .planbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 8px}.planbar a{margin-left:auto}.back{font:inherit;font-size:14px;padding:5px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer}
+kbd{display:inline-block;font:12px ui-monospace,Consolas,monospace;padding:1px 6px;border:1px solid var(--bd);border-bottom-width:2px;border-radius:4px;background:var(--card);white-space:nowrap}.ctl td:first-child{line-height:1.9}
 footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}@media (max-width:640px){.info{float:none;width:100%}}

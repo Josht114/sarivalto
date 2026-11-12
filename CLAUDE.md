@@ -24,6 +24,7 @@ its future after the old king's death. See `README.md` for the full picture.
   `js/daily.js` by `node tools/build-daily.js`. Never hand-edit `js/daily.js`.
 - `personalities/`: a character card for every person. `quest-plan/`: a text file for every planned quest.
 - `docs/quest-schedule.md`: which factions have quests on which day.
+- The wiki's Controls page (`controlsBody` in `tools/build-wiki.js`) is written by hand: when you add or change a key, change it there.
 - `wiki/` is generated: run `node tools/build-wiki.js` after changing data, and commit the result. Never hand-edit `wiki/`.
   (Most wiki files show as modified after a rebuild only because of line endings; that's harmless.)
 

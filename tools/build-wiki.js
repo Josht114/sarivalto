@@ -77,6 +77,66 @@ function accessMap(d){const G=MAP_GEO,ids=Object.keys(G.cells);
   return`<svg viewBox="80 90 1340 720" role="img" aria-label="The island on ${d} September"><defs><clipPath id="cl${d}"><polygon points="${G.coast}"/></clipPath></defs>`+
     `<polygon points="${G.coast}" fill="#cfd8dc"/><g clip-path="url(#cl${d})">${ids.map(cell).join('')}${news}</g><polygon points="${G.coast}" fill="none" stroke="#4a3b2a" stroke-width="4"/>${roads}${snow}${dots}</svg>`}
 // The Audio page: each piece of background sound, what you hear and where; then every location with the sound it has, by place
+// ---- Controls: every key and button in the game, by what you're doing. Written by hand: when a key is added or changed in the
+// game, change it here too.
+function controlsBody(c){const k=s=>s.split(' / ').map(x=>x.split('+').map(y=>`<kbd>${esc(y)}</kbd>`).join('+')).join(' or ');
+  const sec=(title,note,rows)=>`<h2>${title}</h2>${note?`<p>${note}</p>`:''}<div class="wide"><table class="grid ctl"><colgroup><col style="width:34%"><col></colgroup><tbody>${
+    rows.map(([keys,what])=>`<tr><td>${keys.split(' | ').map(k).join(', ')}</td><td>${what}</td></tr>`).join('')}</tbody></table></div>`;
+  return`<h1>Controls</h1><p>Every key in the game. Everything can also be done with the mouse: click the buttons on screen. On a phone or tablet, the arrow pad and the E button under the game do the walking and the talking.</p>`+
+  sec('Getting about','',[
+    ['Arrows / W A S D','Walk. Walk off a labelled edge of the map, onto a door, or onto a boat berth to go somewhere else.'],
+    ['E / Space / Enter','Talk to the person you\'re facing, or use what\'s in front of you: a bed, the telephone, the big screen, the radio set, a tram stop, a shop counter, a game. The hint above you says what it will do.'],
+    ['P','Pick up a piece of furniture you put down in a home of your own.']])+
+  sec('Conversations','',[
+    ['Up / Down / W / S','Choose a reply.'],
+    ['1 to 9','Pick that reply straight away.'],
+    ['E / Space / Enter','Say the reply you\'ve chosen.'],
+    ['Escape','End the conversation.']])+
+  sec('The menu','The menu has the Inventory, Quests, Journal, Map, Save and Options tabs. The game waits while it\'s open.',[
+    ['M','Open or close the menu.'],
+    ['Tab / Shift+Tab | 1 to 6','Change tab.'],
+    ['Left / Right / A / D','Change tab (except on the Inventory tab).'],
+    ['Arrows / W A S D','On the Inventory tab, move through what you\'re carrying.'],
+    ['E / Space / Enter','On the Inventory tab, do the first thing the chosen item can do.'],
+    ['Q','Quick save, any time you\'re not talking or travelling.']])+
+  sec('Closing things','',[
+    ['E / Space / Enter / Escape','Close the message box in the middle of the screen (or click Continue). Every message and piece of quest news waits there until you close it, and the game waits too.'],
+    ['Escape','Close the one thing on top: the menu, a conversation, a list of choices or a game.'],
+    ['Z','Close everything that\'s open at once: the menu, a conversation, a list of choices, the message box, and furniture you\'re placing.']])+
+  sec('Lists of choices','Such as the tram\'s stops, a vending machine or a card table.',[
+    ['Up / Down / W / S','Choose.'],
+    ['E','Pick it.'],
+    ['Escape','Close the list.']])+
+  sec('Shops and the wardrobe','',[
+    ['Arrows / W A S D','In a shop, move through the stock.'],
+    ['C','Buy the chosen item with CIA funds.'],
+    ['P','Buy it with your own money.'],
+    ['Up / Down / W / S','In the wardrobe (and the Cover Story Department), choose what to change.'],
+    ['Left / Right / A / D','In the wardrobe, change it.']])+
+  sec('Furniture in your home','Putting down something you\'ve bought for a home of your own.',[
+    ['Arrows / W A S D','Move it.'],
+    ['Enter / E / Space','Put it down.'],
+    ['Escape','Keep it for later.']])+
+  sec('Games','Escape leaves any of them.',[
+    ['Space / E / Enter','Picking a lock: lift the pin while the needle is in the green.'],
+    ['Left / Right | Space / E / Enter','Cracking a safe: turn the dial (hold Shift for five at a time), and set the wheel when you hear the click.'],
+    ['Space / E / Enter','Forging a card: write each line while the needle is in the green.'],
+    ['Left / Right','Tuning the radio: turn the dial (hold Shift to turn it faster) until the static clears, and hold it there.'],
+    ['Space / E / Enter','Fishing: cast, strike when something bites, and hold to reel in.'],
+    ['Space / E / Enter','Slot machine: pull the lever.'],
+    ['Left / Right | Space / E / Enter | H / S / D','Blackjack: change your bet, deal; then hit, stand or double.'],
+    ['Space / E / Enter | C / R / X','Poker: deal; then call, raise or fold.'],
+    ['Arrows / W A S D | Space','Arcade: steer the snake; move the paddle; move the gun, and fire.'],
+    ['Arrows / W A S D | Enter / Space','Tattoo parlour: up and down choose the design or where it goes, left and right change it; buy it.'],
+    ['Space / P','At the cinema: pause the film.']])+
+  sec('The title screen and the opening film','',[
+    ['Arrows / W A S D','On the title screen, choose Continue, New game or Load game.'],
+    ['E / Space / Enter','Pick it.'],
+    ['Escape / Space / E / Enter','Skip the opening film.']])+
+  sec('Other keys','',[
+    ['F','Full screen, on and off.'],
+    ['N','Day or night (for testing).']])+
+  `<h2>Under the game</h2><p>The buttons under the game screen: <b>Jump to</b> (go straight to any place), <b>Date</b> (go to any day), <b>Day</b> or <b>Night</b>, <b>Menu</b>, <b>Music</b> and <b>Radio</b> (on and off), and <b>Full screen</b>. The dashed <b>Test</b> box adds or takes away a faction's points, moves on to the next day, and sets the volume (the same volume as on the Options tab). </p>`}
 function audioBody(c){const trackOf=id=>Object.keys(MUSIC_AT).find(k=>MUSIC_AT[k].includes(id)),here=id=>{const k=trackOf(id);return k?TRACK_INFO[k][0]:''};
   const tracks=Object.keys(TRACK_INFO).map(k=>`<h3>${esc(TRACK_INFO[k][0])}</h3><p>${esc(TRACK_INFO[k][1])}</p><p><small>Plays at: ${MUSIC_AT[k].map(id=>A(c,'locations',id,L[id][0])).join(', ')}</small></p>`).join('');
   const g={};Object.keys(L).filter(id=>id!='tram').forEach(id=>(g[top(id)]??=[]).push(id));
@@ -392,6 +452,7 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 [hidden]{display:none!important}a.loc{cursor:pointer}a.loc:hover rect,a.loc:focus rect{filter:brightness(1.08)}.mapview .hint{margin:0 0 6px;color:var(--mut);font-size:14px}
 .plan{margin:8px 0}.plan-svg{display:block;width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;margin:0 auto}a.bld:hover rect{stroke:#1f6f9a;stroke-width:3}a.exit:hover text{fill:#0b4a6e}
 .planbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 8px}.planbar a{margin-left:auto}.back{font:inherit;font-size:14px;padding:5px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer}
+kbd{display:inline-block;font:12px ui-monospace,Consolas,monospace;padding:1px 6px;border:1px solid var(--bd);border-bottom-width:2px;border-radius:4px;background:var(--card);white-space:nowrap}.ctl td:first-child{line-height:1.9}
 footer{text-align:center;color:var(--mut);font-size:13px;padding:20px}@media (max-width:640px){.info{float:none;width:100%}}`;
 const JS=`document.addEventListener('click',function(e){var v=e.target.closest('.mapview');if(!v)return;
   if(e.target.closest('.back')){v.querySelectorAll('.plan').forEach(function(p){p.hidden=true});v.querySelector('.overview').hidden=false;v.scrollIntoView({block:'nearest'});return}
@@ -403,13 +464,14 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${lst(c,'controls')}">Controls</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
 pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
 pages.push({k:'access',id:'access',title:'Access',body:accessBody,file:'access/index.html',pre:'../'});
 pages.push({k:'audio',id:'audio',title:'Audio',body:audioBody,file:'audio/index.html',pre:'../'});
 pages.push({k:'dialogue',id:'dialogue',title:'Dialogue',body:dialogueBody,file:'dialogue/index.html',pre:'../'});
+pages.push({k:'controls',id:'controls',title:'Controls',body:controlsBody,file:'controls/index.html',pre:'../'});
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
 Object.keys(FACTIONS).forEach(i=>pages.push({id:'factions-'+i,title:FACTIONS[i][0],body:c=>facBody(c,i),file:'factions/'+i+'.html',pre:'../'}));

@@ -271,7 +271,7 @@ function closeStart(){if(START=='wardrobe'&&WARD.all)leaveCover();START=null;SHO
 startBtn.onclick=()=>{START?closeStart():openStart();startBtn.blur()};
 // Z closes everything that's open at once: the menu (and any shop, game or map in it), a conversation (as Escape would), a menu of
 // choices, the quest news box, a message along the bottom, and furniture you're placing. Not the title screen or the opening film.
-function closeAll(){if(typeof PLACE!='undefined'&&PLACE)PLACE=null;if(START)closeStart();if(CONVO)endConvo();if(MENU)closeMenu();QNEWS.length=0;qnWas=null;MSG=null}
+function closeAll(){if(typeof PLACE!='undefined'&&PLACE)PLACE=null;if(START)closeStart();if(CONVO)endConvo();if(MENU)closeMenu();closeNews();MSG=null}
 addEventListener('keydown',e=>{if(e.key!='z'&&e.key!='Z'||e.repeat||/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName))return;
   if(typeof TITLE!='undefined'&&TITLE||typeof IN!='undefined'&&IN.on)return;closeAll();e.preventDefault();e.stopImmediatePropagation()},true);
 // M opens and closes it, Escape closes it, left and right (or A and D) move between tabs
@@ -334,7 +334,7 @@ function update(dt){
       if(e&&!PRESS_DOORS.has(e.to)){if(isOpen(e.to))useExit(e);else say('The boat to '+NM[e.to]+" isn't running: the harbour there is snowed in.",4000)}
       else if(P.m=='tram'&&MAPS.tram[P.y][P.x]=='m')leaveTram()}}
   if(!P.mv&&tramAt(P.m,P.x,P.y)){standClear();return}
-  if(!P.mv&&stack.length){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
+  if(!P.mv&&stack.length&&!newsUp()){const d=stack[stack.length-1],[dx,dy]=DIR[d];P.dir=d;
     const nx=P.x+dx,ny=P.y+dy,door=EX[P.m].find(e=>e.x==nx&&e.y==ny&&shut(e.to));
     if(door){const pk=typeof pickAt=='function'&&pickAt(door.to);if(pk)startPick(pk);else if(!MSG||MSG.s!=shutMsg(door.to)||performance.now()-MSG.t>MSG.d)say(shutMsg(door.to))}
     else if(bigDoor(nx,ny,d))useExit(bigDoor(nx,ny,d));
@@ -361,7 +361,11 @@ function standClear(){let best=null;for(let dy=-4;dy<=4;dy++)for(let dx=-6;dx<=6
 // ---- Riding the tram. On a platform, the action key (E, Space or Enter, or the E button) calls the tram; once it has stopped,
 // pressing it again gets on. Inside the tram the action key opens a menu of stops; picking one plays a short ride and then
 // puts the player on that stop's platform as the tram pulls away. Walking out of the tram's door gets off where you got on.
-let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const RIDE_DUR=2800,say=(s,d=3000)=>{MSG={s,t:performance.now(),d}},menu=document.getElementById('menu');
+let MSG=null,MENU=0,RIDE=null,TRIP=null,BUSY=false,CONVO=null,CONVO_END=0;const RIDE_DUR=2800,
+  // a message: in the box in the middle of the screen (with the quest news), until it's closed (d, how long it used to show, is
+  // no longer used); the same message twice in a row is shown once. (Said while the page is still loading, it shows along the
+  // bottom of the screen for a moment instead.)
+  say=(s,d=3000)=>{try{if(QNEWS.at(-1)!==s)questSay(s)}catch(e){MSG={s,t:performance.now(),d}}},menu=document.getElementById('menu');
 // ---- Talking: the person on the tile the player is facing, or just across a counter (tile c: bar counters, shop counters,
 // reception desks), a desk (a feature labelled as one) or a cell's bars from it, and what they say (a placeholder line for everyone for now)
 const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
@@ -595,7 +599,7 @@ addEventListener('keydown',e=>{if(!MENU)return;const bs=[...menu.querySelectorAl
   if(k=='arrowdown'||k=='s')bs[(i+1)%bs.length].focus();else if(k=='arrowup'||k=='w')bs[(i-1+bs.length)%bs.length].focus();
   else if(k=='escape')closeMenu();else if(k=='e')(bs[i]||bs[0]).click();else return;e.preventDefault()});
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&(e.key=='e'||e.key=='E'||e.key==' '||e.key=='Enter')){act();e.preventDefault()}});
-document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(CONVO){reply(CONVO.sel);return}if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
+document.getElementById('act').addEventListener('pointerdown',e=>{e.preventDefault();if(newsUp()){closeNews();return}if(CONVO){reply(CONVO.sel);return}if(MENU){const b=document.activeElement;if(menu.contains(b))b.click()}else act()});
 // what the action key would do here, shown above the player
 function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press E to choose a stop';
   if(useAhead()&&!P.mv)return'Press E to '+useAhead()[2].what.replace(/^./,c=>c.toLowerCase());
@@ -723,16 +727,23 @@ function objectiveText(){if(CONVO||START||BUSY||RIDE||(typeof TITLE!='undefined'
   if(today.some(Q=>Q.ring))return"Someone will ring with a job: answer the telephone in your room, under Hekki's shack at the Radio Tower.";
   return"Today's main quest is waiting: look for someone with a gold star (the map, in the menu, shows where)."}
 function showObjective(){const t=objectiveText();if(t===objWas)return;objWas=t;OBJ_ON=!!t;objEl.innerHTML=t?'<span><b>Objective</b>'+esc(t)+'</span>':''}
-// ---- Quest news (a step done and what's next, a new quest, a quest complete), in a box above the objective that stays until you
-// close it (the cross). News that comes while it's open is added to it (the last four). Hidden while you're talking, in the menu,
-// on the title screen or in the opening film, and shown again after.
+// ---- Messages and quest news (say and questSay: a step done and what's next, a new quest, a quest complete, and everything else
+// the game tells you), in a box in the middle of the screen that stays until you close it: the game waits (you can't walk or use anything) until you do. Continue, the cross, E, Space, Enter, Escape or Z close
+// it (a key held down doesn't, so it can't be skipped by accident). News that comes while it's open is added to it (the last four).
+// Hidden while you're talking, in the menu or a list of choices, on the title screen or in the opening film, and shown again after.
 const qmsgEl=document.getElementById('qmsg'),QNEWS=[];let qnWas,QN_OFF=0;
 function questSay(s){QNEWS.push(s);if(QNEWS.length>4)QNEWS.shift();MSG=null;qnWas=null}
-qmsgEl.querySelector('.x').onclick=e=>{QNEWS.length=0;qnWas=null;e.currentTarget.blur()};
-function showQuestNews(){const on=QNEWS.length&&!CONVO&&!START&&!(typeof TITLE!='undefined'&&TITLE)&&!(typeof IN!='undefined'&&IN.on),key=on?QNEWS.join('\n'):'';
-  if(key!==qnWas){qnWas=key;qmsgEl.hidden=!on;stageEl.classList.toggle('hasqmsg',!!on);if(on)qmsgEl.querySelector('.txt').innerHTML=QNEWS.map(t=>'<p>'+esc(t)+'</p>').join('')}
-  // how far up the game's own messages go, to clear it (in the canvas's pixels)
-  QN_OFF=on?Math.ceil((qmsgEl.offsetHeight+8)*cv.height/(cv.clientHeight||cv.height)):0}
+// whether the box is up now, and closing it
+const newsUp=()=>!!QNEWS.length&&!CONVO&&!START&&!MENU&&!(typeof TITLE!='undefined'&&TITLE)&&!(typeof IN!='undefined'&&IN.on);
+function closeNews(){QNEWS.length=0;qnWas=null}
+qmsgEl.querySelectorAll('.x,.ok').forEach(b=>b.onclick=e=>{closeNews();e.currentTarget.blur()});
+addEventListener('keydown',e=>{if(!newsUp()||/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName))return;const k=e.key.length==1?e.key.toLowerCase():e.key;
+  if(['e',' ','Enter','Escape'].includes(k)){if(!e.repeat)closeNews()}else if(!/^(Arrow(Up|Down|Left|Right)|[wasd])$/.test(k))return;
+  e.preventDefault();e.stopImmediatePropagation()},true);
+function showQuestNews(){const on=newsUp(),key=on?QNEWS.join('\n'):'';
+  if(key!==qnWas){qnWas=key;qmsgEl.hidden=!on;stageEl.classList.toggle('hasqmsg',!!on);if(on){qmsgEl.querySelector('.txt').innerHTML=QNEWS.map(t=>'<p>'+esc(t)+'</p>').join('');stack=[]}}
+  // (the game's own messages stay at the bottom: the box is in the middle)
+  QN_OFF=0}
 const hudEq=document.getElementById('hudeq');let hudWas;
 function showHeld(){const id=ME.equipped&&has(ME.equipped)?ME.equipped:null,extra=id=='cigarettes'?` <small>${ME.cigsLeft} left in the pack</small>`:id=='walkman'&&typeof TAPE_NOW!='undefined'&&TAPE_NOW.song&&tapePlaying()?` <small>&#9834; ${esc(TAPE_NOW.song)}</small>`:'',key=id+extra;if(key===hudWas)return;hudWas=key;hudEq.hidden=!id;
   if(id)hudEq.innerHTML=`<img src="${itemIcon(id)}" alt=""><span><small>${id=='cigarettes'?'Smoking':'Equipped'}</small>${esc(ITEMS[id].name)}${extra}</span>`}
