@@ -1914,7 +1914,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       for(const cx of[x+5,x+12]){r('#2b2f3a',cx-3,2,7,7);r('#c9ced4',cx-2,3,5,5);an.push({t:'reel',x:cx,y:5})}
       r('#2b2f3a',x+4,10,10,1);for(let k=0;k<4;k++)r(['#c0392b','#e8e8e8','#e8e8e8','#2e9d57'][k],x+3+k*3,TT-6,2,2)}});
     return{oy,c,an}}
-  if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:[{t:'blink',x:W-6,y:4,c:'#ff8a3a'},...(l=='radio equipment'?[{t:'rcall',x:1,y:3,w:W-2,h:10}]:[])],c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
+  if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:[{t:'blink',x:W-6,y:4,c:'#ff8a3a'},...(l=='radio equipment'?[{t:'rcall',x:(W-36)>>1,y:-17,w:36,h:17}]:[])],c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
     for(let x=2;x<W-4;x+=11){r('#2b2f3a',x,4,9,8);r('#7fd0a0',x+1,5,7,3);r('#d0d4d8',x+2,9,2,2);r('#d0d4d8',x+6,9,2,2)}r('#6b4a2e',0,TT-8,W,8);r('#8a6a45',0,TT-8,W,1);r('#2b2f3a',4,TT-12,6,4);r('#d0d4d8',W-12,TT-13,1,5)})}}
   // a wooden shelf stacked with folded towels in soft colours
   // cans of lamp oil on a plank shelf: red and green cans with spouts and labels
@@ -2295,9 +2295,14 @@ function drawWorld2(m,cx,cy,t,frame){
     // the PC's screen: the Faction Tracker's bars in each faction's colour, rising and falling a little, and a blinking cursor
     if(a.t=='pcscreen'){const cols=['#c0392b','#2e86c1','#7d3c98','#2e9d57','#5a6a74','#a0522d','#e0a020'];
       cols.forEach((c,i)=>{const h=3+Math.round((Math.sin(t/900+i*1.3)+1)*2.5);px(c,X+1+i*2,Y+a.h-1-h,1,h)});px('#3a6a4a',X+1,Y+a.h-1,a.w-2,1);if(((t/500)|0)%2)px('#7fd0a0',X+a.w-3,Y+1,2,1)}
-    // the radio set in your room: when Chuck or George is calling, its dials flash red with INCOMING CALL across them
-    if(a.t=='rcall'&&typeof chuckCalling=='function'&&chuckCalling()&&((t/400)|0)%2){px('#7a1020',X,Y,a.w,a.h);const w='INCOMING CALL',x0=X+((a.w-w.length*4+1)>>1);
-      [...w].forEach((ch,i)=>{const f=FONT[ch];if(f)for(let k=0;k<15;k++)if(f[k]=='1')px('#ffffff',x0+i*4+k%3,Y+3+(k/3|0),1,1)})}
+    // the radio set in your room: a little monitor on the wall above it, dark green with a blinking cursor; when Chuck or George is
+    // calling, its screen flashes red with INCOMING CALL across it (only in your room and Hekki's, the radios you call Langley on)
+    if(a.t=='rcall'&&typeof HOME!='undefined'&&(P.m==HOME||P.m=='hekki_room')){const sx=X+2,sy=Y+3,sw=a.w-4,sh=12;
+      px('#2b2f3a',X,Y,a.w,a.h);px('#5a5f68',X,Y,a.w,1);px('#3a3d44',X+1,Y+1,a.w-2,1);px('#1a1d24',X+6,Y+a.h-1,a.w-12,1);
+      if(typeof chuckCalling=='function'&&chuckCalling()&&((t/400)|0)%2){px('#7a1020',sx,sy,sw,sh);
+        [['INCOMING',sy+1],['CALL',sy+7]].forEach(([w,y])=>{const x0=sx+((sw-w.length*4+1)>>1);[...w].forEach((ch,i)=>{const f=FONT[ch];if(f)for(let k=0;k<15;k++)if(f[k]=='1')px('#ffffff',x0+i*4+k%3,y+(k/3|0),1,1)})})}
+      else{px('#0e1f16',sx,sy,sw,sh);px('rgba(127,208,160,.12)',sx,sy+((t/90)|0)%sh,sw,1);if(((t/500)|0)%2)px('#7fd0a0',sx+2,sy+2,3,1)}
+      px('#ff3b2f',X+a.w-4,Y+a.h-2,2,1)}
     // the big screen: the camera's light blinking red, and a slow line rolling down the display
     if(a.t=='vcall'){if(((t/600)|0)%2)px('#ff3b2f',X,Y,2,1);px('rgba(159,192,224,.12)',X+a.sx,Y+a.sy+((t/60)|0)%a.h,a.w,1);
       // Chuck calling: the screen flashes red with INCOMING CALL across it
