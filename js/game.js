@@ -355,7 +355,8 @@ const signAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return snowBlocks
 function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
   if(RIDE){if(performance.now()-RIDE.t0>RIDE_DUR)arrive();return}if(MENU||START||BUSY||CONVO)return;
-  if(typeof needsTick=='function')needsTick(dt);
+  // (the meters wait too while the quest news box is up, as the game does)
+  if(typeof needsTick=='function'&&!newsUp())needsTick(dt);
   if(P.mv){const m=P.mv;m.t+=dt/.16;const k=Math.min(m.t,1);P.rx=m.fx+(m.tx-m.fx)*k;P.ry=m.fy+(m.ty-m.fy)*k;
     if(m.t>=1){P.mv=null;const e=exitHere();
       if(e&&!PRESS_DOORS.has(e.to)){if(isOpen(e.to))useExit(e);else note('The boat to '+NM[e.to]+" isn't running: the harbour there is snowed in.",4000)}
@@ -453,7 +454,7 @@ function meet(q,i,quiet){const Q=QUESTS[q.id];q.met[i]=true;if(Q.meet)setTimeout
   const C=Q.done[i];if(C.orChoice&&!q.choice)questChoice(q.id,C.orChoice);[C.takes||[]].flat().forEach(take);if(C.points)for(const f in C.points)addPoints(f,C.points[f]);if(C.flag){(q.flags??={})[C.flag]=true;for(const k in SC)delete SC[k]}(q.when??=[])[i]=DAY;
   const gv=[Q.done[i].gives||[]].flat().filter(id=>!qOf(id));gv.forEach(id=>ME.quests.push({id,met:[],done:false,took:DAY}));
   const gift=Q.done[i].gift;if(gift){const mine=has(gift);if(mine)mine.n++;else ME.items.push({id:gift,n:1})}
-  const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;questSay((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave)}
+  const gave=(gift?' You get the '+ITEMS[gift].name.toLowerCase()+'.':'')+gv.map(id=>(QUESTS[id].main?' New main quest: ':' New side quest: ')+QUESTS[id].title+'.').join('');if(Q.done.every((_,k)=>q.met[k])){q.done=true;q.day=DAY;questSay((quiet?'':Q.thanks+' ')+'Quest complete: '+Q.title+'.'+gave);if(Q.tip)questSay(Q.tip)}
   else{const said=Q.done[i].said,left=Q.done.filter((_,k)=>!q.met[k]),next=!said&&(Q.seq||left.every(c=>c.last))?' Next: '+left[0].what.replace(/^./,c=>c.toLowerCase())+'.':'';
     questSay((said?said+' ':'')+'Quest updated: '+Q.title+'.'+next+gave)}}
 // something happening in the game (a tattoo, say) meets the conditions waiting for it

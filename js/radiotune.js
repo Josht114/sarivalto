@@ -38,7 +38,8 @@ function drawRadio(t){const c=startEl.querySelector('#radioc');if(!c)return;cons
   R('#3a3020',bx-4,96,bw+8,4);R('#ffd23a',bx-3,97,(bw+6)*Math.min(1,RT.ok?1:RT.hold/RT_HOLD),2)}
 function rtLoop(t){if(START!='radiotune'||RT.ok){rtQuiet();RT.raf=false;return}
   const dt=Math.min(.1,(t-RT.last)/1000);RT.last=t;
-  if(rtOn()){RT.hold+=dt;if(RT.hold>=RT_HOLD){RT.ok=true;RT.note='The carrier steadies, and a voice comes through the static: "Langley. Go ahead."';rtQuiet();renderStart();
+  // (connected: the loop stops here, so it's marked as not running, or the next call's tuning would never start it again)
+  if(rtOn()){RT.hold+=dt;if(RT.hold>=RT_HOLD){RT.ok=true;RT.raf=false;RT.note='The carrier steadies, and a voice comes through the static: "Langley. Go ahead."';rtQuiet();renderStart();
     setTimeout(()=>{if(START=='radiotune')closeStart();RT.then?.()},1100);return}}
   else RT.hold=Math.max(0,RT.hold-dt*2);
   rtSound(rtSig());drawRadio(t);requestAnimationFrame(rtLoop)}

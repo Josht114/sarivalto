@@ -826,6 +826,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //                        forge a card to match the recipe (that one needs the real card, and gives two forged cards)
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
 //                        options are made for you: pay, or not now)
+// tip: a note on how the game works, in the quest news box once the quest is complete (after Meet the Communists, how to wait for the evening).
 // note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
 // tested: true once the quest has been played through and checked (the wiki's Quests page shows which are; none yet).
 // completed: true once the quest is finished, nothing left to add or fix (the Completed column on the wiki's Quests page).
@@ -1252,6 +1253,7 @@ meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,given:true,s
       b:{say:"That's what I was afraid of. A true believer's harder to deal with than a man with a price. Good work. Get some sleep: tomorrow, Kingsgrad."},
       c:{say:"She's not wrong, but don't you tell her that. Good work. Get some sleep: tomorrow, Kingsgrad."}}}}],
   thanks:'Chuck has your report on the Communist Party.',
+  tip:"Today's main quest is done, so the day is yours: you can let it go by and wait for the evening. Sit at a table (in a bar, a café, a restaurant, the hotel, or the one in your room) and press E. Evenings are different: shops shut, people go home, The Midnight Note and Madame Zora open, and George at Langley takes over the radio, with jobs that need the dark. When you're done, go to your bed and press E to sleep through to the next morning, when there's a new main quest. (On a day with a main quest, you can't wait for the evening until it's done.)",
   chat:{start:'a',nodes:{
     a:{say:"Comrade! Not many come in from the cold to visit us. What brings you to the Party's door?",opts:[['I want to know what the Party stands for.','b'],["I heard about the king. Everyone's talking about it.",'c'],["I'm a journalist, from abroad.",'d']]},
     b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island should join the Soviet Union, as a Soviet republic, and belong to the fishermen, the mill hands and the women on the fish-plant line, not to the palace and the cola men.',opts:[['Join the Soviet Union?','e'],['Thank you for your time.',null]]},
