@@ -46,9 +46,13 @@ dn.onclick=()=>{setNight(!NIGHT);dn.blur()};setNight(NIGHT);
 const stage=document.getElementById('stage'),fsb=document.getElementById('fsbtn'),pad=document.getElementById('pad'),controls=document.getElementById('controls');
 stage.style.setProperty('--ar',cv.width/cv.height);fsb.hidden=!(document.fullscreenEnabled||document.webkitFullscreenEnabled);
 const inFS=()=>(document.fullscreenElement||document.webkitFullscreenElement)==stage;
+// in full screen the game picture is widened to the screen's shape (above the objective strip), so it fills the screen with no
+// black bars: you see more of the island to each side, at the same size. Back to its usual 15 by 10 tiles outside full screen.
+function fitView(){const w=innerWidth,h=innerHeight-56;cv.width=inFS()&&h>0?Math.max(VW*T,Math.round(VH*T*w/h)):VW*T;cv.height=VH*T;stage.style.setProperty('--ar',cv.width/cv.height)}
+addEventListener('resize',()=>{if(inFS())fitView()});
 function toggleFS(){if(inFS())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else(stage.requestFullscreen||stage.webkitRequestFullscreen).call(stage)}
 fsb.onclick=()=>{toggleFS();fsb.blur()};
-['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{const on=inFS();fsb.setAttribute('aria-pressed',on);fsb.innerHTML=on?'Exit full screen':'&#9974; Full screen';
+['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{const on=inFS();fitView();fsb.setAttribute('aria-pressed',on);fsb.innerHTML=on?'Exit full screen':'&#9974; Full screen';
   if(matchMedia('(pointer:coarse)').matches){if(on)stage.appendChild(pad);else controls.after(pad)}
   // the objective strip goes into full screen with the game, along the bottom (and back under the game after); it goes in first, so
   // conversations, the menu and messages are drawn over it
