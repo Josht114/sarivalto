@@ -2,7 +2,7 @@
 // Usage: node tools/build-wiki.js   (no dependencies; run node tools/build-map.js first if the island changed)
 const fs=require('fs'),vm=require('vm'),path=require('path');
 const root=path.join(__dirname,'..'),out=path.join(root,'wiki'),box={};vm.createContext(box);
-vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT,TAPES};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
+vm.runInContext(fs.readFileSync(path.join(root,'js/data.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'js/world.js'),'utf8')+';this.D={L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT,TAPES,PROPS,CLOTHES,FURN};'+fs.readFileSync(path.join(root,'content/notes.js'),'utf8')+';this.N=NOTES;'+fs.readFileSync(path.join(root,'js/mapgeo.js'),'utf8')+';this.G=MAP_GEO;',box);
 const {L,LINKS,POS,FACTIONS,FACTION_TREE,GROUPS,FACTION_AT,BOATS,NPCS,DOORS,QUEST_DAYS,QUEST_EVENTS,QUEST_TITLES,QUEST_EVENINGS,QUEST_SIDES_PLANNED,QUESTS,ITEMS,DISTRICTS,DISTRICT_OF,TRAM_STOPS,MAPS,EX,BLD,atWorkWhen,eveningAt,OPEN_ON,OPEN_AT,TRACK_INFO,MUSIC_AT,TAPES}=box.D,NOTES=box.N,MAP_GEO=box.G;
 // where someone is by day and by night (the game's routines, js/game.js): at work, where NPCS places them, or at home. Someone
 // with no home stays at work; null means not on the island at all.
@@ -465,13 +465,16 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${lst(c,'controls')}">Controls</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${lst(c,'controls')}">Controls</a><a href="${lst(c,'assets')}">Art</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
 pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
 pages.push({k:'access',id:'access',title:'Access',body:accessBody,file:'access/index.html',pre:'../'});
 pages.push({k:'audio',id:'audio',title:'Audio',body:audioBody,file:'audio/index.html',pre:'../'});
 pages.push({k:'dialogue',id:'dialogue',title:'Dialogue',body:dialogueBody,file:'dialogue/index.html',pre:'../'});
+// the Art Assets page: every picture the game would need for ready-made art (tools/wiki-assets.js)
+const assetsBody=require('./wiki-assets.js')(box.D,root);
+pages.push({k:'assets',id:'assets',title:'Art Assets',body:()=>assetsBody,file:'assets/index.html',pre:'../'});
 pages.push({k:'controls',id:'controls',title:'Controls',body:controlsBody,file:'controls/index.html',pre:'../'});
 ['locations','factions','npcs'].forEach(k=>pages.push({k,id:k,title:k=='npcs'?'People':k[0].toUpperCase()+k.slice(1),body:c=>idxBody(c,k),file:k+'/index.html',pre:'../'}));
 Object.keys(L).forEach(i=>pages.push({id:'locations-'+i,title:L[i][0],body:c=>locBody(c,i),file:'locations/'+i+'.html',pre:'../'}));
