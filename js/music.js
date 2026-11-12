@@ -13,7 +13,11 @@
 // vol: the master volume (0 to 1, the Options tab's slider), which the music, the place sounds and the radio all go through
 const MU={ac:null,on:true,vol:1,track:null,out:null,master:null,want:null};
 try{MU.on=localStorage.getItem('sarivalto-music')!='off';const v=parseFloat(localStorage.getItem('sarivalto-volume'));if(v>=0&&v<=1)MU.vol=v}catch(e){}
-function setVolume(v){MU.vol=Math.max(0,Math.min(1,v));try{localStorage.setItem('sarivalto-volume',String(MU.vol))}catch(e){}if(MU.master)MU.master.gain.setTargetAtTime(MU.vol,MU.ac.currentTime,.05)}
+function setVolume(v){MU.vol=Math.max(0,Math.min(1,v));try{localStorage.setItem('sarivalto-volume',String(MU.vol))}catch(e){}if(MU.master)MU.master.gain.setTargetAtTime(MU.vol,MU.ac.currentTime,.05);showTestVol()}
+// the volume slider in the test tools under the game: the same volume as the one on the Options tab, kept in step with it
+const tvolEl=document.getElementById('tvolume'),tvolVal=document.getElementById('tvolval');
+function showTestVol(){if(!tvolEl)return;tvolEl.value=Math.round(MU.vol*100);tvolVal.textContent=tvolEl.value+'%'}
+if(tvolEl){tvolEl.oninput=()=>setVolume(tvolEl.value/100);tvolEl.onchange=()=>tvolEl.blur();showTestVol()}
 // the vowels: their three formants (Hz) and how loud each is
 const VOWEL={a:[[700,1],[1220,.5],[2600,.25]],e:[[450,1],[1800,.4],[2550,.2]],i:[[300,1],[2200,.35],[2900,.2]],o:[[450,1],[800,.6],[2830,.12]],u:[[325,1],[700,.4],[2530,.1]]};
 const DORIAN=[0,2,3,5,7,9,10],D3=146.83,degHz=d=>D3*2**((Math.floor(d/7)*12+DORIAN[((d%7)+7)%7])/12);
