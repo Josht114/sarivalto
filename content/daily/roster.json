@@ -301,6 +301,13 @@
   "faction": "shops"
  },
  {
+  "name": "Aili",
+  "slug": "aili",
+  "card": "personalities/groups/food-vendors/aili.txt",
+  "first": 1,
+  "faction": "food"
+ },
+ {
   "name": "Helmi",
   "slug": "helmi",
   "card": "personalities/groups/shopkeepers/helmi.txt",

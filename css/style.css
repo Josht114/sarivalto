@@ -40,6 +40,8 @@ select hr{border:0;border-top:1px solid #000}
 #hudeq{display:flex;align-items:center;gap:5px;padding:3px 8px 3px 3px;line-height:1.1;font-size:11px;color:#fff;background:rgba(11,26,43,.78);border:1px solid #ffd23a;border-radius:6px;pointer-events:none}
 #hudeq[hidden]{display:none}
 /* hunger and nicotine: two small bars, red when low */
+/* with the menu open, the meters move to its bottom right corner, over it, and the menu leaves room for them */
+#stage.menuopen #hud{top:auto;bottom:calc(4% + 8px);right:calc(4% + 10px);z-index:12}#stage.menuopen #hudeq{display:none}#stage.menuopen #start{padding-bottom:58px}
 #needs{display:flex;flex-direction:column;gap:3px;padding:4px 6px;background:rgba(11,26,43,.78);border:1px solid #3a5a3a;border-radius:6px}
 #needs .need{display:grid;grid-template-columns:52px 60px;align-items:center;gap:5px;font-size:9px;color:#cfd8cf;text-transform:uppercase;letter-spacing:.5px}
 #needs i{display:block;height:6px;background:#1c2e1c;border:1px solid #0a120a;border-radius:2px;overflow:hidden}#needs b{display:block;height:100%;background:#9fe870}
@@ -148,7 +150,9 @@ select hr{border:0;border-top:1px solid #000}
 /* full screen: the game fills the screen at its own shape (--ar, set by game.js), black either side, with the labels laid over it;
    on a touch screen the direction pad comes too, in the bottom-right corner */
 #stage:fullscreen{border:0;background:#000;width:100vw;height:100vh}
-#stage:fullscreen #c,#stage:fullscreen #ov{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100vh * var(--ar,1.5)));height:auto}
+#stage:fullscreen #c,#stage:fullscreen #ov{position:absolute;left:50%;top:calc(50% - 28px);transform:translate(-50%,-50%);width:min(100vw,calc((100vh - 56px) * var(--ar,1.5)));height:auto}
+/* in full screen the objective strip sits along the bottom, under the game */
+#stage:fullscreen #objective{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(100vw,calc((100vh - 56px) * var(--ar,1.5)));height:56px;min-height:0;margin:0;border-width:0;border-top:1px solid #ffd23a}
 #stage:fullscreen #pad{position:absolute;right:16px;bottom:16px;line-height:normal;opacity:.8}
 #stage:fullscreen #pad button{background:rgba(11,18,10,.55);color:#fff;border-color:#9fe870}
 #pad{display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,48px);gap:4px}

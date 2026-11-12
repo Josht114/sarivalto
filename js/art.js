@@ -1551,6 +1551,7 @@ monks:{fl:'stone',f:[],wall:'#b8b2a6',wall2:'#8a8478',pap:'brick',base:'#5a564f'
 monchurch:{fl:'check',f:['#e8e2d4','#8a6a45'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',base:'#5a3d2a',deco:[[2,'win'],[4,'portrait'],[7,'portrait'],[11,'cross'],[14,'portrait'],[17,'portrait'],[19,'win']]},
 house_pekka:{fl:'wood',f:['#a87d52','#9a7049','#b08658'],wall:'#a8794c',wall2:'#946640',pap:'stripe',rug:'#c0392b',quilt:'#e0a100',curtain:'#c0392b',deco:[[2,'win'],[5,'pic']]},
 servants:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#e8e0cc',wall2:'#d8ceb4',pap:'stripe',rug:'#5e2a75',quilt:'#7d3c98',curtain:'#5e2a75',deco:[[3,'win'],[6,'clock'],[9,'pic'],[12,'win']]},
+diner_in:{grime:1,fl:'check',f:['#d8d0c0','#7a2a24'],wall:'#8a9a90',wall2:'#7a8a80',pap:'stripe',base:'#5a3a2a',deco:[[2,'win'],[6,'neon','EAT','#ff5a3a'],[10,'clock'],[13,'win']]},
 burgerbar:{fl:'check',f:['#f2f2f2','#c0392b'],wall:'#f4e6c0',wall2:'#e8d4a0',pap:'stripe',base:'#c0392b',deco:[[1,'win'],[4,'neon','OPEN','#ff3bd0'],[14,'win']]},
 newsroom:{fl:'wood',f:['#8a5a36','#7a5032','#946640'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',rug:'#3d5a4a',deco:[[5,'clock'],[9,'map'],[12,'win'],[16,'win']]},
 house_henrik:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#a8794c',wall2:'#946640',pap:'stripe',rug:'#2e5f8f',quilt:'#5a5f68',curtain:'#2e5f8f',deco:[[1,'win'],[4,'pic'],[8,'win']]},
@@ -1828,7 +1829,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
         if(meet){for(let x=12;x<W-12;x+=14)r('#f4f4f0',x,oy+(H>>1)-3,6,5);r('#7d838a',W>>1,oy+3,4,3)}
         else if(W>=32){r('#f4e6c0',(W>>1)-1,oy+(H>>1)-4,2,4);r('#ffd23a',(W>>1)-1,oy+(H>>1)-6,2,2)}}
       seats.forEach(x=>chair(x,oy+H-1,false))})}}
-  if(ch=='y'&&/gun|cloth|rail|wig|mirror|passport|cigarette|vending|wiretap|forged|recording|milkshake|samples|fridge|rods|tackle|slot|pipes/.test(l)){const oy=12,TT=H+oy-2;let an=null;const c=mk(W,TT,r=>{
+  if(ch=='y'&&/gun|cloth|rail|wig|mirror|passport|cigarette|vending|jukebox|wiretap|forged|recording|milkshake|samples|fridge|rods|tackle|slot|pipes/.test(l)){const oy=12,TT=H+oy-2;let an=null;const c=mk(W,TT,r=>{
     if(l.includes('gun')){r('#8a7a5a',0,0,W,TT);for(let y=2;y<TT;y+=4)for(let x=2;x<W;x+=4)r('#7a6a4a',x,y);
       for(let y=3;y<TT-4;y+=6)for(let x=2;x<W-14;x+=16){r('#6b4a2e',x,y+1,5,2);r('#2a2a33',x+5,y+1,9,1);r('#2a2a33',x+5,y,2,1)}}
     else if(l.includes('cloth')){r('#5a3d2a',0,TT-3,W,3);for(let x=1;x<W-3;x+=5){const col=['#c0392b','#2e6f9a','#e0a100','#3d7a5a','#7d3c98','#e8e8e8'][hash(x,1,v*7)*6|0];r(col,x,2,4,TT-5);r(shade(col,.3),x,2,4,1);r(shade(col,-.2),x+3,3,1,TT-6)}}
@@ -1843,6 +1844,9 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
     else if(l.includes('milkshake')){r('#5a3d2a',0,TT-6,W,6);r('#7a5436',0,TT-6,W,1);r('#d8dde2',3,2,W-14,TT-9);r('#f4f6f8',4,2,W-16,2);r('#9aa3ad',W-12,2,1,TT-9);r('#c0392b',3,TT-10,W-14,2);
       for(let k=0;k<3;k++){const x=6+k*((W-20)/3|0);r('#b8c0c8',x,6,5,3);r('#5a5f68',x+2,9,1,4);r('#c9ced4',x,13,5,TT-20);r('#e8ecef',x,13,1,TT-20)}
       r('#f4f4f0',W-9,TT-16,5,10);r('#f2a6c0',W-8,TT-14,3,7);r('#ffffff',W-8,TT-16,3,2);r('#c0392b',W-7,TT-19,1,3);r('#e8e8e8',W-5,TT-18,1,8)}
+    // the jukebox: a walnut cabinet with a rounded gold top, bands of coloured light down the front and a speaker grille
+    else if(l.includes('jukebox')){r('#5a2a14',1,2,W-2,TT-2);r('#c9a040',2,0,W-4,3);r('#e0c060',4,0,W-8,1);for(let k=0;k<5;k++)r(['#ff5a3a','#ffd23a','#2e86c1','#2e9d57','#ff3bd0'][k],3,5+k*3,W-6,2);
+      r('#2a1a10',4,TT-11,W-8,7);for(let y=TT-10;y<TT-4;y+=2)r('#6a4a2a',5,y,W-10,1);r('#3a1a0c',1,TT-2,W-2,2)}
     // the vending machine: blue, with rows of snacks behind glass, the coin slot and the tray
     else if(l.includes('vending')){r('#1f4f7a',1,0,W-2,TT);r('#4a7fb0',2,1,W-4,2);r('#1a1a22',3,4,W-12,TT-9);for(let y=5;y<TT-6;y+=5)for(let x=4;x<W-11;x+=4)r(['#c0392b','#ffd23a','#5a3418','#2e9d57'][(x+y)%4],x,y,3,3);
       r('#c9ced4',W-8,5,4,6);r('#1a1a22',W-7,7,2,1);r('#f4f4f0',W-8,13,4,2);r('#2a2a33',3,TT-4,W-6,2)}
@@ -1909,7 +1913,7 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
       for(const cx of[x+5,x+12]){r('#2b2f3a',cx-3,2,7,7);r('#c9ced4',cx-2,3,5,5);an.push({t:'reel',x:cx,y:5})}
       r('#2b2f3a',x+4,10,10,1);for(let k=0;k<4;k++)r(['#c0392b','#e8e8e8','#e8e8e8','#2e9d57'][k],x+3+k*3,TT-6,2,2)}});
     return{oy,c,an}}
-  if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:{t:'blink',x:W-6,y:4,c:'#ff8a3a'},c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
+  if(ch=='y'&&/radio|transmit/.test(l)){const oy=10,TT=H+oy-2;return{oy,an:[{t:'blink',x:W-6,y:4,c:'#ff8a3a'},...(l=='radio equipment'?[{t:'rcall',x:1,y:3,w:W-2,h:10}]:[])],c:mk(W,TT,r=>{r('#4a4f58',0,0,W,TT);r('#5a5f68',0,0,W,2);
     for(let x=2;x<W-4;x+=11){r('#2b2f3a',x,4,9,8);r('#7fd0a0',x+1,5,7,3);r('#d0d4d8',x+2,9,2,2);r('#d0d4d8',x+6,9,2,2)}r('#6b4a2e',0,TT-8,W,8);r('#8a6a45',0,TT-8,W,1);r('#2b2f3a',4,TT-12,6,4);r('#d0d4d8',W-12,TT-13,1,5)})}}
   // a wooden shelf stacked with folded towels in soft colours
   // cans of lamp oil on a plank shelf: red and green cans with spouts and labels
@@ -2290,6 +2294,9 @@ function drawWorld2(m,cx,cy,t,frame){
     // the PC's screen: the Faction Tracker's bars in each faction's colour, rising and falling a little, and a blinking cursor
     if(a.t=='pcscreen'){const cols=['#c0392b','#2e86c1','#7d3c98','#2e9d57','#5a6a74','#a0522d','#e0a020'];
       cols.forEach((c,i)=>{const h=3+Math.round((Math.sin(t/900+i*1.3)+1)*2.5);px(c,X+1+i*2,Y+a.h-1-h,1,h)});px('#3a6a4a',X+1,Y+a.h-1,a.w-2,1);if(((t/500)|0)%2)px('#7fd0a0',X+a.w-3,Y+1,2,1)}
+    // the radio set in your room: when Chuck or George is calling, its dials flash red with INCOMING CALL across them
+    if(a.t=='rcall'&&typeof chuckCalling=='function'&&chuckCalling()&&((t/400)|0)%2){px('#7a1020',X,Y,a.w,a.h);const w='INCOMING CALL',x0=X+((a.w-w.length*4+1)>>1);
+      [...w].forEach((ch,i)=>{const f=FONT[ch];if(f)for(let k=0;k<15;k++)if(f[k]=='1')px('#ffffff',x0+i*4+k%3,Y+3+(k/3|0),1,1)})}
     // the big screen: the camera's light blinking red, and a slow line rolling down the display
     if(a.t=='vcall'){if(((t/600)|0)%2)px('#ff3b2f',X,Y,2,1);px('rgba(159,192,224,.12)',X+a.sx,Y+a.sy+((t/60)|0)%a.h,a.w,1);
       // Chuck calling: the screen flashes red with INCOMING CALL across it

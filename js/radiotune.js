@@ -2,7 +2,7 @@
 // Shift for big steps) until the static clears and Langley's carrier comes through clean, then hold it there for a moment and the
 // call connects. Hekki has marked the frequency on the dial in red pencil, roughly. Langley moves its frequency every day.
 // A quest condition can open it (use: 'Radio Equipment', play: 'radiotune': Chuck's "report in on the radio set"); otherwise
-// it's simply a way to call Langley, like the big screen: Chuck by day, George by night.
+// it's how you call Langley (and it flashes INCOMING CALL when someone there has something for you): Chuck by day, George by night.
 const RT={q:null,i:0,then:null,dial:.5,target:.6,mark:.6,hold:0,last:0,ok:false,note:'',raf:false,snd:null};
 const RT_LO=3,RT_HI=12,RT_HOLD=1.2;
 // how clear the signal is, from 0 (only static) to 1 (right on Langley's frequency); and whether it's close enough to hold

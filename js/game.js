@@ -49,14 +49,18 @@ const inFS=()=>(document.fullscreenElement||document.webkitFullscreenElement)==s
 function toggleFS(){if(inFS())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else(stage.requestFullscreen||stage.webkitRequestFullscreen).call(stage)}
 fsb.onclick=()=>{toggleFS();fsb.blur()};
 ['fullscreenchange','webkitfullscreenchange'].forEach(ev=>document.addEventListener(ev,()=>{const on=inFS();fsb.setAttribute('aria-pressed',on);fsb.innerHTML=on?'Exit full screen':'&#9974; Full screen';
-  if(matchMedia('(pointer:coarse)').matches){if(on)stage.appendChild(pad);else controls.after(pad)}}));
+  if(matchMedia('(pointer:coarse)').matches){if(on)stage.appendChild(pad);else controls.after(pad)}
+  // the objective strip goes into full screen with the game, along the bottom (and back under the game after)
+  const ob=document.getElementById('objective');if(on)stage.appendChild(ob);else stage.after(ob)}));
 addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&!BUSY&&!CONVO&&(e.key=='n'||e.key=='N'))setNight(!NIGHT)});
 // ---- The start menu (M, or the Menu button): an Inventory tab (the date, the CIA's money and your own, what you carry),
-// a Quests tab (active quests) and a Map tab (the island map, with where you are). The game pauses while it is open.
+// a Quests tab (active quests) and a Map tab (the island map, with where you are; only with a map in your bag). The game pauses while it is open.
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,tips:{},tape:null,tapeN:0,tapeOn:false,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0,tattoos:[],homes:[],placed:{},home:'hekki_room',moved:false};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start&&(QUESTS[id].day??DAY)==DAY).map(id=>({id,met:[],done:false,took:DAY}))}
 const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['journal','Journal'],['map','Map'],['save','Save'],['opts','Options']];
+// the tabs you can use: the Map tab only with a Map of Sarivalto in your bag (or while you're looking at a map on a wall)
+const tabsNow=()=>TABS.filter(([k])=>k!='map'||has('islandmap')||START=='map');
 let START=null;  // the open tab, or null when the menu is closed
 // a grid of item slots (at least 4 rows of 4), with how many of each and, in a shop, the price
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
@@ -94,7 +98,7 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
         <div class="acts">${btn('save',i,i=='quick'?'Quick save (Q)':v?'Overwrite':'Save here')}${v?btn('load',i,'Load')+btn('del',i,'Delete')+btn('exp',i,'Export'):''}</div></div>`}).join('')}</div>
       <div class="acts"><label class="filebtn"><input type="file" accept=".json,application/json" hidden>Import a save file&hellip;</label></div>
       <p><small>${esc(store.where)}</small></p>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`}
-  startEl.innerHTML=`<div class="tabs" role="tablist">${TABS.map(([k,t])=>`<button role="tab" data-tab="${k}" aria-selected="${k==START}">${t}</button>`).join('')}<button class="close" aria-label="Close the menu">&times;</button></div><div>${body}</div>`;
+  startEl.innerHTML=`<div class="tabs" role="tablist">${tabsNow().map(([k,t])=>`<button role="tab" data-tab="${k}" aria-selected="${k==START}">${t}</button>`).join('')}<button class="close" aria-label="Close the menu">&times;</button></div><div>${body}</div>`;
   startEl.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{START=b.dataset.tab;ME.note='';ME.confirm='';renderStart()});
   const vol=startEl.querySelector('#volume');if(vol)vol.oninput=()=>{if(typeof setVolume=='function')setVolume(vol.value/100);startEl.querySelector('#volval').textContent=vol.value+'%'};
   const fi=startEl.querySelector('.filebtn input');if(fi)fi.onchange=()=>{if(fi.files[0])importSave(fi.files[0])};
@@ -209,7 +213,7 @@ document.getElementById('tminus').onclick=e=>{addPoints(tfac.value,-1);say(FACTI
 // moving to another day: the calendar on the wall and anything showing the date are drawn again
 function setDay(d){const was=DAY;DAY=DATES.includes(d)?d:Math.max(1,Math.min(DAYS,d));for(const k in SC)delete SC[k];for(const k in PCACHE)delete PCACHE[k];dayjump.value=DAY;BLOCKS.clear();
   // (from 22 August into the month you arrive on the island, at home; back to 22 August, you are at Langley again)
-  let note='';if(was<1&&DAY>=1&&/^langley/.test(P.m)){place(HOME,[17,3],0);note=' You arrive on Sarivalto.'+(chuckCalling()?' The big screen is flashing: Chuck is calling.':'')}
+  let note='';if(was<1&&DAY>=1&&/^langley/.test(P.m)){place(HOME,[17,3],0);note=' You arrive on Sarivalto.'+(chuckCalling()?' The radio set is flashing: Chuck is calling.':'')}
   else if(was>=1&&DAY<1&&!/^langley/.test(P.m)){TRIP=null;place('langley',[11,10],1);note=' You are back at CIA Headquarters.'}
   note+=arrivals();if(START)renderStart();return note}
 document.getElementById('tday').onclick=e=>{if(DAY<DAYS){const n=setDay(nextDay(DAY));say('It is now '+dateStr(DAY)+'.'+n)}e.target.blur()};
@@ -231,7 +235,7 @@ function leaveCover(){WARD.all=false;for(const k of['hat','top','legs','shoes'])
 // the seaplane on the airstrip at Langley: once Chuck has briefed you, it flies you out to the island (the flight film, js/intro.js). A fishing boat meets it at
 // sea at dawn and brings you into West Saltwick Harbour, on the morning of 1 September
 // arriving on the island: how to find your way and your quests (in the quest news box, until you close it)
-const ARRIVE_TIP="Welcome to Sarivalto. Press M (or the Menu button) for the menu. The Map tab shows the whole island and where you are, and a star marks anyone with a quest to give: gold for the day's main quest, silver for a side quest. Walk up to them and press E to talk. The Quests tab lists your quests and what each needs, and the objective along the bottom of the screen shows your next step.";
+const ARRIVE_TIP="Welcome to Sarivalto. Press M (or the Menu button) for the menu. Once you have a map (the newsstand on Saltwick's main street sells them), its tab in the menu shows the whole island and where you are, and a star marks anyone with a quest to give: gold for the day's main quest, silver for a side quest. Walk up to them and press E to talk. The Quests tab lists your quests and what each needs, and the objective along the bottom of the screen shows your next step.";
 const planeAhead=()=>{if(P.m!='langley_out')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Plane'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 // supplies for the flight (Board the Plane): having something to eat, and cigarettes, meets those steps; and whether you have them
 function supplyCheck(){if(ME.items.some(i=>FOOD[i.id]&&!ALCOHOL[i.id]))questEvent('supply:food');if(has('cigarettes'))questEvent('supply:cigs')}
@@ -298,11 +302,11 @@ addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;co
     else if(k=='c'||k=='C'){buy('cia');e.preventDefault()}else if(k=='p'||k=='P'){buy('cash');e.preventDefault()}else if(k=='Tab')e.preventDefault()}
   // Tab (or 1, 2, 3) changes tab; in the inventory the arrows (or WASD) move through the grid and E, Space or Enter does the item's
   // first action; on the other tabs left and right change tab
-  else if(START&&(k=='Tab'||/^[1-9]$/.test(k)&&k<=TABS.length)){const i=TABS.findIndex(t=>t[0]==START);START=TABS[k=='Tab'?(i+(e.shiftKey?TABS.length-1:1))%TABS.length:k-1][0];ME.note='';renderStart();e.preventDefault()}
+  else if(START&&(k=='Tab'||/^[1-9]$/.test(k)&&k<=tabsNow().length)){const T=tabsNow(),i=T.findIndex(t=>t[0]==START);START=T[k=='Tab'?(i+(e.shiftKey?T.length-1:1))%T.length:k-1][0];ME.note='';renderStart();e.preventDefault()}
   else if(START=='inv'&&ME.items.length&&/^(Arrow(Left|Right|Up|Down)|[wasdWASD])$/.test(k)){const d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k],n=ME.sel+d;
     if(n>=0&&n<ME.items.length){ME.sel=n;ME.note=''}renderStart();e.preventDefault()}
   else if(START=='inv'&&ME.items.length&&/^(e|E| |Enter)$/.test(k)&&!(e.target.closest&&e.target.closest('#start button'))){useItem(itemActions(ME.items[ME.sel].id)[0]);e.preventDefault()}
-  else if(START&&START!='inv'&&e.target.type!='range'&&/^(ArrowLeft|ArrowRight|a|d|A|D)$/.test(k)){const i=TABS.findIndex(t=>t[0]==START),d=/Right|d|D/.test(k)?1:TABS.length-1;START=TABS[(i+d)%TABS.length][0];ME.note='';renderStart();e.preventDefault()}});
+  else if(START&&START!='inv'&&e.target.type!='range'&&/^(ArrowLeft|ArrowRight|a|d|A|D)$/.test(k)){const T=tabsNow(),i=T.findIndex(t=>t[0]==START),d=/Right|d|D/.test(k)?1:T.length-1;START=T[(i+d)%T.length][0];ME.note='';renderStart();e.preventDefault()}});
 sel.onchange=()=>{const id=sel.value;closeMenu();RIDE=TRIP=null;go(id);sel.blur()};
 const SOLID='#TR~vbkWecuxygitnoC';
 // tramAt: a tram covers this tile (its track row or the row behind it that its body rises over)
@@ -465,13 +469,14 @@ function answerPhone(){const id=phoneRinging();if(!id){say('The telephone is qui
 // (said as the morning begins)
 function morningCalls(){return phoneRinging()?' The telephone '+(P.m==HOME?'in your room':'back in your room')+' is ringing.':''}
 const arrivals=()=>morningCalls()+openConds().filter(([q,i,c])=>c.arrives&&q.when?.[i-1]!=null&&DAY==q.when[i-1]+(c.days||0)).map(([,,c])=>' '+c.arrives).join('');
-// ---- The video call: the big screen in your home links to Langley: to Chuck by day, and in the evening to George, who handles the
+// ---- The video call (an old big screen moved into a home of yours in an earlier version of the game; the radio set does this
+// now, js/radiotune.js): it links to Langley: to Chuck by day, and in the evening to George, who handles the
 // jobs that are done after dark. When the one on the line has a quest for you, or is waiting to hear about one, you can call them;
 // when they have a new quest for you the screen says INCOMING CALL (chuckCalling). The call puts them in the conversation panel on
 // a video feed.
 const CHUCK=()=>NPCS.find(n=>n.name=='Chuck');
 const CALLER=()=>NPCS.find(n=>n.name==(NIGHT?'George':'Chuck'));
-const chuckCalling=()=>{const n=CALLER(),id=n&&offerOf(n);return DAY>=1&&!!id&&!QUESTS[id].quiet};
+const chuckCalling=()=>{const n=CALLER(),id=n&&offerOf(n);return DAY>=1&&!!n&&(!!id&&!QUESTS[id].quiet||openConds().some(([q,,c])=>QUESTS[q.id].incoming&&[c.talk].flat().includes(n.name)))};
 const screenAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Big Screen'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function videoCall(){const n=CALLER();if(!n)return;if(DAY<1){say(`The screen shows LINK READY. You are at Langley: ${n.name} is ${n.name=='Chuck'?'upstairs':'in the cafeteria'}.`,4000);return}
   const c=questTalk(n)||{start:'a',nodes:{a:{say:n.name=='Chuck'?"NIGHTJAR, Langley. Nothing new for you right now. Keep your head down and your eyes open.":"NIGHTJAR. George. Chuck's gone home; the night shift's mine. Nothing for you tonight. When there's a job that needs doing after dark, I'll call."}}};
@@ -619,7 +624,7 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(typeof PLACE!='undefined'&&PLACE)return'Arrows move it, Enter puts it down, Escape keeps it';
   if(typeof placedAhead=='function'&&placedAhead()&&!P.mv&&!/^eq_/.test(placedAhead()[6])&&!bedAhead())return'Press P to pick up the '+ITEMS[placedAhead()[6]].name.toLowerCase();
   if(phoneAhead()&&!P.mv)return phoneRinging()?'Press E to answer the telephone':'The telephone';
-  if(typeof radioAhead=='function'&&radioAhead()&&!P.mv)return`Press E to tune in and radio Langley (${CALLER().name})`;
+  if(typeof radioAhead=='function'&&radioAhead()&&!P.mv)return chuckCalling()?`Press E to tune in and answer ${CALLER().name}'s call`:`Press E to tune in and radio Langley (${CALLER().name})`;
   if(screenAhead()&&!P.mv)return chuckCalling()?`Press E to answer ${CALLER().name}'s call`:`Press E to call Langley (${CALLER().name})`;
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
@@ -732,11 +737,11 @@ const objEl=document.getElementById('objective'),stageEl=document.getElementById
 function objectiveText(){if(CONVO||START||BUSY||RIDE||(typeof TITLE!='undefined'&&TITLE))return'';
   const cs=openConds().sort(([a],[b])=>(QUESTS[b.id].main?1:0)-(QUESTS[a.id].main?1:0)||(b.took??0)-(a.took??0));if(cs.length)return cs[0][2].what;
   if(mainDue()!='offer')return'';
-  // where today's main quest comes from: Chuck on the big screen, the telephone in your room, or someone with a gold star
+  // where today's main quest comes from: Chuck on the radio, the telephone in your room, or someone with a gold star
   const today=Object.values(QUESTS).filter(Q=>Q.main&&Q.day==DAY&&!Q.evening);
-  if(today.some(Q=>Q.call))return"Chuck has a job for you: call him on the big screen in your room, under Hekki's shack at the Radio Tower.";
+  if(today.some(Q=>Q.call))return"Chuck has a job for you: call him on the radio set in your room, under Hekki's shack at the Radio Tower.";
   if(today.some(Q=>Q.ring))return"Someone will ring with a job: answer the telephone in your room, under Hekki's shack at the Radio Tower.";
-  return"Today's main quest is waiting: look for someone with a gold star (the map, in the menu, shows where)."}
+  return"Today's main quest is waiting: look for someone with a gold star (a map shows where: the newsstands sell them)."}
 function showObjective(){const t=objectiveText();if(t===objWas)return;objWas=t;OBJ_ON=!!t;objEl.innerHTML=t?'<span><b>Objective</b>'+esc(t)+'</span>':''}
 // ---- Messages and quest news (say and questSay: a step done and what's next, a new quest, a quest complete, and everything else
 // the game tells you), in a box in the middle of the screen that stays until you close it: the game waits (you can't walk or use anything) until you do. Continue, the cross, E, Space, Enter, Escape or Z close
@@ -760,4 +765,4 @@ function showQuestNews(){const on=newsUp(),key=on?QNEWS.join('\n'):'';
 const hudEq=document.getElementById('hudeq');let hudWas;
 function showHeld(){const id=ME.equipped&&has(ME.equipped)?ME.equipped:null,extra=id=='cigarettes'?` <small>${ME.cigsLeft} left in the pack</small>`:id=='walkman'&&typeof TAPE_NOW!='undefined'&&TAPE_NOW.song&&tapePlaying()?` <small>&#9834; ${esc(TAPE_NOW.song)}</small>`:'',key=id+extra;if(key===hudWas)return;hudWas=key;hudEq.hidden=!id;
   if(id)hudEq.innerHTML=`<img src="${itemIcon(id)}" alt=""><span><small>${id=='cigarettes'?'Smoking':'Equipped'}</small>${esc(ITEMS[id].name)}${extra}</span>`}
-let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;showHeld();showObjective();showQuestNews();if(typeof showNeeds=='function')showNeeds();requestAnimationFrame(loop)})(0);
+let last=0;(function loop(t){const dt=Math.min((t-last)/1000,.05);last=t;update(dt);draw(t);if(dayjump.value!=DAY&&document.activeElement!=dayjump)dayjump.value=DAY;stageEl.classList.toggle('menuopen',!!START);showHeld();showObjective();showQuestNews();if(typeof showNeeds=='function')showNeeds();requestAnimationFrame(loop)})(0);

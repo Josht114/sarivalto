@@ -1,6 +1,6 @@
 // ---- Homes of your own. Sally, the estate agent in Kingsgrad, sells the island's empty homes (HOMES_FOR_SALE in data.js), paid from
 // CIA funds or your own money; buying one clears out its boxes and makes it yours ("Your House"). She can also have your equipment
-// moved in: the big screen, the radio set, the telephone, the computer and the wardrobe leave the Hidden Radio Room (or the home
+// moved in: the radio set (and, from an older save, a big screen), the telephone, the computer and the wardrobe leave the Hidden Radio Room (or the home
 // you were in) and come to you as things to put down, and that home becomes your home (HOME): the screen, the telephone and the
 // wardrobe work there. Furniture (bought at Nordhem Furniture in Kingsgrad, FURN in data.js) and your equipment are put down in a
 // home of yours from the Inventory tab (Place): a ghost of it follows the arrow keys, green where it fits and red where it doesn't;

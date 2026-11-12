@@ -85,14 +85,14 @@ function controlsBody(c){const k=s=>s.split(' / ').map(x=>x.split('+').map(y=>`<
   return`<h1>Controls</h1><p>Every key in the game. Everything can also be done with the mouse: click the buttons on screen. On a phone or tablet, the arrow pad and the E button under the game do the walking and the talking.</p>`+
   sec('Getting about','',[
     ['Arrows / W A S D','Walk. Walk off a labelled edge of the map, onto a door, or onto a boat berth to go somewhere else.'],
-    ['E / Space / Enter','Talk to the person you\'re facing, or use what\'s in front of you: a bed, the telephone, the big screen, the radio set, a tram stop, a shop counter, a game. The hint above you says what it will do.'],
+    ['E / Space / Enter','Talk to the person you\'re facing, or use what\'s in front of you: a bed, the telephone, the radio set (tune it in to call Langley), a tram stop, a shop counter, a game. The hint above you says what it will do.'],
     ['P','Pick up a piece of furniture you put down in a home of your own.']])+
   sec('Conversations','',[
     ['Up / Down / W / S','Choose a reply.'],
     ['1 to 9','Pick that reply straight away.'],
     ['E / Space / Enter','Say the reply you\'ve chosen.'],
     ['Escape','End the conversation.']])+
-  sec('The menu','The menu has the Inventory, Quests, Journal, Map, Save and Options tabs. The game waits while it\'s open.',[
+  sec('The menu','The menu has the Inventory, Quests, Journal, Map, Save and Options tabs (the Map tab only once you have a Map of Sarivalto: the newsstands and the bookshop sell them). The game waits while it\'s open.',[
     ['M','Open or close the menu.'],
     ['Tab / Shift+Tab | 1 to 6','Change tab.'],
     ['Left / Right / A / D','Change tab (except on the Inventory tab).'],

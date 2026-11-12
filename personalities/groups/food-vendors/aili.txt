@@ -1,0 +1,17 @@
+Name: Aili
+Gender: Female
+Faction: None
+Group: The Food Vendors
+Partner: None
+Job: Diner owner
+Home: Apartment Block (Saltwick)
+
+Bio:
+Ran a diner in Duluth, Minnesota, for
+twenty years, then came home to Saltwick
+and opened one nobody asked for.
+Calls everyone "hon", pours coffee before
+you sit down, and keeps the place open all
+night because she can't sleep anyway.
+The diner is falling apart, and so, she
+says, is she: neither of them is closing.

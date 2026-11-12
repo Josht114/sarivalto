@@ -45,7 +45,8 @@ myquest:{title:'Title',giver:'Name',main:true,day:13,seq:true,
 
 - **Main or side.** `main:true` + `day`: offered by the giver that morning only, and the player can't move on to the evening until
   it's done. `evening:true`: offered on its day after dark (George's CIA jobs). Neither: a side quest, offered from `from` or once
-  `opens` places are open. `call:true`: offered on the video call in the player's room (Chuck by day, George by night).
+  `opens` places are open. `call:true`: offered when the player calls Langley on the radio set in their room (Chuck by day, George by night); the radio
+  flashes INCOMING CALL. `incoming:true`: the radio flashes for a quest's open talk step with the caller (Check In with Chuck).
   `ring` + `caller`: comes in on the telephone in the player's room. `given:true`: only handed out by another quest (`gives`).
 - **Steps** (`done`): with `seq:true` they happen in order. Each has a `what` (shown on the Quests tab, starting with a verb and
   saying where) and one action: `talk`, `give`/`to`, `bring`/`to`, `use`/`m`, `spot`, `enter`/`speaker`, `pick`, `tour`/`price`,

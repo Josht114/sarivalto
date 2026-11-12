@@ -59,7 +59,7 @@ village:['Saltwick',44,30,'snow',[
 [20,14,4,5,'#',"Tom's House",'h1'],[21,18,1,1,'d'],
 [26,14,4,5,'#',"Sam's House",'h2'],[27,18,1,1,'d'],
 [32,14,4,5,'#','House for Sale','h3'],[33,18,1,1,'d'],
-[38,14,4,5,'#',"Kate's House",'h4'],[39,18,1,1,'d'],
+[38,14,4,5,'#',"Kate's House",'h4'],[29,22,8,5,'#',"Aili's Diner",'diner'],[32,26,1,1,'d'],[22,27,11,1,','],[39,18,1,1,'d'],
 [6,11,1,1,','],[20,11,1,1,','],[35,11,1,1,','],[2,19,40,1,','],[10,13,1,6,','],[36,13,1,6,',']]],
 plant:['Fish Processing Plant',20,12,'interior',[[3,2,14,2,'g','Processing Line'],[2,6,3,2,'x','Fish Crates'],[15,6,3,2,'x','Ice Crates'],[8,6,4,1,'c','Packing Bench']]],
 hq:['Communist Party HQ',20,14,'interior',[[2,2,5,2,'u','Desk'],[13,2,5,2,'u','Desk'],[6,6,8,2,'u','Meeting Table'],[2,9,2,3,'y','Files'],[16,9,2,3,'y','Archive']]],
@@ -71,6 +71,9 @@ apartments:['Apartment Block',24,20,'interior',[[8,1,1,6,'W'],[16,1,1,6,'W'],[1,
 bar:['Bar',20,12,'interior',[[3,1,10,1,'y','Bottles'],[3,3,10,1,'c','Bar Counter'],[3,7,3,2,'u','Table'],[9,7,3,2,'u','Table'],[15,7,3,2,'u','Table'],[16,2,1,1,'z','Stairs up']]],
 barflat:['Bar Flat',12,8,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[2,5,3,1,'y','Shelf'],[10,2,1,1,'z','Stairs down']]],
 // Harbour Outfitters in Saltwick: clothes for the boats and the cold
+// Aili's Diner, Saltwick: a run-down all-night diner, its grill, fryer, pie case and coffee urn behind a long counter, three booths and a jukebox
+diner_in:["Aili's Diner",16,11,'interior',[[1,1,3,1,'i','Grill'],[5,1,2,1,'i','Fryer'],[8,1,3,1,'y','Pie Case'],[12,1,2,1,'i','Coffee Urn'],[2,3,11,1,'c','Counter'],
+  [2,6,2,2,'u','Booth'],[6,6,2,2,'u','Booth'],[11,6,2,2,'u','Booth'],[14,5,1,2,'y','Jukebox']]],
 outfitters_in:['Harbour Outfitters',16,10,'interior',[[1,1,5,1,'y','Clothes Rail'],[9,1,5,1,'y','Clothes Rail'],[1,4,1,1,'n','Mannequin'],[14,4,1,1,'n','Mannequin'],[4,4,3,1,'y','Clothes Rail'],[9,4,2,1,'y','Cloth'],[10,7,4,1,'c','Counter'],[1,7,3,1,'y','Cloth']]],
 fishshop:['Fish Shop',14,10,'interior',[[2,1,10,1,'y','Shelves'],[3,3,8,1,'c','Counter'],[2,6,3,2,'x','Fresh Fish'],[9,6,3,2,'x','Smoked Fish']]],
 house_tom:["Tom's House",10,9,'interior',[[2,2,2,2,'e','Bed'],[6,3,2,2,'u','Table'],[7,1,2,1,'i','Stove'],[2,5,3,2,'x','Fishing Nets']]],
@@ -102,7 +105,7 @@ villa_gustavo:["Gustavo's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,6,1,
 house_thyme:["Father Thyme's House",10,9,'interior',[[2,1,2,2,'e','Bed'],[5,1,3,1,'y','Bookcase'],[6,4,2,2,'u','Table'],[2,5,1,1,'i','Stove']]],
 shack_hekki:["Hekki's Shack",10,7,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Radio Set'],[4,4,2,1,'u','Table'],[8,1,1,1,'q']]],
 // The Hidden Radio Room, with a small living space behind a partition on the right (through the doorway at x14, y5)
-hekki_room:['Hidden Radio Room',22,9,'interior',[[1,1,4,1,'y','Radio Equipment'],[5,1,4,1,'y','Big Screen'],[9,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[9,4,1,1,'x','Telephone'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
+hekki_room:['Hidden Radio Room',22,9,'interior',[[5,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[9,4,1,1,'x','Telephone'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
 [14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[18,1,1,1,'y','Wardrobe'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
 // CIA Headquarters at Langley, Virginia, where the game's story begins: not on the island, and reached only from the Jump to list.
 // The lobby has the Agency's seal set in its granite floor, the Memorial Wall of stars between two flags with the Book of Honor in
@@ -475,6 +478,8 @@ const NPCS=[{m:'harbour',x:6,y:8,dir:0,name:'Tom',home:'house_tom',loc:'harbour'
 // the Gazette's sub-editor, back from eleven years on Fleet Street: she knows what a London reporter sounds like (Cover Blown)
 {m:'newsroom',x:3,y:6,dir:1,name:'Solveig',home:'eblofts',loc:'newsroom',job:'Sub-editor',faction:'reporters',gender:'female',body:'#4a5a4a',hair:'#8a6a4a'},
 {m:'fishshop',x:6,y:2,dir:0,name:'Olga',home:'apartments',loc:'fishshop',job:'Fish shop owner',faction:'shops',gender:'female',body:'#5b8fb9',hair:'#8a8a8a',hat:'#3d5a40'},
+// Aili runs the diner, day and night, after twenty years behind a diner counter in Minnesota
+{m:'diner_in',x:7,y:2,dir:0,name:'Aili',home:'apartments',loc:'diner_in',job:'Diner owner',faction:'food',gender:'female',body:'#d8d0b8',hair:'#8a8a8a'},
 {m:'outfitters_in',x:11,y:6,dir:0,name:'Helmi',home:'apartments',loc:'outfitters_in',job:'Outfitter',faction:'shops',gender:'female',body:'#e0a100',hair:'#c8a060'},
 {m:'electro',x:5,y:2,dir:0,name:'Nils',home:'skyapts',loc:'electro',job:'Electronics store owner',faction:'republican',also:['shops'],gender:'male',body:'#3a3d44',hair:'#d9c9a0'},
 {m:'arcadein',x:12,y:5,dir:0,name:'Toni',home:'kgapts',loc:'arcadein',job:'Arcade attendant',faction:'proprietors',gender:'female',body:'#ff3bd0',hair:'#1a1a1a'},
@@ -704,7 +709,7 @@ const FISH_BUYER='Olga';
 const ALCOHOL={beer:15,wine:25,whisky:20};
 const FOOD={candybar:12,crisps:10,meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
-const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
+const WAIT_AT=['diner_in','bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
 // and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
 const CONVOS={
@@ -731,7 +736,7 @@ const NIGHT_ONLY=['jazz_in','caravan3_in'];
 // the staff of the places open day and night (bars, restaurants, the hotel, the casino, the arcade, the stalls that stay open, and
 // the doctor and the police sergeant, on call, the supermarket and the cinema):
 // they work evenings too, so they are at work at night as well as by day
-const EVENING_STAFF=['Ray','Eddie','Linnea','Sanna','Arvid','Maya','Dex','Hannu','Greta','Vince','Toni','Doctor Lind','Sergeant Hanna','Lisa','Otto','Rosaria'];
+const EVENING_STAFF=['Aili','Ray','Eddie','Linnea','Sanna','Arvid','Maya','Dex','Hannu','Greta','Vince','Toni','Doctor Lind','Sergeant Hanna','Lisa','Otto','Rosaria'];
 // whether someone is at work (true) or at home (false) by day or by night: evening staff are always at work, people who work
 // somewhere open only at night are at work at night and at home by day, and everyone else the other way round
 const atWorkWhen=(n,night)=>EVENING_STAFF.includes(n.name)||(NIGHT_ONLY.includes(n.loc)?night:!night);
@@ -778,6 +783,7 @@ Grace:{stock:[['suit',2,120],['trench',2,90],['slacks',3,50],['oxfords',3,60],['
 Nils:{stock:[['walkman',3,35],['radio',3,40],['batteries',20,2],['film',10,6],['flashlight',4,10],['motor',2,30]]},
 Jack:{stock:[['fishrod',3,30],['flashlight',2,10],['hose',3,8]]},
 Olga:{stock:[['smokedfish',12,4]]},
+Aili:{stock:[['coffee',30,1],['hotdog',20,1],['burger',20,2],['meal',10,6]]},
 Helmi:{stock:[['floats',3,12],['drill',2,35],['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
 Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
 Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
@@ -826,8 +832,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
 // makes if its conversation didn't make one.
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
-// call (the big screen in your home), not in person. quiet: with call, the screen doesn't flash INCOMING CALL for it: you're told to
-// call instead (Hekki tells you to call Chuck when you land).
+// call (the radio set in your home), not in person. quiet: with call, the radio doesn't flash INCOMING CALL for it. incoming: the radio
+// flashes INCOMING CALL while a talk condition with the caller is open (Check In with Chuck).
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
 // island map marks where they are.
 // The people who suggest a volcano flavour, in The People's Cola and New Formula (either of them meets the first condition)
@@ -1112,7 +1118,7 @@ const FH_HEKKI={start:'a',nodes:{
   a:{say:"(Hekki looks both ways along the path, twice.) You're NIGHTJAR. You must be. You look exactly like a British reporter, which is the idea, I suppose. I'm Hekki. Radio. And, well. The other thing.",opts:[["Nice to meet you, Hekki.",'b'],["Not so loud.",'c']]},
   b:{say:"Honoured. Really. Your room's ready, under my shack: go in, find the bookcase, and lean on the third shelf. It swings. I oiled it twice.",opts:[["What's down there?",'d']]},
   c:{say:"(He drops to a whisper.) Sorry. Sorry. I've been practising. Your room's under my shack: the bookcase, third shelf. Lean on it. It swings.",opts:[["What's down there?",'d']]},
-  d:{say:"Radio sets, tape recorders, a bed, a stove, and more tinned soup than one person needs. And the big screen, for calling Chuck: call him the minute you're down there. He'll want to hear you've landed. (He swallows.) Welcome to Sarivalto, NIGHTJAR."}}};
+  d:{say:"Radio sets, tape recorders, a bed, a stove, and more tinned soup than one person needs. And the radio set, for calling Chuck: tune it in and call him the minute you're down there. He'll want to hear you've landed. (He swallows.) Welcome to Sarivalto, NIGHTJAR."}}};
 
 // Cover Blown: Solveig's questions about Fleet Street (one wrong answer and she won't be talked round: the flag doubt), her price,
 // and the meeting on the jetty at Eastbrook Harbour
@@ -1193,8 +1199,15 @@ firstday:{title:'First Morning',giver:'Joan',main:true,day:-9,start:true,text:"Y
 // Find Hekki (yours as you land at West Saltwick Harbour on 1 September): meet the CIA's man on the island, at the Radio Tower,
 // who tells you where your room is
 findhekki:{title:'Find Hekki',giver:'Hekki',given:true,text:"You've landed at West Saltwick Harbour. Find Hekki, the CIA's man on the island: a radio tech who works at the Radio Tower, up from Saltwick. He has a room ready for you.",
-  done:[{talk:'Hekki',chat:FH_HEKKI,what:'Find Hekki at the Radio Tower, up from Saltwick, and talk to him'}],
-  thanks:"Your room is under Hekki's shack, through the bookcase. Call Chuck on the big screen there."},
+  done:[{talk:'Hekki',chat:FH_HEKKI,what:'Find Hekki at the Radio Tower, up from Saltwick, and talk to him',gives:'checkin'}],
+  thanks:"Your room is under Hekki's shack, through the bookcase. Call Chuck on the radio set there."},
+// Check In with Chuck (given by Find Hekki): call Chuck on the radio in your room; he gives you your first job, Meet the Communists.
+// incoming: the radio flashes INCOMING CALL while the call is waiting
+checkin:{title:'Check In with Chuck',giver:'Chuck',given:true,incoming:true,text:"Chuck will want to hear that you've landed. Go down to your room, under Hekki's shack at the Radio Tower (lean on the third shelf of the bookcase), tune in the radio set and call Langley.",
+  done:[{talk:'Chuck',what:"Call Chuck on the radio set in your room, under Hekki's shack at the Radio Tower",gives:'meetreds',chat:{start:'a',nodes:{
+    a:{say:"(Chuck's voice, thin through the static.) NIGHTJAR, Langley. Good to hear you. Did you make it in one piece?",opts:[["In one piece. Hekki says hello.",'b'],["Cold, wet, and in place.",'b']]},
+    b:{say:"Good. First job: the Communist Party. They want this island in the Soviet Union, and that's exactly what we're here to stop. Their leader is a woman called Anna, at their HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don't tip your hand. Over."}}}}],
+  thanks:"Langley has it on the record: NIGHTJAR is in place."},
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,given:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
   thanks:'Your new look is ready. Chuck is waiting to brief you, upstairs in his office.'},
@@ -1215,13 +1228,10 @@ flyout:{title:'Board the Plane',giver:'Peggy',main:true,day:-9,given:true,text:"
       said:"A pack of twenty. The Nicotine bar runs down as you play too. Choose the pack in your inventory (M) and press Smoke for one cigarette, or Equip it to smoke one after another as you go. Let hunger or nicotine run low, and you can't think of anything else: nobody will talk business with you until you've eaten or had a smoke (though shopkeepers will still sell to you)."},
     {event:'board',last:true,what:"Board the plane with Peggy, on the airstrip out of the lobby's front doors"}],
   thanks:"You fly out to Sarivalto."},
-meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,quiet:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
-  offer:"Morning, NIGHTJAR. Glad you made it in one piece. Before anything else, report in properly: use the radio set there in the room, so Langley has it on the record that NIGHTJAR is in place. Then I'll give you your first job.",
-  accept:"Good. Radio in and I'll brief you over the set.",wait:'Radioed in yet? Then get over to Saltwick and talk to Anna, at the Communist Party HQ. A friendly chat, nothing more.',
-  done:[{use:'Radio Equipment',m:'hekki_room',play:'radiotune',what:'Report in to Chuck on the radio in the Hidden Radio Room',
-      said:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "First job: the Communist Party. They want this island in the Soviet Union, and that\'s exactly what we\'re here to stop. Their leader is a woman called Anna, at their HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don\'t tip your hand."'},
-    {talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader',said:'You have the measure of Anna. Report back to Chuck on the big screen in the Hidden Radio Room.'},
-    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,given:true,seq:true,text:'Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader. Then report back to Chuck on the radio in your room.',
+  wait:'Talked to Anna yet? Get over to Saltwick, to the Communist Party HQ. A friendly chat, nothing more.',
+  done:[{talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader',said:'You have the measure of Anna. Report back to Chuck on the radio in the Hidden Radio Room.'},
+    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You saw Anna? What's the Party really after?",opts:[['She wants the island in the Soviet Union, and she means it.','b'],['She thinks the Americans want to buy the island.','c']]},
       b:{say:"That's what I was afraid of. A true believer's harder to deal with than a man with a price. Good work. Get some sleep: tomorrow, Kingsgrad."},
       c:{say:"She's not wrong, but don't you tell her that. Good work. Get some sleep: tomorrow, Kingsgrad."}}}}],
@@ -1278,7 +1288,7 @@ meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text
       b:{say:"Lipstick on a collar that's no one's wife's. Mud from the harbour on the prince's boots. Laundry never lies, love. People do."},
       c:{say:"Hard on the hands, easy on the head. And nobody notices a laundress."}}}},
     // (last: only once you've talked to everyone else)
-    {talk:'Chuck',last:true,what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You've been through the whole palace? Tell me what you've got.",opts:[['Leopold means to be crowned, whatever it takes.','b'],['The staff say strange visitors come up the drive at night.','c']]},
       b:{say:"Then he's either our best friend on this island or our biggest headache. We'll find out which. Good work: that's the household on file."},
       c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file."}}}}],
@@ -1287,12 +1297,12 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
   offer:"Morning, NIGHTJAR. Kelp Cola's headquarters in Kingsgrad is open for business. They bottle half the money on this island, and their man Harald wants to lead the Republicans. Go and meet the CEO, Phil. His office is upstairs at the HQ. Find out what kind of man he is.",
   accept:"Good. Drink whatever he pours you.",wait:"Met Phil yet? Kelp Cola HQ, Kingsgrad. His office is upstairs.",
   done:[
-    {talk:'Phil',what:'Meet Phil, the CEO of Kelp Cola, in his office at Kelp Cola HQ',gives:'colatour',said:'Phil wants you to take the tour at the Kelp Cola Museum in Eastbrook and tell him what you thought. Now report back to Chuck on the big screen in the Hidden Radio Room.',chat:{start:'a',nodes:{
+    {talk:'Phil',what:'Meet Phil, the CEO of Kelp Cola, in his office at Kelp Cola HQ',gives:'colatour',said:'Phil wants you to take the tour at the Kelp Cola Museum in Eastbrook and tell him what you thought. Now report back to Chuck on the radio in the Hidden Radio Room.',chat:{start:'a',nodes:{
       a:{say:"Come in, come in! Phil, Kelp Cola. Sit down, have a cold one. On the house. Now, what brings you up to my office?",opts:[["What do you make of the king's death?",'b'],['How did Kelp Cola get started?','c']]},
       b:{say:"A tragedy. And bad for business: nobody buys when nobody knows who's in charge. This island needs a steady hand, and a steady hand needs a good drink. But you'll never understand us till you've seen where we came from.",opts:[['Where you came from?','d']]},
       c:{say:"Ha! That's a story my mascot tells better than I do.",opts:[['Your mascot?','d']]},
       d:{say:"We've a museum in Eastbrook. Kelpy gives the tour. Once the snow's off the road, go and take it, then come back here and tell me what you thought. I want to know how it plays to a newcomer."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You met Phil? What's he like?",opts:[['Friendly. He wants me to take the tour at his museum.','b'],['He thinks the island needs a steady hand.','c']]},
       b:{say:"Then take it, when you can get to Eastbrook. A man who wants you to hear his story wants you on his side. Find out what that's worth to him. Good work."},
       c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work."}}}}],
@@ -1332,12 +1342,12 @@ meetdems:{title:'Meet the Democrats',giver:'Chuck',main:true,day:4,call:true,seq
   offer:"Morning, NIGHTJAR. The road into Eastbrook's clear. That's Democrat country: timber, coffee and union cards. Their leader's a man called Erik, and he runs things out of the community centre. Go and meet him. Of everyone on this island, they're the likeliest friends we've got. Find out what they need.",
   accept:"Good. Be useful to him. Useful people get told things.",wait:"Met Erik yet? Community centre, Eastbrook.",
   done:[
-    {talk:'Erik',what:'Meet Erik, the Democratic Party leader, at the community centre in Eastbrook',gives:['tattoo','beans'],said:'Erik would be grateful if you helped out two of the Party\'s members: Jonna at the tattoo shop, and Maya at the Coffee Roasters. Now report back to Chuck on the big screen in the Hidden Radio Room.',chat:{start:'a',nodes:{
+    {talk:'Erik',what:'Meet Erik, the Democratic Party leader, at the community centre in Eastbrook',gives:['tattoo','beans'],said:'Erik would be grateful if you helped out two of the Party\'s members: Jonna at the tattoo shop, and Maya at the Coffee Roasters. Now report back to Chuck on the radio in the Hidden Radio Room.',chat:{start:'a',nodes:{
       a:{say:"Welcome, welcome! Erik, Democratic Party. Mind the boxes, it's leaflet day. You're the foreign journalist everyone's talking about?",opts:[['What do the Democrats stand for?','b'],['How can I help?','c']]},
       b:{say:"A free vote, a fair wage and nobody on this island answering to Moscow, a palace or a cola company. We're mill hands, shopkeepers, roasters, the people who keep Eastbrook running.",opts:[['How can I help?','c']]},
       c:{say:"Help? Now there's a word I like. Two of our members could use a friend. Jonna at the tattoo shop hasn't had a customer since the snow came: if you're brave, sit in her chair. And Maya at the Coffee Roasters can't get decent beans since the harbour master started taxing imports. If you know anyone who can bring something in quietly...",opts:[["I'll see what I can do.",'d']]},
       d:{say:"That's the spirit. Either one, or both if you're feeling generous. Eastbrook remembers its friends."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You met Erik? What did he want?",opts:[['Help for his members: a tattoo, and some coffee beans.','b'],['He wants nobody answering to Moscow.','c']]},
       b:{say:"Ha! Cheapest friendship we'll ever buy. If you need the beans brought in, call me: the diplomatic pouch has room. Good work."},
       c:{say:"Then he's our man, or near enough. Help him out, and he'll help us when it counts. And if you need anything brought in, call me. Good work."}}}}],
@@ -1370,7 +1380,7 @@ meetmonks:{title:'Meet the Monks',giver:'Chuck',main:true,day:5,call:true,text:'
       a:{say:"A guest! Sit, sit, you'll have soup. Brother Teodor. Mushroom, from the forest below. A full stomach is the first step towards a full heart.",opts:[['Thank you. It smells wonderful.','b'],['What do the brothers talk about at supper?','c']]},
       b:{say:"It is wonderful. I'd tell you the secret, but then you'd have to take vows. Ha! Eat up."},
       c:{say:"Supper is in silence, but the washing up isn't. The king, mostly. Father Thyme thinks Augustus is a holy man. Brother Anselm thinks holy men make poor kings. They have been very polite to each other all week."}}}},
-    {talk:'Chuck',last:true,what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You've been up the mountain? What's the Church thinking?",opts:[['Father Thyme would rather see Augustus crowned than Leopold.','b'],['Everyone wants the Abbot\'s blessing: the Party, the oil men, even a Russian.','c']]},
       b:{say:"A pious king the Church can steer. Not the worst outcome for us, so long as Moscow doesn't get to Augustus first. Good work."},
       c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work."}}}}],
@@ -1386,7 +1396,7 @@ meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',ma
       b:{say:"Because everyone else will, sooner or later. The Party, the palace, the cola men, the Americans. I like to be first. This island is going to change hands, and when it does, the man holding the cards is the one who knew who was at the table.",opts:[["And who's at the table?",'d']]},
       c:{say:"Pizza. Cards. Shipping. Whatever the island needs and can't get past the harbour master. Carlo is our candidate for the Republicans: a respectable man. Respectability is very good for business.",opts:[['Why tell me?','b']]},
       d:{say:"Today? You. Write what you like about the island. But if you ever need something brought in, or someone found, you know where the back room is. And Rosaria makes a very good pizza."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. I hear you spent the day playing cards. Who with?",opts:[['Gustavo, the Don. He wanted to meet me before anyone else did.','b'],['The Syndicate are backing Carlo for the Republicans.','c']]},
       b:{say:"The Don called you himself? Then he knows more about you than I'd like. Play his game, but don't ever owe him anything. Good work."},
       c:{say:"Organised crime buying itself a political party. Ain't democracy grand. Keep in with them, carefully. Good work."}}}}],
@@ -1415,7 +1425,7 @@ meetoil:{title:'Meet the Oil Company',giver:'Chuck',main:true,day:7,call:true,se
       j:{say:"The truth. Nobody wants the truth. They want to be told they're right. Go on, get out of my building. You're more interesting than most."},
       k:{say:"A good story. Well, you've got one now. Go on, get out of my building. You're more interesting than most."},
       l:{say:"Then we understand each other. Come back when you've decided which side that is. Go on, get out of my building."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You met Dario? What's he like?",opts:[["He wants every drop under the sea, and he'll fight anyone for it.",'b'],['He gave me a lecture on philosophy.','c']]},
       b:{say:"Then he and this island are going to fall out. An oilman's a fine friend to have, right up until he isn't. Good work."},
       c:{say:"Philosophy. From an oilman. Next he'll be writing poetry. Keep him talking: men like that tell you everything if you let them think they're winning. Good work."}}}}],
@@ -1524,8 +1534,8 @@ lightsout:{title:'Lights Out',giver:'George',day:8,evening:true,call:true,seq:tr
       a:{say:"You again? I've told you: I'm not leaving my lamp.",opts:[["Your boat! It's sinking, down at the jetty!",'b']]},
       b:{say:"My boat? Oh, no. No, no, no. Out of my way! (Signe grabs a bucket and runs for the jetty, leaving the lighthouse to you.)"}}}},
     {use:'Great Lamp',m:'lighthouse_top',what:'Climb the spiral stair to the lamp room and smash the lamp',flag:'smashed',
-      said:"You take a swing at the great lamp. The prisms shatter, the flame gutters and dies, and glass rains down the spiral stair. Out at sea, Eastbrook Harbour has gone dark. Report to George on the big screen."},
-    {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
+      said:"You take a swing at the great lamp. The prisms shatter, the flame gutters and dies, and glass rains down the spiral stair. Out at sea, Eastbrook Harbour has gone dark. Report to George on the radio."},
+    {talk:'George',what:'Report to George on the radio in your room',chat:{start:'a',nodes:{
       a:{say:"The light's out. Our boat came in without a soul seeing it. Nice work, NIGHTJAR. Nobody needs to know who swung the hammer, and nobody's going to replace that lens in a hurry."}}}}],
   thanks:'The lighthouse at Eastbrook Harbour is dark, and will stay that way.'},
 // Creative Accounting (Diversified Petroleum, 12 September): Magnus wants company money moved where nobody will look, and needs Mats
@@ -1642,8 +1652,8 @@ flatcola:{title:'Flat Cola',giver:'George',day:11,evening:true,call:true,seq:tru
     {use:'Shelves',m:'electro',gift:'capacitor',what:'Steal some technical equipment from the shelves in the electronics store',
       said:"Behind the radios you find a box of industrial capacitors, the size of coffee tins. One of those would short out anything. Now get into the Kelp Cola factory, and put it into the bottling line."},
     {use:'Bottling Line',m:'kcfac_in',takes:'capacitor',flag:'broken',points:{cola:-1},what:'Put the capacitor into the bottling line at the Kelp Cola factory',
-      said:"You wedge the capacitor into the drive under the conveyor and throw the switch. There's a bang, a shower of blue sparks and a smell of burning rubber, and the bottling line shudders to a stop. (Kelp Cola: -1 point.) Report to George on the big screen."},
-    {talk:'George',what:'Report to George on the big screen in your room',chat:{start:'a',nodes:{
+      said:"You wedge the capacitor into the drive under the conveyor and throw the switch. There's a bang, a shower of blue sparks and a smell of burning rubber, and the bottling line shudders to a stop. (Kelp Cola: -1 point.) Report to George on the radio."},
+    {talk:'George',what:'Report to George on the radio in your room',chat:{start:'a',nodes:{
       a:{say:"I hear Kelp Cola's bottling by hand tonight. Phil's on the telephone to Sweden, shouting. Nice work, NIGHTJAR. A machine that broke itself: that's how I like it."}}}}],
   thanks:"Kelp Cola's bottling line is broken, and the island's cola has gone flat."},
 // The People's Cola and New Formula (9 September: the Communist Party's quest and Kelp Cola's, so you can take on only one). Both
@@ -1878,7 +1888,7 @@ tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says J
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
 beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says Maya at the Coffee Roasters in Eastbrook can\'t get decent coffee beans since the harbour master started taxing imports. Ask Chuck to have some brought in; they come the next day, and Hekki will give them to you. Then take them to Maya.',
   done:[
-    {talk:'Chuck',what:'Ask Chuck on the big screen to have some coffee beans brought in',chat:{start:'a',nodes:{
+    {talk:'Chuck',what:'Ask Chuck on the radio to have some coffee beans brought in',chat:{start:'a',nodes:{
       a:{say:"Coffee beans? You want me to put coffee beans in the diplomatic pouch?",opts:[["They're for a friend of a friend. A Democrat.",'b']]},
       b:{say:"Fine. The good stuff, from Colombia. It'll come in on tonight's drop, and Hekki will have it for you in the morning. Don't make a habit of this."}}}},
     {talk:'Hekki',days:1,gift:'beans',arrives:'Hekki has a package for you: the coffee beans came in on the night drop.',what:'Collect the coffee beans from Hekki (they come the day after you ask Chuck)',chat:{start:'a',nodes:{
@@ -1970,7 +1980,7 @@ const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['se
 ['town',39,6,0,1,'estateagent'],['town',45,21,0,1,'furniture_in'],['town',30,14,0,1,'fishingshop'],['town',35,14,0,1,'house_forsale'],['volcano',9,24,0,1,'spa_in'],['volcano',15,12,0,1,'volcano_in'],['second',44,8,0,1,'house_forsale_eb'],['fishing',36,13,0,1,'house_forsale_fh'],['gated',35,14,0,1,'villa_forsale'],['town',40,14,0,1,'house_vince'],['town',29,21,0,1,'house_mary'],
 ['town',34,21,0,1,'house_jack'],['town',39,21,0,1,'house_sally'],['town',30,28,0,-1,'sewers'],['town',48,6,0,1,'police'],['town',48,13,0,1,'doctor'],['fishing',17,13,0,1,'jazz_in'],['apartments2',22,8,0,1,'apartments3',22,10,0,-1],['skyapts2',22,8,0,1,'skyapts3',22,10,0,-1],['skyapts3',22,8,0,1,'skyapts4',22,10,0,-1],['eblofts2',22,8,0,1,'eblofts3',22,10,0,-1],['eblofts3',22,8,0,1,'eblofts4',22,10,0,-1],['kgapts2',22,8,0,1,'kgapts3',22,10,0,-1],['kgapts3',22,8,0,1,'kgapts4',22,10,0,-1],['hsresid',22,8,0,1,'hsresid2',22,10,0,-1],['lake',30,11,0,1,'bigtop_in'],['lake',23,10,0,1,'caravan1_in'],['lake',36,10,0,1,'caravan2_in'],['lake',27,17,0,1,'caravan3_in'],['apartments',22,8,0,1,'apartments2',22,10,0,-1],['skyapts',22,8,0,1,'skyapts2',22,10,0,-1],['eblofts',22,8,0,1,'eblofts2',22,10,0,-1],['kgapts',22,8,0,1,'kgapts2',22,10,0,-1],
 ['town',11,34,0,1,'pizzeria_in',9,11],['lighthouse_in',7,2,0,1,'lighthouse_top',7,6,0,-1],['oilrig',11,9,0,1,'crewq'],['oilrig',5,5,0,1,'derrick_in'],['oilhq',8,5,0,1,'dphq_in'],['dphq_in',14,1,0,1,'dphq_office',21,9,0,-1],['oilhq',3,11,0,1,'depot_in'],['fishing',4,6,0,1,'petro_in'],['fishing',25,6,0,1,'bank_in'],['farm',6,6,0,1,'farmhouse_in'],['farm',14,5,0,1,'barn_in'],['farm',25,3,0,-1,'oldbarn_in',9,0,0,1],['town',11,9,0,1,'civil_in'],['colahq',8,5,0,1,'kchq_in'],['colafactory',8,6,0,1,'kcfac_in'],['colafactory',18,4,0,1,'kcwhs_in'],['harbour',16,4,0,1,'whs_in'],['barracks',7,8,0,1,'barrA_in'],['barracks',25,8,0,1,'barrB_in'],['barracks',13,3,0,1,'gp_in'],['barracks',6,18,0,1,'arm_in'],['barracks',25,18,0,1,'offhq_in'],['kalanharbour',5,10,0,1,'fuel_in'],['kalanharbour',18,10,0,1,'port_in'],['savilaharbour',5,4,0,1,'customs_in'],['savilaharbour',3,16,0,1,'ebwhs_in'],['savilaharbour',31,6,0,1,'lighthouse_in'],['fishing',17,6,0,1,'skyapts'],['fishing',11,6,0,1,'hotel_lobby'],['hotel_lobby',17,1,0,1,'hotel_floor',22,9,0,-1],['langley',18,1,0,1,'langley_hall',19,3,0,-1],['langley_hall',5,0,0,1,'langley_office'],['langley_hall',14,0,0,1,'langley_george'],['langley',0,6,1,0,'langley_cover',15,6,-1,0],['langley',21,6,-1,0,'langley_cafe',0,6,1,0],['langley',4,3,0,-1,'langley_basement',14,7,0,1],['langley_out',15,5,0,1,'langley'],['fishing',5,13,0,1,'electro'],['fishing',12,13,0,1,'arcadein'],['fishing',32,13,0,1,'mart'],['fishing',32,6,0,1,'casino'],
-['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
+['gated',34,7,0,1,'hsresid'],['town',14,4,0,1,'kgapts'],['fishing',24,13,0,1,'burgerbar'],['village',32,26,0,1,'diner_in'],['fishing',36,6,0,1,'repubhq'],['chapel',14,2,0,-1,'crypt',14,7,0,1]];
 // Doors into these places only open when the player presses the action key (E) while standing on them, instead of by walking on.
 const PRESS_DOORS=new Set(['sewers']);
 // ---- How each building looks from outside (feature style key -> look). kind: gable, flat or tall
@@ -2072,6 +2082,7 @@ cedargrill:{icon:'grill',kind:'gable',wall:'#3d5a4a',roof:'#2f2a26',trim:'#e0c89
 tattoo:{icon:'heart',kind:'gable',wall:'#2a2a30',roof:'#3a3530',trim:'#e07a9a',win:'#f2d16b',tex:'siding',awn:'#7a1e2a',sign:'INK AND PINE',signk:'wood'},
 gazette:{kind:'gable',wall:'#4a5f78',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'siding',chim:.8,sign:'EASTBROOK GAZETTE',signk:'wood'},
 records:{icon:'vinyl',kind:'flat',wall:'#6a3a5a',roof:'#2f2a26',trim:'#efe2c4',win:'#f2d16b',tex:'brick',mural:['#ff8a3a','#e07a9a','#7a4a8a','#2e86c1'],sign:'VINYL RESTING PLACE',signk:'wood'},
+diner:{kind:'flat',wall:'#a89a86',roof:'#5b5b56',trim:'#7a2a24',win:'#c9b878',awn:'#7a2a24',sign:'DINER',signk:'neon',signc:'#ff5a3a',wear:.9},
 outfitters:{icon:'souwester',kind:'gable',wall:'#2e5a7a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#e0a100',sign:'HARBOUR OUTFITTERS',signk:'wood'},
 clothes:{icon:'flannel',kind:'gable',wall:'#7a2a3a',roof:'#2f2a26',trim:'#e0c890',win:'#f2d16b',tex:'siding',awn:'#2f4a3c',planter:['#e0a100','#f2f2f2','#e07a9a'],sign:'FLANNEL AND FOLK',signk:'wood'},
 kcmuseum:{icon:'cola',kind:'flat',wall:'#e8f2ea',roof:'#4a5a50',trim:'#2e9d57',win:'#9fd6c0',tex:'brick',awn:'#2e9d57',flag:'#2e9d57',sign:'KELP COLA MUSEUM - GIFT SHOP',signk:'brass'},
@@ -2248,5 +2259,5 @@ const TRACK_INFO={chant:['Gregorian chant','A small choir of men\'s voices sings
   army:['Fife and drum','A fife and drum corps of the 1860s plays a march across the parade ground: two fifes in thirds over a snare drum\'s accents, flams and rolls, and a bass drum on every beat.'],
   pizzeria:['Italian waltz','An accordion carries a waltz tune over a trembling mandolin and an oom-pah-pah bass.'],
   ocean:['The sea','Waves roll in every few seconds and break in a hiss of surf, gulls cry now and then from one side or the other, and a bell buoy clangs far out.']};
-const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach'],jazz:['jazz_in'],regal:['palace','palacehall','throne','royalrooms','dining','library','chapel','crypt','kitchen','servants','winecellar','vault'],romani:['bigtop_in','caravan1_in','caravan2_in','caravan3_in'],mill:['millroad','mill_in'],rig:['oilrig','derrick_in'],plant:['plant'],cola:['kcfac_in','kcwhs_in'],casino:['casino'],cafe:['cafe'],spy:['langley','langley_hall','langley_office','langley_cover','langley_cafe','langley_george','langley_basement'],woods:['north','east','south','southwest','west','forest'],army:['barracks','barrA_in','barrB_in','gp_in','arm_in','offhq_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
+const MUSIC_AT={chant:['monastery','monchurch','monks','house_thyme'],ocean:['harbour','privharbour','kalanharbour','savilaharbour','beach','privbeach'],jazz:['jazz_in'],regal:['palace','palacehall','throne','royalrooms','dining','library','chapel','crypt','kitchen','servants','winecellar','vault'],romani:['bigtop_in','caravan1_in','caravan2_in','caravan3_in'],mill:['millroad','mill_in'],rig:['oilrig','derrick_in'],plant:['plant'],cola:['kcfac_in','kcwhs_in'],casino:['casino'],cafe:['cafe','diner_in'],spy:['langley','langley_hall','langley_office','langley_cover','langley_cafe','langley_george','langley_basement'],woods:['north','east','south','southwest','west','forest'],army:['barracks','barrA_in','barrB_in','gp_in','arm_in','offhq_in'],arcade:['arcadein'],pizzeria:['pizzeria_in'],
   shop:['bookshop','clothes_in','tailor','electro','fishingshop','fishshop','outfitters_in','gunshop','kcmuseum_in','mart','supermarket','records_in']};
