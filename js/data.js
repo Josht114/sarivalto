@@ -707,14 +707,14 @@ const WAIT_AT=['bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_l
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say
 // and your replies as [what you say, the node it leads to]; a node with no replies ends the conversation once you've read it.
 const CONVOS={
-Joan:{start:'a',nodes:{a:{say:"(Joan doesn't stop typing.) Cover Story's through the door on the left, Chuck's up the stairs, and the coffee's in the cafeteria. I wouldn't, though."}}},
+Joan:{start:'a',nodes:{a:{say:"(Joan doesn't stop typing.) You know the way: Cover Story's through the door on the left, Chuck's up the stairs, and the coffee's in the cafeteria. I still wouldn't."}}},
 // Otto sells tickets for the film at the cinema (js/film.js)
 Otto:{start:'a',nodes:{a:{say:"Two pictures tonight. STORMWING: the hottest pilots in the North, and one very unhappy control tower. And TOP COMRADE, all the way from the other side of the Iron Curtain: same story, more paperwork. Four dollars a ticket.",opts:[['Watch STORMWING ($4)',null,()=>watchFilm('stormwing')],['Watch TOP COMRADE ($4)',null,()=>watchFilm('topcomrade')],['Maybe later',null]]}}},
-George:{start:'a',nodes:{a:{say:"Pull up a chair, NIGHTJAR. Meatloaf's terrible. George. Chuck does the talking in the daytime; I'm the one who does the work after dark. Nothing for you yet. Once you're on the island, call Langley in the evening and you'll get me."}}},
+George:{start:'a',nodes:{a:{say:"Pull up a chair. Meatloaf's still terrible. Chuck's got something for you, I hear: he still does the talking in the daytime, and I still do the work after dark. Once you're out there, call Langley in the evening and you'll get me."}}},
 get Sally(){const n=typeof NPCS!='undefined'&&NPCS.find(p=>p.name=='Sally');return typeof estateConvo=='function'&&n?estateConvo(n):{start:'a',nodes:{a:{say:'Sarivalto Homes!'}}}},
 // Peggy flies you out, once Chuck has briefed you
-get Peggy(){const ok=typeof qOf=='function'&&qOf('briefing')?.done;return{start:'a',nodes:{a:ok?{say:"Peggy. I'm your ride. It's a long way to the Baltic, and we don't land anywhere anyone can see: a fishing boat meets us off the island at dawn and takes you the rest of the way in. Ready?",opts:[["Let's go.",null,()=>boardPlane()],['Not yet.',null]]}:{say:"Peggy, your pilot. Nice to meet you. We're not going anywhere until Chuck's had his talk with you, upstairs. Then she's all yours."}}}},
-Doris:{start:'a',nodes:{a:{say:"Cover Story Department. Doris. Sit down, let's have a look at you. Hair, clothes, the lot: nobody believes a journalist in a government suit.",opts:[['Make me up.',null,()=>openCover()],['Not now.',null]]}}},
+get Peggy(){const ok=typeof qOf=='function'&&qOf('briefing')?.done;return{start:'a',nodes:{a:ok?{say:"Me again: I'm your ride. It's a long way to the Baltic, and we don't land anywhere anyone can see: a fishing boat meets us off the island at dawn and takes you the rest of the way in. Ready?",opts:[["Let's go.",null,()=>boardPlane()],['Not yet.',null]]}:{say:"(Peggy grins.) Back for more? I'm flying you, wherever it is. We're not going anywhere until Chuck's had his talk with you, upstairs. Then she's all yours."}}}},
+Doris:{start:'a',nodes:{a:{say:"(Doris looks you up and down.) You again. Sit down, let's have a look at you. Hair, clothes, the lot: wherever Chuck's sending you this time, you're not going in a government suit.",opts:[['Make me up.',null,()=>openCover()],['Not now.',null]]}}},
 Jonna:{start:'a',nodes:{a:{say:"Welcome to Ink and Pine. Something to remember the island by?",opts:[["I'd like a tattoo.",null,()=>openTattoo()],['Just looking.',null]]}}},
 Hekki:{start:'hello',nodes:{
   hello:{say:'So glad you made it.',opts:[['Me too.','metoo'],['This place sucks.','sucks'],['Is anyone on to you?','onto']]},
@@ -824,7 +824,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
 // makes if its conversation didn't make one.
 // from: the first day the quest can be offered (any day if left out). call: the giver offers it, and reminds you of it, on a video
-// call (the big screen in your home), not in person.
+// call (the big screen in your home), not in person. quiet: with call, the screen doesn't flash INCOMING CALL for it: you're told to
+// call instead (Hekki tells you to call Chuck when you land).
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
 // island map marks where they are.
 // The people who suggest a volcano flavour, in The People's Cola and New Formula (either of them meets the first condition)
@@ -1098,17 +1099,18 @@ const SD_HEKKI={start:'a',nodes:{
   w2:{say:"(He laughs, and swallows some bath water.) Don't tell Chuck.",opts:[["Something else.",'h'],["Time to get out.",null]]},
   w3:{say:"(Hekki looks at the ceiling for a long time.) Thank you. If I've gone red, it's the bath.",opts:[["Something else.",'h'],["Time to get out.",null]]},
   s:{say:"I know. That's why I asked you here, and not Chuck. Chuck would have brought a notebook.",opts:[["Why do you do it?",'w'],["Time to get out.",null]]}}};
-// First Morning: Joan at the front desk, sending you to the Cover Story Department before your new assignment from Chuck
+// First Morning: Joan at the front desk, an old colleague, sending you to the Cover Story Department before your new assignment
+// from Chuck (nothing yet about who you'll be: Chuck tells you that)
 const FM_JOAN={start:'a',nodes:{
-  a:{say:"(The woman at the front desk looks up over her half-moon glasses, a telephone tucked under her chin.) You must be the one Chuck's waiting for. He's had me watching the door since seven. (She puts the telephone down.) Name? No, don't tell me. You won't have one by lunchtime.",opts:[["I'm here to see Chuck.",'b'],["What do you mean, no name?",'c']]},
-  b:{say:"Everybody's here to see Chuck. Chuck sees nobody who looks like they work for the government. Cover Story Department first, through the door on the left: Doris will see to your face and your wardrobe. Then up the stairs, and he'll give you your new assignment.",opts:[["Cover Story first. Got it.",null]]},
-  c:{say:"Wherever you're going, nobody there can know who you are. Doris, in the Cover Story Department, will make you somebody else: hair, clothes, a past. Through the door on the left. Then up the stairs to Chuck, for your new assignment.",opts:[["Right. Thank you, Joan.",null]]}}};
+  a:{say:"(Joan looks up over her half-moon glasses, a telephone tucked under her chin.) Well, look who's back. Chuck's had me watching the door since seven. (She puts the telephone down.) How was the leave? No, don't tell me. You'll only make me jealous.",opts:[["Good to see you, Joan.",'b'],["What's Chuck got for me?",'c']]},
+  b:{say:"You too. Nothing changes: Chuck's upstairs, the coffee's still terrible, and Doris wants you in the Cover Story Department first, through the door on the left. Wherever he's sending you, you're not going as yourself.",opts:[["Doris first. Got it.",null]]},
+  c:{say:"He hasn't told me, and I've asked him twice. Somewhere abroad: Doris wants you in the Cover Story Department first, through the door on the left. Then up the stairs to Chuck.",opts:[["Thanks, Joan.",null]]}}};
 // Find Hekki: meeting Hekki at the Radio Tower when you land, and where your room is
 const FH_HEKKI={start:'a',nodes:{
   a:{say:"(Hekki looks both ways along the path, twice.) You're NIGHTJAR. You must be. You look exactly like a British reporter, which is the idea, I suppose. I'm Hekki. Radio. And, well. The other thing.",opts:[["Nice to meet you, Hekki.",'b'],["Not so loud.",'c']]},
   b:{say:"Honoured. Really. Your room's ready, under my shack: go in, find the bookcase, and lean on the third shelf. It swings. I oiled it twice.",opts:[["What's down there?",'d']]},
   c:{say:"(He drops to a whisper.) Sorry. Sorry. I've been practising. Your room's under my shack: the bookcase, third shelf. Lean on it. It swings.",opts:[["What's down there?",'d']]},
-  d:{say:"Radio sets, tape recorders, a bed, a stove, and more tinned soup than one person needs. And the big screen: Chuck calls on it every morning, and he'll want to hear you've landed. (He swallows.) Welcome to Sarivalto, NIGHTJAR."}}};
+  d:{say:"Radio sets, tape recorders, a bed, a stove, and more tinned soup than one person needs. And the big screen, for calling Chuck: call him the minute you're down there. He'll want to hear you've landed. (He swallows.) Welcome to Sarivalto, NIGHTJAR."}}};
 
 // Cover Blown: Solveig's questions about Fleet Street (one wrong answer and she won't be talked round: the flag doubt), her price,
 // and the meeting on the jetty at Eastbrook Harbour
@@ -1183,21 +1185,21 @@ firstday:{title:'First Morning',giver:'Joan',main:true,day:-9,start:true,text:"Y
 // who tells you where your room is
 findhekki:{title:'Find Hekki',giver:'Hekki',given:true,text:"You've landed at West Saltwick Harbour. Find Hekki, the CIA's man on the island: a radio tech who works at the Radio Tower, up from Saltwick. He has a room ready for you.",
   done:[{talk:'Hekki',chat:FH_HEKKI,what:'Find Hekki at the Radio Tower, up from Saltwick, and talk to him'}],
-  thanks:"Your room is under Hekki's shack, through the bookcase. The big screen there is how you reach Chuck."},
+  thanks:"Your room is under Hekki's shack, through the bookcase. Call Chuck on the big screen there."},
 alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,given:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
-  thanks:'Your alias is ready: a British reporter, from a London paper, come to cover the king\'s death. Chuck is waiting to brief you, upstairs in his office.'},
+  thanks:'Your new look is ready. Chuck is waiting to brief you, upstairs in his office.'},
 briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in his office, up the stairs from the lobby. Go and get your briefing.',
   done:[{talk:'Chuck',what:'Get your briefing from Chuck, in his office upstairs',chat:{start:'a',nodes:{
-    a:{say:"There you are. Sit down. Like the new look. You're going to Sarivalto, an island in the Baltic. Snow, fish, cola and not much else. Its king has just died, and right now nobody knows who's going to run the place.",opts:[['Who wants it?','b']]},
+    a:{say:"There you are. Sit down. Good to have you back. Like the new look. You're going to Sarivalto, an island in the Baltic. Snow, fish, cola and not much else. Its king has just died, and right now nobody knows who's going to run the place.",opts:[['Who wants it?','b']]},
     b:{say:"Everyone. The Communists want the island in the Soviet Union, and Moscow would love a harbour that far north. The royals want the crown kept on Prince Leopold's head. Kelp Cola wants whoever's best for business. The Democrats want a vote. And there's an oil company and a syndicate sniffing around too.",opts:[['And what do we want?','c']]},
     c:{say:"An island that doesn't end up flying a red flag. Your codename is NIGHTJAR. Your cover's a British reporter, from a London paper, there to cover the king's death, so ask all the questions you like. When you're settled in, go and introduce yourself to the island's newspaper, the Eastbrook Gazette: a reporter would. Our man there is Hekki, the radio tech: he's fixed you up a room under his shack, at the radio tower, with a radio set and a screen to reach me on.",opts:[['How long have I got?','d']]},
     d:{say:"You fly out for the first of September, and the island's yours for thirty days. Talk to everyone, help the people who'll help us, and call me every morning. Good luck, NIGHTJAR."}}}}],
   thanks:'"Don\'t trust anyone with a better cover than yours." You are ready to fly out on the first of September. Peggy and the plane are waiting on the airstrip, out of the lobby\'s front doors.'},
-meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
+meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,quiet:true,seq:true,text:'Report in to Chuck on the radio set in the Hidden Radio Room. Then Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader.',
   offer:"Morning, NIGHTJAR. Glad you made it in one piece. Before anything else, report in properly: use the radio set there in the room, so Langley has it on the record that NIGHTJAR is in place. Then I'll give you your first job.",
   accept:"Good. Radio in and I'll brief you over the set.",wait:'Radioed in yet? Then get over to Saltwick and talk to Anna, at the Communist Party HQ. A friendly chat, nothing more.',
-  done:[{use:'Radio Equipment',m:'hekki_room',what:'Report in to Chuck on the radio in the Hidden Radio Room',
+  done:[{use:'Radio Equipment',m:'hekki_room',play:'radiotune',what:'Report in to Chuck on the radio in the Hidden Radio Room',
       said:'You radio Chuck: NIGHTJAR has arrived safely on Sarivalto. "Good to hear it," crackles the reply. "First job: the Communist Party. They want this island in the Soviet Union, and that\'s exactly what we\'re here to stop. Their leader is a woman called Anna, at their HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don\'t tip your hand."'},
     {talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader',said:'You have the measure of Anna. Report back to Chuck on the big screen in the Hidden Radio Room.'},
     {talk:'Chuck',what:'Report back to Chuck on the big screen in the Hidden Radio Room',chat:{start:'a',nodes:{
@@ -1207,7 +1209,7 @@ meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,call:true,se
   thanks:'Chuck has your report on the Communist Party.',
   chat:{start:'a',nodes:{
     a:{say:"Comrade! Not many come in from the cold to visit us. What brings you to the Party's door?",opts:[['I want to know what the Party stands for.','b'],["I heard about the king. Everyone's talking about it.",'c'],["I'm a journalist, from abroad.",'d']]},
-    b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island should join the Soviet Union, as a Soviet republic, and belong to the fishermen, the mill hands and the miners, not to the palace and the cola men.',opts:[['Join the Soviet Union?','e'],['Thank you for your time.',null]]},
+    b:{say:'Bread, work and dignity for the people of Sarivalto. The king is dead, and the crown should be buried with him. This island should join the Soviet Union, as a Soviet republic, and belong to the fishermen, the mill hands and the women on the fish-plant line, not to the palace and the cola men.',opts:[['Join the Soviet Union?','e'],['Thank you for your time.',null]]},
     c:{say:'So is everyone. A king dies and the vultures circle: the royals, the Democrats, Kelp Cola, the Syndicate. This month decides who runs the island, and whether it finally takes its place in the Soviet Union.',opts:[['Where does the Party stand?','b'],["I'll keep my ears open.",null]]},
     d:{say:"A journalist! Then write this down: Sarivalto's future lies with the Soviet Union. Moscow will give this island what its kings never did.",opts:[['And what does Moscow get?','e'],['I will.',null]]},
     e:{say:"Friends, comrade. A harbour in the north, and an island that stands with the workers of the world. The Americans would rather we stayed a little kingdom they can buy. Now, I have a meeting. Come back any time."}}}},

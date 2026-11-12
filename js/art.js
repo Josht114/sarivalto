@@ -1517,7 +1517,9 @@ lighthouse_in:{fl:'wood',f:['#8a6a48','#7a5d3e','#947250'],wall:'#e8e4dc',wall2:
 jazz_in:{fl:'carpet',f:['#1a1c3a','#24264a'],wall:'#2a1a2e',wall2:'#5a2a3a',pap:'panel',base:'#c9a040',rug:'#7a1e2a',curtain:'#7a1e2a',deco:[[2,'neon','BAR','#ff5fa8'],[10,'neon','JAZZ','#3b8bff'],[17,'poster']]},
 villa_gustavo:{fl:'check',f:['#e8e2d4','#2a2a33'],wall:'#5a2a2a',wall2:'#4a2222',pap:'stripe',rug:'#c9a040',quilt:'#8a1a1a',curtain:'#8a1a1a',deco:[[4,'portrait'],[12,'pic'],[15,'win']]},
 house_thyme:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#e8e2d4',wall2:'#d8d0c0',pap:'panel',rug:'#5a3a8a',quilt:'#5a3a8a',curtain:'#5a3a8a',deco:[[1,'win'],[4,'cross'],[8,'win']]},
-shack_hekki:{fl:'wood',f:['#7a6048','#6e5640','#866a50'],wall:'#8a7a62',wall2:'#7a6a52',pap:'stripe',quilt:'#5a6a4a',curtain:'#5a6a4a',deco:[[3,'pic'],[6,'win']]},
+shack_hekki:{fl:'wood',f:['#7a6048','#6e5640','#866a50'],wall:'#8a7a62',wall2:'#7a6a52',pap:'stripe',quilt:'#5a6a4a',curtain:'#5a6a4a',deco:[[3,'pic'],[6,'win']],
+  // muddy footprints from the door, round the table, to the bookcase (the way down to the hidden room)
+  prints:[[5,5.7],[6.4,4.7],[7.5,3.2],[8,1.9]]},
 tent_pat:{fl:'sand',f:[],wall:'#5e7a4a',wall2:'#53703f',pap:'stripe',base:'#3d5030',quilt:'#7a3a2a',deco:[]},
 gunshop:{fl:'wood',f:['#6b5a48','#5e4f40','#766450'],wall:'#8a7a5a',wall2:'#7a6a4a',pap:'stripe',deco:[[1,'win'],[10,'win']]},
 supermarket:{fl:'tile',f:['#e8eef2','#dfe6ea'],wall:'#f2f2f2',wall2:'#cfe8d8',pap:'tiles',base:'#2e9d57',deco:[[7,'win'],[17,'clock']]},
@@ -1540,7 +1542,7 @@ house_forsale:{fl:'wood',f:['#9a8a72','#8e7e68','#a6967c'],wall:'#d8d4cc',wall2:
 house_forsale_eb:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#c9b8a8',wall2:'#9a5040',pap:'brick',deco:[[2,'win'],[7,'win']]},
 house_forsale_fh:{fl:'tile',f:['#c9d1d8','#bcc4cb'],wall:'#e8eef2',wall2:'#b9c8d0',pap:'tiles',deco:[[2,'win'],[7,'win']]},
 villa_forsale:{fl:'wood',f:['#c29e72','#b8946a','#cca87c'],wall:'#f2ede0',wall2:'#e2dccb',pap:'panel',deco:[[1,'win'],[4,'win'],[9,'win'],[13,'win']]},
-hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[2,'map'],[10,'map'],[13,'clock'],[15,'map'],[16,'calendar']]},
+hekki_room:{fl:'wood',f:['#5e4f40','#544638','#685848'],wall:'#4a4a40',wall2:'#3e3e35',pap:'stripe',base:'#2b2b25',quilt:'#5a6a4a',rug:'#6b4a2e',deco:[[13,'clock'],[15,'map'],[16,'calendar']]},
 transhut:{fl:'carpet',f:['#3a4a5a','#4a5a6a'],wall:'#9aa0a6',wall2:'#7d858e',pap:'tiles',base:'#4a5058',deco:[[6,'onair'],[10,'clock'],[15,'poster']]},
 chapel:{fl:'check',f:['#e8e2d4','#c9c2b0'],wall:'#efe6cf',wall2:'#c9a040',pap:'panel',curtain:'#5e2a75',base:'#8a6a45',deco:[[2,'win'],[4,'portrait'],[7,'cross'],[10,'portrait'],[12,'win']]},
 crypt:{fl:'stone',f:[],wall:'#6b6458',wall2:'#4a443c',pap:'brick',base:'#3a3530',deco:[[3,'cross'],[7,'rbanner'],[12,'cross']]},
@@ -1594,6 +1596,11 @@ function interiorLayer(m){
   // a rug under the (first) table
   if(f.rug)FL[m].filter(q=>q[4]=='u').slice(0,1).forEach(([x,y,ww,hh])=>{const X=x*16-6,Y=y*16-4,RW=ww*16+12,RH=hh*16+10;r(shade(f.rug,-.3),X,Y,RW,RH);r(f.rug,X+1,Y+1,RW-2,RH-2);
     r(shade(f.rug,.35),X+3,Y+3,RW-6,1);r(shade(f.rug,.35),X+3,Y+RH-4,RW-6,1);for(let k=X+2;k<X+RW-2;k+=2){r('#f2e6c8',k,Y-1);r('#f2e6c8',k,Y+RH)}});
+  // prints: muddy footprints along a path of tiles ([[x,y],...]), left and right in turn, the mud fading as it dries further on
+  if(f.prints){const pts=f.prints.map(([x,y])=>[x*16+8,y*16+8]);let k=0;
+    for(let s=0;s<pts.length-1;s++){const[ax,ay]=pts[s],[bx,by]=pts[s+1],d=Math.hypot(bx-ax,by-ay),ux=(bx-ax)/d,uy=(by-ay)/d;
+      for(let t=s?0:2;t<d;t+=6,k++){const side=k&1?2:-2,x=ax+ux*t-uy*side,y=ay+uy*t+ux*side,c=k>12?'#5a4430':'#3e2c1c';
+        r(c,x-1,y-1,3,3);r(c,x-1+ux*3,y-1+uy*3,2,2)}}}
   // seal: [x,y,radius] in pixels, the Agency's seal set into the floor: a dark ring lettered in pale dots, a blue field, the
   // sixteen-pointed compass star and the shield at its heart
   if(f.seal){const[cx,cy,R]=f.seal;for(let y=-R;y<=R;y++)for(let x=-R;x<=R;x++){const d=Math.hypot(x,y);if(d>R+.3)continue;let c;

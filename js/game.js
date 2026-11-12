@@ -451,7 +451,7 @@ const arrivals=()=>morningCalls()+openConds().filter(([q,i,c])=>c.arrives&&q.whe
 // a video feed.
 const CHUCK=()=>NPCS.find(n=>n.name=='Chuck');
 const CALLER=()=>NPCS.find(n=>n.name==(NIGHT?'George':'Chuck'));
-const chuckCalling=()=>{const n=CALLER();return DAY>=1&&!!n&&!!offerOf(n)};
+const chuckCalling=()=>{const n=CALLER(),id=n&&offerOf(n);return DAY>=1&&!!id&&!QUESTS[id].quiet};
 const screenAhead=()=>{if(P.m!=HOME)return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Big Screen'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
 function videoCall(){const n=CALLER();if(!n)return;if(DAY<1){say(`The screen shows LINK READY. You are at Langley: ${n.name} is ${n.name=='Chuck'?'upstairs':'in the cafeteria'}.`,4000);return}
   const c=questTalk(n)||{start:'a',nodes:{a:{say:n.name=='Chuck'?"NIGHTJAR, Langley. Nothing new for you right now. Keep your head down and your eyes open.":"NIGHTJAR. George. Chuck's gone home; the night shift's mine. Nothing for you tonight. When there's a job that needs doing after dark, I'll call."}}};
@@ -508,6 +508,8 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   const sp=spotAhead();if(sp){if(sp[2].item&&!has(sp[2].item)){say(sp[2].lacks||'You need the '+ITEMS[sp[2].item].name.toLowerCase()+'.',4000);return}meet(sp[0],sp[1]);return}
   const lk=lookAhead();if(lk){const[q,L]=lk,again=L.again&&q.flags?.[L.flag];(q.flags??={})[L.flag]=true;if(L.gift&&!again)give(L.gift);say(again?L.again:L.say+(L.gift?' You get the '+ITEMS[L.gift].name.toLowerCase()+'.':''),9000);return}
   if(phoneAhead()){answerPhone();return}
+  // the radio set in your room: tune in to Langley and call (js/radiotune.js)
+  if(typeof radioAhead=='function'&&radioAhead()){rtBegin(radioCall);return}
   if(screenAhead()){videoCall();return}
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
@@ -578,7 +580,7 @@ function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
   cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
   cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
 function reply(i){const o=replies()[i];if(!o)return;jot(o,CONVO);if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}
-function endConvo(){if(CONVO)jotDone();const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call','phone');f?.()}
+function endConvo(){if(CONVO)jotDone();const f=CONVO?.c.onEnd;CONVO=null;CONVO_END=performance.now();cvEl.hidden=true;cvEl.classList.remove('call','phone','radio');f?.()}
 addEventListener('keydown',e=>{if(!CONVO||e.repeat)return;const k=e.key.length==1?e.key.toLowerCase():e.key,n=replies().length;
   if(k=='ArrowDown'||k=='s')CONVO.sel=(CONVO.sel+1)%n;else if(k=='ArrowUp'||k=='w')CONVO.sel=(CONVO.sel+n-1)%n;
   else if(/^[1-9]$/.test(k)&&+k<=n)reply(+k-1);else if(k=='e'||k==' '||k=='Enter')reply(CONVO.sel);else if(k=='Escape')endConvo();else return;
@@ -597,6 +599,7 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(typeof PLACE!='undefined'&&PLACE)return'Arrows move it, Enter puts it down, Escape keeps it';
   if(typeof placedAhead=='function'&&placedAhead()&&!P.mv&&!/^eq_/.test(placedAhead()[6])&&!bedAhead())return'Press P to pick up the '+ITEMS[placedAhead()[6]].name.toLowerCase();
   if(phoneAhead()&&!P.mv)return phoneRinging()?'Press E to answer the telephone':'The telephone';
+  if(typeof radioAhead=='function'&&radioAhead()&&!P.mv)return`Press E to tune in and radio Langley (${CALLER().name})`;
   if(screenAhead()&&!P.mv)return chuckCalling()?`Press E to answer ${CALLER().name}'s call`:`Press E to call Langley (${CALLER().name})`;
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';

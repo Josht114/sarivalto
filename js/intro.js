@@ -99,7 +99,7 @@ function flightDraw(g,t){
 const CLIPS={
   intro:{len:19,hum:[52,26,220],draw:introDraw,
     caps:[[0,3.6,'22 August, 198-. Langley, Virginia.'],[3.8,7.4,'Your first morning back. A new assignment, they said. They didn\'t say where.'],
-      [7.8,12,'The guard at the gate knows your car. He doesn\'t know your name. Nobody here does.'],[12.4,17.6,'CIA Headquarters.']],
+      [7.8,12,'The guard at the gate knows your car, and waves you through. Same faces, same bad coffee. It\'s good to be back.'],[12.4,17.6,'CIA Headquarters.']],
     // into the lobby, in front of the front desk, and Joan starts talking
     done(){place('langley',[17,9],1);const joan=NPCS.find(n=>n.name=='Joan');if(joan&&joan.m==P.m)setTimeout(()=>{if(!CONVO&&!START)talk(joan)},350)}},
   flight:{len:19,hum:[96,48,700],draw:flightDraw,

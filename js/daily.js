@@ -5980,14 +5980,16 @@ DAILY['Harald']={
 };
 // Hekki, radio tech and CIA informant at the Radio Tower (CIA). Threads: he knows the player is NIGHTJAR and is too pleased about it, the hidden room, the night drop packages, his nerves, Kaisa's broadcasts, listening in, the volcano.
 DAILY['Hekki']={
-1:["(Hekki jumps, then closes the shack door behind you.) You're here. Good. Quiet, quiet. Nobody saw you? The room's ready. Bookcase, third shelf. I'm Hekki, radio. And, well. You know.",[
+1:["(Hekki jumps, then looks up and down the path.) You're here. Good. Quiet, quiet. Nobody saw you? The room's ready. Bookcase, third shelf. I'm Hekki, radio. And, well. You know.",[
   ["Nice to meet you, Hekki.","Honoured, really. Nightjar. I've never said it out loud. I'm saying it very softly."],
   ["Keep your voice down.","Yes. Of course. I've been practising whispering. It makes my throat sore."],
   ["Is the radio ready?","It works, mostly. The tubes are old but willing. Chuck's frequency is marked in red pencil."]],
  "Mind the third shelf."],
 2:["(Hekki is polishing a valve.) Chuck came through at dawn, thin but clear. He wants you at the palace. I've written it down, in a code I made up. It's not very good.",[
-  ["What's the code?","Every letter is the one before it. A becomes Z. I thought of it myself."],
-  ["Hekki, that's the oldest code there is.","Is it? Oh. Well, it's reliable."],
+  ["What's the code?",["Every letter is the one before it. A becomes Z. I thought of it myself.",[
+    ["Hekki, that's the oldest code there is.","Is it? Oh. Well, it's reliable."],
+    ["Very clever, Hekki.","(He goes pink.) Thank you. I'll teach it to you, if you like. It takes about four seconds."]]]],
+  ["Can I see it?","(He shows you a slip of paper: ZS SGD OZKZBD.) It says 'at the palace'. Don't read it over my shoulder."],
   ["Any other news?","The tower hums more when the wind's from the east. I think the island's thinking."]],
  "Don't tell anyone about the code."],
 3:["(Hekki leans on the workbench.) The cola people are in. Kelp's HQ, and so on. I picked up three telephone conversations by accident. Two were about lunch and one about money. I wrote them all down.",[
