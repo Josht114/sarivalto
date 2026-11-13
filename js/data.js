@@ -849,6 +849,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // flashes INCOMING CALL while a talk condition with the caller is open (Check In with Chuck).
 // Someone with a quest to give has a star over their head (gold for a main quest, silver for a side quest), and a star on the
 // island map marks where they are.
+// Meet the Royals: whether you heard something at the palace (a flag on the quest, set by what you asked)
+const RY_HEARD=f=>!!qOf('meetroyals')?.flags?.[f];
 // The people who suggest a volcano flavour, in The People's Cola and New Formula (either of them meets the first condition)
 const VOLCANO_ASKED=['Rosa','Saga','Brother Teodor'];
 const VOLCANO_IDEA={
@@ -1277,7 +1279,7 @@ meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text
   accept:"Good. Be polite, be curious, and remember who said what.",wait:"Still working through the palace? All three royals, and every one of the staff. The maids and the laundress too.",
   done:[
     {talk:'Leopold',what:'Talk to Prince Leopold',chat:{start:'a',nodes:{
-      a:{say:"You'll forgive me if I don't stand. My father's chair is larger than it looks. Are you here to offer condolences, or advice? I've had a great deal of both.",opts:[['Condolences, Your Highness.','b'],['Will you be crowned?','c']]},
+      a:{say:"You'll forgive me if I don't sit. My father's chair is larger than it looks. Are you here to offer condolences, or advice? I've had a great deal of both.",opts:[['Condolences, Your Highness.','b'],['Will you be crowned?','c',()=>qFlag('meetroyals','crown')]]},
       b:{say:"Thank you. He was a hard man to be the son of, and a harder one to lose. The island is watching me now, waiting to see whether I'm him."},
       c:{say:"If the island lets me. There are people in Saltwick who'd rather bury the crown with him, and people in Eastbrook who'd sell it. I mean to be crowned. Whether I'm king of anything afterwards is another question."}}}},
     {talk:'Augustus',what:"Talk to Augustus, the prince's brother",chat:{start:'a',nodes:{
@@ -1293,7 +1295,7 @@ meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text
       b:{say:"Very good. The household is in mourning; you'll keep your voice down in the Grand Hall, and your hands off the silver."},
       c:{say:"I know every room, every key and every secret in it, sir. Which is precisely why I keep them."}}}},
     {talk:'Oskar',what:'Talk to Oskar, the footman',chat:{start:'a',nodes:{
-      a:{say:"Morning! Oskar, footman. I open the doors, carry the bags and stand very still in the cold. Mostly the cold.",opts:[['Seen anything interesting?','b'],['Busy since the king died?','c']]},
+      a:{say:"Morning! Oskar, footman. I open the doors, carry the bags and stand very still in the cold. Mostly the cold.",opts:[['Seen anything interesting?','b',()=>qFlag('meetroyals','drive')],['Busy since the king died?','c']]},
       b:{say:"Visitors I've never seen before, coming up the drive late at night. Men in good coats. Mr Edmund says I didn't see them, so I didn't."},
       c:{say:"Run off my feet. Everyone on the island wants to come and look sorry at the prince."}}}},
     {talk:'Marta',what:'Talk to Marta, the cook',chat:{start:'a',nodes:{
@@ -1301,26 +1303,32 @@ meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text
       b:{say:"Herring, like his father. Daphne eats nothing and says it's delicious. Augustus fasts on saints' days, and he's found a lot of saints lately."},
       c:{say:"We cried on Sunday and we cooked on Monday. A palace still has to eat, whoever sits on the throne."}}}},
     {talk:'Ingrid',what:'Talk to Ingrid, the maid',chat:{start:'a',nodes:{
-      a:{say:"Oh! I wasn't listening, I was dusting. Ingrid. I keep the royal apartments.",opts:[['What do you hear up here?','b'],['Is it a good place to work?','c']]},
+      a:{say:"Oh! I wasn't listening, I was dusting. Ingrid. I keep the royal apartments.",opts:[['What do you hear up here?','b',()=>qFlag('meetroyals','letters')],['Is it a good place to work?','c']]},
       b:{say:"The prince walking the floor half the night. Letters burned in the grate in the morning. I don't read them. I just notice the ashes."},
       c:{say:"It's warm and the food's good. You keep your head down and your apron clean."}}}},
     {talk:'Lotta',what:'Talk to Lotta, the maid',chat:{start:'a',nodes:{
-      a:{say:"Mind the tablecloth, it's just been pressed. Lotta. I set the dining room and clear it again.",opts:[['Who comes to dinner these days?','b'],['Do the family eat together?','c']]},
+      a:{say:"Mind the tablecloth, it's just been pressed. Lotta. I set the dining room and clear it again.",opts:[['Who comes to dinner these days?','b',()=>qFlag('meetroyals','dinner')],['Do the family eat together?','c']]},
       b:{say:"A man from Kelp Cola last week, all teeth. And the colonel from the barracks. They talked about the succession over the soup and stopped when I came in with the fish."},
       c:{say:"They sit together. They don't talk together. It's a long table."}}}},
     {talk:'Viktor',what:'Talk to Viktor, the groundskeeper',chat:{start:'a',nodes:{
-      a:{say:"Mind the hedges. Viktor. I keep the grounds, such as they are under all this snow.",opts:[['Quiet work?','b'],['Do you see much out here?','c']]},
+      a:{say:"Mind the hedges. Viktor. I keep the grounds, such as they are under all this snow.",opts:[['Quiet work?','b',()=>qFlag('meetroyals','drive')],['Do you see much out here?','c']]},
       b:{say:"Quiet enough to hear a robin a field away. And the front gate creaking at midnight."},
       c:{say:"Everything comes and goes by the front gate, and the front gate goes past my shed. I don't say. Nobody asks a gardener."}}}},
     {talk:'Elsa',what:'Talk to Elsa, the laundress',chat:{start:'a',nodes:{
       a:{say:"You'll want to stand back, this is all starch. Elsa. Every sheet and shirt in the palace comes through this room.",opts:[['You must learn a lot from the laundry.','b'],['Hard work?','c']]},
       b:{say:"Lipstick on a collar that's no one's wife's. Mud from the harbour on the prince's boots. Laundry never lies, love. People do."},
       c:{say:"Hard on the hands, easy on the head. And nobody notices a laundress."}}}},
-    // (last: only once you've talked to everyone else)
+    // (last: only once you've talked to everyone else. You can report only what you heard: what Leopold said of the crown, Oskar's
+    // visitors or Viktor's gate at midnight, Ingrid's burned letters, Lotta's dinner guests; and Daphne's walls, which everyone hears)
     {talk:'Chuck',last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
-      a:{say:"NIGHTJAR. You've been through the whole palace? Tell me what you've got.",opts:[['Leopold means to be crowned, whatever it takes.','b'],['The staff say strange visitors come up the drive at night.','c']]},
+      a:{say:"NIGHTJAR. You've been through the whole palace? Tell me what you've got.",opts:[['Leopold means to be crowned, whatever it takes.','b',null,()=>RY_HEARD('crown')],['The staff say strange visitors come up the drive at night.','c',null,()=>RY_HEARD('drive')],
+        ['The prince paces all night, and burns letters in the morning.','d',null,()=>RY_HEARD('letters')],['Kelp Cola and the colonel came to dinner, talking succession.','e',null,()=>RY_HEARD('dinner')],
+        ['Daphne says the palace walls have ears.','f']]},
       b:{say:"Then he's either our best friend on this island or our biggest headache. We'll find out which. Good work: that's the household on file."},
-      c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file."}}}}],
+      c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file."},
+      d:{say:"A man burning letters has had answers he doesn't like. Find out who's writing to him. Good work: that's the household on file."},
+      e:{say:"Cola money and army guns at the same table, both wanting a seat by the throne. Watch that pair. Good work: that's the household on file."},
+      f:{say:"She's right, and one day a few of them might be ours. Keep her talking. Good work: that's the household on file."}}}}],
   thanks:"Chuck has your report on the royal household."},
 meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq:true,text:'Kelp Cola HQ in Kingsgrad is open. Chuck wants you to meet Phil, the company\'s CEO, in his office upstairs at the HQ, then report back.',
   offer:"Morning, NIGHTJAR. Kelp Cola's headquarters in Kingsgrad is open for business. They bottle half the money on this island, and their man Harald wants to lead the Republicans. Go and meet the CEO, Phil. His office is upstairs at the HQ. Find out what kind of man he is.",

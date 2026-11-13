@@ -8885,7 +8885,7 @@ DAILY['Leo']={
 // crown he means to wear; the speech he keeps writing and burning; his father's sailing boat, the Kestrel, laid up at Eastbrook
 // Harbour; the jazz he listens to on the wireless when nobody's about; his brother Augustus and the Church, and Daphne.
 DAILY['Leopold']={
-2:["(Leopold sits very straight on the edge of the throne, as if it might object.) Another visitor. The island queues up to look sorry at me. Half of them mean it.",[
+2:["(Leopold stands very straight beside the throne, as if it might object to him sitting.) Another visitor. The island queues up to look sorry at me. Half of them mean it.",[
   ["Which half?","The half who never wanted anything from him. It's a short queue. (He almost smiles.) Edmund keeps a list."],
   ["Have you slept since he died?",["Some. The palace creaks at night. I'd never noticed. He used to make more noise than the floorboards.",[
     ["What was he like, at home?","Loud at breakfast, silent at dinner. He read the shipping forecast aloud as if it were scripture."],
