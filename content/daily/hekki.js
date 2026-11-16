@@ -1,155 +1,172 @@
-// Hekki, radio tech and CIA informant at the Radio Tower (CIA). Threads: he knows the player is NIGHTJAR and is too pleased about it, the hidden room, the night drop packages, his nerves, Kaisa's broadcasts, listening in, the volcano.
+// Hekki, radio tech at the Radio Tower and the CIA's informant (CIA). He knows the player is NIGHTJAR. Threads: looking after
+// NIGHTJAR and the hidden room, the night drop off the rocks, listening in on the island (Yuri above all), his cat Morse, his
+// unease about George, and Kaisa next door: the song he requests for her every night, signed 'a listener at the tower', which
+// comes to a letter (24th), a walk of twenty metres with heather (29th) and a cup of tea (30th).
 DAILY['Hekki']={
-1:["(Hekki jumps, then looks up and down the path.) You're here. Good. Quiet, quiet. Nobody saw you? The room's ready. Bookcase, third shelf. I'm Hekki, radio. And, well. You know.",[
-  ["Nice to meet you, Hekki.","Honoured, really. Nightjar. I've never said it out loud. I'm saying it very softly."],
-  ["Keep your voice down.","Yes. Of course. I've been practising whispering. It makes my throat sore."],
-  ["Is the radio ready?","It works, mostly. The tubes are old but willing. Chuck's frequency is marked in red pencil."]],
- "Mind the third shelf."],
-2:["(Hekki is polishing a valve.) Chuck came through at dawn, thin but clear. He wants you at the palace. I've written it down, in a code I made up. It's not very good.",[
-  ["What's the code?",["Every letter is the one before it. A becomes Z. I thought of it myself.",[
-    ["Hekki, that's the oldest code there is.","Is it? Oh. Well, it's reliable."],
-    ["Very clever, Hekki.","(He goes pink.) Thank you. I'll teach it to you, if you like. It takes about four seconds."]]]],
-  ["Can I see it?","(He shows you a slip of paper: ZS SGD OZKZBD.) It says 'at the palace'. Don't read it over my shoulder."],
-  ["Any other news?","The tower hums more when the wind's from the east. I think the island's thinking."]],
- "Don't tell anyone about the code."],
-3:["(Hekki leans on the workbench.) The cola people are in. Kelp's HQ, and so on. I picked up three telephone conversations by accident. Two were about lunch and one about money. I wrote them all down.",[
-  ["You listen in on calls?","Only by accident. Many accidents, as it happens."],
-  ["What did the money one say?","Something about a recipe and a safe. I underlined it twice."],
-  ["Be careful.","I'm always careful. I just can't stop looking nervous."]],
- "Look calm. Practise it."],
-4:["(Hekki dusts a dial.) Eastbrook's open, so I've got two more stations coming in from the mill. A woodpecker on one, I swear. On the other, someone reading the Gazette aloud, very slowly.",[
-  ["Henrik?","I think it's Nora, rehearsing. She has a good voice for facts."],
-  ["Keep an ear on them.","I do. I eat my lunch next to the speaker."],
-  ["Anything from the Democrats?","Erik hums when he thinks he's alone. It's a hymn, I think, or a bus timetable."]],
- "Mind the aerials."],
-5:["(Hekki is pale.) Father Thyme's monastery has a rule about silence, so there's nothing to hear from up there. I find that very unsporting.",[
-  ["Is the Church a worry?","It's the one place I can't bug. A monastery that doesn't talk is a fortress."],
-  ["Do you go to church?","Only to look at the roof. It's a good aerial."],
-  ["Any packages at the night drop?","One small parcel. Smelled of peppermint. I haven't opened it. It's for you."]],
- "Don't open the peppermint."],
-6:["(Hekki glances at the telephone.) Someone rang this morning for a 'friend'. A stranger on the line, asking you to meet them in the back of some pizzeria. I listened, naturally. Nightjar, it's the Syndicate.",[
-  ["Is it safe?","It's a pizzeria. Nothing's safe about a pizzeria."],
-  ["Should I go?","You're the agent. I'm the one who's sweating."],
-  ["What do you know about them?","Gustavo. Smooth voice, big ring. Very dangerous with cheese."]],
- "Take a spare pencil."],
-7:["(Hekki grins nervously.) The north-west road's open, and Chuck says Diversified. I've picked up a few hotel lines at Frostholm. A man named Yuri talks to a tape recorder in Russian. I recorded him recording himself.",[
-  ["Yuri's KGB, Hekki.","I know. I thought so. I drew a small hammer and sickle in the margin."],
-  ["How much can you hear?","The line, the hallway, and the lift. Mostly the lift."],
-  ["Anything useful?","Vodka. A great deal of talk of vodka."]],
- "Burn the margin."],
-8:["(Hekki sits straight.) Sunday sermon trouble, folk say. Father Thyme can't find the words. I think I'd have found some for him, if I could talk to him without a mask.",[
-  ["Do you ever feel like quitting?","Every day. Then I hear the static and I'm back."],
-  ["What did the monastery sound like?","Like a cathedral being very quiet at me."],
-  ["Is there anything else to report?","Kaisa plays hymns and jazz in the same hour. It's the only free thing on the island."]],
- "Stay on the air."],
-9:["(Hekki is writing.) Two cola factions now, and I've heard three formulas on the line. A man in Kingsgrad was shouting about 'the beetroot'. I don't know what it means.",[
-  ["Helen's cola.","Is that it? Beetroot. For the people. It's the worst idea since fish pudding."],
-  ["Is it a threat?","Not to the free world. Only to taste."],
-  ["Anything about Kelp?","New formula, new ad man. New cup on the label."]],
- "Beetroot, noted."],
-10:["(Hekki wears a black armband.) The king's funeral, over in Kingsgrad. I'll broadcast the service on the tower, even though nobody asked. It seems right.",[
-  ["Is the tower used for that?","Kaisa will read the names. I'll hold the cable."],
-  ["Did you tune in to the Syndicate delivery?","I heard a boat's coming, and a customs officer. Special Delivery, they call it."],
-  ["Will it go well?","I've no idea. I'm a spectator with headphones."]],
- "Keep the line open."],
-11:["(Hekki is eating a sandwich nervously.) The mill hands want their wages. I got their meeting on the line. Helen said 'Comrades!' eleven times. I counted.",[
-  ["Did you pick up anything?","The Democrats will back them, so will the Union. Even Henrik's thinking of a headline."],
-  ["Do you support them?","Of course. But I support quietly."],
-  ["Should the CIA care?","Chuck says anything that shakes the island is interesting."]],
- "Count carefully."],
-12:["(Hekki looks up from a notebook.) The oil company's moving money, I've heard. They use an accounting code, I use an alphabet code, we should have lunch. A man called Magnus is very worried.",[
-  ["What does Magnus want?","Some funds put out of Dario's reach. I'd like to put out of Dario's reach a few things myself."],
-  ["Is Ruby's record involved?","I picked up a lot of talk about a record. Frostholm wants it, and Ruby doesn't."],
-  ["Should I look into it?","You will, Nightjar. You always do."]],
- "Write it down."],
-13:["(Hekki is nibbling a fingernail.) Free samples. A lot of rumours about a recipe in a safe. The Syndicate's after it, and I've heard two voices fighting over a pizza.",[
-  ["Where's the safe?","Somewhere very good, or very stupid."],
-  ["Do you try the free cola?","I take the bottle. I can't drink it. Nerves."],
-  ["What's the plan for tomorrow?","The fourteenth. Chuck wants every ear on it."]],
- "Don't spill it."],
-14:["(Hekki's hands are shaking slightly.) Tomorrow the big day. I'll keep the receivers hot and send what I can. If anything happens, Chuck will want to hear.",[
-  ["What are you expecting?","Everything. And nothing. I'm trained for both."],
-  ["Are you nervous?","I'm a flute in a gale."],
-  ["Don't worry.","Easy for you. You look like you've done it before."]],
- "Stay tuned."],
-15:["(Hekki is bent over a dial.) Crown and cross. The line crackles with it. Two sides, and I've got both on tape, which is very rude of me.",[
-  ["What did you hear?","Prince Leopold's people are practising a speech. Prince Augustus's people are praying over it."],
-  ["Is that useful?","To Chuck, yes. To me, it's just very loud."],
-  ["Do you have a favourite?","I like the one that makes the better static."]],
- "Keep it quiet."],
-16:["(Hekki is wearing headphones.) The great debate's on the radio, and I'm taping it. Helen and Erik, back and forth like a tennis match. I've never heard such politeness with such rage.",[
-  ["Who's winning?","Whoever blinks last."],
-  ["Does the CIA care about debates?","Chuck does. He says words are weapons."],
-  ["Do you agree?","I think static is the real weapon."]],
- "Tape it all."],
-17:["(Hekki is rigid.) The needle jumped off the dial, Nightjar. Tremors. The tower shook, and my teacup walked right off the bench. Chuck would call it seismic. I call it rude.",[
-  ["Is the tower safe?","It's been standing since '48. Fingers crossed."],
-  ["Any news about Dario?","He's missing. The oil lines are full of people calling for him. I think he's walked out on his own company."],
-  ["Is the volcano real?","Steam, from the north. I've logged it."]],
- "Hold the mast."],
-18:["(Hekki looks north.) Steam's thicker. I've a very nice view from the roof. I wish I'd never found out. The Church has lost a relic, too, and I heard a priest swear.",[
-  ["Priests swear?","In a whisper. With feeling."],
-  ["Is Kelp involved with a cup?","Kelpy. Jaana plays him. I heard her complaining about the costume. It's hot."],
-  ["What are you logging?","Everything. I've started a second notebook."]],
- "Log it all."],
-19:["(Hekki straightens a stack of tapes.) The Midnight Note has a visitor coming in disguise tonight. Royal, I think. I heard a door. And the comrades are recruiting.",[
-  ["Who's coming?","A prince? I won't say. I'd faint."],
-  ["Is it safe to go?","The Note is always safe. It's the people outside I worry about."],
-  ["How's the Party's recruiting?","Slowly. The posters say 'Comrades Wanted'. The baker came, at least."]],
- "Keep your hat on."],
-20:["(Hekki whispers.) Someone's planning a job at the palace. And a man at the Hotel Aurora's been seen. I have two reels on them and neither's clear. Nightjar, it's getting busy.",[
-  ["Who's the man?","A stranger. A photographer. Yuri's glad to see him, which is curious."],
-  ["Who's doing the palace job?","The Syndicate. They sound like they've done it before."],
-  ["Can you warn anyone?","I'm only allowed to warn you."]],
- "Stay low."],
-21:["(Hekki is pale and grey with ash.) Nightjar! It erupted. The mast swayed, the dials spun, and the cat left home. Everyone's safe, I think. The sky's very beautiful, and very horrible.",[
-  ["Are you hurt?","No. Just rattled. And greyer than before."],
-  ["Did you report to Chuck?","The radio's half dead. I got one word through: 'Mountain'. Then static."],
-  ["What now?","Clear the aerials, mend the lines, drink something strong."]],
- "Stay inside."],
-22:["(Hekki wipes the dial with a cloth.) Ash on everything. The mast looks like a grey candle. I've swept the roof twice, and the ash comes back. It's the island apologising.",[
-  ["Is the radio working?","Barely. Kaisa's broadcasting between coughs."],
-  ["Any news from the farms?","A roof gave way. Someone's calling for Kelp's help, strangely."],
-  ["Is Chuck worried?","Chuck's always worried. It's why he's Chuck."]],
- "Sweep gently."],
-23:["(Hekki frowns.) Someone's put a spanner in a very important machine, and I've heard two groups blaming each other. Then Diversified's lot said 'deep repairs' to each other like a password.",[
-  ["Is it a code?","It's oil. Same thing."],
-  ["Do you know who sabotaged it?","Not yet. But I'm listening. I'm always listening."],
-  ["Take it easy.","I'd love to. The ash makes me sneeze."]],
- "Bless you."],
-24:["(Hekki looks up.) The monks are off to the peaks, and the clean-up crews are going door to door. I've intercepted one crew's radio. They say 'tidy' in a rather alarming way.",[
-  ["Who sent them?","Not the monks. Maybe the Syndicate. They love a clean-up."],
-  ["Is it dangerous?","Very polite, very thorough. I'm hiding the good tapes."],
-  ["Will the retreat go smoothly?","The peaks are cold and holy. It'll be quiet at last."]],
- "Hide the tapes."],
-25:["(Hekki's eyes are bright.) A princess for democracy, a crown for everyone. It's on every line. Everyone's talking at once and I'm in heaven. I've never had such good listening.",[
-  ["Is there really a princess?","There's talk. I've a tape of someone whispering her name in a lift."],
-  ["Is it useful?","To Chuck, perhaps. To me, it's gossip of the finest kind."],
-  ["Who's behind it?","The Democrats, and a few unexpected friends."]],
- "Keep listening."],
-26:["(Hekki shows a bottle.) Kelp's printed princes on the cola caps. And Dario's buying a spa. I've two reels on the sale and one on the sauna.",[
-  ["The sauna?","A man called Magnus sat in it and whistled. Very incriminating."],
-  ["Why a spa?","I don't know. To hide in steam, possibly."],
-  ["Do you like the new cola?","I like the cap. I keep them."]],
- "Collect them all."],
-27:["(Hekki is chewing a pencil.) The Party's showing a revolution at the pictures, and the Syndicate's got a high stakes game on. I can hear both. The cinema has an echo and the card room has a chandelier.",[
-  ["What's the high stakes game?","A poker night. A big one. Gustavo's hosting, and someone's cheating."],
-  ["Are you going to the pictures?","I'm not allowed. I'm on duty. Which means I'm at home, with headphones."],
-  ["Will you watch the film?","Through the wall. I can hear the horses."]],
- "Enjoy the horses."],
-28:["(Hekki's voice cracks.) Today everyone's pushing hard. The Party's marching, the palace has a state visit, Kelp's going abroad, and Diversified's... office. I've four radios on at once and I can't tell them apart.",[
-  ["Stay calm.","I'm trying. I've a biscuit."],
-  ["What should I do?","Whatever you think best. I'm just the ears."],
-  ["Is Chuck listening?","Chuck's always listening. Sometimes he even says something."]],
- "Biscuits help."],
-29:["(Hekki wrings his hands.) Tomorrow's the end. I've logged everything. I've three notebooks, forty tapes, and one cup of cold tea. Do you think it's enough?",[
-  ["It's more than enough.","Thank you. I needed to hear that."],
-  ["What will you do after?","Sleep. Or fix the aerial. Probably both."],
-  ["Any final reports?","Only that the island's very loud. And very tired."]],
- "Sleep when you can."],
-30:["(Hekki stands tall, for once.) The last day, Nightjar. Whatever happens, you did very well. I've never been so proud to be an informant. I'm still terrified, though.",[
-  ["Thank you, Hekki.","It's been an honour. Even with the ash."],
-  ["Nervous?","I'm vibrating. But in a good way."],
-  ["Any last advice?","Keep your head down and your dial up."]],
- "Good luck, Nightjar. Quietly."],
+1:["(Hekki jumps, then checks the path both ways.) You came. You actually came. I'm Hekki. Radio. The room's behind the bookcase: pull the third shelf, gently. It sticks in the cold.",[
+  ["Pleased to meet you, Hekki.","(He shakes your hand with both of his.) The pleasure's mine. I've had the kettle on since Tuesday, just in case."],
+  ["Has anyone been asking about me?",["Only Kaisa, from the radio hut. She asked why I'd bought two of everything at the shop. (He swallows.) I said I was very hungry.",[
+    ["Did she believe you?","She gave me a biscuit. So yes, I think so. Or she pities me. Either works."],
+    ["Who's Kaisa?","The radio. The voice, I mean. She does the shows from the hut next door. (He looks at his boots.) She's very good."]]]],
+  ["Is the radio set working?","Like a dream. Chuck's frequency is marked in red pencil, and the big screen's warmed up. I tested it on a weather report from Oslo. It was raining."]],
+ "Third shelf. Gently."],
+2:["(Hekki is untangling a coil of wire with great patience.) Kingsgrad's open. You'll be up at the palace, Chuck says. Well, I listened while he said it. That's most of my job.",[
+  ["What's the palace like?","I've only seen the gates. I fixed the prince's wireless once, through a footman. He'd had it tuned to a jazz station in Helsinki. I've told nobody. Until now."],
+  ["Do you listen to everything?","Not everything. Not the monastery: it feels rude. And not Kaisa, because I don't have to. She's on the radio."],
+  ["Any advice for a royal household?","Wipe your feet. Bow a bit, not a lot. And don't let the butler see you looking at the silver. Edmund counts it."]],
+ "Wipe your feet at the palace."],
+3:["(Hekki is eating a sandwich over a speaker, very carefully.) The Kelp Cola switchboard is the loudest thing on the island. Forty calls an hour, and every one of them is about money or lunch.",[
+  ["Anything worth knowing?","Phil rang his tailor twice. And someone on the third floor keeps asking about 'the safe', as if it might be listening. I wrote it down. I write everything down."],
+  ["You're getting crumbs in the speaker.","(He brushes it.) It's fine. It's had worse. A mouse lived in it all through 1979, until Morse found him."],
+  ["Is listening in legal here?","(He thinks about it.) There's no law against it. There's no law for it either. I've decided that means it's encouraged."]],
+ "Mind the crumbs."],
+4:["(Hekki holds up a parcel tied with string.) Nothing for you. This is mine: a valve from Helsinki, three months late. I've already named it.",[
+  ["What did you name it?","Ludmila. All the good valves are Ludmilas. Don't ask me why. It's a radio thing."],
+  ["Eastbrook's open. Anything from there?","The Democrats meet at the community centre and argue about the chairs. Erik wants them in a circle. Everyone else wants to see the biscuits."],
+  ["What if I need something brought in?","The night drop. A boat with no lights, off the rocks below the tower, at two in the morning. Chuck puts things in a pouch, I fish them out of the sea, and I don't ask what they are. Mostly."]],
+ "I'll be on the rocks, if anyone wants me. Nobody does."],
+5:["(Hekki is wrapping both hands round a mug and shivering.) I've been out on the rocks half the night. If a parcel came for you, it's on the table in your room. I didn't open anything. I smelled one.",[
+  ["What did it smell of?","Coffee. Very good coffee. (He sighs.) I don't know who you're buttering up, but they're lucky."],
+  ["Do you ever go up to the monastery?","Once, to fix their bell. It wasn't broken: Brother Anselm wanted someone to tell him so. I told him. He gave me a loaf."],
+  ["You look frozen.","The sea's colder than it looks, and it looks very cold. I'll thaw by Sunday."]],
+ "Go on. I'll thaw."],
+6:["(Hekki is staring at the telephone wire that runs into the shack.) Your telephone rang early. I didn't pick it up: it's your line. But I put that line in myself, so I know when it rings. Was it Chuck?",[
+  ["It wasn't Chuck.",["(He goes very still.) Then who's got the number? I gave it to nobody. I didn't even write it down. I just remembered it.",[
+    ["The Syndicate, I think.","(He sits down on an upturned crate.) Gustavo's lot. They know everything on this island a day before it happens. I'm checking the locks. All of them."],
+    ["Probably a wrong number.","Yes. Probably. (He doesn't look convinced.) I'll put a bell on the bookcase anyway."]]]],
+  ["Can you trace a call?","Not really. I can tell you it came through the exchange in Kingsgrad, and the girl on the switchboard was humming. That's all I've got."],
+  ["Relax, Hekki.","I am relaxed. This is me relaxed. You should see me on a bad day."]],
+ "I'm checking the locks."],
+7:["(Hekki is bent over a tape recorder, one ear to the speaker.) The Frostholm lines are open, and there's a guest upstairs at the Hotel Aurora who talks to a tape recorder every evening. In Russian. So now I'm taping his tape.",[
+  ["That's Yuri. He's KGB.","I guessed. He orders his breakfast like a military operation. Two eggs, synchronised."],
+  ["What does he say?","I don't speak Russian. I've got a dictionary, and so far I've translated 'weather', 'cabbage' and 'the Party is pleased'. Chuck will have someone for the rest."],
+  ["Does he know you're listening?","(He looks horrified.) I hope not. If he does, he's being very polite about it."]],
+ "If you meet Yuri, don't mention tape recorders."],
+8:["(Hekki has the radio on low: someone is preaching, from far away.) Kaisa's putting the sermon out from the monastery. First time since the coronation. I ran the cable down the mountain myself. The aerial's never been so holy.",[
+  ["Do you believe any of it?","I believe in good earthing and dry valves. But I like the sound of a full church. It's a lot of people agreeing on one frequency."],
+  ["Does Kaisa broadcast everything?","Sermons, football, herring prices, the late king's marches. And jazz after midnight, when she thinks only the lighthouse is listening. (Pause.) It isn't only the lighthouse."],
+  ["Heard anything from the oil rig?","Lots of shouting on the rig's radio first thing, about valves. Someone said a word I've never heard on air. I didn't write that one down."]],
+ "Back to the sermon. I like the bit with the singing."],
+9:["(Hekki has a jar of something orange on the bench, and a teaspoon.) Everyone's inventing a cola. So I've invented one. Carrot, lemon and a pinch of salt.",[
+  ["How is it?","(He offers you the spoon. It's dreadful.) I know. I'm calling it Static. It's not for selling. It's for staying awake."],
+  ["Who else is inventing a cola?","Kelp Cola want a new one, and the Party want one of their own. Both of them asked Rosa at the hot dog cart, an hour apart. She told them the same thing. She's a professional."],
+  ["Shouldn't you be listening to something?","I am. (He taps the headphones round his neck.) Party HQ in Saltwick. Helen's arguing with a sink. I'll tell you if the sink wins."]],
+ "If you want a spoonful of Static, there's plenty."],
+10:["(Hekki is wearing a black armband over his jumper, slightly lopsided.) They're burying the king today. Kaisa's broadcasting it from the chapel, on a long cable, and I had to run the cable. All night. Through the snow.",[
+  ["Did you know the king?",["Not to speak to. He opened the tower when I was an apprentice. He shook my hand and said 'jolly good'. (He straightens the armband.) I've been jolly good ever since, more or less.",[
+    ["Who should be king now?","I don't think about that. I'm a radio man. Whoever it is will need a transmitter, and I'll look after it."],
+    ["That's a nice memory.","It's the only king I've got. I polish him now and then."]]]],
+  ["Is the cable holding?","So far. If it cuts out during the hymn, I'll be in Sweden by morning."],
+  ["You look shattered.","Two hours' sleep and one biscuit. But the chapel will be on every wireless on the island, clear as a bell. That's worth it."]],
+ "Listen out for the hymn. If it crackles, it wasn't me."],
+11:["(Hekki is mending a pair of headphones with sticky tape.) There's a voice that rings your screen in the evenings now. Not Chuck. The other one. He doesn't say hello.",[
+  ["That's George.","I know his name, and I don't like his voice: it sounds like someone wiping a knife. (He shivers.) He's on our side. Isn't he?"],
+  ["What does he want?","He doesn't tell me, and I don't ask. I keep the line clear. Some lines you keep clear and don't listen to. That's a new rule. I made it this morning."],
+  ["How are the headphones?","Better than new. They were new once, in 1968. Now they're held together by tape and loyalty."]],
+ "Keep the screen dusted. He's the sort who notices."],
+12:["(Hekki looks up from the switchboard, baffled.) Somebody in Frostholm's been ringing round for a Stetson. And cowboy boots. On Sarivalto. I thought I'd misheard.",[
+  ["Maybe it's the fashion.","Not here. The last man in cowboy boots on Sarivalto slipped on the harbour steps and joined the Church."],
+  ["Who was asking?","A Diversified Petroleum line. A very nervous man, who sounded like he'd been counting money all night. Magnus, I think. He counts out loud."],
+  ["Could you do a Texas accent?","(He tries. It comes out Welsh.) No. I'll stay behind the microphone, where accents go to die."]],
+ "Mind the harbour steps."],
+13:["(Hekki has three empty Kelp Cola bottles lined up on the bench.) It's free today, so I took one for each of my valves. The valves didn't want them. So I helped.",[
+  ["Three's a lot of cola.","I've been awake since Tuesday, with the funeral cable. The cola thinks it's next week."],
+  ["What's the Syndicate up to?","A lot of telephone calls about the Kelp Cola safe, in code. The code is 'the cake'. Who wants the cake, who's got the cake, who's guarding the cake. It's a very bad code. I should know."],
+  ["You should get some sleep.","Sleep's for people without a hidden room behind their bookcase. (Pause.) And for people whose cat doesn't sit on their face."]],
+ "I'll sleep tomorrow. Probably."],
+14:["(Hekki is pacing up and down the shack.) The big day. The whole island in one place, and I'm doing the loudspeakers. Me. In public.",[
+  ["You'll be fine.","Will I? The last time I did loudspeakers was the harvest fair, and I played the pig auction backwards for ten minutes."],
+  ["What's going to happen?","Nobody's saying. Everybody's guessing. Kaisa thinks there'll be speeches, Olga thinks there'll be a fight. I think there'll be feedback, and it'll be my fault."],
+  ["Who asked you?","Bertil, from the council, in triplicate. I didn't want to say no in triplicate."]],
+ "If the speakers whistle, look the other way."],
+15:["(Hekki is sitting on the step with a grey cat on his knee.) This is Morse. He came with the shack. He doesn't like loudspeakers either.",[
+  ["Hello, Morse.","(Morse looks at you for a long time, then turns his back.) That's a good sign. He does that to people he respects."],
+  ["Any news from the palace?","The palace and the monastery are on the telephone more than usual, and both of them talk about Prince Augustus as if he's a parcel. Poor man. I'd hate to be a parcel."],
+  ["Why's he called Morse?","Because he taps. On the window, on the table, on my head at five in the morning. Dot, dot, dash. I think it means breakfast."]],
+ "Say goodbye to Morse. He won't."],
+16:["(Hekki has the radio turned up: two voices are arguing.) The great debate! Kaisa's putting it out live. The Communists and the Democrats in one room with one microphone. I gave it a long lead, so they can snatch it off each other.",[
+  ["Who's winning?","Hard to say. Helen's louder, Erik's longer. I'm timing them with boiled eggs."],
+  ["Do you have any politics, Hekki?",["(He considers this carefully.) I'm for whatever keeps the electricity on and the boats running. Is there a party for that?",[
+    ["Not yet.","Then I'll wait. I'm good at waiting. I've been waiting for a girl to notice me since 1971."],
+    ["The Republicans, maybe.","Frank at the gun shop asked me to join. I said I'd think about it. I've been thinking about it for nine years. I'm thorough."]]]],
+  ["Turn it down a bit?","(He turns it down one notch.) There. It's history. History is loud."]],
+ "I'm on egg number three."],
+17:["(Hekki is holding a pencil upright on the bench and staring at it.) It moved. Just now. The pencil. The whole tower hummed, and nobody's broadcasting.",[
+  ["An earthquake?","A small one. Nils at the electronics shop has a gadget that draws them on paper. He says the lines are getting wigglier. I don't like wiggly lines."],
+  ["Has anyone seen Dario?","Funny you should ask. His office has rung his villa eleven times, and nobody's answered once. Rich men don't usually go missing. They usually go somewhere expensive."],
+  ["It was probably the wind.","The wind doesn't hum in that key. I know the wind. We've been friends for years."]],
+ "If the pencil falls over, I'm going under the bench."],
+18:["(Hekki is looking north through a pair of binoculars.) There's steam coming off the mountain. Not smoke. Steam. Like a kettle the size of a parish.",[
+  ["Is it dangerous?","Nils says it's 'very interesting'. That's what scientists say instead of 'run'."],
+  ["Anything for me at the drop?","Nothing last night. The sea was too lively. The boat came, saw the waves and went home. Even the CIA doesn't argue with the Baltic."],
+  ["Can I borrow the binoculars?","(He hands them over. Through them, the mountain breathes white into the sky.) Don't look too long. It looks back."]],
+ "Keep one eye on the mountain."],
+19:["(Hekki is writing on a postcard, and covers it with his hand when he sees you.) Nothing. It's nothing. It's a request. For the radio. People do it all the time. Anonymously.",[
+  ["Who's it for?","For the late show. For the person who plays the records. (He goes red.) As a thank you. From a listener."],
+  ["What song?",["'The Very Thought of You'. It's old. It's perfect. (He licks the stamp.) I've sent it every night this month, and signed it 'a listener at the tower'.",[
+    ["Hekki, she'll know it's you.","(He goes white.) There are lots of people at the tower. There's me, and the tower, and Morse. It could be Morse."],
+    ["That's lovely.","Is it? I thought it was cowardly. Lovely's better. I'll go with lovely."]]]],
+  ["There's talk of a prince at the jazz club.","I heard. A man in a false moustache asking for 'something by Leo, please, my good fellow'. Nobody says 'my good fellow' at the Midnight Note. Nobody."]],
+ "Not a word to anyone. Especially not anyone who plays records."],
+20:["(Hekki is pulling cables out of a box, very fast.) The Democrats have got someone asking questions about the man at the Hotel Aurora. Yuri. And if they find out about Yuri, they might find out who's been listening to Yuri. Which is me.",[
+  ["Calm down. Nobody knows.","Morse knows. Morse knows everything. Morse would sell me for a sardine."],
+  ["Hide the tapes, then.","Done. They're in the stove. Not lit. I'm not mad. Just hidden in a stove."],
+  ["What's in the box?","Everything I'd need if I had to leave by the back window. Mostly fuses. A photograph of my mother. And more fuses."]],
+ "If anyone asks, I'm a very boring man who likes fuses."],
+21:["(Hekki's face is grey with ash, and he's shouting over the hiss of the set.) The mountain's gone up! Ash everywhere, lava down the north side, and the transmitter's still on. I'm keeping it on. Kaisa's keeping talking. We're the only thing working.",[
+  ["Is anyone hurt?","Not that anyone's said, and everyone's said everything to Kaisa today. Frightened. Coughing. Not hurt. (He wipes his face, and makes it worse.) Thank God."],
+  ["Can I help?","Hold this. (He gives you a cable.) Don't let go until I say. (A long minute.) Thank you. You can let go. That was the island's only radio, and you held it."],
+  ["Should you be up here?","Probably not. But if the tower goes quiet, everyone thinks the worst. So it doesn't go quiet. Not today."]],
+ "Keep your window shut and your scarf over your mouth."],
+22:["(Hekki is sweeping ash off the roof of the shack, with a broom tied to a longer broom.) The aerials are coated. Every time I sweep, the ash comes back. It's like trying to dust a desert.",[
+  ["How's the transmitter?","Coughing, like everyone. I've been blowing the ash out of its valves one at a time. Ludmila took it badly. She's the one from Helsinki."],
+  ["Kaisa kept the island going yesterday.","(He stops sweeping.) She did. Eleven hours without a break, reading out who was safe. I took her a flask of tea at four in the morning. She said 'thank you, Hekki'. (He starts sweeping again, much faster.)"],
+  ["Any trouble out at the farm?","The Kelp Cola people were on the telephone to East Farm three times. Something growing out there they're not happy about. Hilda shouted at them in a dialect I didn't know she had."]],
+ "Mind the ash on the path. It's slippery as soap."],
+23:["(Hekki is squinting at a meter.) There's a lot of noise coming off the oil rig's radio. Static or swearing. Out there it's hard to tell.",[
+  ["Trouble on the rig?","Something's broken underwater, and someone's to be sent down to weld it. I've heard 'welding' on the rig frequency twenty times since breakfast. Higher every time."],
+  ["You sound like you're enjoying this.","(He looks guilty.) I don't enjoy other people's problems. I just find them very well tuned."],
+  ["How's Morse?","Sulking. He doesn't like the ash on his paws, so he's taken to sitting on your big screen while it's warm. If Chuck ever sees a cat's bottom, that's why."]],
+ "Keep the screen clear of cats."],
+24:["(Hekki is holding a letter, unopened, as if it might bite.) It came by the post, not the drop. From the radio hut. Kaisa's handwriting. I'd know it anywhere. I've never seen it before, but I'd know it.",[
+  ["Open it, then.",["(He opens it. He reads it. He reads it again.) It's a thank you. For the tea, on the night of the mountain. And at the bottom: 'P.S. Lovely song choice, every night. K.'",[
+    ["She knows.","(He sits down on the step, very slowly.) She knows. And she wrote 'P.S.' People only write 'P.S.' when it's the important bit."],
+    ["What will you do?","Nothing. Something. I'll think about it until the twenty-ninth, and then do something very small and very brave."]]]],
+  ["Maybe it's a bill.","Kaisa doesn't send bills. Kaisa sends warmth, on medium wave, to the whole island. (Pause.) I said that out loud, didn't I."],
+  ["Shall I leave you alone with it?","No. Stay. If I faint, someone ought to know."]],
+ "Don't tell her I fainted. I didn't faint."],
+25:["(Hekki has a map of the island spread out on the bench, with pins in it.) I've been marking every place the telephone lines cross water. Bridges, mostly. Don't ask me why. George asked.",[
+  ["George asked?","He rang the screen and wanted to know which bridges carry the cables. I told him. He said 'good'. He didn't say why. (He looks at the pins.) I'd sleep better without the pins."],
+  ["The palace and the Democrats are talking, I hear.","The palace rang Erik's community centre twice, and someone very royal rang it once, from a telephone box in Kingsgrad, in a scarf. You could hear the scarf."],
+  ["Nice map.","Thank you. I drew it myself, in 1977, with a ruler and a lot of patience. The volcano's not on it. I'll have to add the volcano."]],
+ "I'm taking the pins out now. All of them."],
+26:["(Hekki has the radio on and is laughing quietly at it.) Kelp Cola want the prince to read one of their adverts. They've rung the palace five times. The palace has hung up five times. It's like a very slow game of tennis.",[
+  ["Will he do it?","Hard to say. Princes need money too. The way Edmund talks to the bank, even the crown's got a mortgage. I wasn't supposed to hear that. Nobody was."],
+  ["I hear Dario wants the spa.","He's rung Saga at the spa four times, and offered her more every time. The fourth time, he offered her a milkshake machine. I think it was a joke. With Dario you can't tell."],
+  ["How's the letter?","In my top pocket. (He pats it.) I read it at breakfast, at lunch, and once in the middle of a valve. The valve didn't mind."]],
+ "If anyone asks, I'm not listening to the palace. Nobody is."],
+27:["(Hekki is pressing a shirt on the workbench with a very hot spoon.) Don't laugh. I'm going somewhere on the twenty-ninth, and it needs a collar.",[
+  ["Where are you going?","To the radio hut next door, in a clean shirt, to say thank you for a letter. (He swallows.) It's twenty metres, and I've been practising the walk."],
+  ["Is that a spoon?","It's a hot spoon. The iron's on the shelf in your room, and I didn't like to go in. A man's room is his room, even when it's my room."],
+  ["What's on at the pictures?","The Party want Otto to show a film from Moscow. Tractors and sunsets, I expect. Otto's already got two films and a cinema full of opinions."]],
+ "Twenty metres. I can do twenty metres."],
+28:["(Hekki is sitting by the radio set, very quiet, with his hands in his lap.) Everyone on the island is making their big move today. The lines haven't stopped. And George rang. He asked about the palace telephones. Which rooms they're in.",[
+  ["What did you tell him?","What he asked. That's my job. (He looks at his hands.) But I didn't like it. Nightjar, you'd tell me, wouldn't you, if we were doing something we shouldn't?"],
+  ["Don't worry about George.",["I'm not worried about George. I'm worried about the island. I've lived here all my life. (He looks up.) It's not just a place you've been sent.",[
+    ["I know, Hekki.","(He nods slowly.) Good. Then I'll keep the lines open, and you'll keep your head. That's a fair trade."],
+    ["It's just a job.","Not for me. For me it's the sea and the snow and the woman next door. Remember that, when George rings."]]]],
+  ["Get some sleep.","With every faction on the island on the telephone at once? I'd sooner sleep in a beehive."]],
+ "I'll be by the set. All night, if I have to."],
+29:["(Hekki is in a clean shirt with a very straight collar, holding a small bunch of heather.) I'm going now. Next door. Before I lose my nerve. Everyone on the island's doing something brave today, so I'm joining in.",[
+  ["Good luck, Hekki.","Thank you. (He breathes out.) If I'm not back in ten minutes, I've either been invited in or died of embarrassment. Either way, feed Morse."],
+  ["Heather?","From the slope behind the tower, before the ash got to it: the last clean heather on Sarivalto, probably. Romantic or sad? Both, like jazz."],
+  ["What about the primaries?","The Republicans can pick whoever they like, and the royals can argue about whose turn it is. I've got twenty metres to walk, and that's all the politics I can manage today."]],
+ "Twenty metres. Feed Morse if I'm not back."],
+30:["(Hekki is smiling at nothing in particular. There's heather in a jam jar on the bench.) The last day of September. Whatever happens to the island today, the tower stays on. I promised someone.",[
+  ["You promised Kaisa?","(He goes pink to the ears.) She asked me to keep the signal clean for her last show of the month. I said I'd keep it clean for the rest of my life. It came out a bit strong."],
+  ["What happens after today?","You go home, I expect. To London, or wherever you really go. (He looks at the bookcase.) I'll keep the room as it is. In case. You never know when a nightjar needs a nest."],
+  ["Thank you, Hekki. For everything.",["(He looks at the floor, then at you.) You're the most exciting thing that's ever happened to me. Apart from yesterday. Yesterday was quite exciting too.",[
+    ["What happened yesterday?","She said yes to a cup of tea. Just a cup of tea, at the hut, today. (He beams.) She's warming the pot."],
+    ["You were brave, Hekki.","I was terrified. But I walked the twenty metres. It turns out that's the same thing."]]]]],
+ "Keep your head. And write, if you can. In code. A bad one."],
 };
