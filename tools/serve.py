@@ -5,7 +5,7 @@
 # The game asks GET /api/saves for every save, PUT /api/saves/<slot> to write one and DELETE /api/saves/<slot> to remove one
 # (js/store.js). Served any other way (a plain server, or index.html opened as a file), it keeps saves in the browser instead.
 # Nothing is cached, so an edited file shows on the next reload.
-import json, os, sys
+import json, os, socket, sys
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,6 +15,10 @@ MAX = 20 * 1024 * 1024  # the most a save may be, in bytes
 
 
 class Handler(SimpleHTTPRequestHandler):
+    # keep connections open (HTTP/1.1), so the browser, not the server, hangs up once it has a whole file; an idle one closes after 30 seconds
+    protocol_version = 'HTTP/1.1'
+    timeout = 30
+
     def __init__(self, *a, **k):
         super().__init__(*a, directory=ROOT, **k)
 
@@ -59,6 +63,7 @@ class Handler(SimpleHTTPRequestHandler):
             return self.reply(404, {'error': 'no such save slot'})
         n = int(self.headers.get('Content-Length') or 0)
         if n <= 0 or n > MAX:
+            self.close_connection = True  # the body is never read, so this connection can't carry another request
             return self.reply(413, {'error': 'save missing or too big'})
         try:
             save = json.loads(self.rfile.read(n))
@@ -87,9 +92,26 @@ class Handler(SimpleHTTPRequestHandler):
 class Server(ThreadingHTTPServer):
     request_queue_size = 128
     daemon_threads = True
+    # on Windows this would let a second copy share the port and take half the requests: make it fail instead
+    allow_reuse_address = os.name != 'nt'
+
+    # on Windows, hanging up while the end of a big file is still on its way can lose that end, and the browser gets a reset some
+    # twenty seconds later: so give the browser up to five seconds to hang up first (it does as soon as it has the whole file)
+    def shutdown_request(self, request):
+        try:
+            request.settimeout(5)
+            while request.recv(65536):
+                pass
+        except OSError:
+            pass
+        super().shutdown_request(request)
 
 
 if __name__ == '__main__':
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
+    try:
+        server = Server(('localhost', port), Handler)
+    except OSError:
+        sys.exit('Port %d is in use: is the game already being served? Stop that copy, or pass another port.' % port)
     print('Sarivalto on http://localhost:%d (saves in %s)' % (port, SAVES))
-    Server(('localhost', port), Handler).serve_forever()
+    server.serve_forever()
