@@ -1264,10 +1264,10 @@ flyout:{title:'Board the Plane',tested:true,giver:'Peggy',main:true,day:-9,given
 meetreds:{title:'Meet the Communists',tested:true,giver:'Chuck',main:true,day:1,given:true,seq:true,text:'Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader. Then report back to Chuck on the radio in your room.',
   wait:'Talked to Anna yet? Get over to Saltwick, to the Communist Party HQ. A friendly chat, nothing more.',
   done:[{talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader',said:'You have the measure of Anna. Report back to Chuck on the radio in the Hidden Radio Room.'},
-    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{communist:1},what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You saw Anna? What's the Party really after?",opts:[['She wants the island in the Soviet Union, and she means it.','b'],['She thinks the Americans want to buy the island.','c']]},
-      b:{say:"That's what I was afraid of. A true believer's harder to deal with than a man with a price. Good work. Get some sleep: tomorrow, Kingsgrad."},
-      c:{say:"She's not wrong, but don't you tell her that. Good work. Get some sleep: tomorrow, Kingsgrad."}}}}],
+      b:{say:"That's what I was afraid of. A true believer's harder to deal with than a man with a price. Good work. Get some sleep: tomorrow, Kingsgrad. (Communist Party: +1 point.)"},
+      c:{say:"She's not wrong, but don't you tell her that. Good work. Get some sleep: tomorrow, Kingsgrad. (Communist Party: +1 point.)"}}}}],
   thanks:'Chuck has your report on the Communist Party.',
   tip:"Today's main quest is done, so the day is yours: you can let it go by and wait for the evening. Sit at a table (in a bar, a café, a restaurant, the hotel, or the one in your room) and press E. Evenings are different: shops shut, people go home, The Midnight Note and Madame Zora open, and George at Langley takes over the radio, with jobs that need the dark. When you're done, go to your bed and press E to sleep through to the next morning, when there's a new main quest. (On a day with a main quest, you can't wait for the evening until it's done.)",
   chat:{start:'a',nodes:{
@@ -1323,15 +1323,15 @@ meetroyals:{title:'Meet the Royals',tested:true,giver:'Chuck',main:true,day:2,ca
       c:{say:"Hard on the hands, easy on the head. And nobody notices a laundress."}}}},
     // (last: only once you've talked to everyone else. You can report only what you heard: what Leopold said of the crown, Oskar's
     // visitors or Viktor's gate at midnight, Ingrid's burned letters, Lotta's dinner guests; and Daphne's walls, which everyone hears)
-    {talk:'Chuck',last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{royal:1},last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You've been through the whole palace? Tell me what you've got.",opts:[['Leopold means to be crowned, whatever it takes.','b',null,()=>RY_HEARD('crown')],['The staff say strange visitors come up the drive at night.','c',null,()=>RY_HEARD('drive')],
         ['The prince paces all night, and burns letters in the morning.','d',null,()=>RY_HEARD('letters')],['Kelp Cola and the colonel came to dinner, talking succession.','e',null,()=>RY_HEARD('dinner')],
         ['Daphne says the palace walls have ears.','f']]},
-      b:{say:"Then he's either our best friend on this island or our biggest headache. We'll find out which. Good work: that's the household on file."},
-      c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file."},
-      d:{say:"A man burning letters has had answers he doesn't like. Find out who's writing to him. Good work: that's the household on file."},
-      e:{say:"Cola money and army guns at the same table, both wanting a seat by the throne. Watch that pair. Good work: that's the household on file."},
-      f:{say:"She's right, and one day a few of them might be ours. Keep her talking. Good work: that's the household on file."}}}}],
+      b:{say:"Then he's either our best friend on this island or our biggest headache. We'll find out which. Good work: that's the household on file. (Royal Family: +1 point.)"},
+      c:{say:"Men in good coats at midnight. Find out whose coats, and you'll know who wants that crown. Good work: that's the household on file. (Royal Family: +1 point.)"},
+      d:{say:"A man burning letters has had answers he doesn't like. Find out who's writing to him. Good work: that's the household on file. (Royal Family: +1 point.)"},
+      e:{say:"Cola money and army guns at the same table, both wanting a seat by the throne. Watch that pair. Good work: that's the household on file. (Royal Family: +1 point.)"},
+      f:{say:"She's right, and one day a few of them might be ours. Keep her talking. Good work: that's the household on file. (Royal Family: +1 point.)"}}}}],
   thanks:"Chuck has your report on the royal household."},
 meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq:true,text:'Kelp Cola HQ in Kingsgrad is open. Chuck wants you to meet Phil, the company\'s CEO, in his office upstairs at the HQ, then report back.',
   offer:"Morning, NIGHTJAR. Kelp Cola's headquarters in Kingsgrad is open for business. They bottle half the money on this island, and their man Harald wants to lead the Republicans. Go and meet the CEO, Phil. His office is upstairs at the HQ. Find out what kind of man he is.",
@@ -1342,10 +1342,10 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
       b:{say:"A tragedy. And bad for business: nobody buys when nobody knows who's in charge. This island needs a steady hand, and a steady hand needs a good drink. But you'll never understand us till you've seen where we came from.",opts:[['Where you came from?','d']]},
       c:{say:"Ha! That's a story my mascot tells better than I do.",opts:[['Your mascot?','d']]},
       d:{say:"We've a museum in Eastbrook. Kelpy gives the tour. Once the snow's off the road, go and take it, then come back here and tell me what you thought. I want to know how it plays to a newcomer."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{cola:1},what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You met Phil? What's he like?",opts:[['Friendly. He wants me to take the tour at his museum.','b'],['He thinks the island needs a steady hand.','c']]},
-      b:{say:"Then take it, when you can get to Eastbrook. A man who wants you to hear his story wants you on his side. Find out what that's worth to him. Good work."},
-      c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work."}}}}],
+      b:{say:"Then take it, when you can get to Eastbrook. A man who wants you to hear his story wants you on his side. Find out what that's worth to him. Good work. (Kelp Cola: +1 point.)"},
+      c:{say:"His hand, I'll bet. Kelp Cola wants a say in who runs this island, and Harald's their way in. Keep close to Phil. Good work. (Kelp Cola: +1 point.)"}}}}],
   thanks:"Chuck has your report on Phil and Kelp Cola."},
 // ring: offered by no one; on the morning of its day the telephone in your room rings, and answering it, you hear what's said (ring)
 // by the caller (caller: who it is; a stranger if left out) and the quest is yours. meet: someone waits somewhere
@@ -1387,10 +1387,10 @@ meetdems:{title:'Meet the Democrats',giver:'Chuck',main:true,day:4,call:true,seq
       b:{say:"A free vote, a fair wage and nobody on this island answering to Moscow, a palace or a cola company. We're mill hands, shopkeepers, roasters, the people who keep Eastbrook running.",opts:[['How can I help?','c']]},
       c:{say:"Help? Now there's a word I like. Two of our members could use a friend. Jonna at the tattoo shop hasn't had a customer since the snow came: if you're brave, sit in her chair. And Maya at the Coffee Roasters can't get decent beans since the harbour master started taxing imports. If you know anyone who can bring something in quietly...",opts:[["I'll see what I can do.",'d']]},
       d:{say:"That's the spirit. Either one, or both if you're feeling generous. Eastbrook remembers its friends."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{democrat:1},what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You met Erik? What did he want?",opts:[['Help for his members: a tattoo, and some coffee beans.','b'],['He wants nobody answering to Moscow.','c']]},
-      b:{say:"Ha! Cheapest friendship we'll ever buy. If you need the beans brought in, call me: the diplomatic pouch has room. Good work."},
-      c:{say:"Then he's our man, or near enough. Help him out, and he'll help us when it counts. And if you need anything brought in, call me. Good work."}}}}],
+      b:{say:"Ha! Cheapest friendship we'll ever buy. If you need the beans brought in, call me: the diplomatic pouch has room. Good work. (Democratic Party: +1 point.)"},
+      c:{say:"Then he's our man, or near enough. Help him out, and he'll help us when it counts. And if you need anything brought in, call me. Good work. (Democratic Party: +1 point.)"}}}}],
   thanks:"Chuck has your report on Erik and the Democrats."},
 meetmonks:{title:'Meet the Monks',giver:'Chuck',main:true,day:5,call:true,text:'The road to the north-east is open. Chuck wants you to go up to the Mountain-Top Monastery and talk to Father Thyme, the Abbot, and each of his monks, then report back.',
   offer:"Morning, NIGHTJAR. The north-east's open, and that means the monastery. Up on the mountain. Don't let the chanting fool you: Father Thyme heads the whole Orthodox Church on this island, and the Church has a lot of say over who sits on the throne. Talk to him, and to every one of his monks. Find out who they'd crown.",
@@ -1420,10 +1420,10 @@ meetmonks:{title:'Meet the Monks',giver:'Chuck',main:true,day:5,call:true,text:'
       a:{say:"A guest! Sit, sit, you'll have soup. Brother Teodor. Mushroom, from the forest below. A full stomach is the first step towards a full heart.",opts:[['Thank you. It smells wonderful.','b'],['What do the brothers talk about at supper?','c']]},
       b:{say:"It is wonderful. I'd tell you the secret, but then you'd have to take vows. Ha! Eat up."},
       c:{say:"Supper is in silence, but the washing up isn't. The king, mostly. Father Thyme thinks Augustus is a holy man. Brother Anselm thinks holy men make poor kings. They have been very polite to each other all week."}}}},
-    {talk:'Chuck',last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{church:1},last:true,what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You've been up the mountain? What's the Church thinking?",opts:[['Father Thyme would rather see Augustus crowned than Leopold.','b'],['Everyone wants the Abbot\'s blessing: the Party, the oil men, even a Russian.','c']]},
-      b:{say:"A pious king the Church can steer. Not the worst outcome for us, so long as Moscow doesn't get to Augustus first. Good work."},
-      c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work."}}}}],
+      b:{say:"A pious king the Church can steer. Not the worst outcome for us, so long as Moscow doesn't get to Augustus first. Good work. (Orthodox Church: +1 point.)"},
+      c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work. (Orthodox Church: +1 point.)"}}}}],
   thanks:"Chuck has your report on the monastery."},
 meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',main:true,day:6,seq:true,
   ring:'Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone.',
@@ -1436,10 +1436,10 @@ meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',ma
       b:{say:"Because everyone else will, sooner or later. The Party, the palace, the cola men, the Americans. I like to be first. This island is going to change hands, and when it does, the man holding the cards is the one who knew who was at the table.",opts:[["And who's at the table?",'d']]},
       c:{say:"Pizza. Cards. Shipping. Whatever the island needs and can't get past the harbour master. Carlo is our candidate for the Republicans: a respectable man. Respectability is very good for business.",opts:[['Why tell me?','b']]},
       d:{say:"Today? You. Write what you like about the island. But if you ever need something brought in, or someone found, you know where the back room is. And Rosaria makes a very good pizza."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{syndicate:1},what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. I hear you spent the day playing cards. Who with?",opts:[['Gustavo, the Don. He wanted to meet me before anyone else did.','b'],['The Syndicate are backing Carlo for the Republicans.','c']]},
-      b:{say:"The Don called you himself? Then he knows more about you than I'd like. Play his game, but don't ever owe him anything. Good work."},
-      c:{say:"Organised crime buying itself a political party. Ain't democracy grand. Keep in with them, carefully. Good work."}}}}],
+      b:{say:"The Don called you himself? Then he knows more about you than I'd like. Play his game, but don't ever owe him anything. Good work. (Crime Syndicate: +1 point.)"},
+      c:{say:"Organised crime buying itself a political party. Ain't democracy grand. Keep in with them, carefully. Good work. (Crime Syndicate: +1 point.)"}}}}],
   thanks:"Chuck has your report on the Syndicate."},
 meetoil:{title:'Meet the Oil Company',giver:'Chuck',main:true,day:7,call:true,seq:true,text:'The north-west is open. Chuck wants you to go to Diversified Petroleum HQ in Frostholm and meet Dario, the company\'s CEO, then report back.',
   offer:"Morning, NIGHTJAR. The north-west's open: Frostholm, the oil rig, the lot. Today it's Diversified Petroleum. Their CEO's an American called Dario: self-made, rich, and he wants everything under the sea round this island. He's one of ours, in a manner of speaking, which is exactly why I don't trust him. Go to their HQ in Frostholm and meet him.",
@@ -1465,10 +1465,10 @@ meetoil:{title:'Meet the Oil Company',giver:'Chuck',main:true,day:7,call:true,se
       j:{say:"The truth. Nobody wants the truth. They want to be told they're right. Go on, get out of my building. You're more interesting than most."},
       k:{say:"A good story. Well, you've got one now. Go on, get out of my building. You're more interesting than most."},
       l:{say:"Then we understand each other. Come back when you've decided which side that is. Go on, get out of my building."}}}},
-    {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
+    {talk:'Chuck',points:{oil:1},what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
       a:{say:"NIGHTJAR. You met Dario? What's he like?",opts:[["He wants every drop under the sea, and he'll fight anyone for it.",'b'],['He gave me a lecture on philosophy.','c']]},
-      b:{say:"Then he and this island are going to fall out. An oilman's a fine friend to have, right up until he isn't. Good work."},
-      c:{say:"Philosophy. From an oilman. Next he'll be writing poetry. Keep him talking: men like that tell you everything if you let them think they're winning. Good work."}}}}],
+      b:{say:"Then he and this island are going to fall out. An oilman's a fine friend to have, right up until he isn't. Good work. (Diversified Petroleum: +1 point.)"},
+      c:{say:"Philosophy. From an oilman. Next he'll be writing poetry. Keep him talking: men like that tell you everything if you let them think they're winning. Good work. (Diversified Petroleum: +1 point.)"}}}}],
   thanks:"Chuck has your report on Dario and Diversified Petroleum."},
 // Sunday Sermon (the Orthodox Church, 8 September): Father Thyme can't find the words for the island, and asks the writer to
 // write the sermon and read it. Grief (the Church +1, the Royal Family +1), unity (the Church +1), or faith over crowns (the
