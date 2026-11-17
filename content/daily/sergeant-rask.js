@@ -1,132 +1,138 @@
-// Sergeant Rask, quartermaster at the barracks armoury (The Army). Threads: his exact inventory of rifles, boots and blankets and the exact number missing, his terrified privates, his dry respect for the Colonel, the ash and the shaking ground, his quiet soft spot for the men.
+// Sergeant Rask, quartermaster at the barracks armoury (the Army). Threads: his inventory, to the last bootlace (412 boots, 112 blankets,
+// 9 guns, 41 pairs of white gloves), and the exact number missing; the three blankets gone on the 11th, which Private Aho took to cold
+// farms and Rask finds on the 23rd (he reprimands himself, for not issuing them first); his terrified privates and his hidden soft spot
+// for them (he adds a line to the bottom of Aho's letters home); Niemi's budget; his dry respect for the Colonel; the salute rotation,
+// the grey flag made from a sock, the whistles and the second blankets; holding Aho up by the belt at the state visit (the 28th).
 DAILY['Sergeant Rask']={
-6:["(Sergeant Rask is writing in a ledger and doesn't look up.) Four hundred and twelve blankets. Four hundred and nine on the shelves. Three have gone for a walk. State your business, reporter. Quickly.",[
-  ["I'm just introducing myself, Sergeant.","Very civil. Rask. Quartermaster. I count things. If it's in the army, I've counted it, and so has the moth."],
-  ["What's missing, besides the blankets?","Two pairs of boots, a bayonet, and my patience. Only one of those I expected to see again."],
-  ["Do you ever relax?","On Sundays I count more slowly."]],
- "Don't touch anything. I'll know."],
-7:["(Rask is polishing a rifle.) The north-west road's open now, and Frostholm's lorries are thundering past. Every one of them could carry a rifle, and I've counted mine twice this morning.",[
-  ["Are you worried about theft?","I'm worried about arithmetic. If the number's wrong, someone's wrong. I intend to find out who."],
-  ["How many rifles do you have?","On paper, a hundred and forty. On the rack, a hundred and thirty-eight. Two are, as they say, wandering."],
-  ["Who do you suspect?","Everyone. It's my best quality."]],
- "Close the door when you leave. It sticks. Like the soldiers."],
-8:["(Rask is listening to the radio sermon with his arms folded.) Father Thyme's lost for words. I understand. I once lost a whole barrel of buttons and couldn't speak for a week.",[
-  ["Are you religious, Sergeant?","I'm methodical. It's the same thing, with less incense."],
-  ["How are the men?","Aho writes too much. Niemi sings too much. Koski reads too much. I'm surrounded by excess."],
-  ["Do you like them?",["(He pauses.) They're good lads. I'd never say so. If you print that, I'll deny it and count your fingers.",[
-    ["Aho's frightened of you.","Good. He'll live longer. A frightened soldier checks his boots twice."],
-    ["What would you say to him?","Write to your mother, and mean it. And fold your blanket in thirds, not quarters."]]]]],
- "Take care, reporter. Mind the step. I counted it."],
-9:["(Rask is inspecting a crate of cola with a frown.) A van left twenty crates at the gate and refused a receipt. I don't like anything without a receipt. The Colonel says accept. I say account.",[
-  ["Is the army drinking the new cola?","The men are. Niemi's using it in the sauce. I've found it in the pot, the pockets and my own tea."],
-  ["Are you suspicious?","Of free things? Always. A free gift is a debt in disguise."],
-  ["What would you do with it?","Count it. Then log it. Then, perhaps, taste it. In that order."]],
- "If anyone offers you a free crate, ask for a receipt."],
-10:["(Rask is in full dress uniform, every medal in place, every button shining.) The funeral. The Colonel is with the guard of honour. I'm left to mind the armoury. I'd rather be there, but someone must keep the count.",[
-  ["Did you know the king?","I served him thirty years. He signed my commission. He was a decent man, and he never misplaced a thing."],
-  ["How are you?","Calm. Professional. A little cold around the eyes."],
-  ["What will happen now?","The Colonel will tell us. And we'll do it. That's the whole of the army, reporter."]],
- "A moment's silence, if you please."],
-11:["(Rask is stacking boxes of boots with a clatter.) The mill hands want a fair day's pay. A soldier doesn't strike. But a quartermaster knows when the books don't balance. Theirs don't, I'd say.",[
-  ["Do you think they're right?","I think a day's pay should match a day's work. It's arithmetic."],
-  ["Does the army pay fairly?","The army pays exactly what's written. Not a coin more. It's a point of honour."],
-  ["Are you in the Union?","Certainly not. I'm in the ledger."]],
- "The boots are for the army, not the mill. Move along."],
-12:["(Rask is staring at a shelf of empty hooks.) Someone's been at the armoury again. A cap, a belt and a very old whistle. Nothing important. Everything important. It's the principle.",[
-  ["Who could have done it?","A thief, a prankster or a ghost. I suspect the ghost. It has the least alibi."],
-  ["Is there a pattern?","There's always a pattern. I'll find it. I'll draw a chart."],
-  ["Have you told the Colonel?","He said, Sergeant, it's a whistle. I said, Sir, it's a principle. He changed the subject."]],
- "Don't touch the hooks. They're evidence."],
-13:["(Rask holds a tiny cola bottle up to the light, like a jeweller.) A sample, from the cola men. They gave Niemi forty. I've counted thirty-nine. One is missing, and I know who.",[
-  ["Is Niemi in trouble?","He'll be asked, politely. Then less politely. Then he'll confess in verse."],
-  ["Are you strict with him?","I'm accurate. It's not the same, though it feels alike from underneath."],
-  ["What do you think of Kelp Cola?","A very well-run company. It counts its bottles. I respect that."]],
- "Take care. Everything has a number, and the number always comes calling."],
-14:["(Rask is polishing the same buckle for the third time.) Tomorrow, the gathering. The whole island in one place. The Colonel's briefed us. We'll stand where we're told, and we'll count heads. I'll count twice.",[
-  ["Are you expecting trouble?","I never expect. I prepare. There's a difference, and it's worth a stripe."],
-  ["How are the men?","Aho's gone pale. Koski's restless. Niemi's baking. I'd say they're on form."],
-  ["What would you say to the island?","Stand in line, and don't lose anything."]],
- "See that you're in order tomorrow. Collar, boots, bearing."],
-15:["(Rask is glaring at a dust cloud on a rifle butt.) The royals and the Church are squabbling, crown against cross. The army serves neither. I'm sure the Colonel will explain it at dinner. At the palace.",[
-  ["Does the Colonel dine there often?","Frequently. He says it's strategy. I say it's the cheese."],
-  ["Whose side are you on?","The army's. Which is nobody's. We keep the peace, count the rifles and go to bed."],
-  ["Is that hard?","Every day. But I've a ledger and a very sturdy chair."]],
- "If you meet the Prince, remind him to sign for his chair."],
-16:["(Rask is sitting rigidly beside the radio.) The debate. I've no interest in it. But the privates are listening, so I must listen too, in case it's seditious. It's mostly shouting.",[
-  ["Who's winning?","The one with the better microphone. Not a quality I'd want in a soldier."],
-  ["Does the army care who wins?","The army cares that the winner pays on time."],
-  ["What do you think of the Democrats' vote?","A fine thing, if properly counted. I'd offer to count it myself."]],
- "If anyone asks, I wasn't listening. I was counting the pauses."],
-17:["(Rask holds a stack of mess tins steady, looking at the ceiling.) That was a tremor. Four seconds. Two sharp, two rolling. I've logged it. The ledger will want it noted.",[
-  ["Do you log earthquakes?","I log anything that moves. Especially if it isn't supposed to."],
-  ["Is it the volcano?","Very likely. The Colonel's called a meeting. I've counted the shovels."],
-  ["Are you worried?","I'm quartermaster. I'm paid to worry about the things that run out first."]],
- "If it shakes again, don't sit on the rifles."],
-18:["(Rask looks very stern.) Two young monks came to my armoury looking for a relic. I admit, I was suspicious. A relic is just an unlisted item with better branding.",[
-  ["Did you help them?","I walked them through every shelf. I know where everything is. A relic isn't among it."],
-  ["What was the relic?","They said a small gilded box. I said I'd check the manifest. They said it wasn't on the manifest. That was my point."],
-  ["Do you believe in them?","I believe in inventory. A holy relic that isn't listed is a security risk."]],
- "If it turns up, it should be logged. Under R."],
-19:["(Rask is cleaning his glasses with great care.) The Party are recruiting. Aho nearly took a leaflet. Koski nearly took two. I took the leaflets and filed them under Miscellaneous. A neat solution.",[
-  ["Are the soldiers tempted?","Some are. The young always are. They want a cause, and a good pair of boots."],
-  ["Is the Colonel worried?","He's stiff. That's how I know."],
-  ["What's the Midnight Note?","A nightclub, apparently. I've never been. I don't dance. I count the steps."]],
- "If you see a recruiter, ask for his serial number."],
-20:["(Rask is staring at a map pinned on the wall.) There's a stranger at the Hotel Aurora. Sergeant Hanna of the police is on his trail. If the army has a role in it, no one's told me.",[
-  ["Have you heard anything?","Only what the stones say. Everyone's nervous. Everyone's counting."],
-  ["Is the armoury secure?","I've doubled the locks and halved the keys. If anyone wants a rifle, they'll need a very good story."],
-  ["Who's the stranger?","I haven't a name. Only a hat, a rumour, and an unusual rate of rumour."]],
- "Be careful. A man with a hat is a man with a plan."],
-21:["(Rask is standing in the yard, grey from head to toe, giving orders very quietly.) The mountain's blown. The Colonel's ordered everyone out to help. The armoury's sealed. The shovels are issued. Everyone's accounted for.",[
-  ["Is everyone all right?","Present, correct, and covered in ash. Not a single casualty. I've counted three times."],
-  ["Did you see it?","From the yard. A great dark pillar, taller than the church. I stood still. It seemed the dignified thing."],
-  ["What now?","We clear the roads. We help the island. We tidy up. It's the only plan we have."]],
- "Cover your face. And sign for a shovel on your way out."],
-22:["(Rask is sweeping the armoury floor himself.) Ash in the barrels, ash in the ledgers, ash in my moustache. It's a grim thing, a thin film of grey over an orderly life.",[
-  ["How are the men?","Better than I expected. Aho's been writing home a lot. Koski's holding the gate. Niemi's making soup for half the island."],
-  ["Is the armoury damaged?","A few cracks, nothing serious. I've logged them all."],
-  ["What's the Colonel doing?","Telephoning. Dining. Coordinating. It's what a colonel does."]],
- "Wipe your feet. Twice."],
-23:["(Rask notes down a tremor on a card.) Another aftershock. Three seconds, small. The aftershocks come as regular as pay day, and about as welcome. I've a chart of them now.",[
-  ["Is there a pattern?","They're closer together and weaker. It's a good sign, probably. I'm not a geologist."],
-  ["How are you coping?","I count. It's what I do. One, two, three, rumble. It steadies the nerves."],
-  ["Do the men know you're nervous?","They think I'm made of stone. I'd prefer to keep it that way."]],
- "If you're nervous, count. It never hurts."],
-24:["(Rask is arranging a row of blankets.) The Church is going up to the peaks. The Colonel has lent them twenty blankets and a stove. I've logged every one, and I've written a very polite reminder.",[
-  ["Will they return the blankets?","Monks are honest. It's a delight to deal with them. They return everything, even prayers."],
-  ["Does the army help the Church?","On request. We help anyone who asks, and who signs."],
-  ["Is it hard to lend things?","Terribly. But it's duty. And I've written the dates in red."]],
- "A kindness is only a loan with better manners."],
-25:["(Rask is holding a leaflet by the corner.) A crown for everyone, the royals say. A princess for democracy. I counted the crowns on the leaflet. There are seven. There should be eight.",[
-  ["Whose side is the army on?","Order. Always order. Whoever keeps it is the right side."],
-  ["Do you like Prince Leopold?","He's well turned out, if a bit loose with the buttons."],
-  ["And the Democrats?","Methodical, in their way. I'd trust a man who counts votes."]],
- "Don't drop the leaflet. I'll have to file it."],
-26:["(Rask checks his watch against the wall clock.) They say Dario has bought the spa at Hope Springs, and that the cola people are putting princes under bottle caps. Everyone's spending. I'm counting.",[
-  ["Is the army buying anything?","Not a stitch. The Colonel says we'll make do. I say we've made do since 1962."],
-  ["Do you mind the oil men?","They've a lot of money and a very poor sense of paperwork."],
-  ["Would you take a job at the spa?","I'd run the towel cupboard. Every towel numbered."]],
- "Report any odd transactions. I'll log them."],
-27:["(Rask is standing in the armoury door, arms behind his back.) Tomorrow looks serious. A revolution at the pictures, they say, and who knows what at the card tables. The Colonel wants the armoury locked down. Doubly.",[
-  ["Are you expecting violence?","I never expect. I prepare. There are three separate keys, and I hold two."],
-  ["Who holds the third?","The Colonel. And he's at the palace. So, in effect, no one."],
-  ["Are the men ready?","They're drilled. They're nervous. They're ready."]],
- "I'm counting on you to keep your head. And your boots dry."],
-28:["(Rask has a fresh shave, a clean ledger and a very straight back.) The big day. I've issued every item in the stores. Every man has a blanket, a boot and a rifle, as required. If something goes wrong, it won't be the paperwork.",[
-  ["Are you nervous?","I'm professionally apprehensive. It's a better word."],
-  ["What will the army do?","Stand firm. Hold the line. Do nothing rash. It's the Colonel's order, and mine."],
-  ["What do you hope for?",["That the day ends with everything where it should be. People, weapons, hopes. All present and correct.",[
-    ["That's a lot to ask.","It's an inventory, not a miracle."],
-    ["Anything for your men?","A hot meal. A dry bed. And a quiet word, which I'll deny later."]]]]],
- "Fall in, reporter. You're as ready as the rest of us."],
-29:["(Rask checks his ledger one last time.) Tomorrow it ends. Primaries. Lines of succession. I've never understood politics, but I do understand an audit. The island's about to have a very big one.",[
-  ["What do you expect?","Applause, outrage and paperwork."],
-  ["Are the men ready?","As ready as I can make them. They've been drilled, fed, and counted."],
-  ["How do you feel?","Exactly as I should. Steady, with a slight tremor. It may be the ground."]],
- "Get some sleep. That's an order, though I've no authority."],
-30:["(Rask is standing in the yard at dawn, perfectly still.) The last day. Every shovel, every rifle, every blanket accounted for. Whatever happens, the books balance. That's a comfort.",[
-  ["How are you?","Steady. Cold. Slightly proud. I'd rather not say which."],
-  ["What will you remember?","The ash. The shaking. And Aho's face the first day, when he saw my ledger."],
-  ["Any message for London?","Say the army counted every man, every night. And that no one was lost."]],
- "Dismissed, reporter. And thank you."],
+6:["(A short, square sergeant looks up from a ledger with a pencil behind each ear.) Name. (You give it.) Not on the list. You're not issued anything. You're a reporter. Reporters bring their own boots. (He writes.) There. You're on the list now. As a visitor. Not issued.",[
+  ["What's in the armoury?","Forty-one rifles, nine guns, four hundred and twelve boots, a hundred and twelve blankets, eighty-two mess tins, one bugle. (He doesn't look at the ledger.) And three bootlaces I can't account for. They'll turn up."],
+  ["Do you count everything?","Every morning. Twice. If it's not counted, it's missing. If it's missing, it's stolen. If it's stolen, someone's in trouble. (He looks at you.) Usually a private."],
+  ["Are the privates frightened of you?","Terrified. (He looks satisfied.) It's very important. A frightened private counts his own boots. A relaxed private loses them."]],
+ "Don't touch anything on the way out. It's all counted."],
+7:["(Rask is lining up boots on a shelf, toes perfectly level.) The roads are open. The Colonel's sending men to help the ploughs. Four men. Eight boots. (He makes a mark.) I'll want them back. With mud on. Mud's fine. Missing's not.",[
+  ["What's the Colonel like?","Stiff, proud, never wrong in public. (He straightens a boot.) Good officer. Thirty years. I've never once had to count his boots. He counts his own. That's rare, in an officer."],
+  ["Do you like the job?","I like knowing where everything is. On an island where nobody knows anything, I know where every boot is. That's a kind of peace."],
+  ["What's missing today?","The three bootlaces. (He sighs.) I've searched every barracks block. I've searched the cook. (He looks at the door.) Niemi had them. He'd tied up a ham."]],
+ "Mind the boots on the way past. They're in a line."],
+8:["(Rask is polishing the bugle very carefully on a Sunday morning.) Church parade. The bugle plays. (He holds it up to the light.) One bugle. One bugler. Private Koski. He's very bad. I'm polishing it so it shines while he plays it badly.",[
+  ["Is Koski really bad at the bugle?","He plays it like a man who's reading something else at the same time. Which he is. He hides adventure books in his greatcoat. (He sniffs.) I've counted them. Six."],
+  ["Will you tell him off?","I've written it down. (He polishes.) Six books, one coat. Not army issue. Not stolen. Not my problem. Until it is."],
+  ["Do you go to church?","Back row. I count the congregation. Two hundred and four last week. (He looks at the bugle.) The Abbot's preaching for the king today. There'll be more. I'll count them."]],
+ "If you see Koski, tell him the bugle's shining. That'll frighten him."],
+9:["(Rask is reading a long letter with a frown, then folds it carefully and slips it into an envelope.) Private Aho's letter to his mother. They go through me for posting. (He licks the envelope.) I don't read them. I check them. There's a difference.",[
+  ["What's the difference?","Reading is for nosy people. Checking is for quartermasters. (He seals it.) I check the address is right and the stamp is straight. And sometimes I notice a word or two."],
+  ["What did you notice?","He's homesick. He misses her soup. He's frightened of me. (He puts the letter on the pile.) Good. All three."],
+  ["Isn't that a bit hard?","(He looks at the envelope for a long moment, then takes it back off the pile, opens it, writes one short line at the bottom, and seals it again.) There. Don't tell him."]],
+ "Post goes at four. If you've a letter, I'll check it."],
+10:["(Rask is in his dress uniform at the armoury door, with a clipboard, as soldiers file past collecting their rifles.) The salute. Twenty-one guns. We have nine. (He taps the clipboard.) So: nine guns, three rounds each, minus six. I've worked out a rotation. It's very beautiful.",[
+  ["Did you know the king?","He came to the barracks in 1968 and asked how many boots the army had. I told him. Four hundred and twelve. He said 'Very good, sergeant.' (He looks at the clipboard.) Nobody else has ever asked."],
+  ["Will the rotation work?","It'll work if Koski's not reading during it. (He looks down the line.) I've confiscated his book for the day. He looks lost without it."],
+  ["Are you sad?","(He keeps ticking names.) The army doesn't grieve. It counts. (A pause.) Four hundred and twelve boots. He asked. I'll remember."]],
+ "Stand still when the guns go. Everyone does."],
+11:["(Rask is standing in the blanket store, very still, staring at a shelf.) Three blankets. Missing. (He looks at you.) Three. I count them twice every morning. This morning: one hundred and nine. One hundred and nine. I have never in my life had one hundred and nine.",[
+  ["Could they have been borrowed?","Nobody borrows from my store without signing. Nobody's signed. (He looks at the ledger.) Therefore they've been taken. Therefore someone's in very serious trouble."],
+  ["Have you told the Colonel?","In writing. He thinks a private had cold feet. (He looks wounded.) He thinks it's small. Three blankets is not small. Three blankets is the beginning of chaos."],
+  ["What will you do?","Search every bed. Count every bunk. (He narrows his eyes.) Someone on this barracks knows something. They'll crack. They always crack."]],
+ "If you see a soldier with a blanket that isn't his, tell me. Quietly."],
+12:["(Rask is counting the blankets again, very slowly, with his lips moving.) One hundred and nine. Still. (He makes a mark.) I've searched all three blocks. Every bunk. Every footlocker. I've even searched the cook.",[
+  ["Did you find anything?","Six adventure novels in Koski's greatcoat. A ham in Niemi's footlocker. A photograph of a girl under Aho's pillow. (He sniffs.) No blankets."],
+  ["What's Niemi like?","Sings while he cooks. Can't shoot. Feeds forty-three men from one pot on a budget I wouldn't give a mouse. (A pause.) The food's terrible. The men would die for him."],
+  ["Is Aho homesick?","He writes to his mother every evening. Long letters. He's very young. (He looks at the blankets.) He's also the only man on the barracks who's never once been late. I've noted it."]],
+ "If you find three blankets, they're mine. I'll know them. They're army grey."],
+13:["(Rask is staring at a crate of free Kelp Cola outside the armoury.) A gift. From the cola company. The Colonel says the army can't accept gifts. (He makes a mark.) So I can't put it in the ledger. And I can't not put it in the ledger. I've been standing here an hour.",[
+  ["What will you do?","(Corporal Niemi walks past with two bottles.) Niemi has taken two. For the stew. (He makes a mark.) 'Two bottles, cola, transferred to rations.' There. Now it exists."],
+  ["Is the stew any good with cola?","It's never been good. Cola won't make it worse. (He looks at the crate.) Niemi says it'll caramelise the onions. I've never seen Niemi caramelise anything except the pot."],
+  ["Will you go to the gathering tomorrow?","The army keeps order at the edges. I'll be counting the crowd. Somebody should. (He narrows his eyes.) Everyone else will get it wrong."]],
+ "Don't take a bottle. Not unless you're signing for it."],
+14:["(Rask is back at the armoury with a clipboard covered in tally marks.) The gathering. The Colonel asked for a number. I counted from the edge. The newspapers will say five thousand. They'll be wrong.",[
+  ["How do you count a crowd?","In blocks of a hundred. Then you multiply. Then you count again to check. Three thousand one hundred and four. Final."],
+  ["Is everything orderly?","A jester fell in the fountain. That's not in the operational plan. (He makes a note.) I've written it down. The Colonel will want to know."],
+  ["Did you enjoy it?","The army doesn't enjoy gatherings. The army counts them. (A pause.) The jester came out with a duck. (Another pause.) I enjoyed the duck."]],
+ "If you see the Colonel, tell him three thousand one hundred and four. Exactly."],
+15:["(Rask is back in the armoury, with his clipboard, very satisfied.) Three thousand one hundred and four. The woman from the lumber mill agrees. Dagny. She counted too. (He almost smiles.) A civilian who can count. I've never met one before.",[
+  ["What's the news today?","The palace and the Church are arguing about the prince's brother. (He doesn't look up.) The army has no opinion. The armoury has an inventory. Neither of them needs a prince."],
+  ["Did the blankets turn up?","No. (He looks grim.) Still a hundred and nine. I've started counting them three times. The third count is for hope."],
+  ["How's Aho?","Frightened. Homesick. Never late. (A pause.) His mother wrote back. He showed me. She says 'Thank you, sergeant.' I don't know why. I've never written to her."]],
+ "Don't tell Aho anything. About anything."],
+16:["(Rask is listening to the debate on a wireless in the armoury, with a pencil poised over a sheet of paper.) The Party and the Democrats. (He makes a mark.) The Party woman has used the word 'workers' forty-one times. The Democrat has used 'vote' thirty-eight. I'm counting.",[
+  ["Why count the words?","Because nobody else is. (He makes another mark.) In fifty years, someone will want to know. I'll have the numbers."],
+  ["Who's winning?","Forty-one to thirty-eight. (He looks up.) That's not how debates work. I know. But it's the only way I know how to win anything."],
+  ["Would you vote?","The army has no opinion. (He writes.) The armoury has a ledger. If there's ever a vote, I'll count the ballots. That's my politics."]],
+ "Close the door. I'm on word fifty-two."],
+17:["(Rask is standing in the middle of the armoury as rifles rattle in their racks.) The ground moved. Three times. (He's counting rifles.) All present. All forty-one. (He makes a mark.) I've issued every man a whistle. If anything falls on him, he whistles. Then I count him.",[
+  ["Is it the volcano?","Something's wrong with the ground. Something's wrong with the air. I've issued every man a blanket. (He looks at the shelf.) That's a hundred and nine. Three short. I'll be three short when it matters."],
+  ["Are you frightened?","(He straightens a rifle.) I'm counting. That's what I do instead. Forty-one rifles. Forty-one whistles. Forty-one men. Three blankets short."],
+  ["What does the Colonel say?","He says stay calm. (He makes a mark.) He's moved every flag on his map twice. That's not calm. That's a colonel."]],
+ "If you hear a whistle on the barracks, it's one of mine. I'll count him."],
+18:["(Rask is sewing a small grey flag from what is clearly an army sock.) The Colonel wants a grey flag for his map. For ash. (He snips a thread.) We don't have grey flags. We have grey socks. (He holds it up.) Close enough.",[
+  ["Is that a sock?","One army sock, grey, issued, now a flag. (He writes in the ledger.) 'One sock, transferred to strategy.' The Colonel will never know it was a sock. Don't tell him."],
+  ["Is there ash already?","Grit on the windows this morning. Fine and grey. From the north. (He looks at the flag.) I've never needed to make a grey flag. Thirty years. I hope I never make another."],
+  ["How's the barracks?","Nervous. Niemi's cooking more than usual. Koski's reading faster. Aho's writing longer letters. (He threads the needle.) I'm sewing. Everyone's doing something with their hands."]],
+ "If you see the Colonel, don't mention socks."],
+19:["(Rask is handing out blankets, one per man, to a line of soldiers, writing each down.) Second blankets. For everyone. (He makes a mark.) I've never issued second blankets. In thirty years. Not even in 1962. (He hands one over.) Private Aho. One blanket. Sign.",[
+  ["Why second blankets?","Because the air smells of eggs, the gulls have gone, and the Colonel has declined a dinner at the palace. (He looks at you.) When the Colonel declines dinner, I issue blankets."],
+  ["Are the men frightened?","Aho's hands are shaking. Koski's reading something about a volcano. Niemi's making soup for four hundred. (He signs a sheet.) We have forty-three men. He knows something."],
+  ["What did Koski see at the gate?","(He lowers his voice.) The prince's car went out at dusk. With a man in it in a large hat and a moustache that didn't fit him. Koski says it's straight out of a novel. Koski's very excited."]],
+ "Take a blanket if you need one. Sign for it. Even you."],
+20:["(Rask is at the armoury door with a clipboard, as soldiers march out with carts.) The farms. The Colonel's sending the men to move the animals down from the east. (He ticks a name.) Twelve men. Twenty-four boots. Four carts. One cow, coming back with us, if Corporal Niemi's soup is any guide.",[
+  ["Will the soldiers be safe?","I've given every man a whistle, two blankets and a list of what to bring back. (He looks at the line.) They'll come back. I've counted them out. I'll count them in."],
+  ["Are you going?","The quartermaster stays with the stores. (He looks at the shelves.) That's the rule. (A long pause.) I'd go if I could. I'd carry the cow myself."],
+  ["Is it going to erupt?","The ground's been moving every hour. The Colonel's taken out his Iceland face. I've only seen it once. In 1962. (He ticks another name.) It's going to erupt."]],
+ "Go home and keep your boots on. That's an order. For tonight."],
+21:["(Ash is falling over the barracks. Rask is at the gate with his clipboard, grey from head to foot, ticking names as the last soldiers come in.) Forty-one. (He makes a mark.) Forty-one. Forty-one men out. Forty-one men in. (He counts again.) Forty-one.",[
+  ["Everyone came back?","Every one. Aho carried an old woman two miles. Koski kept the gate all night and read nothing. Niemi fed four hundred people in the yard from one pot. (He looks at the clipboard.) I've counted them all twice."],
+  ["Is the Colonel all right?","He hurt his knee. Lifting a cart. A cow disagreed. (He almost smiles.) He's told me to tell the men he's proud of them. In the form of a reprimand."],
+  ["What will the reprimand be?",["(He writes on the clipboard, very carefully.) 'Boots: muddy. All forty-one pairs. Disgraceful.' (He looks up.) They'll understand.",[
+    ["Will they?","They'll read it, and they'll look at their boots, and they'll know. (He tucks the clipboard under his arm.) That's how the army says thank you."],
+    ["Are you all right, Sergeant?","(He looks at the grey yard, then at the grey sky.) I counted forty-one men in. (A pause.) I'm all right. I'm better than all right. Don't tell anyone."]]]]],
+ "Cover your mouth. And count your own people, if you have any."],
+22:["(Rask is in the armoury, writing a reprimand on a sheet of paper with great ceremony.) 'Boots. Muddy. All forty-one pairs. Disgraceful.' (He pins it to the noticeboard.) There. The men will know what it means. The Colonel will know what it means.",[
+  ["What does it mean?","It means 'You were all magnificent and I'm very proud of you.' (He straightens the notice.) But we don't say that in the army. We say 'muddy boots'."],
+  ["How's the barracks?","Grey. Every boot, every blanket, every rifle. I've started a grey ledger. Separate from the ordinary ledger. For things that are grey."],
+  ["What's the army doing?","Clearing roads, carrying timber, rebuilding barns. (He makes a mark.) Twelve men, twenty-four boots, four carts. All being very useful. Nobody's asked me to count usefulness before. I'm enjoying it."]],
+ "Read the noticeboard on your way out. It's a very good reprimand."],
+23:["(Rask is standing very still, holding a slip of paper, with an expression nobody has ever seen on him.) The three blankets. I've found them. (He holds up the paper.) Three farms. East of the lake. One blanket each. Since the eleventh.",[
+  ["Who took them?","Private Aho. On his evening walk. To three farms where the old people had no fuel. (He looks at the paper.) He didn't sign for them. He didn't ask. He just took them."],
+  ["Will you punish him?",["(He folds the paper very carefully.) No. (A pause.) I've issued myself a reprimand. For not issuing them first.",[
+    ["Why yourself?","Because I counted those blankets every morning for two weeks and never once asked who was cold. (He puts the paper in his pocket.) A private asked. That's a better quartermaster than me."],
+    ["What does the reprimand say?","'Quartermaster Rask. Counted the blankets. Missed the point.' (He almost smiles.) I've pinned it inside my own locker. Nobody will see it but me."]]]],
+  ["What's the news?","Something broken on the oil rig. The oil company asked for our divers. We have one. He's the cook. He can't swim. (He sighs.) The Colonel sent the boat without him."]],
+ "Don't tell Aho I found out. Let him think I'm still counting."],
+24:["(Rask is writing in a ledger: 'Three blankets, army grey, issued to the island.') There. They exist again. Properly issued. (He blots it.) A hundred and twelve blankets. A hundred and nine in the store. Three where they should be.",[
+  ["Did you speak to Aho?","No. (He looks at the ledger.) I added a line to the bottom of his letter to his mother. As I do every week. He doesn't know. She does."],
+  ["What do you write?","(He looks at you for a long time.) 'He's doing well. R.' Every week. That's all. (He goes back to the ledger.) She writes back 'Thank you, sergeant.' Now you know why."],
+  ["What's the news?","The monks have gone up into the mountains to pray. The Syndicate's cleaning something up. (He makes a mark.) I've counted neither. The army doesn't count monks. Or criminals. Separately."]],
+ "Don't tell Aho about the line. Ever."],
+25:["(Rask is reading a pamphlet with his pencil poised.) A crown for everyone. (He makes a mark.) Six times on one page. (He turns it over.) A princess for democracy. Four times. (He looks up.) Promises, counted. Nobody else will.",[
+  ["Which promises do you believe?","The ones with numbers. There aren't any. (He puts the pamphlet down.) A promise without a number is a blanket without a ledger. It might be there. It might not."],
+  ["Did the princess really fire a gun here as a girl?","Eight years old. Hit the target first time. (He looks almost proud.) I issued the rifle. I counted the round. One round. One hit. Best ratio in the barracks' history."],
+  ["How's the barracks?","Back to normal. Boots counted. Blankets counted. Koski reading. Niemi singing. Aho writing. (He makes a mark.) Normal is underrated."]],
+ "Take the pamphlet if you like. I've counted it."],
+26:["(Rask is looking at an entry in the ledger with a deeply troubled expression.) The Colonel's map. A new flag. 'Spa.' (He looks at you.) Somebody's buying the spa. The oil company. And somebody's offered a milkshake machine. I've filed it under 'threats'. The Colonel's moved it to 'curiosities'.",[
+  ["Why threats?","A milkshake machine is an unknown quantity. I have no ledger for it. (He sighs.) Anything I have no ledger for is a threat."],
+  ["What else is happening?","Kelp Cola wants the prince in an advert, they say. (He makes a mark.) The prince asked the Colonel if an officer would appear in an advert. The Colonel said never. I said never twice. For emphasis."],
+  ["Is the army ready for the state visit?","Forty-one pairs of white gloves. I've counted them six times. (He looks at the shelf.) I'll count them three more times before Saturday. Gloves go missing. Gloves are slippery."]],
+ "Don't touch the gloves on the way out. They're white."],
+27:["(Rask is laying out forty-one pairs of white gloves on a long table, in rows, perfectly straight.) Nine. (He counts.) That's nine times I've counted them. All forty-one. (He makes a mark.) Tomorrow they go on forty-one pairs of hands. Then I'll count the hands.",[
+  ["Is the state visit important?","A foreign king. The army lines the road. White gloves. No mistakes. (He straightens a glove.) If one man drops a glove, the whole island sees it. That's important."],
+  ["What's happening tonight?","A Party picture at the cinema. The Don's card game. (He doesn't look up.) The barracks is having an early night. Forty-one men in bed by nine. I'll count them in."],
+  ["Are you nervous?","I'm counting. (A pause.) I'm also very nervous. Aho's hands shake when he's frightened. White gloves show everything."]],
+ "Don't touch the gloves. They've been counted nine times."],
+28:["(Rask is in full dress uniform, white gloves, at the barracks gate, inspecting a line of soldiers with a ruler.) The state visit. One hour. (He measures a glove cuff.) Every faction's making its big push today, they say. Red flags. Rallies. (He moves to the next man.) The army is making a straight line. That's our push.",[
+  ["Is everyone ready?","Forty-one men. Forty-one pairs of gloves. (He stops at Aho, whose hands are shaking.) One frightened private. (He straightens Aho's collar, very gently.) Ready."],
+  ["Will Aho be all right?","I'll be standing behind him. (He looks at Aho's back.) If he sways, I'll take hold of his belt. Nobody will see. That's what sergeants are for."],
+  ["Are you nervous?","(He finishes the line, and puts the ruler away.) Thirty years. I've never once dropped anything on parade. (A pause.) Today I'm holding a private up by his belt. Different kind of carrying."]],
+ "Stand behind the line. Watch the gloves. They'll be perfect."],
+29:["(Rask is counting forty-one pairs of white gloves back into their box, one by one.) Forty-one. All returned. Two slightly grey from the harbour road. (He makes a mark.) The foreign king went past. The line held. Nobody fainted.",[
+  ["Did Aho sway?","Once. When the band started. (He doesn't look up.) I took hold of his belt. Nobody saw. He stood up straight. He doesn't know it was me. He thinks it was his own legs."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next. (He closes the box.) The army has no opinion. The armoury has forty-one pairs of gloves, all present."],
+  ["Will you tell Aho you held him?","Never. (He puts the box on the shelf, very straight.) A private should think his own legs held him. Then they will, next time."]],
+ "Don't tell Aho. Ever. About anything."],
+30:["(Rask is at his ledger, which is open at a fresh page, with the pencil behind his ear.) Last day. They're settling the island today. (He writes the date at the top of the page.) Whatever happens, tomorrow I'll count the boots. Four hundred and twelve.",[
+  ["What do you hope happens?","That whoever runs the island needs an army that counts its boots. (He looks at the ledger.) And that nobody ever has to count soldiers coming back from anything worse than a mountain."],
+  ["Will anything change for the army?","The Colonel says the army serves whoever the island chooses. (He makes a mark.) I serve the ledger. The ledger serves the army. Everything stays where it's counted."],
+  ["Will you remember this month?",["(He looks at the noticeboard, where the reprimand about muddy boots is still pinned.) The forty-one coming in at dawn. The three blankets. The sock flag. Aho's belt. Yes.",[
+    ["And me?","On the list. Visitor. Not issued. (He almost smiles.) Never once took anything. Most honest visitor the armoury's had."],
+    ["What will you do tomorrow?","Count. Boots, blankets, gloves, men. Add a line to Aho's letter. Same as always. (He closes the ledger.) Counting is a kind of love, if you do it every day."]]]]],
+ "Don't touch anything on the way out. It's all counted. Including you."],
 };

@@ -174,7 +174,7 @@ function dialogueBody(c){const days=n=>Object.keys(DAILY[n]||{}).map(Number),byD
   const all=tot.opus+tot.sonnet+tot.unknown,pc=x=>all?Math.round(x/all*100):0;
   return `<h1>Dialogue</h1><p>Everyone on the island has their own conversation for each day of September they can be reached (content/daily/, bundled into js/daily.js).
 They were written by two Claude models: the first round by Claude Opus, and the rest, after the first round was cut short, by Claude Sonnet, which costs less but writes plainer
-conversations, with fewer branches. The Sonnet days are the ones to polish first.</p>
+conversations, with fewer branches. The Sonnet days are the ones to polish first.${tot.sonnet?'':' Since then every Sonnet file has been rewritten in Opus, so the whole month is now Opus.'}</p>
 <div class="qtable"><table class="sched sum"><thead><tr><th>Written by</th><th>People</th><th>Conversations</th><th>Share</th></tr></thead><tbody>
 <tr><td><span class="sw" style="background:${MODEL.opus[1]}"></span>Opus</td><td>${ppl.opus}</td><td>${tot.opus}</td><td>${pc(tot.opus)}%</td></tr>
 <tr><td><span class="sw" style="background:${MODEL.sonnet[1]}"></span>Sonnet</td><td>${ppl.sonnet}</td><td>${tot.sonnet}</td><td>${pc(tot.sonnet)}%</td></tr>
