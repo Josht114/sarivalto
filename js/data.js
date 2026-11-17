@@ -1222,7 +1222,7 @@ findhekki:{title:'Find Hekki',tested:true,giver:'Hekki',given:true,text:"You've 
   thanks:"Your room is under Hekki's shack, through the bookcase. Call Chuck on the radio set there."},
 // Buy a Map (side quest, from 2 September): Hekki thinks you should have a map of the island. Buy one (Hannu's newsstand in
 // Saltwick sells them, and so do Ville's in Kingsgrad and Mary's book shop), and show it to Hekki, who marks a few places on it.
-buymap:{title:'Buy a Map',giver:'Hekki',from:2,seq:true,
+buymap:{title:'Buy a Map',tested:true,giver:'Hekki',from:2,seq:true,
   text:"Hekki thinks a spy should know where they are. Buy a map of Sarivalto (Hannu sells them at his newsstand in Saltwick, for a few dollars) and show it to Hekki at the Radio Tower.",
   offer:"(Hekki watches you squint down the road.) NIGHTJAR, can I say something? You've walked past my tower three times this morning. A spy should know where they are. Hannu sells maps at his newsstand in Saltwick. Three dollars. Will you get one?",
   accept:"Good. Bring it here and I'll mark a few things on it. Small marks. Nothing anyone would notice.",
@@ -1334,7 +1334,7 @@ meetroyals:{title:'Meet the Royals',tested:true,giver:'Chuck',main:true,day:2,ca
       e:{say:"Cola money and army guns at the same table, both wanting a seat by the throne. Watch that pair. Good work: that's the household on file. (Royal Family: +1 point.)"},
       f:{say:"She's right, and one day a few of them might be ours. Keep her talking. Good work: that's the household on file. (Royal Family: +1 point.)"}}}}],
   thanks:"Chuck has your report on the royal household."},
-meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq:true,text:'Kelp Cola HQ in Kingsgrad is open. Chuck wants you to meet Phil, the company\'s CEO, in his office upstairs at the HQ, then report back.',
+meetcola:{title:'Meet the Cola Boys',tested:true,giver:'Chuck',main:true,day:3,call:true,seq:true,text:'Kelp Cola HQ in Kingsgrad is open. Chuck wants you to meet Phil, the company\'s CEO, in his office upstairs at the HQ, then report back.',
   offer:"Morning, NIGHTJAR. Kelp Cola's headquarters in Kingsgrad is open for business. They bottle half the money on this island, and their man Harald wants to lead the Republicans. Go and meet the CEO, Phil. His office is upstairs at the HQ. Find out what kind of man he is.",
   accept:"Good. Drink whatever he pours you.",wait:"Met Phil yet? Kelp Cola HQ, Kingsgrad. His office is upstairs.",
   done:[
@@ -1364,7 +1364,7 @@ meetcola:{title:'Meet the Cola Boys',giver:'Chuck',main:true,day:3,call:true,seq
 // from a conversation with qFlag(quest, flag), and a looks spot (or a spot condition's) can be someone's flat ({flatOf: name}).
 // A condition can also wait (days: how many days after the one before it, in a quest in order), give you an item as it's met (gift), and say
 // so on the morning it's ready (arrives).
-colatour:{title:'The Kelp Cola Tour',giver:'Phil',given:true,seq:true,text:'Phil wants you to take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, once you can get there, then go back to his office at Kelp Cola HQ and tell him what you thought.',
+colatour:{title:'The Kelp Cola Tour',tested:true,giver:'Phil',given:true,seq:true,text:'Phil wants you to take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, once you can get there, then go back to his office at Kelp Cola HQ and tell him what you thought.',
   wait:"Been to the museum yet? Eastbrook, once the road's clear. Kelpy will look after you.",
   done:[
     {tour:'Jaana',price:5,what:'Take the tour of the Kelp Cola Museum in Eastbrook, with Kelpy the mascot',said:'That was the Kelp Cola story, as the company tells it. Now go back to Phil at Kelp Cola HQ and tell him what you thought.',chat:{start:'a',nodes:{
@@ -1379,7 +1379,7 @@ colatour:{title:'The Kelp Cola Tour',giver:'Phil',given:true,seq:true,text:'Phil
       c:{say:"Ha! Everyone does. That recipe's the best-kept secret on this island, and that includes whatever's in the palace vault. It stays in the family."},
       d:{say:"Best Kelpy we've ever had. Never once taken the head off in public. You'd be amazed how rare that is."}}}}],
   thanks:'"Come back any time. There\'s always a cold one in the fridge for a friend of Kelp Cola."'},
-meetdems:{title:'Meet the Democrats',giver:'Chuck',main:true,day:4,call:true,seq:true,text:'Eastbrook is open. Chuck wants you to meet Erik, the Democratic Party leader, at the community centre in Eastbrook, then report back.',
+meetdems:{title:'Meet the Democrats',tested:true,giver:'Chuck',main:true,day:4,call:true,seq:true,text:'Eastbrook is open. Chuck wants you to meet Erik, the Democratic Party leader, at the community centre in Eastbrook, then report back.',
   offer:"Morning, NIGHTJAR. The road into Eastbrook's clear. That's Democrat country: timber, coffee and union cards. Their leader's a man called Erik, and he runs things out of the community centre. Go and meet him. Of everyone on this island, they're the likeliest friends we've got. Find out what they need.",
   accept:"Good. Be useful to him. Useful people get told things.",wait:"Met Erik yet? Community centre, Eastbrook.",
   done:[
@@ -1500,7 +1500,7 @@ sermon:{title:'Sunday Sermon',giver:'Father Thyme',main:true,day:8,seq:true,choi
     {if:'unity',talk:'Father Thyme',what:'Talk to Father Thyme after the sermon',chat:{start:'a',nodes:{a:{say:"A sermon about neighbours, on an island of neighbours who can't stand each other. They will remember it longer than they think. Thank you, my child."}}}},
     {if:'faith',talk:'Father Thyme',what:'Talk to Father Thyme after the sermon',chat:{start:'a',nodes:{a:{say:"Well. Brother Anselm wants you to take holy orders, and Augustus has gone very quiet. The palace will be writing to me by the evening. It was the truth, though. Thank you, my child."}}}}],
   thanks:'The island has heard its sermon.'},
-gazette:{title:'Hold the Front Page',giver:'Henrik',from:4,seq:true,text:'Your cover is a British reporter, come to cover the king\'s death. A reporter would introduce themselves to the local paper: meet the team at the Eastbrook Gazette, get past Nora\'s questions, and file your first story with Henrik.',
+gazette:{title:'Hold the Front Page',tested:true,giver:'Henrik',from:4,seq:true,text:'Your cover is a British reporter, come to cover the king\'s death. A reporter would introduce themselves to the local paper: meet the team at the Eastbrook Gazette, get past Nora\'s questions, and file your first story with Henrik.',
   offer:"Ah! You'll be the reporter from London. Henrik, editor of the Eastbrook Gazette, such as it is: four pages, three staff and a printing press older than me. London sends a reporter to cover our dead king! We're honoured. Come in, come in, meet the team.",
   accept:"Splendid. Nora's over there. She's been dying to meet you. Literally asking everyone in town about you, in fact.",wait:"Met Nora yet? Then come and tell me what you're filing. A story on the king, I hope.",
   done:[
@@ -1930,8 +1930,8 @@ tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says J
 beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says Maya at the Coffee Roasters in Eastbrook can\'t get decent coffee beans since the harbour master started taxing imports. Ask Chuck to have some brought in; they come the next day, and Hekki will give them to you. Then take them to Maya.',
   done:[
     {talk:'Chuck',what:'Ask Chuck on the radio to have some coffee beans brought in',chat:{start:'a',nodes:{
-      a:{say:"Coffee beans? You want me to put coffee beans in the diplomatic pouch?",opts:[["They're for a friend of a friend. A Democrat.",'b']]},
-      b:{say:"Fine. The good stuff, from Colombia. It'll come in on tonight's drop, and Hekki will have it for you in the morning. Don't make a habit of this."}}}},
+      a:{say:"The coffee beans for Erik's friend? Sure, the diplomatic pouch has room. Who are they for, exactly?",opts:[["Maya, at the Coffee Roasters. A Democrat.",'b']]},
+      b:{say:"Then she gets the good stuff, from Colombia. It'll come in on tonight's drop, and Hekki will have it for you in the morning. Don't make a habit of this."}}}},
     {talk:'Hekki',days:1,gift:'beans',arrives:'Hekki has a package for you: the coffee beans came in on the night drop.',what:'Collect the coffee beans from Hekki (they come the day after you ask Chuck)',chat:{start:'a',nodes:{
       a:{say:"Package for you, came in on the night drop. Smells like a coffee shop in Rio. Here you go."}}}},
     {give:'beans',to:'Maya',what:'Take the coffee beans to Maya at the Coffee Roasters in Eastbrook'}],
