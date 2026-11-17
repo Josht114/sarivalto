@@ -10638,155 +10638,165 @@ DAILY['Marta']={
   ["How will you feel, whatever happens?","Tired. Then hungry. Then I'll get up and cook. That's how you get through everything. Ask anyone who's lived through a winter here."]],
  "Close the door behind you. Whatever's going on out there, it's warm in here."],
 };
-// Mary, owner of the book shop in Kingsgrad (no faction). Threads: reading everything she sells, her fear that books will be banned, her cat Orwell, her neighbours Frank and Grace, the tourists' island maps, the cold and the ash.
+// Mary, owner of the book shop in Kingsgrad (the Shopkeepers). Threads: she reads everything she sells and has opinions; her
+// quiet fear that books will be banned if the wrong people win, and the back shelf she keeps for people who ask; her cat Orwell;
+// the detective novels she sends Mario in the cells (a love story by mistake on the 19th); special orders that take months
+// (Mats's book about Wall Street); asking Frank what the smallest gun is (10th); her neighbours Grace and Frank; the tremors
+// knocking her shelves down (19th) and the ash getting into the paper after the 21st.
 DAILY['Mary']={
-2:["(Mary looks up from a paperback and keeps her finger in the page.) The road's open, and the first new face is a reporter. Come in. Mind the stack by the door: it's Tolstoy and it's heavy.",[
-  ["Nice shop. Do you read it all?","Everything I sell. Otherwise how would I know what to recommend? I'm on page two hundred of something about whaling. Don't ask."],
-  ["What's the mood in Kingsgrad since the king died?","Hushed. People buy black ribbon and sensible novels. Nobody wants to be caught reading anything frivolous this week."],
-  ["Got anything on the island's history?","One shelf, and it's mostly the king's own memoirs. Very dull. He rather admired himself."]],
+2:["(Mary looks up from a paperback and keeps her finger in the page.) The road's open, and the first new face through my door is a reporter. Come in. Mind the stack by the door: it's Tolstoy, and it falls on people.",[
+  ["Do you read everything you sell?","Every word. How else would I know whom to sell it to? I'm on page two hundred of a book about whaling. It's gone very badly for the whale."],
+  ["How's Kingsgrad since the king died?","Hushed. People buy black ribbon and sensible novels. Nobody wants to be caught laughing at a book this week."],
+  ["Anything on the island's history?","One shelf, and most of it's the king's own memoirs. Three volumes. He rather admired himself, poor man, and so did his editor."]],
  "Close the door behind you. The cold gets into the paper."],
-3:["(Mary is dusting the island maps with a feather duster.) Tourists buy these. Well, tourists would buy these if there were any. I keep them dusted for hope.",[
-  ["Do many people buy maps?","Mostly people who are lost on purpose. Sailors, spies, men avoiding their wives. Nothing like a map for looking busy."],
-  ["Who comes in here the most?","Frank from next door. He pretends he's after a manual and goes through the crime shelf instead. He's read all of it twice."],
-  ["Any spies, then?","(She raises an eyebrow over her glasses.) I only sell books, dear. Though a lot of people ask for atlases lately."]],
- "Mind Orwell on the step. He's asleep, and he bites."],
-4:["Orwell has taken to sleeping on the poetry. I've decided he has taste. (She scratches a grey cat under the chin.) How are you finding Kingsgrad?",[
-  ["Cold. And the cat's fat.","He eats like a dockworker. Lisa at the supermarket saves him the fish ends. I pretend not to know."],
-  ["Is Orwell a name that means something?","It's a very good writer, who understood what happens to books when the wrong people get hold of a country. I named him as a warning."],
-  ["Does the Democratic Party read much?","Erik's lot read pamphlets, which isn't the same. But they do pay. That's more than the Communists, who borrow."]],
- "Don't let the cat out. It's too cold for his dignity."],
-5:["(Mary is taking a book off the shelf, looking at it, and putting it back, three times.) I'm having trouble deciding what to put in the window. The last window cost me a week of sleep.",[
-  ["Why? What was wrong with it?",["A man looked at the display and said it was 'a lot of unsupervised thinking'. He wasn't joking. I took half of it down.",[
-    ["Who said that?","I won't say. He wears a good coat and has an interest in what the island reads. That's all I'll say, and more than I should."],
-    ["Do you worry about being told what to sell?","Every night. If one party gets the island, the first thing to go is the shelf at the back. I keep it dusted anyway."]]]],
-  ["What would you put in the window?","Something with a plain cover and an awkward idea. Those are the ones that last."],
-  ["Is it a slow week?","The week of a funeral coming and a road reopening is never slow. It's just not for books."]],
- "The back shelf is for people who ask. Nobody's asked yet."],
-6:["The Eastbrook Gazette says there'll be speeches from all seven parties before the month is out. (She reads it with an expression of deep suffering.) I'm going to need a great deal more tea.",[
-  ["Will you go to the speeches?","I'll go to one, sit at the back with a notebook and read a novel underneath it. That's how I keep my sanity."],
-  ["Is the Gazette any good?","Ville's headlines are better than the paper's. It's a long way from Dickens, but it has a crossword."],
-  ["Who's your favourite faction?","None. I like the one that lets me keep my shelves. Ask me again on the thirtieth."]],
- "If you need a book on the way to Eastbrook, I've a thin one."],
-7:["(Mary is pencilling a new price on a stack of cookery books.) With every road open there's a rush on cookery. Everyone has people coming round and nothing in the cupboard.",[
-  ["Anything for a visitor to read?","A thin book of island ghost stories. Written by a monk, who regretted it. It's very good."],
-  ["Do you ever get bored of books?","Never. Sometimes of people, but they have the decency to buy something and go."],
-  ["Is Grace next door busy?","She's measuring half the island for black. I lend her my tape measure, and she lends me her scissors, and neither of us returns them."]],
- "Come back when you've finished the ghost stories. Or when you're frightened."],
-8:["(Mary has the radio set low on a sermon from the monastery.) I like a good sermon, but I like it better when it has a plot. Father Thyme's been struggling with this one all week.",[
-  ["What's wrong with Father Thyme's sermon?","Words won't come, I hear. I'd lend him a good thesaurus, but I'd have to carry it up that mountain."],
-  ["Are you religious?","I'm devout about proofreading. Everything else I'll take under advisement."],
-  ["What does the Church read?","Lives of saints, mostly. And, I suspect, the occasional detective story under the cassock."]],
- "Tell Father Thyme to try a shorter sentence. It works for me."],
-9:["(Mary sets down a glass bottle of cola, flat and untouched.) Someone's giving them out as samples. I'm not touching it. It's a free drink from a company that wants something.",[
-  ["Which company?","Kelp Cola, mostly. And a tin of something from the Communists, said to be 'the people's'. It tastes like cold tea with a slogan."],
-  ["Isn't free cola a nice thing?","Nothing's free. They'll want a window poster, or a review in the paper. I'm not for sale at fizzy prices."],
-  ["Do you read the ingredients?","I read everything. Sugar, water, and a lot of adjectives."]],
- "If anyone offers me a poster, I'll tell them what to do with it. Politely."],
-10:["(Mary is in a black cardigan.) I closed the shop this morning for an hour, so I could listen to the funeral on the wireless. The king and I never met, but we shared a love of Tolstoy.",[
-  ["Did he really read?","He had a library in the palace the size of a small church. I sold him half of it. Mostly he bought the covers."],
-  ["Did the funeral move you?","The music did. Nobody tells you that even a king gets a plain wooden box in the end. It rather suits him."],
-  ["What happens now to the island?","Everyone wants to write the next chapter. I just hope it isn't a short one."]],
- "I'll open again at noon. The dead don't buy books, but the living do."],
-11:["There's a notice at the mill about pay, and the mill hands have been in here, which never happens. I sold three copies of a book about trade unions.",[
-  ["Are the mill hands reading about unions?","They're reading about their rights, which is more than I've ever managed. I'll admit I charged full price."],
-  ["Is that an Eastbrook thing?","It's a Democratic thing. Helen from the Communists is pushing the other way. I'd sell both of them the same book."],
-  ["Is reading a political act?","It is when someone is trying to stop you. Otherwise it's a hobby."]],
- "The shelf on labour is nearly empty. Quite exciting."],
-12:["(Mary is flicking through a catalogue.) A woman from Eastbrook asked me for a record today. I told her it was a book shop. She seemed to think we were related.",[
-  ["Was it Ruby you meant?","Ruby, yes. A lovely woman with dreadful taste in noise. We're colleagues in a way: both of us sell things people have to listen to."],
-  ["What does she collect?","Rare records. I collect first editions. We have lunch twice a year and neither of us understands the other."],
-  ["Is there a quiet part of the day?","Between three and four, when everyone thinks the shop is closed. Then the best people come in."]],
- "I'll be here. I'm always here. It's rather the point."],
-13:["There are free samples going round the island, and I've had a leaflet pushed under my door about a 'Kelp Cola Free Samples Day'. Does anyone read their own leaflets?",[
-  ["Did you read it?","Twice, for the grammar. It's got three exclamation marks in one sentence. I counted them with a pencil."],
-  ["Are you tempted to try the cola?","I've tried it. It tastes of a sweetshop that has lost its sense of proportion."],
-  ["How's the shop for sales?","Quiet. People are saving their money for tomorrow. Everyone's saving something for the fourteenth."]],
- "If anyone knows what the fourteenth is going to be, I'd love to be told."],
-14:["(Mary has a paperback propped on the till and isn't reading it.) Everyone's gone quiet. Even Frank hasn't been in, and he's usually here by ten. It's the big day, isn't it?",[
-  ["What do you expect from today?","Noise, speeches, and somebody shouting. I expect to be home by six with a cup of tea."],
-  ["Does the whole island come together?","So I'm told. It happens maybe once in a generation, and usually when somebody has died."],
-  ["Are you worried?","A little. When people gather in large numbers, they stop reading. That's what worries me."]],
- "Go on, you'll miss it. Tell me what you see."],
-15:["(Mary shakes her head.) The Church and the Royal Family are hurling sermons at each other. It's Crown before Cross, or Cross before Crown. I could sell a book on each side and make a fortune.",[
-  ["Which side are you on?","Mine. It has a till and a cat."],
-  ["Do people really care about the order?","The order of things is all some people have. Tell a man his world's the wrong way round and he'll fight you for the upside-down."],
-  ["Is there a book for this?","Plenty. Every one argues with the last. You could spend a lifetime in my shop and never agree with anyone."]],
- "Take something thin to read. It helps."],
-16:["The Great Debate's tonight, I'm told, the Communists and the Democrats. (She sighs.) I'd like a debate where somebody actually answers the question.",[
-  ["Who'll win?","The one with the best jokes. It's never the one with the best argument."],
-  ["Will you listen?","On the wireless, with a crossword. I'll fill it in during the long answers."],
-  ["Do you like Erik's speeches?","He's earnest. That's worth a great deal and sells very few tickets."]],
- "I'll leave the shop light on. The debaters might need a dictionary."],
-17:["(The shelf by the window gives a small, definite shudder. Mary puts a hand on it.) Did you feel that? The ground's been doing that. Orwell hates it.",[
-  ["Is it an earthquake?","The old men say it's the mountain. I say it's the book on the second shelf finally giving up."],
-  ["Where's the cat?","Under the counter, plotting. He's decided the floor has turned on him personally."],
-  ["Is the island going to be all right?","The island's been here a long time. I'd back it over most governments."]],
- "If the shelves fall, I'll know whom to blame. The mountain."],
-18:["(Mary has taped a strip of paper across the window.) I'm told it helps if the glass goes. I read that in a book, so it must be true.",[
-  ["Is the shaking getting worse?","A little, each day. The poetry has started to fall over on its own. I think that's a literary judgement."],
-  ["What are people buying?","Candles, which I don't sell, and survival manuals, which I do. Surprisingly good business."],
-  ["Do you feel safe in Kingsgrad?","Safe enough. It's far from the mountain. Ask me again if the ground opens."]],
- "I've moved the heavy books to the bottom shelf. Very sensible."],
-19:["(Mary is humming.) There's a rumour that someone's hiring clerks at the Party office, 'Comrades Wanted' on a poster. I find that rather alarming. When has a party ever wanted a comrade who reads?",[
-  ["Are you thinking of applying?","Heaven forbid. I'd correct their grammar and be shot before lunch."],
-  ["Do you mind the Communists?","I don't mind anyone who pays. I mind anyone who wants to tell me what to stock."],
-  ["Is Kingsgrad changing?","In the way a river does. You don't notice until your feet are wet."]],
- "The poster's on the lamppost outside. Third spelling mistake from the top."],
-20:["(Mary peers at her till and then at the window.) A man in a very good hat stood across the street for an hour. He didn't come in. I find that more disturbing than the earthquakes.",[
-  ["Who was he?","I don't know. That's the whole problem. In a shop you get to know everybody, and the ones you don't know are the ones to watch."],
-  ["Was he watching you?","Or Frank. Or the Palace. It's a very watchable street."],
-  ["Maybe he was just reading the window.","If so, he's the first customer in a month who read the window and not the signs. I'll forgive him."]],
- "If he comes back, I'll sell him a mystery. At full price."],
-21:["(The shop is full of grey dust, and Mary is standing in the middle of it with a duster that has given up.) It erupted. The volcano. There's ash on every shelf. I've never seen anything so thorough.",[
-  ["Are you all right?","Quite, thank you. Frightened, then furious, then very tidy. I've started on the Dickens."],
-  ["Are the books ruined?","The ones by the window, I'm afraid. The rest I'll rescue with a cloth and an apology."],
-  ["Is anyone hurt?","Nobody, I'm told, which I take as a minor miracle. I'll count it in the shop's favour."]],
- "Don't come in with those boots. The ash gets everywhere."],
-22:["I've been dusting for a day and a half. (Mary hands you a feather duster, hopefully.) Orwell is grey. He seems to approve.",[
-  ["Can I help?","You can stand there looking sympathetic. That's already half of the job."],
-  ["How's the cat?","Grey. Offended. Making small remarks about the ash on his paws."],
-  ["Is business good?","Hardly. But there's a run on anything about volcanoes. I've one book on Vesuvius and it's gone."]],
- "There's a cup of tea if you can bear the grit."],
-23:["Frank came in today and bought a book on cooking. A gunsmith with a cookbook. I could write a short story about that.",[
-  ["What's Frank cooking?","Soup, he claims, for the neighbours with no stove. He's been rather kind. I'd never have guessed."],
-  ["Has the ash changed the neighbourhood?","It's softened it. People are doing each other's windows. For a week, nobody's a faction."],
-  ["Is Grace busy?","She's sewing masks for the street. Cotton and string. Very Grace."]],
- "Tell Frank his tomatoes are dreadful. He'll grin."],
-24:["(Mary has a hand on the small of her back.) I've been sweeping all morning, and I've decided that a book shop is the world's worst place for ash. Every page has a fingerprint.",[
-  ["Is there any good news?","Orwell has stopped sulking. And I found a first edition under the counter I'd forgotten I'd put away."],
-  ["What do people read now?","Light things. Nobody wants a tragedy right now. I've sold forty detective novels."],
-  ["Is it still shaking?","Every few hours. Like a sleeping giant turning over. I keep expecting an apology."]],
- "If you find a good rag, bring it. Mine are all grey."],
-25:["There are rumours about a crown for everyone and a princess for democracy. (Mary reads the headline twice.) It sounds like the sort of thing I'd stock in the children's section.",[
-  ["Is it a good plan?","Anything that gives people a chance to vote and wear a hat is likely to be popular."],
-  ["Who's the princess?","I'd rather not speculate. I've a rule against gossip before noon."],
-  ["Do you want a king?","I want a sensible reader on the throne. I'll take either."]],
- "I'll keep the window clean, whatever happens. Someone has to."],
-26:["The cola people are saying 'a prince in every bottle', which is the strangest slogan I've heard, and I once sold a book on mushrooms.",[
-  ["What does it mean?","I think they've put a picture of Prince Leopold on the label. I haven't had the heart to look."],
-  ["Will you stock it?","Over my dead body. And over the bodies of several readers."],
-  ["Do you think it'll sell?","Everything sells if you put a prince on it. It's a very old principle."]],
- "I'll read the label tomorrow. When I'm braver."],
-27:["(Mary has a ticket in her hand.) They're showing a film tonight, 'Revolution at the Pictures', is that the title? I haven't been to the cinema in six years. I hate that it's tempting.",[
-  ["Are you going?","I'm considering it. It could be dreadful, but then so is most of what I read."],
-  ["Who's behind it?","The Party. It'll be in black and white and every face will be in profile."],
-  ["What do you read, before bed?","Detective novels. Poison and mud. I find it settling."]],
- "If I go, I'll take a book for the dull bits."],
-28:["(Mary is closing the shutters halfway.) There are flags up all down the street, and a state visit, and a cola going abroad. I thought I'd let the street have the day to itself.",[
-  ["Is it too loud for a book shop?","Every faction is making its biggest push today. Nobody's in the mood for the quiet shelf."],
-  ["Are you afraid?","A little. It's the shouting that's frightening. Not the volcano. That was just honest."],
-  ["What would you tell the island?","Read the small print. It's all there. Nobody does."]],
- "I'll be inside with the cat. Come by if you need a quiet five minutes."],
-29:["Tomorrow it's all decided. (Mary has been standing at the same shelf for ten minutes, her hands in her cardigan pockets.) I've never been so aware of my own stock.",[
-  ["What will you do tomorrow?","Open the shop. Whatever happens, they'll want something to read. They always do."],
-  ["Are you afraid of a ban?","Every day. That's why I sell the things people might one day want to burn."],
-  ["Is there anything you'd like to tell the new government?","Leave the back shelf alone. That's all. It isn't much to ask."]],
- "I've put the kettle on. It's all I can do tonight."],
-30:["(Mary is standing in the doorway with a duster, looking out at the street.) It's the last day, and I don't know what I'm hoping for. Only that there's still a shop on Monday.",[
-  ["How do you feel?","Like the last page of a long book. You want to know the end and you don't want it to stop."],
-  ["Any advice for a reporter?","Write it down properly. Some of us will want to remember how it was."],
-  ["Has it been a good month?","It's been the most interesting of my life, and I include the year of the great mushroom pamphlet."]],
- "Take a book. On the house. Go on, before I change my mind."],
+3:["(A fat grey cat is asleep in the shop window, on a pile of poetry.) That's Orwell. He chose the poetry himself. I've decided it means he has taste, rather than that it's the warmest shelf.",[
+  ["Why Orwell?","After a writer who knew what happens to books when the wrong people get hold of a country. I named him as a reminder. He's mostly a reminder to buy fish."],
+  ["Does he bite?","Only customers who dog-ear pages. He can tell. I don't know how, but he can."],
+  ["Who comes in most?","Frank from the gun shop. He comes in for a manual and goes straight to the crime shelf. He's read every one of them twice, and he still guesses wrong."]],
+ "Don't step on Orwell. He'd never forgive you, and nor would I."],
+4:["(Mary is wrapping two paperbacks in brown paper and string.) For the police station. Mario, the bookie in the cells. He likes Swedish detectives, the gloomy kind with a cold in every chapter. I send him two a week.",[
+  ["You send books to a prisoner?","Somebody ought to. A man with nothing to read starts thinking, and Mario thinking is how he ended up in there."],
+  ["Does he pay you?","Sergeant Hanna brings me the money, in coins, counted twice. Mario's very honest, for a criminal. Better than some of my respectable customers."],
+  ["What else are you posting?",["A book for Mats at the oil company: 'The Men of Wall Street'. I ordered it in for him. It took four months.",[
+    ["Four months?","It came from New York, by way of London, Stockholm and, judging by the stains, a herring boat. I've dried it out. Mostly."],
+    ["Is it any good?","I read it first, naturally. It's a book about men who have a great deal of money and want a great deal more. Mats will love it."]]]]],
+ "If you see Sergeant Hanna, tell her the parcel's ready."],
+5:["(Mary is changing the window display, and has changed it three times.) I keep putting a book in the window and taking it out again. A man stood looking at the last display and said it was 'a lot of unsupervised thinking'.",[
+  ["Who said that?","I shan't say. A good coat, and an interest in what the island reads. That's all, and it's more than I should."],
+  ["What did you take down?","A book about a farm where the animals take over. It's only about pigs, I told him. He didn't believe me. He was right not to."],
+  ["What's in the window now?","Cookery, a gardening book and a map of the island. Nobody's ever been arrested over a soufflé. Not yet."]],
+ "Buy something harmless on your way out. It looks better for both of us."],
+6:["(Mary has the Eastbrook Gazette open, and an expression of suffering.) Ville at the newsstand says there'll be speeches from every faction before the month's out. Seven of them. I'm going to need more tea.",[
+  ["Will you go to any?","One. I'll sit at the back with a notebook and read a novel inside it. It's how I got through school."],
+  ["Is the Gazette any good?","It's a long way from Dickens. But it has a crossword, and the crossword's honest, which is more than I can say for page two."],
+  ["Which faction do you like?","Whichever one leaves my shelves alone. So far, none of them has promised. That's what worries me."]],
+ "If you're walking to Eastbrook, I've a thin book for the road."],
+7:["(Mary is pencilling prices on a stack of cookery books.) Every road's open, and there's a rush on cookery. Everyone has people coming round for the funeral and nothing in the cupboard but a tin of peas.",[
+  ["Anything for a visitor to read?","A little book of island ghost stories. A monk wrote it, years ago, and then regretted it. It's very good. They usually are when somebody regrets them."],
+  ["Is Grace busy?","Grace at the tailor's is measuring half the island for black. She borrowed my tape measure last spring, and I borrowed her scissors, and neither of us has mentioned it since."],
+  ["Do you ever tire of books?","Never. Of people, sometimes. But people have the decency to buy something and go home."]],
+ "Come back when you've read the ghost stories. Or when they've frightened you."],
+8:["(Mary has a little radio on the counter, playing the Sunday sermon from the monastery.) Father Thyme's on. I like a sermon with a plot. This one's been circling the airport for ten minutes.",[
+  ["Are you religious?","I'm devout about proofreading. The rest I take under advisement."],
+  ["What does the monastery read?","Lives of the saints, officially. Brother Mikael orders a detective novel every month, under 'devotional'. I've never told the abbot."],
+  ["Is the sermon changing?","There's talk of it. Some want it modern, some want it as it's always been. I'd settle for shorter. Every editor would."]],
+ "Tell the monks I've a new detective in. Under 'devotional'."],
+9:["(Mary has a bottle of cola on the counter, untouched.) Everyone's inventing a cola this week: the Communists, Kelp Cola, some fellow in a lab. This one was left on my step. I'm not drinking a free drink from someone who wants something.",[
+  ["What do you think they want?","Your loyalty, in a bottle. People will vote for anyone who gives them a sweet drink. It's the oldest trick there is."],
+  ["Will you sell cola in the shop?","Over my dead body, and over Orwell's. Sticky fingers and paper don't mix."],
+  ["What are you reading?","A novel about a man who wakes up as an insect. I've had mornings like that. Orwell has them daily."]],
+ "Take the cola, if you want it. Somebody should enjoy it."],
+10:["(Mary is in a black coat, back from the Royal Chapel, and very quiet.) They've buried the king. The whole of Kingsgrad stood in the street. I'd sold out of black ribbon by nine.",[
+  ["How was the funeral?","Long and cold and beautiful. Prince Leopold read a poem. I'd sold him the book. I didn't know that was why."],
+  ["Did the king read?","Every month, a parcel to the palace: history, and one thriller he pretended was for the staff. I'll miss that parcel more than I can say."],
+  ["Where did you go after?",["(She hesitates.) Next door but one. To Frank's. I asked him what the smallest gun was.",[
+    ["Did you buy one?","No. I just wanted to know. Frank showed me, and I looked at it, and I came home and made tea. Don't put that in your paper."],
+    ["Why ask?","Because a king's in the ground and seven parties want his chair. When I'm frightened, I find things out. It's what books teach you."]]]]],
+ "Close the door quietly. It's that sort of day."],
+11:["(Mary is pricing a box of second-hand books, very carefully.) An old soldier died in Eastbrook, and his daughter brought me his books. Military history, and one book of love poems, worn soft, with a lot of underlining.",[
+  ["What will you do with the poems?","Keep them, I think. Some books shouldn't be sold. They've been read hard enough already."],
+  ["Is there a market for military history?","Frank buys it all. He reads about battles the way other men read about cricket. He'll be in by noon, pretending he isn't."],
+  ["What's the Union doing?","Shouting at Kelp Cola about wages, by the sound of the street. I'm on their side, though nobody's asked a bookseller."]],
+ "If you've any old books at home, bring them. I'll give you a fair price."],
+12:["(Mary is reading a ledger with her lips pressed tight.) Somebody in the oil company's been buying every book I've got on accounting. Six in a fortnight. Either they're learning, or they're hiding something.",[
+  ["Who's buying them?","A nervous young man who pays in cash and never looks up. I've decided not to know his name. It's safer for my nerves."],
+  ["Have you seen Ruby?","Ruby from the record shop was in, asking about a book on old recordings. She's hunting for one record in particular. She had that look people get before they do something foolish."],
+  ["How's Orwell?","Enormous. Lisa at the supermarket saves him the fish ends. I pretend not to know, and Orwell pretends to be starving."]],
+ "Never trust a man who buys six books on the same subject. He's up to something."],
+13:["(Mary is pinning a hand-written sign in the window: 'NO FREE SAMPLES. ONLY BOOKS.') Kelp Cola have girls on every corner, handing out free bottles. I've drawn the line at my doorstep.",[
+  ["Is that sign aimed at Kelp Cola?","It's aimed at anyone with a tray and a smile. I've nothing against cola. I've something against people who give things away and call it kindness."],
+  ["What's on the back shelf?",["(She lowers her voice.) Books people might not be allowed to read, if the wrong side wins. I keep them at the back, behind the atlases.",[
+    ["Which books?","Writers who annoyed governments. Russians, mostly, and one or two Americans. A book is only dangerous if somebody's afraid of it."],
+    ["Aren't you afraid?","Every night. But Orwell and I agreed, and he's the braver of us. He sits on them."]]]],
+  ["Friday the thirteenth today.","I don't believe in luck. I do believe in keeping my ladder away from black cats. Orwell's grey: he doesn't count."]],
+ "Buy a book before somebody gives you a cola."],
+14:["(Mary has her coat on and a book in her pocket.) The whole island's meeting today. I'm going, and I'm taking a novel in case the speeches run long. They always run long.",[
+  ["What are you reading at it?","A thick Russian novel. If anyone asks, I'm studying the enemy."],
+  ["Who's speaking?","Everybody, by the sound of it. I'm hoping for one sentence that isn't a slogan. I'll write it down if I hear it."],
+  ["Will you shut the shop?","For the morning. Grace is minding the door for me. She'll sell nothing and tell everyone their coat doesn't fit."]],
+ "If you see a woman reading at the back, that's me. Leave me be."],
+15:["(Mary is restacking a pile of books that someone's knocked over.) A royal footman and a monk both came in this morning for the same book on the old law of the crown. I had one copy. They argued over it in my doorway.",[
+  ["Who won?","Neither. I sold it to a schoolgirl doing her homework. They both stood there with their mouths open. It was the best moment of my week."],
+  ["What's the argument about?","Whether the crown comes before the Church or the Church before the crown. They've argued it for three hundred years. Books have outlived both sides every time."],
+  ["How's business?","Better. Arguments are good for bookshops. Everyone wants to be right, and they want it in writing."]],
+ "Never get between a monk and a footman. Both have long memories."],
+16:["(Mary has her ear to the radio, and a pencil in her hand.) The great debate: Helen for the Communists, Erik for the Democrats. I'm marking them both for grammar.",[
+  ["Who's winning?","On grammar, Erik. On passion, Helen. On sense, the man reading the weather between them. He was the only one who sounded sure of anything."],
+  ["What would banning books look like here?","Nothing dramatic. A list, a quiet visit, a polite suggestion. It usually starts with something polite."],
+  ["Did either mention books?","Erik promised free libraries. Helen promised libraries 'for the people'. I want to know who chooses what goes on the shelves. Nobody said."]],
+ "Pay attention to what they don't say. That's where the plot is."],
+17:["(Mary is steadying a tall bookcase with one hand.) Did you feel the floor go? The whole shop shivered, and the Tolstoy fell over again. That's the second time this week.",[
+  ["Is it an earthquake?","Something deep. There's steam on the mountain, they say. I've a book on volcanoes, and I've hidden it. People keep asking for it, and it only frightens them."],
+  ["Should you bolt the shelves down?","Arto said he'd come and do it. He's coming tomorrow, or Thursday, or 'when the floor stops moving'. That could be some time."],
+  ["Did you hear about Dario?","Missing. He's never bought a book in his life, so I'm not personally worried. His bank manager must be beside himself."]],
+ "Walk carefully. The pavement's restless."],
+18:["(Mary is wiping steam off the inside of her shop window.) The whole street's fogged up. Grace says it's the mountain breathing on us. I've moved the old books into the back, away from the damp.",[
+  ["What happens to old books in damp?","They swell, they spot, and they smell of the sea. Like old sailors. Some people like it. I don't."],
+  ["Are you frightened?","A bit. Everyone is. I've packed a small bag. It has three books in it and a jumper. Priorities."],
+  ["What's in the bag?","Dickens, for the long wait. A book of poems, for if it's bad. And a detective, for if it's very bad. A good mystery takes your mind off anything."]],
+ "Keep an umbrella. It's raining steam."],
+19:["(Mary is on her knees surrounded by fallen books, and very cross.) The floor jumped again. Every shelf in the shop came down, and they were alphabetical. Arto helped me pick them up. Now Dickens is next to Dostoevsky, which is fine, and Agatha Christie is in poetry, which isn't.",[
+  ["Can I help sort them?","Bless you. Fiction on the left, everything else on the right. If you find a book with a red cover and a woman on it, that's for Mario. Put it with the parcel."],
+  ["Is Mario's parcel ready?","It went this morning. (She stops.) Oh no. (She holds up a detective novel.) Then what did I send him? (Pause.) A love story. I sent Mario a love story."],
+  ["Did Arto do a good job?","He picked up every book and put none of them in the right place. I gave him tea and a stale biscuit. He said it was a good wage. Bless him."]],
+ "If you see Mario, tell him I'm sorry. It ends happily, at least."],
+20:["(Mary has pushed the heaviest bookcase against the wall and is leaning on it, out of breath.) There. If the floor goes again, it'll have to take the wall with it. I've done what I can.",[
+  ["Have you thought of leaving?","Leaving the island? Where would I go with ten thousand books? I'd need a boat the size of the palace. (She looks round.) No. If it goes, it goes with me in it."],
+  ["What's happening at the palace?","Gossip says somebody's after something in there. Ingrid from the palace bought a book on locks a week ago. I didn't think anything of it then."],
+  ["Is anyone at the Hotel Aurora?","A man in a heavy coat who reads Russian newspapers in the lobby. He came in and bought a map of the island. He paid in exact change, which no tourist ever has."]],
+ "Bring a candle if you visit at night. The lights keep failing."],
+21:["(Mary's shop is grey. Ash on the books, ash on the counter, ash on Orwell.) The mountain's gone up. I watched it from the step. Nobody's hurt, thank God, but look at my shop. It's in the paper. All of it.",[
+  ["Can it be cleaned?","With a soft brush and patience. I've got the brush. Ask me about patience tomorrow."],
+  ["Is Orwell all right?","He's furious. He's grey on grey now, and he's licking ash off his paws and giving me looks. He blames me personally."],
+  ["Is everyone safe?","Kaisa's reading names on the radio, everyone who's rung in safe. I heard Frank's, and Grace's. I sat on the floor and cried. Then I fetched the brush."]],
+ "Cover your mouth. Ash in the lungs is like ash in a book: it never comes out."],
+22:["(Mary is brushing ash off book covers, one at a time, with a soft brush.) Freja says I'm drowned in dust. She's right. I've done the As and the Bs. Only twenty-four letters to go.",[
+  ["Can I take a brush?","(She hands you one.) Gently. From the spine outwards. Never blow on it: that just moves the problem into the next book."],
+  ["Have you sold anything since?","A book on volcanoes. Several, in fact. The one I hid. People want to know what's happened to them. It's the oldest reason to read."],
+  ["How's Kingsgrad?","Grey and quiet and everyone sweeping. Lisa's sold out of soap. Grace is selling grey cloth by the yard, so the ash won't show."]],
+ "From the spine outwards. Remember that."],
+23:["(Mary is reading the Gazette with her coffee going cold.) The oil rig's leaking again, it says, and there's whispering about the cola factory: somebody wants its machines to stop. Somebody in Kingsgrad doesn't want things to run smoothly.",[
+  ["Who'd do that?","I don't know, and I don't want to. In books, the person who says 'I don't want to know' always finds out. I'd rather be the exception."],
+  ["Is the island coming apart?","It's being pulled apart. That's different. Pulled things can be put back. Coming apart is for paper in the rain."],
+  ["Has Mario finished the love story?","He sent a note back with Sergeant Hanna: 'Nobody died. Very disappointing. Please send murders.' I've sent him three."]],
+ "Three murders for Mario, and a cold coffee for me. That's my day."],
+24:["(Mary has a pile of books on her counter with notes tucked in them.) I'm lending books to the clean-up crews. Something to read on their tea breaks. Tolstoy goes a long way between shovels.",[
+  ["Lending? Not selling?","Some weeks you lend. This is one of them. They'll bring them back with ash in them, and I'll brush them, and that's fine."],
+  ["What do clean-up crews read?","Westerns, overwhelmingly. A man with a horse and a shovel finds a man with a horse and a gun very restful."],
+  ["Is the Church doing anything?","The monks are going up to the peaks to pray. I've given Brother Mikael a detective to take with him. Under 'devotional'."]],
+ "If you're shovelling ash, take a Western."],
+25:["(Mary is sitting on her step, in the weak sun, reading a book of poems.) The palace and the Democrats are talking, they say. A crown for everyone, a princess for democracy. It sounds like the title of a bad novel. I'd read it, though.",[
+  ["Is that a good thing?","People who talk at a table don't usually burn books. I'm in favour of anyone talking to anyone this week."],
+  ["What are you reading?","The soldier's poems, from Eastbrook. Somebody underlined a line about winter ending. I've decided he was right."],
+  ["Have you heard Kaisa on the radio?","Every night. She plays jazz after midnight, and I read to it. Orwell sleeps on the radio, for the warmth. It's the happiest the three of us have ever been."]],
+ "Sit in the sun if you can find it. It won't last."],
+26:["(Mary is reading a letter, and laughing.) From a customer in London who left last year. She says the bookshops there are all chains now, and they sell candles. Candles! In a bookshop!",[
+  ["Do you miss the mainland?","I've never lived there. I've just read about it. That's usually better than living there."],
+  ["What about Dario and the spa?","He wants to buy it, I hear. A man who owns half the island wants a bath as well. He's still never bought a book. That tells you everything."],
+  ["Kelp Cola wants a prince on every bottle?","So I hear. Leopold's face on a fizzy drink. His grandfather would've had them shot. Mind you, he'd have had me shot too."]],
+ "If I ever sell candles, shoot me. Frank will lend you something small."],
+27:["(Mary is reading a pamphlet with her lips thin.) The Communists are showing a film at the pictures, from Moscow. A history of something, with a lot of tractors. They've put pamphlets through every door, mine included.",[
+  ["Will you go?","No. I'll read the book instead. There's always a book, and it's always better, and nobody can tell you when to cheer."],
+  ["Does it worry you?","The film? No. People who show films are trying to persuade you. It's the people who take books away who've stopped trying."],
+  ["What's the Syndicate doing?","A poker tournament, Frank says. High stakes. I'm sure Mario's heartbroken to be missing it. I've sent him a book about poker. Murders in it, I checked."]],
+ "If you go to the film, sit near the door."],
+28:["(Mary is standing in the doorway with her arms folded, watching the street.) Every faction's out today. Banners, speeches, people knocking on doors. Two people asked me who I'm for. I sold them both a book.",[
+  ["What did you sell them?","The Communist got a history of the French Revolution. The royalist got the same book. Neither of them noticed. It ends badly for both sides."],
+  ["Are you frightened for tomorrow?",["(She looks at the back shelf.) I've moved it. The back shelf. It's under the floorboards now, wrapped in oilcloth.",[
+    ["Is it that bad?","I don't know. That's why. If it's not bad, I'll dig them up on Tuesday and feel very silly. I'd love to feel silly."],
+    ["Who knows it's there?","Orwell, and now you. Orwell won't talk. I'm trusting you'll be the same. You're a reporter: I suppose that's a gamble."]]]],
+  ["What do you hope for?","An island where the worst thing that happens to a book is a cat sleeping on it. That's all."]],
+ "Don't tell anyone about the floorboards. Not even in your paper."],
+29:["(Mary is sitting on her counter, swinging her legs, reading to herself under her breath.) I can't open the shop. Nobody's buying books today. They're all at the primaries, or at the palace, or under their beds.",[
+  ["What are you reading?","The last chapter of the whaling book. I've been saving it. I've decided the whale wins. I haven't checked yet."],
+  ["How's Kingsgrad?","Holding its breath. Grace hasn't spoken all morning. Frank's polishing the same rifle for the third hour. Lisa's restocking soap nobody's buying."],
+  ["Who do you think will win?","Whoever writes the history afterwards. That's always who wins, and it's my trade, so I know."]],
+ "Read something before bed. It helps."],
+30:["(Mary has the shop open, with the door wide, and Orwell on the step in the cold sun.) The last day of September. Everything's decided today. I've opened anyway. If the world ends, I want to be found among my books.",[
+  ["Is the back shelf still hidden?","Under the floorboards. It'll stay there until I know. Then I'll dig it up and put it back in the window. Or I won't. We'll see."],
+  ["What will you do whatever happens?","Open the shop tomorrow. Brush off the ash. Send Mario a murder. Read the next thing. That's what I've always done."],
+  ["Thank you, Mary.","For what? I sold you nothing all month. (She pulls a thin book off the shelf and hands it to you.) There. The ghost stories. Take it, and come back and tell me if it frightened you."]],
+ "Read it slowly. It's better that way."],
 };
 // Mats, office clerk for Diversified Petroleum in the Petro Tower in Frostholm, lives in the Kingsgrad Apartments with Elin, Phil's
 // secretary at Kelp Cola (Diversified Petroleum). Threads: Elin, and their rule never to talk about work, broken every evening; his
@@ -16630,158 +16640,170 @@ DAILY['Tiina']={
   ["What are you hoping for?","That the island remembers people like Matti. That's all. Whoever wins, I'll be here, and I'll be asking."]],
  "Whatever happens today, the nets still need mending on Monday."],
 };
-// Tom, fisherman in West Saltwick Harbour (Union). Threads: his boat Marit and her sulky engine, the lobster pots, his lending habit (Sam and Mike), the cold coming on, the volcano.
+// Tom, fisherman at West Saltwick Harbour (the Union). Threads: his boat the Gull and the queue to borrow her, five o'clock eggs
+// at Aili's with Sam and Mike, his chalkboard weather forecast (always wrong, he says, like him about girls), the fish and the oil
+// from the rig (a stain on the 8th, stinking nets on the 9th, a black line on the hull on the 23rd), Lucia's little book, the
+// Party trying to sign him up (he likes everybody), his sister's boy coming next summer, and the mountain (he ties up on the
+// 18th, goes out into milky water on the 22nd).
 DAILY['Tom']={
-1:["(Tom is coiling rope on the quay.) Snow's off the harbour road at last. You'll be the reporter. Tom. I fish, and I lend my boat to anyone who asks nicely.",[
-  ["Nice to meet you. Good boat?","Marit. Forty years old, and she's got opinions. Mostly about starting."],
-  ["Is the fishing any good?","Cod, when the ice lets me out. Today I'm mending nets, which is what fishermen do instead of fishing."],
-  ["Lending boats to strangers?","Only if they ask nicely. You haven't asked yet, so I haven't had to decide."]],
- "Mind the nets. They bite."],
-2:["(Tom nods at the grey water.) They say the Kingsgrad road is open. Folk keep going past me with suitcases, as if the palace has a sale on.",[
-  ["Are you going to Kingsgrad?","What would I do there? Curtsey? The sea's my palace."],
-  ["What does Saltwick think of the king's death?","Quiet about it. A king's like a tide table: you don't notice it till it stops."],
-  ["Any good stories down here?","Sam caught a boot last week and swears it was a good one. That's about it."]],
- "Come back when you want a story with a fish in it."],
-3:["(Tom is scraping a hull.) Cola boys are in Kingsgrad now, I hear. The bottling line's humming. Half of Saltwick's got a cousin on it.",[
-  ["Do you drink the cola?","One a day, with lunch. Kelpy on the label looks like a cup with a grudge."],
-  ["Is the Union behind it?","Helen keeps an eye. The Union wants the workers paid, and Kelp Cola wants them quick. They get on like cats and a bath."],
-  ["Does the factory buy your fish?","No, but they buy Olga's, and Olga buys mine. It all comes round."]],
- "Mind the gulls, they steal."],
-4:["(Tom is blowing on his hands.) Eastbrook's open too. Boat to Eastbrook Harbour's cheaper than the tram, if you don't mind a bit of spray.",[
-  ["Could you take me?","If you ask nicely. (He grins.) You just did. Not today, though: Marit's engine is sulking."],
-  ["What's wrong with the engine?","She coughs. Mike says it's the plugs, Sam says it's the fuel, and I say it's age."],
-  ["Do you go there often?","For the Gazette's fish and chip ads. Henrik pays in newspapers. I've got a stack by the stove."]],
- "Keep your hat on. The wind's got teeth."],
-5:["(Tom is hauling a crate.) Monastery road's open, they say. Father Thyme will be ringing bells again. You can hear them across the water if the wind's right.",[
-  ["Do you go to church?","Christmas and funerals. The monks don't mind, they get my cod at Easter."],
-  ["Do the monks fish?","They've a pond up there. A man who fishes in a pond isn't a fisherman. Don't tell them."],
-  ["What's the mood on the quay?","Folk are wondering who'll sit on the throne. Mostly they're wondering what's for dinner."]],
- "Mind the wet planks."],
-6:["(Tom is eating a sandwich on an upturned bucket.) Somebody telephoned the harbour master this morning and asked after you. A stranger, asking nicely. I said you were seeing the island.",[
-  ["Who was he?","No name. Polite voice. I told him I fish and don't ask."],
-  ["That's a bit odd.","It's an island. Everything's odd by Thursday."],
-  ["Are you worried?","I'm hungry. Worry comes after lunch."]],
- "Eat something. It's cold out."],
-7:["(Tom points north-west.) The Frostholm road's open as of today. The whole island's loose again. Folk are going about like cows let out in spring.",[
-  ["Are you glad?","I like a quiet harbour. But the oil lot will be down with their clipboards, wait and see."],
-  ["Does oil worry you?","They've a rig out past the point. A rig's a lump of metal in my fishing."],
-  ["Seen the Diversified men?","One came to ask for a boat. I said I'm only lending to people who ask nicely. He didn't."]],
- "Mind the diesel, it's slippery."],
-8:["(Tom has a flask of tea.) Sunday. Bells all morning from up the hill. Father Thyme's been going on about words, I hear. Can't find the right ones for the sermon.",[
-  ["What would you say to him?","Say the sea's wide and the cod's cold. That's all the sermon I need."],
-  ["Does the Church matter to the harbour?","They bless the boats in spring. Marit got blessed in '71. She still sulks."],
-  ["Any gossip today?","Mike says Kaisa played a hymn on the radio and a rumba after. The monks aren't sure which they liked."]],
- "Warm hands, warm tea."],
-9:["(Tom is holding a cola bottle up to the light.) Strange taste, this. They say Kelp's changing the formula, and the Party wants its own cola too. A fisherman can't keep up.",[
-  ["Which one would you drink?","The cheap one. A bottle's a bottle."],
-  ["Does anyone ask you about flavours?","Folk ask me about bait. I say the lobsters like fish heads, and cola's no good to them."],
-  ["What would a Union cola taste of?","Salt, I'd think. And a bit of tar from the quayside."]],
- "I'll stick to tea."],
-10:["(Tom's cap is in his hands.) They bury the king today. I've had the flag half down on Marit since dawn. He never went out on a boat, but he knew we were here.",[
-  ["Did you ever see the king?","Once, in 1969, on a ceremonial cutter. He waved at a seal. I think it was a seal."],
-  ["Are you going to the funeral?","Too far. I'll stand on the quay with the others and look at the water."],
-  ["What now for the island?","Heaven knows. They all want something. I'd like a fair price for cod."]],
- "Quiet today. Respect."],
-11:["(Tom is leaning on a post.) The mill hands are making a fuss about wages over in Eastbrook. Helen says it's about time. I say a day's pay is a day's pay, and a day's fish is a day's fish.",[
-  ["Do you support them?","Always. I'm in the Union, aren't I? Though I sell fish, not planks."],
-  ["Is Helen involved?","Helen's always involved. She'd organise the tide if she could."],
-  ["Does your pay ever come late?","Sometimes the cod just doesn't turn up. It's a wage of sorts."]],
- "Fair's fair."],
-12:["(Tom is whistling.) Folk say Ruby over in Eastbrook has a record someone from Frostholm wants badly. A boy told me. Fishermen get all the news, because we sit still.",[
-  ["Do you know Ruby?","Everyone knows Ruby. She told me my taste in music was 'regrettable'."],
-  ["What record is it?","Haven't a clue. If it's a shanty, it's mine, and I'd like it back."],
-  ["Who'd want a record that badly?","Someone with more money than ears. Plenty of those up north."]],
- "Fair winds."],
-13:["(Tom is eyeing a stack of cola crates on the quay.) Free samples, they say. Kelp's handing out bottles on every corner. I took two. A fisherman takes what's free.",[
-  ["Is it good?","Fizzy. It fights back. Marit's engine does the same."],
-  ["Why free?","So we'll buy it later. I'm not daft. I'm just thirsty."],
-  ["Did the Union approve?","Helen said take the bottle but keep your vote. Sound advice, that."]],
- "Take care of those bottles."],
-14:["(Tom is wearing a clean jumper, which is rare.) Tomorrow's the big day, the fourteenth. Everyone's on about it. I don't know what they expect, but they expect it hard.",[
-  ["What are you expecting?","Crowds. Noise. Someone making a speech with a lot of 'my fellow islanders' in it."],
-  ["Will you go?","I'll go if the boat's tied up and the nets are done. Marit won't mind."],
-  ["Are you nervous?","A bit. The island's like the sea before weather: everyone looking up."]],
- "Big day. Wear a hat."],
-15:["(Tom is rubbing his chin.) Palace and monastery are arguing about who comes first, crown or cross. I'd say the tide comes first, but nobody asks.",[
-  ["Which side are you on?","Mine. I'm a Union man. I'd like both of them to pay a decent price for fish."],
-  ["Who'd make a good king?","Someone who knows what a rope is for."],
-  ["Is the harbour divided?","Sam's for the prince. Mike's for the monks. I'm for lunch."]],
- "Don't argue on the slippery bit."],
-16:["(Tom is polishing a hook.) Big debate today, the Party against the Democrats. Helen's practising her speech so loud I could hear her over the gulls.",[
-  ["Who will win?","The one who talks longest. Or the one who brings sandwiches."],
-  ["Do you follow politics?","Only on the radio. Kaisa reads the news in a voice so nice I'd believe anything."],
-  ["Would you vote?","Happily. A vote's like a line in the water: you never know what you'll get."]],
- "Eat something first."],
-17:["(Tom is looking at his mug of tea.) The tea trembled just now. I said to myself, that's the tram. But there's no tram in the harbour.",[
-  ["The ground shook?","A bit. The old men say the mountain's grumbling."],
-  ["Are you worried?","I'm a fisherman. I know what the sea does. The land's new to me."],
-  ["Did the boats feel it?","Marit shuddered. She'd do that anyway, though."]],
- "Keep your eyes on the north."],
-18:["(Tom is squinting at the sky.) Steam over the north, did you see? Thin white line. And Mike's gone to the Cola Museum to see Kelpy, which tells you how bad things are.",[
-  ["Why Kelpy?","Mike says the cup brings luck. A cup. I said it's a person in a suit."],
-  ["Are you scared of the volcano?","It's a long way off. I've a boat, which is a good thing to have."],
-  ["Heard about a lost relic?","The monks lost something. They're being quiet. Quiet monks are worried monks."]],
- "Keep the lamp lit."],
-19:["(Tom is baiting a pot.) They say there's a new song at the Midnight Note, and a lot of comrades about. Songs and comrades. Not for me.",[
-  ["Do you go to the Midnight Note?","Once. They played something so slow the fish rose to listen."],
-  ["What are the comrades up to?","Recruiting, mostly. Helen would call it organising."],
-  ["Would you join the Party?","I'm in the Union, which is plenty. Marit doesn't do politics."]],
- "Stay out of draughts."],
-20:["(Tom is rinsing a bucket.) Something's up at the palace, folk say. And a stranger's staying at the hotel in Frostholm. Always strangers, these days.",[
-  ["Who's at the hotel?","I don't know. I only know boats."],
-  ["Do you think the palace is in trouble?","Palaces always are. It's the price of a big house."],
-  ["Are you getting nervous?","The ground shook twice this morning. I'm getting nervous."]],
- "Watch your step."],
-21:["(Tom is standing at the quay edge, ash on his cap.) You saw it. The mountain went up like a kettle. Glowing orange in the north. Nobody's hurt, thank God.",[
-  ["Are you all right?","Fine. Marit's fine. The sky's a funny colour, that's all."],
-  ["What now?","Wait. It's all we can do. Tea, mostly."],
-  ["Will the boats go out?","Not till the ash settles. Fish don't like grit either."]],
- "Keep a cloth over your mouth."],
-22:["(Tom sweeps ash off Marit's deck.) Grey on everything. Like someone's been at the island with a pepper pot. I've swept the deck twice and it's grey again.",[
-  ["How's the harbour?","Quiet. Ash on the water, and the gulls look disgusted."],
-  ["Heard anything from the farms?","Cattle upset, they say. Cows don't like ash. Nor do I."],
-  ["Is anyone helping?","Everyone is, which is the one nice thing about a disaster."]],
- "Sweep little and often."],
-23:["(Tom is wiping his hands on a rag.) The engine's coughing worse than before. Ash in the filter, I reckon. Mike's coming to look. He'll say it's the plugs.",[
-  ["Is there anyone to repair it?","Mike knows engines a bit. Gunnar knows crates a lot. I know fish."],
-  ["What about the oil lot's repairs?","They've been fixing something deep down at the rig. Out of sight, out of mind, as I'd like it."],
-  ["Will you manage?","I always do. It's how I've lasted."]],
- "Stay dry."],
-24:["(Tom nods at the north.) Some of the monks are heading up to the peaks, they say, to retreat. In ash. I'd stay home and light the stove.",[
-  ["Why would they go up there?","To be nearer heaven, I suppose. It's nearer the volcano too."],
-  ["Is anyone cleaning up?","Folk are shovelling in turns. Clean-up crews, they call them. Some more official than others."],
-  ["Does the harbour need help?","Always. A broom's welcome. A kind word's better."]],
- "Wrap up warm."],
-25:["(Tom is tying a knot slowly.) A princess for democracy, I heard, and a crown for everyone. Fine words. Fine words don't catch fish.",[
-  ["What do you think of the princess?","I've never met her. If she can row, she's got my vote."],
-  ["Is the harbour talking about it?","Everyone's talking about everything. It's all politics and ash."],
-  ["Will you vote?","I will. Sam says I'll vote for whoever has the nicest hat."]],
- "Pick your hat well."],
-26:["(Tom is gripping a mug.) Kelp's got a prince in every bottle now, apparently. And the oil man's buying a spa. I'd sooner buy a net.",[
-  ["Do you like the new bottles?","The prince looks worried. I'd be worried with cola in my chest."],
-  ["Why would the oil man buy a spa?","To soak. They have money; they've got to put it somewhere."],
-  ["What would you buy?","A new engine. Marit's earned it."]],
- "Soak your feet, not your boots."],
-27:["(Tom is sitting on the upturned hull.) The Party's showing something at the pictures, folk say. I like a film, but Helen's films mostly have a tractor in them.",[
-  ["Are you going?","If there's a seat and no tractor."],
-  ["Do you like films?","Last one I saw had a whale in it. I cried at the whale."],
-  ["What's the Union think?","That it's about time we had one of our own, with a boat."]],
- "Take a flask."],
-28:["(Tom stares at the horizon.) Everyone's doing their biggest push today, it feels like. Flags, banners, posters. I've got a net and a cup of tea, and that's my campaign.",[
-  ["Are you worried?","A bit. When everyone shouts at once, nobody listens."],
-  ["Who will win?","I haven't the foggiest. I'd like the one who leaves the harbour alone."],
-  ["Will you be on the quay tomorrow?","Where else? That's where I live."]],
- "Don't shout. Save your voice."],
-29:["(Tom is helping Sam with a rope.) Another day of it. Banners on the tram, speeches at the corners. Marit's grumbling, and Sam's grumbling about Marit.",[
-  ["Tired of it?","A bit. I'd just like the thing decided, and the tea warm."],
-  ["Any predictions?","I predict rain, then ash, then a nap."],
-  ["Is there hope?","Always. It's what the harbour runs on, with diesel."]],
- "Early night, if you can."],
-30:["(Tom's sitting very still.) Today's the day, then. Whatever's decided, the tide'll come in tomorrow all the same. That's a comfort.",[
-  ["Nervous?","Like before a storm. But I've sailed through plenty."],
-  ["What do you hope for?","Peace on the quay. A fair price for fish. A decent engine."],
-  ["Thank you for talking.","Any time. Ask nicely, and I'll even lend you the boat."]],
- "Fair winds, friend."],
+1:["(Tom is coiling rope on the quay, whistling.) You'll be the reporter. Tom. I fish, I mend nets, and I lend my boat to anyone who asks nicely. You're asking nicely. I can tell.",[
+  ["What's your boat called?","The Gull. Thirty years old, older than some of the men who borrow her. She's out now, as it happens. Three people borrowed her this morning, and none of them have brought her back."],
+  ["What do fishermen make of the king's death?","Sad. He came down to the harbour once and asked what bait we used. Nobody's asked us that since. (He shrugs.) The fish don't know he's dead. They're still not biting."],
+  ["You lend her to anyone?",["Anyone who asks nicely. You'd be surprised how few people ask nicely.",[
+    ["Isn't that risky?","She always comes back. Sometimes with fewer nets. Once with a goat. But she comes back."],
+    ["Who asks rudely?","Lucia, mostly. Though she doesn't ask, as such. She writes things in a little book."]]]]],
+ "If you see the Gull out there, wave. She likes it."],
+2:["(Tom is chalking on a board outside the harbour office.) My forecast. 'Fair, light winds.' I put one up every day. (He looks at the sky, which is heavy and grey.) I'm wrong more often than I'm right. People read it to know what won't happen.",[
+  ["Why keep doing it?","Somebody has to be wrong about the weather, or the weather gets big-headed."],
+  ["Is Mike's boat broken?","The Valborg? The gearbox, I'd say. I always say it's the gearbox, and I'm usually right. Mike's fourth in the queue for the Gull, behind a man who wants to see the palace from the sea."],
+  ["Who wants to see the palace from the sea?","A gentleman with a camera and a very good coat. He says he's a birdwatcher. There are no birds round the palace, only guards. I'll take him anyway: he's paid in advance."]],
+ "Fair, light winds. Bring a coat."],
+3:["(Tom is wiping egg off his chin.) Aili's eggs. Five o'clock, every day, with Sam and Mike. Three coffees, six eggs and one argument about whose turn it is to pay. It's never my turn. It's always me.",[
+  ["Who won the argument?","Sam, by saying nothing. Sam wins most arguments by saying nothing. He's said eleven words this week, and four of them were 'no'."],
+  ["Do you all talk politics?","Mike does, when Helen's in earshot. Sam does, in his head. I talk about fish. Fish are the one thing everybody in Saltwick agrees on."],
+  ["Are Aili's eggs good?","Best on the island. She learnt to cook in Minnesota, where they put butter on everything. I've put on half a stone since she opened."]],
+ "Five o'clock, if you want eggs. Bring money: it's never my turn."],
+4:["(Tom is mending a net, his needle flying.) The roads are open as far as Eastbrook, so the Eastbrook boats will be out, and the cod will go over there instead. Cod are fickle. Like customers. And girls.",[
+  ["Are you married, Tom?","No. I'm wrong about girls the way I'm wrong about weather: confidently, every day. I've stopped forecasting them."],
+  ["How long have you fished?","Since I was nine. My father put me in the Gull and said 'don't fall out'. I've been not falling out for forty years. It's a skill."],
+  ["Can I try mending?","(He hands you the needle.) Over, under, through. (He watches.) That's a knot. It isn't the right knot, but the fish won't know."]],
+ "Over, under, through. You'll get it."],
+5:["(Tom is checking the Gull's fuel with a stick.) Mike had her this morning. Caught more in two hours than he did all August, he says. And he filled the tank. (He looks at the stick.) Mostly.",[
+  ["Mostly?","Half. Mike's half is everyone else's quarter. But he brought her back clean, and he brought me a fish. That's the rent."],
+  ["Is the Gull lucky?","Mike thinks boats pick up their owner's luck. I've never had a bad day at sea. Plenty on land, mind."],
+  ["Did the birdwatcher go out?","Yesterday, with his camera. He came back looking at his notebook, not at the birds. I asked him what he'd seen. He said 'a great deal'. Strange sort of birdwatcher."]],
+ "Tell Mike he owes me half a tank. He'll laugh."],
+6:["(Tom is counting coins into his palm.) Lucia came round the boats with her little book. I paid. I always pay. It's cheaper than a new boat.",[
+  ["That's protection money.","It's a quiet life. Same thing, if you squint. Sam paid too. Mike didn't, somehow, and nobody knows why."],
+  ["Doesn't the Union mind?","Helen minds. Helen minds everything. But the Union can't stop a fire at two in the morning, and Lucia can. (He shrugs.) Somebody has to keep the harbour safe."],
+  ["Why didn't Mike pay?",["(Tom grins.) Now that's a question. Lucia just looked at him, wrote nothing down and walked on. And Mike went as red as a lobster.",[
+    ["Do you know why?","I know a lot of things I don't say. A man who lends his boat hears every secret on the quay."],
+    ["Is something going on?","Maybe. Maybe not. It's none of mine. I just lend the boat."]]]]],
+ "Keep your pockets light. Saltwick's a friendly place, as long as you pay."],
+7:["(Tom is looking out to sea, towards the north-west.) The north road's open, so the rig's busy. You can see its lights from here, out past the point. I don't like it out there. Neither do the cod.",[
+  ["Why don't the cod like it?","Noise. Hammering, day and night, through the water. Fish hear everything. It's like trying to sleep under a blacksmith."],
+  ["Do you go near it?","Not if I can help it. There's a rope round it, and men with whistles. The Gull's not a whistle sort of boat."],
+  ["What's the forecast?","'Calm and bright.' (A gust nearly takes his cap.) I'll put a question mark on it."]],
+ "Calm and bright. Hold your hat."],
+8:["(Tom is crouched at the edge of the quay, staring at the water.) There's a stain off the point. Black, with a rainbow on top, like a puddle in a workshop. I don't like it.",[
+  ["Is it oil?","Smells like it. It's coming from the north-west, and there's only one thing up there that bleeds black. (He spits in the sea.) Sorry. Habit."],
+  ["What does it do to the fish?","Kills them, or sends them off. The cod are thin enough already. Bob says I'm superstitious. Bob's never pulled up a net of dead herring."],
+  ["Will anyone clean it up?","Somebody ought to. The oil company will say it isn't theirs, the Party will say it's a plot, and the fish will say nothing, because they're fish."]],
+ "Watch your boots on the quay. It's slippery today."],
+9:["(Tom is sitting on an upturned crate, scrubbing his hands with sand.) My nets came up stinking. Black on the corks and oil in the mesh. I'll be scrubbing all week.",[
+  ["Can they be saved?","Most of them. Sand, hot water and swearing. The swearing does most of the work."],
+  ["Who's to blame?","Depends who you ask in Ray's bar. Sam says capitalists, Mike says Sam, and I say nothing, because I'm tired and my hands smell of the rig."],
+  ["Everyone's inventing a cola, I hear.","Somebody asked me what a fisherman would want in a cola. I said 'salt'. They wrote it down. (He looks pleased.) I'll be famous."]],
+ "If you shake my hand, wash yours after."],
+10:["(Tom is on the quay in a black jacket that's tight across the shoulders.) They're burying the king in Kingsgrad. We're doing it the Saltwick way: every boat's flying a black rag from the mast, and nobody goes out till noon.",[
+  ["You're not going to the chapel?","It's for important people. The king won't mind. He knew where Saltwick was. He'll see the rags."],
+  ["Did the king ever fish?","Once. He came out in the Gull, years back, with my father. He caught one herring, held it up like a trophy and gave it to the cook. My father talked about it till the day he died."],
+  ["Nice jacket.","It was my wedding jacket. (He tugs at it.) There wasn't a wedding, in the end. It's done funerals ever since. It's had a busier life than I have."]],
+ "Black rags till noon. Then we fish. He'd want us to."],
+11:["(Tom is loading a crate of herring onto a barrow.) For the palace kitchens. Marta takes my herring every week, and Arvid at the Cedar Grill outbids her and says he didn't. They both think I don't know.",[
+  ["Do you take the higher bid?","I take both. Half to each. Then they both think they've won. That's diplomacy, Saltwick-style."],
+  ["Is the fishing better?","A bit. The stain's drifted south. The herring came back first, like they always do. Herring are optimists."],
+  ["Who's Marta?","The palace cook. A fierce woman. She once sent back a herring because it looked insolent. She was right. It was."]],
+ "Mind the barrow. It steers like Mike."],
+12:["(Tom is reading a letter with his lips moving.) From my sister in Helsinki. Her boy wants to come and fish with me next summer. (He folds it.) I've told her it's all snow and oil and politics here. She says so's Helsinki.",[
+  ["Will you take him on?","If he can mend a net and keep his mouth shut, yes. If he's like his mother, he'll talk the fish into the net. She could."],
+  ["What's new in Saltwick?","Ruby from Eastbrook was down at the harbour asking if anyone had an old record in a sea chest. We haven't. We've got old sea chests full of old socks."],
+  ["What's the forecast?","'Snow by evening.' (He squints up.) Which means sunshine. You could set your watch by me, if you set it backwards."]],
+ "Sunshine, then. Probably."],
+13:["(Tom has a free Kelp Cola in one hand and a herring in the other.) They're giving it away in Kingsgrad, and Mike brought a crate back in the Gull. Cola and herring. It's not a good combination. I've tried.",[
+  ["How was it?","Like kissing a mermaid with a cold. Once is enough."],
+  ["Isn't Kelp Cola made from seaweed?","From the kelp off the beach, they say. My grandfather used to throw it back. If he'd bottled it instead, I'd have a villa in Hope Springs."],
+  ["Why did Mike bring a crate?","For Helen, to pour down the sink at a Party meeting, as a protest. Then the Party drank it. Protesting's thirsty work."]],
+ "Free cola, cold herring. I'll stick to tea."],
+14:["(Tom is in his good jumper, turning his cap in his hands.) The whole island's gathering today, and Saltwick's emptying out. Sam and I are walking over together, for once. We'll argue quietly.",[
+  ["What do you expect?","Speeches, a lot of standing about in the cold, and somebody's pocket picked. Lucia's coming. I'd keep your hands in your coat."],
+  ["You and Sam don't agree?","Sam thinks the island should belong to the Soviets. I think it should belong to the people who fish off it. On a good day that's the same thing. Today might be a good day."],
+  ["What's the forecast?","'Fine and dry.' (Pause.) So bring an umbrella."]],
+ "See you in the crowd. I'm the one with the cap."],
+15:["(Tom is untangling a crab pot that's come back in a knot.) Borrowed, and returned in a knot the shape of the Kingsgrad road. People are kind to borrow and terrible at giving back.",[
+  ["Who borrowed it?","A monk. Brother Mikael, from up the mountain, wanted crabs for a soup. He brought me some of the soup in a jar. That was decent."],
+  ["How's the oil?","Mostly gone from the harbour. There's still a black line on the rocks at low tide, like a ring round a bath. The sea will scrub it, given time. The sea's patient."],
+  ["Do you go to church?","When it's raining and the bar's shut. Father Thyme doesn't mind. He says God doesn't keep a register."]],
+ "If you borrow a crab pot, bring it back straight."],
+16:["(Tom has a little radio on the quay wall, turned up loud.) The great debate. Helen against Erik. I've got a pint on Helen with Ray. Helen's louder, and on the radio, loud counts.",[
+  ["Who do you hope wins?","Nobody, really. I like Helen, I like Erik, I like whoever's buying. If they could both win, I'd be happiest."],
+  ["You're not in the Party?","No. They ask me every year. I say I like everybody, and the Party wants you to dislike some people. Mike says I'm not wrong, which annoys him."],
+  ["Turn it up?","(He turns it up. Helen's voice rattles the radio.) That's as far as it goes. Any louder and the gulls complain."]],
+ "A pint on Helen. Don't tell Erik."],
+17:["(Tom is holding on to a bollard and frowning at the water.) Did you feel the quay shiver just now? The water in the harbour jumped, all at once, like a dog hearing its name.",[
+  ["An earthquake?","Something under the sea, or under the mountain. The old men say the island shrugs every hundred years. Nobody alive remembers the last shrug."],
+  ["Are the boats all right?","They are. The Gull bumped the quay and gave me a look. Boats know things. She's been restless all day."],
+  ["Heard about Dario?","Missing, they say in Ray's bar. Rich men don't go missing on Sarivalto: there's nowhere to go. He'll turn up somewhere expensive."]],
+ "Hold on to something if it shivers again."],
+18:["(Tom is tying the Gull up with three extra ropes, and won't look at the mountain.) I'm not going out. Don't ask me why. There's steam on the mountain, and the sea's gone as flat as a plate. When the sea goes that quiet, you tie up.",[
+  ["Is that superstition?","Call it what you like. My father tied up on a quiet sea in 1953, and the storm took two boats that didn't. I'm my father's son."],
+  ["The others are going out.","Sam's going because the sea belongs to the workers. Mike's going because Sam is. I'm going to Aili's for eggs. We'll see who's right."],
+  ["What's the steam?","Nils at the electronics shop says it's the mountain breathing. I've never heard of a mountain that breathes. I've never met a quiet sea that meant well, either."]],
+ "Tie your boots tight. Just in case."],
+19:["(Tom is laughing at a pamphlet.) Recruiting day. Mike came down with a clipboard, Kate came down with another clipboard, and Sam stood behind them looking embarrassed. Three people to sign up one fisherman.",[
+  ["Did you sign?","No. I gave them a herring each and lent Mike the boat. Everybody went home happy except the clipboards."],
+  ["Why won't you join?",["Because I like everybody. I like Anna, I like Helen, I like the king's family, I like Ray, and Ray likes nobody. (He shrugs.) The Party wants you to pick.",[
+    ["Is that a political position?","It's the only one I've got. Sam says it's cowardice. Sam's said that twice this year. That's eight words."],
+    ["Maybe you're right.","Maybe. But I've been wrong about everything else all my life: weather, girls, the price of cod. Why not this?"]]]],
+  ["What's the forecast?","'Settled.' The mountain's steaming, the ground's shaking and Lucia's selling insurance door to door. Settled."]],
+ "If you've got a clipboard, I'm out."],
+20:["(Tom is sitting on the quay wall with a flask, watching the north.) The steam's thicker. It's turned the sky the colour of dishwater. I wrote to my sister not to send the boy. Then I wrote again to say send him. I can't decide.",[
+  ["Why change your mind?","Because it's still home. Volcano or no volcano, this is where the fish are and where my friends are. The boy should see it, even if it's on fire."],
+  ["Is anyone leaving the island?","Some are talking about it. There's a queue at the ferry office for the first time in years. Mostly people who came for the oil money. Fishermen don't leave. Fishermen tie up."],
+  ["What's in the flask?","Tea, and something else. (He offers it.) Mostly tea. Mostly's the word of the week."]],
+ "Mostly tea. Mostly fine. Mind how you go."],
+21:["(Tom's face is grey with ash, and he's hauling a boat up the slipway.) The mountain's gone up. Lava in the north, ash on everything, and the sea's warm. Warm! I've never felt that in my life. Nobody's hurt. That's what matters.",[
+  ["Can I help?","Grab that rope. (You pull together, and the boat comes up the slip.) Good. That's Sam's. He's at Party HQ counting heads, and I'm counting boats."],
+  ["Is the Gull safe?","Tied up, like I said. Tied up and fine. (He doesn't sound smug. He sounds grateful.) My father would've said 'told you'."],
+  ["Is anyone missing?","Kaisa's reading out names on the radio, everyone who's rung in safe. I've heard half of Saltwick so far. The other half's too busy pulling boats up to ring."]],
+ "Keep your mouth covered. The ash gets in your teeth."],
+22:["(Tom is pushing the Gull off, grinning through the grime.) I'm going out. The water's gone milky and warm, and the fish are hungry. That's all a fisherman needs to hear, volcano or not.",[
+  ["Is it safe?","As safe as Saltwick ever is. The mountain's settled into a sulk, and the fish have come up close to feed. I'd be a fool to tie up again."],
+  ["What's the ash done to the town?","Everything's grey. Aili's sweeping her step every hour. Tove at the barber's has given up and gone grey on purpose. She says it suits her."],
+  ["Any forecast?","'Ash, then more ash.' (He looks pleased.) For the first time this month, I think I'll be right."]],
+ "If I come back with a boatful, the eggs are on me."],
+23:["(Tom is scrubbing the side of the Gull with a stiff brush.) A black line, a hand's width up the hull. Oil, again. I scrubbed it off yesterday and it's back. It's like being haunted by a dirty bath.",[
+  ["More oil from the rig?","There's trouble on it, underwater, they say: something leaking where nobody can reach. And the Party says it's no accident. The Party says nothing's an accident."],
+  ["Can I help scrub?","(He hands you a brush.) Up and down, not round and round. Round and round just moves it about. That's politics too, Helen says."],
+  ["Are you angry?","I'm too tired to be angry. Ask Sam. Sam's angry enough for all Saltwick, and he's still only said nine words this week."]],
+ "Up and down, not round and round."],
+24:["(Tom is coiling rope and not quite meeting your eye.) Gustavo's boys were down here asking which boats go out at night. Nobody said anything. Everybody's very busy with their nets all of a sudden.",[
+  ["Does the Gull go out at night?","The Gull goes out when someone asks nicely. (Pause.) They didn't ask nicely. So she's staying in."],
+  ["What do they want a boat for?","I didn't ask. In Saltwick, the less you know about a night boat, the longer you live. My father taught me that, along with knots."],
+  ["What's the forecast?","'Dark early.' (He looks at the grey sky.) It's been dark early since the mountain went. I'm getting good at being right."]],
+ "If anyone asks you about boats, you're a reporter. Report somewhere else."],
+25:["(Tom is mending a net in the lee of the harbour office, out of the wind.) The palace and the Democrats are making friends, Ray says. Footmen walking up the Eastbrook road. Next they'll be fishing together.",[
+  ["Would that be good?","For the fish, no: two more boats. For the island, maybe. People who argue over a table don't usually argue over a gun."],
+  ["What do you want for the island?","Fish in the sea, ash out of the air, Aili's eggs at five, and nobody telling me who to like. That's not much, is it? It's a lot, these days."],
+  ["How are your hands?","Black to the wrist. Tove said she'd shave me for free if I promised not to touch anything in her shop."]],
+ "Fish, eggs, and nobody telling me who to like. Write that down."],
+26:["(Tom is reading the Gazette on an upturned crate.) Dario wants to buy the spa in Kingsgrad, it says. A man who owns half the sea wants a bath as well. Some people are never dry enough.",[
+  ["Have you ever been to the spa?","Once. Saga put me in the steam room. I came out pink, and I've never been as clean since. It was frightening."],
+  ["Any news of the boy?","My sister's sending him, volcano and all. He's twelve, he's read a book about whaling, and he thinks he's Captain Ahab. I'll cure him."],
+  ["How's the fishing?","Good. Very good. The warm water's brought the herring right in. Marta's taking twice as much, and so's Arvid. Neither knows about the other."]],
+ "Twice the herring. Half the sleep."],
+27:["(Tom has a cinema ticket tucked in his cap band.) The pictures, in Kingsgrad. The Party are making a fuss about a film from Moscow. I don't mind what's on. I go for the dark and the sit-down.",[
+  ["What's the best film you've seen?","One with a whale in it. A big white whale. It sank the boat at the end. (He shakes his head.) Terrible seamanship, all the way through."],
+  ["Do you go with anyone?","Sam, sometimes. He doesn't speak in the pictures either, so it's restful. Mike talks all the way through. We don't take Mike."],
+  ["What's the Syndicate up to?","A poker tournament in the pizzeria's back room. Ray says half of Saltwick will lose a week's wages. I'll lend the Gull to anyone who needs to get home quietly afterwards."]],
+ "If you sit behind Mike at the pictures, God help you."],
+28:["(Tom is standing on the quay with his hands in his pockets, watching the boats.) Every faction's making its big move today. The Party wants the Gull to carry banners to Kingsgrad, the oil men are having a party, and Aili says there's a king coming to visit. A real one, from somewhere else.",[
+  ["Will you lend the Party the Gull?","They asked nicely. Mike did, anyway. Helen asked as if she was arresting me. But nicely, for Helen."],
+  ["Are you worried about tomorrow?",["(He takes a long time to answer.) A bit. Everybody's pulling the island their own way. Something's going to tear.",[
+    ["What would you do about it?","Lend my boat to whoever needs to get away. That's all a fisherman can do. That, and keep the herring coming."],
+    ["It'll work out.","That's what I've said about the weather every day this month. (He smiles.) But thank you. It helps, hearing it from somebody who isn't me."]]]],
+  ["What's the forecast?","'Stormy.' (He looks at the clear sky.) For once, I hope I'm wrong. I usually am."]],
+ "Stormy. Let's hope I'm wrong again."],
+29:["(Tom is eating breakfast on the quay: Aili's eggs, wrapped in newspaper.) Aili brought them out to the boats. She says everyone's too nervous to sit down. She's right. Sam's eaten three plates and said nothing at all.",[
+  ["What happens tomorrow?","Nobody knows. That's the strange thing. The whole island, waiting on one day. Like waiting for the weather, except I'm not the one forecasting it."],
+  ["Who do you hope comes out on top?","Whoever leaves the fishermen alone. I'm not fussy. Communists, princes, cola men: if they leave the herring be, they can paint the palace pink."],
+  ["Aili brought eggs to the boats?","She did. (He looks pleased about it.) First time ever. I've decided not to forecast what it means."]],
+ "Eat something. Nobody chooses well on an empty stomach."],
+30:["(Tom is sitting in the Gull, tied up at the quay, with his boots on the gunwale.) The last day of September. The island decides today. I'm not going out. I'm staying right here, where anyone can borrow me.",[
+  ["Why not go fishing?","Because if something happens, someone will need a boat. And the Gull's the one everybody asks for. Today she's ready for anyone. Even Lucia."],
+  ["What's the forecast?","(He nods at his chalkboard.) 'Wait and see.' It's the first forecast I've ever been sure about."],
+  ["Thanks for everything, Tom.","For what? I mended a net in front of you and told you about eggs. (He shakes your hand.) But you're welcome. Come back in the summer. The boy will be here. He'll talk your ear off about whales."]],
+ "If you need a boat, you know where she is."],
 };
 // Toni, attendant at the arcade in Frostholm, who lives in the Kingsgrad Apartments (The Proprietors). Threads: her high scores on
 // every cabinet, and the stranger who signs RIT and keeps beating her at Invaders; the new cabinet on its way from Japan; her
