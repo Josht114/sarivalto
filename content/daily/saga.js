@@ -1,149 +1,158 @@
-// Saga, attendant at the Hot Springs Spa, who runs its saunas and steam rooms for the island's wealthy (The Proprietors). Threads:
-// what she overhears and never repeats, the springs and the volcano above them, her neighbours at Kingsgrad Apartments, her dream of a quiet cottage.
+// Saga, attendant at the Hot Springs Spa on the volcano's lower slopes (the Proprietors). Threads: what people say in the steam,
+// which she never repeats; the springs and the mountain above them (the fizzing water she tells the cola people to taste on the 9th);
+// old Mrs Valo in Helsinki who owns the spa and won't sell, and Dario's offers through Saga (the 26th: everything, and a milkshake
+// machine); her flat in the Kingsgrad Apartments between Aino and Toni, and the three radio songs she hums in the bath; her brother
+// Jussi, lost at sea in 1976, the cottage by the water she dreams of, and the song she makes up about a boat that comes home.
 DAILY['Saga']={
-2:["(A woman in a white tunic hands you a towel before you've said a word.) Locker eleven. Steam room's on the left. You're the reporter, I take it. Don't worry, nothing leaves this building. Well, nothing I say.",[
-  ["Is it always so quiet?","With the roads only just open, yes. Normally it's like a train station for the rich. They all say they came to relax."],
-  ["What do you hear in here?","Everything. People think steam muffles sound. It carries it. I've learned more in the sauna than at any library."],
-  ["Do you ever repeat it?","Never. It's why they keep coming back. A spa attendant with a loose tongue is a short-lived thing."]],
- "The water's hotter than it looks. Mind your ankles."],
-3:["(Saga is folding towels into precise triangles.) The Kelp Cola people are in town. Two of them came in this morning and sat in the steam, talking about a bottle. I know more about their bottle than the person who made it.",[
-  ["Do you like Kelp Cola?","I like their free samples. I like the way they say 'synergy' with a straight face."],
-  ["Who comes here most?","Whoever's got money and a worry. It's the same people. They just change hats."],
-  ["Do you take sides?","I take towels. It's a quiet job. The only side I've got is the side of the bench that gets the draught."]],
- "Don't stay in too long. It melts the sense out of people."],
-4:["(Saga is wiping condensation from a mirror.) Eastbrook's open, I hear. Maya at the coffee roaster's been in twice already, telling me about her beans. I don't mind. She's the only one who ever asks about me.",[
-  ["What would you say about yourself?","I live in Kingsgrad Apartments, third floor. I've a cat I don't have, and a plant I do. I'd like a cottage."],
-  ["A cottage where?","Somewhere with no steam. A lake. A porch. No one speaking about oil."],
-  ["Do you like the job?","I love the water. It's alive. Every spring's a different temperature, and the mood changes with it."]],
- "Go and stand in the cold for a minute. It'll make you appreciate the hot."],
-5:["(Saga tests the water with her elbow.) It's up two degrees, since breakfast. The springs are lively this week. The old regulars say it's the thaw. I think it's the mountain.",[
-  ["Is the volcano near?","Above us. A short walk and a long climb. We're built on its warm side. It's a very expensive neighbour."],
-  ["Does the water change?","Always. Hotter, then cooler. Smellier, then sweet. I've a book where I mark it. It's like a diary for something that doesn't talk."],
-  ["What does the water taste like?","Smoky, a bit salt. Like a very old coin. Don't drink it. The tourists do, and make faces."]],
- "Come back when you're less dressed. It's a spa, after all."],
-6:["(Saga's polishing the tile with a cloth.) A man came in today who said nothing for forty minutes. Not a word. He just breathed and sweated. At the end he gave me a large tip and a look. I've never been so unsettled.",[
-  ["Who was he?","A stranger. Good coat, no luggage. He asked which of the baths was best for thinking. I said all of them are, if you're guilty."],
-  ["Did he say anything else?","'Thank you, Saga.' I never told him my name. I wear a badge, of course, but I felt watched."],
-  ["Was he from the Syndicate?","I can't say. Spa attendants can't say. But I'd not leave anything valuable in locker nine."]],
- "A quiet man's the loudest thing in the building."],
-7:["(Saga hums a tune, tapping a bench.) I've had two wealthy gentlemen from Frostholm today. They spent an hour insulting each other's business. By the end of it, they were friends. That's what steam does.",[
-  ["What does it do?","It takes the suit off people. You can't threaten anybody in a towel. It's the great leveller."],
-  ["Who were they?","I couldn't say. But one of them wore a very good watch. He took it off, put it on the bench and forgot it. I've kept it safe. Until he asks."],
-  ["Is Dario a client?","Mr Dario comes in, now and then. He's got a very strong back and a very soft voice. He tips well and asks nothing."]],
- "A towel doesn't lie. It's the one honest garment."],
-8:["(Saga is sorting through bottles of oil.) Father Thyme's been in. Not for the baths: for the quiet. He sat in the changing room in his robe with a very long face and said nothing. I gave him a cup of mint tea.",[
-  ["Is he troubled?","He's lost his words. I know the feeling. I once lost mine for a week after my aunt's funeral. You find them again, usually in the bath."],
-  ["Do monks use the spa?","On Thursdays. It's an arrangement. They don't wear much, and they're very polite. And their feet are always freezing."],
-  ["Do you offer any advice?","A cup of tea and a closed door. It's the most useful advice I know."]],
- "A saint would be glad of a hot bath. I'm told so, anyway."],
-9:["(Saga's counting coins into a pot.) The Reds came in, three of them. They said they'd come to 'inspect the means of relaxation'. They stayed till closing and took all my mint tea.",[
-  ["Are Communists good customers?","They don't pay, they discuss. But they're nice about it. And one of them sang. A very fine baritone."],
-  ["Do you like the Party?","I like people who sing. I like fewer people who shout. It's a sliding scale."],
-  ["What do they talk about in the steam?","Cola, mostly. They want one of their own. I said I'd try it. They said I'd be the first to sign a petition."]],
- "If you meet the baritone, tell him he's good. Nobody tells him."],
-10:["(Saga has closed the spa for the morning, and put a small black ribbon on the door.) The funeral's today. I've left the springs running, for the ones who can't go. It seems right that someone's got a warm place to sit.",[
-  ["Did you meet the king?","Once. He came here after a long winter, and he sat in the steam for an hour. He asked what I'd do if I were him. I said, 'Nothing, sir. That's the secret.'"],
-  ["What did he say?","He laughed, for the first time in my hearing. Then he said, 'Thank you, young woman.' I was thirty-one."],
-  ["How's the spa today?","Still. Only the sound of the water. It's rather beautiful."]],
- "Rest in peace, Your Majesty. The water's still warm."],
-11:["(Saga looks out the window at the grey sky.) The whole island's arguing about wages, and here I am. No one's argued about my wages in years. They've never gone up. They've never gone down. They've simply been.",[
-  ["Is that a complaint?","It's an observation. There's a difference, in my world. Observations are free."],
-  ["What would you do with a rise?","Buy a cottage, then a boat, then think about it. I'd be a very peaceful woman in a very small house."],
-  ["Do the clients tip?","The honest ones do. The ones who haggle in the sauna don't. I've a theory it's all about how long they can bear the heat."]],
- "If you hear about a cottage, let me know. Preferably with a bath."],
-12:["(Saga's reading a small, careful letter.) A new pair of regulars started yesterday. They come in separately and leave separately, but they talk in the steam as if they'd just met. I think they've been scheming.",[
-  ["What about?","Money. A great deal of it, moved from one drawer to another. I didn't mean to hear. I swear it's in the walls."],
-  ["Do you worry?","A little. But I'm a woman with a towel. I stand outside the door and pretend I've gone deaf."],
-  ["Are they from Diversified Petroleum?","I couldn't say. But one of them talked about 'depreciation' as if it were a woman's name."]],
- "Walls have ears here, and the ears are wet."],
-13:["(Saga is wringing out a towel.) The cola people are handing out samples on the street. They tried to give me one at the door. I said I'd take it, but only if they sat in the steam with me.",[
-  ["Did they?","Two of them. In their suits. They came out a different colour. I think they're still recovering."],
-  ["Is it a gimmick?","It's a hot, wet advertisement. People leave with a clean skin and a bottle in their hand. It's brilliant, really."],
-  ["Do you drink it?","In the bath, with ice. It's the only time I'm allowed to relax."]],
- "If you've got a samples bottle, give it to someone who needs a smile."],
-14:["(Saga is hanging wet towels on a line.) The big day, tomorrow, or today. I've lost track. The steam's heavy and my sense of time is soft. I'm told everyone's going.",[
-  ["Will you go?","I've been given the day. Imagine. The management said, 'Go, Saga, and be a citizen.' I said I'd rather be a towel."],
-  ["What do you expect?","Noise. I've been in a very quiet building for a very long time. I'd like to hear the island."],
-  ["Is anyone nervous in the baths?","They're all nervous. In the changing room, the rich man and the poor man look the same, and they both look frightened."]],
- "I'll listen to the crowds. I'll tell you if anyone says something wise."],
-15:["(Saga's sitting on a bench, quietly rubbing her feet.) Yesterday was loud. I went, I stood at the back, I heard nothing but noise. It was wonderful. It's good to be part of a thing.",[
-  ["Did you speak to anyone?","A woman in a Kelp Cola hat shared a sandwich. We didn't exchange names. It's the nicest meal I've had all year."],
-  ["What was the best part?","The silence just before. A thousand people holding their breath. It's what I hear in the steam room, at midnight."],
-  ["Are you rested?","No. But I'm happy. And I've come back to find three people asleep in the sauna. It's a good sign for business."]],
- "If you need a place to sleep, I can lend you a bench."],
-16:["(Saga's tidying the oil rack.) The debate's today. I've had two gentlemen asking if the spa's got a back door. I said it's got a front door, a back door and a very steamy window.",[
-  ["Are they avoiding someone?","Someone's always avoiding someone. It's the secret of my business. We're a hiding place with a view."],
-  ["Which side do they support?","I'd not like to say. But one of them had a red scarf and a very blue face."],
-  ["Will you go to the debate?","No. I'll be here, listening to the drip. It's the best speech on the island, and it never gets heckled."]],
- "If you hear any good heckles, repeat them to me. I could use a laugh."],
-17:["(Saga stops mid-step.) Did you feel it? The water rippled. The whole pool shivered, as if somebody had tapped it. I've worked here eleven years. That's new.",[
-  ["Is it a tremor?","It's the mountain's pulse. I've begun to think of it as a sleeping giant that's turned over. I just hope it doesn't wake."],
-  ["Is the spa safe?","It's built into the rock. It's either the safest place on the island or the worst. It depends on the mood of the mountain."],
-  ["What will you do if it grows?","Open the doors. Ring the bell. Get everyone out. In that order. And remember the towels."]],
- "I've never heard the water breathe before. I'd like it to stop."],
-18:["(Saga puts a hand to the wall.) It's warm. The wall, not the steam. It's like leaning on a sleeping animal. I've written it in the water book.",[
-  ["What's the temperature?","Three degrees above the usual. The regulars noticed and said nothing. It's a very polite sort of panic."],
-  ["Has anyone left?","A few. A man from the Church, in a hurry. And a lady in a very large hat. She said the steam was giving her ideas."],
-  ["Are you frightened?","I'm attentive. There's a difference. A frightened person runs. An attentive one writes things down."]],
- "Come and feel the wall. It's quite the thing, if you've a nervous disposition."],
-19:["(Saga lifts her head.) That was a big one. Two cups fell off the shelf. A client in the steam room shouted something in a language I couldn't place. He was rather pink.",[
-  ["Is the volcano going to erupt?","I'm not a scientist. I'm a woman who can tell the temperature with her toes. It's coming. I'd say soon."],
-  ["Should people leave?","Some should. Some won't. The ones who love the island will stay, and the ones who love their money will count it first."],
-  ["What does the water say?","It says nothing, but it's very loud about it."]],
- "If you've anything valuable, keep it close. And a towel."],
-20:["(Saga's wearing a scarf over her nose.) The sulphur's rolling in from the north. The steam smells like a struck match. It's an acquired taste.",[
-  ["Are you staying open?","As long as the water's safe and the regulars are keen. There's a man in the large bath who says he's never felt better. He's been there since seven."],
-  ["Is it dangerous?","Everything's dangerous if you stay too long. That's the first rule of the sauna."],
-  ["What will you do if it goes?","Evacuate. Ring the bell. Count heads. Go home to my plant."]],
- "Take care. And leave the door ajar. The steam's restless."],
-21:["(Saga's tunic is smudged with grey, her eyes bright.) We saw it from the springs. The whole sky opened. I've never heard a sound like it. The water leapt out of the pool and fell back, like it was cheering.",[
-  ["Are you hurt?","Not a scratch. The clients are fine. They've all been wrapped in towels and given tea. Nobody's ever been so well looked after."],
-  ["What was it like?","Like standing inside a drum. And then the ash came down, very gently, like snow that had given up."],
-  ["Will the spa survive?","It's made of rock. The mountain built it. I think it's the mountain's way of apologising."]],
- "Stay safe. And drink some tea. The mint's on the house."],
-22:["(Saga's sweeping ash from the steps.) It's the sort of thing you don't expect to be doing in your working life. I've swept snow, leaves, sawdust. Never a volcano.",[
-  ["Is it heavy?","Like wet flour. It sticks to everything. It's in the sauna, in the soap, in my hair. I've been grey for two days."],
-  ["Is anyone coming in?","The brave ones. And the very dirty ones. A man came in covered from head to toe and said, 'I've been in the north.' I said, 'Locker eleven.'"],
-  ["What do they say?","They say very little. They sit in the water and shake. It's cheaper than a doctor."]],
- "I'll keep the kettle on. It's the one thing the mountain can't stop."],
-23:["(Saga's counting heads on a clipboard.) The aftershocks keep coming. Every one ripples the water. It's like the pool's trying to tell me something, in a very faint voice.",[
-  ["What do you think it's saying?","'Careful.' It's usually 'careful.' I've known that water a long time."],
-  ["Is it getting hotter?","A bit. And more golden. I've never seen it that colour. It's very beautiful. It's also very worrying."],
-  ["Do the clients complain?","Not one. They say it's the best bath they've had. They've no idea what they're sitting in."]],
- "If it turns red, run. That's my only rule."],
-24:["(Saga's mixing a tray of herbs.) We're getting the oddest visitors. People coming from the clean-up, wanting a good soak. I've put out extra benches. It's the island's one soft place, I think.",[
-  ["Who's in this morning?","The odd lot. A priest, two Reds, a very quiet man in a leather coat. They don't speak, but they all sit at the same end."],
-  ["Are the factions friendly?","In the steam, yes. It's too hot to fight. I wish they'd hold the election in here."],
-  ["Would that work?","It'd be fairer. And everyone would vote quickly."]],
- "If you need a rest from the island, I've a bench with your name on it."],
-25:["(Saga's looking through a window at the mountain.) There's less steam today. It's gone quiet. Which is when I get nervous. A quiet mountain's a thinking one.",[
-  ["Is it over?","I doubt it. It's resting. It's like a snoring man: you don't know when he'll snort."],
-  ["What do you do to calm yourself?","I scrub the tiles. It's a form of meditation. I've the cleanest tiles on the island."],
-  ["Have you thought about leaving?","Every day. But the water would miss me. And I've nowhere with a bath."]],
- "Don't mind me. I talk to the tiles."],
-26:["(Saga's counting banknotes in an envelope.) A man's bought the whole of the east wing for a week. For privacy, he said. It's a lot of money. I've no idea what he's doing in there. I'm told it's a business meeting.",[
-  ["Is the spa being sold?","I don't know. There's talk. Mr Dario's been seen with a surveyor. They say he'd like to buy the whole place."],
-  ["What would happen to you?","I'd stay on, I hope. A spa needs an attendant, whoever owns it. It's like a church: the vicar matters less than the pews."],
-  ["Does it worry you?","It irritates me. A spa's a quiet thing. A man like Dario's a loud thing. But the money's real."]],
- "If you hear any gossip about the sale, tell me. I'll pretend I never heard."],
-27:["(Saga's polishing a brass tap.) They're saying the Reds are taking over the cinema. And the Syndicate's got a game. And everyone's coming here to cool down before the end of the month.",[
-  ["Is it busy?","Unbelievably. People who'd never meet are sitting in the same bath, sharing a towel. It's the nearest thing to a peace conference."],
-  ["Do you hear secrets?","Whole libraries. I've enough to blow the island sky-high. I keep them in a very small drawer in my head."],
-  ["Will you ever tell?","Perhaps in my memoirs. If I live that long. 'A Lifetime of Towels.'"]],
- "Come back soon. Bring a cold drink. The steam's relentless."],
-28:["(Saga's tidying the benches with an air of great dignity.) The biggest day. Everyone's out. The spa's empty. It's very strange. I'm told even Mr Dario's stayed away.",[
-  ["Is that unusual?","Entirely. He's here three times a week. I think he's up to something."],
-  ["What do you hope for?","That whatever's decided, they leave the water alone. It's the best thing on the island."],
-  ["Is anyone coming?","One old man, who says he's too old for politics. He sits in the steam with a newspaper. He's my favourite."]],
- "If you see him, be kind. He's seen a few kings."],
-29:["(Saga's turning down the lamps one by one.) Tomorrow it's decided. I've been told by a dozen clients what I should hope for. I've said 'Mm' to every one.",[
-  ["What do you hope for?","A warm bath. A cool head. And a quiet cottage, if there's one to be had."],
-  ["Do you think it'll go well?","I think it'll go. That's the best one can ask. A thing that goes is better than a thing that lingers."],
-  ["Will you vote?","I will. In secret. It's the only time I'm allowed to say something and not hear it repeated."]],
- "I'll keep the water warm for you. It's a small thing, but it's mine."],
-30:["(Saga stands at the edge of the main pool, with her hands folded.) The last day. The water's calm. The mountain's calm. It's the sort of calm one gets before a decision.",[
-  ["Any last words, Saga?","Keep your counsel. Drink your tea. And never trust a man who won't take his socks off."],
-  ["Will you miss the month?","I'll miss the secrets. They were an education. I've learned how the island's built. It's built on gossip and hot water."],
-  ["What will you do now?","Mop. And then, when it's all over, I'll sit in the quietest bath and think of nothing at all."]],
- "Goodbye, reporter. Come back for a soak. I'll say nothing. I always say nothing."],
+2:["(Saga hands you a folded white towel without being asked.) Everyone gets a towel. Even reporters. Especially reporters. You look like you've been on a boat all night, and you smell of one.",[
+  ["What is this place?","The Hot Springs Spa. The water comes up out of the mountain, hot enough to boil an egg if you're patient. People sit in it and forget who they are. That's what they pay for."],
+  ["Who comes here?","The rich, mostly, from Hope Springs and Kingsgrad. A fisherman once, who'd won it in a raffle. Tom. He came out pink and frightened."],
+  ["Does anyone talk to you?","Everyone talks in the steam. The steam makes them forget there's anyone else in the room. I hand out towels, and I'm a very good wall."]],
+ "Keep the towel. Bring it back clean, or not at all."],
+3:["(Saga is folding towels into perfect squares, with a little radio playing on the desk.) The same three songs, over and over. Kaisa plays them for the old king. I hum them in the bath. My neighbour says the walls are paper.",[
+  ["Which neighbour?","Toni, from the arcade, on one side. Aino, from the cola factory, on the other. Toni says I'm better than the radio. Aino sings louder than me. We're a very musical floor."],
+  ["What are the songs?","A waltz, a sad one about a harbour, and one about a girl in a green coat. I don't know their names. I just know when they're coming."],
+  ["Do you like the job?","I like the quiet. The water's always hot and the people are always tired. Nobody shouts in a hot bath. It's not possible. I've seen people try."]],
+ "Come and sit in the water one day. You'll forget what you came for."],
+4:["(Saga is watching a man in a dressing gown walk very slowly to the bath, as if it might bite.) First timer. You can always tell. They walk in like it's the sea in January.",[
+  ["What should a first timer know?","Go in slowly. Don't talk for the first five minutes. And don't fall asleep, or the mountain will cook you like a dumpling."],
+  ["Who owns the spa?","Old Mrs Valo. She lives in Helsinki now and writes once a month to ask if the water's still hot. I write back: yes. That's our whole correspondence."],
+  ["Is the mountain dangerous?","The mountain's been asleep since before my grandmother. It snores. The springs are its breath. I've never minded. Breath means it's alive."]],
+ "If you go in, go slowly. The mountain's in no hurry."],
+5:["(Saga is wiping the steam off a window, looking out at the sea far below.) On a clear day you can see all the way to the harbour from here. I look for the boats. It's a habit. I've had it since I was nineteen.",[
+  ["Why since nineteen?","My brother Jussi went out on a herring boat in 1976 and didn't come back. I was nineteen. Ever since, I look for boats. I don't know what I'm looking for."],
+  ["I'm sorry.","(She nods.) Everyone's sorry. It's kind. It doesn't change the sea. But it's kind."],
+  ["Do you like the sea?","I'd like a cottage by it, one day. Small, with a window that faces the water. When I'm too old to fold towels. I've been saving since 1976."]],
+ "Look at the sea on your way down. It's very blue today."],
+6:["(Saga is handing a towel to a man in a gold watch, and doesn't look at him at all.) Hope Springs is open. The Hope Springs men are back. They tip in notes. They never look at you. I prefer it.",[
+  ["Who was that?","A man in a gold watch. That's all I know. That's all I ever know. I hand out towels, I don't take names."],
+  ["What do they talk about in the steam?","Money, land and each other. I don't listen. I hear. Hearing isn't the same as listening. Listening is when you remember."],
+  ["Do you remember?","(She smiles very slightly.) I've forgotten everything anyone ever said in that water. I'm known for it. It's why they come."]],
+ "If anyone asks, you've never been here and nor has he."],
+7:["(Saga is reading a postcard with a Helsinki stamp.) Mrs Valo. Asking if the water's still hot. It is. I'll write back. She'll write next month. Twenty years, the same two lines.",[
+  ["Does she ever visit?","Once, in 1979. She sat in the water for six hours and said it was the only time she'd been warm since the war. Then she went back to Helsinki."],
+  ["Will she ever sell?","Never. Her husband found the springs. He built the first bath with his own hands. She says she'll sell it when the mountain stops breathing."],
+  ["Is the north-west open now?","Since this morning. The oilmen will come. They always come, after a long winter in Frostholm. They're all very cold, and they all want to talk about money."]],
+ "Bring a towel next time. I'm running low."],
+8:["(Saga has a little cross pinned to her collar, and the spa is quiet.) Sunday. No bathers until the afternoon. The Abbot's preaching about the king today. I sent him a towel. He likes the springs. He never says so.",[
+  ["The Abbot comes here?","Once a month, very early, before anyone sees. He sits in the corner, prays, and leaves a coin on the desk for the poor. I give it to the poor."],
+  ["Are you religious?","I pray for boats. That's my religion. Every boat that leaves the harbour, I say a little word. It hasn't failed yet, since 1976."],
+  ["What do you do on Sundays?","Fold. Look at the sea. Hum. Go home on the tram and hum some more. Aino bangs on the wall when I get to the sad one."]],
+ "Enjoy your Sunday. I'll be here, humming."],
+9:["(Saga is laughing, quietly, behind the desk.) Two people came up today asking about cola flavours. A man from Kelp Cola, then a woman from the Party. Both very serious. Both very lost.",[
+  ["What did you tell them?","Taste the springs. Everyone says the water tastes of the volcano. Smoky, salty, a bit of a kick. And if they want the real thing, there's a cave mouth on the ledge above us. The Lava Tube. Mind your eyebrows."],
+  ["Will they really make a volcano cola?","The Party woman wrote it down. The cola man laughed, and then wrote it down twice. I think someone's going to try."],
+  ["Is it safe, the Lava Tube?","For someone careful. The rock's hot enough to cook on in places. The monks went up once for a dare. Brother Teodor came back with no eyebrows."]],
+ "If someone makes a volcano cola, I'd like a bottle. For the bath."],
+10:["(The spa is closed, a black ribbon on the door. Saga is sitting on the steps outside, looking towards Kingsgrad.) The funeral. I closed the spa. Mrs Valo would want me to. She knew the old king. Everyone did, a little.",[
+  ["Did you know the king?","He came here once, in 1970, when his back was bad. He sat in the water for an hour and talked about the herring. He was nicer than I expected."],
+  ["Are you going to the funeral?","I'll watch from here. You can see the palace from the steps, if you squint. I'll see the flag come down."],
+  ["What happens now?","Everyone in the water's been asking that for a week. I hand them a towel. That's my answer."]],
+ "Go gently today."],
+11:["(Saga has her sleeves rolled up and is scrubbing the edge of the bath.) The minerals. They stain the stone yellow. Every Thursday I scrub it. Every Friday it's yellow again. It's like the tide.",[
+  ["Is it hard work?","Hard on the knees. Easy on the head. I think about other things. The cottage. Jussi. The three songs."],
+  ["What would your cottage be like?","One room, one window, facing the sea. A kettle. A chair by the window. Somewhere a boat could come into, if it wanted to."],
+  ["Is there news from the town?","The mill hands in Eastbrook want fair pay, the bathers say. Half of them own shares in the mill. They talked about it very quietly. I didn't hear a word."]],
+ "Mind the floor. It's slippery after I scrub."],
+12:["(Saga is holding a towel that's come back damp, with a cigar burn in it, and frowning at it.) A man from Frostholm. Oil. He sat in the water for two hours with his accounts in a waterproof bag. He burned a towel. He tipped very well.",[
+  ["Who was he?","Nobody. A man with a waterproof bag. In the steam, everybody's nobody."],
+  ["What was in the accounts?","I don't read people's papers. But he kept sighing. Men only sigh like that at numbers that don't add up, or add up too well."],
+  ["Does it bother you, hearing so much?","I don't hear. I steam. Everything goes up with the water and out through the roof. That's how I sleep at night."]],
+ "If you see a towel with a burn in it, it's mine."],
+13:["(Saga has a crate of free Kelp Cola by the desk.) They're giving it away. I've put the bottles in the hot spring to warm them. Warm cola. Don't knock it. The bathers love it.",[
+  ["Warm cola?","It's the steam. Everything tastes better after twenty minutes in the steam. Even cold tea. Even bad news."],
+  ["Why is Kelp Cola giving it away?","Before the big day, everyone wants to be loved. I hand out towels for free, and nobody calls me a politician."],
+  ["Do the bathers talk about the big day?","Constantly, and in low voices. The steam's full of plans. I just keep the towels coming."]],
+ "Take a warm one. Trust me."],
+14:["(The spa is empty, and Saga is sitting in the water herself, fully dressed except her shoes, feet dangling in.) Everybody's at the big gathering. I've got the spa to myself. First time in years. I'm not telling Mrs Valo.",[
+  ["Aren't you going to the gathering?","Crowds and speeches? No. I'll hear all of it tomorrow, in the steam, from forty people who each saw something different."],
+  ["Do you ever bathe here?","Never. It's like a cook eating her own pie. Today I'm making an exception. My feet have earned it."],
+  ["What do you think will happen?","Promises. Everyone will come here afterwards, tired and hoarse. I've put out extra towels."]],
+ "Close the door on your way. I'm staying in a bit longer."],
+15:["(Saga is handing out towels faster than usual.) Busy. Everyone who went to the gathering came here after, to soak their feet. I heard it all. I've forgotten it all already. That's my job.",[
+  ["Anything you can tell me?","That everyone's tired and everyone's worried, whatever they say on the platform. Feet don't lie. Feet are very honest."],
+  ["What's the gossip today?","Crown before cross, cross before crown. The prince's brother. The palace and the Church both want him. The bathers have taken sides, but they're all on the same bench."],
+  ["Are you tired?","My arms are. Three hundred towels. I'll sleep like a stone. Aino says I snore. I say she sings. We're square."]],
+ "Come back when it's quiet. It'll be quiet on Thursday, probably."],
+16:["(The steam rising from the bath is thicker than usual, and Saga is watching it with a frown.) The water's hotter today. Two degrees. I measure it every morning with my grandmother's thermometer. Two degrees is a lot.",[
+  ["Is that dangerous?","Not yet. But the mountain doesn't change its mind for no reason. My grandmother said the water tells you before the ground does."],
+  ["Should you tell someone?","I've written to Mrs Valo. And I've told the Abbot, when he came by. He said pray. I said I always do. He said pray harder."],
+  ["Are the bathers worried?","They're talking about the debate in Kingsgrad, not the water. The rich never notice the temperature until it boils."]],
+ "Don't stay in long today. Ten minutes. I'll time you."],
+17:["(The water in the bath is bubbling at one edge, and Saga is roping it off with a towel.) The ground moved this morning. And the bath's bubbling where it never bubbles. I've closed that side. The mountain's waking up.",[
+  ["Is it going to erupt?","I don't know. Nobody knows. But the springs have never done this. Not in my life, not in my grandmother's."],
+  ["Will you close the spa?","If it gets hotter. I've sent the bathers home early. Some of them argued. One man said he'd paid. I gave him his money back and a towel for the road."],
+  ["Are you frightened?","Yes. But I've worked on this mountain twenty years. It's always been kind to me. I'm hoping it remembers."]],
+ "Go down the hill carefully. Not too fast. The ground's restless."],
+18:["(Saga is sitting at the desk with her grandmother's thermometer, writing numbers in a little book.) Four degrees hotter now. I write it down every hour. The Abbot asked me to. He's keeping a record at the monastery too.",[
+  ["What does the Abbot say?","He says the mountain's been asleep a long time and it's stretching. He doesn't say what happens after a stretch. I didn't ask."],
+  ["Are people still coming to bathe?","Fewer. The ones who come are the ones who don't believe in danger. They sit in the bubbling water and tell me it's very relaxing."],
+  ["What will you do?","Keep writing the numbers. Keep handing out towels. And keep one bag packed under the desk, with a coat and Jussi's photograph."]],
+ "Go home safely. And keep your coat near."],
+19:["(The air smells of eggs. Saga has closed the spa and is standing at the door with her coat on.) Closed. Mrs Valo agreed, by telegram. 'Keep the water, save yourself.' Six words. The most she's ever written.",[
+  ["Is the volcano going to erupt?","The steam's coming out of the ground now, not just the springs. There's a crack in the path. I think the mountain's going to speak."],
+  ["Where will you go?","Down to Kingsgrad, to the flats. Aino's mother has a cellar. Toni says we can all go down there together. I'll bring the towels."],
+  ["Will you come back?","When it's safe. The springs will still be here. They were here before me. They'll be here after."]],
+ "Go now. Don't wait for me. I'll lock up."],
+20:["(Saga has a great stack of spa towels in her arms.) I couldn't stay away. I went back for the bathers' things. And the towels. People will need towels.",[
+  ["You went back up the mountain?","For an hour. A few of the old regulars were still there, in the water, refusing to leave. I got them out. In towels. Down the path. It was quite a sight."],
+  ["Is the mountain going to go tonight?","The ground's moving every few minutes. The springs are boiling. My grandmother's thermometer broke. I think so, yes."],
+  ["Are you all right?","I'm frightened, and I've got forty towels. That's all right. Towels are useful in a frightened building."]],
+ "Sleep near the door. I'll be on the stairs if anyone needs me."],
+21:["(Ash is falling. Saga has a towel round her shoulders, grey to the hem.) It went. The mountain. Everyone in the building's all right. We sang in the cellar. Even Kurt from the factory sang.",[
+  ["What about the spa?","I don't know. Up on the slopes, right under it. I came down with the last bathers yesterday, all of us in towels. If it's gone, it's gone. The springs will still be there."],
+  ["Is anyone hurt?","Not in our building. Toni knocked on the wall to check I was there. I hummed back. We do that now."],
+  ["How are you?",["(She looks up at the grey sky.) I keep thinking about Jussi. I don't know why. The sky's grey, like the day his boat didn't come back.",[
+    ["I'm so sorry.","(She takes your hand for a moment.) Thank you. It's nice to say his name to someone. Nobody's asked about him for years."],
+    ["What would he think of all this?","He'd have gone up the mountain to look. He was like that. He'd have come back with no eyebrows and a story. I miss his stories."]]]]],
+ "Cover your mouth on the way. And thank you."],
+22:["(Saga has a bucket and a mop, and ash up to her elbows.) I've been up to the spa. It's still there. The roof's grey, the bath's grey, the towels are grey. But it's there. The springs are still running. Hot as ever.",[
+  ["Is it damaged?","The path's cracked and the windows are dusty. Nothing a mop won't fix, and a few hundred buckets. I'll be scrubbing the steps for a year."],
+  ["Will it open again?","When the ash stops. Mrs Valo sent another telegram: 'Is the water still hot?' I wrote back: yes. Same as always."],
+  ["Who's helping you?","Nobody yet. The rich have gone to their villas. The Abbot sent two monks with brooms. They're very good at sweeping. It's very calm."]],
+ "If you go up the mountain, bring a mop."],
+23:["(Saga is humming as she mops, a tune that isn't any of the three.) Oh. You heard. That's a new one. I made it up. Last night, in the bath at home. Toni banged on the wall and asked what it was.",[
+  ["What is it?","A song about a boat that comes home. That's all it's about. A boat, coming home, and someone on the shore who's been waiting."],
+  ["Is it about your brother?","(She stops mopping.) I suppose it is. I didn't mean it to be. It just came out, after the mountain. Things come out, after a mountain."],
+  ["Will you sing it for me?","Not yet. It's not finished. It hasn't got an ending. I don't know how a song like that ends."]],
+ "If you hear me humming it, don't tell me it's sad. I know."],
+24:["(Saga has a letter from the oil company on the desk, with a very large seal.) Dario. From Diversified Petroleum. He wants to buy the spa. He's written to me, because he knows Mrs Valo won't answer him.",[
+  ["What does he offer?","A great deal of money, a new roof, and a job for me for life. He wants me to persuade Mrs Valo. He thinks I can."],
+  ["Can you?","Nobody can persuade Mrs Valo of anything. Her husband built the bath. She'll sell when the mountain stops breathing. And it's breathing harder than ever."],
+  ["Will you tell him no?","I'll tell him I'll pass it on. Which I will. Mrs Valo will write back two lines. I already know what they'll be."]],
+ "If you see Dario, don't mention towels. He'll want to buy them too."],
+25:["(Saga has a telephone on the desk, and it rings while you're there. She lets it ring.) Dario. Third time today. He's very persistent. He offered a new car this morning. I don't drive.",[
+  ["What's he offering now?","Everything. A car, a cottage, a holiday in Spain. He's found out about the cottage I want. I don't know how. I only ever told the steam."],
+  ["A cottage? That's tempting.","(She looks out of the window at the sea.) It is. That's what frightens me. He's offering me the one thing I've been saving for since 1976."],
+  ["What will you do?","Wait. Pass it on to Mrs Valo. Not decide anything tonight. Never decide anything at night. That's my grandmother's rule."]],
+ "If the telephone rings again, I'm not here."],
+26:["(Saga is sitting very still at the desk, looking at a letter.) Dario rang again this morning. Fourth time. He offered me a milkshake machine. A milkshake machine. I've never been so frightened by generosity.",[
+  ["A milkshake machine?","For the spa. 'The bathers will love it,' he said. I think it was a joke. With Dario you can't tell. He laughs at everything, especially when he's serious."],
+  ["Is today the day he buys it?","Today's the day he's trying hardest. Half the island's heard. Everyone's taking sides. I just want to fold towels."],
+  ["Who's on your side?",["(She almost laughs.) The Abbot. Mrs Valo, by telegram. Gustavo from the Club sent me flowers and a note saying 'Be strong.' And Aino, through the wall.",[
+    ["Gustavo sent flowers?","Lilies. With a note. Don't ask me why. Perhaps he doesn't like Dario either. Perhaps he likes the springs. I didn't ask. I put them in water."],
+    ["You've got a lot of friends.","More than I knew. It took a man with a milkshake machine to find out. Isn't that funny?"]]]]],
+ "Whatever happens, the water will still be hot."],
+27:["(The spa is open again, just. A few bathers sit in the steaming water, looking tired.) We're open. The ash is mostly gone. The water's as hot as ever. The mountain gave and the mountain took. And the springs are still here.",[
+  ["Who owns it now?","That's not mine to say. Ask the people who sign things. I hand out towels. Whoever owns it, the towels are mine."],
+  ["What are the bathers talking about?","High stakes, somewhere. Cards, and big money, and the Syndicate. And a picture at the cinema with six tractors. They're very tired of tractors."],
+  ["Did you finish your song?","Nearly. It's got an ending now. The boat comes home. That's how it ends. I decided it could."]],
+ "Go in the water if you like. It's very calm today. For once."],
+28:["(Saga is looking out of the window at the sea, with the steam rising behind her.) Every faction's making its big push today. I can see the boats from here. All flags. Red ones, royal ones, cola ones. Like a regatta.",[
+  ["Who's winning?","From up here, nobody. They're all just boats. Some big, some small. All of them a long way from shore."],
+  ["Are you nervous about the end of the month?","The mountain's quiet now. That's all I really care about. Whoever wins, the water will still be hot."],
+  ["Are you still saving for the cottage?","Every week. A little more, since the ash. I've got enough for a window now. I'm saving for the walls."]],
+ "Look at the boats on your way down. Count them for me."],
+29:["(Saga is humming the new song, out loud, while she folds towels.) The one about the boat. It's finished. I sang it in the bath last night, all the way through. Toni didn't bang on the wall. She clapped.",[
+  ["Will you sing it for me now?","(She sings one verse, very quietly. A boat comes in through the fog, and someone on the shore waves a towel, and the boat waves back.)"],
+  ["What does Toni think?","She says it's the best song she's ever heard through a wall. That's a very specific compliment. I'll take it."],
+  ["What's happening today?","The Republicans are choosing a leader and the palace is arguing about the line of succession. I'm folding towels. Somebody has to."]],
+ "Hum it on your way down. It's catchy. Toni's been humming it all morning."],
+30:["(Saga is standing on the steps of the spa, looking out at the sea, a towel over her arm.) Last day. They're settling the island today. I'm going to stand here and watch the boats. Whatever happens, they'll come home.",[
+  ["What do you hope happens?","That the springs stay hot, that the mountain sleeps, that the boats come home. And that someone remembers to ask what the people in towels think."],
+  ["Will you get your cottage?","One day. Not yet. I've got a window and a door saved. Next year, the walls. I'm in no hurry. I've got a song now."],
+  ["Will you remember this month?",["(She folds the towel on her arm into a perfect square.) The mountain speaking, and Toni clapping through the wall, and saying Jussi's name out loud. Yes.",[
+    ["And me?","The reporter who asked about my brother. Nobody had, for years. I'll put you in a verse. You'll be the one on the shore, waving."],
+    ["What will you do tomorrow?","Open the spa. Hand out towels. Look for boats. Same as always. But I'll be humming my own song now."]]]]],
+ "Take a towel. Everyone gets a towel. Even reporters. Especially reporters."],
 };

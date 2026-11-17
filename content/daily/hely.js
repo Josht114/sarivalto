@@ -67,74 +67,80 @@ DAILY['Hely']={
   ["Who do you want to win?","Erik, because he's ours. But Anna's got fire. I like fire. I'd vote for whoever's on fire, I think. Is that bad?"],
   ["Shouldn't you be listening?","I will be! From the front, by Veikko. He's got a reserved seat. I'm going to sit on the floor next to it and heckle."]],
  "If you see a chair fly, it wasn't me."],
-17:["(Hely grabs the edge of the community centre steps as they judder.) Did you feel that? Paolo's going to take a bet on it, I know he is. Was it the ground, or was it Veikko's chairs?",[
-  ["It felt like the ground.","Then it's the first honest thing to happen on this island all week. Even the pigeons are looking around."],
-  ["Is it the volcano?","Everyone says so. I say it's a rumour with good timing. Paolo's offering two to one it blows by Sunday, and I've put a mark on it. Two marks. Fine, five."],
-  ["Should you be betting on a volcano?","Should I be betting on anything? That's a separate sermon. I've got Meg's circus show to see next week, and I'd like to pay for the seat."]],
- "If the ground opens up, I'm not paying that debt. Write that down."],
-18:["(Hely is juggling three oranges and dropping the fourth, which she hadn't planned.) Practising. The circus at Lake Ilmari said I could have a try-out if I can keep five in the air. I'm at three and a half.",[
-  ["That sounds good. Is Bruno helping?","Bruno says my wrists are too stiff. He told me to imagine I'm throwing away a bad idea. I thought of a few and it improved."],
-  ["Would you really run away with them?","With a tent over my head and Meg's wire over my head, I'd be a very happy mess. I just need to quit being a very unhappy one here."],
-  ["Is five realistic?","On a good day, with a following wind and Paolo not looking. You can have two bruised oranges. I've got more."]],
- "Take an orange. They're past their best, like me."],
-19:["(Hely's sitting on the edge of a bench, rubbing her ankle.) The ground shook again at breakfast and I fell off a chair in the café. A man from the Red lot helped me up. I thanked him, and I still don't trust him.",[
-  ["Why not?","He was too kind. Nobody's that kind for free. He wanted my signature on something. I told him I'd sign if he cleared my tab at Paolo's. He left."],
-  ["Is the café still open?","It is. It's all very brave and very short of cake. A woman screamed when the teaspoons rang, and then laughed."],
-  ["Are you worried about the mountain?","I'm worried about everything. It's the mountain's turn, that's all. Look at that sky. It's smoking."]],
- "I'm off to the lake. If I'm going to be afraid, I'll do it near a circus."],
-20:["(Hely's wearing a scarf over her mouth.) The air tastes of boiled eggs. Veikko says it's the steam from the north. I told him it's the cook at the community centre. He's very hurt on the cook's behalf.",[
-  ["Is it the volcano again?","It's the volcano, clearing its throat. I think we all know it's going to do something grand, and we're being very British about it."],
-  ["But you're not British.","I'm very Eastbrook. It amounts to the same. We wait politely for disaster, and make a joke if it's late."],
-  ["What would you do if it went?","Run to the lake, jump on Meg's wire and hope the lava has a sense of balance."]],
- "Get yourself a scarf. And a lucky orange, if you can."],
-21:["(Hely is covered in grey, and her eyes are enormous.) It went. It really did. I was on the lakeshore, and Meg was on the wire, and the whole sky turned the colour of old dishwater. Meg didn't fall.",[
-  ["Was anyone hurt?","Not a soul. Not a bruise, even. I think the island held its breath, and let it out gently. Meg said it was the best view of her life."],
-  ["What was it like?","Loud. Then silent. Then Bruno began to laugh, and he couldn't stop, and then we were all laughing. It's not the right response. It's the only one we had."],
-  ["Are you all right?","I'm alive, and I've forgotten I owed Paolo anything. That's a miracle in itself."]],
- "I'll have to wash my hair. Twice. It'll take a week."],
-22:["(Hely's brushing ash off her sleeves.) Everything's grey. My orange's grey. My cat's grey. Even Paolo looked grey, and he's usually a very bright shade of crook.",[
-  ["Did Paolo take bets on the volcano?","He did. He now claims every bet was 'void due to an act of God'. He says it so earnestly I nearly believed him."],
-  ["Is the circus all right?","The tent's got a hole in the roof, and the ponies have gone off their oats. But Bruno's mending it with a sail."],
-  ["Are you helping?","I'm sweeping. I'd rather juggle, but you can't juggle in ash. It comes out of the oranges."]],
- "I'll be at the lake if you need me. Or at the pub. Which is where I'm usually found."],
-23:["(Hely is sweeping the same step for the third time.) The tremors keep coming. Veikko's put a bucket of water on the table to watch the ripples. He's always been a scientist, in his heart.",[
-  ["Does it help?","It gives him something to look at. I'd rather look at a bookmaker's board, but at present the board says nothing."],
-  ["Has Paolo reopened his book?","He's offering evens on the next big one. I said that was disrespectful. He said, 'It's an opportunity.' It's how I know he's all right."],
-  ["Will you bet?","Not a penny. I'm turning over a leaf. A grey leaf, but a new one."]],
- "If you see me betting, stop me. Lightly. With a juggling ball."],
-24:["(Hely's balancing on a kerb with her arms out.) Meg's been teaching me the wire. She says I've got a good centre and a bad conscience. The centre helps with the wire. The conscience helps with the debt.",[
-  ["How's the debt?","Eighty-one marks. It's the same as last week. Which is good. It means it's stopped growing, and so have I."],
-  ["Is Meg a good teacher?","She's very quiet, and then she says one thing: 'Don't look down.' I look down immediately. It's a gift."],
-  ["Do you think you'll make it?","Some days, yes. Today, no. Tomorrow I'll be an acrobat. There's a lot of tomorrow left."]],
- "Walk the kerb with me. It's cheaper than a circus ticket."],
-25:["(Hely's looking at a poster of a princess.) They've put them up all over Eastbrook. 'A Princess for Democracy.' It's a clever notion. The Democrats are always one clever notion short of a majority.",[
-  ["Are you backing the Democrats?","I'm backing Veikko. He's got the chairs. And he's let me sit at the front, even though I've not paid my party dues."],
-  ["How much are the dues?","Two marks a month. I owe fourteen. I've a good excuse: I've been in a state of volcano."],
-  ["Is the princess real?","Apparently. I'd like her to turn up on a unicycle. That'd be the proper thing."]],
- "Tell Erik I'll vote. Tell him I need a rebate."],
-26:["(Hely is stirring a cup of coffee, which she doesn't drink.) Everyone's got a poster, a pamphlet or a prince. 'A Prince in Every Bottle.' I'd settle for a krona in every pocket.",[
-  ["Is life getting any better?","It's getting louder. Which is the island's idea of better. I can hear the posters being pasted. It's like a giant knitting."],
-  ["What would help?","A job. A proper one, with a hat and a pay packet. Or a circus. I'd even take a job in a cola bottle."],
-  ["Are you hopeful?","As hopeful as a woman with a debt and no cat. Wait, I've a cat. It left. It came back. It's a complicated animal."]],
- "I'll go home and think. Or I'll go to the pub and think there."],
-27:["(Hely holds up three fingers.) That's how many days till the end. I've counted. I've also counted how much I owe, and the two numbers are quite close.",[
-  ["Are you worried about the end of the month?","Yes. Because of the island and because of Paolo. One of them's going to be settled. I hope it's the island."],
-  ["Will you run away with the circus?","If they'll have me. If they won't, I'll learn to eat fire. It's a skill, and it'd come in handy for chip-frying."],
-  ["What does Veikko say?","He says I'd make a wonderful clown. He's right. It's the nicest thing anyone's said all month."]],
- "Come and see me at the lake. I'll show you a trick. It might even work."],
-28:["(Hely is standing on her toes, craning to see the street.) Everyone's out. The whole of Eastbrook. Veikko's got his best tie on, and a flag the size of a tablecloth. I've never seen him so brave.",[
-  ["What's the mood like?","Fizzy. The Reds have a band, the Democrats have sausages. I've had two sausages and I'm very much for democracy."],
-  ["Are you going to the big push?","I'll be there. At the front, if I can, with a bit of heckling. I've a good voice for it, though I say so myself."],
-  ["How do you feel?","Like a juggler with seven balls. And it's all going very well, so I'm watching for the floor."]],
- "If you see me falling, don't catch me. I'll bounce."],
-29:["(Hely sits very straight, as if posing.) It's the last big day tomorrow. I've told Veikko I'm going to stand on a table and say something wise. He's told me to be careful of the table.",[
-  ["What will you say?","I haven't the faintest. Probably 'Vote.' Or 'Pay your debts.' Or 'Look after your friends.' It's all the same thing, deep down."],
-  ["Are you ready?","As I'll ever be. I've an orange, a bet and a dream. It's a very flimsy shopping list."],
-  ["Any message for Paolo?","Tell him I'll pay what I owe. Eventually. And if I don't, I'll send him a postcard from the circus."]],
- "Wish me luck. I've never been listened to before. It might go to my head."],
-30:["(Hely's standing in the middle of the street, holding an orange as if it were a torch.) Today's the day. I can feel it in my knees. It's very quiet. Even Paolo's put his book away.",[
-  ["Any last words, Hely?","Be brave. Be a bit daft. Look after the people who've lent you something. And never bet against a woman with an orange."],
-  ["Was it a good month?","It was a mountain of a month. I've been shaken, dusted, taught to walk a wire and told I'm a clown. I'd do it again."],
-  ["What will you do next?","Run. Toward the circus, or away from the debt. It's the same direction, with luck."]],
- "Goodbye, reporter. See you at the lake. Bring your own orange."],
+17:["(Hely is sitting on the back of the bench in the square, gripping it with both hands as the ground judders.) Did you feel that? The whole square moved! Paolo's going to take a bet on it. I know he is. I'm going to bet on it moving again.",[
+  ["Was it an earthquake?","Signe at the lighthouse says she's seen steam. Henrik at the Gazette says cloud. I'm betting on Signe. I always bet on the person who's actually looking."],
+  ["Don't bet on earthquakes.","Why not? Everything on this island's a bet. Who's king, who wins the debate, whether the ground stays still. I'm just the only one honest enough to put money on it."],
+  ["How much do you owe Paolo now?","(She swings her legs.) A bit. A medium bit. Don't make the Veikko face. Veikko's been making it all week. It's not a good face."]],
+ "If the ground moves again, hold onto something that isn't me. I'm already holding on."],
+18:["(Hely is juggling three chipped clubs in the middle of the square, very seriously, facing north.) Don't laugh. I'm juggling for the volcano. To calm it down. Linnea thinks I'm mad. Meg from the circus says the mountain likes a show.",[
+  ["Is it working?","The ground's moved twice since I started. That's less than yesterday. I'm not saying it's me. I'm not saying it isn't."],
+  ["What did Meg really say?","She said every circus has a lucky trick for bad nights. Hers is a cartwheel before the show. Mine's three clubs at the mountain. She didn't say it would work. She said it would help me."],
+  ["Isn't Kelpy ill today?","Jaana's poorly. Somebody else is in the cup. Everyone in the square's guessing who. I've got a krone on it with Paolo. I'm not saying who I picked."]],
+ "If the volcano erupts, it wasn't my juggling. If it doesn't, it was."],
+19:["(Hely is sitting on the bench with a scarf over her nose, and her clubs in her lap.) The air stinks of eggs. The circus is talking about packing up and moving to Kingsgrad till it's safe. Bruno says the animals know. The animals are very quiet.",[
+  ["Will the circus leave?","If the mountain gets worse. Bruno says a circus that stays near a volcano is a circus with a death wish. Meg says a circus with a death wish sells more tickets."],
+  ["Would you go with them?","(She looks at the clubs.) If they asked. Nobody's asked. I'm a girl on a bench who can't juggle very well and owes the bookie a medium bit."],
+  ["Are you frightened?","Yes. But being frightened's better than being bored. I've been bored for two years. Frightened feels like something's happening."]],
+ "Breathe through your scarf. And if you see the circus packing, tell me."],
+20:["(Hely is pacing up and down by the bench, very fast.) The ground's moving every hour. Veikko's gone to help Erik put out blankets at the Community Centre. He told me to come. I said I'd come when the mountain makes me.",[
+  ["You should go now.","(She stops.) Probably. Veikko's always right about the sensible things. It's very annoying. I'd follow him into a fire, but I'd complain the whole way."],
+  ["What will you take with you?","My clubs. Meg's hat. And Linnea's book, with my tab in it. If the island ends, I want the record to show I meant to pay."],
+  ["Are you scared?","(She sits down suddenly.) Yes. Really scared, for once. Not the fun kind. Don't tell Veikko. Sit with me a minute?"]],
+ "Go to the Community Centre. I'm coming. In a minute. Really."],
+21:["(Ash is falling. Hely is on the bench, grey all over, with her clubs in her lap and a blanket round her shoulders.) It went. The mountain. I was in the Community Centre all night. I slept under a table. Veikko put his coat over me. He didn't sleep at all.",[
+  ["Is everyone all right?","Everyone in Eastbrook. Knut told the children a story at three in the morning. A true one, he said. I fell asleep before the end. I'll make him tell me."],
+  ["Why under a table?","I went under it when the mountain roared and I didn't come out. It felt safer under something. Veikko lay on the floor next to the table and talked to me through the tablecloth."],
+  ["How are you?",["(She looks at the grey sky for a long time.) I'm alive. Isn't that strange? I've wanted something to happen for two years. Something did. I don't want any more.",[
+    ["What do you want now?","To juggle at the circus. To pay Paolo. To tell Veikko he's the best person on the island. In that order. Maybe the other way round."],
+    ["You'll be all right.","I know. That's the strange bit. For the first time in two years, I know I'll be all right."]]]]],
+ "Cover your mouth. And thank you for coming to the bench."],
+22:["(Hely is sweeping ash off the square with a borrowed broom, harder than anyone else.) Everybody's sweeping. The whole of Eastbrook. Erik organised it. I volunteered first. I've never volunteered first for anything. It felt very strange.",[
+  ["You're working hard.","I've got two years of not working to make up for. And sweeping's like juggling. Rhythm. Sweep, sweep, turn. Meg would approve."],
+  ["Has the circus left?","No! Bruno decided to stay. The animals got through it. The big top's grey but standing. Meg says they're putting on a show for the island on Saturday, free, to cheer everyone up."],
+  ["What about your debts?","(She stops sweeping.) Paolo came to the square this morning. He didn't ask for anything. He just stood there with his black book shut. That's never happened."]],
+ "Take a broom. There's always more ash."],
+23:["(Hely is sitting very quietly on the bench, next to an empty space.) Paolo sat here for an hour. With me. Didn't say a word. Then he went to sit with Veikko. Then with Linnea. Nobody said anything. It was the best hour of the week.",[
+  ["Why was Paolo so quiet?","I think the mountain frightened him too. Even bookies get frightened. He took my hand at one point. Very briefly. Then he put it back. Like a bet he didn't want."],
+  ["Did he mention the debt?","No. He opened his black book, looked at my page, and shut it again. I don't know what that means. I'm scared to ask."],
+  ["What's the news?","Something broken on the oil rig, they say. Spanners. I didn't bet on it. I've stopped betting. For now. Since the mountain. It doesn't feel like a game any more."]],
+ "Sit on the bench a minute. The quiet's very good today."],
+24:["(Hely is holding the bottom of a long ladder in the square, very steadily, while a woman in a sequinned coat hangs a banner from the top.) Meg! From the circus! She's hanging Erik's rally banners. Twenty of them. She asked me to hold the ladder. Me.",[
+  ["Is Meg good at heights?","She walks a wire forty feet up every night. A ladder's a holiday for her. She's hanging them very fast and singing. I'm holding very still and not breathing."],
+  ["Why did she ask you?","She said I've got steady hands. Steady! Me! She saw me juggling for the volcano. She said anyone who keeps juggling at a mountain has the nerve for a circus."],
+  ["Does she want you to join?",["(Hely looks up the ladder, and grips it harder.) She hasn't said. She said 'we'll see'. 'We'll see' from Meg is like 'yes' from anyone else.",[
+    ["What would Veikko say?","He'd say be careful. And then he'd come to every show. And sit at the front. And make the Veikko face during the dangerous bits."],
+    ["You'd be good at it.","(She looks at you, very surprised.) Nobody's ever said I'd be good at anything. Say it again? No. Don't. I'll start believing it."]]]]],
+ "Don't distract me. I'm holding a ladder for a famous acrobat."],
+25:["(Hely is reading two leaflets, one in each hand, and grinning.) A princess for democracy! A crown for everyone! Everybody wants the island to love them this week. I've never been so popular. Everyone's giving me leaflets.",[
+  ["Would you vote for the princess?","She came to the circus on Saturday, they say, in a headscarf, and laughed at Buttons for an hour. Anyone who laughs at Buttons for an hour can have my vote."],
+  ["Are you betting on any of it?","No. Not since the mountain. I told Paolo I'm retiring from betting. He wrote something in his book. I think it was a line under my name."],
+  ["What does Veikko think?","Veikko thinks the Democrats will win if the princess helps. Veikko thinks a lot. I just think whoever wins should come and watch the circus. Everyone's nicer after the circus."]],
+ "Take a leaflet. I've got eleven. I'll juggle the rest."],
+26:["(Hely is practising with the clubs, and catching more than she drops.) Look! Four in a row! Four! Buttons came down from the lake and showed me a trick. You throw from the wrist, not the arm. I've been throwing from the arm for six years.",[
+  ["You're getting better.","I am, aren't I? Buttons says I'm 'nearly not terrible'. That's the nicest thing a clown's ever said to me."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. Linnea says the whole island's gone mad. I think it was always mad. Now it's just louder."],
+  ["Have you paid Paolo?","(She drops a club.) Not yet. I've been selling programmes for the circus, for wages now, real wages. Meg's paying me. I've got nearly enough. Nearly."]],
+ "Watch me do five. Wait. Watch. (She drops them all.) Watch tomorrow."],
+27:["(Hely is sitting on the bench with Linnea, who has brought two cups of tea out from the tavern.) Linnea's having a tea break with me. In the square. She never leaves the bar. She says my plans are more exciting than a Party film. They're also slightly more likely.",[
+  ["What are your plans?","Pay Paolo. Join the circus for the winter tour. Write to Veikko every week. Come back in the spring and pay Linnea's tab. In instalments. Juggled."],
+  ["Is the circus going on tour?","After the month, Bruno says. Round the island, every town, then over to Finland for the winter. If Meg says yes, I'm going with them. In a caravan. With a hat."],
+  ["What does Linnea think?","(Linnea pours the tea.) Linnea thinks I'll be the best thing that's happened to that circus since the bear. There was a bear, once. It's retired."]],
+ "Drink some tea with us. Linnea's made a pot for three. She knew."],
+28:["(Hely is holding a fat envelope, and her hands are shaking.) I've paid Paolo. All of it. Every krone. From programme money. He counted it, put it in his book, and drew a line under my name. A real line. Then he shook my hand.",[
+  ["How does it feel?","Like taking off a coat I've been wearing for two years. In summer. I'm so light I might float up to Meg's wire."],
+  ["What's happening today?","Every faction's big push. Flags everywhere. Erik's rally on the stage Bjarne built. I'm going. I'm going to stand at the front and cheer for everything. I'm not betting on any of it. I'm just cheering."],
+  ["Has Meg said yes?","Tomorrow, she says. After the last show tonight. Bruno has to agree. Buttons has already said yes. Buttons is easy. Bruno's not."]],
+ "Come to the rally. Stand near me. I'll be the one not betting."],
+29:["(Hely is standing on the bench, waving her arms, shouting at nobody and everybody.) MEG SAID YES! BRUNO SAID YES! I'm joining the circus! The winter tour! As a juggler's assistant! (She jumps down.) Sorry. I've told everyone in the square. Twice.",[
+  ["Congratulations!","(She hugs you, hard, then lets go, embarrassed.) Sorry. I've been hugging everyone. I hugged Dex. He gave me a free hot dog. I've paid him back for the other three."],
+  ["What does Veikko say?","(She goes quiet.) He made the Veikko face. Then he smiled. Then he said he'd come to every show on the island and write me letters for the rest. I cried. Don't tell anyone."],
+  ["What's happening today?","The palace is arguing about who's next. The Republicans are choosing a leader. And Hely's joining the circus. Only one of those matters to me. Guess which."]],
+ "If you see the circus on the road, wave. I'll be in the second caravan. With a hat."],
+30:["(Hely is sitting on the back of the bench with a small suitcase beside her, juggling three clubs, and catching every one.) Last day. They're settling the island today. And tomorrow I leave with the circus. Isn't that funny? The island's choosing a future, and so am I.",[
+  ["What do you hope happens to the island?","That it's still here when I come back in the spring. That Linnea's tavern is still open. That Veikko's still on this bench. That's my whole politics."],
+  ["Are you nervous about leaving?","Terrified. Happy. Both at once. Like being under the table when the mountain went. But the other way round."],
+  ["Will you remember this month?",["(She catches all three clubs and holds them.) The mountain, and the table, and Paolo drawing a line, and Meg saying yes. Every day of it.",[
+    ["And me?","The first interesting person to come up that road in two years. You asked about London and you listened about the circus. I'll juggle for you, one day. Properly."],
+    ["What will you do tomorrow?","Get in a caravan. Sell programmes. Drop clubs in front of strangers. Write to Veikko. The best tomorrow I've ever had."]]]]],
+ "Wave at the circus on its way out. I'll wave back. With a club."],
 };

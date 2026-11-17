@@ -1,142 +1,146 @@
-// Juniper, owner of Flannel and Folk, the clothes shop in Eastbrook (Orthodox Church). Threads: hems and fit, her faith and Prince Augustus, Pirkko and the church faithful of Eastbrook, the odd things people buy (Stetsons, cowboy boots), the cold and the ash.
+// Juniper, owner of Flannel and Folk, the vintage clothes shop in Eastbrook (the Orthodox Church, and the Shopkeepers). Threads: hems,
+// fit and the difference between grief and sloppiness (Father Thyme's vestments, the 10th; the scarf she knits him, the 14th); her
+// faith, and Prince Augustus, whom she'd like to see at the monastery; Pirkko from the food van, her friend in the faith; the
+// supplier's mistake that put cowboy boots and a Stetson in her window, which she's furious about and can't stop looking at; the relic
+// gone from the monastery (the 18th); the walk up to the monastery to pray for the mountain (the 20th); the cold, and the ash.
 DAILY['Juniper']={
-4:["(Juniper is pinning a hem with a mouthful of pins, so the first word is rather muffled.) Mm. Sorry. Welcome to Flannel and Folk. You've the look of someone who bought a coat for a milder country.",[
-  ["I'm the reporter from London. Nice shop.","Thank you. Everything's second-hand and first-rate. Mind the mannequins, they're a bit shy."],
-  ["How's business, with the roads just open?","Slow, but the snow's gone and the town's walking again. A woman bought four scarves this morning. She's either very cold or very pessimistic."],
-  ["Is my coat that bad?","The sleeves are an inch short and the collar's been through a war. I could do something about both."]],
- "Come back if you need a better coat. Or a worse one that fits."],
-5:["(Juniper is checking a rail of knitwear.) The north-east road's open now, so the monks will be down for their winter things. They never buy anything with a pattern. Black or grey. I put a stripe on a scarf once and Brother Anselm blushed.",[
-  ["Are you Orthodox yourself?","Devout, I'd say. Every Sunday and most feast days. The church needs hands as well as prayers, and I've good ones for mending vestments."],
-  ["Do you make clothes for the monastery?","Mend, mostly. Cassock hems get chewed by the cold. Father Thyme's is held together with prayer and my thread."],
-  ["What's your favourite thing in the shop?","A green wool coat. It was a doctor's wife's. It fits no one, and I love it for that."]],
- "If you're going up to the monastery, tell them the hems are ready."],
-6:["(Juniper is folding scarves with great precision.) Frostholm hasn't got a decent clothes shop, you know. They buy their shirts from a catalogue. A catalogue! They've no idea what they're missing.",[
-  ["Do you get customers from other towns?","A few, when the road lets them. A man came in wanting a duffel coat. Hadn't a clue about the size. I gave him three."],
-  ["What do you think of the Church's politics?","I think they pray very hard for Prince Augustus. I admire him. A young man who prays is a rare thing."],
-  ["Do you ever wear anything fashionable?","I wear what fits and what's warm. Fashion is whatever the wind brings in."]],
- "That scarf suits you. It's not for sale, but it suits you."],
-7:["(Juniper is on a stepladder, hanging a coat.) Everything's open now, the north-west and all. Do you think we'll get people from Frostholm? Oil people, in their good suits. I'll make them all buy something warm.",[
-  ["Are there many oil people?","More every week. Fine suits, clean boots, nothing woollen. I hope they know what winter does."],
-  ["How do you feel about them?","They've got money. I've got a shop. We might get along, if they don't ask me to take down the icons."],
-  ["Is the shop crowded today?","Two customers and a cat. The cat's been in twice. She likes the beret rack."]],
- "If the cat comes back, don't feed her. She's got my customers' loyalty already."],
-8:["(Juniper has her good dress on and is putting on gloves, as if for church.) There's the Sunday sermon on the wireless today, and I'm to be at Pirkko's for it. Father Thyme is supposed to be struggling for words. I'd say a prayer for him.",[
-  ["Is Pirkko a good friend?","The best. She runs the food van at the cola factory, so she knows everyone's lunch and everyone's business."],
-  ["Why can't Father Thyme find words?","The king's death hit him. And the Church is divided, between the crown and the cross. It's hard to preach when you're being pulled two ways."],
-  ["What would you tell him?",["That the good words are the short ones. Amen. Peace. Hem and sew.",[
-    ["That's not much of a sermon.","It's the best I've heard. Never trust a sermon you can't mend a button with."],
-    ["Do you pray in the shop?","Between customers. Mostly for the right size. It doesn't always work."]]]]],
- "God keep you. And keep your collar straight."],
-9:["(Juniper is dusting off a row of sweaters.) There's a new cola formula today, and a Party one, they say. Everyone's drinking one or the other. I stick to tea. It never changes its mind.",[
-  ["Do you drink Kelp Cola?","Pirkko gives me a bottle sometimes. Very sweet. I leave it on the counter until it goes flat. Then I drink it."],
-  ["What do you make of the Communists?","They'd have us all in grey jackets, and I'm very sorry for them. I like colour."],
-  ["Do the Party people shop here?","One came in for a cap. Wanted it plain. I gave him a red one. He wore it out."]],
- "Come back if the cola gives you the shakes. I have a very long cardigan."],
-10:["(Juniper is in black from neck to ankle.) The king's funeral today, in Kingsgrad. I've been up since five, ironing. Half of Eastbrook came in to borrow something black. I've sold the last of my mourning ties.",[
-  ["Will you be at the funeral?","I'll be at the monastery church, with Pirkko. We'll light candles at the same hour. It feels better than a crowd."],
-  ["Did the king have a good wardrobe?","The best. All wool, all fitted, and a cap he'd worn since 1948. He had one pair of boots, resoled seven times."],
-  ["What's the mood in town?","Quiet. Even Dex put his cart away for the morning. That's how you know."]],
- "Stand straight, whatever you do today. It's what he'd have wanted."],
-11:["(Juniper is wrapping a parcel in brown paper.) The Church is giving alms to the poor today, and I've put aside a few coats for the collection. A good coat is the best charity. It does the praying for you.",[
-  ["Do you give clothes away often?","When I can afford to. Father Thyme says that's charity, I say it's stock control."],
-  ["The mill hands want a fair day's pay.","So they should. I've sold more overalls this month than a decade. Everybody's tired of being patched."],
-  ["Who needs the coats most?","The ones who say they don't need them. I've learned to leave them on the doorstep."]],
- "Be kind to someone today. It costs nothing and fits everyone."],
-12:["(Juniper is arranging a pair of boots in the window.) A very odd thing. Two customers today have asked for a Stetson. Not a trilby, not a flatcap, a Stetson. A cowboy hat! I had two in the back, from an old order.",[
-  ["Why would anyone want a Stetson here?","I haven't the faintest. Wear it and go to Texas, I suppose. Or a fancy dress party."],
-  ["Did you sell them?","Not yet. A man in a sharp suit looked at them for a very long time. Then he looked at the cowboy boots, then the door."],
-  ["Is it for a disguise?","(She raises an eyebrow.) In Eastbrook? Nobody has the time. Though the funny thing is, a hat does change a person."]],
- "If anyone comes for cowboy boots, tell them they're a size too big."],
-13:["(Juniper is brushing lint off a shoulder.) The cola people are giving out samples round town today. I got one, I think, but I've no idea what to do with it. A bottle in a dress shop looks like a prop.",[
-  ["Do the cola people come in here?","The girl from the museum's gift shop, Wilma. She buys cardigans in the autumn, sensible cardigans."],
-  ["Do you like free samples?","Of anything. A free hem is a happy hem. But I never trust what's free in politics."],
-  ["Have you heard of any trouble?","A stall at the market had a bit of a to-do over a recipe. I never go near anything with a secret in it."]],
- "Keep the bottle. It might be worth something. Or it might leak."],
-14:["(Juniper is hanging up a notice, then taking it down.) Everybody's talking about tomorrow, the great gathering. Half the town's asked me to alter something. A woman wanted her best dress taken in, for fear of being seen.",[
-  ["What will you wear?","The plum wool dress. It's old but it stands up on its own. I feel better in clothes that don't wobble."],
-  ["What are you expecting?","Sermons, shouting, and a lot of people in the wrong shoes. And Erik giving a speech with his tie crooked."],
-  ["Will the Church be there?","The whole mountain, probably. Father Thyme will be pale and Brother Anselm fidgeting."]],
- "Don't forget a scarf. It's colder than it looks."],
-15:["(Juniper is crossing herself over a pile of unsold hats.) Crown before cross, cross before crown. The Church and the Royals have pitched against each other today. I don't like to see good people shouting.",[
-  ["Whose side are you on?","The cross. But I've nothing against a crown. It's a nice shape. I'd make it a velvet lining."],
-  ["What does Prince Augustus stand for?","Faith, kindness, a proper hemline on a cassock. He's pious, and he looks it, thank heavens."],
-  ["Isn't Leopold the royal candidate?","He is. Handsome, loud, and with very bad taste in waistcoats. I did what I could."]],
- "I'll light a candle for peace. And one for the waistcoats."],
-16:["(Juniper is on the telephone, then hangs up with a sigh.) Debate day. Communists against Democrats. Ruby wants me to listen with her in the record shop. I can't stand the shouting, but I do love a gossip.",[
-  ["Who do you want to win?","The one that doesn't stand on my toes. The rest I leave to God."],
-  ["Does the Church have a view?","Father Thyme says stay out of it. Brother Anselm says pray for both. I say mend what's torn."],
-  ["Is Erik going to be nervous?","He wears the same tie when he's nervous. That tie has seen better days."]],
- "If you see Erik, tell him I could press that tie."],
-17:["(Juniper steadies a row of hangers that rattle.) There. Did you feel it? The ground shook, and the hangers chimed. They say it's the volcano starting up. I'll tell you something: I've never liked mountains that smoke.",[
-  ["Is it dangerous?","They say not. They said the same about the weather, and look what it did."],
-  ["Should the shop worry?","I've pinned the mannequins down. They've been jumping since morning."],
-  ["Is the Church doing anything?","The monks are praying. Pirkko's making soup. I'm sewing. Everyone to their talent."]],
- "If it shakes again, stand in a doorway. And pray, if it helps."],
-18:["(Juniper is looking under the counter.) The Church has lost a relic, you know. A real one. Brother Anselm came in white as chalk, and asked if I'd seen a small gold box in a patch of embroidery. I haven't.",[
-  ["What was in the box?","He wouldn't say. A relic. A bone of someone holy, or a piece of someone's cloak. I'd rather not know."],
-  ["Who'd take it?","Some thief with no soul, or a collector with too many. Or the cat."],
-  ["Will you help look?","I've looked through every pocket in the shop. I found two buttons and a bus ticket."]],
- "If it turns up, it'll be in the last coat you check."],
-19:["(Juniper is sewing a button on a red cap.) The Party's asking for comrades today. A young man in a red scarf came in to ask whether I had any more red. I said not for a Party, but I'd do it for a pillar-box.",[
-  ["Do the Party want your clothes?","They want everyone's. But they pay for nothing, and they never return anything."],
-  ["Have you heard about the Midnight Note?","Yes. The royals going incognito. A nightclub in Eastbrook, think of it. Someone must've asked me for a wig."],
-  ["Did someone buy a disguise?","A woman bought a long coat and a very silly hat. I never ask. A shop is a confessional with better lighting."]],
- "If you're going out in disguise, stay off the dance floor."],
-20:["(Juniper is looking at a coat with a stain on it.) There's talk of a man at the Hotel Aurora. A stranger, they say, in a good hat and a bad mood. People talk of nothing else, and nobody's seen him.",[
-  ["Do you know who he is?","I haven't the foggiest. I only know the hat, because someone asked me to match it."],
-  ["Is the Democratic Party involved?","Erik came in for a new tie, looking worried. I sold him one in green. He bought it without looking."],
-  ["Why the worry?","Something's happening. I smell it in the shop, like damp wool before rain."]],
- "Don't go to the Aurora after dark. The corridors are cold."],
-21:["(Juniper is brushing grey flakes off a window display.) The mountain's blown, and everything's ash. It's on the coats, the hats, even the mannequins. They look like ghosts in a very good tailoring.",[
-  ["Are you all right?","Alive and sweeping. Pirkko rang. She's fine. Father Thyme's in the chapel with all the lamps lit."],
-  ["Did you see it?","A column of smoke the size of the sky. Brown, then black. I closed the shop and said the Lord's Prayer standing up."],
-  ["Is the shop ruined?","Everything's dusty. I'll wash it. Wool forgives a good beating."]],
- "Put something over your face. And don't rub your eyes."],
-22:["(Juniper is shaking out a rug.) Every cardigan in the shop's been bought for the ash. People want scarves for their faces, and hats. I've never sold so many hats. I could've sold a very small one to a pigeon.",[
-  ["Anything else going on in town?","A royal party's buying something nice for Princess Daphne, they say. And the cola lot have trouble at a farm."],
-  ["What kind of trouble?","I don't ask. Farms and cola, no good comes of that mix."],
-  ["Have you been busy?","Busy, grey and tired. And everyone wants a size they don't fit."]],
- "Tell your editor the ash is very hard on linen."],
-23:["(Juniper is sitting very still, with her hand on a bolt of cloth.) Every time it shakes, I count. Ten seconds, then twelve. Some small tremor has been rolling under the floor all morning.",[
-  ["Are you frightened?","A little. But I've faith, and a good needle."],
-  ["Is the Church holding up?","Father Thyme's at the monastery, with a candle in each window. Brother Mikael's telling everyone to be brave."],
-  ["What helps?","Work. A good seam never shakes, even if the floor does."]],
- "Keep busy. Idle hands tremble worst."],
-24:["(Juniper is packing a small bag.) The Church is going on a retreat to the peaks today. Pirkko's sending me a sandwich for the journey. I'm too old for mountains, but I've mended five cassocks for the occasion.",[
-  ["Are you going on the retreat?","I'll hold the shop, and pray from here. Someone's got to stay and make sure the hems hold."],
-  ["Why the peaks?","Away from the ash, and nearer to God, they say. He's said to be a good listener at altitude."],
-  ["Is Father Thyme leading?","He's walking at the front, on a stick. I gave him a better pair of socks."]],
- "Go gently. God keep the road."],
-25:["(Juniper is pinning a small silk veil.) The royals are talking about a crown for everyone, and the Democrats a princess. I keep thinking, they'll all need something to wear.",[
-  ["Is that why you're sewing a veil?","Somebody asked me. I don't know who, or why. I charged them double and prayed afterwards."],
-  ["What do you think of Princess Daphne?","I've never met her, but I hear she's bright. Somebody should say what she wants for once."],
-  ["Is the shop doing well?","The ash has been very good for business, in an awful way."]],
- "If you meet a princess, tell her the shop does alterations."],
-26:["(Juniper is in the doorway, watching the street.) Dario's said to be buying a spa. Dario! A man like that in a spa. I'd sew the towels myself if he asked.",[
-  ["Would you work for the oil man?","I'd work for anyone who pays on time. But I'd pray for him after."],
-  ["Are Kelp Cola putting princes on bottles?","So I hear. A prince in every bottle. I'd like to see the ones who'd drink them."],
-  ["Is anything ever simple on this island?","A hem. A hem is simple. Everything else is stitching."]],
- "Don't let them sell you a bottle with a prince in it. Buy a coat."],
-27:["(Juniper is taking in a trouser leg, mouth full of pins.) There's a revolution planned at the pictures, I'm told, and cards at the Midnight Note. I'm a quiet person. I'd be happy with a nice bit of tweed.",[
-  ["Would you go to the pictures?","If it was a nice film. A musical, perhaps. They always dress so well."],
-  ["What do you think the Party will do?","They'll wave a flag, shout a bit, and go for tea. It's what everyone does."],
-  ["What do you want?","A year with no ash, a cold that never turns to anything, and a quiet Sunday."]],
- "Don't catch a chill. It'd be a shame to ruin that collar."],
-28:["(Juniper is wearing her best brooch.) It's a big day for everyone, I hear. State visits, flags, cola abroad, oil in offices. I've decided to wear my green. It's the colour of hope and moss.",[
-  ["Are you nervous?","Only about my own side. The Church. The prince. But I've asked God, and He's rather busy."],
-  ["What do you want from today?","That nobody gets hurt. That the right prince is honoured. And that the buttons stay on."],
-  ["What would you say to Prince Augustus?",["That he's a good young man, and a good young man shouldn't have to wear such a heavy crown. Though I'd line it.",[
-    ["Would you make him a coat?","A grey one. Plain, warm, with a collar he can turn up when he's tired of everybody."],
-    ["Is faith enough to rule?","It isn't enough. But it helps. And a proper pair of boots."]]]]],
- "God keep the day, and keep your hem straight."],
-29:["(Juniper is rubbing her eyes.) There's talk of primaries and lines of succession. I've never understood politics. I understand that tomorrow's the last day, and I'd like a day of peace after it.",[
-  ["Who do you think will win?","I don't know. I know who I'm praying for, and I'll leave the rest to the Lord."],
-  ["Will you go to church tomorrow?","First thing. And again in the evening, if I'm able."],
-  ["Is the shop open tomorrow?","Always. Even at the end of the world, someone needs a button."]],
- "Get some sleep. You'll need your wits tomorrow."],
-30:["(Juniper is standing at the shop door, key in hand.) The last day. I've polished the counter twice. Everything feels like it should look its best.",[
-  ["How do you feel?","Calm. Nervous. Both. The way you feel when you've finished a hem and don't know if it'll hang straight."],
-  ["What have you learned this month?","That people will buy anything if you say it's practical. And that the island's softer than it looks."],
-  ["Any message for London?","That we're well-dressed, and we'll manage. In wool."]],
- "Thank you for coming in. Come again. I'll have your coat ready."],
+4:["(Juniper looks at you over her spectacles, a tape measure round her neck, and a pin in her mouth, which she removes.) Your hem's down at the back. Left side. Half an inch. Stand still. (She kneels and pins it before you can answer.) There. Now you can say good morning.",[
+  ["Thank you. Good morning.","Good morning. You're the reporter. You've been on the island four days with a hem like that. Nobody told you? This island's gone to pieces since the king died."],
+  ["What sort of shop is this?","Flannel and Folk. Good clothes, worn before, mended properly. A coat should outlive its first owner. Mine have outlived three."],
+  ["Do you pin everyone who comes in?","Everyone who needs it. Father Thyme from the monastery. Erik from the Community Centre. A Party man once, who didn't want it. I pinned him anyway. Nobody's above a hem."]],
+ "Come back and I'll sew that properly. Pins aren't a promise."],
+5:["(Juniper is glaring at her own shop window, where a pair of tooled leather cowboy boots and a Stetson sit on a stand.) A supplier's mistake. From Helsinki. I ordered wellingtons. They sent cowboys. I'm furious. I can't stop looking at them.",[
+  ["They're quite striking.","They're ridiculous. (She keeps looking.) The stitching's very good, though. Very good. Somebody in Texas took care over those."],
+  ["Will you sell them?","To whom? This is Eastbrook. We have snow. We have mud. We do not have horses that need cowboys. (A pause.) Twelve dollars for the boots. If anyone asks."],
+  ["Can I try the hat on?","(She hesitates, then hands it over.) Gently. And not indoors. A Stetson indoors is a man showing off, and I won't have it in my shop."]],
+ "Don't tell anyone I said the stitching was good."],
+6:["(Juniper is knitting something black, very fast, while minding the counter.) A scarf. For Father Thyme at the monastery. With a little cross at each end. He walks up and down that mountain in the wind like a man who's never heard of necks.",[
+  ["Are you close to Father Thyme?","He baptised me. He married me. He buried my husband. A man who's done all that should have a warm neck."],
+  ["Are you religious?","Every Sunday, and every day in between, quietly. I say a prayer for every hem I finish. The good ones and the crooked ones."],
+  ["How long will the scarf take?","A week, if the shop stays quiet. Two, if Pirkko comes in to talk. She always comes in to talk. I've started knitting while she does it."]],
+ "If you see Father Thyme, don't tell him about the scarf. It's for the funeral."],
+7:["(Juniper is pinning a coat on a mannequin, and frowning at the sleeve.) Pirkko came in. From the food van at the Kelp Cola factory. She's in the faith too. She says the prince's brother is reading the lives of the saints. I said good. Somebody in that family should.",[
+  ["Who's the prince's brother?","Augustus. A quiet boy. Reads. Prays. He'd be a fine monk. The palace wants him as a prince. I'd rather he was a saint. There's more use in a saint."],
+  ["Who's Pirkko?","My oldest friend in Eastbrook. She feeds the factory workers from her van and the poor from her own pocket. She'll never be rich. She'll be very welcome in heaven."],
+  ["What's wrong with the sleeve?","An eighth of an inch too long. Nobody would notice. I'd notice. God would notice. Between the two of us, it's being shortened."]],
+ "Close the door gently. The bell rings like a tantrum."],
+8:["(Juniper is in her Sunday black, with her hair pinned very tight, about to close the shop.) Sunday. The Abbot's preaching about the king. Pirkko and I are going together. Up the mountain. In good shoes. Not cowboy boots.",[
+  ["Will it be a good sermon?","Father Thyme's been struggling with it, they say. He's never been good at words. He's good at silences. I hope he leaves some silences in."],
+  ["Do you walk all the way up?","Every Sunday for forty years. The hill's got longer since my husband died. Pirkko holds my arm. We pretend it's for her."],
+  ["What will you pray for?","The king's soul. The island. My knees. And a supplier in Helsinki who can tell wellingtons from cowboy boots."]],
+ "Go to the sermon if you can. Sit at the back. Listen for the silences."],
+9:["(Juniper is unpicking a seam with great concentration.) A Kelp Cola man came in for a jacket. Very excited about a new flavour. He wanted something 'modern'. I sold him a tweed. He left looking timeless.",[
+  ["What's modern, in your shop?","Nothing. Thank God. Everything in here has already been modern once. It got over it."],
+  ["Is everyone talking about cola?","Pirkko says the Party wants to make one too. A cola for the workers. I said the workers deserve better than cola. Soup. Or a decent coat."],
+  ["What are you unpicking?","A wedding dress. From 1952. For a girl in the Lofts who's getting married in the spring. It was her grandmother's. It's going to fit her like it was always hers."]],
+ "If you're getting married, come to me. Not to Kingsgrad."],
+10:["(Juniper is pale and very upright, a needle in her hand and black thread in her lap.) The funeral. I was at the monastery at five, taking up Father Thyme's hem. A quarter of an inch. He said it didn't matter. I said a quarter of an inch is the difference between grief and sloppiness.",[
+  ["Will you go to the chapel?","I'll stand at the back, near the door, where I can see every hem in the island. God forgive me, I'll be checking them during the hymns."],
+  ["Did you know the king?","I mended his coat once, in 1971. His valet brought it in, in secret. A tear at the elbow. From leaning on a fence. I've never told anyone. I've just told you."],
+  ["Is Father Thyme all right?","He's carrying the whole island's grief on his back today. And my scarf on his neck. I gave it to him at five. He wept a little. So did I."]],
+ "Go gently today. And check your hem."],
+11:["(Juniper is mending a pile of work trousers from the mill, very fast, with a frown.) The mill hands. They want better pay and a safer saw. Half of them have holes in their trousers from the saw guards they haven't got. I mend them for nothing.",[
+  ["For nothing?","For the Church. Mending's a corporal work of mercy. Clothe the naked. Some of these are very nearly naked."],
+  ["Do you support the mill hands?","I support men keeping all their fingers. That's not politics. That's Christianity. Dagny's a good Christian on Sundays. I'd like her to be one on Thursdays."],
+  ["Is there news from the mill?","Helen from the Union's up there today, they say. And the Party's very interested. I don't like the Party. I like Helen. I'm allowed to be confused."]],
+ "If you see Dagny, tell her a saw guard costs less than a funeral."],
+12:["(Pirkko is in the shop, eating a pastry, and Juniper is pointedly not looking at the cowboy boots.) Pirkko says I've been looking at the boots. I have not. I've been looking at the window. The boots are in the window. That's different.",[
+  ["Have you sold them yet?","No. A man from the oil company tried them on. They didn't fit. I was very relieved. I don't know why."],
+  ["You like them, don't you?","(She sighs.) I've never had anything frivolous in my life. They're frivolous. They're very well made. I'm forty-eight years old and I want to wear cowboy boots to church."],
+  ["What does Pirkko think?","She says buy them myself, at cost. She says God made Texas too. She's a very dangerous woman, Pirkko."]],
+ "Don't tell anyone about the boots. I'll deny it."],
+13:["(Juniper has a free bottle of Kelp Cola on the counter, untouched, with a doily under it.) Free. From the company. A young man left it. I've put it on a doily. I don't know what else to do with it.",[
+  ["Will you drink it?","At Christmas. Maybe. I had a cola in 1964 and didn't sleep for two nights. I'm not risking it before the big day."],
+  ["What do you expect from the big day?","Every faction standing up, saying they love the island. I'd like one of them to say they love God. Augustus would. If anyone let him speak."],
+  ["Is the shop busy?","Everyone wants something smart for tomorrow. I've let out six waistcoats and taken in four. The island's been eating its feelings."]],
+ "If you're going tomorrow, come in first. I'll check your hem."],
+14:["(Juniper is in her best black, with a small silver cross at her throat, locking the shop.) The big gathering. Father Thyme will be there in my scarf. I want to see him wear it. In front of everyone.",[
+  ["Will he wear it?","He promised. He said it's the warmest thing he owns and he feels guilty in it. Good. A little guilt keeps a man humble."],
+  ["What do you hope for?","That the Church is heard. That someone mentions God without being embarrassed. And that nobody steps on anybody's hem."],
+  ["Is Pirkko going?","With sandwiches. For everyone. She's made two hundred. She thinks a crowd that's fed is a crowd that's kind."]],
+ "Stand up straight today. Everyone will be looking."],
+15:["(Juniper is very pleased about something, pinning a coat and humming a hymn.) He wore it. The scarf. At the gathering. In front of everyone. A little cross at each end. He stood up straight in it.",[
+  ["What's the news today?","Crown before cross, says the palace. Cross before crown, says the Church. They're fighting over Augustus. I know whose side I'm on."],
+  ["Whose side are you on?","The cross. Obviously. Augustus belongs at the monastery, with his books and his prayers. The palace has Leopold. Let them have one each."],
+  ["What does Augustus want?","Nobody's asked him. That's the trouble with this island. Everyone decides what a quiet person wants, because quiet people don't shout."]],
+ "Say a prayer for Augustus on your way. He needs one."],
+16:["(Juniper has the wireless on low behind the counter: the debate.) The Party and the Democrats, live. I'm listening, God help me. Neither of them has mentioned the Church. Not once in forty minutes.",[
+  ["Who's winning?","Erik's kind. Anna's clever. Neither of them is praying. That's who's losing."],
+  ["Would you vote?","If there was a vote, I'd vote for whoever let the Church keep the monastery and the Abbot keep his scarf. That's my whole manifesto."],
+  ["Is Eastbrook excited?","Very. Veikko put out every chair in the Community Centre. Ilse from the mill's in the front row, heckling. Jonna's beside her, heckling with her eyebrows."]],
+ "Turn the wireless off on your way out. I've heard enough."],
+17:["(A row of coats on hangers sways and clatters. Juniper puts a hand on the rail to steady them.) The ground moved. Again. My pins have gone everywhere. I'll be finding pins till Easter.",[
+  ["Was it an earthquake?","A little one, the Gazette says. The coats felt it more. Coats are very sensitive. They've been on people."],
+  ["Are you frightened?","I'm praying. Praying is what I do instead of being frightened. It doesn't stop the ground. It stops my hands shaking."],
+  ["What else is happening?","The oil company's lost its chief, they say. Dario. Nobody knows where. Pirkko says he's probably in a sauna. Pirkko thinks everyone's in a sauna."]],
+ "Mind the pins on the floor. They're everywhere."],
+18:["(Juniper has just put the telephone down, and her hands are trembling.) Something's gone missing from the monastery church. Something holy. Father Thyme's beside himself. I've just told Pirkko. I had to tell someone.",[
+  ["What's gone missing?","A relic. Very old. Very precious. I won't say what. It's not mine to say. But the brothers are searching every cupboard on the mountain."],
+  ["Who would take it?","I don't know. I won't guess. Guessing is how sin gets in. But someone on this island has something that doesn't belong to them, and God knows who."],
+  ["Can I help?","Pray. And keep your eyes open. A reporter sees more than most. If you see anything holy where it shouldn't be, tell Father Thyme."]],
+ "Say a prayer for the brothers. They're very worried."],
+19:["(The shop smells faintly of eggs, and Juniper has hung lavender bags along every rail.) There's steam on the mountain. The smell gets into the wool. I've used every lavender bag I own. The shop smells like a hymn and a henhouse.",[
+  ["Is the volcano going to erupt?","The monks are saying prayers on the mountain, Pirkko says. They're very near it. I'm very worried for them. Monks don't run fast. It's the robes."],
+  ["Will you go to the monastery?","Tomorrow. Pirkko and I are walking up to pray with them. And Hilda and Olaf from the farm. If the mountain's going to speak, we'll be there to answer."],
+  ["Isn't it dangerous?","The monastery's on a different peak. Father Thyme says so. I believe him. I also believe in good boots."]],
+ "Take a lavender bag. You'll need it."],
+20:["(Juniper is in walking boots and a heavy coat, a basket of bread on her arm.) We're going up. Pirkko, me, Hilda and Olaf from the farm. To pray with the brothers. If the mountain goes tonight, I'd rather be praying than sewing.",[
+  ["Isn't it a long climb?","Very. Olaf has already complained about the hill twice and we haven't started. Hilda's told him to pray about it."],
+  ["Are you frightened?","Yes. But fear is just faith that hasn't been asked to do anything yet. Tonight, it'll be asked."],
+  ["What's in the basket?","Bread for the brothers. Brother Teodor's soup has no salt. I've put a twist of salt in the bottom, wrapped in a handkerchief. God will forgive me."]],
+ "Pray for us tonight. We'll pray for you."],
+21:["(Ash is falling. Juniper is back in her shop, grey from head to foot, sitting very still with her rosary in her lap.) It went. The mountain. We were at the monastery, all night, praying. The brothers sang. The mountain roared. Everyone came down this morning. Everyone.",[
+  ["You were up there when it erupted?","On the other peak. We saw it. Fire in the sky, like the end of everything. Father Thyme stood at the door and sang. In my scarf. I'll never forget it."],
+  ["Is everyone safe?","Every brother. Every one of us. Olaf carried Hilda the last mile down. He didn't complain once. That's how I knew God was there."],
+  ["How are you?",["(She looks at her grey hands.) Tired. Grey. Very, very grateful. I've never been more certain of anything than I was last night.",[
+    ["Certain of what?","That we're held. All of us. Even when the mountain falls. Even when the scarf's grey. Especially then."],
+    ["You should rest.","After I've brushed the coats. Grey coats are a sin against wool. Then I'll rest. Then I'll brush them again."]]]]],
+ "Cover your mouth. And thank you for coming."],
+22:["(Juniper is brushing ash out of a rail of coats, one at a time, with a soft brush.) Every coat. Every hem. Every pocket. The ash got into everything, even the boxes in the back. Even the cowboy boots.",[
+  ["Are the boots all right?","(She looks at them.) Grey. I've brushed them. Twice. They came up beautifully. The stitching held. Of course it held."],
+  ["How's Eastbrook?","Grey and kind. The mill lads are sweeping the street. Erik's feeding everyone at the Community Centre. Pirkko's van has been going all night."],
+  ["Is Father Thyme all right?","He wrote this morning. 'The scarf survived. So did we.' Seven words. I've put the note in my Bible."]],
+ "If your coat's grey, bring it in. I'll brush it for nothing this week."],
+23:["(Juniper is mending a very small coat with enormous care.) A child's coat. From the farm out east. The ash took their harvest and their barn. The family came in with nothing but this, torn. I'm making it new.",[
+  ["You're very kind.","I'm a seamstress. Mending is what I've got. Some people give money. I give stitches. God counts both."],
+  ["What's the news on the island?","Something's broken on the oil rig, they say. The Party says not them. The oil company says it was. Pirkko says pray for the men on the rig. So I am."],
+  ["Has the relic been found?","Not yet. The brothers are still searching. Father Thyme says it will come home when it's ready. I hope he's right. I hope it's not grey."]],
+ "If you know a family with no coats, send them here."],
+24:["(Juniper has her walking boots on again.) The brothers are going up into the peaks today, to pray about the mountain. A retreat. Father Thyme's leading them. In my scarf. I've sent them off with bread and salt.",[
+  ["Will you go with them?","Not this time. The brothers go alone on retreats. Women wait below and pray. It's an old rule. I don't love it. I keep it."],
+  ["Is it safe, so soon after?","Father Thyme says the mountain's tired now. Like a child after a tantrum. He knows mountains. He's lived on one for forty years."],
+  ["What else is happening?","The Syndicate's cleaning up something, people say. Men with buckets at night. I don't ask. I mend. Whatever they're cleaning, they'll need their trousers mended after."]],
+ "Say a prayer for the brothers on the peaks."],
+25:["(Juniper is reading a royal leaflet with her lips pursed.) A crown for everyone. And the Democrats: a princess for democracy. Daphne, they say. Nobody's mentioned Augustus. Nobody ever does.",[
+  ["Who do you think should lead?","God, ideally. Failing that, somebody who'd let Augustus pray in peace. I'll vote for anyone who promises the monastery a new roof."],
+  ["Do you like Princess Daphne?","She came in once, years ago, and bought a cardigan with holes in. On purpose. She said holes were 'honest'. I mended it anyway. She was furious. She still wears it."],
+  ["How's the shop?","Busy. Everybody wants to look respectable for the end of the month. I've let out nine waistcoats. The ash made everybody hungry."]],
+ "If you see the princess, tell her the cardigan was better mended."],
+26:["(Juniper is standing in front of her own window, very still, looking at the cowboy boots.) I've decided. After everything. After the mountain. (She takes them out of the window.) I'm buying them. At cost. For myself.",[
+  ["Good for you!","(She holds them up to the light.) Twelve dollars. I've never spent twelve dollars on anything frivolous in my life. The mountain taught me something. Life's short. Buy the boots."],
+  ["Will you wear them to church?","(A long pause.) Under my long black skirt. Nobody will see them. God will. God will see me in cowboy boots, and I think He'll laugh."],
+  ["What does Pirkko say?","She cried. Then she laughed. Then she said she'd been praying for this for two weeks. Pirkko prays for very strange things."]],
+ "Don't tell anyone about the boots. Except God. He knows."],
+27:["(Juniper is pinning a hem, with something tooled and leather peeping out from under her own long skirt.) Don't look at my feet. (A pause.) They're very comfortable. Texas knows what it's doing.",[
+  ["You're wearing them!","Since yesterday. Under the skirt. Nobody's noticed. Except Pirkko, who keeps winking. And Father Thyme, who came down from the peaks this morning and smiled at the floor."],
+  ["What's the news?","A Party picture at the cinema in Kingsgrad. High stakes at the cards, they say. Ilse from the mill's going to the pictures to keep the peace. Ilse's peace is very firm."],
+  ["Has the relic come home?","Father Thyme won't say. He just said 'All shall be well.' That's what he says when it's not my business. Or when it's very good news. With him it's hard to tell."]],
+ "Walk softly on your way out. Like a cowboy."],
+28:["(The shop is full: Juniper is letting out a waistcoat, taking in a coat and hemming a dress, all at once.) Every faction's big push today. Everyone needs to look their best. I've done forty hems since dawn. My fingers are very Christian today.",[
+  ["Who's your busiest customer?","The palace staff. A state visit. Edmund came in himself to have his tails taken in. He stood very still. I've never seen a man so frightened of a needle."],
+  ["Are you nervous about the end of the month?","I'm praying. And sewing. Between the two, I'm calm. Mostly. The boots help."],
+  ["Is the Church making its push today?","The brothers are doing something with herbs, Pirkko says. A rite. Very old. I'm not supposed to know. I've mended the robes for it."]],
+ "Out of the way, please. There's a queue and they've all got hems."],
+29:["(Juniper is sitting down for the first time in a week, her boots up on a stool.) The palace is arguing about who's next in line. Leopold. Augustus. Daphne. And the Republicans are choosing a leader. I'm resting my feet. In Texas.",[
+  ["Who do you want next in line?","Whoever God wants. And if God wants Augustus, I'd like Augustus to be asked first. Just once. Somebody should ask him."],
+  ["Are you tired?","Forty-eight years old, cowboy boots, two hundred hems this week and a mountain. I'm tired. And very happy. I didn't expect that."],
+  ["What will you do after the month?","Mend things. Pray. Wear the boots. Maybe even, God forgive me, to church. Without the skirt."]],
+ "Sit with me a minute. My feet like company."],
+30:["(Juniper is standing at her shop door, in her Sunday black, with the cowboy boots plainly visible for the first time.) Last day. They're settling the island today. I'm going to church. In the boots. In public. If the island can change, so can I.",[
+  ["You look wonderful.","(She smooths her skirt.) Thank you. I've been mending other people for forty years. Today I'm wearing something I chose just for me. It feels very strange. And very good."],
+  ["What do you hope happens today?","That God's will is done. And that whoever runs the island has a decent hem. You can tell a lot about a leader from their hem."],
+  ["Will you remember this month?",["(She looks down at the boots.) The scarf at the gathering, and the night on the mountain, and these. Yes. Always.",[
+    ["And me?","The reporter with the crooked hem on the fourth. I sewed it properly the next day. You've been a straighter person since. I like to think I helped."],
+    ["What will you do tomorrow?","Open the shop. Mend. Pray. Pin someone's hem without asking. Same as always. In cowboy boots."]]]]],
+ "Check your hem on your way out. Left side. It's always the left side."],
 };

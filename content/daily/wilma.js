@@ -1,139 +1,147 @@
-// Wilma, curator of the Kelp Cola Museum and clerk in its gift shop, Eastbrook (Kelp Cola). Threads: dating bottles by sight and smell,
-// the Kelpy figurines she sells, Jaana whom she protects, her loyalty to the old company against Kurt's new ideas, her private grief.
+// Wilma, curator of the Kelp Cola Museum in Eastbrook and clerk in its gift shop (Kelp Cola, and the Shopkeepers). Threads: dating any
+// bottle by sight and smell; the Kelpy figurines and mugs she sells (Paolo from the Syndicate buys a mug and asks about the old safe,
+// the 12th); Mr Ekholm's bathtub under a sheet in the back room; Jaana inside Kelpy, whom she mothers and pushes towards the Midnight
+// Note; Kurt borrowing a crate off the museum's old line for the foreign buyers (the 28th), counted out and counted back; Saara
+// borrowing a bottle from 1951 (the 30th); her late husband Arne, who worked that line from 1951 until it took his hands, and the
+// bottle he capped that she keeps in her drawer.
 DAILY['Wilma']={
-4:["(A woman in a cardigan looks up from a bottle held to the light.) 1948. Hand-blown, the seam at the neck gives it away. You're the reporter. Mind the glass, please, and don't breathe on the labels.",[
-  ["That's impressive. Can you date them all?","Any bottle on the island, on sight. People test me. They've never caught me out. Well, twice, and both times the bottle was a fake."],
-  ["Is this museum really worth a visit?","It's the only honest record of the company. Phil's office has the story the company likes. This room has the story as it happened."],
-  ["Do you sell a lot of souvenirs?","Kelpy figurines, mostly. Three hundred last month. I think people take them home to frighten their relatives."]],
- "Don't touch the bottling line. It's older than you and much more temperamental."],
-5:["(Wilma is polishing a shelf with a soft cloth.) The roads are open, so I'm expecting visitors. I've put the good bottles at the front. It's like laying a table for people you're not sure will come.",[
-  ["Who usually visits?","Schoolchildren, retired sailors, and the occasional spy from Diversified Petroleum, who takes notes on our fridge."],
-  ["Do you like the job?","I love it. I don't love the till. Numbers and I came to an arrangement long ago: they leave me alone and I don't count them."],
-  ["Any odd stories about the bottles?","The 1931 cap in the case by the door. A sailor sent it from Hamburg with a note that said only 'sorry'. I've never found out for what."]],
- "If you want a souvenir, buy two. One breaks, one doesn't."],
-6:["(Wilma has a magnifying glass over a label.) Someone's been forging old Kelp Cola labels. Look at the printing: the blue's too bright. It's a good fake, but a fake.",[
-  ["Who'd bother forging labels?","Collectors. There's a man in Helsinki who pays well. He'd pay a month's wages for something with 'Kelp' on it and a fault."],
-  ["Does the company know?","Kurt does. He wants me to ignore it, because it's free advertising. I told him a forged label's a lie wearing the company's coat."],
-  ["Can you teach me to spot a fake?","Smell it. Real ones smell of dust and sugar. Fakes smell of fresh ink. And look at the 'K'. The real 'K' has a tiny chip."]],
- "A museum is a place where you learn to doubt politely."],
-7:["(Wilma is wiping the glass cabinet.) The north-west road's open now, and I've had two telephone calls from Frostholm, asking if we've got any pre-war Diversified Petroleum bottles. I told them we've got a lot of pre-war cola.",[
-  ["Why would the oil company want old bottles?","To say they've been here as long as we have. Everything's about who's older, here. I've got dates, and they've got a fuel-tank."],
-  ["What does the king's death mean for the museum?","He opened it. There's a plaque. I polish it every morning, and today I did it twice."],
-  ["Is Jaana in today?","In the cup, yes. That girl's the best thing that ever happened to the place. She doesn't know it, and I'd never say it."]],
- "Careful with that door. It sticks in cold weather, and so do I."],
-8:["(Wilma holds up a dark bottle to the light.) The old recipe's got a hint of anise. I can taste it, but I can't prove it. It's in no document in this building.",[
-  ["Does anyone know the full recipe?","A very few. Phil says he does, but I've watched his face when he says it. He's got the look of a man reciting a poem he's only half learned."],
-  ["Why is the formula such a secret?","Because it's the only thing the company has that nobody else can copy. A recipe's a ghost: you can't catch it, you can only keep it company."],
-  ["Have you tried to find out?","For twenty years. I've got a notebook. It has fourteen guesses in it, and every one of them's been wrong."]],
- "If the notebook's ever right, I'll make you a cup of tea in celebration."],
-9:["(Wilma has a letter spread on the counter.) Kurt's written to say the company's changing the formula. He's put it as though it were a weather report. It's a death, if you ask me.",[
-  ["Is it a bad thing?","It's a change. The old one's what people remember from their childhood. You don't fix childhood."],
-  ["What does Jaana say?","She says we should make a joke of it. 'Kelpy Version Two.' She's a clever girl, and she'll do the sums when I'm not looking."],
-  ["Does the museum change too?","I'd have to rewrite half the labels. That's all right. Labels I can do. What I can't do's pretend a thing's the same when it isn't."]],
- "If anyone asks me, the old one's still the best. Don't quote me."],
-10:["(Wilma has a black ribbon pinned to her cardigan, and has tied another round the plaque.) They're burying him this morning. I've kept the museum shut till noon. It's the first time since the flood.",[
-  ["You liked the king?","I liked what he stood for: that nothing needs to change all at once. I don't know if that's true. But it was a comfort."],
-  ["What was he like when he opened the museum?","Kind. Tired. He drank the cola and said, 'It tastes of the sea.' I've been writing that on a card for the cabinet ever since."],
-  ["Will you go to the funeral?","No. I've got the museum to mind. And I'd probably start talking about the ceremony's silverware. I'd be thrown out."]],
- "A quiet day to you. It's the only kind it should be."],
-11:["(Wilma peers out of the window at a crowd with leaflets.) The mill hands are out. I've sold fourteen Kelpy figurines to them since breakfast. Solidarity, apparently, comes with a souvenir.",[
-  ["What do you make of the dispute?","Dagny's tight but she's not a fool. And the hands aren't wrong. It'll end with someone's pride bruised, which is how most things in Eastbrook end."],
-  ["Do you know Dagny?","She comes in once a year to check the dates on the brass plaque for the lumber company's donation. She's meticulous about her own legacy, I'll say that."],
-  ["Is Jaana joining in?","Of course not. She'd come in a cup. It would distract from the cause."]],
- "Come back when the shouting's over. Museums are best in the afterwards."],
-12:["(Wilma is slowly writing a label in copperplate.) I'm always the last to know anything. A woman came by this morning to ask if the museum had any records. I said, 'Of what?' She said, 'Everything.'",[
-  ["Was it Ruby?","Ruby asked about a particular 78, something about a cola jingle from the fifties. She thinks there's a version on a disc I've got in the vault."],
-  ["Do you have a vault?","A cupboard. With a very serious lock. It's got three jingles, two radio advertisements and a gentleman's letter of complaint."],
-  ["Is it exciting, working in a museum?","In a quiet way. Every object's a small mystery with a date on it. I like mysteries that don't expect you to solve them."]],
- "If you see Ruby, tell her I'll look. But she owes me a Coltrane."],
-13:["(Wilma has a tray of tiny paper cups and an air of resentment.) Free samples. They're pushing them on every corner. Kurt thinks you can sell the past by giving it away. He's a young man.",[
-  ["Is it a good idea?","It'll work. Which is not the same as being good. A cup of cola in your hand makes you like the company, for a while."],
-  ["Do you hand them out too?","In the museum, yes. With a short lecture. People always say it's the lecture they remember. They mean the cola, but they're polite."],
-  ["What would you do instead?","Give them a story. People will walk across the island for a story. A pint of fizz is fine, but a story's got legs."]],
- "I'll keep the cups tidy. It's a kind of faith."],
-14:["(Wilma has put on her good shoes.) The big day. I'm closing early for it, which I've never done. A curator's job is to stay put and wait for history to arrive, but it seems to have moved.",[
-  ["What are you expecting?","Something I won't like. And something I'll be glad of. It's usually both. The trouble is you never know which comes first."],
-  ["Will the museum be involved?","It's got a stall, I'm told. Kurt's idea. Jaana's going in the cup, with a bell. I've told her to stay by the cart and away from the crowd."],
-  ["How do you feel?","Old. And a bit like a bottle in a cabinet: I'd like to be looked at, but not handled."]],
- "Wish me a sensible day. It's all I ask of the world."],
-15:["(Wilma is sweeping something small into a dustpan.) Whatever yesterday was, it's left glitter. I don't know where it came from. Some of it's in the till.",[
-  ["How did the day go for you?","I didn't hear most of it. Jaana was knocked into a hedge, a man tried to buy the plaque, and I sold two hundred figurines. It was loud and it was profitable."],
-  ["Are you worried about the company?","I'm always worried. It's the beginning of wisdom. I'm worried that it's growing and I'm not."],
-  ["What's the mood on the street?","Tight. Like a coat that's a size too small. Everyone's smiling, and breathing in."]],
- "Mind the glitter. It gets everywhere. Even in the safe."],
-16:["(Wilma has a poster rolled under her arm.) The debate's today. The Party and the Democrats. I'm told there'll be a thousand people in Eastbrook. I've ordered an extra box of cups.",[
-  ["Who do you support?","Nobody. The company pays me, but I don't have to like all its friends. I've been to three elections and I've yet to see a speech that moved me."],
-  ["Is your shop busy?","It'll be. Politics makes people thirsty. Both sides need a cola, and they'll both pay the same."],
-  ["Is Jaana going?","She's already gone, in a smaller cup. A little one for travelling, she says. She looks like a tin of beans."]],
- "Don't let anyone talk you into anything. It's a dangerous day for opinions."],
-17:["(Wilma has a hand flat on the counter.) Did you feel it? The whole cabinet hummed. A glass bottle sings when the ground moves. I've heard them do it twice in thirty years.",[
-  ["What was the first time?","1953. The old mine collapsed in the north. This morning felt a little like it. The bottles knew before I did."],
-  ["Is it the volcano?","It's something under the island. Lisa says the ground's always shaken. Lisa says a lot of things."],
-  ["Have you moved anything?","The oldest ones, to the bottom shelf. If the floor drops, I'd rather lose the shelf than the bottle."]],
- "I'll tell you if I hear them sing again. It's the island's gossip."],
-18:["(Wilma has a clipboard and a very small smile.) I'm giving someone a tour of the back rooms today. I've been told to show them 'everything'. I'm going to show them the cupboard of broken things.",[
-  ["Who's the guest?","I'm told he's a visitor from head office. He's got a clipboard too. We stared at each other for a full minute before he spoke."],
-  ["What's in the cupboard of broken things?","Everything the company's ever got wrong. A cola called 'Kelp Light', a mascot that was a seal, and the first ever cup."],
-  ["A seal?","Seal Sam. He frightened children. He's in a sack. Jaana won't go near him."]],
- "A museum with only the successes would be a lie. Come and see the failures."],
-19:["(Wilma has the glass cabinet door open, and is feeling the shelf with her palm.) The tremors again. This time the shelf moved a half a centimetre. I've marked it with a pencil line.",[
-  ["Are you keeping a record?","Of course. If it goes, someone will want the date. I like to be the one who has it."],
-  ["Are you frightened?","I'm methodical. It looks similar from outside. A curator can't be frightened. We put the object in the case and say: it was here."],
-  ["What does Jaana say about it?","'Keep calm and wave.' She's a great philosopher in a very silly outfit."]],
- "If the pencil line moves again, I'll write it in the log. And tell you."],
-20:["(Wilma smells the air with great suspicion.) Sulphur. I know the smell. It's the smell of the hot springs and of the old matches in my grandmother's kitchen.",[
-  ["Is it dangerous?","It's a sign. Rotten eggs mean the earth's clearing its throat. Dex says the steam's up above the north road. I've put the oldest bottles in the back."],
-  ["Will you stay open?","As long as it's safe. If not, I'll lock up and take the cap collection home in a pram."],
-  ["Do you believe the rumours?","I believe the smell. Rumours are voices. A smell's a fact."]],
- "Keep your boots by the door. And your wits in your pocket."],
-21:["(Wilma has a mask of grey around her eyes, and a broom.) It happened. We're all alive, and everything's the colour of old pewter. I've stood in the doorway since dawn counting bottles.",[
-  ["Is anything damaged?","Two. The glass is fine, but the 1936 beer-bottle one's lost its cork. It was a gift. I'm a bit tearful."],
-  ["How are you?","Rather shaken, thank you. I've never seen the sky turn like that. It looked as if someone had spilled a cup of tea on the world."],
-  ["Is it safe to go out?","For the moment. Keep a scarf over your mouth. Jaana's wearing her cup, which is very effective."]],
- "Take care of yourself. There's only one of you, unlike bottles."],
-22:["(Wilma is on a step-ladder, wiping a shelf.) I've dusted the same shelf three times. Every time, a little more ash drifts in. It's like trying to bail out a boat with a teacup.",[
-  ["What can you do?","Keep dusting. It's the only thing I'm good at. It's a kind of prayer, I suppose, for people who like cloths."],
-  ["Is the company helping?","They sent a case of bottles to the north, and a man with a camera. The camera arrived first."],
-  ["How's Jaana?","Frightened, and covering it with a dance. I've told her she can sit down when she needs to. She hasn't."]],
- "It'll pass. It always passes. And then you get to write the label."],
-23:["(Wilma has a new label, drying on the counter.) 'Ash, 21 September.' I've added it to the cabinet. A jar of grey stuff next to the first cola. It seemed right.",[
-  ["Is it for sale?","The ash? Of course. Ten marks. Jaana named it 'Volcano Dust'. I wouldn't have dared, but it's moving faster than the figurines."],
-  ["Isn't it in poor taste?","Probably. But people want a piece of the thing that frightened them. It's the oldest trade there is."],
-  ["Are you getting any rest?","I'm not sure what rest is. I tried to read, and fell asleep on the first line. I woke with a bottle on my lap."]],
- "Don't spend too much on souvenirs. The ash is free outside."],
-24:["(Wilma is at the till, counting something slowly.) The aftershocks keep coming. They've begun to feel like a clock ticking in the walls. A grandfather clock, with bad news.",[
-  ["Are you worried about Kurt's plans?","Yes. He wants to take the cola abroad. I'm not against change, but I fear we'll leave the best part of ourselves in a warehouse."],
-  ["What's the best part?","The stubbornness. The odd old things. The fact that it was made on an island nobody could find. You can't ship that."],
-  ["Will the museum survive?","Museums are the toughest things we've got. They survive wars, and then they survive being forgotten."]],
- "Come on a quiet afternoon. I'll show you where the best bottle's kept."],
-25:["(Wilma's eyes are red, and she's blaming the ash.) A letter came this morning, from my sister in Turku. She's ill. I've not seen her in nine years. I was going to go. I kept saying next month.",[
-  ["I'm sorry. Is it serious?","I think so. The letter doesn't say. It says 'come when you can', which is what people write when they mean 'come'."],
-  ["Will you go?","Once the island's settled. There are boats again. But the museum, and Jaana, and the month. It's always something."],
-  ["Does anyone else know?","You. I wouldn't normally. But reporters are good at keeping a story in their pockets, aren't they?"]],
- "Thank you for listening. It's been a long time since someone did."],
-26:["(Wilma folds a sign neatly, with its words inward.) A Prince in Every Bottle. I wouldn't put it in the museum, but Kurt says it's the new campaign. I've put it in the cupboard with the seal.",[
-  ["You don't like it?","I like princes, in the right place, which is a book. I've never been convinced you could bottle one. Or that one'd want it."],
-  ["Is the company backing Leopold?","It's backing whoever's good for the cola. At present that's whoever has a nice smile and no opinions."],
-  ["What do you think Phil wants?","A quiet life with a large bank balance. It's the most honest ambition anyone in this island has."]],
- "I'll do my job and I'll wait. A good curator always outlasts the exhibit."],
-27:["(Wilma is wrapping a figurine in tissue.) I sold forty today. People are buying them like charms. 'Take Kelpy with you.' As if a small plastic cup could stop a lava flow.",[
-  ["Is that what they think?","It's what they hope. Everyone needs a charm. Mine's a bottle cap. I keep it in my cardigan pocket."],
-  ["Which cap?","1931, the one from Hamburg that says 'sorry'. I put it there because I'd like to be forgiven for something I've forgotten."],
-  ["How's the company?","Busy. Fidgety. Harald's been through twice this week in a very good coat. He doesn't look at the bottles. He looks at the door."]],
- "Take a figurine. It's a smaller risk than a prayer."],
-28:["(Wilma has locked the cabinets, one at a time, and is polishing the keys.) The company's biggest day, and I'm tidying. It's all I can think to do. Kurt rang. He's abroad, or about to be. He didn't say.",[
-  ["Is the company going abroad?","Its cola is. I'm told the bottles are packed. I would like it understood that I was against the packing."],
-  ["Will the museum close?","Not while I'm alive. And I'm in good health, thank you, apart from my knees and my sister."],
-  ["What do you hope for?","That whatever happens, someone remembers to put the old bottles somewhere dry."]],
- "I'll stay. Someone has to keep the date."],
-29:["(Wilma has put on her good cardigan.) Tomorrow it's all decided. I've been dusting since dawn, and I don't know what I'm dusting for. I only know that if I stop, I'll start thinking.",[
-  ["What are you thinking about?","My sister. The company. Whether a museum's a place where the past lives or a place where it's been put to sleep."],
-  ["Which do you think?","On a good day, the first. On a bad one, the second. Today I'd say it's a waiting room."],
-  ["Is Jaana all right?","She's practising a speech in the cup. I've no idea what it is. It's sure to be better than mine."]],
- "Be careful. I'd like you to come back and tell us how it ended."],
-30:["(Wilma's standing very still in the middle of the museum, with the key in her hand.) Whatever it is, it comes today. I've dusted every bottle. I've said good morning to every one. It seemed the right thing.",[
-  ["Any last thoughts, Wilma?","Look after what's old, even when it's awkward. And look after the young, even when they're silly. Between them, they're the island."],
-  ["Are you afraid?","A little. But I've seen the 1931 cap, and if it can survive a sailor, a war and Kurt, so can I."],
-  ["What will you do next?","Buy a ticket to Turku. I decided last night. It isn't the island's business. It's mine."]],
- "Goodbye, reporter. Do come back and see us. We keep everything."],
+4:["(Wilma is holding a green glass bottle up to the window, then sniffing the neck.) 1956. Spring. The Bergen bottling, before they changed the cap. (She puts it down.) You're the reporter. Welcome. Mind the shelves. They're older than both of us.",[
+  ["You can tell the year by smell?","The glass, the cap, the label, and the smell left in the bottom. Every batch smells a little different. 1956 smells of pine. Don't ask me why. I've given up asking."],
+  ["What's in the museum?","Every Kelp Cola bottle since 1931. The first label. The first cap. And Mr Ekholm's bathtub, where he brewed the first batch, under a sheet in the back. It's only shown on his birthday."],
+  ["Who's the cup outside?","Kelpy. Our mascot. (She lowers her voice.) Jaana's inside. Never takes the head off in public. Six years. She's the best Kelpy we've ever had."]],
+ "Take a leaflet on your way out. Everything in it is true, which is rare for a leaflet."],
+5:["(Wilma is arranging small ceramic Kelpy figurines on a shelf in the gift shop, each exactly an inch apart.) Kelpy figurines. Two dollars. Hand-painted in Kingsgrad. The straw's always the first thing to break. I tell people. They buy them anyway.",[
+  ["Do many people buy them?","Children, mostly. And old men who remember the first Kelpy. And once, a very serious man from Frostholm who bought forty. I didn't ask."],
+  ["How long have you worked here?","Since it opened, in 1966. Before that, my husband worked on the bottling line. When the line changed, they made the old bottles into a museum. I came with them."],
+  ["What was your husband's name?","(She straightens a figurine that doesn't need it.) Arne. He capped bottles from 1951. He's not with us now. Shall I show you the 1951 shelf?"]],
+ "Mind the straws on the figurines. They're very fragile. Like most things."],
+6:["(Wilma is watching Kelpy through the shop window, wincing every time it waves.) Look at her. In the snow. In foam. Three jumpers. I've told Phil she needs a heated pavement. Phil said the budget's for advertising.",[
+  ["Is Jaana all right out there?","She says yes. She always says yes. She'd say yes if she were on fire. She was, once. A cigarette. I put it out with a bottle of cola."],
+  ["Do you look after her?","Someone has to. Her mother's in Turku and she's got nobody else on this island. I bring her hot lemon at eleven and three. Through the grille."],
+  ["Does she want to do something else?","(Wilma smiles slightly.) She sings. To the bathroom mirror, she says. I've heard her through the cup. She's very good. Don't tell her I said so. She'll leave me."]],
+ "Wave at Kelpy on your way out. It makes her day."],
+7:["(Wilma is counting bottles in a glass case, lips moving.) Two hundred and eleven. The same as yesterday. The same as every day since 1966. If one ever goes missing, I'll know before anyone else in the world.",[
+  ["Has one ever gone missing?","Once. In 1973. A child put it in his coat. I chased him three streets and got it back. His mother bought a figurine to apologise. He's a policeman now."],
+  ["Why count every day?","Because Arne taught me to. On the line, you count every bottle that goes past. A bottle you don't count is a bottle that can go wrong. I count. It's what I've got."],
+  ["Is Kelp Cola still the same as it was?","The recipe's the same, Phil swears. The bottles changed in 1967. The caps in 1971. The labels every few years. The taste? (She sniffs a bottle.) The same. Something on this island stays the same."]],
+ "Don't touch the glass. I'll have to polish it. I will anyway."],
+8:["(The museum is closed for Sunday. Wilma is sitting in the gift shop with a cup of tea and a small bottle in her hands.) Sunday. Nobody comes. I come anyway. I sit with the bottles. They're very good company. They never ask how I am.",[
+  ["What's that bottle?","(She turns it in her hands.) The last one Arne capped. 1979. The day the line took his hands. I keep it in my drawer. I don't put it on show. It's not for show."],
+  ["I'm sorry.","(She nods.) It was a long time ago. He lived three more years, and laughed at most of them. He said he'd capped enough bottles for one man."],
+  ["Do you go to church?","The Abbot's preaching about the king today. I'll listen on the wireless. The old king opened this museum. He cut the ribbon with a bottle opener. Arne was so proud."]],
+ "Close the door gently. Sunday's quiet here."],
+9:["(Wilma has a poster in her hands, reading it with pursed lips: NEW FLAVOUR COMING SOON!) Phil sent it. A new flavour. Fifty years of the same, and now a new one. Because the Party's making a cola. I'll believe it when I smell it.",[
+  ["Do you mind change?","I mind change that comes in a hurry because someone's frightened. Kelp Cola's changed before. Slowly. Carefully. It's always been better for it."],
+  ["Have you tasted the Party's cola?","Someone brought a bottle in. I sniffed it. 'Nineteen eighty-whatever, beetroot, hope.' It's not bad. It's just not cola."],
+  ["Where will the new flavour go in the museum?","On a new shelf. I'll have to make room. I'll move the 1962 bottles. They won't mind. They were a bad year anyway."]],
+ "Don't tell Phil I said 1962 was a bad year. He was born in it."],
+10:["(Wilma has tied a black ribbon round every display case in the museum, carefully.) The funeral. The old king cut the ribbon on this museum in 1966. With a bottle opener. I've closed for the morning. Out of respect.",[
+  ["Did you meet him?","He shook my hand and said 'Mrs Lund, your husband capped my favourite bottles.' He knew Arne's name. I don't know how. I've never forgotten it."],
+  ["Will you go to the chapel?","I'll stand at the back, with the other staff from the town. I've pressed my black. It's the same black I wore for Arne."],
+  ["How's Jaana?","Outside, in the cup, standing very still for the people walking to the chapel. She didn't want to. I asked her to. People need something to look at that isn't sad."]],
+ "Go gently today."],
+11:["(Wilma is handing out bottles of cola to a group of mill hands with placards.) The mill lads, on their way to the Community Centre. Fair pay and safer saws. (She hands out the last bottle.) Arne would have marched with them.",[
+  ["Are you giving them free cola?","From my own money. Not the company's. Phil doesn't need to know. A man marching for safer machines deserves a cold drink."],
+  ["Was Arne in the Union?","For thirty years. He lost his hands to a capping machine with no guard on it. The Union got the guards put on, after. Too late for him. Not for the others."],
+  ["Does Kelp Cola treat its workers well?","Better than it did. Not as well as it should. That's what I'd say, if anyone asked. Nobody asks the museum lady."]],
+ "If you see the mill lads, tell them the cola was from Arne."],
+12:["(Wilma is wrapping a Kelpy mug in tissue paper, and frowning at the door.) A man from Kingsgrad. Paolo, he said. Very charming. Gold ring. He bought a mug and asked about the old safe in the back room. Whether it still opens.",[
+  ["What's in the old safe?","Nothing. It's from Mr Ekholm's first office. It's been empty since 1940. It's an exhibit. I told him it's a gift shop. He laughed and bought another mug."],
+  ["Why would he ask about it?","(She lowers her voice.) There's talk the Syndicate's after Kelp Cola's recipe. As if Phil would keep it in a museum. He keeps it somewhere much more boring."],
+  ["Were you frightened?","Of a man who buys two mugs? No. Men who want to frighten you don't buy mugs. They don't buy anything."]],
+ "If a man with a gold ring asks you about safes, send him to me. I've got more mugs."],
+13:["(Wilma is surrounded by crates of free cola, counting them in.) Free samples. Phil's giving them away all over the island. Jaana's handing them out at the door. I'm counting every one. Two hundred and forty-two.",[
+  ["Why count free ones?","Because a bottle given away is still a bottle. Arne capped every one of them, in a way. I count them out. It's respect."],
+  ["Is Jaana coping?","Her arm's nearly off. She's given out two hundred. She's starting to cough. I've told her to come in. She won't. She's like Arne."],
+  ["Did that man come back about the safe?","Not today. But I've moved the bathtub in front of the safe door. Under its sheet. Nobody moves Mr Ekholm's bathtub."]],
+ "Take a free one. You'd be the two hundred and forty-third."],
+14:["(Wilma is pinning a red rosette onto Jaana's cup outside the museum.) The big gathering. Phil wants Kelpy there, waving. I'm going too, to make sure she doesn't get her straw caught in anyone.",[
+  ["Are you looking forward to it?","I'm looking forward to it being over. Three thousand people and one foam cup. I'll be the small woman behind Kelpy, holding a flask."],
+  ["What do you hope happens?","That the island stays an island. That's all. That we don't lose the things that make it ours. The bottles, the trams, the people."],
+  ["Is Jaana nervous?","Terrified. She's been humming since seven. I've given her a hot lemon and a talking-to. She's ready."]],
+ "If you see a cup in the crowd, wave. That's us."],
+15:["(Wilma is dusting Mr Ekholm's bathtub, under the edge of its sheet.) Yesterday went well. Kelpy only poked one person. A Party man. He's fine. He's sulking. (She coughs.) Jaana's coughing too. I'm worried.",[
+  ["Is Jaana ill?","She's been out there two weeks in the snow, in foam. She's got a cough she won't admit to. I'm counting her coughs. Eleven this morning."],
+  ["Why dust a bathtub nobody sees?","Because somebody will, on his birthday. And it'll be clean. That's what a museum is: keeping things ready for when someone wants to see them."],
+  ["What's the news today?","The palace and the Church are arguing over the prince's brother. I've nothing on bishops in my museum. Just bottles. Bottles don't take sides."]],
+ "If you hear Jaana coughing, tell her Wilma said come in. She won't listen. Tell her anyway."],
+16:["(Wilma is making a hot lemon in the back of the gift shop, very carefully.) For Jaana. Thirty coughs today. Thirty. She won't come in. I'm going to take it out to her and stand there until she drinks it.",[
+  ["She sounds quite ill.","She is. I'm telephoning Phil tomorrow. If she's no better, she's going home, cup or no cup. I'll stand outside in it myself if I have to."],
+  ["Would you fit in the cup?","(She looks at herself.) I'm too short. My head would be in the cup's tummy. Phil would say it's undignified. For the cup."],
+  ["Is the debate on?","The wireless is on. The Party and the Democrats. I'm not listening. I'm counting coughs. Thirty-one."]],
+ "If Jaana argues, I'll win. I always win."],
+17:["(Wilma has Jaana's cup-head under one arm, and is ringing on the telephone with the other hand.) She's ill. Jaana. Properly. Fever. I've sent her home. Now I'm ringing Phil to tell him we've no Kelpy. (She waits.) He's in a meeting. Of course he is.",[
+  ["Is Jaana all right?","She will be. A few days in bed. Petra from the warehouse is sending soup from the Union. A recruiting soup, she calls it. Jaana will join anything for soup."],
+  ["What will the museum do without Kelpy?","Phil will say it's just a room full of old bottles. I'll say that's exactly what it is, and that's why it matters. He won't listen. Nobody listens to the museum lady."],
+  ["Did Jaana take the head off?","In the doorway. Only the doorway. And only because I made her. She cried. Six years and never in public. The doorway doesn't count. I've decided."]],
+ "If you see Phil, tell him the museum's still here. With or without a cup."],
+18:["(Wilma is standing at the museum door, watching the cup outside very closely.) Somebody's in the cup today. Not Jaana. Elin rang everyone. I won't say who's inside. I promised. Whoever it is, they'd better not take the head off.",[
+  ["Who's inside Kelpy?","(She looks at you very steadily.) A professional. That's all you're getting. Today, everyone wants to know who's inside Kelpy."],
+  ["Will they do the tour right?","I've given them Jaana's notes. Bathtub, duck voice, the 1931 label. If they forget the bathtub, I'll know. I always know."],
+  ["How's Jaana?","At home, in bed, with soup. She telephoned three times to ask if the new Kelpy remembered the bathtub. I said yes. I hope I was right."]],
+ "If you take the tour today, be kind to the cup. It's a very hard job."],
+19:["(Wilma has a big smile, which is unusual.) The new Kelpy did the tour yesterday. They remembered the bathtub. They didn't take the head off once. Jaana's back today, with a hot water bottle tied round her. Everything's right again.",[
+  ["Who was it?","(She shakes her head.) A professional. I promised. Jaana's asked twenty times. I've told her it was a professional. She cried. That's the highest compliment in our trade."],
+  ["What's that smell?","Eggs. From the north. There's steam on the mountain. It's getting into the glass cases. I'll be polishing the eggs off the bottles all week."],
+  ["Is the museum safe if the volcano goes?","The bottles are in glass, in wood, in a stone building. They've survived two fires and a flood. They'll survive a mountain. I'm less sure about me."]],
+ "Breathe through your scarf. The eggs get in everything."],
+20:["(Wilma is wrapping the most precious bottles in newspaper and packing them into crates.) Just in case. If the mountain goes tonight, the 1931 bottle comes with me. And the first label. And Arne's bottle, from my drawer.",[
+  ["Do you think it'll erupt?","The ground's been moving every hour. Three of my figurines have fallen off the shelf. Straws first, always. I've glued them back. It's something to do."],
+  ["Where will you go?","The Community Centre. Erik's opening it to everyone. I'll take the crate and sit with Jaana. She's taking the cup, for the children."],
+  ["Are you frightened?","Yes. But I've got Arne's bottle in my pocket. He'd tell me to stop fussing and go. So I'll go. Fussing."]],
+ "Keep your boots near the door. And something precious in your pocket."],
+21:["(Ash is falling. Wilma is sitting on the museum step with a crate of wrapped bottles on her knees, grey all over.) It went. The mountain. We were in the Community Centre all night. Everybody's alive. And all two hundred and eleven bottles are safe. I counted.",[
+  ["You counted the bottles?","At three in the morning, by candlelight. Two hundred and eleven. Then I counted the people. Everybody. Then I cried, a bit. Then I counted again."],
+  ["How's Jaana?","She stayed in the cup all night, with the children curled round her. Never took the head off. Not once. She's asleep now. I'm so proud of her I can't speak."],
+  ["How are you?",["(She takes Arne's bottle out of her pocket and holds it up to the grey light.) I'm all right. He'd have been there all night too. Carrying people. With no hands.",[
+    ["He sounds like a good man.","He was the best man on this island. He capped bottles for thirty years and never once complained. Except about the Kelpy figurines. He thought they were silly."],
+    ["Will the museum be all right?","Grey. Everything's grey. I'll be polishing ash off glass till Christmas. But it's standing. Stone and glass and bottles. They don't give up."]]]]],
+ "Cover your mouth. And thank you for asking."],
+22:["(Wilma is polishing a display case, very slowly, with a soft cloth, while Jaana scrubs the cup outside with a bucket on her head.) Don't look at Jaana. She's out of the cup, so she's put a bucket on her head. She says the bucket counts.",[
+  ["Does the bucket count?","(Wilma sighs.) Six years, and she's never let anyone see her face while she's working. The bucket counts. I've decided."],
+  ["How's the museum?","Ash in every case. I'm doing them one at a time. I've done eleven. There are forty. I'll be finished by the first of October, if I don't sleep."],
+  ["Is anyone helping?","The mill lads came by this morning with brooms. For the cola I gave them. Arne would be pleased. He always said kindness comes back. Slowly. Like a bottle on a line."]],
+ "Don't look at the bucket on your way out. She'll know."],
+23:["(Wilma is holding a letter with a Frostholm postmark, and her eyes are bright.) Jaana's had a letter. From the Midnight Note. Rita wants her to sing. An audition. On the twenty-seventh. She's beside herself. So am I.",[
+  ["That's wonderful news!","It is. It is. (She dabs her eyes.) I've told her she'd better be back at work on the twenty-eighth or I'll dock her pay. Then I cried. I'm very bad at being a boss."],
+  ["Will she leave the museum?","One day. Maybe. Not yet. And that's all right. A good Kelpy leaves when she's ready. Mauno sang at weddings for thirty years. Nobody knew."],
+  ["What's the news on the island?","Something broken on the oil rig. Spanners, everyone says. And the farms are grey. I'm sending the free cola to the farm families. It's not much. It's something."]],
+ "Don't tell Jaana I cried. She'd never let me forget it."],
+24:["(Wilma is in the gift shop, listening to Jaana sing through the cup outside: 'The leaves come down on the harbour road.') Listen. Through foam. She's practising. Three days to go. The tourists keep stopping to listen. I sold six figurines.",[
+  ["Is she good?","She cracks on 'road'. Every time. If she doesn't think about it, she doesn't crack. I've told her to stop thinking. She thinks about not thinking."],
+  ["What will you do while she's in Frostholm?","Stand in the cup myself, for an hour. In the doorway. With my head in its tummy. Somebody has to wave."],
+  ["What's the news?","The monks have gone up into the mountains to pray. The Syndicate's cleaning something up. And Phil's ringing me every hour about a new advert. Something big. He won't say what."]],
+ "If you hear a cup sing, stop and listen. She needs an audience."],
+25:["(Wilma is making hot lemon again, in the back of the shop, while Jaana practises the high note in the gift shop.) Every morning. Hot lemon and the high note. 'Harbour road.' The tourists clap. There are three of them. They clap very hard.",[
+  ["Is the high note better?","Nearly. She hit it twice this morning. Then she thought about it and cracked. I've hidden the mirror. She won't look at herself while she sings. It helps."],
+  ["What's the news?","A crown for everyone, says the palace. A princess for democracy, say the Democrats. I've got a shelf of royal souvenir bottles from 1953. I'm selling them by the dozen."],
+  ["Are you happy for Jaana?","So happy I could pop. Like a bottle in the sun. Don't tell her. She'd get big-headed. Big heads don't fit in the cup."]],
+ "Clap for her on your way out. It helps."],
+26:["(Wilma has the telephone receiver under her chin, very still.) Phil. Again. Kelp Cola wants a famous face for the next advert. Not Kelpy. Somebody grand. He's asking if he can borrow some of my royal bottles for the photographs.",[
+  ["Who's the famous face?","He won't say. He keeps saying 'the highest level'. I think it's someone from the palace. Kelpy's been passed over. Jaana's relieved. Kelpy's upset."],
+  ["Will you lend the royal bottles?","Counted out and counted back. In tissue paper. If one comes back chipped, Phil will hear about it until Christmas."],
+  ["Is Jaana ready for tomorrow?","She's practised four hundred and twelve times. I've pressed her green dress. I've pinned it so she won't fall out of it. She's as ready as anyone can be."]],
+ "Wish Jaana luck if you see her. Not Kelpy. Jaana."],
+27:["(Wilma is standing in the museum doorway with the Kelpy cup on, her head somewhere in its middle, waving one glove very stiffly.) Don't. Don't say anything. Jaana's gone to Frostholm to sing. Somebody has to wave. Doorways count.",[
+  ["You make a very good Kelpy.","(Muffled.) I make a very short Kelpy. My head's in its stomach. I can see out of the label. I've been looking at the world through the word 'Kelp' all morning."],
+  ["Is Jaana singing tonight?","At the Midnight Note. For Rita and Leo. After hours. I've told her not to think about the high note. She'll think about it. She'll hit it anyway."],
+  ["Can I take your photograph?","(The glove waves frantically.) No! Kelpy never takes the head off. And Kelpy is never photographed with the curator's legs. I've made that rule just now."]],
+ "Go on. Kelpy has to wave at the tram. The driver's expecting it."],
+28:["(Wilma is counting a crate of very old bottles with Kurt from the factory, who has a stopwatch.) Kurt's borrowing a crate off the museum's old line. For the foreign buyers. 'Bottles with character', they want. I'm counting them out. I'll count them back.",[
+  ["Did Jaana sing?","(Wilma's face lights up.) She sang. The high note didn't crack. Leo stopped playing to listen. Rita wants her back on Friday to sing for the room. She came in this morning and hugged me. I dropped a bottle. It was 1962. No loss."],
+  ["Will the bottles come back?","Every one. Counted. Kurt's very reliable, for a man who times his lunch. He's promised. With his stopwatch on it."],
+  ["What's happening today?","Every faction's big push. Flags everywhere. And Kelp Cola going abroad, if the buyers like Arne's old bottles. His bottles, in Stockholm. Imagine."]],
+ "Out of the way, please. Kurt's timing me."],
+29:["(Wilma is putting the old bottles back on their shelf, one by one, counting.) Two hundred and eleven. All back. Not one chipped. Kurt said the buyers liked them. 'Character,' they said. Arne's bottles. Character.",[
+  ["You must be proud.","(She holds up one bottle to the light.) 1958. Arne's year. He capped this one, or one just like it. Somebody from Stockholm held it yesterday and said 'character.' Yes. I'm proud."],
+  ["What's happening today?","The Republicans are choosing a leader and the palace is arguing about who's next. I'm counting bottles. It's what I do when the world's busy."],
+  ["How's Jaana?","Singing. In the cup, on the pavement, all day. 'Autumn in Helsinki.' Everyone who walks past is humming it. The whole of Eastbrook's humming."]],
+ "Hum it on your way. Everyone else is."],
+30:["(Wilma is at the counter with a bottle from 1951 in one hand and a note in the other.) Saara, the chemist at Kelp Cola. She wants to borrow a bottle from 1951. To compare with today's. She says she wants to know if anything on this island stays the same.",[
+  ["Will you lend it?","Counted out, counted back, in tissue paper. It's Arne's first year. If anything on this island stays the same, it's in this bottle."],
+  ["What do you hope happens today?","That the island stays the island. That the museum stays open. That Jaana keeps singing. That somebody, one day, remembers Arne's name. Small things. Big things."],
+  ["Will you remember this month?",["(She takes Arne's last bottle out of her drawer and puts it, for the first time, on the shelf with the others.) The ash, and Jaana singing, and Arne's bottles going to Stockholm. Yes.",[
+    ["You've put his bottle on show.","(She steps back and looks at it.) It's time. He capped two hundred thousand bottles. He deserves one on the shelf. With his name on the card. I've written it myself."],
+    ["What will you do tomorrow?","Count the bottles. Make Jaana a hot lemon. Sell figurines with broken straws. Same as always. With Arne on the shelf now. That's new."]]]]],
+ "Take a leaflet on your way out. Everything in it is still true."],
 };

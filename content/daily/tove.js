@@ -1,5 +1,5 @@
 // Tove, the barber in Saltwick, the only one on the island (the Shopkeepers). Threads: her late father's chair and his Sheffield
-// razor, and the secrets people tell under the hot towel; Elsa, her sister's girl, fifteen, who comes after school to sweep
+// razor, and the secrets people tell under the hot towel; Pia, her sister's girl, fifteen, who comes after school to sweep
 // up and learns the trade through the month (her first real customer is Hannu); Saltwick's people (Anna's fringe, Helen and Bob, Mike and Lucia, Ray, Aili, Hannu, Kaisa
 // on the radio); the month itself (the funeral rush, the fourteenth, the tremors and the ash, the last push).
 DAILY['Tove']={
@@ -23,17 +23,17 @@ DAILY['Tove']={
   ["What happened to your father?","His heart, three winters ago, sitting in that very chair waiting for a customer. Nobody came that day. I've always thought that was the worst of it."],
   ["Would you sell it?","(She folds it closed.) A man from Frostholm asked once. I told him the price was his moustache, and he went pale and left."]],
  "Don't touch the razor on your way out. People do. I can always tell."],
-5:["(A girl in a school coat is sweeping the floor, badly. Tove nods at her.) That's Elsa, my sister's girl, fifteen. She asked for work after school. I gave her a broom. We'll see.",[
+5:["(A girl in a school coat is sweeping the floor, badly. Tove nods at her.) That's Pia, my sister's girl, fifteen. She asked for work after school. I gave her a broom. We'll see.",[
   ["Is she any good?","She's sweeping the hair into neat little piles and then walking through them. It's a start. I did the same at nine."],
   ["Why take her on?","Because the school teaches her Russian verbs and long division. Somebody ought to teach her something useful."],
   ["Will you teach her to cut?","Not yet. First the broom, then the towels, then the strop. Scissors come when she stops talking to the customers about their ears."]],
- "If you see my sister, tell her Elsa's here till six and has eaten."],
+ "If you see my sister, tell her Pia's here till six and has eaten."],
 6:["(Tove is trimming a moustache that isn't there, on nobody: practising.) Hope Springs is open, they tell me. Some of those men haven't been barbered since the snow. They'll be walking down here looking like bears.",[
   ["Do the rich come down to Saltwick?","For me, they do. They send a car for me at first, and I tell them the chair doesn't travel. Then they come, and pretend they were passing."],
   ["Who's your grandest customer?","I don't say names. Under the hot towel, a man's just a chin. That's the only rule my father ever really kept."],
   ["Bears? Is it that bad?","One of them came in last spring with a beard so big I found a pencil in it. He'd been looking for it since Christmas."]],
  "Ice on the step again. Go on, I'll watch you not fall."],
-7:["(Elsa is folding hot towels into a basket, very carefully, her tongue between her teeth.) Look at that. Folding. Last week she couldn't fold a letter.",[
+7:["(Pia is folding hot towels into a basket, very carefully, her tongue between her teeth.) Look at that. Folding. Last week she couldn't fold a letter.",[
   ["She's doing well.","Don't tell her. She'll go back to the bench to celebrate and I'll lose a week."],
   ["What's the hot towel for?","Softens the beard and the man under it. Five minutes under a hot towel, and they'll tell you who they're voting for and why their wife left."],
   ["Has she said why she wanted the work?","(Tove lowers her voice.) She used to sit on my father's knee in that chair. She says she wants to keep it warm for him. Don't say I told you."]],
@@ -55,11 +55,11 @@ DAILY['Tove']={
     ["Is the town sad?","Sad and busy at the same time, which is how Saltwick does most things. The boats will be out again before the bells stop."],
     ["You sound sad.","He was always there, like the lighthouse. You don't love a lighthouse. You just notice when it's dark."]]]]],
  "Go gently today. Everyone else is."],
-11:["(Elsa is stropping a razor, slowly, Tove's hand over hers.) Not like sawing wood. Like stroking a cat that doesn't trust you. Yes. Better.",[
+11:["(Pia is stropping a razor, slowly, Tove's hand over hers.) Not like sawing wood. Like stroking a cat that doesn't trust you. Yes. Better.",[
   ["The strop already? That was quick.","She's quicker than I was. I was stubborn. She's been bored at school for a year, and boredom's a good teacher."],
   ["Is it dangerous?","Only if you're careless. My father had one scar in forty years, and it was from a cat."],
   ["Will she ever take over the shop?","(Tove looks at the mirror for a moment.) Somebody has to, one day. I'd rather it was someone who sat in that chair as a baby than someone who never noticed it."]],
- "Elsa, mind the edge. (To you.) And you mind the step."],
+ "Pia, mind the edge. (To you.) And you mind the step."],
 12:["(Tove is sweeping up a heap of dark hair, more than usual.) Mike was in. Lucia wanted his hair short and Mike wanted it long, and Lucia wins arguments. You'll have noticed that about her.",[
   ["Lucia from the Syndicate?","(Tove's scissors stop for a moment.) Lucia from the third floor of my block. What she does all day is between her and whoever she does it to. She tips well."],
   ["How do a Communist and a Syndicate woman get on?","Better than you'd think. They agree on one thing: nobody tells either of them what to do. Except each other."],
@@ -87,26 +87,26 @@ DAILY['Tove']={
  "Go on, before one of them asks you to settle it."],
 17:["(The bottles on the shelf below the mirror tinkle against each other. Tove puts out a hand to steady them.) There. Again. Third time today. Something under the island's turning over in its sleep.",[
   ["Was that an earthquake?","A little one. My father used to say the island has hiccups. He said it right up until the shelf fell on him in 1971."],
-  ["Is it dangerous?","Not to the hair. To the bottles, yes. Elsa, put the bay rum on the floor, there's a good girl."],
+  ["Is it dangerous?","Not to the hair. To the bottles, yes. Pia, put the bay rum on the floor, there's a good girl."],
   ["What do people think it is?","The fishermen say it's the volcano. The Party says it's natural and nothing to worry about. Hannu says it's the Russians. Hannu says everything's the Russians."]],
  "If the floor moves while you're walking, stand still. It's what I do."],
-18:["(Elsa is in the chair, practising on a wig on a stand. Tove watches, arms folded.) Shorter at the back. Shorter. No, now it's a hedgehog. Never mind. Hedgehogs need haircuts too.",[
+18:["(Pia is in the chair, practising on a wig on a stand. Tove watches, arms folded.) Shorter at the back. Shorter. No, now it's a hedgehog. Never mind. Hedgehogs need haircuts too.",[
   ["Is that her first cut?","On a wig. The wig's forgiving. People aren't. She'll have a real head by the end of the month, if she keeps her elbows in."],
   ["Who's going to be her first customer?","Hannu's volunteered, from the newsstand. He says he's nothing to lose. Look at him: he's right."],
-  ["Can I be her first customer?","(Elsa looks up, alarmed.) Not with London hair. She'll start on someone local, so if it goes wrong, we know their mother."]],
+  ["Can I be her first customer?","(Pia looks up, alarmed.) Not with London hair. She'll start on someone local, so if it goes wrong, we know their mother."]],
  "Don't look at the wig too long. It knows."],
 19:["(There's steam on the windows, though the stove's low.) Have you seen the north? There's a cloud over the volcano, and it's not weather. The boats came back early. Tom says the sea tasted of eggs.",[
   ["Is it going to erupt?","Kaisa's saying no on the radio, very cheerfully. Kaisa only sounds that cheerful when she's frightened."],
   ["Are people leaving?","Where to? It's an island. The rich have boats, so they look worried in comfort. The rest of us cut hair and gut fish and wait."],
   ["What will you do?","Same as always. Open at eight, sweep at six. If the world ends in between, at least everyone will be neat."]],
  "Smell of eggs on you, or is that the harbour? Never mind. Off you go."],
-20:["(Tove is wrapping her father's razor in a cloth and putting it in her coat pocket.) If anything happens, I'm taking the razor and Elsa. The chair can look after itself. It survived my father.",[
+20:["(Tove is wrapping her father's razor in a cloth and putting it in her coat pocket.) If anything happens, I'm taking the razor and Pia. The chair can look after itself. It survived my father.",[
   ["You think something will happen?","The ground's moved four times today. My knees know more about rocks than I do, and my knees are worried."],
   ["Why the razor?","Forty years of it. It's shaved fishermen, priests, a mayor and a king. You don't leave that under a fallen ceiling."],
-  ["Is Elsa scared?","Elsa's swept the floor twice and folded all the towels again. That's what fear looks like in a good apprentice."]],
+  ["Is Pia scared?","Pia's swept the floor twice and folded all the towels again. That's what fear looks like in a good apprentice."]],
  "Sleep with your boots by the bed. That's not barbering advice. That's Saltwick."],
 21:["(The windows are grey with ash. Tove is wiping the mirror with a cloth that's grey too.) Well. It went. You'll have seen it: half the north on fire and the sky like a dirty sink. Everyone here's all right. Counted them.",[
-  ["Is everyone in Saltwick safe?","Every one. I went door to door with Elsa. Hannu was under his counter with his newspapers. Aili kept the diner open and fed everyone coffee and pie."],
+  ["Is everyone in Saltwick safe?","Every one. I went door to door with Pia. Hannu was under his counter with his newspapers. Aili kept the diner open and fed everyone coffee and pie."],
   ["What's it like out there?","Ash on everything, soft like flour, and it gets in your teeth. The lava's a long way north. Down here it's just grey, and quiet, and everyone's whispering."],
   ["Are you all right?",["(She stops wiping.) My hands won't stop shaking, so no cutting today. But yes. I'm all right.",[
     ["You've still got the razor?","(She pats her pocket.) Right here. Old man would've been proud. Or he'd have told me I was being soft. Both."],
@@ -115,18 +115,18 @@ DAILY['Tove']={
 22:["(Tove is washing a man's hair in the basin, and the water runs grey.) Ash. Everyone's hair is full of it. I've done nothing but wash heads since the shop opened. I've stopped charging for it.",[
   ["Free? That's kind.","It's not kindness. It's self-defence. I can't cut hair that's half volcano. It ruins the scissors."],
   ["How's the town holding up?","Better than you'd think. Ray's giving the first drink free. Olga's selling fish at last week's prices. Anna's organising a sweep of the main street, and for once nobody's arguing."],
-  ["Did Elsa get her first real customer?","Tomorrow. Hannu, as promised. We've told him it's an ash wash. It's not. Don't tell him."]],
+  ["Did Pia get her first real customer?","Tomorrow. Hannu, as promised. We've told him it's an ash wash. It's not. Don't tell him."]],
  "If your hair crunches, come back. First wash is free."],
-23:["(Hannu is in the chair, very still, eyes shut. Elsa is cutting, slowly. Tove watches over her shoulder and says nothing at all.)",[
+23:["(Hannu is in the chair, very still, eyes shut. Pia is cutting, slowly. Tove watches over her shoulder and says nothing at all.)",[
   ["How's it going?","(Tove mouths: shh.) She's been at it twenty minutes. Hannu thinks it's a wash. Hannu is about to have a parting."],
   ["Is it good?","It's a bit uneven on the left. So is Hannu. They'll suit each other."],
   ["You must be proud.","(Tove doesn't look away from the scissors.) Ask me in an hour. If Hannu doesn't throw a newspaper, I'll be proud."]],
  "Don't make her laugh on your way out. She's holding scissors."],
-24:["(There's a new sign in the window, hand-painted: ELSA, APPRENTICE. HALF PRICE. NO COMPLAINTS.) Hannu loved his parting. Wore it to Ray's. Three people asked who did it. Elsa cried in the back.",[
-  ["Half price for Elsa?","She's half trained. When she's fully trained, she'll be full price, and I'll be out of a job. That's how it should go."],
+24:["(There's a new sign in the window, hand-painted: PIA, APPRENTICE. HALF PRICE. NO COMPLAINTS.) Hannu loved his parting. Wore it to Ray's. Three people asked who did it. Pia cried in the back.",[
+  ["Half price for Pia?","She's half trained. When she's fully trained, she'll be full price, and I'll be out of a job. That's how it should go."],
   ["Did you cry too?","(She snorts.) Barbers don't cry. We get bay rum in our eyes. It happens a lot this week."],
   ["Will you put her name on the pole?","The pole's my father's. But there's a gap under the BARBER sign where her name would fit, if she keeps it up."]],
- "If you need a parting, ask for Elsa. Half price, no complaints. Allowed, anyway."],
+ "If you need a parting, ask for Pia. Half price, no complaints. Allowed, anyway."],
 25:["(Tove is reading the Eastbrook Gazette with her scissors in her other hand.) Everyone's making promises in the papers. A prince for this, a vote for that. Nobody's promising to fix the roof on the plant.",[
   ["Who would you vote for?","Whoever fixes the plant roof. I'd vote for a goat if it had a ladder."],
   ["What's the gossip under the towel?","Everyone's sure what happens next, and everyone's sure of something different. Bob thinks it'll be quiet. Helen thinks it'll be historic. They're both wrong, every year."],
@@ -142,20 +142,20 @@ DAILY['Tove']={
   ["Do people tell you secrets often?","Every day. I keep them in a box at the back of my head, next to my father's recipes and the words to the anthem. Locked."],
   ["Has anyone told you something dangerous?","(She smiles, and keeps stropping.) If they had, would I be the sort of barber who'd tell a reporter?"]],
  "Come back when you've something to confess. First shave's on the house."],
-28:["(The shop is full: the bench, the chairs, two men leaning on the wall. Tove and Elsa are cutting side by side.) Everyone wants to look like a winner today. I've given six men the same haircut. Every one of them thinks it's his idea.",[
+28:["(The shop is full: the bench, the chairs, two men leaning on the wall. Tove and Pia are cutting side by side.) Everyone wants to look like a winner today. I've given six men the same haircut. Every one of them thinks it's his idea.",[
   ["Everyone's very busy today.","Every party on the island's making its big push. I can tell by the hair: the Party men want it short and serious, the cola men want it slick."],
   ["Can I get in?","Tomorrow, maybe. Today you'd be the seventh man with the same haircut, and you'd hate it."],
-  ["Is Elsa keeping up?","She's faster than me now on the backs. I'm still better on the fronts. Between us we're one very good barber, and half a nervous one."]],
+  ["Is Pia keeping up?","She's faster than me now on the backs. I'm still better on the fronts. Between us we're one very good barber, and half a nervous one."]],
  "Out of the way, please. There's a queue and it's got opinions."],
-29:["(Tove is sweeping a mountain of hair into a sack, and Elsa is counting the tin on the counter.) We've taken more this week than all of last winter. Fish, mostly. But some money too. Real money.",[
+29:["(Tove is sweeping a mountain of hair into a sack, and Pia is counting the tin on the counter.) We've taken more this week than all of last winter. Fish, mostly. But some money too. Real money.",[
   ["The busiest week ever?","Since the coronation, my father would've said, and he'd have been lying. Yes. The busiest week ever."],
-  ["What will you do with it?","A second chair, for Elsa. Oxblood leather, from a catalogue in Helsinki. If there's a Helsinki left after all this."],
+  ["What will you do with it?","A second chair, for Pia. Oxblood leather, from a catalogue in Helsinki. If there's a Helsinki left after all this."],
   ["Nervous about tomorrow?","Everyone's nervous. You can feel it in their necks when you shave them. Tight as a mooring rope. I've been giving extra towels."]],
  "Sleep well, if anyone sleeps well tonight."],
-30:["(The shop is quiet. The radio is on, low. Tove is shaving Tom's neck, very carefully, while Elsa watches.) Last day of the month. Whatever happens out there, this man will have a clean neck for it.",[
+30:["(The shop is quiet. The radio is on, low. Tove is shaving Tom's neck, very carefully, while Pia watches.) Last day of the month. Whatever happens out there, this man will have a clean neck for it.",[
   ["What do you think will happen today?","Something big, and then Monday. There's always a Monday. People will still need their hair cut, whoever's in charge."],
   ["Are you worried?","My father barbered through a war, two kings and a goat. I've got his razor, an apprentice and a waiting list. I'll manage."],
-  ["Will you miss this month?",["(She wipes the razor clean and looks at it.) Some of it. The ash, no. The quiet days, a bit. And Elsa's first parting.",[
+  ["Will you miss this month?",["(She wipes the razor clean and looks at it.) Some of it. The ash, no. The quiet days, a bit. And Pia's first parting.",[
     ["And me?","You're a reporter. You'll go home and write about princes and parties. Put in a line about the barber in Saltwick. Spell my name right."],
     ["What will you remember most?","My father's chair full every day for a month, and the town still standing at the end of it. That'll do."]]]]],
  "Mind the step. It's clean for once. Don't spoil it."],

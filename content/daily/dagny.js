@@ -1,141 +1,150 @@
-// Dagny, owner of the Eastbrook Lumber Company, on the mill floor most days (The Proprietors). Threads: counting timber and every mark,
-// the wage and saw dispute and Helen, Bjarne's ledger, her father who founded the mill, her flat in Frostholm and the long commute.
+// Dagny, owner of the Eastbrook Lumber Company, on the mill floor most days (the Proprietors). Threads: counting the timber and every
+// mark in Bjarne's ledger; the mill her father Torvald founded in 1952, and the old king at its opening; Helen and the Union, the pay
+// and the saw guard (the 11th; after it, what was said in her office stays there); the guard she ordered in 1977 from a Helsinki firm
+// that went bankrupt with her money, which she's too proud to tell anyone; the oil company wanting to drill in her forest, and her
+// refusal; the long ride every morning from her flat in Frostholm; being tight-fisted, and proud of it.
 DAILY['Dagny']={
-4:["(A grey-haired woman looks up from a clipboard, counts something under her breath and finishes before she speaks.) Four hundred and twelve. Good. You're the reporter. Don't touch the timber, it's been counted.",[
-  ["Impressive mill, Mrs Dagny.","Just Dagny. My father built it with a handsaw and a loan. I've turned it into the best timber yard north of Helsinki. It's all in the figures."],
-  ["How many people work here?","Thirty-one. All fully employed, all fully paid. Anyone who says otherwise is a Communist, and a poor mathematician."],
-  ["Do you count everything?","Everything. Logs, planks, sacks of sawdust. I even counted the pigeons once. Eleven. Two have been replaced."]],
- "Mind the floor. Sawdust costs money."],
-5:["(Dagny is checking a delivery slip.) Now the road's open, the orders will come. Kelp Cola wants two thousand crates by the end of the month. That's an excellent week.",[
-  ["Is business good?","It's always good. It could always be better. That's what 'business' means."],
-  ["Do you like Kelp Cola?","I like that they pay on time. I don't like the posters. I don't like the free samples. A free sample is a way to lose money in a friendly manner."],
-  ["How do you manage the mill?","By being here. A proprietor who sits at a desk deserves what she gets. I know every plank by its first name."]],
- "I'll be on the floor. Where the money is."],
-6:["(Dagny's folding a piece of paper into exact quarters.) I live in Frostholm, you know. Skyline Apartments. A little flat, very efficient. Takes me forty minutes to get here by lorry. That's forty minutes I could be counting.",[
-  ["Why not live nearer?","Because Frostholm has a better class of neighbour, and a very good lift. And nobody in Eastbrook would let me forget I was the boss."],
-  ["Do you take the lorry every day?","On a good day. On a bad day, I sleep in the office on a camp bed. Bjarne thinks I don't know he knows."],
-  ["Is it lonely?","It's quiet. I like quiet. I find it improves one's arithmetic."]],
- "Your hat's covered in sawdust. I'd brush it, but it'd be a waste of effort."],
-7:["(Dagny is on the telephone and speaks without looking up.) Yes. Yes. Four marks the board. No, I can't go lower. I've no intention of going lower. (She puts the phone down.) Frostholm's open and everyone wants a discount.",[
-  ["Who was that?","A builder who wants the palace price for a pigsty. I told him the palace price was for the palace."],
-  ["Do you ever give a discount?","Once, in 1971, to a priest. It was a mistake. He said a prayer, I got nothing and he put the money in the poor box."],
-  ["Is it a hard business?","It's a mathematical business. Hard is for those who don't read the numbers."]],
- "I haven't time to chat. But you may stand there. It's free."],
-8:["(Dagny's inspecting a plank against the light.) It's a Sunday, and I'm here, because the logs do not know what a Sunday is. Neither do I, particularly. The Church thinks it's a day of rest. I think it's a day when nobody's looking.",[
-  ["Do you go to church?","Christmas, Easter and funerals. It's cost-effective. I put a coin in, they say a prayer, and I leave a bit lighter."],
-  ["What does your father's portrait say?","It says 'No waste'. He painted it himself. It's above my desk, so I see it every morning, and he looks cross."],
-  ["Is the mill your whole life?","It's the bit that pays. I have a cat, but he's very independent."]],
- "Sundays are for sums. And for sawdust."],
-9:["(Dagny reads a pamphlet with the tips of her fingers, as if it might be damp.) 'The People's Cola.' Someone's slid this under my door. A Communist beverage, with a hammer on the label. I'm tempted to frame it.",[
-  ["Would you stock it?","In a bin. It's got a Party stamp. I'd prefer to buy from a company that wants to make a profit and be honest about it."],
-  ["What do you think of Helen?","A Communist agitator, in a union coat. She comes up to my mill, and she says 'fair', as though it were a number. I have yet to see a fair number that's cheaper than mine."],
-  ["Is Helen in the Party?","The union and the Party are cousins, and I don't like either family reunion."]],
- "Take the pamphlet. I've no room in the bin."],
-10:["(Dagny wears black, which is her usual colour, but with a brooch.) I've kept the mill open. The king would have wanted the orders filled. He wasn't a man for ceremony, or not much. He liked a clean plank.",[
-  ["Did you know him?","He bought a table from us in 1964, and paid in full. That was the beginning and the end of our acquaintance. It was a very good transaction."],
-  ["Won't the staff want time off?","They've had a minute's silence. It cost me a minute. It's a considerable sum, over thirty-one people."],
-  ["Are you sad?","I'm precise. It's a form of sadness, I find. You'll never see me weep, but I count."]],
- "The mill stays open. Respect is best shown by doing one's job."],
-11:["(Dagny shuts her ledger and looks at you with the particular patience of a woman who's had many visitors today.) So you're the reporter Helen's been sending. Let me guess: the pay. And the saw.",[
-  ["That's right. The men have a case.","They've a grievance. A case needs figures. I've seen none. I've seen Knut waving a mutilated hand and Ilse looking disapproving."],
-  ["Is the saw really dangerous?",["It's old. It's heavy. It's been standing for fifty years. That's not the same as dangerous. It's reliable. Reliable things have a way of being a little dangerous.",[
-    ["Knut lost a fingertip.","Knut has told seven versions of that story. I believe none. If you can show me the guard's broken, I'll look into it. If it's a good price."],
-    ["What would a new guard cost?","Forty marks, Bjarne tells me. And a day's work. It's a trifle. It's a trifle I've been thinking about for two years."]]]],
-  ["Can we speak about wages?","We can speak about anything. I can't promise to agree. Everything has a cost. Everything has a person who pays it. I'd like it not to be me."]],
- "Think about what you've seen. And be careful what you repeat."],
-12:["(Dagny is tapping a pencil against the ledger.) I've had a note from Bjarne. He thinks I should be nicer. It's got a little drawing of a smiling plank. I've kept it. It's the only thing I've ever been given for free.",[
-  ["Is Bjarne a good bookkeeper?","He's meticulous and frightened, which is the ideal combination. If he were braver, he'd be dangerous."],
-  ["What does the ledger say?","That it's our best year since the war. That we've money in the bank and cobwebs in the pockets. A very curious position."],
-  ["Does the union have a point?","They have a view. A point's sharper. I'm waiting for a sharp one."]],
- "I'll consider things. I always consider things. It's why I've kept the mill."],
-13:["(Dagny's staring out of the window at a Kelp Cola van.) That van's been in my yard for an hour, giving away sugar water to my employees. I've told them it's coming out of their lunch.",[
-  ["Is that fair?","It's a joke. Mostly. I've a sense of humour. It's just very dry. Like my timber."],
-  ["Do you mind them?","I mind the principle. A thing given is a thing owed. I'd rather pay and be quit."],
-  ["Is there anything you'd give away?","Advice. It costs nothing, and nobody takes it. A perfect arrangement."]],
- "Close the door. The cola smell's getting in."],
-14:["(Dagny's in her good coat, fastened to the neck.) The fourteenth. I've shut the mill at noon, which is the first time since my father's funeral. Don't say I'm sentimental. I've done the sums, and it's cheaper than a riot.",[
-  ["Will you go?","Briefly. I'd like to be seen. A proprietor's a public figure, like it or not. And somebody should keep an eye on the pickpockets."],
-  ["What do you expect?","Speeches. Sausages. A lot of people pretending to know what they want. I know exactly what I want: a stable island with a good rate of exchange."],
-  ["Are you worried about the factions?","I'm worried about all of them. The Reds want my mill. The Democrats want my money. The oil men want my land. I've kept it all, so far."]],
- "Keep your wallet buttoned. That's today's civic duty."],
-15:["(Dagny's flicking through a sheaf of receipts.) Yesterday was expensive. The mill was shut, the staff were out and, I'm told, a man tried to sell a flag with my face on it. It was a very poor likeness.",[
-  ["Was it a good day?","It was crowded. It was noisy. I'd rate it three out of ten. Though the Church's cart was a sight."],
-  ["Did you hear any speeches?","I heard thirty. I remember two. I wrote the best on the back of a delivery slip. I'll bill someone."],
-  ["What was your feeling?","That an island is a very large unbalanced account. It's the only way I can say it. The assets are good. The liabilities are loud."]],
- "Mind the receipts. They're my whole heart."],
-16:["(Dagny has put a Democratic Party leaflet and a Communist one side by side on the desk.) The debate. I've read both leaflets. One says 'Vote'. The other says 'Seize'. I find them equally expensive.",[
-  ["Who do you prefer?","The one who'd leave my books alone. At the moment, that's neither."],
-  ["Will you attend?","From a distance. Under an umbrella. With my pencil."],
-  ["Do your workers go?","Every one. I've told them they may, so long as they're back for the afternoon shift. Which they won't be, so I've allowed for it."]],
- "I'll let you know who wins. I'll be the one counting the applause."],
-17:["(Dagny is gripping the edge of the desk.) The whole office just rattled. The pencils jumped. A mill's a poor place to be in an earthquake: it's a building full of things that fall.",[
-  ["Was it the volcano?","I've no idea. I'm a proprietor, not a geologist. But I've asked Bjarne to check whether it's covered."],
-  ["Are you frightened?","Not frightened. Prudent. I'll move the ledger to the top shelf. And a sandwich. One never knows."],
-  ["Will the mill close?","If it must. I'd sooner not. A closed mill is a fine for nothing."]],
- "If it happens again, don't run. Walk briskly towards the door. Running costs shoe leather."],
-18:["(Dagny has placed a small dish of mints on the desk, which is unheard of.) Take one. I've bought them in bulk. They were cheaper by the hundred. I've now a hundred mints, and one mouth.",[
-  ["Thank you. Is it a special occasion?","It's a Tuesday. But Bjarne said the staff were getting tense and I thought: mints. They're a mild bribe."],
-  ["Is the dispute still on?","It's on. They'd like their money. I'd like them to have less. A compromise is what we'll get, and neither of us will be happy."],
-  ["Is there anyone you trust?","Bjarne. And my cat. And a man in Frostholm who sells me cigars on credit. That's three, which is more than most."]],
- "Have another mint. They won't keep."],
-19:["(Dagny looks up, pale.) Another tremor, this morning. A beam shifted over the canteen. Nobody was beneath it, which is the only reason I haven't had to fill in a form.",[
-  ["Is the building safe?","I've asked a man to look. He charged me forty marks to say 'it'll hold'. I could have said that for nothing."],
-  ["Does the volcano worry you?","It worries my accountants. They've started using the word 'contingency'. It's an unpleasant word, and I use it on everyone else."],
-  ["What would you do?","Fix the beam. It's not that I'm kind. It's that a falling beam is a lawsuit."]],
- "I'll think about the saw. I'm only thinking. I'm not saying yes."],
-20:["(Dagny's pinching her nose.) That smell. It's in the planks. Every board I count smells of boiled eggs. If we can't get it out, it'll lower the price.",[
-  ["It's the volcano.","I know it's the volcano. I'm not blind. I'm only offended. A mountain ought to know better than to interfere with commerce."],
-  ["Are you prepared?","I've a bag in the office. Passport, deeds, a sandwich and a very large coat. I'll know when to leave."],
-  ["Will you leave the mill?","Not unless it leaves me first."]],
- "Carry on. Business as usual is a form of courage."],
-21:["(Dagny's coat is grey with ash and her hair has gone white.) It's over, or at least the worst of it. I stood by the saw as it fell. It was magnificent. I'd never say so to Knut.",[
-  ["Are you all right?","Perfectly well. I counted the staff. All thirty-one. It's the best number I've had all year."],
-  ["What was it like?","Like the end of a sum. A very large one. I felt, for a moment, that I'd been counting the wrong things."],
-  ["Will the mill reopen?","Tomorrow. We'll shovel. Everyone will be on time, and I shall dock the ones who aren't."]],
- "Don't tell anyone I was moved. It would damage my credit."],
-22:["(Dagny's wearing a dust mask over a very stern face.) We've sent out four hundred masks. I've charged the crew a quarter-price. It seemed generous, and I'm still annoyed.",[
-  ["That's good of you.","It's accounting. A lung's an asset. A healthy lung's more productive."],
-  ["How's the mill?","Dusty. Grey. But the saw's running. Knut kissed it. I pretended not to see."],
-  ["How are your nerves?","I've not the time for nerves. I've a ledger to fill, and an island to survive. In that order."]],
- "If you've any spare cash, buy timber. The rebuilding will be great."],
-23:["(Dagny's frowning at the roof.) There's ash in the beams. It'll need clearing, before the snow. I'm told there'll be snow. In September. The island does like to keep one guessing.",[
-  ["Is the aftershock a worry?","Each one's a small invoice from nature. We'll pay it over time."],
-  ["Is the pay dispute forgotten?","It's mislaid. It'll turn up. These things always do, like an umbrella."],
-  ["Do you worry about the crew?","I count them. It's the same thing, in my language."]],
- "Take a mint. They're free this week. I'll deduct it from the volcano."],
-24:["(Dagny leans back in her chair.) I've been told the island's coming together. Everyone's carrying buckets. It doesn't alter the books, but it's nice to see.",[
-  ["Even you?","I carried a bucket. It was a very small bucket. And I gave it to Ilse almost at once."],
-  ["Are the factions behaving?","They're pausing. It's the quiet before the invoice. The Syndicate's cleaning something. I don't ask what."],
-  ["What do you want for the island?","Stability. A fair rate of exchange. And, if possible, someone who knows how to add."]],
- "Don't get sentimental. It's contagious."],
-25:["(Dagny's polishing her glasses on a handkerchief.) I've been thinking about Helen. I'll not say it twice. She's got a point. She's irritating, loud and probably a Communist. But she's got a point.",[
-  ["What point?","That a business is its people. My father said it. He said it with an accent, and I didn't listen."],
-  ["Will you tell the men?","I'll tell the ledger. It's more likely to believe me."],
-  ["What would your father say?","'Spend it wisely.' Which is what he said about everything, including his own funeral."]],
- "Don't repeat this. If anyone asks, I was counting."],
-26:["(Dagny's going through the post.) A Prince in Every Bottle. Dario's bought a spa. The island's gone mad, and I'm selling planks to every one of them. It's a wonderful time to be sane.",[
-  ["Who's buying?","Everyone. Kelp Cola for crates. The oil men for scaffolding. The palace for a gazebo. I'm told it's for a princess."],
-  ["Do you have a favourite?","The one who pays cash. It's not a political position. It's a moral one."],
-  ["Do you worry about the future?","I plan for it. Worry's a bad investment. It returns nothing and takes everything."]],
- "If you're building anything, do it in pine. It burns cleanly."],
-27:["(Dagny's marking something on a map.) The end of the month's near. I've got orders to the end of October, and nobody knows who'll be in charge by then. It's a very interesting risk.",[
-  ["Who would you like to see in charge?","Someone who pays the bills. And, in the interest of honesty, someone who doesn't tax timber."],
-  ["Do you vote?","Always. I vote for the candidate who's cheapest to run. It saves everybody trouble."],
-  ["Are you hopeful?","I'm solvent. It's a cheerful state."]],
- "Keep your receipts. They're the only history that matters."],
-28:["(Dagny's shut the ledger for once.) The biggest day for every faction. I'm shutting the mill early. I'd say it's an act of civic duty. In truth, it's because nobody will work.",[
-  ["Will you go out?","Briefly. And in a very sensible hat. I intend to be seen and not to be handed a leaflet."],
-  ["What do the men think?","They think I'm a monster. They're partly right. I'm a monster with a ledger."],
-  ["Are you nervous?","I don't have the time. But if I did, it'd be a pleasant afternoon of it."]],
- "I'll count the crowds. It helps."],
-29:["(Dagny's sitting very upright.) Tomorrow's the vote, or the end, or both. I've been going through my father's papers. There's a note: 'Pay them fairly. They'll stay.' I'd forgotten it.",[
-  ["Why do you think you forgot?","Because it's expensive. Remembering's often the dearest thing there is."],
-  ["Will you act on it?","I may. I've been checking the figures. They're not as bad as I'd feared."],
-  ["That's a change.","It's a correction. There's a difference. But don't tell Helen."]],
- "I'll sleep on it. I always do. Then I'll count."],
-30:["(Dagny stands in the middle of the mill floor, silent, as the saws rest.) Whatever happens today, the timber'll still need cutting. That's the comfort of my trade.",[
-  ["Any last words?","Look after your money. Look after your people. And look after your hat. It's the first thing the wind takes."],
-  ["Was it a good month?","It was a costly one. But the books balance, in a manner of speaking. I've seen worse Septembers."],
-  ["Will you see me again?","If you pay for the timber, certainly. Otherwise, I'll send an invoice."]],
- "Goodbye, reporter. Pay your bills, and keep your counsel."],
+4:["(A sharp-faced woman in a man's overcoat looks up from a stack of planks, a pencil behind her ear.) Nine hundred and twelve. (She writes it down.) You're the reporter. I'm Dagny. I own this mill. I'm counting. You can talk while I count, if you don't mind me not listening.",[
+  ["You count every plank?","Every plank, every log, every nail. My father counted. Bjarne counts. I count Bjarne's count. That's three counts. That's how a mill stays a mill."],
+  ["Who founded the mill?","My father, Torvald. In 1952. With a borrowed saw and a forest nobody wanted. The king came to the opening and planted a pine. It's still there. So's the mill."],
+  ["Are you a hard boss?","(She doesn't look up.) I'm a tight boss. Hard is different. Tight means the mill's still open when the others have closed. Ask the plant in Saltwick how soft worked."]],
+ "Don't touch the stacks on your way out. They're counted."],
+5:["(Dagny is standing beside the foreman, Bjarne, who is holding a large ledger open while she runs her finger down a column.) Bjarne keeps the ledger. I check it. He's never been wrong. I check it anyway. It's not distrust. It's habit.",[
+  ["What's in the ledger?","Every board in, every board out, every wage, every saw tooth. Twenty years in his hand. Forty, counting my father's ledgers. I could tell you what the mill sold on any day since 1952."],
+  ["Does Bjarne mind being checked?","Bjarne is a Democrat with a beard and a great deal of patience. He minds. He's never said so. That's why he's still foreman."],
+  ["What's the mill's biggest problem?","Money. It's always money. Timber prices are down, wages are up, and the Union wants more. (She closes the ledger.) And the big saw is old."]],
+ "If Bjarne offers you the ledger, don't read it. It's very boring and very private."],
+6:["(Dagny has a letter on oil company paper and is reading it with an expression like vinegar.) Diversified Petroleum. They want to drill in my forest. The north slope. They think there's oil under the pines my father planted.",[
+  ["Will you let them?","No. (She folds the letter in four.) They've offered a great deal of money. I've said no twice. I'll say it a third time. I enjoy saying no to people with money."],
+  ["Why not take the money?","Because my father planted those trees. The king planted the first one. If I let them drill, there'll be a hole where the king's pine was. I'm tight. I'm not a fool."],
+  ["Is oil worth more than timber?","This year. Next year, who knows? Trees grow back. Holes don't."]],
+ "If you see Dario's men, tell them the answer's still no."],
+7:["(Dagny is arriving at the mill, unwinding a long scarf, cheeks red with cold.) The north-west's open, so I'm back to the long way. Frostholm to Eastbrook. Tram, then walk, then the mill road. An hour and ten minutes each way. Every day.",[
+  ["Why live in Frostholm?","My flat's in the Skyline Apartments. Twelfth floor. You can see the whole island. I like to see the whole island. Then I come here and count a small part of it."],
+  ["Wouldn't Eastbrook be closer?","Eastbrook is full of Democrats who'd like to discuss wages over breakfast. Frostholm is full of oilmen who'd like to discuss my forest. I prefer the oilmen. They're easier to say no to."],
+  ["Isn't the commute tiring?","I do the ledger on the tram. In my head. By the time I get here, I know what Bjarne's going to tell me. It saves time."]],
+ "Close the gate behind you. The wind's from the north."],
+8:["(Dagny is on the mill floor on a Sunday, alone, counting a stack in a church coat.) The mill's closed. I'm not working. I'm counting. Counting isn't working. My father counted on Sundays. He said it was praying with numbers.",[
+  ["Do you go to church?","After. The chapel in Kingsgrad, at the back. The Abbot's preaching about the king today. My father met the king at the opening. He talked about it till he died."],
+  ["What did the king say at the opening?","'Plant the pines straight, Torvald, and the island will be proud of you.' My father planted them in rows you could measure with a ruler. I still do."],
+  ["Are you religious?","I believe in God, my father and a balanced ledger. In that order on Sundays. The other way round the rest of the week."]],
+ "Go to the sermon. Stand at the back. It's where the sensible people stand."],
+9:["(Dagny is reading a Union letter with a pencil in her hand, making small, sharp marks in the margin.) Helen. From the Union, in Saltwick. She's coming on the eleventh. To talk about pay and the saw guard. She's sent her figures. She's very good at figures. For a Communist agitator.",[
+  ["Is she an agitator?","She agitates. That's the definition. She's also right about the price of bread. Don't tell her I said so."],
+  ["Will you raise the pay?","Timber prices are down. Wages haven't moved in six years because the mill hasn't moved in six years. That's not meanness. That's arithmetic."],
+  ["What about the guard?","(She stops writing.) The guard is on order. It's been on order a long time. That's all I'm going to say about the guard."]],
+ "If you see Helen, tell her I've read the figures. Every one."],
+10:["(Dagny is standing very straight by the old pine at the mill gate, in black, with her hand on the bark.) The funeral. The mill's shut till noon. This is the king's tree. My father planted the rest around it. I'll stand here. I'm not good at chapels.",[
+  ["Are you all right?","(She doesn't take her hand off the tree.) I cried this morning. Bjarne saw. I'll never forgive him. My father would have cried too. He loved that man."],
+  ["What was your father like?","Tight, stubborn and proud. He'd have liked you. He'd have made you count something."],
+  ["What happens to the mill now?","It goes on. Whoever runs the island will need timber. Kings need coffins and voters need ballot boxes. Both are made of wood."]],
+ "Go gently today. Mind the tree. It's older than either of us."],
+11:["(Dagny is in her office with the door shut. Through the glass, you can see her standing, very upright, and Helen from the Union sitting with a folder. Bjarne is in the corner with the ledger. Dagny comes to the door for a moment.) Not now. I'm busy. The Union's here.",[
+  ["How's it going?","It's going. Helen talks very fast and I count very slowly. Between us we'll get somewhere. Eventually."],
+  ["Will you agree to their demands?","I'll agree to what the ledger can bear. The ledger isn't a Democrat or a Communist. It's just a ledger."],
+  ["Why won't you talk about the guard?","(She looks at you for a long moment.) Because there's a story about the guard that's nobody's business. Now please. Shut the door."]],
+ "Shut the door behind you. Please."],
+12:["(Dagny is counting planks with great energy, which is how she looks when she doesn't want to talk.) Don't ask. Whatever was said in my office yesterday stays in my office. Bjarne knows. Helen knows. That's enough people.",[
+  ["How are you feeling?","Like a woman who's spent six hours with Helen. She doesn't stop. She's like the big saw. Loud, relentless, and right about more than I'd like."],
+  ["Are the mill hands happy?","Ask them. They're very quiet today, which in a mill is either very good or very bad. I'm counting. That's what I do with very."],
+  ["What's the story about the guard?",["(She stops counting.) You're persistent. Like Helen. (A long pause.) Sit down. I'll tell you. It's not for printing.",[
+    ["I won't print it.","I ordered a new guard in 1977. From a firm in Helsinki. Paid in full. The firm went bankrupt with my money and never sent it. I've been too proud to say. Tight, and fooled. That's the story."],
+    ["Why not tell the men?","Because then I'm the fool who lost the mill's money, not the miser who wouldn't pay. I can live with miser. My father could live with miser. Fool, I can't."]]]]],
+ "That story stays in this room. Like the ledger."],
+13:["(Dagny has a free bottle of Kelp Cola on her desk, beside the ledger, unopened.) Free. From the company. Everyone's got one. I've entered it in the ledger. 'One bottle, cola, gift. Value nil.' Bjarne laughed. Bjarne doesn't laugh.",[
+  ["Will you drink it?","When the ledger balances. Which will be the thirty-first of December. It'll be flat. That's the price of a balanced ledger."],
+  ["Why's Kelp Cola giving it away?","Because tomorrow's the big day and they want to be liked. I've never needed to be liked. I've needed to be paid on time."],
+  ["Will you go to the gathering?","I'll stand at the back with the other owners. Phil, Dario, Gustavo. We'll pretend we don't see each other. It's very restful."]],
+ "Take the cola if you like. I've already written it off."],
+14:["(Dagny is putting on her overcoat and her father's old watch.) The big gathering. I'm going. At the back. Bjarne's driving the mill lads in the cart. Ilse's leading them. She's got a list. I've seen the list. I'm on it.",[
+  ["What's on Ilse's list about you?","'Do not heckle Dagny.' Underlined twice. I don't know whether to be flattered or worried. Both."],
+  ["What do you hope happens?","That nobody promises anything the island can't pay for. And that the oil company doesn't use the crowd to buy my forest while I'm not looking."],
+  ["Will you speak?","Owners don't speak at gatherings. We stand at the back and count the crowd. I'll have a number for you by the end."]],
+ "If you see Ilse, tell her I approve of the list."],
+15:["(Dagny is writing a number on the back of an envelope: 3,104.) The crowd at the gathering. Three thousand one hundred and four. I counted. Phil said three thousand. Dario said five. Dario rounds up. Everything.",[
+  ["What did you think of the speeches?","Long. Some honest. Somebody said 'saw' out loud near the front, and the mill lads cheered. I didn't cheer. I wrote it down."],
+  ["What's the news today?","The palace and the Church are fighting over the prince's brother. I don't care where he lives. As long as he doesn't want a forest."],
+  ["How are the mill hands?","Working. The saw's running. Knut's telling a new story about his finger. Ilse's lifting more than she should. Normal. I'm grateful for normal."]],
+ "Three thousand one hundred and four. You can print that. It's accurate."],
+16:["(Dagny has the wireless on in her office, and is pretending not to listen to it.) The debate. The Party and the Democrats. Ilse's in the front row, Bjarne says, heckling quietly. I'd like to hear Ilse heckle quietly. I'd pay.",[
+  ["Who do you want to win?","Whoever leaves the mills alone. That's neither of them. The Party wants to own the mill. The Democrats want to vote on it. I want to count it."],
+  ["Would you vote, if there was a vote?","For myself. Then for the ledger. Then for whoever promises a new saw guard that actually arrives."],
+  ["What does Bjarne think?","Bjarne's a Democrat. He thinks Erik's a good man. He's right. Good men are very expensive. They want to pay everyone properly."]],
+ "Turn the wireless down on your way out. I'm counting."],
+17:["(The stacks of timber in the yard shift and groan. Dagny stands among them, very still, pencil raised.) The ground moved. The stacks shifted. Eleven planks fell. I'm counting them back up. Eleven. All accounted for.",[
+  ["Was it an earthquake?","Something under the island's moving. The saw jumped on its bed. Knut stopped it. The first sensible thing Knut's done in forty years."],
+  ["Is anyone hurt?","Nobody. Knut's shaken. Ilse dropped a log. Ilse never drops logs. That frightens me more than the ground."],
+  ["What about Dario's offer?","He sent another letter. And now Dario's gone missing, the oil men say. Nobody knows where he is. I'm not worried. Men like Dario turn up. Usually wanting a forest."]],
+ "Walk carefully on your way out. The stacks aren't counted till I say so."],
+18:["(Dagny is reading a telegram from the oil company, and laughing, which is rare.) Diversified Petroleum. They've withdrawn their offer for the forest. 'For now.' Their chief's missing, and the man in charge doesn't know what Dario was doing. Neither does Dario.",[
+  ["Are you relieved?","Very. For now. 'For now' is what oilmen say when they mean 'next month'. I'll be ready next month too."],
+  ["What's the news on the island?","Kelp Cola's mascot is ill. The cola woman rang the mill asking if anyone would fit in the cup. Knut tried. He got stuck at the shoulders. Ilse had to pull him out."],
+  ["Are you worried about the mountain?","There's grit on the window this morning. Fine and grey. From the north. Signe at the lighthouse says steam. I've moved the ledgers into the safe."]],
+ "If anyone from the oil company comes, I'm counting."],
+19:["(The mill yard smells of eggs. Dagny has a scarf over her nose, and is watching Bjarne stop the saw.) Steam on the mountain. Bjarne's stopped the saw till tomorrow. I agreed. I never agree to stopping the saw. That's how serious it is.",[
+  ["Is the volcano going to erupt?","Signe thinks so. Signe's logged the sea for twenty years. I trust people who count things."],
+  ["Will you close the mill?","If it gets worse. The men first, then the ledgers, then the timber. In that order. My father would say timber first. My father was wrong about some things."],
+  ["Are you frightened?","I'm counting. That's what I do when I'm frightened. Today I've counted everything in the yard twice. The numbers don't change. I find that comforting."]],
+ "Go home safely. And count your family when you get there."],
+20:["(Dagny is putting on her coat early, which she never does.) I'm going home. To Frostholm. Before dark. Bjarne's sending the men to the Community Centre. I've told him to take the good timber. They'll need it, after.",[
+  ["You're leaving early?","For the first time in twenty years. The ground's moving every hour. The pigeons have gone. I'm tight, not stupid."],
+  ["Will the mill be all right?","It's stood since 1952. It'll stand tonight. If it doesn't, I'll build it again. My father did it with one saw. I've got two."],
+  ["Are you frightened?","Yes. For the men. For the trees. (She stops at the gate, her hand on the king's pine.) For the tree. I'll come back for the tree."]],
+ "Go home. Count your family. I'm going to count mine."],
+21:["(Ash is falling. Dagny is in the mill yard, grey from head to foot, with her hand on the king's pine, which is grey too but standing.) It went. The mountain. I came back at dawn. The tram didn't run. I walked. Two hours. Everyone's alive. The tree's alive.",[
+  ["You walked from Frostholm?","Through the ash. I had to see the mill. And the men. And the tree. Bjarne says everyone's safe. Ilse carried three people. Knut talked all night."],
+  ["Is the mill damaged?","Grey. Every stack, every saw, every window. Nothing broken. Bjarne's checking the saw bed before anyone touches it. I've told him to take as long as he likes."],
+  ["Are you all right?",["(She looks at the grey pine for a long time.) I'm all right. I'm tired. I counted the men on the way in. All of them. Then I came out here and counted the tree. One.",[
+    ["One's enough.","(She almost smiles.) One's enough. My father would say that. He'd say one tree, one mill, one daughter. Enough."],
+    ["You should rest.","After I've counted the stacks. Then I'll sit in Bjarne's chair and not count anything for an hour. I've never done that. I might."]]]]],
+ "Cover your mouth. And go home and count your family."],
+22:["(Dagny is standing in the yard watching Ilse and Tor from the harbour load a cart with planks.) Timber for the farms out east. Free. The ash took their barns. Bjarne asked. I said yes before he'd finished the sentence. Don't tell anyone that either.",[
+  ["Free timber? That's not like you.","(She looks at you sharply.) It's exactly like me. A farm with no barn can't grow. A farm that can't grow can't buy timber next year. That's investment, not charity."],
+  ["Is it charity, really?",["(She looks at the cart for a long moment.) My father gave timber after the flood of 1959. He called it investment too. He was lying. So am I.",[
+    ["Your secret's safe.","Good. Write in your paper that Dagny is tight. It's what everyone believes. It's very useful."],
+    ["Why pretend?","Because tight keeps the mill open. If they thought I was kind, they'd all want a rise. (She almost smiles.) Some of them already do."]]]],
+  ["Is the saw running?","Not till Bjarne's happy. He's brushing it like a horse. Knut's helping. They're very tender with that saw. Like it's a person."]],
+ "If you see a cart of timber going east, don't mention my name."],
+23:["(Dagny is reading Bjarne's ledger, and has made a mark in the margin with her own pencil, which she never does.) Free timber, ash damage, three days without the saw. The ledger's red. First red month since 1974. I've marked it myself.",[
+  ["Will the mill be all right?","It'll recover. Red is a colour, not a sentence. My father had red months. He painted the office red one year to show the ledger who was boss."],
+  ["What's the news?","Something broken on the oil rig, they say. The oil company's got bigger worries than my forest now. I'm almost sorry for them. Almost."],
+  ["Is the saw running?","Since this morning. Bjarne says it purrs. Knut says it's never purred before. I say it's the same saw. They say it's not. I'm letting them have it."]],
+ "If you see red in a ledger, don't panic. It's only arithmetic."],
+24:["(Dagny is watching from her office window as Bjarne and Ilse carry a beam for a stage.) Erik's rally stage. My timber. Bjarne asked. I said yes. Charged at cost. Then I lost the invoice. Don't tell Bjarne. He'll find it.",[
+  ["You're helping the Democrats?","I'm selling timber at cost and losing an invoice. That's not politics. That's a bad day at the office."],
+  ["What's the news?","The monks are up in the peaks praying about the mountain. The Syndicate's cleaning something up. And Bjarne's had a tattoo of a pine tree on his wrist. Knut too. My whole mill's being drawn on."],
+  ["Are you nervous about the end of the month?","I'm a mill owner. I'm nervous about the price of timber. The end of the month is when the price changes. Whatever happens to the island, I'll be counting."]],
+ "If Bjarne finds the invoice, I'll deny it."],
+25:["(Dagny is reading a leaflet with a deeply sceptical face.) A princess for democracy. A crown for everyone. Ilse's in Kingsgrad today, handing these out for Erik. My log loader, in Kingsgrad, with leaflets. The world's turned over.",[
+  ["Would you vote for Daphne?","I'd vote for anyone who could balance a ledger. I've never seen a royal balance anything except a teacup."],
+  ["What do you think of Erik?","A good man. Very expensive. If he runs the island, he'll want every mill to pay properly. (A pause.) My father would have argued with him for a week and then agreed."],
+  ["Is the oil company still after the forest?","They've sent a man with flowers. Flowers. To a mill owner. I've put them in a bucket in the yard. The pine's not impressed either."]],
+ "If you see Ilse in Kingsgrad, tell her the logs miss her."],
+26:["(Dagny is counting a delivery of new saw teeth, and looking almost pleased.) New teeth. For the big saw. From Stockholm. Paid in advance. Delivered on time. I've counted them three times. They're all here. I nearly cried. Again.",[
+  ["Why so emotional about saw teeth?","Because the last time I ordered anything for that saw from abroad, the firm went bankrupt with my money. These came. On time. Every tooth. It's very healing."],
+  ["What's the news?","The oil company's buying the spa, they say. The spa, not my forest. Dario's offered the attendant a milkshake machine. I'd have said no to that too."],
+  ["Is the ledger still red?","Pink. Getting better. The free timber's come back in orders. The farms want more barns. Bjarne says investment works. I've told him not to gloat."]],
+ "Count something on your way home. It's good for you."],
+27:["(Dagny is in her office, reading the Gazette, and frowning at a photograph.) The Party's picture at the cinema tonight. Ilse's going to keep the peace. Knut's going to stand behind her. My mill is a security firm now.",[
+  ["Will there be trouble?","Erik's worried. The Syndicate wants a brawl, he says. If anybody brawls near Ilse, they'll be lifted. Gently. Very firmly."],
+  ["Will you go to the pictures?","Six tractors? I'd rather watch the saw. At least the saw makes something."],
+  ["Has the oil company stopped writing?","For now. The man with the flowers came back for his bucket. I charged him for it. He paid. Oilmen always pay. That's the only thing I like about them."]],
+ "Close the door. I'm reading about tractors and I'm not enjoying it."],
+28:["(The mill is quiet. Dagny is standing at the gate, looking towards Eastbrook, where flags are going up.) Every faction's making its big push today. Erik's rally's on my timber. The Party's marching in Kingsgrad. And my mill's empty. Bjarne's given the men the day.",[
+  ["You let them have the day?","Bjarne asked. I said yes. Then I said I'd dock their pay. Then I didn't. That's three decisions before breakfast. I'm exhausted."],
+  ["Will you go to the rally?","I'll stand at the back. I want to see if the stage holds. It's my timber. If it falls, I want to be the first to know."],
+  ["What do you hope happens?","That whoever wins understands that an island needs mills. And that a mill needs to be paid for. And that the pines stay standing."]],
+ "Go to the rally if you like. Stand on my timber. Gently."],
+29:["(Dagny is sitting in Bjarne's chair, not counting anything, for once.) The palace is arguing about who's next. The Republicans are choosing a leader. The stage held yesterday. Every plank. I'm sitting here. Not counting. It's very strange.",[
+  ["How does it feel, not counting?","Like standing at the top of the Skyline Apartments in the wind. Frightening, and the view's very good."],
+  ["What do you hope for tomorrow?","That the forest stays a forest. That the mill stays a mill. That the men keep their fingers. That's all. That's a lot."],
+  ["Will you tell the men about the guard?","(She looks at the saw through the window.) Maybe. After tomorrow. When it doesn't matter who's a fool and who's a miser. It might matter less than I thought."]],
+ "Sit with me a minute. I'm not counting. You can stay."],
+30:["(Dagny is at the king's pine at the gate, her hand on its bark, the ledger under her other arm.) Last day. They're settling the island's future today. I'm going to count the stacks, then sit under this tree and wait.",[
+  ["What will you count?","Everything. One last time this month. Planks, logs, men, teeth. And then I'll write today's date in the ledger and draw a line under September. My father did that every month. A straight line."],
+  ["What do you hope happens?","That the island lets a stubborn woman run her mill and keep her pines. And that whoever runs it counts properly. Most people don't."],
+  ["Will you remember this month?",["(She looks up at the pine.) The ash, and walking from Frostholm at dawn, and the barns going east. Yes.",[
+    ["And me?","The reporter who heard about the guard. You haven't printed it. I've checked. That's the first time I've trusted a newspaperman. Don't let me regret it."],
+    ["What will you do tomorrow?","Count. Argue with Bjarne. Say no to an oilman. Same as always. And maybe tell the men about the guard. Maybe."]]]]],
+ "Mind the tree on your way out. It's older than all of us."],
 };

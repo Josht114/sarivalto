@@ -1,144 +1,153 @@
-// Harald, Kelp Cola executive and the company's candidate for Republican Party leader, Kelp Cola HQ (Kelp Cola). Threads: his smile
-// and speeches, the race against Magnus and Carlo, Phil and Kurt, life alone in Hope Springs, a worry he keeps behind the smile.
+// Harald, Kelp Cola executive and the company's candidate for Republican Party leader, at Kelp Cola HQ (Kelp Cola). Threads: his
+// smile, his speeches and their adjectives (Elin types them and crosses out 'vibrant'); the race against Magnus from the oil company
+// and Carlo from the Syndicate, who lives two floors down from him in the Hope Springs Residences; ringing every Republican to ask
+// after their mothers, and meaning it; the letters in pink ink from his own mother in Tampere; living alone with a goldfish called
+// Mandate; and the worry behind the smile: he has never won a vote in his life, not even the school captaincy in 1950.
 DAILY['Harald']={
-3:["(A tall man in a pale suit rises with a hand already out.) Harald. Kelp Cola. You'll be the English journalist: Phil said to look out for you. Sit, sit. Cola? Naturally.",[
-  ["Thanks. Lovely office.","It's Phil's, really, but I'm a guest with a key. (He smiles with every tooth.) We're very proud of the view of the harbour."],
-  ["You're standing for the Republicans?","I am. The party has no leader, and the island needs a steady hand. What's good for Kelp Cola is good for Sarivalto. I'd say that to the king."],
-  ["Is there anyone who isn't pleased?","There's always someone. I've learned to smile at them the longest."]],
- "Do take a bottle for the road. The fridge never runs out."],
-4:["(Harald is reading a typed speech, moving his lips.) 'My friends, the island stands at a crossroads.' Does that sound like a crossroads, or a roundabout? Be honest.",[
-  ["It sounds like a speech.","Wonderful, that's what I'm after. Speeches that sound like speeches. People don't trust a politician who sounds like a human being."],
-  ["Who writes your speeches?","Kurt, mostly, and I improve them. Kurt writes like a man hurrying for a tram."],
-  ["Why do you want to lead the Republicans?","Because somebody must, and because I'd do it well. There's a party, a ballot box and a podium, and not a soul to stand at it. It's an opportunity, you see."]],
- "Excuse me. I must practise looking sincere. It takes some time."],
-5:["(Harald stands at the window, adjusting his cuffs.) The roads are open, and the first thing I did was drive to Hope Springs to check the cat was alive. It was. I've never been so pleased to see a creature in my life.",[
-  ["You've got a cat?","A grey one called Chairman. Don't ask. He sits on my speeches. It's the best review they get."],
-  ["Is it lonely in Hope Springs?","Everything's so very tidy there. The Colonel next door salutes me every morning. I haven't the heart to tell him I'm not an officer."],
-  ["Is Kelp Cola worth the effort?","It's a family. Rather a rich one, but a family. Phil's the father, Kurt's the clever son and I'm the cousin with the good coat."]],
- "Chairman will be waiting. He's very particular about supper."],
-6:["(Harald is fanning a stack of leaflets in the shape of a peacock's tail.) Do you like it? 'HARALD: A STEADY HAND, A SWEET DRINK'. Kurt hates the slogan. I think it's rather good.",[
-  ["It's a bit odd.","Good. Odd's memorable. People remember a bad slogan for years. Ask anyone about the old 'Kelp: It's Fizzy' campaign."],
-  ["Who's your competition?","Magnus from the oil company and Carlo, who's backed by the Syndicate. I'm the only one whose backers don't carry a weapon. Or I assume so."],
-  ["What does Phil say?","Phil says, 'Win.' Then he takes a drink. That's the whole of the strategy meeting."]],
- "Take a leaflet. Leave it on a bus, if you've the time."],
-7:["(Harald raises a glass of cola to the light.) Frostholm's open, which means the Republicans can finally meet. Margit's put out chairs. Magnus has put out brochures. Carlo has put out a man.",[
-  ["What do you mean, a man?","A large man with a hat, standing by Carlo's desk. He doesn't speak. He looks at the ballot box as if it owed him money."],
-  ["Is Magnus a serious rival?","He's very clever, very cold, and has the oil company's money. Money doesn't lose elections: it just takes a long time to win them."],
-  ["Is it a fair race?","Define 'fair'. I'm a businessman. I define fair as 'the result I'd like'."]],
- "A good politician, like a good bottle, should be kept cool."],
-8:["(Harald is turning a coin over his knuckles.) The old king's death's a complication. Nobody knows how to canvass in mourning. One mustn't smile too much or too little. It's like walking a tightrope in good shoes.",[
-  ["How do you smile at a funeral?","You don't. You tilt the head and look pained. I've been practising in the mirror. Chairman finds it alarming."],
-  ["Will the Church affect the race?","Everyone says the Church wants Augustus. I say a vote's a vote. Father Thyme's flock buys a great deal of cola at Easter."],
-  ["Does the company wish to see a prince?","It wishes to see profit. If a prince sells the product, then a prince it is. It's nothing personal."]],
- "I'm sorry, I'm distracted. I've never run for anything. Except once, in school, and I came last."],
-9:["(Harald is looking at the label of a bottle with great intensity.) There's a new formula, as of this week. I'm to say I love it. I do love it. I love it more every time somebody asks.",[
-  ["Do you actually like it?","It's a bit sweeter. I'd say, if pressed, it's a cola that wants to be liked. Like me."],
-  ["Who decided to change the formula?","A committee. And Phil. And possibly a lawyer. It went in as a recipe and came out as a policy."],
-  ["Is the old taste gone for good?","Wilma at the museum won't hear of it. She glares at me whenever I order a case. I take it as a compliment."]],
- "Don't tell Wilma I said the new one's sweet. She'd write a label about it."],
-10:["(Harald wears a very black tie, and speaks very softly.) It's the funeral today. I've not been invited, which is a relief, since I'd have had to be sorry in front of a prince.",[
-  ["Did you meet the king?","Twice. He asked me what I did, and I said, 'Business.' He said, 'Ah. That's a good thing to be vague about.' I was very hurt, and he was right."],
-  ["How's the campaign?","Paused, out of decency. That means Magnus has two days of free advertising. It's a very cruel way to remember a king."],
-  ["How are you?","I'm well. (He gives a perfect smile, which wobbles slightly at the edge.) It's an odd thing, standing in a room full of cola and thinking about mortality."]],
- "A moment's silence is the cheapest thing in politics. And the rarest."],
-11:["(Harald holds the telephone away from his ear.) Mill hands. The whole of Eastbrook's marching about with placards. If they strike, the lumber stops. If the lumber stops, our new warehouse stops.",[
-  ["Does Kelp Cola buy from the mill?","Boards, crates, shelves. We're one of Dagny's best customers. Which makes this awkward, in a way that I'd rather not discuss."],
-  ["Which side are you on?","Mine. I'm a Republican candidate: I believe in the market. I also believe in not having to carry my own crates."],
-  ["Are the workers right?","They're loud. Which isn't the same as wrong. I'd like to be paid more myself, but nobody's offered."]],
- "I'd advise you not to quote me. But do quote the cola."],
-12:["(Harald has a pile of telegrams on his desk and a look of faint nausea.) Every faction on the island seems to have a reason to write to me. Magnus wants a chat. Carlo wants a drink. The Party wants me to say something nice about collective farming.",[
-  ["Will you say it?","I'll say a lot of things. 'I believe in the dignity of all labour' costs nothing. It's the cheapest sentence in the language."],
-  ["What does Magnus want?","He says he'd like to 'compare notes'. A man who says that wants your notes and wants you to have none."],
-  ["Do you trust anyone on the island?","Chairman. And the woman at the Hope Springs concierge desk, who always remembers my birthday. It's a short list."]],
- "Time for another handshake. One's right hand is a political asset."],
-13:["(Harald has a basket of samples under each arm.) Free Samples Day. The company's idea. I am going to hand out cola to anyone who'll take one, and then ask for their vote. It's called 'goodwill'. I call it 'sweet-talking with ice'.",[
-  ["Is that legal?","Quite. It's a gift. It's not my fault that it happens to be a gift with a candidate's face on the lid."],
-  ["Do people accept it?","Children do. Women of a certain age do. Men in fur collars from Frostholm don't. They look at the bottle as if it might be poisoned."],
-  ["Will it win votes?","It'll win smiles. I'm a patient man. A smile's a seed."]],
- "Remember my name. It's easy. It rhymes with 'herald', and I'm in the business of announcing."],
-14:["(Harald is adjusting his tie in a window.) The fourteenth. Everyone's being mysterious about it, which is a terrible way to run a nation. I'd rather have a printed agenda.",[
-  ["What do you expect?","The island in one place, which I've never seen before. It's a marketer's dream and a security officer's nightmare."],
-  ["Will you speak?","If I'm asked. And even if I'm not, I'll find a reason to be near a microphone. It's rather my gift."],
-  ["Are you nervous?","I don't feel it, if I don't say it. I'm told that's a form of denial. I find it's a form of employment."]],
- "Wish me luck. And an umbrella, if the weather turns."],
-15:["(Harald's smile has gone a shade less polished.) Yesterday was something. I've never been so cheered and so jostled. A man kissed my hand. I'm afraid it was in error.",[
-  ["What happened to the man?","He apologised and offered me a herring. I accepted. It was the most honest transaction of the week."],
-  ["Did the day go well?","For the company, extremely. For me, the voters liked my coat. For the island, I couldn't say. It's all a bit of a blur."],
-  ["Any regrets?","I said 'my fellow islanders' four times. They didn't seem to like it. I've changed it to 'my friends'. It's friendlier and less likely to cause fights."]],
- "I'm going to rest my face. It's tired of being friendly."],
-16:["(Harald's reading a printed card.) The debate between the Reds and the Democrats is today. No Republican, no cola man's invited, and I mind. I like to be asked to things I'd refuse.",[
-  ["Would you debate Magnus?","In a heartbeat. I'd bring a prop. A bottle of Kelp Cola, with a little flag. He'd bring a barrel of oil. I'd win on charm."],
-  ["Who do you expect to win?","Erik's lot, I'd think. They've got the numbers. The Reds have the volume. It's like a sparrow and a trombone."],
-  ["Are you worried about the Communists?","I'm worried about anyone who owns a megaphone. Particularly Anna."]],
- "I'll listen from a distance. That's the safest place for a candidate."],
-17:["(Harald stops mid-sentence as the cup on the desk trembles.) What on earth was that? My coffee's got ripples. Phil's mug's walked an inch toward the window.",[
-  ["It's the ground shaking.","I realise that, thank you. I'm a businessman, not a fool. I just hoped it was the tram."],
-  ["Are you worried?","I'm insured. (He tries a laugh.) I'm told the north's got a volcano that's a bit rowdy. It's the only part of the island I haven't tried to buy."],
-  ["Does it affect the election?","It affects everything. Nothing makes a voter more conservative than the floor shifting under his chair."]],
- "If it happens again, I'm going under the desk. It's a very good desk."],
-18:["(Harald is examining his reflection in the fridge door.) I've been told to appear in a new advertisement. Something called 'Inside Kelpy'. They want me to be pleasant, in front of a giant cup.",[
-  ["Is that Jaana's cup?","Yes, and don't tell her I said it, but the costume's a bit alarming. It looks at you. And it hasn't got eyes."],
-  ["Do you like advertising?","I adore it. Politics is advertising with worse lighting. And no free samples."],
-  ["What's the new campaign about?","It's about trust. Which is why the script's marked 'Confidential'. I find the best way to be trusted is to be hard to find."]],
- "Keep it to yourself. There's nothing more tedious than a leaked advertisement."],
-19:["(Harald rubs his eyes.) I didn't sleep. The tremors were bad in Hope Springs. The Colonel was on his lawn at three, in a dressing gown and a helmet, with a pair of binoculars.",[
-  ["Was the Colonel all right?","He was delighted. It's the first excitement since the war. He saluted me when I came out, and I nearly saluted back."],
-  ["Is Hope Springs safe?","It's a gated community, which is to say we're locked in with our problems. The volcano doesn't read the gate."],
-  ["Do you mind the quakes?","I mind losing control. I can manage a crowd, a board, a bad review. I can't manage the ground."]],
- "I'll buy a torch. A good torch is a political position."],
-20:["(Harald's holding a handkerchief to his nose.) There's sulphur on the breeze. The whole of Kingsgrad smells like a struck match. I've been told it's the springs. I'm told many things.",[
-  ["Do you think the volcano's about to go?","I think it's got a sense of theatre. And in my experience, theatre comes with a bang."],
-  ["Is the company prepared?","There's a memo. It says 'remain calm'. We've hired a man to say it in the corridors. He's got a very soothing voice."],
-  ["Are you?","(He smiles. It's very thin.) I've a suitcase packed and a taxi on call. I'm a man of action, in the sense that I prepare to leave."]],
- "I'll see you on the other side. If there is one. There usually is."],
-21:["(Harald is dusted from collar to shoe, and quite still.) I watched it from my balcony. The whole sky turned the colour of a bruise. I said, aloud and to nobody, 'Oh, I see.' It's all I managed.",[
-  ["Are you all right?","Perfectly. A little humbled. I'd always supposed the island revolved round Kelp Cola. It turns out it doesn't, particularly."],
-  ["Is anyone hurt?","Nobody, I'm told. Which is a miracle I don't intend to question. Chairman is under the sofa and won't come out."],
-  ["What now for the campaign?","Cleaning. There's nothing like ash to level a candidate. We're all just the same shade of grey."]],
- "Be careful with your lungs. Take a bottle. The fizz clears the throat. Or so we advertise."],
-22:["(Harald is wearing a mask in the corporate colours, and it suits him.) The company's sending cola and blankets to the north. I'll be photographed handing them out. It's a charitable act, and the light's very good.",[
-  ["Is that cynical?","It's both. The blankets are warm, the photographs are helpful. I don't see why a good deed has to be shy."],
-  ["Do the people in the north want cola?","They want clean water and a roof. We're sending that as well. The cola's for morale."],
-  ["Is it working for your campaign?","People remember who turned up. It's why I do. I wish I could say I'd do it with no cameras. I'd like to find out."]],
- "I'll try to take one blanket for myself. It's cold in Hope Springs."],
-23:["(Harald pours a drink and doesn't touch it.) The aftershocks go on. The Republican headquarters has a crack down one wall. Margit put a poster over it. It's a very good poster of me.",[
-  ["Does the crack worry you?","It's symbolic. A leaderless party with a crack in the wall. Even I couldn't have written it better."],
-  ["Is Margit coping?","Margit would cope with the end of the world if it came with an agenda. She asked me whether the volcano had been consulted about the schedule."],
-  ["What does Magnus think?","He's calm, as always. The oil company has insurance and a great many geologists. It's rather unfair."]],
- "Rest, if you can. The next few days'll be loud."],
-24:["(Harald is sorting through a box of bottle tops.) Wilma sent over a box of historical caps. 'For perspective', the note says. I've been staring at them for an hour. They're not helping.",[
-  ["What's on the note?","'Companies end. Cola doesn't.' It's very like her. She's a better philosopher than any of the board."],
-  ["Do you believe it?","I'd like to. I've spent my life believing it, and it's been very profitable. But now and then I think about the cap from 1931."],
-  ["What's wrong with it?","It's from a cola company that no longer exists. A very nice cap. All that's left of a lot of hope."]],
- "I'll take a cap with me for luck. It might be the one."],
-25:["(Harald is in shirtsleeves, which is very unlike him.) I've had enough of ties for one week. I've been through a drawer of them. They're all the same tie.",[
-  ["What's bothering you?","The race. Not Magnus or Carlo. The question's why I'm doing it. I've been asked three times today and my answer's changed each time."],
-  ["Why are you doing it?","Because Phil asked. Because I was good at it. Because I wanted to be more than a man who smiles in an elevator."],
-  ["Is that bad?","It's human. It's inconvenient, in a candidate. I'm hoping it doesn't show."]],
- "Don't tell anyone I've been honest. It would ruin my reputation."],
-26:["(Harald is holding a poster of Prince Leopold.) 'A Prince in Every Bottle.' It was Kurt's notion. He thinks it's modern. I think it's an invitation to a lawsuit.",[
-  ["Why a prince?","Because the voters like a prince, and the company likes a voter. It's very simple, and very distasteful, which is how marketing works."],
-  ["Will Leopold approve?","No one's asked him. It's the great advantage of marketing: you needn't tell anyone."],
-  ["Do you want him as king?","I want a king who buys cola. I'm not particular. It's a strangely flexible principle."]],
- "If anyone asks, I never saw the poster. It's a mystery."],
-27:["(Harald straightens a stack of papers three times.) The primary's close. The final canvassing's tomorrow and the day after. I've got seventeen speeches and I've forgotten how to say hello.",[
-  ["Say hello to me.","Hello. (He smiles, properly, for the first time.) That's better. You're a good listener. It's a risk, for a reporter."],
-  ["Do you expect to do well?","I expect to be applauded. It's the one thing a Kelp Cola man always gets. The rest's up to the voters."],
-  ["What would you do if you lost?","Go home, feed Chairman, and sleep for two days. It's not an unattractive prospect."]],
- "A good night's sleep is the best campaign tool. Nobody tells you that."],
-28:["(Harald's in a fresh suit and a look of enormous calm.) Today's the day the company goes abroad. Kurt's packed the cola. I'm packing the hands I'm going to shake.",[
-  ["Are you going with them?","No. I'm needed here, for the party. Phil said, 'Win, and then come and tell me about it.' It's a very businesslike goodbye."],
-  ["How do you feel?","Like a bottle before it's opened: fizzing, and with a very firm lid."],
-  ["Is the company ready?","It's as ready as it'll ever be. It's got a great many boxes and a very small plan."]],
- "Wish me a steady hand. It's all the slogan promises."],
-29:["(Harald is checking his reflection in the glass of a framed advertisement.) The primary's today, or the day after, depending on whom you ask. I've been given three timetables and none agrees. It's very democratic.",[
-  ["Are you nervous?","I can't tell. I've been smiling for so long I've lost the ability to measure. If my face falls off, tell Margit."],
-  ["Is there anything you'd say to the voters?","That I'd try. It's all anyone can offer, and the rest is marketing."],
-  ["What do you think of Magnus now?","I think he's lonely, too. He just hides it better. In oil, you're allowed to look grim."]],
- "I'd shake your hand, but I've had a lot of hands today. Yours is the first honest one."],
-30:["(Harald is standing very still, with his hands in his pockets.) The last day. I've nothing left to say. It's an odd feeling. For a month, there's been a speech in my mouth.",[
-  ["Any last words?","Be kind to people who smile for a living. It's harder than it looks."],
-  ["What will you do after today?","Sleep. Feed Chairman. And, if I can, take a bottle of the old cola up to the museum and tell Wilma she was right."],
-  ["Was it worth it?","Ask me tomorrow. Today, I'm too busy being a candidate."]],
- "Goodbye, reporter. Write something kind. Or at least accurate."],
+3:["(Harald stands up from his desk, smiling broadly, and shakes your hand with both of his.) The London press! Wonderful! Harald. Kelp Cola. And, if the Republicans will have me, their leader. Sit, sit. You'll want a quote.",[
+  ["Who are the Republicans?","A club for people who believe in business, freedom and a fair wind. We've no leader since old Mr Strand retired to his boat. Three of us want the job. I'm the one who smiles."],
+  ["Who else is standing?","Magnus, for the oil company, who has a great deal of money and no small talk. And Carlo, for, well, for some very loyal friends. He lives two floors below me. We nod in the lift."],
+  ["Give me a quote, then.","(He thinks.) 'What's good for Kelp Cola is good for the island.' No. Too short. Elin will make it longer. Elin makes everything longer, then shorter."]],
+ "Come back any time. My door's always open. Elin's isn't, but mine is."],
+4:["(Harald is on the telephone, smiling at it.) And how is your mother, Mr Lindgren? Her hip? Oh, I am sorry. Give her my very best. (He hangs up.) That's forty Republicans. I've asked after forty mothers.",[
+  ["Do you mean it?","Every word. Mothers matter. A man's mother tells you what kind of man he is. Lindgren's mother bakes for the church. Lindgren will vote for whoever she likes."],
+  ["Isn't that a strange way to campaign?","It's the only way I know. I don't have Magnus's money or Carlo's friends. I have a telephone and a good memory for hips."],
+  ["How many Republicans are there?","Two hundred and twelve. I've got a hundred and seventy-two mothers to go. Some of them are dead. I'm very careful with those calls."]],
+ "If you have a mother, give her my regards. I mean it."],
+5:["(Harald has a stack of typed pages on his desk, with red pencil all over them.) My first speech. Elin's had a look. She's crossed out 'vibrant' nine times. Nine! I didn't know I'd used it nine times.",[
+  ["What's the speech about?","The future, prosperity, and a vibrant, sorry, a healthy island. Elin says a speech should have one idea and three adjectives. I've got eleven ideas."],
+  ["Is Elin a good editor?","She's terrifying. She types everything, reads everything, and says nothing. Then she hands it back with red pencil and a look. The look is worse."],
+  ["Can I hear some of it?","(He clears his throat and stands.) 'Friends. Neighbours. Fellow Republicans.' (He sits.) That's as far as I've got without crossings-out."]],
+ "If you think of a word that isn't 'vibrant', send it to Elin."],
+6:["(Harald is looking out of his office window at the square below.) Look at them. All the people. I can see Rosa's cart from here. She feeds half of Kingsgrad. If Rosa were a Republican, I'd be elected tomorrow.",[
+  ["Have you asked Rosa?","I bought a hot dog and asked after her mother. She said her mother died in 1971 and gave me extra mustard. I think it was a kindness. I couldn't tell."],
+  ["Is anyone else watching the square?","Ville, at the newsstand, with opera glasses. He watches me leave every Thursday. I wave. He pretends he's looking at a pigeon."],
+  ["Why do you want to lead the Republicans?","Because somebody should who actually likes people. Magnus likes numbers. Carlo likes nobody. I like everyone. It's a weakness, Phil says."]],
+ "Wave at Ville on your way out. He'll pretend not to see. He sees."],
+7:["(Harald has a postcard in pink ink on his desk and smooths it out every few seconds.) From my mother. In Tampere. Pink ink. Always pink. Elin thinks I've a secret admirer. I've let her think so. It's good for my image.",[
+  ["What does your mother say?","'Eat properly. Wear a scarf. Don't let them see you sweat.' She's said the same three things since 1938. All three are good advice for a candidate."],
+  ["Is the north-west open now?","This morning. Magnus will be back from Frostholm by tonight with the oil company behind him. They've got a great deal of money. I've got a great deal of telephone."],
+  ["Does your mother know you're running?","She's very proud. She's also told me I'll lose. She said it about the school captaincy in 1950, and she was right. I lost by one vote. Mine."]],
+ "Wear a scarf. My mother would want me to say so."],
+8:["(Harald is sitting alone in the empty office, on a Sunday, practising his smile in a little mirror.) Oh! You caught me. Sunday practice. A smile is a muscle, my mother says. You have to work it.",[
+  ["Why do you smile so much?","Because when I don't, people ask what's wrong. And then I tell them, and then they don't vote for me. The smile saves everyone a lot of trouble."],
+  ["What's wrong, then?","(The smile flickers.) Nothing. Everything's wonderful. That's what the smile's for. Don't ask me that on a Sunday."],
+  ["Do you go to church?","The palace chapel, near the back. The Abbot's preaching about the king today. I'll shake hands with every Republican on the way out. It's not cynical. Well. It's a little cynical."]],
+ "Practise your own smile. It might come in handy."],
+9:["(Harald is standing very still while Phil walks past his desk, very fast.) Phil's in a state. A new flavour, a Party cola, a volcano. Nobody tells me anything until it's in the papers. I'm only the candidate.",[
+  ["What's the new flavour?","Something to beat the Party's cola, Phil says. I suggested lemon. Phil looked at me as if I'd suggested drowning a puppy."],
+  ["Will the Party cola hurt Kelp Cola?","It'll hurt my campaign if it's any good. Every Republican drinks Kelp Cola. If the workers start drinking something else, I'll be the candidate for the wrong cola."],
+  ["What would you suggest?","Free samples. Everyone loves something free. Phil says that's too obvious. I think obvious is underrated."]],
+ "If anyone asks, lemon was a joke."],
+10:["(Harald is wearing a black armband, standing very straight by the window, not smiling for once.) The funeral's this morning. I'm going. Every Republican will be there. I won't shake a single hand. Not today.",[
+  ["Did you know the king?","He gave me a medal for services to industry in 1978. He said, 'You're the cola man who smiles.' I've never been prouder of anything. I'm going to cry at the funeral."],
+  ["You're not smiling today.","No. Some days, the smile should rest. My mother says a man who smiles at a funeral is selling something. I'm not. Not today."],
+  ["What happens after the funeral?","The race begins properly, I suppose. Tomorrow. Today, I'm just a man in a black armband who liked the king."]],
+ "Go gently today. I'll smile again tomorrow."],
+11:["(Harald is reading a newspaper, smiling at it, and then not.) The mill hands in Eastbrook want a fair day's pay. Phil says it's nothing to do with us. I think it's everything to do with us. Our bottlers want it too.",[
+  ["Do you support the mill hands?","Privately. Very privately. A Republican is supposed to support the mill, not the hands. But I've met the hands. They're nicer than the mill."],
+  ["Would Phil agree?","Phil worries about the cola. I worry about the people who drink it. That's why he's the chief executive and I'm the one who smiles."],
+  ["What will you say about it publicly?","Something about prosperity for all. It means nothing. Elin says it's the safest sentence in the language."]],
+ "Don't print what I said about the hands. Please."],
+12:["(Harald is pacing with the telephone cord wrapped round his wrist.) Magnus has bought the support of the Frostholm Republicans. All forty of them. With dinner. A very large dinner. I asked after their mothers. He gave them lobster.",[
+  ["Can you compete with lobster?","No. But lobster's over by Thursday, and a mother's hip lasts a lifetime. I'm playing a long game."],
+  ["What's Magnus like?","Clever, rich and very bad at small talk. He once asked me how much my house cost before he asked my name. We stood in a lift in silence for nine floors."],
+  ["Is Carlo doing anything?","Carlo doesn't need to. Carlo's friends just look at people. Very kindly. It's very effective. I nod at him in the lift. He nods back. It's terrifying."]],
+ "If you see Magnus, don't mention lobster. He's very sensitive about it."],
+13:["(Harald is handing out bottles of Kelp Cola from a crate to everyone who passes his door.) Free samples! Phil took my idea after all. He says it was his. I don't mind. I'm handing them out like ballot papers.",[
+  ["Is it helping the campaign?","Everyone who takes a bottle smiles at me. A smile's a vote, nearly. My mother would say don't count your votes before they're hatched."],
+  ["Did Phil really steal your idea?","Phil had the same idea a week later, louder. That's how ideas work in this building. I've learnt not to mind."],
+  ["Do you want a bottle?","(He hands you two.) For you and your mother. Ask her if she likes it. Then tell me. I'm keeping a list."]],
+ "Tell your mother Harald says hello."],
+14:["(Harald is straightening his tie in the reflection of the window, again.) The big gathering. Every Republican on the island will be there. Magnus will be there. Carlo will be there. I'm going to stand very near the front and smile at everyone.",[
+  ["Are you nervous?","Terrified. Crowds are just a lot of mothers' sons. I tell myself that. It helps for about a minute."],
+  ["Will you make a speech?","No. Not today. Today's for listening. A man who speaks at the wrong moment loses more than he gains. Elin taught me that, with her pencil."],
+  ["What are you hoping for?","To be seen. To be remembered. To be the man people think of when they think 'kind'. It's not much. It's everything."]],
+ "Wish me luck. I'll be the one smiling."],
+15:["(Harald looks tired but cheerful, with a list of names in his hand.) Yesterday went well. I shook two hundred hands. My arm hurts. Magnus shook eight. Carlo didn't shake any. He just stood there and people came to him.",[
+  ["Who won the day, do you think?","Nobody, yet. But people know my name now. And my smile. A man in a bakery said 'You're the cola man who smiles.' The king said that to me once."],
+  ["What's the news today?","Crown before cross, cross before crown. The palace and the Church are fighting over Augustus. I'm staying out of it. A Republican with a view on bishops loses half his votes."],
+  ["Is your arm all right?","It's fine. Elin put a cold flannel on it and said, 'Next time, use your other hand.' She's very practical. I'd be lost without her."]],
+ "Shake my hand on your way out. Gently."],
+16:["(Harald has the radio on, listening to the debate, and is taking notes.) The Party and the Democrats, live from Kingsgrad. I'm learning. They're both very good at shouting. I'm very bad at shouting. I'll have to find another way.",[
+  ["Who's winning the debate?","Whoever's quieter, I think. People lean in for the quiet ones. Erik from the Democrats is quiet. Anna from the Party is loud. I'd lean in for Erik."],
+  ["Will the Republicans have a debate?","On the twenty-ninth, Magnus, Carlo and me. I'm dreading it. Magnus will have figures, Carlo will have friends, and I'll have a smile and a page of crossings-out."],
+  ["What would you say in a debate?","That I like people. That's my whole policy. Elin says it's not a policy. It's a personality. I think the island could do with a personality."]],
+ "If you're at our debate, sit near the front. I need a friendly face."],
+17:["(Harald is holding onto his desk as the floor trembles.) Oh dear. The ground. The whole building just moved. Elin's typewriter slid off the desk. She caught it. Of course she did.",[
+  ["Was it an earthquake?","A little one. The Gazette will say it was nothing. The Gazette says everything's nothing."],
+  ["Is anyone hurt?","Nobody. A few bottles broke in the factory, Kurt says. And Phil's lost his temper with the ceiling. He's shouting at it. It's not listening."],
+  ["Have you heard about Magnus's boss?","Dario's missing, they say. Disappeared from Frostholm. Magnus is running the oil company and his campaign at once. I almost feel sorry for him. Almost."]],
+ "Stand in a doorway if it shakes again. That's my mother's advice too."],
+18:["(Harald watches Elin hurry past his door with a tape measure, for the third time.) Jaana's ill. She plays Kelpy at our museum in Eastbrook. Elin's searching the building for anyone short enough to fit inside the cup. Today, everyone wants to know who'll be inside Kelpy.",[
+  ["Will you do it?","I'm the candidate. I can't be photographed as a cup. Magnus would never let me forget it."],
+  ["Do you like Kelpy?","I've been photographed with Kelpy forty times. In every photograph, Kelpy looks more popular than me. I've stopped standing next to it."],
+  ["Is the campaign going well?","I've asked after a hundred and ninety mothers. Twenty-two to go. The ones in Frostholm won't answer the telephone. Lobster loyalty."]],
+ "If Kelpy waves at you, wave back. It's good for morale."],
+19:["(The office smells faintly of eggs. Harald has a scarf over his nose, and a postcard in pink ink in his hand.) My mother. 'Wear a scarf.' She's never been more right. There's steam on the mountain. The whole city smells of eggs.",[
+  ["Is the volcano going to erupt?","The Gazette says no. My mother says yes. My mother's been right about everything since 1938, including the school captaincy."],
+  ["Will the campaign stop if it erupts?","Campaigns don't stop. Magnus would buy the volcano. Carlo would have a word with it. I'd ask after its mother."],
+  ["Are you frightened?","Yes. But a candidate can't look frightened. So I'm smiling. It's very hard to smile through a scarf."]],
+ "Wear a scarf. Tell your mother I said so."],
+20:["(Harald is helping Elin pack files into boxes.) Phil says if the mountain goes tonight, everyone in the square can shelter in our cellar. I'm helping pack the papers. Elin says I'm in the way. I'm helping by being in the way.",[
+  ["Is it going to erupt?","The ground's shaking every hour. The pigeons have gone. Kurt from the factory is beside himself about his pigeons."],
+  ["Will you shelter here?","Yes. With Elin and Phil and whoever comes in from the square. Rosa says she'll bring sausages. I've never looked forward to an eruption before."],
+  ["What will you take with you?","My mother's postcards, my speech, and Mandate. My goldfish. In his bowl. Don't laugh. He's very old. Older than my campaign."]],
+ "Sleep near the door. And if you've a goldfish, bring it."],
+21:["(Ash is falling. Harald is sitting in the cellar doorway of the cola offices, holding a goldfish bowl, grey to the elbows.) It went. The mountain. We were all in the cellar. Everybody's safe. Mandate's safe. He didn't like the noise.",[
+  ["Is everyone all right?","Everyone. Rosa cooked for forty on a camping stove. A child fell asleep on Elin's lap. Phil found blankets. I asked after everyone's mother. It passed the time."],
+  ["What's it like outside?","Grey. Everything grey. The square, the palace, the trams. It looks like a photograph of itself."],
+  ["Are you all right?",["(He looks at the goldfish for a long time.) I'm all right. I smiled all night. For the children. Now I'm very tired of smiling.",[
+    ["You don't have to smile now.","(The smile goes. He looks older.) Thank you. Nobody's ever said that to me. I'll just sit here, then. With Mandate."],
+    ["You were kind tonight.","I tried. Kindness is the only thing I'm good at. I'm hoping it's enough, one day, for something."]]]]],
+ "Cover your mouth on the way. And thank you for stopping."],
+22:["(Harald is in shirtsleeves, carrying buckets of water across the square to wash the ash off people's doors.) I've cancelled all my campaign appearances. I'm doing this instead. It's not campaigning. Well. It's not only campaigning.",[
+  ["Is it working?","People say thank you. A man in a bakery cried. I don't know if it's working. I know it's right."],
+  ["What's Magnus doing?","Sending photographers to the ash. With a cheque in front of them. Carlo's sending men with brooms, quietly. I'm sending me, with a bucket."],
+  ["Is Mandate all right?","Back in my flat, in clean water, sulking. Goldfish sulk. I didn't know that until this week."]],
+ "If you see a door that needs washing, tell me. I've got a bucket."],
+23:["(Harald has a pink-ink postcard and is reading it with tears in his eyes.) My mother heard about the mountain on the wireless in Tampere. She wrote: 'Did you wear a scarf?' That's all. 'Did you wear a scarf?'",[
+  ["Did you?","Yes. All night. I'm going to write back and tell her. And that I carried buckets. And that I didn't sweat. Much."],
+  ["Is the campaign back on?","Tomorrow. Today I'm answering my mother. That comes first. It always has."],
+  ["What's the news on the island?","The farm out east lost everything, they say. Kelp Cola's in trouble out there. Something broken on the oil rig. Everyone's grey and cross. I'm grey and smiling."]],
+ "Write to your mother. Tell her about the scarf."],
+24:["(Harald is back at his desk, smiling properly again.) The campaign's back on. Elin's typed a new speech. Five pages. One idea. Three adjectives. Not one 'vibrant'. She said it's the best thing I've ever said.",[
+  ["What's the one idea?","Kindness. That's it. That a leader should be kind. Elin says it's naive. Then she typed it beautifully, which means she agrees."],
+  ["Is Phil pleased with it?","Phil wants it to mention cola. I've put cola in, once, near the end. 'Kindness, and a cold Kelp Cola.' Phil wept. I think that was the cola."],
+  ["Are you going to win?","I don't know. I've never won anything. But this time, for the first time, I'd vote for me. That's new."]],
+ "Come and hear the speech on the twenty-ninth. Sit near the front."],
+25:["(Harald is reading a Democrat leaflet with a puzzled smile.) A princess for democracy. And the palace says a crown for everyone. Everyone's promising everything. And I'm promising kindness. It seems very small next to a princess.",[
+  ["Small things matter.","(He looks at you, surprised.) That's what my mother says. You're the second person who's ever agreed with her. The first was me."],
+  ["What do the Republicans think of the princess?","Half of them think she's charming. Half think she's dangerous. All of them think I should have an opinion. I haven't. I like her hat."],
+  ["How many mothers have you called?","Two hundred and twelve. All of them. Even the ones in Frostholm, finally. One of them asked after mine. I nearly cried."]],
+ "If you see the princess, tell her I like her hat."],
+26:["(Harald looks pained.) Phil wants a famous face for the next advert. I suggested my own, as a joke. Phil said no. Very firmly. He's after somebody much grander. I'm a little hurt.",[
+  ["Your face in a cola advert?","As a joke! Mostly. It would have been good for the campaign. Phil says it would have been bad for the cola. He's probably right."],
+  ["Who does Phil want?","He won't say. He's been ringing the palace, Elin says, and putting the telephone down very quietly. I've drawn my own conclusions. I've kept them to myself."],
+  ["What else is happening?","The oil company's buying the spa, they say. Magnus is furious, because it's Dario's idea and it's costing his campaign money. I almost feel sorry for him again."]],
+ "If you see a famous face in an advert, think of me. Without one."],
+27:["(Harald is rehearsing in front of Elin, who has a red pencil poised.) 'Friends. Neighbours. Fellow Republicans.' (He stops.) She hasn't crossed anything out. She's never not crossed anything out. I'm frightened.",[
+  ["That's good, isn't it?","It's unprecedented. I'm worried she's ill."],
+  ["What's happening in the city?","A Party picture at the cinema and big card games at the pizzeria. Carlo's friends are playing for high stakes, they say. I don't gamble. Except on this election."],
+  ["Is Carlo worried?","Carlo's never worried. He just looks at you until you are. I nodded at him in the lift this morning. He nodded back and said 'Good luck, Harald.' I didn't sleep."]],
+ "Two days. Wish me luck. Not like Carlo did."],
+28:["(The square below is full of flags. Harald is watching from the window with his tie loosened.) Every faction's big push today. Red flags, royal cars, cola going abroad. And tomorrow, the Republicans. My push. I've never been so nervous.",[
+  ["Is Kelp Cola going abroad?","Buyers from overseas, in the factory today. Phil's beside himself. If the cola goes abroad, I'll be the candidate for an international company. Very grand."],
+  ["Have you practised your speech?","Eleven times. Elin's crossed out one word. 'Very.' She says I say it too much. She's very right. Sorry. She's right."],
+  ["What will you do tonight?","Feed Mandate. Read my mother's postcards. Practise my smile once, and then put it away and sleep."]],
+ "Come to the Republicans' hall tomorrow. Front row. Please."],
+29:["(Harald is standing very still in a new suit, holding his speech, not smiling.) Today. The Republicans choose. Magnus, Carlo or me. I've done all I can. I've asked after every mother on the island.",[
+  ["You look nervous.","I'm terrified. I'm not smiling. Elin said don't. She said for once, let them see the real face. I don't know if I can."],
+  ["Whatever happens, you did well.","(He looks at you for a long moment.) Thank you. My mother said that this morning. By telegram. 'Whatever happens.' Two words. She's very economical."],
+  ["Good luck, Harald.",["(He takes a breath.) Thank you. Truly. I'll need it. Or I'll need something.",[
+    ["What will you do if you lose?","Go home. Feed Mandate. Write to my mother. Ask after someone else's. Same as always. I've lost before. I know how."],
+    ["What will you do if you win?","I don't know. I've never thought that far. Isn't that funny? I've only ever practised losing."]]]]],
+ "Sit near the front. I'll look for you."],
+30:["(Harald is sitting at his desk, the speech folded in front of him, the goldfish bowl beside it.) Last day of the month. Whatever happened yesterday, whatever happens today, I'm still the cola man who smiles. That's all right.",[
+  ["How do you feel?","Tired. Proud. And very, very calm. My mother says a man is calm when he's done everything he could. I did everything I could."],
+  ["What do you hope happens today?","That whoever runs the island is kind. That's all. Kind. It's not too much to ask. It's everything to ask."],
+  ["Will you remember this month?",["(He looks at the goldfish, then at you.) The ash, and the buckets, and asking after two hundred and twelve mothers. And Elin not crossing anything out. Yes.",[
+    ["And me?","The reporter who told me small things matter. I'll remember that. I'll put it in my next speech. Elin will cross it out. Then she'll put it back."],
+    ["What will you do tomorrow?","Smile. Ask after someone's mother. Write to mine. Feed Mandate. Same as always. It's a good life. It's a kind one."]]]]],
+ "Wear a scarf. My mother would want me to say so."],
 };

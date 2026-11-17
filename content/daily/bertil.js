@@ -1,148 +1,159 @@
-// Bertil, civil servant at the Civil Service Bureau, Kingsgrad (administrators, no faction). Threads: forms and rules whoever is in charge, his grey suit and tidy habits, his dealings with Hanna and Signe, a rubber stamp he is proud of, his quiet fear that the island might change.
+// Bertil, clerk at the Civil Service Bureau in Kingsgrad (the Administrators). Threads: forms, rules and his father's rubber stamp,
+// whoever's in charge; twenty-nine and grey since twenty-five, like his father before him; Sergeant Hanna's pencil requisition (her
+// form on the 3rd, his approval on the 25th), Frank's cartridge forms, Signe's lamp oil receipts, and the loudspeakers for the 14th he
+// asks Hekki for in triplicate; the unsigned letter about the palace he forwards to Hanna (the 20th); his lonely shopping at Lisa's
+// (tomato soup, a loaf, plain chocolate), Lisa's kindness and her London passport form he stamps on the 29th, and the milk
+// chocolate he finally buys on the last day.
 DAILY['Bertil']={
-2:["(Bertil adjusts a stack of forms so the edges align.) A visitor. Form 7-B, please, for foreign press. No? Never mind, I'll fill it in myself. You'll be the British reporter. Welcome to the Bureau.",[
-  ["What does the Bureau do?","Everything that isn't done by someone else. Registers, permits, stamps, and the occasional lost cat."],
-  ["Who's in charge on the island now?","Nobody, officially. But the forms still need filing. That's where I come in."],
-  ["Can I have a stamp?","Certainly. It's blue, and says RECEIVED. It's my favourite. I had it made in Helsinki."]],
- "Please don't sit on the in-tray. It's already weary."],
-3:["(Bertil squares a ruler against a ledger.) The king died, and the Bureau's first thought was whether his pension was paid up. It was. The second was where to file the death. We've a drawer for that.",[
-  ["That sounds cold.","It's not cold. It's orderly. Order is how we show respect."],
-  ["Do you miss him?","He signed every document in green ink, with a flourish. I've kept a sample."],
-  ["What happens to the forms now?","They wait. Forms are patient. It's their one virtue."]],
- "Take a blotter. They're free, and nobody counts them."],
-4:["(Bertil sips tea from a thin cup.) Whoever wins, the Bureau will still be here. We've outlasted three kings, two governors, and a very persistent mouse.",[
-  ["How do you stay neutral?","By having no opinions. Strictly speaking, I haven't any. I've rules, which are better."],
-  ["Is it a quiet job?","Very. Except when Hanna calls about her pencil requisition. She's persistent."],
-  ["Do you like Hanna?","Enormously. She fills in every form, and her handwriting is superb."]],
- "Don't breathe on the ink. It's still wet."],
-5:["(Bertil holds a form to the light.) A request from the lighthouse for a new set of lamp oil receipts. Signe's receipts are kept in a biscuit tin. I've been trying to get her a proper file for years.",[
-  ["Is she difficult?","Not difficult. Eccentric. She sends me a postcard at Christmas, with a drawing of a seal."],
-  ["Do you ever visit?","Once, in 1971. I got seasick, and the stair defeated me. I send forms instead."],
-  ["Are the receipts in order?","They're in a tin. It's not the same, but it's close."]],
- "I'll file that under 'sentimental'. We've a drawer for it."],
-6:["(Bertil unrolls a chart.) A plan of the island's districts, with the roads marked in pencil as they reopen. Each one I colour in with a different crayon. It's the only fun I have.",[
-  ["Which colour is Kingsgrad?","Grey. It suits the town."],
-  ["Is the map official?","Only because I drew it. But I'll file it, so it'll be official by Thursday."],
-  ["What's your hobby?","Ledgers. I like a long column that adds up. It's a very quiet thrill."]],
- "Careful with the crayon. It's the last green."],
-7:["(Bertil stamps a document with precision.) The north-west's open, and the first applications from Diversified Petroleum arrived at nine. Eleven permits, a land licence and a letter of friendship. I've filed all three.",[
-  ["A letter of friendship?","From Dario, the boss. It said we'd be great friends. It was typed on very thick paper."],
-  ["Do you trust him?","I trust his paper. The man himself is a matter for the police."],
-  ["Will you grant the permits?","If they fill in the forms correctly. I've never refused a correct form in my life."]],
- "Correct forms, polite requests. That's the Bureau's whole philosophy."],
-8:["(Bertil refolds a sheet.) Sunday, and I'm here anyway. The Bureau's always open to me. There's no better place to be on a quiet day than between two filing cabinets.",[
-  ["Don't you have a life outside?","I've a flat, a plant, and a wireless. They're all very well behaved."],
-  ["Do you go to church?","Occasionally. I find the liturgy soothing. It has a clear structure."],
-  ["What does your plant do?","It sits. I water it on alternate days. We're very alike."]],
- "A quiet Sunday's the best sort. Don't spoil it."],
-9:["(Bertil stares at a file.) The funeral's tomorrow, and I've drawn up a seating plan for the Royal Chapel. Edmund wouldn't let me touch the front pews. I've made do with the back.",[
-  ["Is that a big job?","Two hundred names, in three colours, with notes. I've never been so happy."],
-  ["Who's at the front?","The family, naturally. And the Church, and the heads of the factions. I'd rather not say how they're placed."],
-  ["Will you be there?","In the fourth row from the back, with a pencil. I'll watch the arrangements work."]],
- "Be seated by ten. Punctuality's the soul of ceremony."],
-10:["(Bertil wears a black armband over his grey suit.) A fine funeral. Every seat filled, every wreath placed, every speech within the timetable. Edmund and I exchanged a nod. I've never been so moved.",[
-  ["Was the king well sent off?","Beautifully. No slips. The only delay was a cough in the third row."],
-  ["Did you know him?","I met him once, when he signed a land transfer. He thanked me, and said my handwriting was admirable. I've never forgotten."],
-  ["What happens now?","Now the paperwork begins. A new reign needs a great many forms."]],
- "A good day for the island. And for the files."],
-11:["(Bertil shuffles papers into folders.) The morning after, and the Bureau's drowned in letters of condolence. Seven hundred, from all over the Baltic. I'm sorting them by region.",[
-  ["Do they all get a reply?","Every one. A printed card, with a signature. I've a stamp for it."],
-  ["Is that quite personal?","It's dignified. And it's what the old king would've wanted."],
-  ["Any odd ones?","One from a lighthouse keeper in Norway, who'd never met the king. It was very moving."]],
- "Please don't read the letters. They're confidential, and rather sad."],
-12:["(Bertil frowns at an application.) A complaint from the Party, and another from Diversified Petroleum, both on the same land. I've to decide who gets the permit. It isn't easy.",[
-  ["Who is in the right?","The one who filled in the form first. That's the rule, and I follow the rule."],
-  ["What if both did?","Then I toss a coin. It's in the regulations, subsection nine."],
-  ["Does anyone try to bribe you?","Constantly. The Syndicate sent a ham. I returned it, with a form."]],
- "Rules are the island's skeleton. Don't break a bone."],
-13:["(Bertil straightens his tie.) Tomorrow's the great day, and the Bureau's been told to stay open. I've issued fifty extra passes, and I've written an essay on crowd management.",[
-  ["Do you know what's going to happen?","Not at all. A stamp can't predict the future. It can only record it."],
-  ["Are you worried?","I'm a civil servant. I worry on schedule, and I've scheduled it for later."],
-  ["Will you attend?","From the Bureau, with the window open. I'll file whatever I see."]],
- "Bring a pen. History's easier to record than to remember."],
-14:["(Bertil sits very still.) The great day, and the town's quiet. Everyone's out, and the Bureau's empty. I've never heard the clock tick so loudly.",[
-  ["Is it strange?","It's like a church on a weekday. You feel something's watching."],
-  ["Have you done anything?","I've filed a report on the weather. And a second on the mood. The mood was hard to classify."],
-  ["Are you afraid?","Of change, a little. But the Bureau's survived worse."]],
- "Stay calm. Or at least look it."],
-15:["(Bertil sorts a pile of memoranda.) Yesterday's over, and my desk's flooded with petitions. I've three hundred to process, and not a single one's in the right format.",[
-  ["What's wrong with them?","Handwriting. Margins. Ink. One's in crayon. I'll treat it with dignity."],
-  ["Did anything big happen?","Everything and nothing. I'll know more once I've read the minutes."],
-  ["Are you coping?","With tea, and a very sharp pencil."]],
- "Return the forms by Friday. Preferably with ink."],
-16:["(Bertil adjusts a clock.) A debate tonight, and I've been asked to provide a timekeeper. I've been given a stopwatch, and a bell. I take it as a great honour.",[
-  ["Who's debating?","The Party and the Democrats. Both on the stroke of eight. I'll ring at ten minutes."],
-  ["Will you take sides?","Never. I'll cut off whoever runs over."],
-  ["Is that fair?","It's the only fair thing about it."]],
- "Remember: ten minutes each. No exceptions."],
-17:["(Bertil clutches a ledger as it slides.) A tremor. The shelves swayed. A file of 1958 fell off the top, and a mouse ran out. I'm shaken, but unhurt.",[
-  ["Was the mouse a problem?","The same persistent mouse. He's been here since before me. I've given up."],
-  ["Is it the volcano?","The Bureau has no opinion. Though I've drafted a memo."],
-  ["Are you frightened?","I'm a civil servant. We don't panic. We form a committee."]],
- "If it happens again, stand under a filing cabinet."],
-18:["(Bertil points to a window crack.) A new crack, running diagonally. It wasn't there yesterday. I've logged it, measured it, and photographed it for the file.",[
-  ["Is the building safe?","The Bureau has stood for ninety years. It'll outlast the mountain."],
-  ["Do you smell that?","Sulphur. It's drifting from the north. I've opened a window, and written a note."],
-  ["Will you evacuate?","If instructed. In an orderly line, by rank."]],
- "Don't touch the crack. It's evidence."],
-19:["(Bertil blinks at a note.) A licence request for a masked ball at the Midnight Note. Sid applied quite properly. I've granted it, with one clause: no false moustaches.",[
-  ["Why no moustaches?","They make identification difficult. I have a rule about identification."],
-  ["Is it enforceable?","No. But it's on the paper, and that's half the battle."],
-  ["Are you going?","I'm not invited. I wasn't even invited to the wedding of my own niece. I filed a complaint."]],
- "Stamped, signed, and slightly sad. That's the Bureau."],
-20:["(Bertil holds a telegram at arm's length.) A report of a burglary planned at the palace. The sender is anonymous, which is irregular. I've forwarded it to Hanna with a covering note.",[
-  ["Do you believe it?","I believe in procedure. I've sent it where it needs to go."],
-  ["What would a thief want from a palace?","Whatever isn't listed in the inventory. Which, I regret to say, is rather a lot."],
-  ["Who keeps the inventory?","I do. Twice a year. It's thirty-one pages, and not a spoon unaccounted for."]],
- "If anything's missing, I'll have it in triplicate."],
-21:["(Bertil wears a handkerchief over his nose.) The volcano's erupted. The sky is grey. The files are grey. I've closed the windows, taped the cracks, and begun a memorandum.",[
-  ["Is anyone hurt?","Nobody, thank heaven. The Bureau has no casualties, except a fern."],
-  ["How are you holding up?","I've a list. Lists help. Item one: breathe."],
-  ["What does the Bureau do in an emergency?","Convenes. We convened at nine. We've been convening since."]],
- "Stay indoors, and please don't touch the ash. It stains."],
-22:["(Bertil brushes ash off a form.) Every file's grey. Every desk. Every pen. I've issued a notice to all staff: wipe before you write.",[
-  ["Is work continuing?","Of course. The island doesn't stop for a volcano. It merely sneezes."],
-  ["Any good news?","The mouse survived. He was found in the stamp drawer, very grey, very calm."],
-  ["How's Kingsgrad?","Sweeping. Everyone's sweeping. It's quite a communal feeling."]],
- "Please wipe your feet. Twice."],
-23:["(Bertil frowns at a report.) Two incidents tonight, so I'm told. A disturbance at a pipeline, and a quarrel at a station. I've filed both under 'miscellaneous', as is the custom.",[
-  ["Sounds serious.","It's all serious. But it's all a matter of procedure."],
-  ["Do you know the cause?","Not yet. A civil servant never guesses. He waits for the forms."],
-  ["Are you tired?","Dreadfully. But the stamps are still crisp."]],
- "A little patience. And a lot of paper."],
-24:["(Bertil scans a long list.) The Church has requested transit permits for forty monks, a quantity of candles and a donkey. I've granted all three. The donkey was a surprise.",[
-  ["Is it a pilgrimage?","A retreat. To the peaks. I've written it down as a 'seasonal relocation'."],
-  ["Isn't it dangerous?","Not as dangerous as being without a permit."],
-  ["Do you trust the monks?","I trust their handwriting. It's excellent."]],
- "Safe travels. Please return the form on arrival."],
-25:["(Bertil straightens his tie.) A tea at the palace this afternoon, with a very mixed guest list. The princess, some Democrats, a bishop. I've drawn up a seating plan, with a map.",[
-  ["Is it a political tea?","Everything is. Even the sugar."],
-  ["Who sits where?","The princess near the window. The bishop by the door. And the Democrat in the middle, where he can't escape."],
-  ["Will you attend?","As an observer. I'll sit in the corner, with a pencil."]],
- "Pour the tea carefully. Cups are tricky in a crisis."],
-26:["(Bertil sorts a heap of permits.) Cola, oil, Party, church. I've never signed so many in a day. I've worn the stamp pad down, and had to borrow Hanna's.",[
-  ["Are they all legitimate?","They're all complete. Legitimacy's a different department."],
-  ["Is the island busy?","It's frantic. Everyone's in a hurry to arrange something. I'm in a hurry to arrange a nap."],
-  ["Do you ever relax?","On Sundays, with the crossword. Seven letters, 'procedure'."]],
- "If you need a stamp, join the queue. It's long."],
-27:["(Bertil removes his glasses.) Tomorrow's a very big day, and I've drawn up the arrangements for every office. Passes, parking, permits. It's all in a binder, and the binder is very thick.",[
-  ["Are you ready?","As ready as a man can be who's read all the regulations."],
-  ["What if it goes wrong?","Then there's a form for that. Form 99. I wrote it myself."],
-  ["Do you ever doubt?","Occasionally. But a good file calms the nerves."]],
- "Sleep well. Tomorrow's paper will be heavy."],
-28:["(Bertil stands at the window.) Every faction on the island is moving today. I can hear horns, and shouting, and a very bad brass band. It's the most disorder I've ever seen, and I've prepared for it.",[
-  ["How's the Bureau?","Full. Everyone wants a stamp, a pass, a favour. I've issued four hundred permits since breakfast."],
-  ["What's the mood?","Taut, like a drawn string. I'd say it's an administrative emergency."],
-  ["Will you survive?","With tea, and a very good stamp."]],
- "Take a number. And a seat. It might be a while."],
-29:["(Bertil closes a file with a snap.) Tomorrow's the end of it, and I've done everything I can. Every form filed, every pass issued. The rest is up to the island.",[
-  ["Are you hopeful?","As hopeful as a man can be who knows the law."],
-  ["What do you want?","Order. Whoever wins, let it be orderly. A minute's silence, a signature, and a handshake."],
-  ["Any worries?","That the next government might not like forms. It would be a terrible loss."]],
- "Go home and rest. The Bureau will carry on."],
-30:["(Bertil lays his stamp down gently.) The last day. I've signed my last pass, and stamped my last permit. Now we wait for the island to speak.",[
-  ["How do you feel?","Calm. A civil servant's always ready. Whoever's in charge, the paperwork goes on."],
-  ["What will you remember about September?","The king's funeral, the ash, and your very polite questions. I've filed them all."],
-  ["Any last words?","Keep a copy of everything. It's the best advice I know."]],
- "Thank you for your visit. Please sign the book on your way out."],
+2:["(Bertil looks up from a ledger, takes off his spectacles, polishes them, and puts them back.) You're not on my list. Everyone who comes through that door is on my list. You'll need to be added. There's a form.",[
+  ["What's the form for?","Visitors to the Bureau, non-resident, purpose of visit. Three copies. One for me, one for the file, one for the file's file."],
+  ["I'm a reporter, from London.","(He writes, very neatly.) Occupation: press. Nationality: British. Hair: tidy. I like to add a detail. It helps me remember people."],
+  ["Does the Bureau run the island?","The Bureau keeps the island running. Kings come and go. Forms stay. My father said that, at this desk, with this stamp."]],
+ "Your copy, for your records. Don't lose it. Nobody ever loses only one form."],
+3:["(Bertil is holding a form at arm's length.) Sergeant Hanna's requisition for a new pencil. She's filled it in with a pencil an inch long. I admire the commitment. I can't approve it. Box seven's blank.",[
+  ["What's box seven?","Reason for replacement. She's left it empty. I suspect she thought it was obvious. Nothing is obvious to a form."],
+  ["Can't you just give her a pencil?","(He looks genuinely pained.) If I gave out pencils without forms, I'd give out everything without forms. Then where would we be? In Moscow, probably."],
+  ["How long will it take?","Pencils go to the Supplies Committee, which meets on the first Monday of the month. Unless there's an emergency. A pencil is not an emergency. Yet."]],
+ "If you see the Sergeant, mention box seven. Gently."],
+4:["(Bertil has a very large rubber stamp in his hand and is looking at it with something like love.) My father's. APPROVED, in red. It's been used forty thousand times. I've counted. I keep a tally in the back of my diary.",[
+  ["Do you ever stamp REJECTED?","I have a separate stamp. It's smaller. I keep it in the drawer. I don't like using it. It makes a sad little noise."],
+  ["How old are you, Bertil?","(He touches his grey hair.) Twenty-nine. The hair came at twenty-five, like my father's. He said grey hair was the Bureau's uniform. I didn't think he meant it literally."],
+  ["Is Eastbrook open now?","Since this morning. I've had nine forms from Eastbrook already. The Democrats want a permit for a meeting about permits. I find that very satisfying."]],
+ "Mind the step. It's been reported, and the form is with the Steps Committee."],
+5:["(Bertil has a paper bag on the desk, very carefully folded at the top.) My lunch. From Lisa's supermarket. I go every day at half past twelve. She knows what I want before I ask. Is that sad? I think it might be sad.",[
+  ["What's in the bag?","A tin of tomato soup, a loaf of bread and a bar of plain chocolate. Every day for four years. I know what I like. I know what I don't like. That covers most things."],
+  ["Why plain chocolate?","Milk chocolate's for people who've had good news. Plain chocolate is for people who are waiting for some. My mother said that. She was a clerk too. We're a clerking family."],
+  ["It's not sad.","(He looks at you for a long moment.) Thank you. It probably is. But thank you."]],
+ "If you see Lisa, don't tell her I said it might be sad. She'd give me a free orange."],
+6:["(Bertil is reading a letter, very slowly, his mouth moving.) Frank. From the gun shop. He's written his cartridge numbers too close to the lines again. I've sent it back. He won't be pleased.",[
+  ["Isn't that a bit fussy?","The lines are there for a reason. If a number touches a line, is it inside the box or outside the box? I can't approve a number that's undecided."],
+  ["What's Frank like?","Loud, honest and very bad at boxes. He filled in my father's forms, years ago. He said my father was easier. My father was the same. Frank's just older."],
+  ["Are you frightened of Frank?","He's got a lot of guns and a large dog. I've got a stamp. I think the stamp wins, legally. I'm not sure it wins in a corridor."]],
+ "If Frank comes in shouting, I'm at lunch."],
+7:["(Bertil has a stack of forms stamped with the oil company's crest.) The north-west's open, and Diversified Petroleum has sent forty-three applications. Drilling rights, pipeline rights, and a request to rename a hill. I've started on the hill.",[
+  ["What do they want to rename the hill?","Dario Hill. I've checked. It's not allowed. Hills can only be named after kings, saints or sheep. It's in the 1842 Act. Nobody's read it but me."],
+  ["Are the oil company difficult?","They're very polite and very fast. They expect a reply by Friday. Nothing's been replied to by Friday since 1903."],
+  ["Will they get their drilling rights?","That depends on who's running the island next month. Until then, I'm filing it under Pending. Pending is a very large drawer."]],
+ "If anyone asks about Dario Hill, the answer is sheep."],
+8:["(The Bureau's shut for Sunday, but Bertil is at his desk anyway, in his grey suit, reading.) I come in on Sundays too. I don't work. I just like to sit near the files. Is that strange? Don't answer that.",[
+  ["What are you reading?","The 1842 Act. Again. It's very beautiful, if you like commas. There's a sentence about fishing rights that goes on for a page and a half. Nobody writes like that now."],
+  ["Don't you go to church?","I go at Easter and sit at the back. The Abbot's preaching today, about the king. I'll read it in the Gazette on Monday. I prefer my sermons in print."],
+  ["What do you do for fun?","This. (He holds up the Act.) And chess, by post, with a man in Tallinn. We've been on the same game since 1978. I'm winning. Slowly."]],
+ "Enjoy your Sunday. Don't fill anything in."],
+9:["(Bertil is holding two forms, one red and one green, at arm's length.) The Party wants a licence to make a cola. Kelp Cola wants a licence for a new flavour. Both on the same morning. Both for the same thing, nearly. I don't know which to stamp first.",[
+  ["Which one came first?","The Party's, by four minutes. But Kelp Cola's is typed and the Party's is in pencil. Typed outranks pencil. It's not a rule. It's just how I feel."],
+  ["Do they need a licence for cola?","Under the 1931 Beverages Act, yes. Nobody's applied since 1931. Kelp Cola's been making it for fifty years without one. I've decided not to mention that."],
+  ["What will you do?","Stamp them both, at exactly the same time, with both hands. I've been practising. It's harder than it looks."]],
+ "If anyone makes a cola that tastes of paper, I'd try it."],
+10:["(The Bureau is draped in black. Bertil is standing at the door in a black tie, very straight.) The funeral. The Bureau's closed for the day. First time in my lifetime. My father closed it once, in 1952, for the old queen.",[
+  ["Did you know the king?","I filed his tax return. Every year. He always paid on the last day, in person, and he always said 'Thank you, young man.' He said it to my father too. We both kept the same reply: 'Your Majesty.'"],
+  ["What happens to the Bureau now?","It goes on. Whoever comes next will need forms. A king needs forms. A Party needs more. A vote needs the most of all."],
+  ["Are you all right?","(He straightens his tie.) He was always there, like a heading at the top of the page. Now the page has no heading. I'm not sure where to write."]],
+ "Go gently today. The Bureau is."],
+11:["(Bertil has a form from the Eastbrook Lumber Company in front of him and is frowning at it.) Fair pay. Safer saws. The mill hands want a hearing. The mill wants it refused. Both of them sent the form to me. As if I decide.",[
+  ["Do you decide?","No. I file. Somebody else decides. But if I file it slowly, the deciding happens slowly. And sometimes slowly is how things get fair."],
+  ["Whose side are you on?","The form's. Always the form's. (He pauses.) The saw line in that mill took Erik's cousin's finger in 1974. I filed the accident report. I remember the handwriting."],
+  ["Will they get a hearing?","I've put it at the top of the pile. That's all I'm allowed to do. It's more than most people think."]],
+ "If you see Dagny at the mill, tell her the form's at the top. She'll know what that means."],
+12:["(Bertil is reading a stack of oil company accounts with a magnifying glass.) Diversified Petroleum's filed their quarterly figures. They add up. That's what worries me. Nothing on this island has ever added up first time.",[
+  ["You think they're hiding something?","I think somebody's very good at arithmetic. Better than the oil company usually is. I'm filing them under Interesting."],
+  ["Is there an Interesting drawer?","There is now. I made it this morning. It's very small. So far it's only got these accounts and a postcard from Tallinn."],
+  ["Will you tell anyone?","Who? Sergeant Hanna doesn't do accounts and the Gazette can't spell 'debit'. I'll keep them. Forms are patient. So am I."]],
+ "If anyone asks, the accounts were perfect. That's what worries me."],
+13:["(Bertil has a free bottle of Kelp Cola on his desk, unopened, with a form beside it.) A gift, from the cola company. To everyone. I've had to fill in a Receipt of Gift by a Public Servant. It's longer than the label on the bottle.",[
+  ["Will you drink it?","Once the form's approved. I've sent it to myself. I'll approve it on Tuesday. It'll be flat by then. That's the price of integrity."],
+  ["Does everyone fill in a form for a gift?","Only me. I'm the only public servant who knows the form exists. I wrote it, in 1979. Nobody else has ever used it."],
+  ["Why are they giving it away?","Before the big day, everyone wants to be loved. A free cola is the quickest way. A form is the slowest. I know which I trust."]],
+ "If you get a free cola, enjoy it. You don't need a form. You're not me."],
+14:["(Bertil has a clipboard and is looking very important, and very nervous.) The big gathering. I've been asked to organise the arrangements. Chairs, permits, loudspeakers. I asked Hekki at the radio tower for the loudspeakers. In triplicate.",[
+  ["Did Hekki agree?","He signed all three copies. Then he asked if I wanted a fourth, for luck. I said there's no form for luck. He looked very sad."],
+  ["What's going to happen at the gathering?","Speeches. Lots of them. I've timed them all on the form. Nobody will keep to the times. I've accepted that. I've built in twenty minutes for overrunning."],
+  ["You look nervous.","Three thousand people, two hundred chairs and one loudspeaker man who once played a pig auction backwards. Of course I'm nervous."]],
+ "Wish me luck. I'll fill in the form for it afterwards."],
+15:["(Bertil looks exhausted, and has a cup of tea going cold beside him.) Yesterday went. Mostly. The chairs held. The loudspeakers worked. Nobody overran more than twenty minutes. I've written it up. Eleven pages.",[
+  ["How did it go?","I can't tell you what was said. I was counting chairs. That's the job: you make the day happen, and you don't get to watch it."],
+  ["What's in the news today?","Crown before cross. Cross before crown. The palace and the Church have both sent forms about Augustus. I've filed them side by side. Let them argue in the drawer."],
+  ["You should rest.","After the eleven pages are filed. Then the summary. Then the summary of the summary. Then I'll rest. Probably Thursday."]],
+ "Go easy on the stairs. They're tired too."],
+16:["(Bertil is listening to the debate on a little radio on his desk, a pencil poised.) The Party and the Democrats, live from Kingsgrad. I'm taking notes. Not for anyone. Just for the file. Somebody should write it down properly.",[
+  ["Who's winning?","Nobody, yet. They keep interrupting each other, and I keep having to cross things out. It's very bad for the paper."],
+  ["Who would you vote for?","I'm not allowed to say. A public servant serves whoever's in charge. If I had a side, I'd stamp crooked."],
+  ["What does the Bureau want?","Continuity. Whoever wins, I'll need them to sign things. Signatures are very important. More important than speeches, really."]],
+ "If you're going to the debate, take a pencil. And a spare."],
+17:["(The papers on Bertil's desk slide sideways and he catches them all, one by one, very fast.) The ground's moving. Third time today. I've had to start a new form. Damage, Seismic, Minor.",[
+  ["Is it the volcano?","The Gazette says no, so probably yes. I've sent a form to the monastery asking the Abbot for his opinion. He's nearer the mountain."],
+  ["Is anything else going on?","Dario's missing, they say. The oil company sent a form asking whether a missing chief executive can still sign things. There's no form for that. I'm writing one."],
+  ["Are you frightened?","Of the ground, a little. Of losing the files, a lot. I've moved the 1842 Act into the vault. Just in case."]],
+ "If it shakes again, stand under a doorway. The Bureau's doorways are very sturdy. I checked."],
+18:["(Bertil is opening a letter with a paper knife.) Signe, at the lighthouse. Her lamp oil receipts. Twenty years of them. In a biscuit tin. She sent the whole tin. With the biscuits.",[
+  ["Why do you need her receipts?","A new rule from the Fuel Committee. Every lighthouse must account for its oil. There's only one lighthouse. So really, the rule is about Signe."],
+  ["Are they in order?","Perfectly. Every drop, every year, in pencil, in the same hand. And a biscuit for every year. I've eaten three. I'll fill in a form."],
+  ["Will you inspect the lighthouse?","Someone has to. I've telephoned to say an inspector may call. I'm the inspector. I've never been up a lighthouse. I'm frightened of the stairs."]],
+ "If you see Signe, tell her the receipts are perfect. And the biscuits."],
+19:["(The air smells of eggs, and Bertil has a handkerchief over his nose.) There's steam on the mountain. I've filed a form with the Fire Committee. They meet on Thursdays. It's Wednesday. I'm worried.",[
+  ["Is the volcano going to erupt?","There's no form for an eruption. I've checked. There's one for a chimney fire. I'm using that, with crossings out."],
+  ["Is anyone listening?","The Abbot. He wrote back: 'Pray, and keep your papers dry.' It's the most sensible reply I've had all year."],
+  ["What else is happening?","The prince was seen in town in a hat, they say. Incognito. He'll need a form for that, if he gets caught. Nobody's ever been incognito legally."]],
+ "Keep your papers dry. The Abbot's right."],
+20:["(Bertil has an envelope in his hand and looks troubled.) An unsigned letter came to the Bureau this morning. About the palace. I can't read anonymous letters. It's the rules. I've forwarded it to Sergeant Hanna. Unopened.",[
+  ["What's in the letter?","I don't know. I didn't open it. But it was addressed in a hand I've seen on a form before. I won't say whose. The form was for a ladder."],
+  ["A ladder?","A permit for working at height, at the palace. Filed last week. I approved it. Now I'm worried I approved something I shouldn't have."],
+  ["Is the volcano still steaming?","All day. The ground's moving every hour. I've put the Act in the vault and the stamp in my pocket. If the Bureau falls, the stamp survives."]],
+ "If anyone asks, I forwarded it by the book. Because I did."],
+21:["(Ash is falling. Bertil's grey suit is greyer. He's standing on the Bureau steps with a box of files in his arms.) It went. The mountain. I carried the files out first. Then the people. Is that wrong? I think that might be wrong.",[
+  ["Is anyone hurt?","Not in Kingsgrad. Coughs and fright. Sergeant Hanna's got everyone in the square. I'm counting them for her. Counting helps. I'm good at counting."],
+  ["Why the files first?","Because they were nearer the door. Then I went back for Mrs Aho from the typing pool. She was under her desk, filing her nails. She said she'd be fine. She was fine."],
+  ["Are you all right?",["(He looks down at the box, and his hands are shaking.) I've got the stamp. I've got the Act. I've got everyone. Yes. I'm all right.",[
+    ["You did well.","I did what I was trained to do. I kept the records. That's the whole job. But today I also counted people. That felt more important."],
+    ["What will the Bureau do now?","Shut, until the ash stops. First time since 1952. Twice in one month. My father would say the island was coming apart at the seams. He'd have a form for it."]]]]],
+ "Cover your mouth. And thank you for asking after me."],
+22:["(The Bureau is shut, but Bertil is sweeping ash off its steps with a broom.) Office closed for the ash. I can't go in, so I'm sweeping the steps. A clerk who can't clerk needs something to do with his hands.",[
+  ["How's Kingsgrad?","Coming back. The trams are running. Sergeant Hanna has half the city out with shovels. She asked me to help. I asked her for a form. She hit me with her hat."],
+  ["Is Frank pleased the Bureau's shut?","Delighted, apparently. He told Rosa it was one of three good things this week. I don't mind. Somebody should be happy."],
+  ["What do you do when you can't work?","Sweep. Worry. Read the 1842 Act. Eat my soup. Same soup. I've noticed I'm eating it slower, as if waiting for something."]],
+ "Mind the ash on the step. I've swept it, but it comes back."],
+23:["(The Bureau's open again. Bertil is at his desk with a fresh stack of forms, looking almost happy.) Damage reports. Six hundred of them. From all over the island. I've never been busier. I've never been more useful.",[
+  ["What's the worst damage?","The farm out east lost its harvest under the ash. The oil rig's broken, they say, though that's not ash. Spanners, the oil company says. The Party says rubbish."],
+  ["Who's helping people?","Everyone's filling in forms for help, and nobody's sure who to send them to. So they send them to me. I'm sending them to whoever answers first."],
+  ["Is it good to be busy?","(He smiles, which is rare.) It's the best thing. For once the forms are for something. Every one is a person who needs a roof."]],
+ "If you need help after the ash, there's a form. I'll fill it in for you."],
+24:["(Bertil has a small box on the desk and is looking at it nervously.) Sergeant Hanna's pencil. A new one. It's come through the Supplies Committee at last. I'm going to stamp the approval tomorrow. I'm almost excited.",[
+  ["Why tomorrow?","The form says approvals are dated on the twenty-fifth. It's the rule. I've waited three weeks. I can wait one more day."],
+  ["Will Hanna be pleased?","She'll pretend not to be. Then she'll frame the form. I've seen her frame things. She framed a parking ticket from 1981."],
+  ["Is anything else happening?","The Abbot's taking the monks up into the peaks to pray. And the Syndicate's cleaning up something, people say. I've no form for either. I'm leaving it."]],
+ "Come back tomorrow. You can watch me stamp it. It's a big moment."],
+25:["(Bertil is holding his father's stamp above a form, very still.) The Sergeant's pencil. Requisition approved. (Thump.) There. Three weeks. That's fast, for the Bureau. I'll tell her it was fast.",[
+  ["Congratulations.","(He holds the form up to the light.) Look. Perfectly straight. My father would be proud. Forty thousand and one."],
+  ["Will you take it to her?","Personally. On my bicycle. I've never delivered anything before. I've always sent things. I'd like to see her face."],
+  ["What else is in the news?","A crown for everyone, the palace says. A princess for democracy, the Democrats say. Everyone's promising everything, and nobody's filled in a single form."]],
+ "If you see the Sergeant, don't tell her it's coming. I want to see her face."],
+26:["(Bertil is sitting very upright, with a framed photograph of a form on his desk.) Sergeant Hanna framed it. The approval. She gave me a photograph of it, framed, as a thank you. Nobody's ever thanked me for a form.",[
+  ["That's lovely.","I don't know where to put it. I've never had a picture on my desk. Now there's one, and it's a form, and it's the best picture I've ever seen."],
+  ["What's happening today?","The oil company's buying the spa, they say. They've sent forty forms. And Kelp Cola wants a prince in every bottle. I don't know what that means. There's no form for it."],
+  ["Are you lonely, Bertil?",["(He looks at the frame.) I hadn't thought so. Until somebody said thank you. Then I noticed.",[
+    ["You should have lunch with someone.","Lisa's offered, at the supermarket. She said I could eat my soup there, at the counter, with her. I said I'd fill in a form. She laughed."],
+    ["Maybe the month will change things.","Maybe. Everything else is changing. Perhaps a clerk can too. A little. In triplicate."]]]]],
+ "Mind the frame on your way out. It's the only one I've got."],
+27:["(Bertil is stamping cinema permits, very fast.) The Party's picture tonight. And high stakes somewhere at the card tables, people say, though nobody's applied for a gaming permit. I'm pretending not to know.",[
+  ["Will you go to the cinema?","Lisa asked me. To the picture. I said I'd need a permit to have a night off. She said there wasn't one. I'm going anyway."],
+  ["You're going with Lisa?","To the pictures. With Lisa. (He takes off his glasses and polishes them for a long time.) I've filled in nothing. It's terrifying."],
+  ["Is the Bureau ready for the end of the month?","As ready as paper can be. I've laid out every form anyone might need: for a king, for a vote, for a Party, for a cola. Whatever happens, there'll be a form."]],
+ "Wish me luck. Not for a form. For the pictures."],
+28:["(The Bureau's queue is out of the door. Bertil is stamping with both hands.) Every faction's making its big push today. They've all got permits, licences, notices, petitions. Red flags need permits. So do state visits. So does cola going abroad.",[
+  ["How was the cinema?","(He goes pink.) Six tractors. Lisa fell asleep on my shoulder at the fourth. I didn't move for an hour. I didn't take a single note."],
+  ["Who's winning today?","Whoever's got the most forms in order. That's the Party, astonishingly. Their red flags are perfectly licensed. Anna's very thorough."],
+  ["Are you tired?","Very. But the forms are for something now. Every one of them is somebody trying to make the island what they think it should be. I'm just the man who stamps it."]],
+ "Out of the way, please. There's a queue and it's got petitions."],
+29:["(Bertil is sitting at his desk with no forms on it at all, for the first time, and a pair of brand-new walking boots under it.) The Republicans are choosing a leader, and the royals are arguing about who's next. Neither needs a form. So this afternoon I'm inspecting the lighthouse. Two hundred and eleven steps.",[
+  ["Are you frightened of the steps?","Terrified. Signe says she'll hold my hand. I've never had my hand held for an inspection. I've brought the form, and a spare pencil, and plasters."],
+  ["What do you think will happen?","I don't know. Nobody does. I've never not known what the next form would be. It's frightening. And a bit exciting."],
+  ["How's Lisa?","(He smiles, then doesn't.) She brought me soup. Mushroom. And her passport form, for London. She's been saving for years. I stamped it myself, perfectly straight. That's what you do for someone."]],
+ "Go and get some rest. I'll be here tomorrow, writing it all down."],
+30:["(Bertil is at his desk with a paper bag from Lisa's. He opens it and takes out, very carefully, a bar of milk chocolate.) Last day of the month. Whatever happens today, I'll write it down. And I bought the milk chocolate.",[
+  ["Milk chocolate? Is that good news?","My mother said milk chocolate was for people who'd had good news. I haven't. Not yet. I just decided not to wait any more."],
+  ["What will you write down?","Whatever happens. The truth, in the right boxes, in triplicate. Someone has to. In fifty years, someone will open a drawer and know what happened today."],
+  ["Will you remember this month?",["(He breaks off a square of chocolate and offers it to you.) The mountain, and the pencil, and the pictures with Lisa. Yes.",[
+    ["And me?","The reporter who had to fill in a visitor form on the first day. I've still got your copy. I'll keep it in the Interesting drawer."],
+    ["What will you do tomorrow?","Stamp something. Eat soup. Maybe have lunch at the counter at Lisa's. Maybe even a different soup. One step at a time."]]]]],
+ "Mind the step. The form's still with the Steps Committee. Some things never change."],
 };
