@@ -87,10 +87,10 @@ DAILY['Hilda']={
     ["What will you pray for?","The cows. The hens. Bertha. Olaf. In that order. (A pause.) No. Olaf first. Don't tell him."]]]]],
  "Go home and be safe. We're going up. Pray for us."],
 21:["(Ash is falling. Hilda is sitting on the farmhouse step, grey from head to foot, Olaf asleep against the doorframe beside her.) It went. The mountain. We were at the monastery all night. The brothers sang. Father Thyme sang at the door. Everyone came down alive.",[
-  ["How did you get down?","Walked. Through the ash. Olaf carried me the last mile. My knee went. He didn't complain once. (She looks at him.) Not once. Fifty years married, and the first mile he's ever not complained."],
+  ["How did you get down?","Walked. Through the ash. Olaf carried me the last mile. My knee went. He didn't complain once. (She looks at him.) Not once. Thirty years married, and the first mile he's ever not complained."],
   ["Is the farm all right?","The hay barn roof's in. The fields are grey. The hens are alive, the goose is alive, Bertha's alive. (She looks across the yard.) The old barn's still standing. Still humming."],
   ["Are you all right?",["(She puts her hand on Olaf's shoulder, gently, so as not to wake him.) I'm all right. I'm grey and my knee's gone and I've never been so glad to see a farm.",[
-    ["Olaf was very brave.","Don't tell him. He'll never stop. (She smiles.) Yes. He was. He carried me and said 'I've got you, Hilda.' Fifty years, and he's never said that."],
+    ["Olaf was very brave.","Don't tell him. He'll never stop. (She smiles.) Yes. He was. He carried me and said 'I've got you, Hilda.' Thirty years, and he's never said that."],
     ["What will you do now?","Milk the cows. Sweep the yard. Cry, a bit, where Olaf can't see. Then feed everyone. That's what you do after."]]]]],
  "Cover your mouth. And thank you for coming all this way."],
 22:["(Hilda is standing in front of the old barn with a crowbar in her hands and a very determined face.) The Kelp Cola men telephoned three times this morning. About the barn. Something growing out here they're not happy about, they said. Growing. In a barn that hums.",[
@@ -123,7 +123,7 @@ DAILY['Hilda']={
   ["How's the hay barn?","Roofed. Dry. Full by October. Ilse's timber is the best roof this farm's ever had. I've told her so. Badly. She understood."],
   ["And the old barn?",["(She looks across the yard at it.) Still shut. Olaf found his grandfather's billhook up in the hay barn rafters yesterday. He sat with it for an hour.",[
     ["What did he say?","That it's a sign to leave the old barn till spring. I said it's a billhook. (She sighs.) We'll see. Spring's not long."],
-    ["Did he complain?","Not once. He just held it. Fifty years married, and I learn something new about him every week this month."]]]]],
+    ["Did he complain?","Not once. He just held it. Thirty years married, and I learn something new about him every week this month."]]]]],
  "Take a potato. They're the bravest thing on the farm."],
 28:["(Hilda is sweeping out the hay barn under its new roof, with a big broom, and singing.) Every faction's making its big push today, Olaf says. Flags everywhere. Speeches. (She sweeps.) I'm sweeping a barn. Next year it'll be full of hay. That's my big push.",[
   ["You're singing.","Haven't sung since my wedding. The barn's got an echo. Olaf's hiding in the byre so he doesn't have to hear it. He's humming along. I can hear him."],
