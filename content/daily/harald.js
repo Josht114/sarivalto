@@ -8,7 +8,8 @@ DAILY['Harald']={
   ["Who are the Republicans?","A club for people who believe in business, freedom and a fair wind. We've no leader since old Mr Strand retired to his boat. Three of us want the job. I'm the one who smiles."],
   ["Who else is standing?","Magnus, for the oil company, who has a great deal of money and no small talk. And Carlo, for, well, for some very loyal friends. He lives two floors below me. We nod in the lift."],
   ["Give me a quote, then.","(He thinks.) 'What's good for Kelp Cola is good for the island.' No. Too short. Elin will make it longer. Elin makes everything longer, then shorter."]],
- "Come back any time. My door's always open. Elin's isn't, but mine is."],
+ "Come back any time. My door's always open. Elin's isn't, but mine is.",
+ "Harald of Kelp Cola wants to lead the Republicans. His rivals are Magnus of the oil company and Carlo."],
 4:["(Harald is on the telephone, smiling at it.) And how is your mother, Mr Lindgren? Her hip? Oh, I am sorry. Give her my very best. (He hangs up.) That's forty Republicans. I've asked after forty mothers.",[
   ["Do you mean it?","Every word. Mothers matter. A man's mother tells you what kind of man he is. Lindgren's mother bakes for the church. Lindgren will vote for whoever she likes."],
   ["Isn't that a strange way to campaign?","It's the only way I know. I don't have Magnus's money or Carlo's friends. I have a telephone and a good memory for hips."],
@@ -131,7 +132,7 @@ DAILY['Harald']={
   ["What's happening in the city?","A Party picture at the cinema and big card games at the pizzeria. Carlo's friends are playing for high stakes, they say. I don't gamble. Except on this election."],
   ["Is Carlo worried?","Carlo's never worried. He just looks at you until you are. I nodded at him in the lift this morning. He nodded back and said 'Good luck, Harald.' I didn't sleep."]],
  "Two days. Wish me luck. Not like Carlo did."],
-28:["(The square below is full of flags. Harald is watching from the window with his tie loosened.) Every faction's big push today. Red flags, royal cars, cola going abroad. And tomorrow, the Republicans. My push. I've never been so nervous.",[
+28:["(The square below is full of flags. Harald is watching from the window with his tie loosened.) Every faction's big push today. Red flags, royal carriages, cola going abroad. And tomorrow, the Republicans. My push. I've never been so nervous.",[
   ["Is Kelp Cola going abroad?","Buyers from overseas, in the factory today. Phil's beside himself. If the cola goes abroad, I'll be the candidate for an international company. Very grand."],
   ["Have you practised your speech?","Eleven times. Elin's crossed out one word. 'Very.' She says I say it too much. She's very right. Sorry. She's right."],
   ["What will you do tonight?","Feed Mandate. Read my mother's postcards. Practise my smile once, and then put it away and sleep."]],

@@ -7,17 +7,20 @@ DAILY['Olga']={
   ["How do you tell a fresh fish?","The eye, the gill and the smell. Bright, red and the sea, not the harbour. Anyone who sells you a cloudy eye is a thief or a fool, and I'm neither."],
   ["Who's Hannu?","The newsstand. He sells headlines he makes up himself and opinions he borrows from me. I shout, he agrees, and the next day he's back to being wrong."],
   ["How much for that one?","For you, today, the same as everybody. Don't look hurt. Fish don't care who's buying."]],
- "Before noon, it's cheaper. After noon, it's my mood."],
+ "Before noon, it's cheaper. After noon, it's my mood.",
+ "Olga sells herring in Saltwick and judges a fish by its eye. Hannu's headlines are borrowed from her."],
 2:["(Olga is shouting across the lane.) HELMI! Your sign's crooked! (A voice shouts back. Olga looks satisfied.) Helmi at the outfitters. We've shouted at each other for twelve years. It's how we say good morning.",[
   ["Are you friends?","Rivals and friends. She sells the boots, I sell the catch. A fisherman needs both, and neither of us admits it."],
   ["Is her sign crooked?","No. But now she'll go out and look, and that's my morning's entertainment."],
   ["How's trade with the road open?","Better. Kingsgrad wants herring for the funeral week. They'll want it pickled, smoked and cheap, and they'll get two of the three."]],
- "If you hear shouting from the lane, nobody's dying. It's just me and Helmi."],
+ "If you hear shouting from the lane, nobody's dying. It's just me and Helmi.",
+ "Olga and Helmi have shouted across the lane at each other for twelve years. It's how they say good morning."],
 3:["(Olga is hanging herring on rods in a little wooden shed that billows smoke.) My smoking shed. Juniper and alder, and my mother's secret, which is time. Nobody on this island has any patience except me and the fish.",[
   ["What's the secret, then?","Three days, not two. Everybody stops at two because they're hungry. I stop at three because I'm stubborn."],
   ["Can I try a piece?","(She tears off a strip.) There. If you don't say 'oh', you've no soul."],
   ["Who buys smoked herring?","Ray, for the bar. Marta, for the palace, who says it's too salty and orders more. And Aili, who puts it in eggs, which is American and wrong and delicious."]],
- "Don't stand downwind of the shed. You'll smell of it till Christmas."],
+ "Don't stand downwind of the shed. You'll smell of it till Christmas.",
+ "Olga smokes her herring for three days, not two. Ray, Marta and Aili all buy it."],
 4:["(Olga is rubbing her lower back with both fists.) Helmi was in at seven wanting a crate on credit for a boy who hasn't paid her since March. I said yes. I always say yes. My back says no.",[
   ["What's wrong with your back?","Thirty years of crates. The doctor in Kingsgrad says rest. I said I'll rest when the fish do."],
   ["Why say yes?","Because the boy's father fished with my father. In Saltwick, a debt's not a sum, it's a family tree."],

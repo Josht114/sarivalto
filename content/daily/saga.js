@@ -8,12 +8,14 @@ DAILY['Saga']={
   ["What is this place?","The Hot Springs Spa. The water comes up out of the mountain, hot enough to boil an egg if you're patient. People sit in it and forget who they are. That's what they pay for."],
   ["Who comes here?","The rich, mostly, from Hope Springs and Kingsgrad. A fisherman once, who'd won it in a raffle. Tom. He came out pink and frightened."],
   ["Does anyone talk to you?","Everyone talks in the steam. The steam makes them forget there's anyone else in the room. I hand out towels, and I'm a very good wall."]],
- "Keep the towel. Bring it back clean, or not at all."],
+ "Keep the towel. Bring it back clean, or not at all.",
+ "Saga hands out towels at the Hot Springs Spa. Everyone talks in the steam, and she's a very good wall."],
 3:["(Saga is folding towels into perfect squares, with a little radio playing on the desk.) The same three songs, over and over. Kaisa plays them for the old king. I hum them in the bath. My neighbour says the walls are paper.",[
   ["Which neighbour?","Toni, from the arcade, on one side. Aino, from the cola factory, on the other. Toni says I'm better than the radio. Aino sings louder than me. We're a very musical floor."],
   ["What are the songs?","A waltz, a sad one about a harbour, and one about a girl in a green coat. I don't know their names. I just know when they're coming."],
   ["Do you like the job?","I like the quiet. The water's always hot and the people are always tired. Nobody shouts in a hot bath. It's not possible. I've seen people try."]],
- "Come and sit in the water one day. You'll forget what you came for."],
+ "Come and sit in the water one day. You'll forget what you came for.",
+ "Saga lives between Toni from the arcade and Aino from the cola factory. She hums Kaisa's sad songs."],
 4:["(Saga is watching a man in a dressing gown walk very slowly to the bath, as if it might bite.) First timer. You can always tell. They walk in like it's the sea in January.",[
   ["What should a first timer know?","Go in slowly. Don't talk for the first five minutes. And don't fall asleep, or the mountain will cook you like a dumpling."],
   ["Who owns the spa?","Old Mrs Valo. She lives in Helsinki now and writes once a month to ask if the water's still hot. I write back: yes. That's our whole correspondence."],
@@ -121,8 +123,8 @@ DAILY['Saga']={
   ["Can you?","Nobody can persuade Mrs Valo of anything. Her husband built the bath. She'll sell when the mountain stops breathing. And it's breathing harder than ever."],
   ["Will you tell him no?","I'll tell him I'll pass it on. Which I will. Mrs Valo will write back two lines. I already know what they'll be."]],
  "If you see Dario, don't mention towels. He'll want to buy them too."],
-25:["(Saga has a telephone on the desk, and it rings while you're there. She lets it ring.) Dario. Third time today. He's very persistent. He offered a new car this morning. I don't drive.",[
-  ["What's he offering now?","Everything. A car, a cottage, a holiday in Spain. He's found out about the cottage I want. I don't know how. I only ever told the steam."],
+25:["(Saga has a telephone on the desk, and it rings while you're there. She lets it ring.) Dario. Third time today. He's very persistent. He offered a new boat this morning. I get seasick.",[
+  ["What's he offering now?","Everything. A boat, a cottage, a holiday in Spain. He's found out about the cottage I want. I don't know how. I only ever told the steam."],
   ["A cottage? That's tempting.","(She looks out of the window at the sea.) It is. That's what frightens me. He's offering me the one thing I've been saving for since 1976."],
   ["What will you do?","Wait. Pass it on to Mrs Valo. Not decide anything tonight. Never decide anything at night. That's my grandmother's rule."]],
  "If the telephone rings again, I'm not here."],

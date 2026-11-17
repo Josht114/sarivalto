@@ -7,12 +7,14 @@ DAILY['Freja']={
   ["Looks fine to me.","Fine is how rooms die. It wants to face the window, not the door. People put a sofa where it's convenient, and then wonder why they're sad."],
   ["What's the shop called?","Nordhem Furniture. Beds, sofas, tables, fireplaces. If you've a home on this island, something in it came from me, and I probably told you where to put it."],
   ["How's Kingsgrad since the king died?","Quiet, and full of people sitting still in their front rooms. It makes them look at their furniture. That's good for trade, and I'm not proud of it."]],
- "Mind the corner of the dresser. Everybody hits it. I've moved it four times."],
+ "Mind the corner of the dresser. Everybody hits it. I've moved it four times.",
+ "Freja sells furniture at Nordhem Furniture, and tells people where to put it."],
 3:["(Freja is dusting a deep green wing-back armchair in the corner.) This is the chair nobody buys. Four years in this corner. People sit in it, sigh and walk away. I've started to take it personally on its behalf.",[
   ["What's wrong with it?","Nothing. It's perfect. It's just very green, and very honest. It looks at you as if it knows you've been lying about something."],
   ["Can I sit in it?","(She gestures.) Go on. (You sit.) There. You sighed. Everybody sighs. That's the chair working."],
   ["Why not lower the price?","Because then it'd be a cheap chair that nobody buys. At this price it's a fine chair that's waiting. There's a difference."]],
- "Don't tell the chair I talk about it."],
+ "Don't tell the chair I talk about it.",
+ "Freja's green wing-back armchair hasn't sold in four years. Everyone who sits in it sighs."],
 4:["(Freja has a tape measure round her neck and a pencil behind her ear.) Doctor Lind next door wants a new examining couch. I went to measure. She's had the couch against the radiator for six years. I nearly called the police.",[
   ["Is that bad?","The leather's cracked like a riverbed. Her patients have been lying on a map of Finland. I've told her: under the window, away from the heat. She looked at me as if I'd prescribed something."],
   ["Do you rearrange everyone's rooms?","Only if they let me in. Once I'm in, it's too late. Bertil upstairs had his desk facing the wall for twenty years. Now it faces the door. He says he can see the future coming."],

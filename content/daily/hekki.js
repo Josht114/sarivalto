@@ -9,17 +9,20 @@ DAILY['Hekki']={
     ["Did she believe you?","She gave me a biscuit. So yes, I think so. Or she pities me. Either works."],
     ["Who's Kaisa?","The radio. The voice, I mean. She does the shows from the hut next door. (He looks at his boots.) She's very good."]]]],
   ["Is the radio set working?","Like a dream. Chuck's frequency is marked in red pencil, and the big screen's warmed up. I tested it on a weather report from Oslo. It was raining."]],
- "Third shelf. Gently."],
+ "Third shelf. Gently.",
+ "Hekki is the CIA's man on the island. Your room is behind the bookcase in his shack. Only Kaisa has noticed anything."],
 2:["(Hekki is untangling a coil of wire with great patience.) Kingsgrad's open. You'll be up at the palace, Chuck says. Well, I listened while he said it. That's most of my job.",[
   ["What's the palace like?","I've only seen the gates. I fixed the prince's wireless once, through a footman. He'd had it tuned to a jazz station in Helsinki. I've told nobody. Until now."],
   ["Do you listen to everything?","Not everything. Not the monastery: it feels rude. And not Kaisa, because I don't have to. She's on the radio."],
   ["Any advice for a royal household?","Wipe your feet. Bow a bit, not a lot. And don't let the butler see you looking at the silver. Edmund counts it."]],
- "Wipe your feet at the palace."],
+ "Wipe your feet at the palace.",
+ "Hekki once mended Prince Leopold's wireless, which was tuned to a jazz station in Helsinki."],
 3:["(Hekki is eating a sandwich over a speaker, very carefully.) The Kelp Cola switchboard is the loudest thing on the island. Forty calls an hour, and every one of them is about money or lunch.",[
   ["Anything worth knowing?","Phil rang his tailor twice. And someone on the third floor keeps asking about 'the safe', as if it might be listening. I wrote it down. I write everything down."],
   ["You're getting crumbs in the speaker.","(He brushes it.) It's fine. It's had worse. A mouse lived in it all through 1979, until Morse found him."],
   ["Is listening in legal here?","(He thinks about it.) There's no law against it. There's no law for it either. I've decided that means it's encouraged."]],
- "Mind the crumbs."],
+ "Mind the crumbs.",
+ "Hekki listens to the Kelp Cola switchboard. Someone on the third floor keeps asking about 'the safe'."],
 4:["(Hekki holds up a parcel tied with string.) Nothing for you. This is mine: a valve from Helsinki, three months late. I've already named it.",[
   ["What did you name it?","Ludmila. All the good valves are Ludmilas. Don't ask me why. It's a radio thing."],
   ["Eastbrook's open. Anything from there?","The Democrats meet at the community centre and argue about the chairs. Erik wants them in a circle. Everyone else wants to see the biscuits."],

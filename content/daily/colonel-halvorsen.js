@@ -67,11 +67,11 @@ DAILY['Colonel Halvorsen']={
 18:["(The Colonel is pinning a new kind of flag on the map: grey.) Grey is ash. There's grit on the barracks windows this morning. From the north. (He steps back.) I've never needed a grey flag. I've had to make one. Rask made it from a sock.",[
   ["Is the army ready?","Forty-one men, nine guns, a hundred and twelve blankets, minus three, and a cook who can feed a town from one pot. Ready for what, I'm not sure. Ready for something."],
   ["What's the news?","The Republican files have been interfered with, they say. Carlo's very upset. He's two doors down from me. He walked my dog last night to calm down. Brigadier was very calm. Carlo wasn't."],
-  ["Will you evacuate anyone?","If the mountain speaks. The army will move the farms first, then the villages, then Hope Springs. (He pauses.) The rich last. They have cars. Farmers have cows."]],
+  ["Will you evacuate anyone?","If the mountain speaks. The army will move the farms first, then the villages, then Hope Springs. (He pauses.) The rich last. They have carriages. Farmers have cows."]],
  "Keep a blanket by your door. Rask's orders, for everyone."],
 19:["(The Colonel is reading a dinner card again, and puts it down unread.) Another palace dinner. Number six. Tonight. (He looks at the map, at the grey flags.) I've declined. The army has a mountain to watch.",[
   ["You declined the palace?","For the first time. (He straightens his tunic.) A colonel watches the mountain on a night like this. Not the soup. The prince will understand. He's out tonight himself, I hear. In a hat."],
-  ["In a hat?","(Expressionless.) A large hat. And a moustache that wasn't his. Koski at the gate saw the car go out. Koski reads adventure novels. He knows a disguise when he sees one."],
+  ["In a hat?","(Expressionless.) A large hat. And a moustache that wasn't his. Koski at the gate saw the carriage go out. Koski reads adventure novels. He knows a disguise when he sees one."],
   ["Is the mountain getting worse?","Steam. The smell of eggs. The gulls have gone inland. (He looks north.) Rask has issued the men their second blankets. Rask never issues second blankets."]],
  "Go somewhere low tonight if you can. That's advice, not an order."],
 20:["(The Colonel is at the barracks gate in his greatcoat, giving orders to a line of soldiers with carts.) To the farms. Help them move their animals down. The army does not take sides in politics. The army takes sides with cows.",[

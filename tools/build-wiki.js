@@ -92,9 +92,9 @@ function controlsBody(c){const k=s=>s.split(' / ').map(x=>x.split('+').map(y=>`<
     ['1 to 9','Pick that reply straight away.'],
     ['E / Space / Enter','Say the reply you\'ve chosen.'],
     ['Escape','End the conversation.']])+
-  sec('The menu','The menu has the Inventory, Quests, Journal, Map, Save and Options tabs (the Map tab only once you have a Map of Sarivalto: the newsstands and the bookshop sell them). The game waits while it\'s open.',[
+  sec('The menu','The menu has the Inventory, Quests, Journal, Information, Map, Save and Options tabs (the Map tab only once you have a Map of Sarivalto: the newsstands and the bookshop sell them). The Information tab notes what each person told you, day by day; some of it changes what people say to you later. The game waits while it\'s open.',[
     ['M','Open or close the menu.'],
-    ['Tab / Shift+Tab | 1 to 6','Change tab.'],
+    ['Tab / Shift+Tab | 1 to 7','Change tab.'],
     ['Left / Right / A / D','Change tab (except on the Inventory tab).'],
     ['Arrows / W A S D','On the Inventory tab, move through what you\'re carrying.'],
     ['E / Space / Enter','On the Inventory tab, do the first thing the chosen item can do.'],
@@ -181,6 +181,27 @@ conversations, with fewer branches. The Sonnet days are the ones to polish first
 <tr><td>Both (by day)</td><td>${ppl.mixed}</td><td>-</td><td>-</td></tr>
 <tr><td><b>All</b></td><td><b>${ppl.opus+ppl.sonnet+ppl.mixed}</b></td><td><b>${all}</b></td><td></td></tr></tbody></table></div>
 <h2>Everyone</h2>`+filter+`<div class="wide"><table class="grid sortable"><thead><tr><th data-col="0" class="asc">Person</th><th data-col="1">Faction</th><th data-col="2">Days</th><th data-col="3">Conversations</th><th data-col="4">Written by</th></tr></thead><tbody>${rows}</tbody></table></div>`}
+// ---- Information: the conversations that change later ones (a reply that needs 'Name:day' heard, or not heard, and other
+// openers), grouped by the conversation they depend on, and how many conversations have a summary for the Information tab, day by day
+function infoBody(c){const who=n=>{const p=NPCS.find(x=>x.name==n);return p?npcA(c,p):esc(n)},day=d=>esc(qDate(+d)),need={};
+  const add=(k,o)=>{const m=/^(!?)(.+):(\d+)$/.exec(k);if(!m)return;(need[m[2]+':'+m[3]]??=[]).push({...o,not:!!m[1]})};
+  // every reply, however deep, that has a need
+  const walk=(n,d,opts)=>(opts||[]).forEach(o=>{if(o[2])add(o[2],{n,d,kind:'reply',t:o[0]});if(Array.isArray(o[1]))walk(n,d,o[1][1])});
+  for(const n in DAILY)for(const d in DAILY[n]){const D=DAILY[n][d];walk(n,d,D[1]);for(const k in D[4]||{})add(k,{n,d,kind:'opener',t:D[4][k]})}
+  const keys=Object.keys(need).sort((a,b)=>{const[x,i]=a.split(':'),[y,j]=b.split(':');return i-j||x.localeCompare(y)});
+  const effect=e=>e.kind=='opener'?'Opens differently':e.not?'Reply only if <b>not</b> heard':'Reply only if heard';
+  const rows=keys.map(k=>{const[n,d]=k.split(':'),D=DAILY[n]?.[d],es=need[k].sort((a,b)=>a.d-b.d||a.n.localeCompare(b.n));
+    return es.map(e=>`<tr data-s="${esc((n+' '+e.n+' '+e.t).toLowerCase())}"><td>${who(n)}, ${day(d)}<br><small>${esc(D?.[3]||D?.[0]||'')}</small></td><td>${who(e.n)}, ${day(e.d)}</td><td>${effect(e)}</td><td>${esc(e.t)}</td></tr>`).join('')}).join('');
+  // summaries, day by day
+  const per=[];for(let d=1;d<=30;d++){let all=0,sum=0;for(const n in DAILY)if(DAILY[n][d]){all++;if(DAILY[n][d][3])sum++}per.push([d,all,sum])}
+  const tot=per.reduce((a,[,x,y])=>[a[0]+x,a[1]+y],[0,0]),pc=(x,y)=>y?Math.round(x/y*100):0;
+  return `<h1>Information</h1><p>Every conversation the player hears goes into the menu's Information tab, under its day, with a one-line summary of what they
+learned (or, without a summary, what they asked). Some of it changes what people say later: a reply that only appears if you heard a certain conversation (or didn't),
+or a different opener for someone you've already met. Each conversation is named by who and which day, as in <code>'Elin:2'</code>; content/daily/README.md says how to write them.</p>
+<h2>What changes later conversations</h2><p>${keys.length} conversation${keys.length==1?'':'s'} change${keys.length==1?'s':''} ${keys.reduce((a,k)=>a+need[k].length,0)} later replies or openers.</p>
+${keys.length?filter+`<div class="wide"><table class="grid infot"><thead><tr><th>Heard</th><th>Changes</th><th>How</th><th>What's said</th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p>None yet.</p>'}
+<h2>Summaries</h2><p>${tot[1]} of ${tot[0]} conversations (${pc(tot[1],tot[0])}%) have a summary for the Information tab.</p>
+<div class="qtable"><table class="sched sum"><thead><tr><th>Day</th><th>Conversations</th><th>With a summary</th></tr></thead><tbody>${per.map(([d,a,s])=>`<tr><td>${day(d)}</td><td>${a}</td><td>${s}${s&&s<a?` <small>(${pc(s,a)}%)</small>`:s?' <b class="tick">&#10003;</b>':''}</td></tr>`).join('')}</tbody></table></div>`}
 function accessBody(c){const place=id=>A(c,'locations',id,L[id][0]),list=a=>a.length?a.join(', '):'–';
   const rows=OPEN_DAYS.map(d=>{const opens=Object.keys(POS).filter(id=>openDay(id)==d),dists=[...new Set(opens.map(id=>DISTRICT_OF[id]))],whole=k=>Object.keys(POS).filter(i=>DISTRICT_OF[i]==k).every(i=>openDay(i)==d);
     return`<tr><th>${d} September</th><td>${dists.length?dists.map(k=>`<span class="sw" style="background:${DISTRICTS[k][1]}"></span>${esc(DISTRICTS[k][0])}${whole(k)?'':' <small>(part)</small>'}`).join(', '):'–'}</td><td>${list(opens.map(place))}</td><td>${Object.keys(POS).filter(id=>isOpenOn(id,d)).length} of ${Object.keys(POS).length}</td>`+
@@ -428,7 +449,8 @@ main,.page{max-width:900px;margin:0 auto;padding:18px 20px 40px}h1{margin:.2em 0
 .wide{position:relative;left:50%;transform:translateX(-50%);width:min(1280px,calc(100vw - 32px));overflow-x:auto}
 .grid{width:100%;min-width:900px;table-layout:fixed;border-collapse:collapse;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--bd)}.grid th,.grid td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--bd)}
 .grid th{position:sticky;top:0;background:var(--card);color:var(--mut);white-space:nowrap}.grid th[data-col]{cursor:pointer}.grid th[data-col]:hover{color:var(--fg)}.grid th.asc:after{content:' ▲'}.grid th.desc:after{content:' ▼'}
-.grid td{overflow-wrap:anywhere}.grid td:nth-child(3),.grid td:nth-child(4){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
+.grid td{overflow-wrap:anywhere}.grid td:nth-child(3),.grid td:nth-child(4){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.grid td.note{color:var(--mut)}
+.grid.infot td{white-space:normal;overflow:visible}.grid tbody tr:nth-child(even){background:color-mix(in srgb,var(--bd) 18%,transparent)}
 .cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 24px}.cols2 h3{margin:.6em 0 .2em}
 .cols{columns:2 240px;list-style:none;padding:0}.cols li{break-inside:avoid;margin:0 0 8px}small{color:var(--mut)}
 .map{width:100%;height:auto;border:1px solid var(--bd);border-radius:6px;display:block}.filter{width:100%;padding:8px 10px;font:inherit;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--fg)}
@@ -465,13 +487,14 @@ document.addEventListener('click',function(e){var th=e.target.closest('.sortable
   t.querySelectorAll('th').forEach(function(h){h.classList.remove('asc','desc')});th.classList.add(up?'asc':'desc');
   var v=function(r){var c=r.cells[k];return(c.dataset.v||c.textContent).toLowerCase()};
   Array.from(b.rows).sort(function(x,y){return(v(x)<v(y)?-1:v(x)>v(y)?1:0)*(up?1:-1)}).forEach(function(r){b.appendChild(r)})})`;
-const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${lst(c,'controls')}">Controls</a><a href="${lst(c,'assets')}">Art</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
+const nav=c=>`<header><a class="brand" href="${home(c)}">SARIVALTO WIKI</a><nav><a href="${lst(c,'locations')}">Locations</a><a href="${lst(c,'factions')}">Factions</a><a href="${lst(c,'npcs')}">People</a><a href="${lst(c,'hierarchies')}">Hierarchies</a><a href="${lst(c,'quests')}">Quests</a><a href="${lst(c,'access')}">Access</a><a href="${lst(c,'audio')}">Audio</a><a href="${lst(c,'dialogue')}">Dialogue</a><a href="${lst(c,'information')}">Information</a><a href="${lst(c,'controls')}">Controls</a><a href="${lst(c,'assets')}">Art</a><a href="${c.single?'':c.pre}../island-map.svg">Map</a><a href="${c.single?'':c.pre}../index.html">Game</a></nav></header>`;
 const pages=[{k:'',id:'home',title:'Home',body:homeBody,file:'index.html',pre:''}];
 pages.push({k:'hierarchies',id:'hierarchies',title:'Hierarchies',body:hierBody,file:'hierarchies/index.html',pre:'../'});
 pages.push({k:'quests',id:'quests',title:'Quests',body:questsBody,file:'quests/index.html',pre:'../'});
 pages.push({k:'access',id:'access',title:'Access',body:accessBody,file:'access/index.html',pre:'../'});
 pages.push({k:'audio',id:'audio',title:'Audio',body:audioBody,file:'audio/index.html',pre:'../'});
 pages.push({k:'dialogue',id:'dialogue',title:'Dialogue',body:dialogueBody,file:'dialogue/index.html',pre:'../'});
+pages.push({k:'information',id:'information',title:'Information',body:infoBody,file:'information/index.html',pre:'../'});
 // the Art Assets page: every picture the game would need for ready-made art (tools/wiki-assets.js)
 const assetsBody=require('./wiki-assets.js')(box.D,root);
 pages.push({k:'assets',id:'assets',title:'Art Assets',body:()=>assetsBody,file:'assets/index.html',pre:'../'});

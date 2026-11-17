@@ -11,7 +11,7 @@ DAILY['Arto']={
  "If it rings while I'm at the café, answer it. Say I'm in a meeting."],
 8:["(Arto is sitting on the kerb by the phone box with a library book open on his knee, the spine cracked.) Whales. (He turns a page.) I've read about whales every day since June. (He looks up.) I know more about whales than anyone on the island who isn't a whale.",[
   ["Why whales?","It was the first book on the shelf. (He shrugs.) Under W. I started at the end. (He turns a page.) I thought, if I'm going to wait, I might as well wait for something big."],
-  ["What have you learned?","A blue whale's heart is the size of a car. (He looks at the phone box.) And they can hear each other across a whole ocean. (A pause.) I can't hear a phone across a street."],
+  ["What have you learned?","A blue whale's heart is the size of a hot dog cart. (He looks at the phone box.) And they can hear each other across a whole ocean. (A pause.) I can't hear a phone across a street."],
   ["Who's your friend?","Raili? (He nods down the boulevard at a woman in a pink scarf.) She lost her job at the Aurora in the spring. We wait together. (He grins.) She waits for the hotel. I wait for the herring. We share the bench."]],
  "Sunday. Nobody rings on a Sunday. But I'll wait anyway."],
 9:["(Arto is reading a red leaflet with great care, mouth moving.) 'The People's Cola.' (He looks up, hopefully.) The Party says it'd need workers. A lot of them. I asked the girl 'where?' She said 'everywhere.' (He folds it.) Everywhere's a big place to apply to.",[
@@ -103,7 +103,7 @@ DAILY['Arto']={
  "If you see the princess, tell her it's my box. Politely."],
 26:["(Arto has a cola bottle, half full, and is holding it up to the light.) 'A Prince in Every Bottle', they're whispering. (He squints into it.) I've checked six. (He turns it.) No prince. Not even a little one. (He lowers it.) I think it's metaphorical.",[
   ["What's the news?","Toni's game's here! (He looks delighted.) Turbo Rally. Came off a boat this morning with ash on the box. (He grins.) She's setting it up. She says I can have the first go. After her. And the children."],
-  ["Will you play?","(He looks at his shovel.) After my shift. (He grins.) I've never driven anything. Not even a bicycle. (He takes a sip of cola.) In Turbo Rally I can drive a racing car. For ten cents."],
+  ["Will you play?","(He looks at his shovel.) After my shift. (He grins.) I've never driven anything. Not even a bicycle. (He takes a sip of cola.) In Turbo Rally I can go faster than the tram. For ten cents."],
   ["Is the council job ending?","Saturday. (He looks at the clean street.) Then the ash is gone. (He shrugs.) I'll miss it. It's the first thing I've been good at since the herring."]],
  "If you find a prince in a bottle, tell me. I'll stop checking."],
 27:["(Arto is standing by the door of Toni's arcade, very official, with a clipboard Toni's given him and a queue of children stretching up the boulevard.) One at a time! (He checks the clipboard.) Three minutes each! No pushing! (He looks at you.) I'm managing the queue. Toni says I'm very strict.",[

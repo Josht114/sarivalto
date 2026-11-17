@@ -8,12 +8,15 @@ DAILY['Rosa']={
   ["Mustard, please.","(She lays it on thick.) There. Now you're a Kingsgrad person. Nobody leaves this cart without yellow on their coat."],
   ["How did you know I was a reporter?","You looked at the cola offices, then the palace, then my cart, in that order. Reporters always look at the food last. Then they come back for it."],
   ["What's the gossip in the square?","The road's just opened, and everyone's gone up to the palace to look sad. They'll be back by noon, hungry. Sadness makes people hungry."]],
- "Come back when you're hungry. Or when you're not. I'll feed you anyway."],
-3:["(Rosa is watching the cola offices, chewing on a pickle.) Phil came in at eight in the blue car. He bought nothing from me. Phil never buys anything from me. Phil eats salad at his desk like a sad rabbit.",[
+ "Come back when you're hungry. Or when you're not. I'll feed you anyway.",
+ "Rosa sells hot dogs in Kingsgrad's square, with mustard on everything. Ville watches the square with opera glasses."],
+3:["(Rosa is watching the cola offices, chewing on a pickle.) Phil came in at eight off the tram, in his blue scarf. He bought nothing from me. Phil never buys anything from me. Phil eats salad at his desk like a sad rabbit.",[
   ["What's Phil like?","Nervous, clever and very well dressed. He worries about the cola like a mother worries about a child that's already grown up and left."],
   ["Who does buy from you?","The cola men at one, the palace staff at two, and Ville every day at eleven, whether he's hungry or not. It's the only time he stops looking through those glasses."],
-  ["Do the cola men talk at lunch?","Constantly. About a new advert, today. A big secret. Phil would faint if he knew I knew. (She taps her nose.) Not a word. Especially not to Phil."]],
- "If you see Phil, tell him a sausage never hurt anyone."],
+  ["Do the cola men talk at lunch?","Constantly. About a new advert, today. A big secret. Phil would faint if he knew I knew. (She taps her nose.) Not a word. Especially not to Phil."],
+  ["Elin says you know everything.","(She chews her pickle thoughtfully.) I know whose milk goes in her coffee, if that's what she means. I sell sausages, not secrets.","Elin:2"]],
+ "If you see Phil, tell him a sausage never hurt anyone.",
+ "Phil never buys from Rosa. The cola men talk at her cart about a new advert, a big secret."],
 4:["(Rosa is scowling down the road towards Eastbrook.) Eastbrook's open. That means Dex, with his cart, by the tram. He sells a hot dog with pickled cabbage. Cabbage. On a hot dog. It's a crime.",[
   ["Who's Dex?","Dex sells hot dogs in Eastbrook to Democrats. He came over the hill this morning to look at my cart. He looked. I looked back. He left. That's how we talk."],
   ["Is his any good?","(She looks at you very hard.) His cabbage is good. His sausage is a disgrace. Don't you ever tell him I said the first part."],
@@ -136,7 +139,7 @@ DAILY['Rosa']={
   ["What are the high stakes?","The gentleman in the back room's playing for something big, they say. His men are buying cigarettes from Ville with shaking hands. That's never happened before."],
   ["What does the square think?","That something's about to happen, and nobody knows what. Like the day before the mountain went, but with more speeches."]],
  "Two more days. Eat while you can."],
-28:["(The square is full of flags and banners, and Rosa's cart is right in the middle.) Every faction's making its big push today. Red flags, royal cars, cola going abroad. And all of them stop at my cart for lunch.",[
+28:["(The square is full of flags and banners, and Rosa's cart is right in the middle.) Every faction's making its big push today. Red flags, royal carriages, cola going abroad. And all of them stop at my cart for lunch.",[
   ["Who's the hungriest?","The Party. They've been marching since six. Then the palace staff, who've been polishing since five. Then the cola men, who've been nervous since Monday."],
   ["Who's winning?","Whoever I give extra mustard to, I'd like to think. But I give it to everyone. That's my secret. Everyone wins at Rosa's."],
   ["Have you seen anything strange?","A man from the palace and a man from the Party, sharing a hot dog, not talking. I gave them each a napkin. Some things are bigger than politics."]],

@@ -1,6 +1,6 @@
 // Private Koski, sentry at the barracks guard post (the Army). Threads: checking every visitor's papers (including people he knows well);
 // the cold and the hours; the six adventure novels hidden in his greatcoat (Captain Rook and the sea serpent), which the Colonel secretly
-// reads the backs of; his terrible bugle; never once hitting the target at the range; the prince's car going out on the 19th with a hat and a
+// reads the backs of; his terrible bugle; never once hitting the target at the range; the prince's carriage going out on the 19th with a hat and a
 // false moustache; keeping the gate all night on the 21st and reading nothing; reading the Colonel's letter to the mountain aloud (22nd).
 DAILY['Private Koski']={
 6:["(A tall, thin soldier in a greatcoat steps out of the sentry box and holds up a hand.) Halt. Who goes there. (He squints at you.) Papers, please. Everyone needs papers. Even the Colonel's dog. He's got papers. I made them.",[
@@ -69,7 +69,7 @@ DAILY['Private Koski']={
   ["What's the sergeant doing?","Making a flag. Out of a sock. (He lowers his voice.) A grey one. For the Colonel. Because everything's grey. (He looks at his coat.) The sergeant thinks of everything. It's frightening."]],
  "You may pass. Cover your face. It gets in your teeth."],
 19:["(Koski is at the gate, very alert, with no book in sight.) Halt! (He relaxes.) Oh. You. (He looks down the road.) Something happened last night. On the palace road. I saw it. I've written it in the book. In capitals.",[
-  ["What did you see?","A car. Late. The prince's car. (He leans in.) Going out. Fast. Towards the lighthouse road. (He looks very serious.) There was a man in the back. In a hat. And a moustache."],
+  ["What did you see?","A carriage. Late. The prince's carriage. (He leans in.) Going out. Fast. Towards the lighthouse road. (He looks very serious.) There was a man in the back. In a hat. And a moustache."],
   ["The prince?","(He looks round.) The prince doesn't have a moustache. (He leans in further.) But this moustache was crooked. Like it was stuck on. (A pause.) Like the spy in book six. The one in the wig."],
   ["Who else knows?","The Colonel. I told him this morning. (He looks puzzled.) He said 'Koski, you saw nothing.' Then he wrote something down. Then he said 'good man.' (He frowns.) I don't know if I saw nothing or something."]],
  "You may pass. If you see a man in a crooked moustache, don't say I said anything."],
@@ -125,11 +125,11 @@ DAILY['Private Koski']={
 29:["(Koski is at the gate, reading the last book, with tears in his eyes.) I finished it. Last night. (He wipes his eyes.) Captain Rook sails home. He's old. He sits on the harbour wall. (He closes it.) And he tells a boy about the serpent.",[
   ["That's a lovely ending.","(He nods, very hard.) The boy wants to be a sailor. (He looks at the gate.) Like my uncle telling me about the king. (He wipes his eyes.) I'm going to start again. From book one. I'm going to read them to Aho."],
   ["How was the state visit?","They say Aho swayed, and the sergeant held him by the belt. And Niemi hummed. (He grins.) Half the line hummed. The Colonel smiled. (He looks at the gate.) And nobody came through the gate. All day. A perfect day."],
-  ["What's happening today?","The Republicans are voting. The palace is arguing about who's next. (He looks at the road.) A lot of cars. A lot of papers. (He holds out his hand.) Which reminds me. Papers, please."]],
+  ["What's happening today?","The Republicans are voting. The palace is arguing about who's next. (He looks at the road.) A lot of carriages. A lot of papers. (He holds out his hand.) Which reminds me. Papers, please."]],
  "You may pass. Read Captain Rook. If you can find him. They don't make him any more."],
 30:["(Koski is at the gate, with a book in his coat and nothing to report.) Last day. They're settling the island today. (He looks down the road.) Whoever comes through this gate tomorrow, I'll ask for their papers. Even if it's a king. Especially if it's a king.",[
   ["What will you do now?","Keep the gate. Read Captain Rook to Aho. Try to hit the target. (He grins.) One day. Before I'm an old man on a harbour wall."],
-  ["Will you remember this month?",["(He looks at the mountain, quiet now.) The night it went. The carts. The prince's car with the crooked moustache. (He looks at you.) Yes. I've written it all down. In the book. In capitals.",[
+  ["Will you remember this month?",["(He looks at the mountain, quiet now.) The night it went. The carts. The prince's carriage with the crooked moustache. (He looks at you.) Yes. I've written it all down. In the book. In capitals.",[
     ["Am I in the book?","(He opens the gate log and shows you.) 'Reporter. From London. Very good papers.' (He closes it.) Every time. Every visit. You're in it more than the post van."],
     ["You should write your own novel.","(He goes red.) Captain Koski and the Mountain of Fire? (He thinks.) Maybe. (He pats his coat.) I'd have to stop reading first. That's the hard part."]]]],
   ["Good afternoon.","(He stands very straight, and salutes.) Good afternoon. (He lowers his hand, very pleased.) I've been waiting since I was nine to say that properly."]],

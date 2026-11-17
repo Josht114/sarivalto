@@ -9,17 +9,20 @@ DAILY['Aili']={
     ["Why come back?","My husband passed, and Duluth was full of him. Saltwick was full of nobody I knew any more. That seemed easier."],
     ["Why a diner?","It's what I know. Eggs, coffee, people who don't want to go home yet."]]]],
   ["What's on the menu?","Coffee, hot dogs, burgers, and a plate of whatever I've got. Today it's fish. Tomorrow it's also fish."]],
- "Mind the bucket on your way out, hon."],
+ "Mind the bucket on your way out, hon.",
+ "Aili runs the diner in Saltwick. She cooked in Duluth, Minnesota for twenty years, and came home after her husband died."],
 2:["(Aili is standing on a chair under the neon sign, with a screwdriver.) The D's gone again. 'INER.' Folks think it's a word in Finnish. It isn't.",[
   ["Can you fix it?","I fix it every week. It unfixes every week. The man in Frostholm wants forty dollars for a new tube. I'd sooner be 'INER'."],
   ["I like 'INER'.","So do the fishermen. They've started calling it that. 'See you at the Iner.' Twenty years in America and this is my legacy."],
   ["Need a hand?","Hold the chair. Don't hold my opinions about the chair. Thank you."]],
- "Tell your London paper we've got neon. Most of it."],
+ "Tell your London paper we've got neon. Most of it.",
+ "The D has gone on Aili's sign again, so the fishermen call the diner 'the Iner'."],
 3:["(Aili sets down a plate of eggs for a fisherman and wipes her hands.) Tom, Sam and Mike were in at five, same as always. Three coffees, two eggs each, and one argument about whose turn it is to pay.",[
   ["Whose turn is it?","Mike's. It's always Mike's. Mike always has a reason. Today his reason was the king."],
   ["Do you open at five?","I never close, hon. I don't sleep much. I'd sooner be up with a coffee pot than lie there listening to the sea."],
   ["Are they Party men?","Sam is. Mike is, when Helen's looking. Tom just likes eggs. Everybody in here is something. I'm a cook."]],
- "Come early tomorrow. The eggs are better before the fishermen eat them all."],
+ "Come early tomorrow. The eggs are better before the fishermen eat them all.",
+ "Tom, Sam and Mike eat at Aili's every morning at five and argue about whose turn it is to pay. It's always Mike's."],
 4:["(Aili is scraping the grill.) Eastbrook's open, they say. Half my coffee customers have gone over to the fancy place with the roaster. Can't blame them. My coffee tastes of the pot.",[
   ["Your coffee's fine.","You're a liar, hon, but you're a polite one. That's the British, isn't it? Walt was the same. He'd say the pancakes were perfect while he picked the burnt bits off."],
   ["Who was Walt?","My husband. He did the books and the pancakes, and I did everything else. He'd have hated it here. Too cold for a man who wore shorts in October."],

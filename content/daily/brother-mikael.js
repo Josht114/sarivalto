@@ -37,11 +37,11 @@ DAILY['Brother Mikael']={
   ["Walked? From Kingsgrad?","All night, in March, in town shoes. Father Thyme opened the gate himself. He didn't ask a single question. He gave me socks."],
   ["Do you know Pat?","No. But I know the look, from the tram shelter. People walk past like you're a lamppost. Being looked at again is the gift, really. More than blankets."]],
  "Take one of the blankets down, if you're going that way."],
-12:["(Brother Mikael looks as if he hasn't slept.) There was a car parked at the bend in the road last night. Lights off. For an hour. Then it drove away. I watched it from the wall the whole time.",[
+12:["(Brother Mikael looks as if he hasn't slept.) There was a carriage stopped at the bend in the road last night. Lamps out. For an hour. Then it went away. I watched it from the wall the whole time.",[
   ["Who was it?","I don't know. Probably no one. Lovers, or someone with a flat tyre, or the oil company looking at the view. Probably no one."],
-  ["Did you tell the Prior?","He'd ask why I was on the wall at two in the morning. And then he'd ask why a car frightens me. I don't want to answer either."],
+  ["Did you tell the Prior?","He'd ask why I was on the wall at two in the morning. And then he'd ask why a carriage frightens me. I don't want to answer either."],
   ["You can't watch the road every night.","I know. But up here nobody comes looking. Usually. It's the 'usually' that keeps me on the wall."]],
- "If you see a car at the bend on your way down, look at the number for me."],
+ "If you see a carriage at the bend on your way down, look at the crest on the door for me."],
 13:["(Brother Mikael is practising the chant in the empty church, and the top note comes out, thin but whole.) Did you hear that? Did you hear it? I got it. Once. It was about the size of a mouse, but I got it.",[
   ["It sounded wonderful.","It sounded like a mouse. But a mouse in tune. Two weeks ago it was a mouse in a trap."],
   ["What changed?","Brother Teodor glazed some carrots with cola, and I ate four. I think it was the sugar. Don't tell the Prior I said that either."],

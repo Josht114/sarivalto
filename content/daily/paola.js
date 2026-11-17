@@ -35,7 +35,7 @@ DAILY['Paola']={
 12:["(Paola is standing very still by the fountain, watching a man in a good suit cross the square very fast.) Mr Phil's brother-in-law. He's remembered what he owes. (She watches him go.) He's going to the Club to pay. I won't need to visit.",[
   ["Do people always pay you?","People always pay the Don. I just remind them that a debt is like a clock. Nobody notices it ticking until it stops."],
   ["Do you enjoy the work?","I enjoy precision. A debt paid on time. A clock that keeps time. A move in chess that can't be answered. Enjoyment's too loud a word. Satisfaction."],
-  ["What does the Don think of you?","(She almost smiles.) He trusts me with his brandy, his car and his secrets. In that order of importance, I think. He's very fond of the brandy."]],
+  ["What does the Don think of you?","(She almost smiles.) He trusts me with his brandy, his boat and his secrets. In that order of importance, I think. He's very fond of the brandy."]],
  "If you owe anyone in Hope Springs anything, pay it. It saves everyone a walk."],
 13:["(Paola is in the Residences lobby, dusting the glass of a grandfather clock.) The Colonel's dachshund has been on the clock again. Brigadier. It has an interest in the pendulum. I think it believes it's a very slow rabbit.",[
   ["Is the clock all right?","Four seconds slow. The dog's breath on the glass. (She closes the case.) I've reset it. Brigadier will be back tomorrow. So will I."],

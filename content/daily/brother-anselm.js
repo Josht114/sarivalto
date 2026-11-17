@@ -14,7 +14,7 @@ DAILY['Brother Anselm']={
  "Vespers is at six. Be gone by then, or be in a pew."],
 7:["(Brother Anselm is writing in the ledger, his mouth a thin line.) 'Diversified Petroleum. Business: roof.' A man in a fur collar, offering to mend our church for nothing. The devil does not usually do roofing, Father Thyme says. I'm not sure the devil has been asked.",[
   ["The roof does leak, doesn't it?","On the icons of Saint Nikolai and Saint Anna. Every winter. I've caught the drips in a basin for twenty years. A basin is honest."],
-  ["What's wrong with free?","Nothing is free that comes up this hill in a car with a heater. When the roof's done, there will be a bill, and it won't be in money."],
+  ["What's wrong with free?","Nothing is free that comes up this hill in a carriage with a fur rug. When the roof's done, there will be a bill, and it won't be in money."],
   ["Will Father Thyme accept?","Father Thyme believes the best of everyone. That is why God gave him a prior."]],
  "Close the gate behind you. The wind gets ideas."],
 8:["(Brother Anselm is straightening the hymn books in the church, very hard.) The Abbot has given his pulpit to a journalist. On the first Sunday without a king. I have said what I think, and now I am saying nothing, loudly.",[
@@ -83,7 +83,7 @@ DAILY['Brother Anselm']={
   ["Maybe the fox went down the valley.","Then it has more sense than any of us. I hope so. It'd be a foolish thing to miss, a fox."],
   ["Is there any news of the relic?","Rumours, from the towns. Every rumour has a different thief. I've written them all down. The book has never been so thick."]],
  "If you see a fox on the road, it's nobody's."],
-20:["(Brother Anselm is coming down from the bell tower.) The Russian again. From the Hotel Aurora. I saw him leave his car at the bend and walk the last mile, to look humble. Humble men don't wear those shoes.",[
+20:["(Brother Anselm is coming down from the bell tower.) The Russian again. From the Hotel Aurora. I saw him leave his carriage at the bend and walk the last mile, to look humble. Humble men don't wear those shoes.",[
   ["What did he want?","He gave the Abbot an icon. Very old, very fine. Stolen from some church in Karelia, I'd bet the bell on it. The Abbot has it under a cloth, and is thinking."],
   ["Will you send it back?","I would. With him attached. But the Abbot says one doesn't refuse an icon, any more than one refuses a child at the door."],
   ["How did you see him so far off?","From the bell tower you can see every bend of the road for three miles. I've been up there more than usual, lately. I'd like to be the first to see what comes."]],

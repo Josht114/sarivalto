@@ -34,7 +34,7 @@ DAILY['Paolo']={
  "Buy Linnea a drink, if you're staying. She needs one."],
 10:["The king's funeral. (Paolo has a black band on his sleeve.) I'm in Eastbrook keeping an eye on things, while the important people are at the palace. Someone has to watch the harbour.",[
   ["What's happening at the harbour?","Boats coming in, boats going out, Liv in her customs shed with her nose in a book. The usual. (He's watching the road very carefully.)"],
-  ["Did you know the king?","I took a bet off his chauffeur once. Five dollars that the king couldn't eat a whole herring in one go. He could. He did it at a fete in front of a hundred people."],
+  ["Did you know the king?","I took a bet off his coachman once. Five dollars that the king couldn't eat a whole herring in one go. He could. He did it at a fete in front of a hundred people."],
   ["You look nervous.","Me? Nervous? I'm Genoese. We're never nervous, we're only alert. Very alert, today."]],
  "Go to the funeral, if you can still get in. Paolo's minding the shop."],
 11:["The mill hands want more money. (Paolo has lowered his voice to a delighted whisper.) Knut says the saw line's dangerous, Bjarne says the books are cooked, and Dagny says the whole lot of them can go and fell trees in Siberia.",[

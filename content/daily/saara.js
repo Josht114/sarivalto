@@ -6,12 +6,14 @@ DAILY['Saara']={
   ["Working from home?","The lab's shut till tomorrow. Phil wants a new flavour by the end of the month, and I don't stop thinking just because the road's closed."],
   ["What does Phil want, exactly?","Something new. He can't say what. He'll know it when he tastes it. That isn't a brief, it's a horoscope."],
   ["Juniper cola?","Tastes like gin that's lost its way. No."]],
- "Close the door gently. The cardamom's open."],
+ "Close the door gently. The cardamom's open.",
+ "Saara, Kelp Cola's flavour chemist, is working at home. Phil wants a new flavour by the end of the month."],
 3:["(Saara writes on the blackboard, then rubs it out.) A month away, and the blackboard's exactly as I left it. Which is to say, wrong.",[
   ["What's on it?","Ratios. Sugar to acid to fizz. Every cola is a balance, and mine keep falling over."],
   ["Noora's very glad to be back.","Noora's the best technician I've ever had. Don't tell her. She'd stop being nervous, and the nerves are what make her careful."],
   ["Is the secret recipe down here?","No. The secret recipe is upstairs, in Phil's head and a locked drawer. I make everything around it. It's like decorating a house you're not allowed into."]],
- "Mind the burner. It's always on."],
+ "Mind the burner. It's always on.",
+ "Saara makes everything around Kelp Cola's secret recipe, which is locked in a drawer in Phil's office."],
 4:["Eleven test batches today, and I said no to every one. Noora thinks I'm cruel. I'm only accurate.",[
   ["What was wrong with them?","Cloudberry tastes of jam, liquorice of medicine and pine of furniture polish. None of them tastes of news."],
   ["What does news taste of?","Surprise. Then, a second later, the feeling that you'd always known it. That's the hard part."],

@@ -6,12 +6,14 @@ DAILY['Toni']={
   ["What's wrong with it?","Nothing, now. It was making a noise like a cat in a drain. I gave it a kick and tightened a thing. Most machines just want attention."],
   ["Tell me about the arcade.","Snake, Brick Breaker and Invaders, a dollar a game, under a pink neon sign. And I hold the high score on every one of them. Write that down."],
   ["Do you fix everything with a kick?","The kick's for the machines. The screwdriver's for everything else. People, I just ignore."]],
- "Close the door, the draught makes the picture roll."],
+ "Close the door, the draught makes the picture roll.",
+ "Toni works the arcade in Frostholm and holds the high score on every machine. She's fixing her television."],
 3:["(Toni has a notebook full of numbers.) Practising. Can't get to the arcade, so I'm playing Invaders in my head. Left, left, fire, wait, fire. I'm at level nine.",[
   ["In your head?","You learn the patterns. The invaders always come down the same way. Once you see it, you see it in your sleep. I do, anyway."],
   ["What's your high score?","On Invaders, forty-one thousand two hundred. On Snake, sixty thousand and something. On Brick Breaker I stopped counting. It's mine."],
   ["Isn't that a bit sad?","It's a bit sad. It's also the only thing on this island I'm the best at. Let me have it."]],
- "Go on. I'm on level ten."],
+ "Go on. I'm on level ten.",
+ "Toni is practising Invaders in her head until the road to Frostholm opens."],
 4:["Saga next door hums in the bath. Every evening, the same three songs from the radio. The walls in these flats are made of cardboard.",[
   ["Who's Saga?","Works at the spa up the volcano. Lovely, warm, always smells of pine. And sings like a kettle."],
   ["Which songs?","Something by Kaisa off the radio, something about a sailor, and one I think she made up. I know them by heart now. I hate them."],
@@ -33,7 +35,7 @@ DAILY['Toni']={
   ["Who's been here while you were away?","Nobody. The boss in Helsinki left it locked. But there's a dent in the Invaders cabinet I don't remember. Somebody's kicked it the wrong way."]],
  "Go on, have a game. Dollar a go."],
 8:["The boss rang from Helsinki. There's a new machine coming on the next boat from Japan, via Helsinki. A driving game. Steering wheel and everything.",[
-  ["What's it called?","Turbo Rally. You drive a little car round a track and the screen moves. Moves! The kids are going to lose their minds."],
+  ["What's it called?","Turbo Rally. You steer a little racer round a track and the screen moves. Moves! The kids are going to lose their minds."],
   ["When does it come?","Two weeks, if the boat's on time. Three if it isn't. Four if it's Sarivalto. I've cleared a space by the door."],
   ["Will you hold that high score too?","Before anyone else has even touched it. I'll be here the day it comes, with a dollar and no mercy."]],
  "Go on. And don't kick the Snake machine. I mean it."],
@@ -119,10 +121,10 @@ DAILY['Toni']={
   ["Why does she play?",["She said when she's playing, nobody's looking at her. They're looking at the invaders. (Toni shrugs.) I get that.",[
     ["Is she any good?","She's better than me at Invaders. I'm better at everything else. We played until three. The night girl finished her book."],
     ["Does Sid know?","She says Sid knows everything and says nothing. That's why she works for him."]]]],
-  ["Do you hate her now?","I thought I would. She's lovely. She smokes too much and she's got a laugh like a car starting. We're having a rematch."]],
+  ["Do you hate her now?","I thought I would. She's lovely. She smokes too much and she's got a laugh like a tram braking. We're having a rematch."]],
  "Don't tell anyone about Rita. That's her secret, and now it's mine."],
-25:["(Toni is wiring a seat in the space by the door.) The boat's sailed! Turbo Rally's coming. I've built a seat for it out of an old car seat Nils sold me from the electronics store.",[
-  ["From the electronics store?","Nils sells everything. Radios, televisions, and a car seat from a wrecked Volvo. He threw in a gear stick. I don't know what I'll do with a gear stick."],
+25:["(Toni is wiring a seat in the space by the door.) The boat's sailed! Turbo Rally's coming. I've built a seat for it out of an old tram seat Nils sold me from the electronics store.",[
+  ["From the electronics store?","Nils sells everything. Radios, televisions, and a tram seat from the depot. He threw in the bell. I don't know what I'll do with a tram bell."],
   ["Will Rita come back?","She's coming tonight. We're playing Invaders, best of five. She says if I win, she'll sing a song just for me. I'll ask for one without a boat in it."],
   ["Who'll set the Turbo Rally record?","Me. First. Then Rita. Then the kids. In that order."]],
  "Go on. Don't sit in the seat. It's not ready."],

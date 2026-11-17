@@ -128,7 +128,7 @@ DAILY['Ilse']={
   ["What's your idea of peace?","Everybody sitting down, quietly, and nobody lifting anybody. If somebody does, I'll lift them out. Gently. Very firmly."]],
  "Come if you like. Sit near me. Nobody will bother you."],
 28:["(Ilse is carrying planks for the rally stage, two at a time.) No brawl. Three hours of tractors, and nobody so much as coughed. I stood at the back with my arms folded. Tor cried at the combine harvester. I gave him my handkerchief. Liv gave him hers.",[
-  ["What's happening today?","Every faction's making its big push. Red flags. Royal cars. Erik's rally on our timber. Jonna's banners. I'm carrying the stage."],
+  ["What's happening today?","Every faction's making its big push. Red flags. Royal carriages. Erik's rally on our timber. Jonna's banners. I'm carrying the stage."],
   ["Who's winning?","Whoever's got the best stage. That's us. Bjarne measured it twice, Knut cut it once. It won't fall down. Whatever's said on it might."],
   ["Are you nervous?","My hands are steady. My back's tired. My heart's doing something I don't recognise. I think it's hope. It's very heavy."]],
  "Out of the way, please. There's a stage to build."],

@@ -8,17 +8,21 @@ DAILY['Ray']={
     ["What's the rule?","No politics at the bar. You want to argue about the king, go and stand in the snow. It cools the blood."],
     ["Does anyone keep it?","Everyone keeps it. I make sure of it. (She gives you a look that would stop a tram.) Like that."]]]],
   ["Do you always stare at people like that?","My father did. He ran this bar for thirty years and never once had to raise his voice. I'm working on it."]],
- "Mind the ice on the steps. Half of Saltwick's gone down them this winter."],
-2:["Back again. Either you like my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace.",[
+ "Mind the ice on the steps. Half of Saltwick's gone down them this winter.",
+ "Ray runs the bar in Saltwick, with one rule: no politics at the bar."],
+2:["(Ray looks you up and down, and puts a glass on the bar.) A new face. Either you've heard about my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace.",[
   ["Your whisky's fine.","Fine's all it is. The good bottles went on the king's wake, and the beer boat from Frostholm's still iced in."],
   ["Who drinks here, mostly?","Fishermen from the West Harbour, dockers, the girls from the fish plant. And Sirpa and Tiina, at that table, from opening to closing, on one coffee each."],
   ["What did your father think of the king?","He kept a picture of him over the till, and darts holes in it from a bad night in 1971. Both things are true. That's Saltwick for you."]],
- "Shut the door behind you. The heat's the only thing in here I can't replace."],
+ "Shut the door behind you. The heat's the only thing in here I can't replace.",
+ "Ray's father kept the king's picture over the till, with darts holes in it. Sirpa and Tiina sit at the corner table all day on one coffee each.",
+ {"Ray:1":"Back again. Either you like my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace."}],
 3:["(Ray is on a stool with a bucket, under a brown stain on the ceiling.) Don't mind me. The flat upstairs is leaking into the bar, and I'm not paying a roofer until the thaw.",[
   ["Need a hand?","With a bucket? I think I've got the hang of it. Hold that one, though, while I empty this."],
   ["Is it the snow?","Snow on the roof, then a warm night, then a river through my bedroom. My father fixed it with tar and a bad temper. I've only got the temper."],
   ["Put it on the drinks menu. Saltwick rain.","(The corner of her mouth moves.) Don't. Tom would order it."]],
- "If you see a roofer who works for whisky, send him round."],
+ "If you see a roofer who works for whisky, send him round.",
+ "The flat above Ray's bar is leaking into it, and she won't pay a roofer until the thaw."],
 4:["(Ray nods at the corner table.) Sirpa's tab has passed forty dollars. I've told her it's got its own chair now.",[
   ["Will she ever pay it?","She will when the fish plant gives her the hours back. Which is to say I've stopped counting and started hoping."],
   ["What do Sirpa and Tiina talk about all day?","Everyone who walks past the window. You, yesterday, for an hour. Sirpa thinks you're a spy. Tiina thinks you're a vicar."],

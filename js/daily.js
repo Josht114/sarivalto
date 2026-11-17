@@ -141,17 +141,20 @@ DAILY['Aili']={
     ["Why come back?","My husband passed, and Duluth was full of him. Saltwick was full of nobody I knew any more. That seemed easier."],
     ["Why a diner?","It's what I know. Eggs, coffee, people who don't want to go home yet."]]]],
   ["What's on the menu?","Coffee, hot dogs, burgers, and a plate of whatever I've got. Today it's fish. Tomorrow it's also fish."]],
- "Mind the bucket on your way out, hon."],
+ "Mind the bucket on your way out, hon.",
+ "Aili runs the diner in Saltwick. She cooked in Duluth, Minnesota for twenty years, and came home after her husband died."],
 2:["(Aili is standing on a chair under the neon sign, with a screwdriver.) The D's gone again. 'INER.' Folks think it's a word in Finnish. It isn't.",[
   ["Can you fix it?","I fix it every week. It unfixes every week. The man in Frostholm wants forty dollars for a new tube. I'd sooner be 'INER'."],
   ["I like 'INER'.","So do the fishermen. They've started calling it that. 'See you at the Iner.' Twenty years in America and this is my legacy."],
   ["Need a hand?","Hold the chair. Don't hold my opinions about the chair. Thank you."]],
- "Tell your London paper we've got neon. Most of it."],
+ "Tell your London paper we've got neon. Most of it.",
+ "The D has gone on Aili's sign again, so the fishermen call the diner 'the Iner'."],
 3:["(Aili sets down a plate of eggs for a fisherman and wipes her hands.) Tom, Sam and Mike were in at five, same as always. Three coffees, two eggs each, and one argument about whose turn it is to pay.",[
   ["Whose turn is it?","Mike's. It's always Mike's. Mike always has a reason. Today his reason was the king."],
   ["Do you open at five?","I never close, hon. I don't sleep much. I'd sooner be up with a coffee pot than lie there listening to the sea."],
   ["Are they Party men?","Sam is. Mike is, when Helen's looking. Tom just likes eggs. Everybody in here is something. I'm a cook."]],
- "Come early tomorrow. The eggs are better before the fishermen eat them all."],
+ "Come early tomorrow. The eggs are better before the fishermen eat them all.",
+ "Tom, Sam and Mike eat at Aili's every morning at five and argue about whose turn it is to pay. It's always Mike's."],
 4:["(Aili is scraping the grill.) Eastbrook's open, they say. Half my coffee customers have gone over to the fancy place with the roaster. Can't blame them. My coffee tastes of the pot.",[
   ["Your coffee's fine.","You're a liar, hon, but you're a polite one. That's the British, isn't it? Walt was the same. He'd say the pancakes were perfect while he picked the burnt bits off."],
   ["Who was Walt?","My husband. He did the books and the pancakes, and I did everything else. He'd have hated it here. Too cold for a man who wore shorts in October."],
@@ -303,12 +306,14 @@ DAILY['Aino']={
   ["Is it always this loud?","Eight hundred bottles a minute, clinking. You stop hearing it after a year. Then you hear it in your sleep instead. Clink, clink, clink, all night."],
   ["What do you do here?","I put the caps on. Well, the machine puts the caps on. I watch the machine, and when it misses one, I slap it. That's my job. Slapping a machine."],
   ["Who's in charge?","Kurt, the foreman. Stopwatch round his neck, pigeons on the roof. He times everything. He timed my lunch once. Seven minutes. He said it was a record."]],
- "Mind the conveyor on your way out. It takes fingers when it's bored."],
+ "Mind the conveyor on your way out. It takes fingers when it's bored.",
+ "Aino watches the capping machine on Kelp Cola's bottling line. Kurt the foreman times everything with a stopwatch."],
 3:["(Aino is rubbing her lower back, still watching the line.) Twelve-hour shifts. To catch up for the snow. Twelve hours, and not a penny extra. I rang Helen at the Union. She said she's on it.",[
   ["Who's Helen?","Helen runs the Union, out of the Party's offices in Saltwick. She's never been on a bottling line in her life, but she can shout louder than the machines."],
   ["Will the Union get you more?","If Helen gets her teeth in. She once got the plant in Saltwick to pay for gloves. Gloves! It took her two years. I'm hoping for faster."],
   ["Why no extra pay?","Because Phil says the snow was an act of God, and God doesn't pay overtime. I'd like to see God slap the capper for twelve hours."]],
- "If you see Helen, tell her I said hurry up. Nicely."],
+ "If you see Helen, tell her I said hurry up. Nicely.",
+ "The bottling line is on twelve-hour shifts to catch up after the snow, with no extra pay. Aino has rung Helen at the Union."],
 4:["(Aino is singing under her breath to the rhythm of the bottles.) Clink, clink, a bottle for the king, clink, clink. Oh! You heard that. Nobody's supposed to hear that.",[
   ["You sing on the line?","It's the only way to get through twelve hours. The bottles make the beat. I just add the words. Kurt pretends he can't hear. He can hear."],
   ["What's the song about?","Whatever I'm thinking about. Today it's the king, because everyone's thinking about him. Yesterday it was my feet. That was a sadder song."],
@@ -461,17 +466,20 @@ DAILY['Anna']={
     ["And the answer?","The people who work it. And Moscow to help us keep it, because nobody else ever offered."],
     ["Three hundred years is a long time.","So is a winter here. We survive both."]]]],
   ["Nice map. Did you draw it?","My mother did, for the herring co-operative, in 1951. She marked the best fishing grounds in pencil. I keep meaning to rub them out, and never do."]],
- "Shut the door behind you, comrade. The heating's a luxury."],
+ "Shut the door behind you, comrade. The heating's a luxury.",
+ "Anna leads the Communist Party from Saltwick. She wants the island owned by those who work it, with Moscow's help."],
 2:["The road to Kingsgrad's clear. Half of Saltwick has gone to stare at the palace gates, as if the old king might still wave.",[
   ["Will you go to Kingsgrad?","When I have business there. The palace isn't business. It's a museum with people still living in it."],
   ["What do you make of Prince Leopold?","A nice young man who's never gutted a fish. That's the whole problem, in one sentence."],
   ["Maybe they just want to see the shops.","(She laughs.) Fair. Kingsgrad has shoes. Saltwick has boots. There's a difference, and you can hear it on the stairs."]],
- "Mind the slush on the main street. It's worse than the snow was."],
+ "Mind the slush on the main street. It's worse than the snow was.",
+ "Anna has no time for the palace, or for Leopold: a nice young man who's never gutted a fish."],
 3:["Phil's cola lorries are back on the road. The first thing through when the snow clears: not bread, not medicine. Cola.",[
   ["People like cola.","People like what they're sold. Show me the islander who asked for kelp in a bottle."],
   ["Is Kelp Cola an enemy of the Party?","Phil pays the girls on his bottling line less than the bottle's worth. Helen has the figures. Ask her, and she'll talk till supper."],
   ["Have you ever tried it?","Once, in 1974. I'm still thinking about it, and not kindly."]],
- "Tell Phil the workers send their regards. He'll know what it means."],
+ "Tell Phil the workers send their regards. He'll know what it means.",
+ "Anna is angry that Kelp Cola's lorries were the first thing through the snow. Helen has figures on Phil's wages."],
 4:["Eastbrook's dug out, and Erik telephoned within the hour. The first thing that man does with a clear road is propose a public debate.",[
   ["Will you accept?","Of course. Never refuse a man the chance to lose in front of his friends. We've said the sixteenth."],
   ["What's Erik like?",["Clever. Earnest. Thinks a vote every four years is freedom.",[
@@ -629,7 +637,7 @@ DAILY['Arto']={
  "If it rings while I'm at the café, answer it. Say I'm in a meeting."],
 8:["(Arto is sitting on the kerb by the phone box with a library book open on his knee, the spine cracked.) Whales. (He turns a page.) I've read about whales every day since June. (He looks up.) I know more about whales than anyone on the island who isn't a whale.",[
   ["Why whales?","It was the first book on the shelf. (He shrugs.) Under W. I started at the end. (He turns a page.) I thought, if I'm going to wait, I might as well wait for something big."],
-  ["What have you learned?","A blue whale's heart is the size of a car. (He looks at the phone box.) And they can hear each other across a whole ocean. (A pause.) I can't hear a phone across a street."],
+  ["What have you learned?","A blue whale's heart is the size of a hot dog cart. (He looks at the phone box.) And they can hear each other across a whole ocean. (A pause.) I can't hear a phone across a street."],
   ["Who's your friend?","Raili? (He nods down the boulevard at a woman in a pink scarf.) She lost her job at the Aurora in the spring. We wait together. (He grins.) She waits for the hotel. I wait for the herring. We share the bench."]],
  "Sunday. Nobody rings on a Sunday. But I'll wait anyway."],
 9:["(Arto is reading a red leaflet with great care, mouth moving.) 'The People's Cola.' (He looks up, hopefully.) The Party says it'd need workers. A lot of them. I asked the girl 'where?' She said 'everywhere.' (He folds it.) Everywhere's a big place to apply to.",[
@@ -721,7 +729,7 @@ DAILY['Arto']={
  "If you see the princess, tell her it's my box. Politely."],
 26:["(Arto has a cola bottle, half full, and is holding it up to the light.) 'A Prince in Every Bottle', they're whispering. (He squints into it.) I've checked six. (He turns it.) No prince. Not even a little one. (He lowers it.) I think it's metaphorical.",[
   ["What's the news?","Toni's game's here! (He looks delighted.) Turbo Rally. Came off a boat this morning with ash on the box. (He grins.) She's setting it up. She says I can have the first go. After her. And the children."],
-  ["Will you play?","(He looks at his shovel.) After my shift. (He grins.) I've never driven anything. Not even a bicycle. (He takes a sip of cola.) In Turbo Rally I can drive a racing car. For ten cents."],
+  ["Will you play?","(He looks at his shovel.) After my shift. (He grins.) I've never driven anything. Not even a bicycle. (He takes a sip of cola.) In Turbo Rally I can go faster than the tram. For ten cents."],
   ["Is the council job ending?","Saturday. (He looks at the clean street.) Then the ash is gone. (He shrugs.) I'll miss it. It's the first thing I've been good at since the herring."]],
  "If you find a prince in a bottle, tell me. I'll stop checking."],
 27:["(Arto is standing by the door of Toni's arcade, very official, with a clipboard Toni's given him and a queue of children stretching up the boulevard.) One at a time! (He checks the clipboard.) Three minutes each! No pushing! (He looks at you.) I'm managing the queue. Toni says I'm very strict.",[
@@ -904,12 +912,14 @@ DAILY['Augustus']={
   ["A thousand days on a rock?","With bread brought up by a peasant. I've asked Marta to bring me bread up here. She brought me a pie and a lecture."],
   ["Why read about suffering?","Because it ends. Every one of these books ends with the saint at peace. I like to know how the story finishes."],
   ["Get off the rock, Your Highness.","(He laughs, quietly, as if laughing in a library were a sin.) You sound like my sister."]],
- "Shut the door softly. The books don't like a draught."],
+ "Shut the door softly. The books don't like a draught.",
+ "Prince Augustus reads the lives of the saints in the palace library. He likes to know how a story ends."],
 3:["(Augustus has a small leather book open, not a saint's life.) I've found something. Behind the Lives of the Saints on the third shelf: my grandmother's diaries. Queen Astrid's.",[
   ["What do they say?","The first page is 1921. She's nineteen, and she thinks my grandfather has ridiculous ears. I'm reading a few pages a day, to make them last."],
   ["Should you be reading them?","She hid them in the holiest books in the library. I think she wanted them found by someone who'd read the holy books."],
   ["Did your grandfather have ridiculous ears?","There's a portrait in the chapel. (He considers.) She was right. It's the first unkind thing I've ever agreed with."]],
- "Don't mention the diaries to Daphne. She'd read them all in an evening and tell everyone at dinner."],
+ "Don't mention the diaries to Daphne. She'd read them all in an evening and tell everyone at dinner.",
+ "Augustus has found Queen Astrid's diaries hidden behind the saints' lives in the library, and reads a few pages a day."],
 4:["Brother Ilja wrote from the monastery. He's copying the Psalms by hand and wanted my opinion on an illuminated letter. It's the nicest letter I've had since Father died.",[
   ["What was your opinion?","That the B was too gold. He'll be crushed. He'll also gild it again, because Ilja believes in more gold, always."],
   ["Do you write to the monks often?","Every week. They're the only people who write back about God and not about the crown."],
@@ -1063,12 +1073,14 @@ DAILY['Bertil']={
   ["What's the form for?","Visitors to the Bureau, non-resident, purpose of visit. Three copies. One for me, one for the file, one for the file's file."],
   ["I'm a reporter, from London.","(He writes, very neatly.) Occupation: press. Nationality: British. Hair: tidy. I like to add a detail. It helps me remember people."],
   ["Does the Bureau run the island?","The Bureau keeps the island running. Kings come and go. Forms stay. My father said that, at this desk, with this stamp."]],
- "Your copy, for your records. Don't lose it. Nobody ever loses only one form."],
+ "Your copy, for your records. Don't lose it. Nobody ever loses only one form.",
+ "Bertil at the Civil Service Bureau has added you to his list of visitors, in triplicate."],
 3:["(Bertil is holding a form at arm's length.) Sergeant Hanna's requisition for a new pencil. She's filled it in with a pencil an inch long. I admire the commitment. I can't approve it. Box seven's blank.",[
   ["What's box seven?","Reason for replacement. She's left it empty. I suspect she thought it was obvious. Nothing is obvious to a form."],
   ["Can't you just give her a pencil?","(He looks genuinely pained.) If I gave out pencils without forms, I'd give out everything without forms. Then where would we be? In Moscow, probably."],
   ["How long will it take?","Pencils go to the Supplies Committee, which meets on the first Monday of the month. Unless there's an emergency. A pencil is not an emergency. Yet."]],
- "If you see the Sergeant, mention box seven. Gently."],
+ "If you see the Sergeant, mention box seven. Gently.",
+ "Bertil won't give Sergeant Hanna a new pencil: she left box seven blank on the form."],
 4:["(Bertil has a very large rubber stamp in his hand and is looking at it with something like love.) My father's. APPROVED, in red. It's been used forty thousand times. I've counted. I keep a tally in the back of my diary.",[
   ["Do you ever stamp REJECTED?","I have a separate stamp. It's smaller. I keep it in the drawer. I don't like using it. It makes a sad little noise."],
   ["How old are you, Bertil?","(He touches his grey hair.) Twenty-nine. The hair came at twenty-five, like my father's. He said grey hair was the Bureau's uniform. I didn't think he meant it literally."],
@@ -1367,7 +1379,7 @@ DAILY['Bjarne']={
   ["Don't you ever rest?","Sweeping's resting. Ask any foreman. It's the only time nobody asks you anything."]],
  "Close the door gently. The mill's sleeping."],
 9:["(Bjarne is shaking his head over the ledger.) The price of bread's gone up again. Third time this year. And Dagny's got me writing the same wages in the same column as six years ago.",[
-  ["What does Dagny say?","That the mill can't afford it. And then she drives off in a new car. I keep her books. I know what the mill can afford."],
+  ["What does Dagny say?","That the mill can't afford it. And then she orders a new sleigh with brass bells. I keep her books. I know what the mill can afford."],
   ["Will you tell the men?","They know. They're not stupid. They've been talking to Helen from the union, in Saltwick. I'm not in the union. I'm a foreman. But I've got ears."],
   ["What will you do?",["(He looks at the ledger for a long time.) I'll keep the books straight. That's my job. Whoever wants to read them, they're on my desk.",[
     ["Isn't that disloyal?","Loyal to Dagny or loyal to the lads? That's the question I go to sleep with. I've never been good at sleeping."],
@@ -1508,17 +1520,20 @@ DAILY['Bob']={
   ["What will you do with it?","Half goes to Olga's shop, half goes in the smoker, and the cheeks go home to Helen. Cod cheek's the best bit, and nobody knows it."],
   ["You're quick with that knife.","Twenty years of it. Kate's quicker. Don't tell her I said so; she'll want it in writing."],
   ["Is this the Communist end of town?","This is the fish end of town. I'm Union, not Party. Helen does the politics. I do the cod."]],
- "Mind the floor, it's slippery. Everything here is."],
+ "Mind the floor, it's slippery. Everything here is.",
+ "Bob fillets fish in Saltwick. He's Union, not Party, and takes the cod cheeks home to Helen."],
 2:["Kate says somebody from Kingsgrad's been asking after my old house. The road's been open a day, and Sally's already sending people.",[
   ["You're selling your house?","Since I moved in with Helen. It's sat empty a good while. Sally at the estate agent's in Kingsgrad has it on her books."],
   ["Who's asking?","Kate didn't know, which means it's somebody very mysterious. Kate knows everything."],
   ["Will you miss it?","The stove. It's a good stove. Helen's flat is better in every other way, mostly because Helen's in it."]],
- "If you want a small house with a good stove, see Sally."],
+ "If you want a small house with a good stove, see Sally.",
+ "Someone from Kingsgrad has been asking about Bob's empty old house. Sally at the estate agent's has it on her books."],
 3:["Helen's meeting ran till midnight, so I made fish soup at eleven and kept it on a low flame. It was perfect at five past twelve.",[
   ["What goes in your fish soup?","Cod, potato, leek, a bay leaf, and cream if Olga's got any. And patience. Mostly patience."],
   ["Does she appreciate it?","She ate two bowls without a word. That's appreciation, from Helen."],
   ["Why not go to her meetings?","Somebody has to keep the soup on. That's my contribution to the struggle."]],
- "Off you go. These fish won't fillet themselves."],
+ "Off you go. These fish won't fillet themselves.",
+ "Bob kept fish soup warm till midnight for Helen after her meeting. She had two bowls."],
 4:["Kate's been telling me the Eastbrook gossip since the road opened at dawn. I don't know how. Nobody from here's been to Eastbrook yet.",[
   ["How does Kate know?","The milk boat. The radio. And something else she won't tell me about. I suspect witchcraft."],
   ["What's the gossip?","That Erik's been snowed in with forty pounds of coffee and has drunk most of it. Don't print that; she'll want paying."],
@@ -1715,11 +1730,11 @@ DAILY['Britta']={
   ["Do you vote, Britta?","There's never been anything to vote for. If there ever is, I'll vote for whoever's done a day's lifting."],
   ["Bet Dario hates this.","He hates anything he can't buy. You can't buy a radio debate. Though I wouldn't put it past him to try."]],
  "Leave the radio on. Gertrud likes the Democrats; they're very soothing."],
-17:["(Britta is leaning on Gertrud, watching the HQ windows.) Nobody's seen Dario all day. The office is in an uproar. Magnus has asked me twice if Dario's car has been in for fuel.",[
-  ["Has it?","Not since Thursday. Nobody fills that car but me, and I'd know. It's very thirsty and very red."],
+17:["(Britta is leaning on Gertrud, watching the HQ windows.) Nobody's seen Dario all day. The office is in an uproar. Magnus has asked me twice if Dario's boat has been in for fuel.",[
+  ["Has it?","Not since Thursday. Nobody fills that boat but me, and I'd know. It's very thirsty and very red."],
   ["Where do you think he is?","Somewhere with a bottle. He's done it before. The difference is, today the whole building's frightened."],
   ["Why frightened?","Because the Syndicate's been calling, and Ruth's been writing down names, and Magnus has gone the colour of an empty drum."]],
- "If you see a red car, tell him the depot wants him back. Nobody else will say it nicely."],
+ "If you see a red boat, tell him the depot wants him back. Nobody else will say it nicely."],
 18:["(Britta has steadied a stack of drums with both arms.) That shake knocked the whole top row over. Gertrud didn't even blink. She's been through worse.",[
   ["Was anyone hurt?","Only my pride and the cat's dignity. She's gone under the tanks and won't come out."],
   ["Is the volcano going to go?","Ole says the steam's thicker every day, up north. Ole doesn't say things unless they're in a logbook."],
@@ -1802,7 +1817,7 @@ DAILY['Brother Anselm']={
  "Vespers is at six. Be gone by then, or be in a pew."],
 7:["(Brother Anselm is writing in the ledger, his mouth a thin line.) 'Diversified Petroleum. Business: roof.' A man in a fur collar, offering to mend our church for nothing. The devil does not usually do roofing, Father Thyme says. I'm not sure the devil has been asked.",[
   ["The roof does leak, doesn't it?","On the icons of Saint Nikolai and Saint Anna. Every winter. I've caught the drips in a basin for twenty years. A basin is honest."],
-  ["What's wrong with free?","Nothing is free that comes up this hill in a car with a heater. When the roof's done, there will be a bill, and it won't be in money."],
+  ["What's wrong with free?","Nothing is free that comes up this hill in a carriage with a fur rug. When the roof's done, there will be a bill, and it won't be in money."],
   ["Will Father Thyme accept?","Father Thyme believes the best of everyone. That is why God gave him a prior."]],
  "Close the gate behind you. The wind gets ideas."],
 8:["(Brother Anselm is straightening the hymn books in the church, very hard.) The Abbot has given his pulpit to a journalist. On the first Sunday without a king. I have said what I think, and now I am saying nothing, loudly.",[
@@ -1871,7 +1886,7 @@ DAILY['Brother Anselm']={
   ["Maybe the fox went down the valley.","Then it has more sense than any of us. I hope so. It'd be a foolish thing to miss, a fox."],
   ["Is there any news of the relic?","Rumours, from the towns. Every rumour has a different thief. I've written them all down. The book has never been so thick."]],
  "If you see a fox on the road, it's nobody's."],
-20:["(Brother Anselm is coming down from the bell tower.) The Russian again. From the Hotel Aurora. I saw him leave his car at the bend and walk the last mile, to look humble. Humble men don't wear those shoes.",[
+20:["(Brother Anselm is coming down from the bell tower.) The Russian again. From the Hotel Aurora. I saw him leave his carriage at the bend and walk the last mile, to look humble. Humble men don't wear those shoes.",[
   ["What did he want?","He gave the Abbot an icon. Very old, very fine. Stolen from some church in Karelia, I'd bet the bell on it. The Abbot has it under a cloth, and is thinking."],
   ["Will you send it back?","I would. With him attached. But the Abbot says one doesn't refuse an icon, any more than one refuses a child at the door."],
   ["How did you see him so far off?","From the bell tower you can see every bend of the road for three miles. I've been up there more than usual, lately. I'd like to be the first to see what comes."]],
@@ -2106,11 +2121,11 @@ DAILY['Brother Mikael']={
   ["Walked? From Kingsgrad?","All night, in March, in town shoes. Father Thyme opened the gate himself. He didn't ask a single question. He gave me socks."],
   ["Do you know Pat?","No. But I know the look, from the tram shelter. People walk past like you're a lamppost. Being looked at again is the gift, really. More than blankets."]],
  "Take one of the blankets down, if you're going that way."],
-12:["(Brother Mikael looks as if he hasn't slept.) There was a car parked at the bend in the road last night. Lights off. For an hour. Then it drove away. I watched it from the wall the whole time.",[
+12:["(Brother Mikael looks as if he hasn't slept.) There was a carriage stopped at the bend in the road last night. Lamps out. For an hour. Then it went away. I watched it from the wall the whole time.",[
   ["Who was it?","I don't know. Probably no one. Lovers, or someone with a flat tyre, or the oil company looking at the view. Probably no one."],
-  ["Did you tell the Prior?","He'd ask why I was on the wall at two in the morning. And then he'd ask why a car frightens me. I don't want to answer either."],
+  ["Did you tell the Prior?","He'd ask why I was on the wall at two in the morning. And then he'd ask why a carriage frightens me. I don't want to answer either."],
   ["You can't watch the road every night.","I know. But up here nobody comes looking. Usually. It's the 'usually' that keeps me on the wall."]],
- "If you see a car at the bend on your way down, look at the number for me."],
+ "If you see a carriage at the bend on your way down, look at the crest on the door for me."],
 13:["(Brother Mikael is practising the chant in the empty church, and the top note comes out, thin but whole.) Did you hear that? Did you hear it? I got it. Once. It was about the size of a mouse, but I got it.",[
   ["It sounded wonderful.","It sounded like a mouse. But a mouse in tune. Two weeks ago it was a mouse in a trap."],
   ["What changed?","Brother Teodor glazed some carrots with cola, and I ate four. I think it was the sugar. Don't tell the Prior I said that either."],
@@ -2952,11 +2967,11 @@ DAILY['Colonel Halvorsen']={
 18:["(The Colonel is pinning a new kind of flag on the map: grey.) Grey is ash. There's grit on the barracks windows this morning. From the north. (He steps back.) I've never needed a grey flag. I've had to make one. Rask made it from a sock.",[
   ["Is the army ready?","Forty-one men, nine guns, a hundred and twelve blankets, minus three, and a cook who can feed a town from one pot. Ready for what, I'm not sure. Ready for something."],
   ["What's the news?","The Republican files have been interfered with, they say. Carlo's very upset. He's two doors down from me. He walked my dog last night to calm down. Brigadier was very calm. Carlo wasn't."],
-  ["Will you evacuate anyone?","If the mountain speaks. The army will move the farms first, then the villages, then Hope Springs. (He pauses.) The rich last. They have cars. Farmers have cows."]],
+  ["Will you evacuate anyone?","If the mountain speaks. The army will move the farms first, then the villages, then Hope Springs. (He pauses.) The rich last. They have carriages. Farmers have cows."]],
  "Keep a blanket by your door. Rask's orders, for everyone."],
 19:["(The Colonel is reading a dinner card again, and puts it down unread.) Another palace dinner. Number six. Tonight. (He looks at the map, at the grey flags.) I've declined. The army has a mountain to watch.",[
   ["You declined the palace?","For the first time. (He straightens his tunic.) A colonel watches the mountain on a night like this. Not the soup. The prince will understand. He's out tonight himself, I hear. In a hat."],
-  ["In a hat?","(Expressionless.) A large hat. And a moustache that wasn't his. Koski at the gate saw the car go out. Koski reads adventure novels. He knows a disguise when he sees one."],
+  ["In a hat?","(Expressionless.) A large hat. And a moustache that wasn't his. Koski at the gate saw the carriage go out. Koski reads adventure novels. He knows a disguise when he sees one."],
   ["Is the mountain getting worse?","Steam. The smell of eggs. The gulls have gone inland. (He looks north.) Rask has issued the men their second blankets. Rask never issues second blankets."]],
  "Go somewhere low tonight if you can. That's advice, not an order."],
 20:["(The Colonel is at the barracks gate in his greatcoat, giving orders to a line of soldiers with carts.) To the farms. Help them move their animals down. The army does not take sides in politics. The army takes sides with cows.",[
@@ -3313,12 +3328,14 @@ DAILY['Daphne']={
   ["Who were the other ten?","A colonel, two ministers, a bishop's secretary, a man from Kelp Cola with remarkable teeth and five people who just wanted to see the inside. I gave them the scenic route."],
   ["How are you, really?","Cold. Sad, I suppose, in a way that keeps catching me on the stairs. Daddy used to whistle on the stairs. Now they're just stairs."],
   ["Eleventh isn't bad.","It's not a podium place, darling. Come back tomorrow and try harder."]],
- "Walk on the gravel, not the snow. Viktor takes footprints personally."],
+ "Walk on the gravel, not the snow. Viktor takes footprints personally.",
+ "Princess Daphne is counting the mourners who come to the palace. You're the eleventh, and the first with a notebook."],
 3:["(Daphne holds up a bunch of hothouse roses.) From Phil, at Kelp Cola. Red roses for a girl in mourning. He must think black goes with everything.",[
   ["Does it?","Everything except my complexion. I look like a widow in a Russian novel. Which is fun for about a day."],
   ["Is Phil courting you?","Phil is courting the crown, and I'm the bit of it he can reach. I don't mind. It's lovely to be wanted, even as a doorstop."],
   ["What will you do with them?","Give them to Marta. She'll put them in a vase on the servants' table and say they're from an admirer. She'll mean Phil, and everyone will think it's Edmund."]],
- "If you see Phil, say they were lovely. He'll send more. I'm running out of vases and servants."],
+ "If you see Phil, say they were lovely. He'll send more. I'm running out of vases and servants.",
+ "Phil from Kelp Cola has sent Daphne red roses. She thinks he's courting the crown through her."],
 4:["Eastbrook's open, so the whole palace has gone quiet in case a Democrat is listening. (She lowers her voice theatrically.) Have you met them?",[
   ["Not yet.","Oh, do. Erik runs them out of a community centre with a coffee pot. Leopold says they're dangerous. Augustus says they're misguided. I've never met anyone dangerous and misguided. It sounds marvellous."],
   ["Why the whisper?","Because the walls in there have ears, and out here only Viktor does. And Viktor's only interested in thrushes."],
@@ -3363,7 +3380,7 @@ DAILY['Daphne']={
  "If you're writing about Gustavo, leave me out of it. Or put me in somewhere flattering."],
 12:["(Daphne is crouching by a hedge, peering in.) Viktor showed me a robin's roost in here. Look. A little brown ball, puffed up against the cold. Like Edmund in the hall.",[
   ["Does Viktor show you much?","Everything that's interesting about the garden. Nothing that's interesting about the gate. He's very loyal, and very annoying."],
-  ["What's at the gate?","Cars at midnight, according to Oskar. Oskar tells me everything and Edmund tells Oskar off. It's a lovely system."],
+  ["What's at the gate?","Carriages at midnight, according to Oskar. Oskar tells me everything and Edmund tells Oskar off. It's a lovely system."],
   ["You're very fond of the gardens.","They're the only place the walls don't listen. Inside, there's a draught in every room, and a different person at every keyhole."]],
  "Tread softly. The robin's had a hard week too."],
 13:["It's all happening, isn't it? Kelp Cola giving bottles away in Kingsgrad, and someone at dinner whispering about their famous recipe. I adore it.",[
@@ -3542,14 +3559,14 @@ DAILY['Dario']={
   ["Have you met him?","Once, in the hotel bar. He bought me a drink and asked how deep the rig drills. I told him to the bottom."],
   ["Maybe he likes batteries.","Then he's the first Russian I've met who likes anything."]],
  "If the Russian asks about me, tell him I'm charming."],
-21:["(Dario's window is grey with ash, and the lights flicker.) The mountain's blown, journalist. Fire up north, ash on the cars, and every telephone on the island ringing at once.",[
+21:["(Dario's window is grey with ash, and the lights flicker.) The mountain's blown, journalist. Fire up north, ash on the boats, and every telephone on the island ringing at once.",[
   ["Is everyone all right?","As far as I know. I've had Ruth ring round every one of my people. I'm a lot of things, but I count my men."],
   ["What does it mean for the rig?","It means I'm not sleeping tonight. The rig's a long way from the mountain, but the sea floor's all one floor."],
   ["Scared?",["(He pours a bourbon, and doesn't drink it.) A little. Don't print that.",[
     ["I won't.","Good. You're climbing up my list."],
     ["What scares you about it?","That it doesn't want anything. You can't do a deal with a mountain."]]]]],
  "Go home and shut your windows. The ash gets into everything."],
-22:["(Dario is wiping ash off his bowling ball with a handkerchief.) Grey. Everything's grey. The lane's grey, the cars are grey, and Magnus's face is grey, though that's normal.",[
+22:["(Dario is wiping ash off his bowling ball with a handkerchief.) Grey. Everything's grey. The lane's grey, the boats are grey, and Magnus's face is grey, though that's normal.",[
   ["How's Frostholm coping?","Sweeping. Everybody's out with brooms. I sent the depot crew round with a fuel truck to wash the streets down, so the Gazette can say something nice about me."],
   ["Any damage at the rig?","The rig's shaking every time the ground does. I've got men watching it round the clock, and I'm watching them."],
   ["Will the ash wash off the lane?","It'll take wax and a week. I've waited longer for less."]],
@@ -3745,12 +3762,14 @@ DAILY['Doctor Lind']={
   ["Busy morning?","Three frostbitten toes, one sprained wrist and a man who swallowed a fishhook. The roads opened and everyone came to show me what the snow did to them."],
   ["I'm the British reporter.","So I hear. Kingsgrad's very small. Well, welcome. If you need anything stitched, I'm downstairs from the police. Convenient for both of us."],
   ["Is there a hospital on the island?","No. (He dries his hands.) There's me, two beds and a medicine cabinet. Anyone very ill goes by boat to Oulu. Six hours, if the sea's kind."]],
- "Wrap up. The cold's what I see most of, after fishhooks."],
+ "Wrap up. The cold's what I see most of, after fishhooks.",
+ "Doctor Lind's surgery is in Kingsgrad, below the police. Anyone very ill goes by boat to Oulu."],
 3:["(The doctor is writing up notes, very fast.) Sit, if you like. Don't touch the cabinet. Nothing personal: I don't let myself touch it either, after midnight.",[
   ["Do you work nights too?","On call every night. The telephone rings, I put my coat on over my pyjamas. Half of Kingsgrad's seen my pyjamas. They're blue."],
   ["Who was in this morning?","I don't say who. (He keeps writing.) But someone from the palace came in with a cut from a very good knife, and said it was the cheese. It wasn't the cheese."],
   ["You look tired.","I'm always tired. I was tired in nineteen sixty-two. I'll be tired when I'm dead, and then I'll finally get some sleep."]],
- "Don't catch anything. I've no beds."],
+ "Don't catch anything. I've no beds.",
+ "Someone from the palace came to Doctor Lind with a cut from a very good knife and blamed the cheese. It wasn't the cheese."],
 4:["(A chessboard sits on a shelf, mid-game.) Don't knock that. It's taken eleven months to get there.",[
   ["Who are you playing?",["Doctor Salmi, in Turku. We were students together. One move a letter. Fourteen days there, fourteen back. We've made eleven moves.",[
     ["Who's winning?","He is. He's been winning since nineteen fifty-one. That's why I keep playing. One day he'll make a mistake, and I'll be there."],
@@ -3899,12 +3918,14 @@ DAILY['Eddie']={
     ["Surely you've an opinion.","See that jar? Anybody who asks for my opinion puts a coin in. It goes to the orphanage at Christmas. That's a dollar, please."],
     ["Who does the talking, then?","Everyone else. Marjut, at the table there, used to work at the palace. She'll tell you more about the royals than they know themselves."]]]],
   ["Heard any good stories?","Every story in Kingsgrad, usually twice. The second time's always better. Come back tomorrow and I'll tell you which ones."]],
- "Come in from the cold any time. The fire's always lit."],
+ "Come in from the cold any time. The fire's always lit.",
+ "Eddie pours big measures at the City Bar in Kingsgrad. Marjut, at the corner table, used to work at the palace."],
 3:["Frank was in last night and told the bear story again. That's eleven times this year. (She makes a chalk mark on a board behind the bar.) I keep count.",[
   ["What's the bear story?","Frank, a rifle, a bear in his woodshed in 1974. Every time, the bear gets bigger and Frank gets closer. By Christmas he'll have wrestled it."],
   ["What else is on the board?","Jack's pike, which has grown from two feet to five since spring. Otto doing the end of STORMWING, every word. And Sergeant Hanna's one about the goat in the cells."],
   ["Do you ever tell your own stories?","Bartenders don't have stories. We have other people's, and good memories."]],
- "Mind the board on the way past. It's my life's work."],
+ "Mind the board on the way past. It's my life's work.",
+ "Frank has told Eddie his bear story eleven times this year. She keeps count in chalk."],
 4:["(Eila is at the corner table, stitching the hem of an apron.) Eila's mending my apron for a free coffee. Best deal in Kingsgrad, and she knows it.",[
   ["Who's Eila?","Seamstress, thirty years, until the factory in Kingsgrad shut. Now she mends for half the city and grumbles about the other half."],
   ["Is she any good?","Better than any tailor. Don't tell Grace I said so. ...Actually, you can: put a dollar in the jar first."],
@@ -4058,12 +4079,14 @@ DAILY['Edmund']={
   ["When do they start again?","When he is laid in the crypt. I shall wind every one of them myself. There are forty-three."],
   ["Doesn't anyone need the time?","The household keeps time by Marta's kitchen, which has never stopped for anyone. Not even a king."],
   ["What minute did he die?","Twenty past four. He was having his Kelp Cola. (A pause.) I'll thank you not to print the second part."]],
- "Mind the rug at the door. It has opinions about heels."],
+ "Mind the rug at the door. It has opinions about heels.",
+ "Edmund the butler has stopped every clock in the palace at the minute the king died: twenty past four."],
 3:["The young man on the door is Oskar. He's been with us two years. He's honest, which is a virtue, and he talks, which is not.",[
   ["What has he told you?","Everything, sir. He's very thorough. I'm training him to tell me everything and the world nothing."],
   ["How did you start?","As a hall boy, polishing boots at fourteen. Old Queen Astrid's boots. She checked them herself, with a candle."],
   ["Is he any good?","He stands still very well. He can't yet stand still without looking like he's standing still. That takes about ten years."]],
- "Kindly don't encourage Oskar. He's quite encouraged enough."],
+ "Kindly don't encourage Oskar. He's quite encouraged enough.",
+ "Edmund is training Oskar, the young man on the palace door, who is honest but talks too much."],
 4:["(Edmund is folding the Eastbrook Gazette into quarters.) The road to Eastbrook is open, so the newspaper is arriving again. I find it best to read it before the family does.",[
   ["Do you hide it from them?","I curate it, sir. The family have a great deal to bear this month. The Gazette has a great deal to say. I balance the two."],
   ["Anything in it about the palace?","Nora suggests the palace roof costs more than the island's school. That is untrue. It's the gutters that cost more."],
@@ -4208,12 +4231,14 @@ DAILY['Eila']={
   ["What do you mend?","Coats, collars, trousers, the odd wedding dress. Anything with a seam. Twenty-two years at Lindqvist's dress shop, before it shut."],
   ["What happened to Lindqvist's?","Frostholm happened. Ready-made from Helsinki, shipped in by the crate. Nobody wants a dress that fits when they can have one that's new."],
   ["You don't look pleased to see me.","I don't look pleased to see anyone. It saves time. (A pause.) Welcome to Kingsgrad."]],
- "If your coat tears, you know where I am. Marjut and I don't go far."],
+ "If your coat tears, you know where I am. Marjut and I don't go far.",
+ "Eila mends clothes in Kingsgrad. She sewed at Lindqvist's dress shop for twenty-two years, until it shut."],
 3:["(Eila is cutting black cloth into strips on her knee.) Armbands, for the funeral. Half the city'll want one by the tenth. I've got eight days and one pair of scissors.",[
   ["Good business, at least.","It's the first proper work in months. A king has to die before a seamstress eats. Write that down."],
   ["How much for one?","Fifty pennies. Seventy with a stitched edge. Hope Springs pays seventy and Saltwick pays fifty, and I don't argue with either."],
   ["Do you mourn him yourself?","I mourn twenty-two years at Lindqvist's. The king I'll mourn when somebody in that palace mourns me."]],
- "Mind the pins on the bench. I lose about one an hour."],
+ "Mind the pins on the bench. I lose about one an hour.",
+ "Eila is making black armbands for the king's funeral on the tenth."],
 4:["(Eila has a long form on her lap, filled in in neat capitals.) Form 12B. Application for relief. My third. The first two came back 'incomplete'. They didn't say what was missing.",[
   ["Who sends them back?","The Civil Service Bureau, behind the apartments. A man called Bertil. He's polite. Polite's worse than rude: you can't shout at polite."],
   ["Will this one get through?","I've filled in every box twice and drawn a line through the blank ones. Let them call that incomplete."],
@@ -4246,7 +4271,7 @@ DAILY['Eila']={
  "Don't spend your money in Frostholm. Spend it here."],
 10:["(Eila stands very straight, in her best black.) They're burying him now. You can hear the bells from here. Marjut's gone up to the gates to watch.",[
   ["Not you?","Somebody has to sit on the bench. And I've seen enough rich people in black this week. Most of them in my armbands."],
-  ["What was he like, the king?","He opened the new tram line in 1965. He said 'how splendid' and got straight back in his car. That's all I know of him."],
+  ["What was he like, the king?","He opened the new tram line in 1965. He said 'how splendid' and got straight back in his carriage. That's all I know of him."],
   ["Is Marjut all right?","She went up to see him off. Fourteen years she cleaned his rooms. Whatever the palace did to her, she liked him. Grief's not tidy."]],
  "Stand still a minute with me. Then go."],
 11:["(Eila is watching the Bureau doors.) Handed in 12C this morning. Bertil stamped it with a big red stamp. He looked so pleased with himself.",[
@@ -4292,7 +4317,7 @@ DAILY['Eila']={
 19:["(Eila nods towards the north, where steam rises over the hills.) Look at that. The mountain's breathing. Has been for two days. Nobody official's said a word.",[
   ["Has anyone said anything?","The radio says 'monitor the situation'. Kaisa sounded worried. Kaisa never sounds worried about anything but records."],
   ["Are you frightened?","A bit. I've got a bag packed. Needles, thread, the coal tin and my mother's thimble. Nothing else in my flat's worth saving."],
-  ["Who'd help, if it went?","Hope Springs has cars. The palace has the army. The rest of us have feet. That's how it's always been."]],
+  ["Who'd help, if it went?","Hope Springs has carriages. The palace has the army. The rest of us have feet. That's how it's always been."]],
  "If it goes, head south. Don't wait for anyone to tell you."],
 20:["(Eila is mending a palace footman's coat, of all things.) Oskar brought it down. Torn sleeve. The palace seamstress was one of the two they let go. Ha.",[
   ["Serves them right.","It does. I charged the palace rate. Oskar paid without blinking. It's not his money."],
@@ -4485,12 +4510,16 @@ DAILY['Elin']={
     ["Why not just tell them?","Because both companies are fighting over the Republicans, and everyone would think we're spies. We're not. We just like the same breakfast."]]]],
   ["When do you go back to work?","Tomorrow, when the road to the HQ's open. My typewriter's been alone for a month. I worry about it."],
   ["Nice flat.","Thank you. Mats chose the curtains. Don't tell anyone that either."]],
- "Shut the door quietly. The whole stairwell listens."],
+ "Shut the door quietly. The whole stairwell listens.",
+ "Elin, Phil's secretary at Kelp Cola, lives with Mats, a clerk at Diversified Petroleum. Neither company knows. Rosa does."],
 3:["(Elin is typing at a terrific speed and doesn't look up.) Forty calls before the kettle boiled. Phil's upstairs, if it's him you want.",[
   ["What are you typing?","A letter to the palace about the wreath. Third draft. Phil wants it bigger, the palace wants it smaller, and I want my lunch."],
   ["You must hear everything here.","I type everything here. Hearing is extra."],
-  ["About yesterday, at your flat...","What about yesterday? (She smiles sweetly.) I don't remember a thing. Neither do you."]],
- "Mind the stairs. I had them polished."],
+  ["About yesterday, at your flat...","What about yesterday? (She smiles sweetly.) I don't remember a thing. Neither do you.","Elin:2"],
+  ["Rosa says you've got a secret.","Rosa says everyone's got a secret. (She types faster.) The annoying thing about Rosa is she's usually right.","!Elin:2"]],
+ "Mind the stairs. I had them polished.",
+ "Elin is typing a letter to the palace about the wreath, third draft. Phil is upstairs.",
+ {"Elin:2":"(Elin is typing at a terrific speed and doesn't look up.) Oh, it's you. Forty calls before the kettle boiled. Phil's upstairs, if it's him you want."}],
 4:["Harald's given me his first campaign speech to type. Eleven pages, and the word 'vibrant' nine times.",[
   ["Is it a good speech?","It's a smiling speech. You can hear the teeth."],
   ["Who is Harald, really?","A very nice man who has never once been told no. He tips the tea lady at Christmas, though, which is more than some."],
@@ -4643,12 +4672,14 @@ DAILY['Elsa']={
   ["What's it like, working in the laundry?","Hot in the morning, cold by night, and wet all the time. My hands haven't been dry since 1958. I've stopped minding. Dry hands would feel like somebody else's."],
   ["How long have you been here?","Since I was fourteen. Thirty-one years. I've washed for the old king, the old queen, three princes, a princess and a very large dog. The dog was the worst."],
   ["Do the family ever come down here?","Never. Not since Daphne was little. She used to hide in my baskets. Now she sends her silk down with Ingrid and a note saying 'gently'. I'm always gentle."]],
- "Mind the drain on your way out. It's slippery, and I'm not mopping twice."],
+ "Mind the drain on your way out. It's slippery, and I'm not mopping twice.",
+ "Elsa has done the palace laundry for thirty-one years. Daphne used to hide in her baskets."],
 3:["(Elsa is holding a pair of riding boots up to the light, looking at the soles.) Harbour mud again. Grey, with bits of shell. The prince's. He doesn't go riding in this. He goes walking. At night. To the harbour.",[
   ["Why would the prince go to the harbour at night?","I don't ask. I clean. But a man who walks to the sea in the dark has something he can't say indoors."],
   ["Does anyone else know?","Oskar, who carries the boots down. Edmund, who pretends not to know anything. And now you. Don't make me regret it."],
   ["Is it the same every night?","Three nights out of five, since the king died. Before that, never. I keep a count. On the wall, behind the mangle. Little chalk marks."]],
- "If you see the prince, don't look at his boots."],
+ "If you see the prince, don't look at his boots.",
+ "Elsa finds harbour mud on Prince Leopold's boots. He walks to the harbour at night, three nights in five since the king died."],
 4:["(Elsa is kneading her hands together, wincing.) The starch. It gets in the cracks. Marta gave me goose fat for them. It helps, a little. Now I smell like Christmas dinner.",[
   ["Is Marta your friend?","Since we were girls in the kitchens together. She went to the stove, I went to the tubs. We meet on the stairs at four every morning and share a pot of tea. Thirty years of tea."],
   ["Why so much starch?","The family wear black for a year, and black shows every crease. The prince's collars have to stand up like soldiers. Starch is the only thing that makes them obey."],
@@ -4870,8 +4901,8 @@ DAILY['Erik']={
   ["Why a rally in Kingsgrad, not here?","Because Eastbrook already agrees with us. You don't preach to the choir. You go and stand in the king's square and ask everyone else."],
   ["Who's building the stage?","Bjarne, from mill timber, if Dagny can be talked out of charging us for it. If not, we'll stand on the boxes of leaflets. Goodness knows we've got enough of those."]],
  "I'm off to stand in a queue at the Civil Service. Democracy is mostly queues."],
-19:["(Erik is peering out of the window at the street, as if he expects to see someone.) The Russian businessman at the Hotel Aurora. Have you met him? I keep seeing his car in places a businessman wouldn't go.",[
-  ["Where has his car been?","Outside Communist HQ in Saltwick. Outside the monastery gate. And yesterday, at the end of Alder Lane, with nobody in it. Businessmen don't park outside monasteries."],
+19:["(Erik is peering out of the window at the street, as if he expects to see someone.) The Russian businessman at the Hotel Aurora. Have you met him? I keep seeing his carriage in places a businessman wouldn't go.",[
+  ["Where has his carriage been?","Outside Communist HQ in Saltwick. Outside the monastery gate. And yesterday, at the end of Alder Lane, with nobody in it. Businessmen don't park outside monasteries."],
   ["Who do you think he is?","I think he works for someone who'd like the island to stop asking questions. That's as far as I'll go out loud."],
   ["Isn't that a bit paranoid?","I was a schoolteacher. I can tell when someone's passing notes. (He drops the curtain.) He's passing notes."]],
  "Keep your eyes open in Frostholm. I'm told the hotel has thin walls."],
@@ -4952,7 +4983,7 @@ DAILY['Father Thyme']={
   ["Honey's better with a drop of brandy.","So Brother Teodor says, and so Brother Anselm says he must never say again. Peace in a monastery is a delicate thing."]],
  "Go on. I'll try another page of crossings-out."],
 7:["The north-west road opened this morning, and by lunchtime a man from Diversified Petroleum was at our gate offering to mend the church roof. For nothing. Imagine.",[
-  ["That's generous of them.","Nothing that comes up this mountain in a car with a heater is generous. But the roof does leak on the icons, and the icons don't care who pays."],
+  ["That's generous of them.","Nothing that comes up this mountain in a carriage with a fur rug is generous. But the roof does leak on the icons, and the icons don't care who pays."],
   ["What did Brother Anselm say?","He said it was the devil in a fur collar. I said the devil seldom offers to do roofing. We are both still thinking about it."],
   ["Will the Church take oil money?","The Church has taken kings' money, fishermen's money and once, I'm told, a pirate's. It is what you do with it that God asks about."]],
  "If you see a roofer who prays, send him up."],
@@ -5081,17 +5112,21 @@ DAILY['Frank']={
   ["Just saying hello. I'm new in Kingsgrad.","Then hello. Frank. Guns, ammunition, and advice nobody asks for. The advice is free."],
   ["What does a gun shop owner make of the king's death?","He was a decent shot, for a king. Came in here once, in sixty-eight, bought a duck gun and paid cash. That's more than most governments do."],
   ["Are all these guns legal?","Every one of them, and I've got the paperwork to prove it. Three drawers of it. That's what's wrong with this island, right there."]],
- "Mind the step. It's iced over, and I'm not paying for your hip."],
+ "Mind the step. It's iced over, and I'm not paying for your hip.",
+ "Frank runs the gun shop in Kingsgrad. The old king once bought a duck gun from him and paid cash."],
 3:["(A grey dog is asleep on a sack by the stove.) Don't mind Duke. He's fourteen and he's earned the sack.",[
   ["What a lovely old dog.","Best elk dog on the island, once. Now he points at the stove and waits for it to fall over."],
   ["Do you hunt much?","Every October, up north in the pines. Elk season opens on the first. Twenty-six days and counting, not that I'm counting."],
   ["Does he bite?","Only the post. And the man from the Civil Service Bureau, but that was a misunderstanding. Mostly."]],
- "Don't step on Duke on your way out. He won't move."],
-4:["You again. Either you're writing about guns, or you've nowhere warm to stand.",[
+ "Don't step on Duke on your way out. He won't move.",
+ "Frank's old elk dog Duke sleeps by the stove. Elk season opens on 1 October."],
+4:["(Frank looks up from the counter.) A reporter, in a gun shop. Either you're writing about guns, or you've nowhere warm to stand.",[
   ["Somewhere warm to stand, mostly.","Honest. I like that. Stand by the stove, then, but don't touch the shelf with the red tins."],
   ["What's in the red tins?","Powder. Black powder, for the old muskets the palace guard uses on parades. I'm the only one who still stocks it. Nobody else wants the paperwork."],
   ["Who do you sell to, mostly?","Farmers, for the foxes. Fishermen, for the seals. And a man from Hope Springs who buys more than any one man should. I don't ask. That's the deal."]],
- "Close the door behind you. Cold gets in the barrels."],
+ "Close the door behind you. Cold gets in the barrels.",
+ "Frank sells black powder to the palace guard, and a lot of everything to one man from Hope Springs. He doesn't ask why.",
+ {"Frank:3":"You again. Either you're writing about guns, or you've nowhere warm to stand.","Frank:2":"You again. Either you're writing about guns, or you've nowhere warm to stand."}],
 5:["(Frank is filling in a form with his tongue between his teeth.) Bertil at the Civil Service Bureau wants every box of cartridges written down. Every box. In triplicate.",[
   ["That sounds like a lot of boxes.","It is a lot of boxes. That's the point of a gun shop. You don't see Lisa at the supermarket writing down every loaf."],
   ["Is Bertil being difficult on purpose?","Bertil's never done anything on purpose in his life. He just does what the form says. That's worse."],
@@ -5236,12 +5271,14 @@ DAILY['Freja']={
   ["Looks fine to me.","Fine is how rooms die. It wants to face the window, not the door. People put a sofa where it's convenient, and then wonder why they're sad."],
   ["What's the shop called?","Nordhem Furniture. Beds, sofas, tables, fireplaces. If you've a home on this island, something in it came from me, and I probably told you where to put it."],
   ["How's Kingsgrad since the king died?","Quiet, and full of people sitting still in their front rooms. It makes them look at their furniture. That's good for trade, and I'm not proud of it."]],
- "Mind the corner of the dresser. Everybody hits it. I've moved it four times."],
+ "Mind the corner of the dresser. Everybody hits it. I've moved it four times.",
+ "Freja sells furniture at Nordhem Furniture, and tells people where to put it."],
 3:["(Freja is dusting a deep green wing-back armchair in the corner.) This is the chair nobody buys. Four years in this corner. People sit in it, sigh and walk away. I've started to take it personally on its behalf.",[
   ["What's wrong with it?","Nothing. It's perfect. It's just very green, and very honest. It looks at you as if it knows you've been lying about something."],
   ["Can I sit in it?","(She gestures.) Go on. (You sit.) There. You sighed. Everybody sighs. That's the chair working."],
   ["Why not lower the price?","Because then it'd be a cheap chair that nobody buys. At this price it's a fine chair that's waiting. There's a difference."]],
- "Don't tell the chair I talk about it."],
+ "Don't tell the chair I talk about it.",
+ "Freja's green wing-back armchair hasn't sold in four years. Everyone who sits in it sighs."],
 4:["(Freja has a tape measure round her neck and a pencil behind her ear.) Doctor Lind next door wants a new examining couch. I went to measure. She's had the couch against the radiator for six years. I nearly called the police.",[
   ["Is that bad?","The leather's cracked like a riverbed. Her patients have been lying on a map of Finland. I've told her: under the window, away from the heat. She looked at me as if I'd prescribed something."],
   ["Do you rearrange everyone's rooms?","Only if they let me in. Once I'm in, it's too late. Bertil upstairs had his desk facing the wall for twenty years. Now it faces the door. He says he can see the future coming."],
@@ -5385,12 +5422,14 @@ DAILY['Grace']={
   ["Good afternoon. Is it really?","It always is, off the peg. They cut for a man who doesn't exist. I've been cutting for real men for forty years. Real men are lopsided."],
   ["Did you make the king's suits?","Every one, since nineteen forty-two. And his father's last two. (She touches a dark coat on the rail.) That was his. He ordered it in August."],
   ["Can you fix my shoulder?","I could. It would take me an afternoon and you a month's wages. Stand up straight instead. It's cheaper."]],
- "Stand up straight on your way out. It's free."],
+ "Stand up straight on your way out. It's free.",
+ "Grace the tailor has made the king's clothes since 1942. His last coat, ordered in August, is still on her rail."],
 3:["(Grace is pinning black cloth onto a mannequin.) Mourning. Everyone wants black, all at once. I've three bolts left. Three!",[
   ["Who's ordering?","Half of Kingsgrad. The palace staff, all in a row. Edmund wants his tails let out. He won't say why. It's the shortbread."],
   ["What happens when you run out?","Then the island mourns in navy. Navy's very respectable. The Swedes mourn in navy. Nobody's ever complained about the Swedes."],
   ["Is the king's coat finished?","Finished. Pressed. Hanging on that rail in a cotton bag. (She doesn't look at it.) I don't know what to do with it. Nobody's come."]],
- "Don't touch the black. It marks."],
+ "Don't touch the black. It marks.",
+ "Grace is running out of black cloth for mourning. Edmund wants his tails let out."],
 4:["(Grace is threading a needle at arm's length, squinting.) Don't help. I can do it. I've done it a million times. (She misses.) Nine hundred and ninety-nine thousand.",[
   ["Do you need glasses?","I have glasses. I need better light, a younger pair of hands and a little less pride. I'll settle for the light."],
   ["Have you thought about an apprentice?","Every day. Then I think about someone else's hands on my cloth, and I go and lie down."],
@@ -5670,17 +5709,20 @@ DAILY['Gunnar']={
   ["Books, mostly.","Books. (He nods slowly.) That's what everyone says. I don't open suitcases. I only lift them. Lifting tells you plenty."],
   ["What do you do here?","Every boat that comes in, I empty. Every crate that goes out, I fill. I know what's in all of them, and what the paper says is in them. They're not always the same."],
   ["Is your back all right?","It's been all right since 1971, apart from all the time. Aili at the diner rubs liniment into it on Fridays. Don't tell the Union. They'll want a cut."]],
- "Mind the forklift on your way out. It's older than me and doesn't brake."],
+ "Mind the forklift on your way out. It's older than me and doesn't brake.",
+ "Gunnar the docker unloaded your suitcase at Saltwick, and thinks it's heavier than a reporter's should be."],
 2:["(Gunnar is reading a manifest, his finger moving down the page, his lips moving too.) Twenty boxes of tinned peas. I count twenty-one. One of them's going to be lost. Lost things are my speciality.",[
   ["What happens to lost things?","They find a home. Somebody always needs a box of peas. I just introduce them."],
   ["Isn't that stealing?","Stealing's when you take what's on the paper. If it's not on the paper, nobody owns it. That's Union law. I made it up, but it's still law."],
   ["Who sent the peas?","A wholesaler in Helsinki who can't count. God bless him. He's fed half of Saltwick for ten years without knowing it."]],
- "If you need peas, you know where I am."],
+ "If you need peas, you know where I am.",
+ "Gunnar finds homes for crates that aren't on the paperwork. He calls it Union law."],
 3:["(Gunnar is sitting on a crate eating a sandwich the size of a brick.) Kelp Cola's headquarters opened up in Kingsgrad. That means more lorries down here. More lorries means more crates. More crates means my back hates Kelp Cola.",[
   ["Do you drink it?","Every day. I hate the lorries and I drink the cola. A man can do both. That's called modern life."],
   ["What's in the Kelp Cola crates?","Bottles, mostly. Sometimes bottles and something wrapped in straw that isn't a bottle. I don't unwrap straw. Straw's private."],
   ["Is that a sandwich or a brick?","Herring, egg and onion. Aili makes it. It's built to last. A man could survive a winter on one of these if he had to."]],
- "Don't stand under the crane. It drops things when it's bored."],
+ "Don't stand under the crane. It drops things when it's bored.",
+ "Gunnar says some Kelp Cola crates hold something wrapped in straw that isn't a bottle. He doesn't unwrap straw."],
 4:["(Gunnar is arguing cheerfully with Helen, who has a clipboard.) No, Helen, I won't come to the meeting. I'll pay my subs and lift your boxes. That's what a Union man is for.",[
   ["Is Helen trying to recruit you?","Helen's not. Helen knows better. It's Anna, upstairs at the Party, who wants me. Helen just carries the messages."],
   ["Why not join the Party?","They'd want me to read things. I've read the manifest every morning for thirty years. That's all the reading a man needs."],
@@ -5691,7 +5733,7 @@ DAILY['Gunnar']={
   ["Mike's boat needs a gearbox, doesn't it?","(He taps his nose.) Mike's a Party man. Party men don't take lost things. But Party men's boats do need gearboxes. It's a puzzle."],
   ["Should you report it?","To who? The harbourmaster's in Kingsgrad until Thursday and the police is one woman on a bicycle. Sergeant Hanna doesn't do gearboxes."]],
  "If anyone asks about the gearbox, there's no gearbox."],
-6:["(The warehouse doors are shut, and Gunnar is leaning on them.) A car came down from Hope Springs this morning. Two men in good coats looked at my crates. Didn't ask anything. Just looked.",[
+6:["(The warehouse doors are shut, and Gunnar is leaning on them.) A carriage came down from Hope Springs this morning. Two men in good coats looked at my crates. Didn't ask anything. Just looked.",[
   ["What were they looking for?","Something that isn't here. I told them I just lift. They said lifting's important work. Men who say that always have something heavy."],
   ["Were they Syndicate?","They had very clean shoes for a harbour. That's all I know, and that's all I'm going to know."],
   ["Did they take anything?","They took a long look. And one box of the lost peas. I didn't stop them. Some men you let have peas."]],
@@ -5900,7 +5942,7 @@ DAILY['Gustavo']={
   ["Why the interest in the palace?","I'm an old man who likes beautiful things. The palace has a great many beautiful things, and not enough people looking after them."],
   ["You're not planning a burglary, Don?","(He closes the book gently.) I'm planning lunch. Rosaria's sending up a calzone. Burglary is a young man's business."]],
  "Go on with you. And keep your opinions about snuffboxes to yourself."],
-21:["(Ash is settling on the windows of the Club, and Gustavo hasn't moved from his chair.) The mountain has opened, journalist. The members ran for their cars. I finished my brandy.",[
+21:["(Ash is settling on the windows of the Club, and Gustavo hasn't moved from his chair.) The mountain has opened, journalist. The members ran for their carriages. I finished my brandy.",[
   ["Aren't you afraid?","I was born under Vesuvius. My grandmother made coffee the day it went up, in 1944, and served it to the Germans. You don't run from a mountain. You make it wait."],
   ["Is everyone in Hope Springs safe?","Paola went round every door. Nobody's hurt. One of the members fainted into the topiary. He's been telling everyone it was a dive."],
   ["What does this do to business?","Everybody needs something tonight that the shops don't have. Candles, glass, a boat. Business, journalist, is what happens when the ground moves."]],
@@ -5960,17 +6002,20 @@ DAILY['Hannu']={
   ["How did you know I'd come?","I saw the fishing boat come in with a man in London shoes. Shoes are the first paragraph of any story."],
   ["What else is on the board?","Yesterday it said KING DEAD. The day before it said KING POORLY. I like a story with a shape to it."],
   ["Isn't that the Gazette's job?","(He sniffs.) The Gazette prints it tomorrow. I chalk it today. Henrik in Eastbrook hates me, which is the highest praise in our trade."]],
- "Buy a paper next time. The board's free, but the board doesn't pay the rent."],
+ "Buy a paper next time. The board's free, but the board doesn't pay the rent.",
+ "Hannu chalks the news on his board in Saltwick before the Gazette prints it. Today it's you: British press lands at Saltwick."],
 2:["(Hannu has a cigarette behind each ear and a newspaper under each arm.) The road to Kingsgrad's open. Half of Saltwick went up it to look at the palace and came back saying it was smaller than they'd thought.",[
   ["Did you go?","Me? Leave the stand? The minute I go, something happens, and Olga sees it first. I'd never live it down."],
   ["What do people think of the prince?","This morning, a fisherman told me Leopold's a good man. Ten minutes later, a Party man told me he's a parasite. I agreed with them both. It's good for business."],
   ["Two cigarettes?","One for now, one for when the news gets worse. My mother's rule. She was from Vyborg. They plan ahead in Vyborg."]],
- "Mind Olga's cats on your way past. They're not cats. They're spies."],
+ "Mind Olga's cats on your way past. They're not cats. They're spies.",
+ "Hannu hears everyone's opinion of Leopold, and agrees with them all."],
 3:["(The board says KELP COLA: BIG PLANS. Olga is shouting at it from across the street.) She doesn't believe me. She never believes me. Then it comes true and she says she knew all along.",[
   ["What are Kelp Cola's big plans?","Nobody knows. That's why it's a good headline. Everybody reads it and thinks of a different plan."],
   ["Why are you and Olga always fighting?","Thirty years ago, I chalked OLGA'S HERRING OFF. It was a Tuesday. One herring. She's never forgiven me, and I've never taken it back."],
   ["Is anything on that board ever true?","Most of it, eventually. The island's slow, so I just wait for it to catch up."]],
- "If Olga asks, I said nothing about her herring today. Yet."],
+ "If Olga asks, I said nothing about her herring today. Yet.",
+ "Hannu's board says KELP COLA: BIG PLANS. Olga across the street doesn't believe it."],
 4:["(Hannu is reading a Gazette, moving his lips and shaking his head.) Eastbrook's open, and Henrik's put his own headline on the front. It's my headline. From Tuesday. He's even kept my spelling mistake.",[
   ["What was the headline?","DEMOCRATS DEMAND VOTE. I chalked it on Tuesday, a fellow from Eastbrook read it on Wednesday, and Henrik printed it today. That's how news travels on this island."],
   ["Have you met Henrik?","Once, in 1969. He told me a chalkboard wasn't journalism. I told him a newspaper was a chalkboard that couldn't change its mind."],
@@ -6121,7 +6166,8 @@ DAILY['Harald']={
   ["Who are the Republicans?","A club for people who believe in business, freedom and a fair wind. We've no leader since old Mr Strand retired to his boat. Three of us want the job. I'm the one who smiles."],
   ["Who else is standing?","Magnus, for the oil company, who has a great deal of money and no small talk. And Carlo, for, well, for some very loyal friends. He lives two floors below me. We nod in the lift."],
   ["Give me a quote, then.","(He thinks.) 'What's good for Kelp Cola is good for the island.' No. Too short. Elin will make it longer. Elin makes everything longer, then shorter."]],
- "Come back any time. My door's always open. Elin's isn't, but mine is."],
+ "Come back any time. My door's always open. Elin's isn't, but mine is.",
+ "Harald of Kelp Cola wants to lead the Republicans. His rivals are Magnus of the oil company and Carlo."],
 4:["(Harald is on the telephone, smiling at it.) And how is your mother, Mr Lindgren? Her hip? Oh, I am sorry. Give her my very best. (He hangs up.) That's forty Republicans. I've asked after forty mothers.",[
   ["Do you mean it?","Every word. Mothers matter. A man's mother tells you what kind of man he is. Lindgren's mother bakes for the church. Lindgren will vote for whoever she likes."],
   ["Isn't that a strange way to campaign?","It's the only way I know. I don't have Magnus's money or Carlo's friends. I have a telephone and a good memory for hips."],
@@ -6244,7 +6290,7 @@ DAILY['Harald']={
   ["What's happening in the city?","A Party picture at the cinema and big card games at the pizzeria. Carlo's friends are playing for high stakes, they say. I don't gamble. Except on this election."],
   ["Is Carlo worried?","Carlo's never worried. He just looks at you until you are. I nodded at him in the lift this morning. He nodded back and said 'Good luck, Harald.' I didn't sleep."]],
  "Two days. Wish me luck. Not like Carlo did."],
-28:["(The square below is full of flags. Harald is watching from the window with his tie loosened.) Every faction's big push today. Red flags, royal cars, cola going abroad. And tomorrow, the Republicans. My push. I've never been so nervous.",[
+28:["(The square below is full of flags. Harald is watching from the window with his tie loosened.) Every faction's big push today. Red flags, royal carriages, cola going abroad. And tomorrow, the Republicans. My push. I've never been so nervous.",[
   ["Is Kelp Cola going abroad?","Buyers from overseas, in the factory today. Phil's beside himself. If the cola goes abroad, I'll be the candidate for an international company. Very grand."],
   ["Have you practised your speech?","Eleven times. Elin's crossed out one word. 'Very.' She says I say it too much. She's very right. Sorry. She's right."],
   ["What will you do tonight?","Feed Mandate. Read my mother's postcards. Practise my smile once, and then put it away and sleep."]],
@@ -6275,17 +6321,20 @@ DAILY['Hekki']={
     ["Did she believe you?","She gave me a biscuit. So yes, I think so. Or she pities me. Either works."],
     ["Who's Kaisa?","The radio. The voice, I mean. She does the shows from the hut next door. (He looks at his boots.) She's very good."]]]],
   ["Is the radio set working?","Like a dream. Chuck's frequency is marked in red pencil, and the big screen's warmed up. I tested it on a weather report from Oslo. It was raining."]],
- "Third shelf. Gently."],
+ "Third shelf. Gently.",
+ "Hekki is the CIA's man on the island. Your room is behind the bookcase in his shack. Only Kaisa has noticed anything."],
 2:["(Hekki is untangling a coil of wire with great patience.) Kingsgrad's open. You'll be up at the palace, Chuck says. Well, I listened while he said it. That's most of my job.",[
   ["What's the palace like?","I've only seen the gates. I fixed the prince's wireless once, through a footman. He'd had it tuned to a jazz station in Helsinki. I've told nobody. Until now."],
   ["Do you listen to everything?","Not everything. Not the monastery: it feels rude. And not Kaisa, because I don't have to. She's on the radio."],
   ["Any advice for a royal household?","Wipe your feet. Bow a bit, not a lot. And don't let the butler see you looking at the silver. Edmund counts it."]],
- "Wipe your feet at the palace."],
+ "Wipe your feet at the palace.",
+ "Hekki once mended Prince Leopold's wireless, which was tuned to a jazz station in Helsinki."],
 3:["(Hekki is eating a sandwich over a speaker, very carefully.) The Kelp Cola switchboard is the loudest thing on the island. Forty calls an hour, and every one of them is about money or lunch.",[
   ["Anything worth knowing?","Phil rang his tailor twice. And someone on the third floor keeps asking about 'the safe', as if it might be listening. I wrote it down. I write everything down."],
   ["You're getting crumbs in the speaker.","(He brushes it.) It's fine. It's had worse. A mouse lived in it all through 1979, until Morse found him."],
   ["Is listening in legal here?","(He thinks about it.) There's no law against it. There's no law for it either. I've decided that means it's encouraged."]],
- "Mind the crumbs."],
+ "Mind the crumbs.",
+ "Hekki listens to the Kelp Cola switchboard. Someone on the third floor keeps asking about 'the safe'."],
 4:["(Hekki holds up a parcel tied with string.) Nothing for you. This is mine: a valve from Helsinki, three months late. I've already named it.",[
   ["What did you name it?","Ludmila. All the good valves are Ludmilas. Don't ask me why. It's a radio thing."],
   ["Eastbrook's open. Anything from there?","The Democrats meet at the community centre and argue about the chairs. Erik wants them in a circle. Everyone else wants to see the biscuits."],
@@ -6444,19 +6493,22 @@ DAILY['Helen']={
   ["Who pays worst?","The mill. Six years without a rise at Dagny's, and bread's gone up twice in that time. I have the receipts."],
   ["Is that a Union blackboard or a Party one?","Same chalk. Anna says the Party's the head and the Union's the hands. I say the hands do the work."],
   ["My maths isn't good enough to weep.","(She laughs.) Then just weep. It saves time."]],
- "Off you go. I've a blackboard to finish."],
+ "Off you go. I've a blackboard to finish.",
+ "Helen runs the Union. Wages at Dagny's mill haven't risen in six years."],
 2:["Bob's left me a pie on the desk with a note: 'Eat it hot.' It's been cold since half past twelve.",[
   ["Bob cooks for you?","Every day the meetings run long, which is every day. He says a hungry union leader is a short-tempered one."],
   ["Is he a Party man?",["No. Union to the bone, but he won't take a Party card. The comrades never let me forget it.",[
     ["Why won't he join?","He says one of us in politics is plenty for a two-room flat. He's not wrong."],
     ["Does Anna mind?","Anna minds everything. She also eats his pie when she thinks I'm not looking."]]]],
   ["Cold pie is still pie.","Spoken like a fisherman. (She cuts you a slice.) Go on, then."]],
- "Tell Bob it was hot. He likes to hear it."],
+ "Tell Bob it was hot. He likes to hear it.",
+ "Bob leaves Helen pies at the Union. He won't take a Party card."],
 3:["The cola factory's running again. Aino on the bottling line rang me: twelve-hour shifts to catch up for the snow, and not a penny extra.",[
   ["Can the Union do anything?","We can ask Kurt nicely. Then less nicely. Then the bottling line stops, and Phil asks us nicely."],
   ["Who's Kurt?","The foreman. Not a member. He thinks a union is something you catch off a dirty glass."],
   ["Twelve hours on a bottling line?","Clink, clink, clink, for twelve hours. Aino says she hears bottles in her sleep."]],
- "If you see Aino, tell her I'm on it."],
+ "If you see Aino, tell her I'm on it.",
+ "Helen will take up the cola factory's unpaid twelve-hour shifts with Kurt the foreman, who isn't in the Union."],
 4:["Eastbrook's open, so I can finally get word out to the mill. Knut and Ilse have been writing to me all winter.",[
   ["What do they write?","That the guard's off the big saw, that Dagny had it wired back to speed the line up, and that a lad lost two fingers to it in June."],
   ["Isn't Eastbrook Democrat country?","Erik's country, yes. But a saw doesn't ask how you vote."],
@@ -6604,17 +6656,20 @@ DAILY['Helmi']={
   ["What should I wear?","Wool next to the skin, oilskin on top, and boots a size too big for the second pair of socks. And a hat. You lose half your heat through your head, and you've a big head. I mean that kindly."],
   ["Are you selling me something?","Of course I am. I'm an outfitter. But I'm also right, which is rarer."],
   ["Who buys from you?","Every fisherman in Saltwick, and their boys, who pay me in promises. I keep the promises in a ledger. It's the thickest book on the island."]],
- "Come back when you're cold. You'll be back by Tuesday."],
+ "Come back when you're cold. You'll be back by Tuesday.",
+ "Helmi the outfitter in Saltwick says your London coat won't see October. Every fisherman owes her money."],
 2:["(Helmi is up a stepladder, straightening the sign over her door, and glaring across the lane.) Olga says it's crooked. It isn't. But I'm checking anyway, which means she's won. She always wins before breakfast.",[
   ["Is it crooked?","(She squints.) A hair. A hair, mind. I'll fix it when she's not looking, and deny it when she is."],
   ["Is Olga next door a friend?","We shout at each other across the lane. It's the kindest thing we do."],
   ["Busy with the road open?","Kingsgrad's open, so Kingsgrad's coming down for funeral black. I don't sell funeral black. I sell oilskin. I've put a black ribbon on an oilskin and called it mourning wear."]],
- "Step down off the ladder for me? (She steps down herself.) Never mind."],
+ "Step down off the ladder for me? (She steps down herself.) Never mind.",
+ "Helmi and Olga shout at each other across the lane every morning. Today it's Helmi's sign."],
 3:["(Helmi is unpacking a parcel of jumpers, holding each one up to the light.) My sister knits these, in Oulu. Thirty a month. Every one has a mistake in it somewhere, on purpose, so the devil can get out.",[
   ["Is that a real tradition?","It's my sister's. She says our grandmother did it. Our grandmother couldn't knit. I don't argue: they sell."],
   ["Can I find the mistake?","(She hands you one.) Go on. (You look for a while.) It's on the left cuff. A purl where there should be a plain. Nobody finds it. That's how good she is."],
   ["Is your sister coming to the island?","Never. She came once in 1958 and said the wind was personal. She's right. It is."]],
- "If you buy one, don't look for the mistake. Let the devil out in peace."],
+ "If you buy one, don't look for the mistake. Let the devil out in peace.",
+ "Helmi's sister in Oulu knits her jumpers, each with one deliberate mistake to let the devil out."],
 4:["(Helmi is writing in a fat ledger with a stub of pencil, and sighing.) The boy who owes me since March came in wanting oilskins again. I sent him to Olga for the money. She lent it him. Now he owes us both, and we're both stupid.",[
   ["Why lend to him?","His father drowned when he was nine. I sold his father his first boots. You don't send that boy out in a thin coat."],
   ["How much do the fishermen owe you?","All told? Enough to buy a boat. Not a good boat. But a boat."],
@@ -7443,7 +7498,7 @@ DAILY['Ilse']={
   ["What's your idea of peace?","Everybody sitting down, quietly, and nobody lifting anybody. If somebody does, I'll lift them out. Gently. Very firmly."]],
  "Come if you like. Sit near me. Nobody will bother you."],
 28:["(Ilse is carrying planks for the rally stage, two at a time.) No brawl. Three hours of tractors, and nobody so much as coughed. I stood at the back with my arms folded. Tor cried at the combine harvester. I gave him my handkerchief. Liv gave him hers.",[
-  ["What's happening today?","Every faction's making its big push. Red flags. Royal cars. Erik's rally on our timber. Jonna's banners. I'm carrying the stage."],
+  ["What's happening today?","Every faction's making its big push. Red flags. Royal carriages. Erik's rally on our timber. Jonna's banners. I'm carrying the stage."],
   ["Who's winning?","Whoever's got the best stage. That's us. Bjarne measured it twice, Knut cut it once. It won't fall down. Whatever's said on it might."],
   ["Are you nervous?","My hands are steady. My back's tired. My heart's doing something I don't recognise. I think it's hope. It's very heavy."]],
  "Out of the way, please. There's a stage to build."],
@@ -7468,12 +7523,14 @@ DAILY['Ingrid']={
   ["The ghost?","(She whispers.) The old queen. Queen Astrid. She walks this corridor at night, in a grey dress. Everyone says so. Well, I say so."],
   ["Mr Edmund's not that scary.","He is when you've left a crease in a pillowcase. He can see a crease through a closed door."],
   ["Hello, Ingrid.","Hello. (She smiles, and then looks at the floor, as if she's not sure smiling's allowed.)"]],
- "I'd better get on. The beds don't make themselves, whatever Princess Daphne thinks."],
+ "I'd better get on. The beds don't make themselves, whatever Princess Daphne thinks.",
+ "Ingrid the palace maid believes old Queen Astrid's ghost walks the corridor at night in a grey dress."],
 3:["Three rooms, three of them, and each one's different. I could tell you who sleeps where with my eyes shut.",[
   ["Tell me.","The prince's room smells of pipe smoke and cold. Prince Augustus's smells of candle wax. The princess's smells of French perfume and something she says is incense."],
   ["Who's the tidiest?","Prince Augustus. His room's like a monk's cell. A bed, a chair, an icon and a book. I dust the book. That's all there is to do."],
   ["Who's the messiest?","(A small, guilty smile.) I couldn't possibly say. But it's the room with the perfume."]],
- "Mind the corridor rug, the corner curls up. It's caught the queen out too, they say."],
+ "Mind the corridor rug, the corner curls up. It's caught the queen out too, they say.",
+ "Ingrid cleans the royal bedrooms. Leopold's smells of pipe smoke, Augustus's of candle wax, Daphne's of French perfume."],
 4:["The prince was walking again last night. Back and forth, back and forth, from the window to the door. Twelve steps. I counted, from my bed.",[
   ["You can hear him from the quarters?","When it's quiet, everything carries. The pipes run under his floor. I hear him like he's on the ceiling."],
   ["What time?","Two, three. Every night since the king died. He stops at the window for a long time. Then he starts again."],
@@ -7765,12 +7822,14 @@ DAILY['Jack']={
   ["A bit of both.","Best way to arrive anywhere. Jack. Rods, tackle, bait, and free advice on where they're biting. The advice is the only thing that's free."],
   ["Where are they biting, then?","Off the jetty at Lake Ilmari, if the ice has gone. Perch, mostly. Use a red float: perch are vain, they like a bit of colour."],
   ["Do you ever catch anything yourself?","Every day, in my head. Running the shop, I get out twice a week if I'm lucky. That's the cobbler's shoes, isn't it?"]],
- "Come back when you've got a rod. Or come back to buy one."],
+ "Come back when you've got a rod. Or come back to buy one.",
+ "Jack sells fishing tackle in Kingsgrad. The perch at Lake Ilmari like a red float."],
 3:["You know what's killing this shop? The harbour tax. Every boat that ties up pays the Crown a fee, and every fisherman takes it out of my prices.",[
   ["How much is the tax?","Two dollars a mooring, a day. Doesn't sound much. Then you count the boats. Then you count the days. Then you go and have a lie down."],
   ["Who could change it?","Whoever runs the island, once there's someone running it. I'm a Republican, and I'll vote for whoever cuts it. Simple as that."],
   ["Is that all you care about?","No. I care about fish. But fish don't vote, so I care about the tax."]],
- "If you meet a politician, ask him about the harbour tax. Watch him squirm."],
+ "If you meet a politician, ask him about the harbour tax. Watch him squirm.",
+ "Jack blames the Crown's harbour tax for his prices. He's a Republican, and will vote for whoever cuts it."],
 4:["(Jack is threading a line through a rod's eyes, very slowly.) Don't talk for a second. It's the last eye.",[
   ["(Wait.)","(He gets it through.) There. Forty years and I still hold my breath. Thank you. You'd be surprised how few people can keep quiet."],
   ["What's the rod for?","A man from Eastbrook. Wants to try for salmon up the Valto River. I told him he's two months late. He wants it anyway."],
@@ -8217,17 +8276,20 @@ DAILY['Kaisa']={
   ["You announced me?","'A reporter from London has come to cover our sad news. Be kind, and spell your names slowly.' (She smiles.) It's a small island. You're news."],
   ["What do you play?","Slow songs for the late king, until someone tells me to stop. Then the news, the weather, the herring prices, and jazz after midnight, for the night owls and the lighthouse."],
   ["Who's the man in the shack next door?","Hekki. He keeps the transmitter alive. He's sweet, and terribly nervous. He leaves me biscuits and runs away before I can say thank you."]],
- "Spell your name slowly if you're ever on air."],
+ "Spell your name slowly if you're ever on air.",
+ "Kaisa presents Radio Sarivalto, and told the whole island you'd arrived. Hekki leaves her biscuits and runs away."],
 2:["(Kaisa is sorting a stack of letters into two piles.) Requests. This pile wants marches for the king. This pile wants anything but marches. I play one from each, and both piles write in to complain.",[
   ["Which pile's bigger?","The anything-but-marches pile, as of yesterday. Grief's a funny thing. It lasts about a fortnight on the radio, and then people want a waltz."],
   ["Does the palace listen?","The palace sends a footman with its requests, in an envelope with a crest. Oskar. He waits while I read it, in case I need a footman. (She sighs.) Very proper. I give him tea."],
   ["Play something cheerful.","Not this week. The station manager would have me off the air. But I'll slip in a waltz later, between the weather and the herring. Listen for it."]],
- "Listen for the waltz."],
+ "Listen for the waltz.",
+ "Kaisa sorts requests into marches for the king and anything but. Oskar brings the palace's, in an envelope with a crest."],
 3:["(Kaisa is humming something bouncy, and looks annoyed with herself.) Kelp Cola have bought the slot before every news bulletin. 'Kelp Cola: the taste of the Baltic.' I've said it forty times. I'm starting to taste the Baltic.",[
   ["Do they pay well?","Better than the station does. That's the trouble: once you've read their advert, it's hard to read the news as if you hadn't."],
   ["What does the Baltic taste of?","Salt, diesel and regret. Kelp Cola add sugar. It helps, a bit."],
   ["Does anyone else want adverts?","The Polar Burger in Frostholm, the pizzeria in Kingsgrad, and the Party, who want theirs free because the airwaves belong to the people. (She shrugs.) The airwaves belong to whoever pays the electricity."]],
- "The taste of the Baltic. Forgive me."],
+ "The taste of the Baltic. Forgive me.",
+ "Kelp Cola has bought the radio slot before every news bulletin."],
 4:["(Kaisa is wiping a record on her sleeve.) Eastbrook's open, so Ruby's lent me a box of jazz. I give her back about a third. She knows. She calls it a tax on beauty.",[
   ["What's in the box?","Coltrane, Ella, Chet Baker, and one Finnish tango record Ruby swears is jazz. It isn't, but it's lovely, so I'll play it at two in the morning and nobody will argue."],
   ["Who listens at two in the morning?","The lighthouse keeper, the fishermen going out, the night porter at the Hotel Aurora. And somebody who sends in the same request from the tower, every night. (She smiles.) Unsigned. Well, nearly."],
@@ -8380,17 +8442,20 @@ DAILY['Kate']={
   ["News travels fast here.","In Saltwick it doesn't travel, love. It's just everywhere at once, like the smell of fish."],
   ["What's today's gossip?","Tom's lent his boat to three people at once and none of them have brought it back. And Sam's said eleven words this week. That's a lot, for Sam."],
   ["You've got scales on your sleeve.","I've always got scales on my sleeve. I've had them at weddings. Anna says they're a badge of the working class."]],
- "Go on, you're letting the warm out."],
+ "Go on, you're letting the warm out.",
+ "Kate sells fish in Saltwick and hears everything. Tom has lent his boat to three people at once."],
 2:["The Kingsgrad road's open, and half of Saltwick's gone shopping. Who do they think's going to buy their fish? The king's not hungry.",[
   ["Do you ever go to Kingsgrad?","Once a year, for shoes. Grace the tailor once tried to sell me a hat. A hat! I've got a head for headscarves."],
   ["That's a bit grim, about the king.","He's past caring, love. And he'd have laughed. He liked a fishwife. He bought smoked herring off my mother once."],
   ["Can I buy a fish?","You can buy the plaice. It's been looking at me all morning, and I want it gone."]],
- "Wrap it in the Gazette. Best use for it."],
+ "Wrap it in the Gazette. Best use for it.",
+ "Half of Saltwick has gone shopping in Kingsgrad, and Kate's fish is going unsold."],
 3:["I've got a project. Sirpa from the block's been out of work two years, so I'm teaching her to gut. Then the plant takes her on.",[
   ["Is she any good?","She's terrible. She gutted a herring yesterday and it looked surprised. But she's keen, and keen's most of it."],
   ["Will the plant hire her?","If I say so loudly enough. I've been saying things loudly to this plant for twenty years."],
   ["Why help her?","Because nobody helped me, and I'd like it to stop being that way. That's the whole Party in a sentence, love."]],
- "If you see Sirpa, tell her: thumbs out of the way."],
+ "If you see Sirpa, tell her: thumbs out of the way.",
+ "Kate is teaching Sirpa, out of work for two years, to gut fish, so the fish plant will take her on."],
 4:["Do you know what the fishermen in this harbour owe? I do. Kate's ledger: never written down, never forgotten.",[
   ["Who owes the most?","I'd never say. (She leans in.) Not Sam. Sam hasn't owed anybody a penny in forty years. It makes the rest of them look bad."],
   ["Who do they owe?","Ray at the bar, Helmi for the oilskins, and the Syndicate's little book. That last one's the trouble."],
@@ -8687,12 +8752,14 @@ DAILY['Kurt']={
   ["What are you timing now?","The plough. It did Kingsgrad's main street in forty-two minutes. I could do it in thirty, with Aino and a shovel."],
   ["Is that a Kelp Cola in your hand?","(He holds up the bottle.) Fourth today. Doctor Lind says three's plenty. Doctor Lind drinks coffee, so who's he to talk?"],
   ["What's that noise on the roof?","My pigeons. Twelve of them, in a loft up top. They've been cooped up as long as I have, and they're just as cross about it."]],
- "Shut the door behind you. Draughts slow everything down."],
+ "Shut the door behind you. Draughts slow everything down.",
+ "Kurt, the Kelp Cola factory foreman, has timed every day of the shutdown. He keeps twelve pigeons."],
 3:["Kelp Cola HQ's open and the factory isn't. They can push paper in Kingsgrad, but nobody's pushing bottles. (He drinks.)",[
   ["When does the factory open?","When they clear the road to Eastbrook. Tomorrow, they say. I've laid out my overalls. I've ironed them."],
   ["You iron your overalls?","A foreman sets the standard. If the foreman's creased, the line's creased."],
   ["Tell me about the pigeons.","The grey one's Phil. The fat one's Harald. The one that keeps flying off towards Frostholm I haven't named. I don't trust it."]],
- "Tomorrow, then. On the minute."],
+ "Tomorrow, then. On the minute.",
+ "Kelp Cola's HQ is open but the factory isn't. Kurt has named his pigeons after Phil and Harald."],
 4:["(Kurt stands on the factory floor with a stopwatch and a bottle.) We're back. The line started four seconds late. Somebody's going to hear about those four seconds.",[
   ["Who was late?","The line, not a person. The belt was cold. I've had words with it."],
   ["It's very loud in here.","Aino calls it the loudest place on the island. She's right. It's music, if you're a foreman."],
@@ -8910,7 +8977,7 @@ DAILY['Lars']={
   ["Is everyone accounted for?","Ruth on the radio's been calling us all by name. Everyone answered. Even the cook, who never answers anything."],
   ["Are you scared now?","(Quietly.) Yeah. Don't tell the lads. I'm twenty-three. I'm supposed to be the brave one."]],
  "Stand by the window with me a minute. It's the biggest thing I've ever seen."],
-22:["(Lars has ash in his eyebrows and his hair.) Went ashore on the supply boat to see the damage. Frostholm's grey. Grey cars, grey trees, grey people. I went into the HQ and Ruth said 'We're always open'.",[
+22:["(Lars has ash in his eyebrows and his hair.) Went ashore on the supply boat to see the damage. Frostholm's grey. Grey trams, grey trees, grey people. I went into the HQ and Ruth said 'We're always open'.",[
   ["How's Frostholm coping?","Sweeping. Everyone's sweeping. Sid's sweeping the Midnight Note. Rita sang to the queue for the generator fuel. I cried. Don't tell anyone that either."],
   ["Did you see Nico?","No. And he didn't see me. I came back on the first boat. He'll find me eventually; Nico always does."],
   ["Wash your eyebrows.","They're my volcano eyebrows. I'm keeping them as a memory."]],
@@ -9103,12 +9170,14 @@ DAILY['Leopold']={
     ["What was he like, at home?","Loud at breakfast, silent at dinner. He read the shipping forecast aloud as if it were scripture."],
     ["Do you miss the noise?","I miss being able to blame someone. Now it's all mine, the creaking included."]]]],
   ["Nice chair.","It's my father's chair. Until a bishop says otherwise, I'm only keeping it warm."]],
- "Edmund will see you out. He sees everyone out. It's his favourite part."],
+ "Edmund will see you out. He sees everyone out. It's his favourite part.",
+ "Prince Leopold stands beside the throne but won't sit on it until a bishop says so. He misses his father's noise."],
 3:["(Leopold is looking at a crate of Kelp Cola by the door.) Phil sent that up from Kingsgrad, with his condolences. Twenty-four bottles of condolence.",[
   ["Kind of him.","Phil is never kind. Phil is early. My father drank one every afternoon at four, on ice, for fifty years. Phil wants to know if I'll keep the habit."],
   ["Will you keep the habit?","I don't much like it. Don't print that, or Phil will send fifty-two bottles to change my mind."],
   ["Can I have one?","Take two. Take the crate. Marta says it rots the teeth, and she'd know: she's taken a bottle a day since 1951."]],
- "Tell Phil, if you see him, that the prince is grateful. It's what princes are for."],
+ "Tell Phil, if you see him, that the prince is grateful. It's what princes are for.",
+ "Phil sent Leopold a crate of Kelp Cola. The old king drank one every afternoon at four. Leopold doesn't like it."],
 4:["I had a letter from Eastbrook today. Erik, the Democrat. Very polite. He'd like an election, at my earliest convenience.",[
   ["What did you write back?","Nothing yet. I've put it with the other polite letters. It's a tall pile, and it leans to the left."],
   ["Is an election so bad?",["It's a question of what comes after it. My father said a vote is a coin tossed by a crowd. He said a great many things, though.",[
@@ -9127,7 +9196,7 @@ DAILY['Leopold']={
   ["Once or twice.","Then you'll understand. My father kept a boat, the Kestrel, laid up at Eastbrook Harbour. He taught me to sail her when I was nine. I fell in twice."],
   ["Only on ferries, being sick.","Honest. The British usually lie about boats. My father would have liked you, and then sent you below to bail."],
   ["Is she still there?",["Under a tarpaulin, with snow on it. Nobody's touched her since he did. I keep meaning to go down.",[
-    ["Why don't you?","A prince can't just walk down to a harbour. There's a car, and Oskar, and somebody from the Gazette."],
+    ["Why don't you?","A prince can't just walk down to a harbour. There's a carriage, and Oskar, and somebody from the Gazette."],
     ["Will you sail her again?","Before the ice comes in properly, I'd like to. Once. Don't put that in the paper either."]]]]],
  "If you're in Eastbrook, look in on the Kestrel for me. Green hull. Says Kestrel on it, which helps."],
 7:["The road north is open, so I suppose Dario will be up here by supper, wanting to buy something.",[
@@ -9405,12 +9474,14 @@ DAILY['Lisa']={
   ["Actual London.","I knew it! The coat. Nobody here has a coat like that. Is it true there are shops on every street? Shops on top of shops?"],
   ["What's it like working here?","Bread, cola, beer, cigarettes. Bread, cola, beer, cigarettes. Sometimes someone buys a drill and I nearly faint with excitement."],
   ["Do you get many customers?","Today? Everyone. The road's open, and Kingsgrad's been eating tins for a fortnight. I've sold a mountain of bread already."]],
- "Come back and tell me about London. Please. I'll give you a discount. (She lowers her voice.) I can't actually give you a discount."],
+ "Come back and tell me about London. Please. I'll give you a discount. (She lowers her voice.) I can't actually give you a discount.",
+ "Lisa at the supermarket in Kingsgrad sells bread, cola, beer and cigarettes, and is thrilled to meet someone from London."],
 3:["(Lisa is stacking cans into a pyramid.) Don't touch it. It took me twenty minutes. If you take the bottom one, I'll cry.",[
   ["It's very impressive.","Thank you! Nobody ever says that. Birgit at the Nordmart in Frostholm does hers in straight lines. Straight lines! Where's the joy?"],
   ["Why a pyramid?","Because people buy the top one. Then the next. If you stack them flat, they think you've got too many and walk away. It's psychology."],
   ["(Take the bottom one.)","(The pyramid stays up, somehow. She stares at you.) That's never happened before. You must be very lucky. Or a witch."]],
- "Mind the pyramid on your way out."],
+ "Mind the pyramid on your way out.",
+ "Lisa stacks her cans in pyramids. Birgit at the Nordmart in Frostholm uses straight lines."],
 4:["Can I tell you a secret? (She leans over the till.) I'm leaving the island. One day. I'm saving.",[
   ["Where are you going?","London. Where else? I'll work in one of those big shops with the lifts and the perfume counter. I'll wear a uniform with a little badge."],
   ["How much have you saved?","Two hundred and eleven dollars. In a biscuit tin under my bed. Danish butter biscuits, the blue tin. I ate the biscuits first, obviously."],
@@ -9706,12 +9777,14 @@ DAILY['Lotta']={
   ["How do you do the swan?","Fold, fold, tuck, pull the neck. Takes four seconds. Oskar's been trying for a year. His look like they've been run over."],
   ["Who's coming to dinner?","Only the family. They'll sit at one end of a table for thirty and say 'pass the salt' four times. I count. It's always four."],
   ["Polished you?","Mr Edmund inspects us before dinner. Nails, collars, shoes. He once sent me back for a hair. One hair."]],
- "Mind the swans on your way out. They're very sensitive."],
+ "Mind the swans on your way out. They're very sensitive.",
+ "Lotta serves at the palace table. Edmund inspects the staff before dinner, down to a single hair."],
 3:["The colonel from the barracks was at dinner. Colonel Halvorsen. He talked over the soup about 'keeping order' and 'the loyalty of the men'. Then I came in with the fish and he talked about the fish.",[
   ["What did he mean, loyalty?","I don't know. He said 'the men will follow the crown, Your Highness, as long as there is one.' The prince put his spoon down very slowly."],
   ["Was the fish good?","Herring. Always herring. The colonel had two helpings and said it reminded him of the war."],
   ["Do you always listen?","I don't listen. I serve. It just goes in. Like the gravy into the tablecloth."]],
- "Don't repeat that about the colonel. Soup talk stays in the soup."],
+ "Don't repeat that about the colonel. Soup talk stays in the soup.",
+ "Colonel Halvorsen told Leopold at dinner that the army will follow the crown 'as long as there is one'."],
 4:["(Lotta is ironing a tablecloth.) Twenty feet of damask, and if there's a crease Mr Edmund will find it from the other end of the hall.",[
   ["What do you do on your days off?","Go into Kingsgrad. The cinema, if Otto has anything good. The tearoom. Anywhere nobody wants me to carry soup."],
   ["Do you like the job?","I like the dining room. It's the most beautiful room in the palace and nobody sits in it but three sad people. Someone ought to enjoy it."],
@@ -9808,7 +9881,7 @@ DAILY['Lotta']={
   ["The hug?","(She throws a napkin at you.) It was the volcano."]],
  "Shake the ash out of your hat. Not on my table."],
 23:["We've been practising for the state visit on the gravel. I hand flowers to the wheelbarrow, and Oskar opens its door. Viktor laughs at us from the shed.",[
-  ["Why the wheelbarrow?","It's about the height of a king's car. And it doesn't mind if you drop the flowers."],
+  ["Why the wheelbarrow?","It's about the height of a king's carriage. And it doesn't mind if you drop the flowers."],
   ["Is Oskar good at it?","He opened the wheelbarrow beautifully. Then he bowed to it. Then he looked at me to see if I'd laughed. I had."],
   ["What flowers?","White roses. From Kingsgrad, if the ash lets them through. If not, Viktor says he'll find something. Viktor always finds something."]],
  "Don't laugh at the wheelbarrow. It's had a hard month."],
@@ -9836,7 +9909,7 @@ DAILY['Lotta']={
   ["You'll be wonderful.","I know. I practised with the wheelbarrow. The wheelbarrow said I was wonderful."],
   ["What's going on in the streets?","Everything. Flags, rallies, shouting. Oskar's mum's red banner. And a king, in our dining room. I'll be listening over the soup."],
   ["What do you hope he says?","Something worth hearing. I've served a hundred dinners this year, and nobody's said anything worth hearing since the old king winked."]],
- "Step back. Here comes the car. (She takes a breath and lifts her chin.)"],
+ "Step back. Here comes the carriage. (She takes a breath and lifts her chin.)"],
 29:["(Lotta is smiling at nothing.) Oskar and I went for a walk round the garden. I held his arm. The ice was slippery. Well. I said it was slippery.",[
   ["Was it slippery?","Viktor sanded the paths that morning. I saw him do it. I held Oskar's arm anyway."],
   ["Oh, Lotta!","I know. Don't. Marta's already made a face. Ingrid's already cried. Elsa said 'about time'."],
@@ -9856,17 +9929,20 @@ DAILY['Lucia']={
   ["Word travels fast here.","Faster than the boats. Slower than me, though. (She smiles.) Lucia. I look after things on the docks. People's debts, mostly."],
   ["What do you do here?","I remind people what they owe. Kindly, the first time. You'd be amazed how many people only need reminding once."],
   ["You don't look like a docker.","I'm not. I'm the woman the dockers look round for before they buy a round they can't pay for."]],
- "Nice to meet you, reporter. Don't run up a tab."],
+ "Nice to meet you, reporter. Don't run up a tab.",
+ "Lucia on the Saltwick docks collects people's debts, kindly the first time."],
 2:["(Lucia has a little notebook open and is ticking something off.) Gunnar paid. All of it, in cash, before I'd even said hello. I'm almost disappointed.",[
   ["Who's Gunnar?","He works the warehouse at West Saltwick. Big hands, small brain, plays cards with sailors. He loses on Fridays and pays on Mondays. Today he broke the pattern."],
   ["What does he owe you for?","Not me. Friends of mine. (She snaps the notebook shut.) Reporters ask a lot of questions, don't they?"],
   ["Disappointed? You like collecting?","I like the walk. Fresh air, sea view, a man going pale. It's a good job, if you've got the face for it."]],
- "If you see Gunnar, tell him well done. He'll be terrified."],
+ "If you see Gunnar, tell him well done. He'll be terrified.",
+ "Gunnar paid Lucia every penny he owed, early, which isn't like him."],
 3:["My flat's in the block by the square. (Lucia jerks her head at it.) Third floor. I've got Anna, the Party leader, on one side, and Helen the union woman across the corridor. I hear them through the walls, planning the revolution.",[
   ["Do they know what you do?","They know I work for 'an import firm'. Anna once asked me to join the Party. I said I'd think about it. I'm still thinking. Eight years now."],
   ["What do they plan, through the walls?","Meetings about meetings. Helen practises speeches in the bath. She's quite good. I've nearly been converted twice."],
   ["Who else lives there?","Kaisa from the radio, two girls with no work, Olga from the fish shop, and some fishermen. (She looks at the sea.) Nice enough people."]],
- "Don't tell Anna I said she plans in the bath. That was Helen."],
+ "Don't tell Anna I said she plans in the bath. That was Helen.",
+ "Lucia lives next door to Anna and across from Helen. They think she works for an import firm."],
 4:["(Lucia's knuckles are red, and she's flexing her hand.) Before you ask, I hit a door. Not a person. A door. Ray's back door, at the bar. It stuck.",[
   ["Are you all right?","I'm fine. The door's not. Ray says I owe him a door. (She laughs.) Imagine. Me, owing someone."],
   ["Do you have a temper?","I've got a short one. Somebody told me to count to ten. I get to four, usually. Four's an improvement on none."],
@@ -10159,10 +10235,10 @@ DAILY['Magnus']={
 10:["(Magnus is in a black suit, buttoned to the top.) The funeral is today. I have been seated beside Harald, from Kelp Cola. I expect the king would have found that amusing.",[
   ["Will you speak to Harald?","Briefly, and about the weather. In a chapel, even rivals talk about the weather."],
   ["Did you know the king?","I shook his hand once, at the opening of the fuel depot. He asked me whether I liked my job. I said yes. That was not true, but it was correct."],
-  ["Is Dario going?","Dario is going in the second car, and I am going in the fourth. These things are noticed."]],
+  ["Is Dario going?","Dario is going in the second carriage, and I am going in the fourth. These things are noticed."]],
  "Black is very practical. It requires no decisions."],
 11:["(Magnus is adding up a column of figures, twice.) Do you know how many barrels lie under the shelf off this island, by our survey? Neither does anybody, officially. Unofficially, it's a great many.",[
-  ["How many is a great many?","Enough to give every family on Sarivalto a car, and the roads to drive it on. Phil gives them cola."],
+  ["How many is a great many?","Enough to give every family on Sarivalto a boat, and a harbour to keep it in. Phil gives them cola."],
   ["Doesn't the oil belong to the island?","The oil belongs to whoever can lift it. That is not a philosophy. It is engineering."],
   ["You should put that on a card.","(He writes it down.) Card forty-two. I was trying to get down to forty."]],
  "Barrels, not bubbles. That is my slogan. Margit says it needs work."],
@@ -10182,7 +10258,7 @@ DAILY['Magnus']={
   ["You seem almost excited.","I am never excited. I am, at most, ready."]],
  "If you see Harald, tell him my badge is bigger. It is."],
 15:["(Magnus is reading the Gazette.) Leopold or Augustus. Crown or cross. The whole island is arguing about which prince, and nobody is asking what either of them knows about pipelines.",[
-  ["Which prince would suit you?","Whichever one leaves the economy to grown-ups. I suspect neither, but Leopold at least likes cars."],
+  ["Which prince would suit you?","Whichever one leaves the economy to grown-ups. I suspect neither, but Leopold at least likes yachts."],
   ["Will the Republicans take a side?","The Republicans are waiting to see which side wins, and then they will have taken it all along."],
   ["Why not be king yourself?","(He considers it seriously.) The hours are poor and the pension is uncertain."]],
  "Crown, cross, ballot box. Oil goes under all of them."],
@@ -10401,12 +10477,14 @@ DAILY['Mario']={
   ["How long have you been in here?","Since August. Seven weeks. Not that I count. (He nods at the scratches on the wall.) The wall counts."],
   ["What are you in for?","A misunderstanding about some numbers. I'm a numbers man. The police are not. We'll leave it there, friend."],
   ["You seem very cheerful for a prisoner.","Three meals, a bed, and nobody owes me anything in here. Outside, I've got forty people to chase. This is a holiday."]],
- "Come back. A man in a cell needs his visitors like a plant needs water."],
+ "Come back. A man in a cell needs his visitors like a plant needs water.",
+ "Mario has been in the Kingsgrad police cells since August, over a misunderstanding about some numbers."],
 3:["(Mario is shuffling a pack of cards through the bars.) Gin rummy, with the sergeant. We play every evening. She thinks I let her win on Tuesdays. I do. She thinks I don't know she knows.",[
   ["Who's winning overall?","Me, by two hundred and twelve matchsticks. We play for matchsticks. Money would be a bribe, and I'm a reformed man."],
   ["Is Sergeant Hanna kind to you?","She's the fairest woman on the island. She arrested me, she feeds me, and she beats me at rummy on Thursdays. Fair."],
   ["Could you teach me gin rummy?","Through the bars? I've taught worse in worse places. Sit on the bench there. No: first, empty your pockets. Habit."]],
- "Tell the sergeant I'll have the cards ready after supper."],
+ "Tell the sergeant I'll have the cards ready after supper.",
+ "Mario plays gin rummy for matchsticks with Sergeant Hanna every evening, and lets her win on Tuesdays."],
 4:["I'm reading. (Mario holds up a battered paperback with a dagger on the cover.) Mary from the book shop sends them over. A Swedish detective. He has a cold in every chapter. I like him.",[
   ["What's it about?","A dead banker in a lake. Everybody wanted him dead. The detective works it out on page two hundred. I worked it out on page forty."],
   ["Do you read a lot?","In here? A book a day. Outside, I read the racing pages and the odds. This is better for the soul, the priest says. He visits on Sundays."],
@@ -10524,7 +10602,7 @@ DAILY['Mario']={
  "Go on. I've got another twenty to do."],
 27:["The tournament! (Mario grips the bars.) The whole island at Rosaria's back table, and I'm here, with a policewoman and a Russian novel. Friend, it's cruel. Who's playing? Tell me who's playing.",[
   ["Everyone who matters, I hear.","And Nico, who doesn't matter but thinks he does. Watch his left ear. It goes red when he's bluffing. I've won two hundred dollars off that ear."],
-  ["Would you win, if you were there?","I'd come second, to Gustavo, on purpose. Then I'd win it all back from Nico in the car park."],
+  ["Would you win, if you were there?","I'd come second, to Gustavo, on purpose. Then I'd win it all back from Nico on the steps outside."],
   ["Want me to tell Nico about his ear?","Never! A man's ear is his own business. If you tell him, I'll lose my pension."]],
  "Go and play. Watch the ear. Don't tell anyone I told you."],
 28:["(Mario has his ear to the little window.) Marches, flags, singing. I can hear the Communists two streets away, and a royal band coming the other way. The sergeant's out keeping them apart.",[
@@ -10551,12 +10629,14 @@ DAILY['Marjut']={
   ["Thank you. You worked at the palace?","Fourteen years. Linen, bedrooms, silver. Then the king died, and a week later Edmund told me the household was 'economising'. On me."],
   ["Who's Edmund?","The butler. Grey, polite, smells of silver polish. He's never raised his voice in his life, and he's never needed to."],
   ["Miss it?","I miss the work. I don't miss being invisible. Up there, you're furniture that can carry trays."]],
- "Fix your collar before you go anywhere important."],
+ "Fix your collar before you go anywhere important.",
+ "Marjut worked fourteen years at the palace until Edmund let her go a week after the king died."],
 3:["(Marjut is watching the palace road.) The household's in a state. Black crêpe on every door, the chapel being scrubbed. And they're two maids short. Ha.",[
   ["Short because of you?","Because of me and Inga, who did the mending. Lotta's doing three people's work. She told me last night at the City Bar, in tears."],
   ["Who's still up there?","Ingrid, Lotta, Elsa in the laundry, Marta in the kitchen, Oskar on the doors, Viktor in the gardens. And Edmund, counting spoons."],
   ["Do you want to go back?","(She hesitates.) I want them to ask. I'd say no. But I want them to ask."]],
- "If you go up there, look at the corners. I bet nobody's dusted them."],
+ "If you go up there, look at the corners. I bet nobody's dusted them.",
+ "The palace is two maids short. Marjut wants them to ask her back, so she can say no."],
 4:["(Marjut has a pocketful of job cuttings from the Gazette.) A maid's not much use outside a palace. Everyone in Kingsgrad does their own dusting.",[
   ["Any leads?","Sally at the estate agent's wants someone to clean the houses she shows. Rosaria at the pizzeria wants someone at the sink. Glamour."],
   ["You could work in a hotel.","In Frostholm? They're letting maids go there too. Raili, she's from the Hotel Aurora. Nobody's hiring hands this year."],
@@ -10701,12 +10781,14 @@ DAILY['Marta']={
   ["I'll peel.","(She hands you a knife and a sack of potatoes without looking up.) Thin. If I can't see through the peel I'll know you're from the city."],
   ["How many do you feed?","The family, the staff, the colonel when he calls, the visitors who say they're not hungry and then are. Thirty, some days. Forty since the king died."],
   ["Herring again?","Herring always. The old king ate it every day for forty-one years. The new one does too. It's the only thing in this palace that hasn't changed."]],
- "Put the peelings in the pail for Viktor's compost. Not the bin. He checks."],
+ "Put the peelings in the pail for Viktor's compost. Not the bin. He checks.",
+ "Marta cooks for the whole palace. The old king ate herring every day for forty-one years."],
 3:["Kelp Cola sent a crate for the prince. He doesn't drink it. So I do. One bottle a day, since 1951. My teeth are my own and I'll thank you not to ask how many.",[
   ["Since 1951?","The year I came, a girl of sixteen, to scrub pans. The old cook drank it, so I drank it. Now I'm the old cook. Somebody'll start drinking it because of me."],
   ["Isn't it bad for you?","Everything's bad for you. Herring's bad for the herring. You drink what you like and you work it off at the stove."],
   ["Is it any good?","It's sweet and it's cold and it's the same every day. In a palace, that's a virtue."]],
- "Close the door. I'm not heating the whole of Kingsgrad."],
+ "Close the door. I'm not heating the whole of Kingsgrad.",
+ "Marta drinks the Kelp Cola the prince doesn't. She's had a bottle a day since 1951."],
 4:["Eastbrook's open again, so that boy will be back at work. Arvid. He was my apprentice for nine years. Now he's got his own grill, and my herring sauce.",[
   ["Your herring sauce?","Dill, mustard, a splash of the king's aquavit and something I won't say. He took it with him in his head. I can't arrest a man's head."],
   ["Were you sorry to lose him?","Sorry? I was furious. I was also proud, and I'll thank you not to tell him that, ever."],
@@ -10853,12 +10935,14 @@ DAILY['Mary']={
   ["Do you read everything you sell?","Every word. How else would I know whom to sell it to? I'm on page two hundred of a book about whaling. It's gone very badly for the whale."],
   ["How's Kingsgrad since the king died?","Hushed. People buy black ribbon and sensible novels. Nobody wants to be caught laughing at a book this week."],
   ["Anything on the island's history?","One shelf, and most of it's the king's own memoirs. Three volumes. He rather admired himself, poor man, and so did his editor."]],
- "Close the door behind you. The cold gets into the paper."],
+ "Close the door behind you. The cold gets into the paper.",
+ "Mary runs the bookshop in Kingsgrad. The king's own memoirs fill a shelf, in three volumes."],
 3:["(A fat grey cat is asleep in the shop window, on a pile of poetry.) That's Orwell. He chose the poetry himself. I've decided it means he has taste, rather than that it's the warmest shelf.",[
   ["Why Orwell?","After a writer who knew what happens to books when the wrong people get hold of a country. I named him as a reminder. He's mostly a reminder to buy fish."],
   ["Does he bite?","Only customers who dog-ear pages. He can tell. I don't know how, but he can."],
   ["Who comes in most?","Frank from the gun shop. He comes in for a manual and goes straight to the crime shelf. He's read every one of them twice, and he still guesses wrong."]],
- "Don't step on Orwell. He'd never forgive you, and nor would I."],
+ "Don't step on Orwell. He'd never forgive you, and nor would I.",
+ "Mary's cat Orwell sleeps on the poetry. Frank reads every crime novel and still guesses wrong."],
 4:["(Mary is wrapping two paperbacks in brown paper and string.) For the police station. Mario, the bookie in the cells. He likes Swedish detectives, the gloomy kind with a cold in every chapter. I send him two a week.",[
   ["You send books to a prisoner?","Somebody ought to. A man with nothing to read starts thinking, and Mario thinking is how he ended up in there."],
   ["Does he pay you?","Sergeant Hanna brings me the money, in coins, counted twice. Mario's very honest, for a criminal. Better than some of my respectable customers."],
@@ -11011,12 +11095,15 @@ DAILY['Mats']={
   ["What do you do, when you're working?","I'm a clerk. I file things. Reports, invoices, letters. People think it's dull. It is dull, but it's tidy, and I like tidy."],
   ["Is that yesterday's Financial Times?","Last week's. The boat brings it in a bundle when it brings it at all. The Dow Jones is up, and I'm sitting in Kingsgrad in my socks."],
   ["Who's the milk for?","Me and Elin. My partner. She takes it in her coffee and I take it in my tea, and we've never once agreed which is right."]],
- "If you see the milkman, tell him flat 3B is desperate."],
+ "If you see the milkman, tell him flat 3B is desperate.",
+ "Mats, a clerk at Diversified Petroleum, lives in Kingsgrad with Elin. He reads the financial pages and loves tidy files."],
 3:["(Mats is sitting on the stairs of the Kingsgrad Apartments with a ledger on his knees.) Elin's gone in to work today. Kelp Cola's open again. I'm going through my own household accounts, twice, for something to do.",[
   ["Elin works at Kelp Cola?","She's Phil's secretary. (He lowers his voice.) And I'm with Diversified Petroleum. So we have an agreement: we never talk about work at home."],
   ["How are your household accounts?","Balanced to the cent. Elin spent four dollars on a scarf she says was a bargain. I've written it down as 'scarf, disputed'."],
+  ["Elin told me about the two companies.","(He goes pale, then laughs.) Did she. Then you know why I'm out here on the stairs. Please don't put it in the paper.","Elin:2"],
   ["Does the agreement work?","It works until about seven o'clock every evening. Then one of us says 'You'll never guess what happened', and it's all over."]],
- "Don't mention the agreement to anyone, will you? It's a small island."],
+ "Don't mention the agreement to anyone, will you? It's a small island.",
+ "Mats and Elin work for rival companies, so they've agreed never to talk about work at home. It never lasts past seven."],
 4:["(Mats is reading a library book with a picture of a skyscraper on the cover.) 'The Men of Wall Street.' Mary at the bookshop ordered it in for me. It took four months. It's wonderful.",[
   ["Why Wall Street?","Because everything there moves so fast, and it all goes into the right column in the end. And the suits. Have you seen the suits?"],
   ["Have you ever been to New York?","Never. I've been to Helsinki, twice, and once to Stockholm for a course in double-entry bookkeeping. That was the best week of my life."],
@@ -11104,7 +11191,7 @@ DAILY['Mats']={
  "Re-addressed and forwarded. That's the end of it, as far as I'm concerned."],
 21:["(Mats has ash on his spectacles and a box of files in his arms.) The mountain's erupted. The tower's being cleared. I've saved what I could: the accounts, the contracts, and Elin's photograph off my desk.",[
   ["Is Elin all right?","She telephoned from Kingsgrad. The ash hasn't got that far south yet. She told me to come home. I said I had to save the files. She called me a name."],
-  ["What's happening in Frostholm?","Ash on the cars, people running for the trams, and the sky up north is orange. Nobody's hurt, they say. Everyone's frightened."],
+  ["What's happening in Frostholm?","Ash on the roofs, people running for the trams, and the sky up north is orange. Nobody's hurt, they say. Everyone's frightened."],
   ["Put the box down.",["(He holds on to it.) If I put it down, I'll start shaking. While I'm holding it, I'm just a clerk with a box.",[
     ["Then hold it. I'll walk you to the tram.","(He nods.) Thank you. Mind the steps. They're slippery with ash."],
     ["Elin would want you to put it down.","(He puts it down, very carefully, and sits on it.) She would. She'd also say I should have left an hour ago."]]]]],
@@ -11438,17 +11525,20 @@ DAILY['Mike']={
   ["You've a good voice.","Twelve years in the Saltwick choir, till they asked me to stop doing the Internationale at Christmas."],
   ["What are you catching?","Cod, if they'll have me. The snow kept us in for a fortnight; the fish have forgotten my face."],
   ["Is that a Party song?","It's the song. The whole world sings it. Well, half of it. The good half."]],
- "Mind the rope. It bites."],
+ "Mind the rope. It bites.",
+ "Mike is a fisherman in Saltwick who sings the Internationale while he works."],
 2:["The Valborg won't start. Third time this week. She's older than me and twice as stubborn.",[
   ["What's wrong with her?","The gearbox, Tom thinks. Tom always thinks it's the gearbox. Tom's usually right."],
   ["Can you borrow a boat?","Tom's. Everybody borrows Tom's. There's a queue. I'm fourth, behind a man who wants to see the palace from the sea."],
   ["Why Valborg?","My grandmother. She was stubborn too, and she wouldn't start in the mornings either."]],
- "If you know anything about gearboxes, I'm all ears."],
+ "If you know anything about gearboxes, I'm all ears.",
+ "Mike's boat, the Valborg, won't start. He's fourth in the queue to borrow Tom's."],
 3:["(Mike is wrapping something small in newspaper, and hides it quickly.) Nothing! It's nothing. A present. For... my mother.",[
   ["Your mother lives here?","In... Kingsgrad. Yes. She likes... (he looks at the parcel) ...pocket knives. She's very practical."],
   ["That's sweet of you.","I'm a sweet man. Ask anyone. Don't actually ask anyone."],
   ["You're blushing.","It's the wind! Saltwick wind. Very red-making."]],
- "Forget you saw that. It's a mother thing."],
+ "Forget you saw that. It's a mother thing.",
+ "Mike is wrapping a pocket knife as a present, he says for his mother in Kingsgrad. He's blushing."],
 4:["Anna wants me to sing the Internationale on the twenty-eighth. In front of the whole island. In Russian.",[
   ["Do you speak Russian?","I speak 'comrade', 'vodka' and 'goal'. I've got three weeks to learn eight lines."],
   ["Will you do it?","Of course. Anna asks, I do it. That's what a Party man is. Even if my knees knock."],
@@ -11853,17 +11943,20 @@ DAILY['Noora']={
   ["Aren't you at work?","The road to Kingsgrad's still snowed under. The lab's been without me for weeks. I hope somebody's feeding the kelp."],
   ["Who are your neighbours?","Helen from the Union's two doors down, and Anna lives upstairs. Half this block's Communist, and the other half's tired."],
   ["That's a lot of records.","Careful! That's my whole collection: forty-two records, all from Ruby's shop in Eastbrook, back when I could get to Eastbrook."]],
- "Mind the radiator on your way out. It bites."],
+ "Mind the radiator on your way out. It bites.",
+ "Noora is a lab assistant at Kelp Cola who lives in Saltwick, in a block full of Communists. She collects records from Ruby's."],
 2:["I walked all the way to Kingsgrad to check on the lab, and they wouldn't let me past the gate. The HQ doesn't open till tomorrow.",[
   ["Who's feeding the kelp?","Nobody! It lives in a tank of seawater. It's probably fine. Kelp's survived worse than a month without me. (She looks worried.)"],
   ["What do you do in the lab?","Run the equipment, wash the glassware, mix the test batches for Saara. Mostly wash. I've washed a beaker so clean I could see my future in it."],
   ["What's in your future?","A chemistry diploma, by post, from Helsinki. Two more years of exams at the kitchen table. Then I'll be the one who doesn't wash up."]],
- "Tomorrow, then. I'll run the whole way."],
+ "Tomorrow, then. I'll run the whole way.",
+ "Noora walked to Kingsgrad to check on the lab's kelp, but Kelp Cola's HQ doesn't open till the 3rd."],
 3:["(Noora is peering into a tank of seawater.) It's alive! The kelp's alive! Oh, Sigrid, I'm sorry I left you.",[
   ["You named the kelp?","Sigrid. All of it. She's one big family, really."],
   ["Where's Saara?","At her desk, eating lunch out of a jar. She's been here since dawn, with that look: the 'I need a new flavour' look."],
   ["How did you get in from Saltwick?","On the fish lorry, with Bob. I smell of herring and enthusiasm."]],
- "Say hello to Sigrid on your way past. She likes company."],
+ "Say hello to Sigrid on your way past. She likes company.",
+ "Noora's kelp, Sigrid, survived the shutdown. Saara wants a new flavour."],
 4:["I've mixed eleven test batches today: cloudberry, liquorice, pine. Saara tasted each one, wrote something down and poured it down the sink.",[
   ["What did she write?","'No.' Eleven times. In very neat handwriting."],
   ["What's the pine like?","Like licking a Christmas tree. In a good way. No. Not in a good way."],
@@ -11895,7 +11988,7 @@ DAILY['Noora']={
   ["What flavour would you make?","Something that tastes of the sea, but nicely. Saara says 'nicely' is the hard part."]],
  "If you're going to touch anything, wash it after. Please."],
 10:["The funeral's on the radio. Kaisa's playing hymns between the speeches. She lives on my floor, and she practises her announcing voice in the bath.",[
-  ["Did you ever see the king?","He waved at me once from a car. I was nine. I waved back so hard I fell in a puddle."],
+  ["Did you ever see the king?","He waved at me once from a carriage. I was nine. I waved back so hard I fell in a puddle."],
   ["What's Kaisa like?","Lovely. Loud. She's why I know all the words to everything."],
   ["Is the lab quiet today?","Saara's at her desk with the radio on, pretending not to listen. She took her glasses off for the hymns."]],
  "Quietly on the stairs. Saara's listening."],
@@ -12430,17 +12523,20 @@ DAILY['Olga']={
   ["How do you tell a fresh fish?","The eye, the gill and the smell. Bright, red and the sea, not the harbour. Anyone who sells you a cloudy eye is a thief or a fool, and I'm neither."],
   ["Who's Hannu?","The newsstand. He sells headlines he makes up himself and opinions he borrows from me. I shout, he agrees, and the next day he's back to being wrong."],
   ["How much for that one?","For you, today, the same as everybody. Don't look hurt. Fish don't care who's buying."]],
- "Before noon, it's cheaper. After noon, it's my mood."],
+ "Before noon, it's cheaper. After noon, it's my mood.",
+ "Olga sells herring in Saltwick and judges a fish by its eye. Hannu's headlines are borrowed from her."],
 2:["(Olga is shouting across the lane.) HELMI! Your sign's crooked! (A voice shouts back. Olga looks satisfied.) Helmi at the outfitters. We've shouted at each other for twelve years. It's how we say good morning.",[
   ["Are you friends?","Rivals and friends. She sells the boots, I sell the catch. A fisherman needs both, and neither of us admits it."],
   ["Is her sign crooked?","No. But now she'll go out and look, and that's my morning's entertainment."],
   ["How's trade with the road open?","Better. Kingsgrad wants herring for the funeral week. They'll want it pickled, smoked and cheap, and they'll get two of the three."]],
- "If you hear shouting from the lane, nobody's dying. It's just me and Helmi."],
+ "If you hear shouting from the lane, nobody's dying. It's just me and Helmi.",
+ "Olga and Helmi have shouted across the lane at each other for twelve years. It's how they say good morning."],
 3:["(Olga is hanging herring on rods in a little wooden shed that billows smoke.) My smoking shed. Juniper and alder, and my mother's secret, which is time. Nobody on this island has any patience except me and the fish.",[
   ["What's the secret, then?","Three days, not two. Everybody stops at two because they're hungry. I stop at three because I'm stubborn."],
   ["Can I try a piece?","(She tears off a strip.) There. If you don't say 'oh', you've no soul."],
   ["Who buys smoked herring?","Ray, for the bar. Marta, for the palace, who says it's too salty and orders more. And Aili, who puts it in eggs, which is American and wrong and delicious."]],
- "Don't stand downwind of the shed. You'll smell of it till Christmas."],
+ "Don't stand downwind of the shed. You'll smell of it till Christmas.",
+ "Olga smokes her herring for three days, not two. Ray, Marta and Aili all buy it."],
 4:["(Olga is rubbing her lower back with both fists.) Helmi was in at seven wanting a crate on credit for a boy who hasn't paid her since March. I said yes. I always say yes. My back says no.",[
   ["What's wrong with your back?","Thirty years of crates. The doctor in Kingsgrad says rest. I said I'll rest when the fish do."],
   ["Why say yes?","Because the boy's father fished with my father. In Saltwick, a debt's not a sum, it's a family tree."],
@@ -12586,18 +12682,20 @@ DAILY['Oskar']={
   ["How long are you out here?","From seven till Mr Edmund says. Mr Edmund doesn't say often. I think he forgets I'm out here, like a boot scraper."],
   ["Get some better boots.","Saving for them. Harbour Outfitters in Saltwick have fur-lined ones, real sheepskin. I'm a third of the way there. The left one, roughly."],
   ["You're very cheerful for a frozen man.","Mum says I'd be cheerful at my own hanging. I said only if they let me wear a hat."]],
- "Mind the step, it's glass this time of year."],
+ "Mind the step, it's glass this time of year.",
+ "Oskar holds the palace door all day and is saving up for fur-lined boots."],
 3:["Mum rang from Saltwick. She's in the Party, Mum. She asked if I'm still holding doors for the oppressors. I said yes, and they tip badly.",[
   ["Is she really a Communist?","Since before I was born. She's got a picture of Lenin in the kitchen, next to one of me in my uniform. She says we're both misguided."],
   ["Do they tip badly?","The family don't tip at all. Royals don't carry money. The visitors tip. The man from Kelp Cola gave me a bottle cap. Just the cap."],
   ["What did you say to her?","I said the oppressors give me Marta's pie on Sundays. She went quiet. Mum respects pie."]],
- "If you're ever in Saltwick, don't tell Mum you met me. She'll try to recruit you."],
+ "If you're ever in Saltwick, don't tell Mum you met me. She'll try to recruit you.",
+ "Oskar's mother in Saltwick is in the Party, and teases him for holding doors for the oppressors."],
 4:["(Oskar is hopping from foot to foot.) Mr Edmund says a footman should be like a statue. I said statues don't get chilblains. He said, 'Precisely.'",[
   ["What did he mean?","I've been thinking about it all morning. I think he meant stop complaining. He usually does."],
   ["Is he strict?","He's like a clock that talks. You always know where you are. Mostly in trouble, but you know."],
   ["Do statues get chilblains?","Viktor says the one in the garden has a crack in its foot from the frost. So I think I win, really."]],
  "Close the gate behind you, would you? Mr Edmund will blame me if it swings."],
-5:["Can I tell you something? There was a car up the drive at two in the morning. No lights. Black. It sat by the side door for twenty minutes.",[
+5:["Can I tell you something? There was a carriage up the drive at two in the morning. No lamps. Black. It sat by the side door for twenty minutes.",[
   ["Who was in it?","Couldn't see. A man got out and went in the side. Mr Edmund was there with a lamp, and then the lamp went out."],
   ["Did you tell anyone?","I told Mr Edmund I'd seen it. He told me I hadn't. So now I'm telling you, and you're not anyone."],
   ["What were you doing up at two?","Couldn't sleep. The quarters are next to the boiler, and it sings at night. Ingrid says it's a ghost. Ingrid says everything's a ghost."]],
@@ -12613,7 +12711,7 @@ DAILY['Oskar']={
   ["What soup was it?","Pea and ham. Very good. I'd eat it again, sin or not. Don't tell the monks."]],
  "If you see Prince Augustus, say I'm sorry about the soup. But it was lovely."],
 8:["Sunday, so the family's split. Prince Augustus has gone up the mountain. The prince is inside with papers. And I'm out here, with the weather.",[
-  ["Do you get a day off?","Wednesday afternoons. I go into Kingsgrad to the cinema, if Otto's showing something with a car chase."],
+  ["Do you get a day off?","Wednesday afternoons. I go into Kingsgrad to the cinema, if Otto's showing something with cowboys in it."],
   ["Do you go to church?","Mum says religion's an opiate. Marta says it's compulsory. I go to the chapel at Easter, so they both think I'm halfway."],
   ["What's the weather doing?","Getting colder. Viktor says snow by Friday. He knows by the way the crows sit."]],
  "Go on in, it's warm by the fire. Not out here, but in there."],
@@ -12622,20 +12720,20 @@ DAILY['Oskar']={
   ["Who's coming?","Everyone. I've got a list. Mr Edmund wrote it out. Gustavo's on it. I've never taken Gustavo's coat. I'm told you do it very carefully."],
   ["Nervous?","A bit. I've never been in the chapel with that many important people. What if I sneeze?"]],
  "Don't shake my hand. The gloves."],
-10:["(Oskar stands very straight in white gloves, his breath smoking.) The cars have been coming up since eight. I've taken sixty-two coats. I can't feel my arms.",[
+10:["(Oskar stands very straight in white gloves, his breath smoking.) The carriages have been coming up since eight. I've taken sixty-two coats. I can't feel my arms.",[
   ["Any notable coats?","Gustavo's. Camel hair, very heavy, something hard in the pocket. I didn't look. I've been told not to look."],
   ["How are the family?","The prince walked past me like a ghost. Princess Daphne winked at me. Prince Augustus said thank you for the door, which nobody says."],
   ["Hold on, it's nearly over.","It's only just starting. They have to come out again. That's sixty-two coats the other way."]],
- "Mind the drive. It's lined with cars and a lot of very cross chauffeurs."],
+ "Mind the drive. It's lined with carriages and a lot of very cross coachmen."],
 11:["I've got blisters on both thumbs from coats. Lotta put plasters on them in the kitchen. She said I was 'brave', and she was laughing, but still.",[
   ["That's progress.","Is it? (He brightens.) It is, isn't it? She touched my thumbs. Both of them."],
   ["Tell me about the funeral.","It was very quiet, and very long, and Princess Daphne cried in the hymns, which I didn't expect. I had to look at the ceiling."],
   ["Brave about blisters?","She meant it as a joke. But I'm keeping it. It's the nicest thing a girl's said to me since school."]],
  "Don't tell anyone about the thumbs. It's private."],
-12:["Another one, last night. Not the black car. A grey van this time, from the south road. Three men, and one of them had a limp.",[
+12:["Another one, last night. Not the black carriage. A grey van this time, from the south road. Three men, and one of them had a limp.",[
   ["Who was it?","Don't know. They went round the back, to the kitchen. Marta came out and shouted, and they went away again. I think she was shouting about the hour."],
   ["Did you tell Mr Edmund?","He said I'd been dreaming. I said I was standing up. He said footmen can dream standing up. I'm not sure that's true."],
-  ["Are you keeping a list?","(He taps his breast pocket.) In my notebook. Just the cars. Not the people. Mr Edmund doesn't know. Please don't."]],
+  ["Are you keeping a list?","(He taps his breast pocket.) In my notebook. Just the carriages. Not the people. Mr Edmund doesn't know. Please don't."]],
  "If you see a man with a limp, don't mention me."],
 13:["(Oskar has a bottle of Kelp Cola in his coat pocket.) They're giving them away in Kingsgrad. Free. I went at lunch and got four. I've hidden three in the quarters.",[
   ["Why hide them?","Marta says Kelp Cola rots the teeth, and she drinks a bottle every day, so she knows. I'm saving them for Lotta."],
@@ -12649,7 +12747,7 @@ DAILY['Oskar']={
  "If you see my mum, tell her I'm standing up straight."],
 15:["Everyone's been in and out of the library. The Prince, Princess Daphne, two letters from the monastery and a lot of tea. I've opened that door forty times.",[
   ["What's going on?","Prince Augustus is deciding something. Nobody says what. But Marta's made his favourite cake, so it's big."],
-  ["You're counting the door?","I count everything. Cars, coats, doors. It passes the time. Forty-one now: Ingrid's just gone in with the cocoa."],
+  ["You're counting the door?","I count everything. Carriages, coats, doors. It passes the time. Forty-one now: Ingrid's just gone in with the cocoa."],
   ["What's his favourite cake?","Lemon. Very plain. Like him, Marta says, but she says it kindly."]],
  "Don't knock too loudly if you're going in there. He's thinking."],
 16:["Lotta's going to the big debate on her afternoon off. The Communists and the Democrats. She asked if I wanted to come. Me!",[
@@ -12664,7 +12762,7 @@ DAILY['Oskar']={
  "If it goes again, hold the railings. I'll be holding them anyway."],
 18:["Mr Edmund says I stood still for four hours yesterday. Not a twitch. Then he said 'well done' and I dropped the umbrella. Four hours, ruined.",[
   ["Not ruined.","That's what Lotta said. She said she'd watched me from the window and I looked 'very professional'. I'm going to frame that."],
-  ["Why the practice?","There's a king coming on the twenty-eighth. A foreign one. I'm to open his car door. I've been practising on the wheelbarrow."],
+  ["Why the practice?","There's a king coming on the twenty-eighth. A foreign one. I'm to open his carriage door. I've been practising on the wheelbarrow."],
   ["Did the umbrella survive?","Bent at the end. I'll straighten it. Mr Edmund will notice. He notices bent things."]],
  "Mind the umbrella stand. It's had a rough week."],
 19:["(Oskar keeps glancing at the side door.) The prince asked me today which door the coal comes in by. The coal. I've never heard a prince ask about coal.",[
@@ -12672,7 +12770,7 @@ DAILY['Oskar']={
   ["Did you tell him?","The side door, by the kitchen. You can go in and out without passing the hall. (He stops.) I shouldn't have told you that either."],
   ["Maybe he likes coal.","Maybe. He also asked if I owned a flat cap. I said yes. He said 'good'. Just 'good'."]],
  "I'm saying nothing else. My lips are sealed. Sealed like the coal hole."],
-20:["My notebook says it was quiet last night. Not a single car. I sat up till three to be sure. Quiet's worse, somehow.",[
+20:["My notebook says it was quiet last night. Not a single carriage. I sat up till three to be sure. Quiet's worse, somehow.",[
   ["Why is quiet worse?","Because you start hearing things that aren't there. The boiler. The wind in the gate. Footsteps in the gravel that are probably just Viktor."],
   ["Were they Viktor?","I hope so. They stopped at the shed. Viktor doesn't usually walk round at night, though. Viktor's asleep by nine."],
   ["Get some sleep, Oskar.","Can't. Lotta says I look like a ghost. Ingrid says I am one. Ingrid's not helping."]],
@@ -12692,7 +12790,7 @@ DAILY['Oskar']={
   ["Half the right?","I'm going to ask Mr Edmund for an advance. He'll say no, then give me the money anyway and say I shouldn't tell anyone. He always does that."],
   ["Good job.","I've been cold since July. You don't know what it's like. Every morning, my feet in two blocks of ice."]],
  "Wish me luck with Mr Edmund."],
-24:["Lotta and I are both on the door for the state visit. She's handing the king flowers, and I'm opening his car. We've been practising together.",[
+24:["Lotta and I are both on the door for the state visit. She's handing the king flowers, and I'm opening his carriage. We've been practising together.",[
   ["Practising together?","On the gravel. She hands flowers to the wheelbarrow. I open the wheelbarrow's door. Viktor watches us from the shed and laughs."],
   ["That's lovely.","It is. (He goes red.) I mean it's very professional. We're colleagues. We just laugh a lot, now. I've heard her laugh about forty times."],
   ["What's the visiting king like?","Old, they say. Rich. Brings his own valet. I'm worried his valet will laugh at me."]],
@@ -12716,10 +12814,10 @@ DAILY['Oskar']={
   ["(Make a face.)","(His lip twitches. He holds it.) That was cruel. I'll get you back. In about thirty years, when I'm a butler."],
   ["Good luck today.","Thank you. The whole island's at it today. Mum's got a red flag. Lotta's got flowers. I've got a door."],
   ["What's happening everywhere?","Everything. Every party's out. Rallies, flags, a lot of people shouting at the same time. And a king. On my step."]],
- "Step aside, please. Royal car. (He freezes, beautifully.)"],
+ "Step aside, please. Royal carriage. (He freezes, beautifully.)"],
 29:["Lotta and I went for a walk after yesterday. Just round the garden. She held my arm because the ice was slippery. The ice was very slippery.",[
   ["Was it really slippery?","(He grins.) Viktor had sanded the paths that morning. They weren't slippery at all."],
-  ["That's wonderful, Oskar.","I know! I don't know what happens now. I suppose I have to ask her to the cinema. Otto's showing something with a car chase."],
+  ["That's wonderful, Oskar.","I know! I don't know what happens now. I suppose I have to ask her to the cinema. Otto's showing something with cowboys in it."],
   ["What's the island deciding?","Who's next. The prince, or Prince Augustus, or nobody. Mum's very excited. I'm trying not to think about it. I'm thinking about Lotta."]],
  "Mind the ice on the path. Or don't. Sometimes it's useful."],
 30:["(Oskar is in new, fur-lined boots.) Look! Helmi held them. My feet are warm for the first time since the king died. Whatever happens today, I'll face it with warm feet.",[
@@ -12735,12 +12833,14 @@ DAILY['Otto']={
   ["Not yet. Is it good?","Good? It's eighty seconds of the finest flying ever put on film. I've seen it four hundred times. I cried at three hundred and twelve."],
   ["What's showing besides that?","TOP COMRADE. The Soviet answer. Same story, more forms. I show it for balance. And because the man from Moscow sent it free."],
   ["Who are you?","Otto. I manage the cinema, I sell the tickets, I run the projector and I sweep the floor. I'm the whole staff. I'm also the audience, most nights."]],
- "'Denied, Falcon.' (He smiles.) That's the tower. Come back when you've seen it."],
+ "'Denied, Falcon.' (He smiles.) That's the tower. Come back when you've seen it.",
+ "Otto runs the cinema in Kingsgrad on his own. He shows STORMWING, and the Soviet TOP COMRADE for balance."],
 3:["(A great clatter from the booth upstairs.) That's Bertha. My projector. She does that when it's cold.",[
   ["Is she all right?","She's forty years old and she's never missed a showing. She clanks, she smokes a bit, she eats a bulb a week. We understand each other."],
   ["Why call a projector Bertha?","After my aunt. Big, loud, very warm and unreliable in winter. They'd have got on."],
   ["Can I see the booth?","Nobody goes in the booth. Not even me, unless she's jammed. It's her room. You don't go into a lady's room."]],
- "If you hear a bang during the picture, that's Bertha. Stay seated."],
+ "If you hear a bang during the picture, that's Bertha. Stay seated.",
+ "Otto's forty-year-old projector is called Bertha, after his aunt. Nobody goes in the booth."],
 4:["Do you know what's wrong with this island? Two pictures. Two! A man can't live on two pictures.",[
   ["Why only two?","The distributor in Helsinki sends us whatever's left over. This year, it was STORMWING and a Soviet film the Russians gave away. I'm waiting on a western."],
   ["What western?","RIDERS OF THE PALE SKY. Cowboys, horses, a man with no name and a very long walk. Ordered in June. Somewhere on a boat. I dream about it."],
@@ -12916,7 +13016,7 @@ DAILY['Paola']={
 12:["(Paola is standing very still by the fountain, watching a man in a good suit cross the square very fast.) Mr Phil's brother-in-law. He's remembered what he owes. (She watches him go.) He's going to the Club to pay. I won't need to visit.",[
   ["Do people always pay you?","People always pay the Don. I just remind them that a debt is like a clock. Nobody notices it ticking until it stops."],
   ["Do you enjoy the work?","I enjoy precision. A debt paid on time. A clock that keeps time. A move in chess that can't be answered. Enjoyment's too loud a word. Satisfaction."],
-  ["What does the Don think of you?","(She almost smiles.) He trusts me with his brandy, his car and his secrets. In that order of importance, I think. He's very fond of the brandy."]],
+  ["What does the Don think of you?","(She almost smiles.) He trusts me with his brandy, his boat and his secrets. In that order of importance, I think. He's very fond of the brandy."]],
  "If you owe anyone in Hope Springs anything, pay it. It saves everyone a walk."],
 13:["(Paola is in the Residences lobby, dusting the glass of a grandfather clock.) The Colonel's dachshund has been on the clock again. Brigadier. It has an interest in the pendulum. I think it believes it's a very slow rabbit.",[
   ["Is the clock all right?","Four seconds slow. The dog's breath on the glass. (She closes the case.) I've reset it. Brigadier will be back tomorrow. So will I."],
@@ -13051,7 +13151,7 @@ DAILY['Paolo']={
  "Buy Linnea a drink, if you're staying. She needs one."],
 10:["The king's funeral. (Paolo has a black band on his sleeve.) I'm in Eastbrook keeping an eye on things, while the important people are at the palace. Someone has to watch the harbour.",[
   ["What's happening at the harbour?","Boats coming in, boats going out, Liv in her customs shed with her nose in a book. The usual. (He's watching the road very carefully.)"],
-  ["Did you know the king?","I took a bet off his chauffeur once. Five dollars that the king couldn't eat a whole herring in one go. He could. He did it at a fete in front of a hundred people."],
+  ["Did you know the king?","I took a bet off his coachman once. Five dollars that the king couldn't eat a whole herring in one go. He could. He did it at a fete in front of a hundred people."],
   ["You look nervous.","Me? Nervous? I'm Genoese. We're never nervous, we're only alert. Very alert, today."]],
  "Go to the funeral, if you can still get in. Paolo's minding the shop."],
 11:["The mill hands want more money. (Paolo has lowered his voice to a delighted whisper.) Knut says the saw line's dangerous, Bjarne says the books are cooked, and Dagny says the whole lot of them can go and fell trees in Siberia.",[
@@ -13165,17 +13265,20 @@ DAILY['Pat']={
     ["Seriously, though.","Seriously? A bottle, a long time ago, and a captain who didn't like it. That's all you're getting on the first day."],
     ["Fair enough.","There you are. You've got manners. Most people who ask want the sad story, not the man."]]]],
   ["Do you get many visitors?","Gulls. The odd fisherman. Sirpa and Tiina from the village, when they want to gossip somewhere Ray can't hear."]],
- "Mind the tide line. The sand's soft where the river comes in."],
+ "Mind the tide line. The sand's soft where the river comes in.",
+ "Pat lives in a tent on the beach. He won't say what brought him here, beyond a bottle and a captain."],
 2:["(Pat holds up a green glass bottle, corked and waxed.) Look what the sea sent me. There's a letter in it. In Russian, I think: all backwards Rs.",[
   ["Have you opened it?","Not yet. You open a thing like that, it stops being a mystery and starts being someone's business. I'm enjoying the mystery."],
   ["Could it be important?","Could be a spy's secrets. Could be a sailor's shopping list. The sea doesn't tell you which, it just hands them over."],
   ["Sell it to a collector.","Who's collecting? The king's dead and the shop in Eastbrook only takes records. No, I'll keep it."]],
- "If you can read Russian, keep it to yourself for now. I like not knowing."],
+ "If you can read Russian, keep it to yourself for now. I like not knowing.",
+ "Pat has found a corked bottle on the beach with a letter inside, in Russian he thinks. He won't open it."],
 3:["(Pat is rebaiting a long fishing line with bits of mussel.) Cod come in close when it turns cold. Cold's coming. So are the cod, if I'm lucky.",[
   ["Caught anything yet?","A boot, Tuesday. Left foot. If the sea sends me the right one I'll be the best-dressed man in Saltwick."],
   ["How long have you fished here?","Eleven winters. Before that I fished for other people, on boats. Now the fish and I are on more equal terms."],
   ["Doesn't look very efficient.","It isn't. But nobody shouts at me, and the cod don't ask for a union rate."]],
- "Don't step on the line. Took me an hour to bait."],
+ "Don't step on the line. Took me an hour to bait.",
+ "Pat fishes from the beach and has done for eleven winters. The cod come in close when it turns cold."],
 4:["(Pat nods towards the sea.) Saw lights out there last night. Late. A boat with no running lights, coming in slow to the river mouth.",[
   ["Fishermen, surely?","Fishermen want to be seen, or someone runs them down. These didn't want to be seen. That's a different trade."],
   ["What were they landing?",["Crates, two men, a handcart up the path towards the bridge. (He shrugs.) I was asleep. I'm always asleep, when anyone asks.",[
@@ -13322,12 +13425,14 @@ DAILY['Petra']={
   ["What are you knitting?","A scarf. One row for every Union member at Kelp Cola. It's going to be long."],
   ["What's the pamphlet?","Minutes of the last Union meeting. I took them. I take everything: minutes, notes, abuse."],
   ["It's cold in here.","This is warm. Wait till you see the warehouse."]],
- "Mind the stairs. The light's been out since August."],
+ "Mind the stairs. The light's been out since August.",
+ "Petra is knitting a scarf with a row for every Union member at Kelp Cola. She takes the Union's minutes."],
 3:["Kelp Cola HQ's open today and the warehouse isn't. So Phil's in a heated office, and I'm in here wearing three jumpers.",[
   ["Three jumpers?","Vest, jumper, cardigan, jumper. Four. I said three to sound tougher."],
   ["What do you want from Phil?","Heating in the warehouse, a raise for the line and five minutes of his time. The five minutes is the one he can't spare."],
   ["How's the scarf?","Forty-one rows. That's the factory floor done. The warehouse is next, and that's mostly me."]],
- "Tomorrow the factory road opens. I'll be back in the cold by eight."],
+ "Tomorrow the factory road opens. I'll be back in the cold by eight.",
+ "Kelp Cola's HQ is heated and its warehouse isn't. Petra wants heating, a raise for the line, and five minutes with Phil."],
 4:["(Petra is stacking crates, her breath steaming.) Welcome to the warehouse. It's colder in here than outside. I've measured.",[
   ["How is that possible?","Concrete floor, tin roof, and a window that won't shut. Science."],
   ["How many crates in here?","Four thousand two hundred, give or take Kurt's lunch."],
@@ -13474,7 +13579,8 @@ DAILY['Phil']={
   ["What are all the trophies for?","Best Soft Drink in the Northern Baltic: 1958, 1961 and 1974. There were two entrants in 1974. We still won, and I'll hear no more about it."],
   ["How has the snow treated business?","Like a shut door. The factory's still snowed in behind Eastbrook, and the island's been drinking what it had in the cellar. Kurt rang me twice a day to tell me nothing had changed."],
   ["Who's the stern fellow in the portrait?","My grandfather. He started all this with a cooking pot and a bucket of kelp off the beach. He watches every penny I spend, even now."]],
- "Take a cold one from the fridge on your way out. Everybody does."],
+ "Take a cold one from the fridge on your way out. Everybody does.",
+ "Phil runs Kelp Cola, which his grandfather started with a pot and a bucket of kelp. The factory is still snowed in."],
 4:["(Phil puts down the telephone, beaming.) That was the factory. The Eastbrook road's open, which means the line's open, which means Kurt's happy for the first time since August.",[
   ["Kurt's the foreman?","Kurt drinks a dozen bottles a day and times his own sneezes. Best foreman on the island, and he'd tell you so himself."],
   ["Is the museum open again too?","Wilma had it dusted before the plough reached her door. Kelpy's out on the pavement waving at snowdrifts."],
@@ -13544,7 +13650,7 @@ DAILY['Phil']={
   ["Will you listen?","Elin will. She'll tell me if I'm mentioned. I'm always mentioned."],
   ["Anna wants to nationalise you.","Anna wants to nationalise the weather. She'll find it's already state-owned: grey."]],
  "If they mention me, tell me what I said back."],
-17:["Did you feel the floor go? My trophies did. 1974 fell flat on its face, and there's steam on the mountain. And Dario's car hasn't moved from his drive for two days.",[
+17:["Did you feel the floor go? My trophies did. 1974 fell flat on its face, and there's steam on the mountain. And Dario's boat hasn't left the harbour for two days.",[
   ["Was it an earthquake?","A little shiver, Saara says. Grandfather said the mountain breathes every forty years. He also said kelp cured gout."],
   ["Where's Dario got to?","Oil men disappear. They go to Houston and come back with a tan. I hope it's nothing worse: I'd have nobody to argue with about the hedge."],
   ["You've been watching his drive?","I've been at my window rather more than usual. That's not the same thing, and I'll thank you not to print it."]],
@@ -13900,7 +14006,7 @@ DAILY['Private Aho']={
 };
 // Private Koski, sentry at the barracks guard post (the Army). Threads: checking every visitor's papers (including people he knows well);
 // the cold and the hours; the six adventure novels hidden in his greatcoat (Captain Rook and the sea serpent), which the Colonel secretly
-// reads the backs of; his terrible bugle; never once hitting the target at the range; the prince's car going out on the 19th with a hat and a
+// reads the backs of; his terrible bugle; never once hitting the target at the range; the prince's carriage going out on the 19th with a hat and a
 // false moustache; keeping the gate all night on the 21st and reading nothing; reading the Colonel's letter to the mountain aloud (22nd).
 DAILY['Private Koski']={
 6:["(A tall, thin soldier in a greatcoat steps out of the sentry box and holds up a hand.) Halt. Who goes there. (He squints at you.) Papers, please. Everyone needs papers. Even the Colonel's dog. He's got papers. I made them.",[
@@ -13969,7 +14075,7 @@ DAILY['Private Koski']={
   ["What's the sergeant doing?","Making a flag. Out of a sock. (He lowers his voice.) A grey one. For the Colonel. Because everything's grey. (He looks at his coat.) The sergeant thinks of everything. It's frightening."]],
  "You may pass. Cover your face. It gets in your teeth."],
 19:["(Koski is at the gate, very alert, with no book in sight.) Halt! (He relaxes.) Oh. You. (He looks down the road.) Something happened last night. On the palace road. I saw it. I've written it in the book. In capitals.",[
-  ["What did you see?","A car. Late. The prince's car. (He leans in.) Going out. Fast. Towards the lighthouse road. (He looks very serious.) There was a man in the back. In a hat. And a moustache."],
+  ["What did you see?","A carriage. Late. The prince's carriage. (He leans in.) Going out. Fast. Towards the lighthouse road. (He looks very serious.) There was a man in the back. In a hat. And a moustache."],
   ["The prince?","(He looks round.) The prince doesn't have a moustache. (He leans in further.) But this moustache was crooked. Like it was stuck on. (A pause.) Like the spy in book six. The one in the wig."],
   ["Who else knows?","The Colonel. I told him this morning. (He looks puzzled.) He said 'Koski, you saw nothing.' Then he wrote something down. Then he said 'good man.' (He frowns.) I don't know if I saw nothing or something."]],
  "You may pass. If you see a man in a crooked moustache, don't say I said anything."],
@@ -14025,11 +14131,11 @@ DAILY['Private Koski']={
 29:["(Koski is at the gate, reading the last book, with tears in his eyes.) I finished it. Last night. (He wipes his eyes.) Captain Rook sails home. He's old. He sits on the harbour wall. (He closes it.) And he tells a boy about the serpent.",[
   ["That's a lovely ending.","(He nods, very hard.) The boy wants to be a sailor. (He looks at the gate.) Like my uncle telling me about the king. (He wipes his eyes.) I'm going to start again. From book one. I'm going to read them to Aho."],
   ["How was the state visit?","They say Aho swayed, and the sergeant held him by the belt. And Niemi hummed. (He grins.) Half the line hummed. The Colonel smiled. (He looks at the gate.) And nobody came through the gate. All day. A perfect day."],
-  ["What's happening today?","The Republicans are voting. The palace is arguing about who's next. (He looks at the road.) A lot of cars. A lot of papers. (He holds out his hand.) Which reminds me. Papers, please."]],
+  ["What's happening today?","The Republicans are voting. The palace is arguing about who's next. (He looks at the road.) A lot of carriages. A lot of papers. (He holds out his hand.) Which reminds me. Papers, please."]],
  "You may pass. Read Captain Rook. If you can find him. They don't make him any more."],
 30:["(Koski is at the gate, with a book in his coat and nothing to report.) Last day. They're settling the island today. (He looks down the road.) Whoever comes through this gate tomorrow, I'll ask for their papers. Even if it's a king. Especially if it's a king.",[
   ["What will you do now?","Keep the gate. Read Captain Rook to Aho. Try to hit the target. (He grins.) One day. Before I'm an old man on a harbour wall."],
-  ["Will you remember this month?",["(He looks at the mountain, quiet now.) The night it went. The carts. The prince's car with the crooked moustache. (He looks at you.) Yes. I've written it all down. In the book. In capitals.",[
+  ["Will you remember this month?",["(He looks at the mountain, quiet now.) The night it went. The carts. The prince's carriage with the crooked moustache. (He looks at you.) Yes. I've written it all down. In the book. In capitals.",[
     ["Am I in the book?","(He opens the gate log and shows you.) 'Reporter. From London. Very good papers.' (He closes it.) Every time. Every visit. You're in it more than the post van."],
     ["You should write your own novel.","(He goes red.) Captain Koski and the Mountain of Fire? (He thinks.) Maybe. (He pats his coat.) I'd have to stop reading first. That's the hard part."]]]],
   ["Good afternoon.","(He stands very straight, and salutes.) Good afternoon. (He lowers his hand, very pleased.) I've been waiting since I was nine to say that properly."]],
@@ -14179,17 +14285,21 @@ DAILY['Ray']={
     ["What's the rule?","No politics at the bar. You want to argue about the king, go and stand in the snow. It cools the blood."],
     ["Does anyone keep it?","Everyone keeps it. I make sure of it. (She gives you a look that would stop a tram.) Like that."]]]],
   ["Do you always stare at people like that?","My father did. He ran this bar for thirty years and never once had to raise his voice. I'm working on it."]],
- "Mind the ice on the steps. Half of Saltwick's gone down them this winter."],
-2:["Back again. Either you like my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace.",[
+ "Mind the ice on the steps. Half of Saltwick's gone down them this winter.",
+ "Ray runs the bar in Saltwick, with one rule: no politics at the bar."],
+2:["(Ray looks you up and down, and puts a glass on the bar.) A new face. Either you've heard about my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace.",[
   ["Your whisky's fine.","Fine's all it is. The good bottles went on the king's wake, and the beer boat from Frostholm's still iced in."],
   ["Who drinks here, mostly?","Fishermen from the West Harbour, dockers, the girls from the fish plant. And Sirpa and Tiina, at that table, from opening to closing, on one coffee each."],
   ["What did your father think of the king?","He kept a picture of him over the till, and darts holes in it from a bad night in 1971. Both things are true. That's Saltwick for you."]],
- "Shut the door behind you. The heat's the only thing in here I can't replace."],
+ "Shut the door behind you. The heat's the only thing in here I can't replace.",
+ "Ray's father kept the king's picture over the till, with darts holes in it. Sirpa and Tiina sit at the corner table all day on one coffee each.",
+ {"Ray:1":"Back again. Either you like my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace."}],
 3:["(Ray is on a stool with a bucket, under a brown stain on the ceiling.) Don't mind me. The flat upstairs is leaking into the bar, and I'm not paying a roofer until the thaw.",[
   ["Need a hand?","With a bucket? I think I've got the hang of it. Hold that one, though, while I empty this."],
   ["Is it the snow?","Snow on the roof, then a warm night, then a river through my bedroom. My father fixed it with tar and a bad temper. I've only got the temper."],
   ["Put it on the drinks menu. Saltwick rain.","(The corner of her mouth moves.) Don't. Tom would order it."]],
- "If you see a roofer who works for whisky, send him round."],
+ "If you see a roofer who works for whisky, send him round.",
+ "The flat above Ray's bar is leaking into it, and she won't pay a roofer until the thaw."],
 4:["(Ray nods at the corner table.) Sirpa's tab has passed forty dollars. I've told her it's got its own chair now.",[
   ["Will she ever pay it?","She will when the fish plant gives her the hours back. Which is to say I've stopped counting and started hoping."],
   ["What do Sirpa and Tiina talk about all day?","Everyone who walks past the window. You, yesterday, for an hour. Sirpa thinks you're a spy. Tiina thinks you're a vicar."],
@@ -14477,12 +14587,15 @@ DAILY['Rosa']={
   ["Mustard, please.","(She lays it on thick.) There. Now you're a Kingsgrad person. Nobody leaves this cart without yellow on their coat."],
   ["How did you know I was a reporter?","You looked at the cola offices, then the palace, then my cart, in that order. Reporters always look at the food last. Then they come back for it."],
   ["What's the gossip in the square?","The road's just opened, and everyone's gone up to the palace to look sad. They'll be back by noon, hungry. Sadness makes people hungry."]],
- "Come back when you're hungry. Or when you're not. I'll feed you anyway."],
-3:["(Rosa is watching the cola offices, chewing on a pickle.) Phil came in at eight in the blue car. He bought nothing from me. Phil never buys anything from me. Phil eats salad at his desk like a sad rabbit.",[
+ "Come back when you're hungry. Or when you're not. I'll feed you anyway.",
+ "Rosa sells hot dogs in Kingsgrad's square, with mustard on everything. Ville watches the square with opera glasses."],
+3:["(Rosa is watching the cola offices, chewing on a pickle.) Phil came in at eight off the tram, in his blue scarf. He bought nothing from me. Phil never buys anything from me. Phil eats salad at his desk like a sad rabbit.",[
   ["What's Phil like?","Nervous, clever and very well dressed. He worries about the cola like a mother worries about a child that's already grown up and left."],
   ["Who does buy from you?","The cola men at one, the palace staff at two, and Ville every day at eleven, whether he's hungry or not. It's the only time he stops looking through those glasses."],
-  ["Do the cola men talk at lunch?","Constantly. About a new advert, today. A big secret. Phil would faint if he knew I knew. (She taps her nose.) Not a word. Especially not to Phil."]],
- "If you see Phil, tell him a sausage never hurt anyone."],
+  ["Do the cola men talk at lunch?","Constantly. About a new advert, today. A big secret. Phil would faint if he knew I knew. (She taps her nose.) Not a word. Especially not to Phil."],
+  ["Elin says you know everything.","(She chews her pickle thoughtfully.) I know whose milk goes in her coffee, if that's what she means. I sell sausages, not secrets.","Elin:2"]],
+ "If you see Phil, tell him a sausage never hurt anyone.",
+ "Phil never buys from Rosa. The cola men talk at her cart about a new advert, a big secret."],
 4:["(Rosa is scowling down the road towards Eastbrook.) Eastbrook's open. That means Dex, with his cart, by the tram. He sells a hot dog with pickled cabbage. Cabbage. On a hot dog. It's a crime.",[
   ["Who's Dex?","Dex sells hot dogs in Eastbrook to Democrats. He came over the hill this morning to look at my cart. He looked. I looked back. He left. That's how we talk."],
   ["Is his any good?","(She looks at you very hard.) His cabbage is good. His sausage is a disgrace. Don't you ever tell him I said the first part."],
@@ -14605,7 +14718,7 @@ DAILY['Rosa']={
   ["What are the high stakes?","The gentleman in the back room's playing for something big, they say. His men are buying cigarettes from Ville with shaking hands. That's never happened before."],
   ["What does the square think?","That something's about to happen, and nobody knows what. Like the day before the mountain went, but with more speeches."]],
  "Two more days. Eat while you can."],
-28:["(The square is full of flags and banners, and Rosa's cart is right in the middle.) Every faction's making its big push today. Red flags, royal cars, cola going abroad. And all of them stop at my cart for lunch.",[
+28:["(The square is full of flags and banners, and Rosa's cart is right in the middle.) Every faction's making its big push today. Red flags, royal carriages, cola going abroad. And all of them stop at my cart for lunch.",[
   ["Who's the hungriest?","The Party. They've been marching since six. Then the palace staff, who've been polishing since five. Then the cola men, who've been nervous since Monday."],
   ["Who's winning?","Whoever I give extra mustard to, I'd like to think. But I give it to everyone. That's my secret. Everyone wins at Rosa's."],
   ["Have you seen anything strange?","A man from the palace and a man from the Party, sharing a hot dog, not talking. I gave them each a napkin. Some things are bigger than politics."]],
@@ -14631,12 +14744,14 @@ DAILY['Rosaria']={
   ["Smells wonderful in here.","That's the oven. Wood-fired, a proper one. I built it with a man from Kingsgrad who'd never seen one. He cried when it was done. So did I."],
   ["Is this the only pizzeria on the island?","The only one and the best one. The others are frozen things in the supermarket. Lisa sells them and apologises at the same time."],
   ["What's behind the door at the back?","Crates, a table, men playing cards. I don't go in, and I don't ask. (She smiles.) What I don't know, I can't burn."]],
- "Come back hungry. Everyone does."],
+ "Come back hungry. Everyone does.",
+ "Rosaria makes pizza in a wood-fired oven. She doesn't ask about the card game in the back room."],
 3:["(Rosaria lifts a cloth off a big earthenware bowl and sniffs.) Good. She's alive. My starter, the mother of every pizza. She's from Naples, thirty-one years old, and she nearly froze in the snow.",[
   ["A starter that's thirty-one years old?","My mother gave me a spoonful in a jam jar the day I left Naples. I fed it on the boat, in the train, in a hotel in Hamburg. It's the oldest thing I own."],
   ["How does a Neapolitan end up here?","A man, of course. He wanted to see the north. He saw it, he hated it, he went home. I stayed. I liked the quiet."],
   ["Does she have a name?","Nonna. Because she's old, she's sour, and she has to be fed every day or she sulks."]],
- "Close the door, the draught upsets Nonna."],
+ "Close the door, the draught upsets Nonna.",
+ "Rosaria's sourdough starter came from her mother in Naples, thirty-one years ago. She calls it Nonna."],
 4:["Eila and Marjut were on the bench in the cold again, by the west end. (Rosaria wraps two slices in paper.) I take them something every afternoon. Don't tell them I made it on purpose.",[
   ["That's kind of you.","Kind? Nobody goes hungry within a hundred metres of my oven. It's a rule. My grandmother's rule. She fed half of Naples in the war."],
   ["Why are so many people out of work?","Ask the cola company. Ask the palace. They all have big plans for the island, and none of the plans have Eila in them."],
@@ -14941,7 +15056,7 @@ DAILY['Ruth']={
  "Yippee-ki-yay. I'm not allowed to say that to callers, so I say it to you."],
 10:["(Ruth is on the switchboard, plugging in cables.) Everyone's at the king's funeral, so it's just me and the telephones. They don't stop ringing. Half of them are asking what Dario wore.",[
   ["What did Dario wear?","Black, with a silk tie, and an expression like he was pricing the chapel. Don't print that. Actually, print it."],
-  ["Did you want to go?","I watched the old king go past once, in 1968, in an open car in the snow. He waved at me. That's my funeral, and I've had it."],
+  ["Did you want to go?","I watched the old king go past once, in 1968, in an open sleigh in the snow. He waved at me. That's my funeral, and I've had it."],
   ["Who's been calling?","The Gazette, twice. Kelp Cola, once, pretending to be somebody else. I know Elin's voice. She sounds like a sensible woman trying not to laugh."]],
  "If the phones keep up like this, I'll need my own funeral."],
 11:["(Ruth is writing in the appointments book in neat capitals.) A man came through the back door earlier, asked for Dario, and wouldn't leave a name. I wrote him down as 'Hat'.",[
@@ -14975,7 +15090,7 @@ DAILY['Ruth']={
   ["Will you tell Dario you drew a horse?","I'll tell him Anna was very persuasive and the Democrats were very sincere. That's notes."]],
  "Thunder abstains. He's a very principled horse."],
 17:["(Ruth is answering the telephone for the fourth time in a minute.) No, Mr Dario isn't available. No, I don't know when. (She hangs up.) Nobody's seen him all day. Not even me, and I see everyone.",[
-  ["Where would he go?","When he's in a mood he drives. Up the coast, to the spa, to his villa. Once to the end of the jetty, where he sat in the car for an hour."],
+  ["Where would he go?","When he's in a mood he takes the boat out. Up the coast, to the spa, to his villa. Once to the end of the jetty, where he sat in it for an hour."],
   ["Are you worried?","I'm a receptionist. Worry is above my grade. (She chews her pen.) A little."],
   ["Who's been ringing?","Magnus, twice, from upstairs. Somebody who wouldn't give a name, three times. I've written them all down as 'Worried'."]],
  "If you find him, tell him Ruth wants to know. He'll come back for that."],
@@ -15055,12 +15170,14 @@ DAILY['Saara']={
   ["Working from home?","The lab's shut till tomorrow. Phil wants a new flavour by the end of the month, and I don't stop thinking just because the road's closed."],
   ["What does Phil want, exactly?","Something new. He can't say what. He'll know it when he tastes it. That isn't a brief, it's a horoscope."],
   ["Juniper cola?","Tastes like gin that's lost its way. No."]],
- "Close the door gently. The cardamom's open."],
+ "Close the door gently. The cardamom's open.",
+ "Saara, Kelp Cola's flavour chemist, is working at home. Phil wants a new flavour by the end of the month."],
 3:["(Saara writes on the blackboard, then rubs it out.) A month away, and the blackboard's exactly as I left it. Which is to say, wrong.",[
   ["What's on it?","Ratios. Sugar to acid to fizz. Every cola is a balance, and mine keep falling over."],
   ["Noora's very glad to be back.","Noora's the best technician I've ever had. Don't tell her. She'd stop being nervous, and the nerves are what make her careful."],
   ["Is the secret recipe down here?","No. The secret recipe is upstairs, in Phil's head and a locked drawer. I make everything around it. It's like decorating a house you're not allowed into."]],
- "Mind the burner. It's always on."],
+ "Mind the burner. It's always on.",
+ "Saara makes everything around Kelp Cola's secret recipe, which is locked in a drawer in Phil's office."],
 4:["Eleven test batches today, and I said no to every one. Noora thinks I'm cruel. I'm only accurate.",[
   ["What was wrong with them?","Cloudberry tastes of jam, liquorice of medicine and pine of furniture polish. None of them tastes of news."],
   ["What does news taste of?","Surprise. Then, a second later, the feeling that you'd always known it. That's the hard part."],
@@ -15211,12 +15328,14 @@ DAILY['Saga']={
   ["What is this place?","The Hot Springs Spa. The water comes up out of the mountain, hot enough to boil an egg if you're patient. People sit in it and forget who they are. That's what they pay for."],
   ["Who comes here?","The rich, mostly, from Hope Springs and Kingsgrad. A fisherman once, who'd won it in a raffle. Tom. He came out pink and frightened."],
   ["Does anyone talk to you?","Everyone talks in the steam. The steam makes them forget there's anyone else in the room. I hand out towels, and I'm a very good wall."]],
- "Keep the towel. Bring it back clean, or not at all."],
+ "Keep the towel. Bring it back clean, or not at all.",
+ "Saga hands out towels at the Hot Springs Spa. Everyone talks in the steam, and she's a very good wall."],
 3:["(Saga is folding towels into perfect squares, with a little radio playing on the desk.) The same three songs, over and over. Kaisa plays them for the old king. I hum them in the bath. My neighbour says the walls are paper.",[
   ["Which neighbour?","Toni, from the arcade, on one side. Aino, from the cola factory, on the other. Toni says I'm better than the radio. Aino sings louder than me. We're a very musical floor."],
   ["What are the songs?","A waltz, a sad one about a harbour, and one about a girl in a green coat. I don't know their names. I just know when they're coming."],
   ["Do you like the job?","I like the quiet. The water's always hot and the people are always tired. Nobody shouts in a hot bath. It's not possible. I've seen people try."]],
- "Come and sit in the water one day. You'll forget what you came for."],
+ "Come and sit in the water one day. You'll forget what you came for.",
+ "Saga lives between Toni from the arcade and Aino from the cola factory. She hums Kaisa's sad songs."],
 4:["(Saga is watching a man in a dressing gown walk very slowly to the bath, as if it might bite.) First timer. You can always tell. They walk in like it's the sea in January.",[
   ["What should a first timer know?","Go in slowly. Don't talk for the first five minutes. And don't fall asleep, or the mountain will cook you like a dumpling."],
   ["Who owns the spa?","Old Mrs Valo. She lives in Helsinki now and writes once a month to ask if the water's still hot. I write back: yes. That's our whole correspondence."],
@@ -15324,8 +15443,8 @@ DAILY['Saga']={
   ["Can you?","Nobody can persuade Mrs Valo of anything. Her husband built the bath. She'll sell when the mountain stops breathing. And it's breathing harder than ever."],
   ["Will you tell him no?","I'll tell him I'll pass it on. Which I will. Mrs Valo will write back two lines. I already know what they'll be."]],
  "If you see Dario, don't mention towels. He'll want to buy them too."],
-25:["(Saga has a telephone on the desk, and it rings while you're there. She lets it ring.) Dario. Third time today. He's very persistent. He offered a new car this morning. I don't drive.",[
-  ["What's he offering now?","Everything. A car, a cottage, a holiday in Spain. He's found out about the cottage I want. I don't know how. I only ever told the steam."],
+25:["(Saga has a telephone on the desk, and it rings while you're there. She lets it ring.) Dario. Third time today. He's very persistent. He offered a new boat this morning. I get seasick.",[
+  ["What's he offering now?","Everything. A boat, a cottage, a holiday in Spain. He's found out about the cottage I want. I don't know how. I only ever told the steam."],
   ["A cottage? That's tempting.","(She looks out of the window at the sea.) It is. That's what frightens me. He's offering me the one thing I've been saving for since 1976."],
   ["What will you do?","Wait. Pass it on to Mrs Valo. Not decide anything tonight. Never decide anything at night. That's my grandmother's rule."]],
  "If the telephone rings again, I'm not here."],
@@ -15367,16 +15486,18 @@ DAILY['Sally']={
   ["About to boom?","Mark my words. A new king, or a new something, and everyone will want a home here. Get in now, while the prices are frozen. Like everything else."],
   ["What have you got on the books?","Five lovely homes, one in every town. Bob's old house in Saltwick, a timber house in Eastbrook, a townhouse in Frostholm, the house along the street here, and a villa. A villa! In Hope Springs!"],
   ["The king's just died. Bad time to sell?","Oh, no, the best time. People get thoughtful at funerals. Thoughtful people buy houses."]],
- "Take a brochure! Take two. Give one to a friend."],
+ "Take a brochure! Take two. Give one to a friend.",
+ "Sally at Sarivalto Homes has five houses for sale, one in every town, including Bob's old house and a villa in Hope Springs."],
 3:["Kelp Cola's HQ opened again today and I've already had a call from an executive asking about Hope Springs. Asking! Interest! The boom's begun.",[
   ["Who called?","I never say who. Discretion's the first rule of property. The second rule is to always mention the fireplace."],
   ["Tell me about the villa.",["Five thousand dollars, Hope Springs Gated Community, a fireplace, a view of the pines, and Phil, Dario and Gustavo as neighbours!",[
     ["Those neighbours sound dangerous.","Prestigious. That's the word. You'd never be burgled in Hope Springs. Nobody would dare."],
     ["Five thousand dollars?","A steal. In Helsinki you couldn't buy a garden shed for that. Well. A large garden shed."]]]],
   ["Do you ever have a bad day?","I had one in 1971. I didn't like it, so I stopped."]],
- "Keep me in mind! Everybody needs a home, even reporters."],
+ "Keep me in mind! Everybody needs a home, even reporters.",
+ "A Kelp Cola executive has asked Sally about the villa in Hope Springs. It's five thousand dollars."],
 4:["(Sally is reading a letter and frowning, which doesn't suit her.) My sister Kirsti, in Helsinki. She says the island's doomed and I should sell up and come south. She says that every month.",[
-  ["Is she right?","Kirsti's been saying the world's ending since 1962. It hasn't yet. She lives in a flat with a view of a car park. I have a view of a palace."],
+  ["Is she right?","Kirsti's been saying the world's ending since 1962. It hasn't yet. She lives in a flat with a view of the tram depot. I have a view of a palace."],
   ["Will you write back?","Every month. I tell her the market's booming and the sun's shining. Sometimes it's even true."],
   ["What does she do in Helsinki?","She sells insurance. Against everything. It's made her very gloomy. You can't sell houses and insurance in one family. One of you has to hope."]],
  "Don't let Kirsti's letter put you off. Have a brochure."],
@@ -15437,7 +15558,7 @@ DAILY['Sally']={
  "Keep a brochure in your pocket. You never know."],
 16:["Another letter from Kirsti. (She reads aloud.) 'Dear Sally, the papers here say the island's tearing itself apart in public debates. Come home.' (She folds it up.) Debates are good for property.",[
   ["How are debates good for property?","People talk about the future. Then they want to live in it. It's very simple."],
-  ["Will you go to Helsinki?","Never. I'd have to sell my house, and I'd never sell to anyone who didn't love it. And then where would I live? In Kirsti's car park."],
+  ["Will you go to Helsinki?","Never. I'd have to sell my house, and I'd never sell to anyone who didn't love it. And then where would I live? In Kirsti's tram depot."],
   ["Did you watch the debate?","I listened from the back. Lovely voices, both sides. Erik used the word 'home' four times. I'd hire that man."]],
  "Go on. Tell me if you hear of anyone moving."],
 17:["(A picture of a villa slides down the wall, and Sally catches it.) The ground keeps doing that! It's settling. Islands settle. It's just like a new house.",[
@@ -15523,17 +15644,20 @@ DAILY['Sam']={
   ["Good day for fishing?","Snow's gone. Fish haven't come back. Tomorrow, maybe."],
   ["What's that net?","My father's. He knotted it in 1931. I'm mending it. A knot at a time."],
   ["Are you in the Party?","Since before Anna was born. I vote with her. Saves talking."]],
- "Mind the hooks."],
+ "Mind the hooks.",
+ "Sam the fisherman says very little. He is mending his father's net from 1931, and votes with Anna."],
 2:["Kingsgrad's open. (He doesn't look up.) Don't need anything in Kingsgrad.",[
   ["Ever been to the palace?","Once. 1952. Took herring to the kitchens. Cook gave me a bun. Good bun."],
   ["What do you make of the prince?","Young. (He ties a knot.) We were all young."],
   ["How's the net coming?","Forty-one knots. Four thousand to go. Done by spring. Or I'm done. One or the other."]],
- "Mind the hooks on your way."],
+ "Mind the hooks on your way.",
+ "Sam has been to the palace once, in 1952, to take herring to the kitchens."],
 3:["Cola lorry nearly ran over Hannu's papers. Didn't stop.",[
   ["Is Hannu all right?","Hannu's fine. Papers are wet. He's selling them as 'with sea air'."],
   ["Do you drink Kelp Cola?","Tea. Black. Since 1938."],
   ["You don't say much.","Saving it for when it matters. (A pause.) Doesn't matter yet."]],
- "Tea's on, if you're cold. You look cold."],
+ "Tea's on, if you're cold. You look cold.",
+ "A cola lorry nearly ran over Hannu's papers and didn't stop."],
 4:["(Sam holds up a cod by the tail.) Look at that. Thin. Forty years, never this thin in September.",[
   ["Why is it?","Something's wrong out past the point. Fish know before we do."],
   ["Is it the oil rig?","Didn't say that. (He looks north-west.) Didn't not say it."],
@@ -15812,12 +15936,14 @@ DAILY['Sergeant Hanna']={
   ["The whole force?","Since the chief retired in the spring. The Crown was going to send a replacement. Then the Crown died. So it's me, a bicycle and a cell with a bookie in it."],
   ["Who's in the cell?","Mario. Bets for the Syndicate. I caught him with a book of odds on the king's death, two days before. Bad taste and bad timing. He's very good company."],
   ["Is Kingsgrad a dangerous town?","It's a quiet town with loud opinions. Most of my work is lost dogs and men who've argued in Eddie's bar. This month, I think, it'll be more."]],
- "Wipe your feet. I'm the cleaner too."],
+ "Wipe your feet. I'm the cleaner too.",
+ "Sergeant Hanna is the whole of the Kingsgrad police. Mario, a Syndicate bookie, is in her cell."],
 3:["(Sergeant Hanna is filling in a form with a stub of pencil about an inch long.) Bertil at the Civil Service Bureau requires a form for a new pencil. I've filled in the form with my old pencil. This is the end of it. If he says no, I'll write the next one in blood.",[
   ["How long have you waited?","Since June. I've asked four times. Each time the form comes back with a note: 'Please use form 14B.' There's no form 14B. I asked. There's a form for that too."],
   ["Is Bertil unreasonable?","Bertil's very reasonable. That's the problem. He's reasonable and slow, like a glacier with a rubber stamp."],
   ["Can I lend you a pencil?","(She looks at you, then at the pencil, then back.) That's bribery of a police officer. (She takes it.) Thank you. I'll put it on file."]],
- "Don't tell Bertil about the pencil."],
+ "Don't tell Bertil about the pencil.",
+ "Sergeant Hanna has asked Bertil four times since June for a new pencil."],
 4:["(Sergeant Hanna is sorting a stack of letters into two piles.) Letters from the public. That pile's real. This pile's Tiina in the village, who writes to me every week about lights in the hills. I keep them. One day one of them will be true.",[
   ["What does Tiina see?", "Lights in the hills, boats with no lamps, men digging at night. Usually it's the moon, a fisherman and a farmer. Usually."],
   ["Do you answer them?", "I write 'noted' on each one and put it in the drawer. She knows. She says it's enough that somebody's read them."],
@@ -16028,7 +16154,7 @@ DAILY['Sergeant Rask']={
 19:["(Rask is handing out blankets, one per man, to a line of soldiers, writing each down.) Second blankets. For everyone. (He makes a mark.) I've never issued second blankets. In thirty years. Not even in 1962. (He hands one over.) Private Aho. One blanket. Sign.",[
   ["Why second blankets?","Because the air smells of eggs, the gulls have gone, and the Colonel has declined a dinner at the palace. (He looks at you.) When the Colonel declines dinner, I issue blankets."],
   ["Are the men frightened?","Aho's hands are shaking. Koski's reading something about a volcano. Niemi's making soup for four hundred. (He signs a sheet.) We have forty-three men. He knows something."],
-  ["What did Koski see at the gate?","(He lowers his voice.) The prince's car went out at dusk. With a man in it in a large hat and a moustache that didn't fit him. Koski says it's straight out of a novel. Koski's very excited."]],
+  ["What did Koski see at the gate?","(He lowers his voice.) The prince's carriage went out at dusk. With a man in it in a large hat and a moustache that didn't fit him. Koski says it's straight out of a novel. Koski's very excited."]],
  "Take a blanket if you need one. Sign for it. Even you."],
 20:["(Rask is at the armoury door with a clipboard, as soldiers march out with carts.) The farms. The Colonel's sending the men to move the animals down from the east. (He ticks a name.) Twelve men. Twenty-four boots. Four carts. One cow, coming back with us, if Corporal Niemi's soup is any guide.",[
   ["Will the soldiers be safe?","I've given every man a whistle, two blankets and a list of what to bring back. (He looks at the line.) They'll come back. I've counted them out. I'll count them in."],
@@ -16377,17 +16503,20 @@ DAILY['Sirpa']={
   ["News travels fast here.","News is all we've got, love. Fish and news. And the fish plant's gone short hours, so mostly news."],
   ["What's the gossip today?","Anna's had the Party lights on since five, Lucia came home at three in the morning with sand on her shoes, and Hannu's selling last week's paper again."],
   ["Do you ever do anything else?","I knit. I watch. I talk. Three things, and I'm good at all of them. More than the plant manager can say."]],
- "Off you go. I'll know where you went by teatime anyway."],
+ "Off you go. I'll know where you went by teatime anyway.",
+ "Sirpa watches everything on her street in Saltwick. Lucia came home at three in the morning with sand on her shoes."],
 2:["(Sirpa leans in.) Road to Kingsgrad's open. Half the village went up on the first tram like it was Christmas. Not me. What's Kingsgrad got that I haven't seen?",[
   ["The palace, for one.","The palace has got a dead king and a lot of people pretending to be sad. We've got that here, and it's cheaper."],
   ["Who went up?","Mike, to buy boots. Olga, to sell fish. And Lucia, to do whatever Lucia does. You don't ask Lucia."],
   ["Why don't you go?","Tram fare's a day's dinner. And the bench would miss me."]],
- "If you're going up, bring back some gossip. Fair's fair."],
+ "If you're going up, bring back some gossip. Fair's fair.",
+ "Half of Saltwick has gone up to Kingsgrad on the tram. Sirpa hasn't."],
 3:["(Sirpa is knitting something red, fast.) Don't look at it. It's nothing. It's a scarf. For nobody.",[
   ["Who's nobody?","Nobody who pours drinks. Nobody with a moustache. Leave it, will you."],
   ["Ray, from the bar?","(She goes pink.) Tiina told you. I'll kill her. He's cold, that's all. He stands in the door every night with no scarf. It's a public service."],
   ["Lovely colour.","It is, isn't it? Communist red. Anna gave me the wool. Don't tell her who it's for."]],
- "Not a word to Ray. Or to Tiina. Especially Tiina."],
+ "Not a word to Ray. Or to Tiina. Especially Tiina.",
+ "Sirpa is knitting a red scarf for someone who pours drinks and has a moustache."],
 4:["(Sirpa nods down the street.) The plant manager went past at eight. Didn't look at us. When he doesn't look at us it means no more hours this week.",[
   ["How long since the cut?","Since June. Kate and Bob kept their shifts. The rest of us were 'surplus'. I've never been surplus before. I quite liked being plus."],
   ["Who decides the hours?","The manager, the fish, and the people in Kingsgrad who buy the fish. Mostly the people in Kingsgrad."],
@@ -16493,9 +16622,9 @@ DAILY['Sirpa']={
   ["Ray must be a comfort.","(She smiles.) He came round to check on the block. He said 'right' to everybody, and then sat with me an hour. Not saying anything."],
   ["Will the plant reopen?","When the ash is out of the machines. Kate says next week. She's said next week since June, but this time she means it."]],
  "Hold on to the railings on the stairs. They're shaking loose."],
-25:["(Sirpa is gossiping at full speed.) You've missed everything! Lucia's had a black car outside the block twice this week, and Kaisa's been crying in the stairwell.",[
+25:["(Sirpa is gossiping at full speed.) You've missed everything! Lucia's had a black carriage outside the block twice this week, and Kaisa's been crying in the stairwell.",[
   ["Why is Kaisa crying?","A man, I expect. With Kaisa it's always a man or a record. This time I'd say a man. Nobody cries like that over a record."],
-  ["Whose black car?","You don't ask whose car it is when Lucia's getting out of it. You look at your knitting very hard."],
+  ["Whose black carriage?","You don't ask whose carriage it is when Lucia's getting out of it. You look at your knitting very hard."],
   ["You're back to your old self.","I'm back on the bench. The mountain stopped me for a day. It'll take more than a volcano to keep me quiet."]],
  "I'll have more by tomorrow. I always do."],
 26:["(Sirpa holds up a letter.) The plant's sent letters. Hours back from Monday, for some of us. I'm one of the some. I've read it nine times.",[
@@ -16774,7 +16903,7 @@ DAILY['Sven']={
   ["Will you ask her out properly?","I'm going to. Next week. Or the week after. When the world's stopped ending."],
   ["Any gossip today?","The palace has started handing out crowns, they say. And the Democrats have a princess. Everybody's royal now except me."]],
  "A scarf is practically a ring, on this island. Ask anyone."],
-26:["(Sven is watching a big car on the coast road.) That's Dario's car, heading for the mountain road. He's going to buy the spa. The whole harbour knows. I told them.",[
+26:["(Sven is watching a big red boat heading up the coast.) That's Dario's boat, off to the north. He's going to buy the spa. The whole harbour knows. I told them.",[
   ["Will he get it?","The owner's turned him down twice. Saga, who works up there, says the owner'd sooner sell to the volcano. But Dario doesn't hear 'no'. It's a medical condition."],
   ["How do you know where he's going?","He stopped for fuel, and asked me if the mountain road's clear of ash. Nobody goes up the mountain road for any other reason now."],
   ["Did he pay you in milkshakes?","Cash, this time. And he tipped. Dario tipping means he's nervous. I've never seen him nervous before."]],
@@ -16808,17 +16937,20 @@ DAILY['Tiina']={
   ["Nice to meet you, Tiina.","Is it? You don't know me yet. Wait a week. (The corner of her mouth moves.)"],
   ["I'm a reporter, from London.","I know what you are. Everybody knows what you are. What I don't know is what you want."],
   ["You don't like strangers?","I don't dislike them. I just don't tell them things. That's a different thing."]],
- "Go on. Sirpa's got more to say than I have."],
+ "Go on. Sirpa's got more to say than I have.",
+ "Tiina, Sirpa's friend, won't tell you anything on the first day."],
 2:["(Tiina is mending a sock with neat, quick stitches.) Still here? Most reporters would've gone to Kingsgrad by now. That's where the dead king is.",[
   ["Saltwick's interesting too.","Saltwick's tired. Broken cobbles, empty nets, a plant on short hours. If that's interesting, London must be very dull."],
   ["Lovely stitching.","Net-maker's hands. Twenty years making nets for the boats. Now I darn socks. The knot's the same, the money isn't."],
   ["Are you always this suspicious?","Since last season, yes. Before that I was cheerful. Sirpa will tell you. She tells everyone everything."]],
- "Mind the cobbles by Hannu's. They bite."],
+ "Mind the cobbles by Hannu's. They bite.",
+ "Tiina made nets for twenty years and now darns socks. She hasn't been cheerful since last season."],
 3:["(Tiina is looking out towards the harbour.) The boats are going out late. Fog on the water this morning. They don't like fog here. Not any more.",[
   ["Why not any more?","Because of last season. You've heard. Sirpa will have told you. My husband's boat went down in a fog like this one."],
   ["I'm sorry.","(She nods once.) Everyone's sorry. Being sorry doesn't find a boat. But thank you."],
   ["Fog's dangerous everywhere.","Fog's only dangerous if someone else is out in it who shouldn't be. Matti knew those waters better than his own house."]],
- "The fog'll lift by noon. It always does, after."],
+ "The fog'll lift by noon. It always does, after.",
+ "Tiina's husband Matti went down with his boat in a fog last season."],
 4:["(Tiina is quiet a while before she speaks.) The Lumikki. That was the boat. Matti named it for the snow. Painted it white every spring.",[
   ["Was it ever found?","A bit of the wheelhouse washed up by the point. White paint, with a black scrape down it. Like something hit it."],
   ["What do you think happened?",["The harbourmaster says fog and bad luck. (She pulls her coat tighter.) The harbourmaster wasn't out in it.",[
@@ -16969,17 +17101,20 @@ DAILY['Tom']={
   ["You lend her to anyone?",["Anyone who asks nicely. You'd be surprised how few people ask nicely.",[
     ["Isn't that risky?","She always comes back. Sometimes with fewer nets. Once with a goat. But she comes back."],
     ["Who asks rudely?","Lucia, mostly. Though she doesn't ask, as such. She writes things in a little book."]]]]],
- "If you see the Gull out there, wave. She likes it."],
+ "If you see the Gull out there, wave. She likes it.",
+ "Tom lends his boat, the Gull, to anyone who asks nicely. Lucia doesn't ask, she writes things in a little book."],
 2:["(Tom is chalking on a board outside the harbour office.) My forecast. 'Fair, light winds.' I put one up every day. (He looks at the sky, which is heavy and grey.) I'm wrong more often than I'm right. People read it to know what won't happen.",[
   ["Why keep doing it?","Somebody has to be wrong about the weather, or the weather gets big-headed."],
   ["Is Mike's boat broken?","The Valborg? The gearbox, I'd say. I always say it's the gearbox, and I'm usually right. Mike's fourth in the queue for the Gull, behind a man who wants to see the palace from the sea."],
   ["Who wants to see the palace from the sea?","A gentleman with a camera and a very good coat. He says he's a birdwatcher. There are no birds round the palace, only guards. I'll take him anyway: he's paid in advance."]],
- "Fair, light winds. Bring a coat."],
+ "Fair, light winds. Bring a coat.",
+ "Tom is taking a man with a camera and a very good coat out to see the palace from the sea. He says he's a birdwatcher."],
 3:["(Tom is wiping egg off his chin.) Aili's eggs. Five o'clock, every day, with Sam and Mike. Three coffees, six eggs and one argument about whose turn it is to pay. It's never my turn. It's always me.",[
   ["Who won the argument?","Sam, by saying nothing. Sam wins most arguments by saying nothing. He's said eleven words this week, and four of them were 'no'."],
   ["Do you all talk politics?","Mike does, when Helen's in earshot. Sam does, in his head. I talk about fish. Fish are the one thing everybody in Saltwick agrees on."],
   ["Are Aili's eggs good?","Best on the island. She learnt to cook in Minnesota, where they put butter on everything. I've put on half a stone since she opened."]],
- "Five o'clock, if you want eggs. Bring money: it's never my turn."],
+ "Five o'clock, if you want eggs. Bring money: it's never my turn.",
+ "Tom eats Aili's eggs with Sam and Mike at five every morning."],
 4:["(Tom is mending a net, his needle flying.) The roads are open as far as Eastbrook, so the Eastbrook boats will be out, and the cod will go over there instead. Cod are fickle. Like customers. And girls.",[
   ["Are you married, Tom?","No. I'm wrong about girls the way I'm wrong about weather: confidently, every day. I've stopped forecasting them."],
   ["How long have you fished?","Since I was nine. My father put me in the Gull and said 'don't fall out'. I've been not falling out for forty years. It's a skill."],
@@ -17130,12 +17265,14 @@ DAILY['Toni']={
   ["What's wrong with it?","Nothing, now. It was making a noise like a cat in a drain. I gave it a kick and tightened a thing. Most machines just want attention."],
   ["Tell me about the arcade.","Snake, Brick Breaker and Invaders, a dollar a game, under a pink neon sign. And I hold the high score on every one of them. Write that down."],
   ["Do you fix everything with a kick?","The kick's for the machines. The screwdriver's for everything else. People, I just ignore."]],
- "Close the door, the draught makes the picture roll."],
+ "Close the door, the draught makes the picture roll.",
+ "Toni works the arcade in Frostholm and holds the high score on every machine. She's fixing her television."],
 3:["(Toni has a notebook full of numbers.) Practising. Can't get to the arcade, so I'm playing Invaders in my head. Left, left, fire, wait, fire. I'm at level nine.",[
   ["In your head?","You learn the patterns. The invaders always come down the same way. Once you see it, you see it in your sleep. I do, anyway."],
   ["What's your high score?","On Invaders, forty-one thousand two hundred. On Snake, sixty thousand and something. On Brick Breaker I stopped counting. It's mine."],
   ["Isn't that a bit sad?","It's a bit sad. It's also the only thing on this island I'm the best at. Let me have it."]],
- "Go on. I'm on level ten."],
+ "Go on. I'm on level ten.",
+ "Toni is practising Invaders in her head until the road to Frostholm opens."],
 4:["Saga next door hums in the bath. Every evening, the same three songs from the radio. The walls in these flats are made of cardboard.",[
   ["Who's Saga?","Works at the spa up the volcano. Lovely, warm, always smells of pine. And sings like a kettle."],
   ["Which songs?","Something by Kaisa off the radio, something about a sailor, and one I think she made up. I know them by heart now. I hate them."],
@@ -17157,7 +17294,7 @@ DAILY['Toni']={
   ["Who's been here while you were away?","Nobody. The boss in Helsinki left it locked. But there's a dent in the Invaders cabinet I don't remember. Somebody's kicked it the wrong way."]],
  "Go on, have a game. Dollar a go."],
 8:["The boss rang from Helsinki. There's a new machine coming on the next boat from Japan, via Helsinki. A driving game. Steering wheel and everything.",[
-  ["What's it called?","Turbo Rally. You drive a little car round a track and the screen moves. Moves! The kids are going to lose their minds."],
+  ["What's it called?","Turbo Rally. You steer a little racer round a track and the screen moves. Moves! The kids are going to lose their minds."],
   ["When does it come?","Two weeks, if the boat's on time. Three if it isn't. Four if it's Sarivalto. I've cleared a space by the door."],
   ["Will you hold that high score too?","Before anyone else has even touched it. I'll be here the day it comes, with a dollar and no mercy."]],
  "Go on. And don't kick the Snake machine. I mean it."],
@@ -17243,10 +17380,10 @@ DAILY['Toni']={
   ["Why does she play?",["She said when she's playing, nobody's looking at her. They're looking at the invaders. (Toni shrugs.) I get that.",[
     ["Is she any good?","She's better than me at Invaders. I'm better at everything else. We played until three. The night girl finished her book."],
     ["Does Sid know?","She says Sid knows everything and says nothing. That's why she works for him."]]]],
-  ["Do you hate her now?","I thought I would. She's lovely. She smokes too much and she's got a laugh like a car starting. We're having a rematch."]],
+  ["Do you hate her now?","I thought I would. She's lovely. She smokes too much and she's got a laugh like a tram braking. We're having a rematch."]],
  "Don't tell anyone about Rita. That's her secret, and now it's mine."],
-25:["(Toni is wiring a seat in the space by the door.) The boat's sailed! Turbo Rally's coming. I've built a seat for it out of an old car seat Nils sold me from the electronics store.",[
-  ["From the electronics store?","Nils sells everything. Radios, televisions, and a car seat from a wrecked Volvo. He threw in a gear stick. I don't know what I'll do with a gear stick."],
+25:["(Toni is wiring a seat in the space by the door.) The boat's sailed! Turbo Rally's coming. I've built a seat for it out of an old tram seat Nils sold me from the electronics store.",[
+  ["From the electronics store?","Nils sells everything. Radios, televisions, and a tram seat from the depot. He threw in the bell. I don't know what I'll do with a tram bell."],
   ["Will Rita come back?","She's coming tonight. We're playing Invaders, best of five. She says if I win, she'll sing a song just for me. I'll ask for one without a boat in it."],
   ["Who'll set the Turbo Rally record?","Me. First. Then Rita. Then the kids. In that order."]],
  "Go on. Don't sit in the seat. It's not ready."],
@@ -17431,17 +17568,20 @@ DAILY['Tove']={
   ["That's me. Nice shop.","It was my father's. Same chair, same mirror, same smell of bay rum. I've only changed the prices, and only upwards."],
   ["What does Saltwick think of the king dying?","Saltwick thinks the boats still have to go out. Anna thinks it's the start of something. I think everyone's going to want a haircut for the funeral."],
   ["Is it true you're the only barber on the island?","The only one with a pole. There's a man in Kingsgrad who does it with garden shears, but I don't count him, and nor does his wife."]],
- "Mind the step on your way out. It's iced over and I'm not paying for your teeth."],
+ "Mind the step on your way out. It's iced over and I'm not paying for your teeth.",
+ "Tove the barber in Saltwick has her father's chair and mirror. She expects a rush of haircuts for the funeral."],
 2:["(The radio on the shelf is playing something slow. Tove hums along, scissors going.) Kaisa's on. She always plays the sad ones first thing, then cheers up after her coffee.",[
   ["You know Kaisa?","She lives two floors under me in the block. I cut her hair every six weeks and she tells me which records the station manager has banned. It's a long list."],
   ["Who comes in for a cut, mostly?","Fishermen, before a wedding or after a fight. Party men, before a meeting. And Anna, every Friday, for a fringe trim she doesn't need."],
   ["Doesn't the radio get on your nerves?","It covers the silence when a man's deciding whether to tell me something. They always do, in the end."]],
- "Kaisa says it'll snow again by the weekend. She's usually wrong, which is comforting."],
+ "Kaisa says it'll snow again by the weekend. She's usually wrong, which is comforting.",
+ "Tove cuts Kaisa's hair and hears which records the station manager has banned. Anna comes in every Friday."],
 3:["(A tin on the counter is full of coins, and beside it sits a parcel wrapped in newspaper.) Tom paid me in herring this week. Again. I'm going to have to open a fish shop and put Olga out of business.",[
   ["Does everyone pay in fish?","Half of them. The other half pay in promises. I take cash from anyone mad enough to offer it, like you."],
   ["What will you do with the herring?","Aili will fry it at the diner and give me a coffee for it. That's how money works in Saltwick: it goes round in a circle and smells of fish."],
   ["Your father ran it the same way?","Worse. He once took a goat. It lived in the yard for a year and ate his best strop."]],
- "If you smell herring on your collar later, that's not me. That's Saltwick."],
+ "If you smell herring on your collar later, that's not me. That's Saltwick.",
+ "Tom paid Tove in herring again. In Saltwick, money goes round in a circle and smells of fish."],
 4:["(Tove holds a razor up to the light from the window.) Sheffield steel. My father bought it off an English sailor in 1951 and never let anyone else touch it. Now I don't either.",[
   ["It looks sharp.","Sharp enough to shave a peach, as he used to say. He never actually shaved a peach. We didn't see a peach on this island until 1967."],
   ["What happened to your father?","His heart, three winters ago, sitting in that very chair waiting for a customer. Nobody came that day. I've always thought that was the worst of it."],
@@ -17453,7 +17593,7 @@ DAILY['Tove']={
   ["Will you teach her to cut?","Not yet. First the broom, then the towels, then the strop. Scissors come when she stops talking to the customers about their ears."]],
  "If you see my sister, tell her Pia's here till six and has eaten."],
 6:["(Tove is trimming a moustache that isn't there, on nobody: practising.) Hope Springs is open, they tell me. Some of those men haven't been barbered since the snow. They'll be walking down here looking like bears.",[
-  ["Do the rich come down to Saltwick?","For me, they do. They send a car for me at first, and I tell them the chair doesn't travel. Then they come, and pretend they were passing."],
+  ["Do the rich come down to Saltwick?","For me, they do. They send a carriage for me at first, and I tell them the chair doesn't travel. Then they come, and pretend they were passing."],
   ["Who's your grandest customer?","I don't say names. Under the hot towel, a man's just a chin. That's the only rule my father ever really kept."],
   ["Bears? Is it that bad?","One of them came in last spring with a beard so big I found a pencil in it. He'd been looking for it since Christmas."]],
  "Ice on the step again. Go on, I'll watch you not fall."],
@@ -17733,12 +17873,14 @@ DAILY['Viktor']={
   ["Do you watch the gate all day?","It's what the shed's for. Nobody asks a gardener anything. So I hear the lot, and I say none of it. That's the job."],
   ["What's in the shed?","Tools, seed, a stove, a chair and a window. The window's the important part."],
   ["The garden's under snow.","It's sleeping. The roses are under sacking, the bulbs are under the ground and the fountain's frozen solid. Everything's waiting, like the rest of us."]],
- "Walk on the gravel, not the snow. I take footprints personally."],
+ "Walk on the gravel, not the snow. I take footprints personally.",
+ "Viktor the palace gardener sees everyone from his shed, and says nothing."],
 3:["(Viktor is scattering crumbs on the wall by his shed. A big black crow lands and eyes him.) That's the Bishop. Twelve years he's been coming. He's got a grey patch on his chest like a collar. He takes the best crumbs and blesses nobody.",[
   ["Is he tame?","He's polite. There's a difference. He'll take food from my hand, but he won't be grateful. A proper churchman."],
   ["What do the birds tell you?","Everything, if you watch. When the rooks sit facing north, snow. When they go quiet, something's coming. They're better than the wireless."],
   ["Do the royals like the birds?","The princess does. Daphne follows me round the garden, asking the names of things. Nobody else in that building has asked me a question in twenty years."]],
- "Don't feed the Bishop. He's on a diet. He doesn't know it."],
+ "Don't feed the Bishop. He's on a diet. He doesn't know it.",
+ "Viktor feeds a crow called the Bishop. Daphne is the only one at the palace who asks him questions."],
 4:["(Viktor is crouched by a stone statue of a long-dead queen, looking at her foot.) Cracked. The frost got into it. Oskar on the door says statues can't get chilblains. Look at that. She's got chilblains.",[
   ["Can you mend it?", "Lime mortar, in May, when the frost's out of her. Until then I've wrapped her foot in a sock. One of mine. She's a queen. She won't mind a gardener's sock."],
   ["Who was she?", "Queen Astrid, two hundred years back. She planted the elms on the drive. I look after her trees, so I look after her foot. It's only fair."],
@@ -17883,13 +18025,15 @@ DAILY['Ville']={
 2:["(Ville peers at you over a rack of magazines.) New face. Not cola, not palace, not Party. Shoes too good for Saltwick. You'll be the reporter. Rosa said you'd be along. Rosa's always right, which is very irritating.",[
   ["What do you sell?","Papers, magazines, cigarettes, and a view. The view's free. It's the best on the island: the cola offices on one side, the road to the palace on the other."],
   ["Who's Rosa?","Hot dogs, next to me. We've stood side by side for eleven years. She knows everything that happens in this square. I know the rest, which is less."],
-  ["What's happening at the palace?","The road's just opened. Cars going up all morning with men in black ties. Nobody's come down yet. They're all inside, looking sorry."]],
- "If you see anything interesting, tell me before Rosa. Please."],
+  ["What's happening at the palace?","The road's just opened. Carriages going up all morning with men in black ties. Nobody's come down yet. They're all inside, looking sorry."]],
+ "If you see anything interesting, tell me before Rosa. Please.",
+ "Ville sells papers in Kingsgrad's square, between the cola offices and the palace road. Rosa knows everything."],
 3:["(Ville has a pencil behind his ear and a folded page on the counter covered in little squares.) Don't look. It's a crossword. My own. I send one to a paper in Helsinki every week. They've never printed one.",[
   ["How many have you sent?","Two hundred and twelve. They write back sometimes. 'Thank you for your interest.' I've got a box of them. Very polite people, Finns."],
   ["Can I try one?","Seven across: 'Fizzy island export, four letters.' (He waits.) Cola. They're not hard. That's probably the problem."],
-  ["What's going on at Kelp Cola?","The headquarters opened its doors this morning. Phil arrived at eight in a blue car. Elin, Phil's secretary, came at seven, as always, with a pastry. She never eats the pastry."]],
- "Come back when you know a word for 'herring', six letters, not 'herring'."],
+  ["What's going on at Kelp Cola?","The headquarters opened its doors this morning. Phil arrived at eight off the tram, in his blue scarf. Elin, Phil's secretary, came at seven, as always, with a pastry. She never eats the pastry."]],
+ "Come back when you know a word for 'herring', six letters, not 'herring'.",
+ "Ville sends a crossword to a paper in Helsinki every week. They've never printed one."],
 4:["(Ville is counting the empty cans in his bin, one by one.) Thirty-one. Yesterday it was twenty-eight. Business is up three cans. That's how I measure the economy. It's more reliable than the Gazette.",[
   ["Why count cans?","When it's quiet, a man needs a hobby. Rosa knits. I count. Between us we know how the island's doing."],
   ["How is the island doing?","Better than last week. Worse than last year. About the same as it was before the king died, but with more people pretending to be sad."],
@@ -17967,7 +18111,7 @@ DAILY['Ville']={
  "If Elin asks how tall you are, lie."],
 19:["(The square smells faintly of eggs. Ville has his scarf over his nose.) There's steam over the mountain to the north. Rosa says it's nothing. Rosa only says it's nothing when she's worried. I'm worried too.",[
   ["Will the volcano erupt?","The Gazette says no, very loudly. That's the surest sign it will."],
-  ["Are people leaving Kingsgrad?","A few cars, down to the harbours. The rich ones. The rest of us are staying, because where would we go? It's an island."],
+  ["Are people leaving Kingsgrad?","A few carriages, down to the harbours. The rich ones. The rest of us are staying, because where would we go? It's an island."],
   ["What's the strangest thing you've seen today?","The prince, walking in the square at lunchtime, in a hat pulled low. He bought a paper and a packet of mints, and paid with a coin he'd clearly never held before."]],
  "Breathe through your scarf. And mind the trams. They're nervous."],
 20:["(Ville is packing his magazines into a crate.) If the mountain goes tonight, I'm taking my crosswords. Two hundred and thirteen rejections. That's my life's work. I'm not leaving it to the ash.",[
@@ -18014,7 +18158,7 @@ DAILY['Ville']={
   ["What's on the board in the square?","High stakes, low smiles. The Syndicate's playing cards somewhere, for something big. A man from Nico's lot bought three packs of cigarettes and his hands were shaking."],
   ["Are you nervous about the end of the month?","My crossword's printed. Whatever happens, I've done one thing right. That's more than most of the people making speeches can say."]],
  "Keep your ticket. You might need it, one day, to prove you were here."],
-28:["(The square is full: Party flags at one end, cola banners at the other, a royal car at the palace gate.) Every faction's making its big push today. I've sold more papers before noon than all of last winter.",[
+28:["(The square is full: Party flags at one end, cola banners at the other, a royal carriage at the palace gate.) Every faction's making its big push today. I've sold more papers before noon than all of last winter.",[
   ["What's happening in the square?","A red flag going up over Kingsgrad, if the Party gets its way. A state visit at the palace. Kelp Cola going abroad. All on the same day. My bin's never been so full of cans."],
   ["Who's winning?","Whoever's buying the most papers, which is the oil company. They buy one of everything and read the arts page."],
   ["Have you seen anything you shouldn't?","A man from the palace and a man from the Party, sharing a hot dog at Rosa's cart, not speaking, both very hungry."]],
@@ -18042,12 +18186,14 @@ DAILY['Vince']={
     ["Whose money's that?","(He smiles and turns a card.) The kind that comes in through the front door and goes out through the back. That's all a dealer says."],
     ["Do people win?","Some do, on a Tuesday. Nobody does over a year. I've seen fortunes made and lost at one table in one night."]]]],
   ["Patience in a cardigan. Very glamorous.","I'm on my day off. My forty-third, it feels like. In Frostholm I wear a waistcoat and bow tie. Here I wear what my mother knitted."]],
- "Shut the door on the way out. The cards blow about."],
+ "Shut the door on the way out. The cards blow about.",
+ "Vince deals blackjack at the casino in Frostholm, where some of the money is better not asked about."],
 3:["Still snowed off. (He holds up a battered postcard: palm trees, a white building, a blue sea.) Monte Carlo. One day I'll deal there. Or play there. Or just stand in it.",[
   ["Have you been?","Never. A croupier from Monaco came through the casino in 1979 and left this on my table as a tip. He said I had good hands."],
   ["How far off is it?","About eleven thousand dollars, by my reckoning. (He taps a biscuit tin on the shelf.) I'm a little short."],
   ["Monte Carlo's overrated.","Says a man who's never been warm. Look at that sea. You could put your feet in it."]],
- "Go on. I'll be here, saving."],
+ "Go on. I'll be here, saving.",
+ "Vince is saving to go to Monte Carlo, and is about eleven thousand dollars short."],
 4:["(Vince is shuffling with one hand, endlessly.) Somebody telephoned asking when the casino reopens. Third time. A gambler without a table's like a fish on a dock.",[
   ["Who rang?","Nobody you'd know. Somebody who's lost a lot and needs to win it back before someone notices. That's always who rings."],
   ["Show me a trick.","(He fans the deck, closes it, and turns the top card: the queen of hearts.) Not a trick. Practice. Fourteen years of it."],

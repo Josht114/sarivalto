@@ -7,12 +7,14 @@ DAILY['Daphne']={
   ["Who were the other ten?","A colonel, two ministers, a bishop's secretary, a man from Kelp Cola with remarkable teeth and five people who just wanted to see the inside. I gave them the scenic route."],
   ["How are you, really?","Cold. Sad, I suppose, in a way that keeps catching me on the stairs. Daddy used to whistle on the stairs. Now they're just stairs."],
   ["Eleventh isn't bad.","It's not a podium place, darling. Come back tomorrow and try harder."]],
- "Walk on the gravel, not the snow. Viktor takes footprints personally."],
+ "Walk on the gravel, not the snow. Viktor takes footprints personally.",
+ "Princess Daphne is counting the mourners who come to the palace. You're the eleventh, and the first with a notebook."],
 3:["(Daphne holds up a bunch of hothouse roses.) From Phil, at Kelp Cola. Red roses for a girl in mourning. He must think black goes with everything.",[
   ["Does it?","Everything except my complexion. I look like a widow in a Russian novel. Which is fun for about a day."],
   ["Is Phil courting you?","Phil is courting the crown, and I'm the bit of it he can reach. I don't mind. It's lovely to be wanted, even as a doorstop."],
   ["What will you do with them?","Give them to Marta. She'll put them in a vase on the servants' table and say they're from an admirer. She'll mean Phil, and everyone will think it's Edmund."]],
- "If you see Phil, say they were lovely. He'll send more. I'm running out of vases and servants."],
+ "If you see Phil, say they were lovely. He'll send more. I'm running out of vases and servants.",
+ "Phil from Kelp Cola has sent Daphne red roses. She thinks he's courting the crown through her."],
 4:["Eastbrook's open, so the whole palace has gone quiet in case a Democrat is listening. (She lowers her voice theatrically.) Have you met them?",[
   ["Not yet.","Oh, do. Erik runs them out of a community centre with a coffee pot. Leopold says they're dangerous. Augustus says they're misguided. I've never met anyone dangerous and misguided. It sounds marvellous."],
   ["Why the whisper?","Because the walls in there have ears, and out here only Viktor does. And Viktor's only interested in thrushes."],
@@ -57,7 +59,7 @@ DAILY['Daphne']={
  "If you're writing about Gustavo, leave me out of it. Or put me in somewhere flattering."],
 12:["(Daphne is crouching by a hedge, peering in.) Viktor showed me a robin's roost in here. Look. A little brown ball, puffed up against the cold. Like Edmund in the hall.",[
   ["Does Viktor show you much?","Everything that's interesting about the garden. Nothing that's interesting about the gate. He's very loyal, and very annoying."],
-  ["What's at the gate?","Cars at midnight, according to Oskar. Oskar tells me everything and Edmund tells Oskar off. It's a lovely system."],
+  ["What's at the gate?","Carriages at midnight, according to Oskar. Oskar tells me everything and Edmund tells Oskar off. It's a lovely system."],
   ["You're very fond of the gardens.","They're the only place the walls don't listen. Inside, there's a draught in every room, and a different person at every keyhole."]],
  "Tread softly. The robin's had a hard week too."],
 13:["It's all happening, isn't it? Kelp Cola giving bottles away in Kingsgrad, and someone at dinner whispering about their famous recipe. I adore it.",[

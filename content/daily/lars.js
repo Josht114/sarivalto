@@ -79,7 +79,7 @@ DAILY['Lars']={
   ["Is everyone accounted for?","Ruth on the radio's been calling us all by name. Everyone answered. Even the cook, who never answers anything."],
   ["Are you scared now?","(Quietly.) Yeah. Don't tell the lads. I'm twenty-three. I'm supposed to be the brave one."]],
  "Stand by the window with me a minute. It's the biggest thing I've ever seen."],
-22:["(Lars has ash in his eyebrows and his hair.) Went ashore on the supply boat to see the damage. Frostholm's grey. Grey cars, grey trees, grey people. I went into the HQ and Ruth said 'We're always open'.",[
+22:["(Lars has ash in his eyebrows and his hair.) Went ashore on the supply boat to see the damage. Frostholm's grey. Grey trams, grey trees, grey people. I went into the HQ and Ruth said 'We're always open'.",[
   ["How's Frostholm coping?","Sweeping. Everyone's sweeping. Sid's sweeping the Midnight Note. Rita sang to the queue for the generator fuel. I cried. Don't tell anyone that either."],
   ["Did you see Nico?","No. And he didn't see me. I came back on the first boat. He'll find me eventually; Nico always does."],
   ["Wash your eyebrows.","They're my volcano eyebrows. I'm keeping them as a memory."]],

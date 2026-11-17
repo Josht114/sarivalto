@@ -7,12 +7,14 @@ DAILY['Aino']={
   ["Is it always this loud?","Eight hundred bottles a minute, clinking. You stop hearing it after a year. Then you hear it in your sleep instead. Clink, clink, clink, all night."],
   ["What do you do here?","I put the caps on. Well, the machine puts the caps on. I watch the machine, and when it misses one, I slap it. That's my job. Slapping a machine."],
   ["Who's in charge?","Kurt, the foreman. Stopwatch round his neck, pigeons on the roof. He times everything. He timed my lunch once. Seven minutes. He said it was a record."]],
- "Mind the conveyor on your way out. It takes fingers when it's bored."],
+ "Mind the conveyor on your way out. It takes fingers when it's bored.",
+ "Aino watches the capping machine on Kelp Cola's bottling line. Kurt the foreman times everything with a stopwatch."],
 3:["(Aino is rubbing her lower back, still watching the line.) Twelve-hour shifts. To catch up for the snow. Twelve hours, and not a penny extra. I rang Helen at the Union. She said she's on it.",[
   ["Who's Helen?","Helen runs the Union, out of the Party's offices in Saltwick. She's never been on a bottling line in her life, but she can shout louder than the machines."],
   ["Will the Union get you more?","If Helen gets her teeth in. She once got the plant in Saltwick to pay for gloves. Gloves! It took her two years. I'm hoping for faster."],
   ["Why no extra pay?","Because Phil says the snow was an act of God, and God doesn't pay overtime. I'd like to see God slap the capper for twelve hours."]],
- "If you see Helen, tell her I said hurry up. Nicely."],
+ "If you see Helen, tell her I said hurry up. Nicely.",
+ "The bottling line is on twelve-hour shifts to catch up after the snow, with no extra pay. Aino has rung Helen at the Union."],
 4:["(Aino is singing under her breath to the rhythm of the bottles.) Clink, clink, a bottle for the king, clink, clink. Oh! You heard that. Nobody's supposed to hear that.",[
   ["You sing on the line?","It's the only way to get through twelve hours. The bottles make the beat. I just add the words. Kurt pretends he can't hear. He can hear."],
   ["What's the song about?","Whatever I'm thinking about. Today it's the king, because everyone's thinking about him. Yesterday it was my feet. That was a sadder song."],

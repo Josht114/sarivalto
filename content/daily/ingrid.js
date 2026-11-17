@@ -6,12 +6,14 @@ DAILY['Ingrid']={
   ["The ghost?","(She whispers.) The old queen. Queen Astrid. She walks this corridor at night, in a grey dress. Everyone says so. Well, I say so."],
   ["Mr Edmund's not that scary.","He is when you've left a crease in a pillowcase. He can see a crease through a closed door."],
   ["Hello, Ingrid.","Hello. (She smiles, and then looks at the floor, as if she's not sure smiling's allowed.)"]],
- "I'd better get on. The beds don't make themselves, whatever Princess Daphne thinks."],
+ "I'd better get on. The beds don't make themselves, whatever Princess Daphne thinks.",
+ "Ingrid the palace maid believes old Queen Astrid's ghost walks the corridor at night in a grey dress."],
 3:["Three rooms, three of them, and each one's different. I could tell you who sleeps where with my eyes shut.",[
   ["Tell me.","The prince's room smells of pipe smoke and cold. Prince Augustus's smells of candle wax. The princess's smells of French perfume and something she says is incense."],
   ["Who's the tidiest?","Prince Augustus. His room's like a monk's cell. A bed, a chair, an icon and a book. I dust the book. That's all there is to do."],
   ["Who's the messiest?","(A small, guilty smile.) I couldn't possibly say. But it's the room with the perfume."]],
- "Mind the corridor rug, the corner curls up. It's caught the queen out too, they say."],
+ "Mind the corridor rug, the corner curls up. It's caught the queen out too, they say.",
+ "Ingrid cleans the royal bedrooms. Leopold's smells of pipe smoke, Augustus's of candle wax, Daphne's of French perfume."],
 4:["The prince was walking again last night. Back and forth, back and forth, from the window to the door. Twelve steps. I counted, from my bed.",[
   ["You can hear him from the quarters?","When it's quiet, everything carries. The pipes run under his floor. I hear him like he's on the ceiling."],
   ["What time?","Two, three. Every night since the king died. He stops at the window for a long time. Then he starts again."],

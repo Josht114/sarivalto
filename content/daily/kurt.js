@@ -6,12 +6,14 @@ DAILY['Kurt']={
   ["What are you timing now?","The plough. It did Kingsgrad's main street in forty-two minutes. I could do it in thirty, with Aino and a shovel."],
   ["Is that a Kelp Cola in your hand?","(He holds up the bottle.) Fourth today. Doctor Lind says three's plenty. Doctor Lind drinks coffee, so who's he to talk?"],
   ["What's that noise on the roof?","My pigeons. Twelve of them, in a loft up top. They've been cooped up as long as I have, and they're just as cross about it."]],
- "Shut the door behind you. Draughts slow everything down."],
+ "Shut the door behind you. Draughts slow everything down.",
+ "Kurt, the Kelp Cola factory foreman, has timed every day of the shutdown. He keeps twelve pigeons."],
 3:["Kelp Cola HQ's open and the factory isn't. They can push paper in Kingsgrad, but nobody's pushing bottles. (He drinks.)",[
   ["When does the factory open?","When they clear the road to Eastbrook. Tomorrow, they say. I've laid out my overalls. I've ironed them."],
   ["You iron your overalls?","A foreman sets the standard. If the foreman's creased, the line's creased."],
   ["Tell me about the pigeons.","The grey one's Phil. The fat one's Harald. The one that keeps flying off towards Frostholm I haven't named. I don't trust it."]],
- "Tomorrow, then. On the minute."],
+ "Tomorrow, then. On the minute.",
+ "Kelp Cola's HQ is open but the factory isn't. Kurt has named his pigeons after Phil and Harald."],
 4:["(Kurt stands on the factory floor with a stopwatch and a bottle.) We're back. The line started four seconds late. Somebody's going to hear about those four seconds.",[
   ["Who was late?","The line, not a person. The belt was cold. I've had words with it."],
   ["It's very loud in here.","Aino calls it the loudest place on the island. She's right. It's music, if you're a foreman."],

@@ -6,17 +6,20 @@ DAILY['Tiina']={
   ["Nice to meet you, Tiina.","Is it? You don't know me yet. Wait a week. (The corner of her mouth moves.)"],
   ["I'm a reporter, from London.","I know what you are. Everybody knows what you are. What I don't know is what you want."],
   ["You don't like strangers?","I don't dislike them. I just don't tell them things. That's a different thing."]],
- "Go on. Sirpa's got more to say than I have."],
+ "Go on. Sirpa's got more to say than I have.",
+ "Tiina, Sirpa's friend, won't tell you anything on the first day."],
 2:["(Tiina is mending a sock with neat, quick stitches.) Still here? Most reporters would've gone to Kingsgrad by now. That's where the dead king is.",[
   ["Saltwick's interesting too.","Saltwick's tired. Broken cobbles, empty nets, a plant on short hours. If that's interesting, London must be very dull."],
   ["Lovely stitching.","Net-maker's hands. Twenty years making nets for the boats. Now I darn socks. The knot's the same, the money isn't."],
   ["Are you always this suspicious?","Since last season, yes. Before that I was cheerful. Sirpa will tell you. She tells everyone everything."]],
- "Mind the cobbles by Hannu's. They bite."],
+ "Mind the cobbles by Hannu's. They bite.",
+ "Tiina made nets for twenty years and now darns socks. She hasn't been cheerful since last season."],
 3:["(Tiina is looking out towards the harbour.) The boats are going out late. Fog on the water this morning. They don't like fog here. Not any more.",[
   ["Why not any more?","Because of last season. You've heard. Sirpa will have told you. My husband's boat went down in a fog like this one."],
   ["I'm sorry.","(She nods once.) Everyone's sorry. Being sorry doesn't find a boat. But thank you."],
   ["Fog's dangerous everywhere.","Fog's only dangerous if someone else is out in it who shouldn't be. Matti knew those waters better than his own house."]],
- "The fog'll lift by noon. It always does, after."],
+ "The fog'll lift by noon. It always does, after.",
+ "Tiina's husband Matti went down with his boat in a fog last season."],
 4:["(Tiina is quiet a while before she speaks.) The Lumikki. That was the boat. Matti named it for the snow. Painted it white every spring.",[
   ["Was it ever found?","A bit of the wheelhouse washed up by the point. White paint, with a black scrape down it. Like something hit it."],
   ["What do you think happened?",["The harbourmaster says fog and bad luck. (She pulls her coat tighter.) The harbourmaster wasn't out in it.",[

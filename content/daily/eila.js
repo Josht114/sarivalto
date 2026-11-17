@@ -6,12 +6,14 @@ DAILY['Eila']={
   ["What do you mend?","Coats, collars, trousers, the odd wedding dress. Anything with a seam. Twenty-two years at Lindqvist's dress shop, before it shut."],
   ["What happened to Lindqvist's?","Frostholm happened. Ready-made from Helsinki, shipped in by the crate. Nobody wants a dress that fits when they can have one that's new."],
   ["You don't look pleased to see me.","I don't look pleased to see anyone. It saves time. (A pause.) Welcome to Kingsgrad."]],
- "If your coat tears, you know where I am. Marjut and I don't go far."],
+ "If your coat tears, you know where I am. Marjut and I don't go far.",
+ "Eila mends clothes in Kingsgrad. She sewed at Lindqvist's dress shop for twenty-two years, until it shut."],
 3:["(Eila is cutting black cloth into strips on her knee.) Armbands, for the funeral. Half the city'll want one by the tenth. I've got eight days and one pair of scissors.",[
   ["Good business, at least.","It's the first proper work in months. A king has to die before a seamstress eats. Write that down."],
   ["How much for one?","Fifty pennies. Seventy with a stitched edge. Hope Springs pays seventy and Saltwick pays fifty, and I don't argue with either."],
   ["Do you mourn him yourself?","I mourn twenty-two years at Lindqvist's. The king I'll mourn when somebody in that palace mourns me."]],
- "Mind the pins on the bench. I lose about one an hour."],
+ "Mind the pins on the bench. I lose about one an hour.",
+ "Eila is making black armbands for the king's funeral on the tenth."],
 4:["(Eila has a long form on her lap, filled in in neat capitals.) Form 12B. Application for relief. My third. The first two came back 'incomplete'. They didn't say what was missing.",[
   ["Who sends them back?","The Civil Service Bureau, behind the apartments. A man called Bertil. He's polite. Polite's worse than rude: you can't shout at polite."],
   ["Will this one get through?","I've filled in every box twice and drawn a line through the blank ones. Let them call that incomplete."],
@@ -44,7 +46,7 @@ DAILY['Eila']={
  "Don't spend your money in Frostholm. Spend it here."],
 10:["(Eila stands very straight, in her best black.) They're burying him now. You can hear the bells from here. Marjut's gone up to the gates to watch.",[
   ["Not you?","Somebody has to sit on the bench. And I've seen enough rich people in black this week. Most of them in my armbands."],
-  ["What was he like, the king?","He opened the new tram line in 1965. He said 'how splendid' and got straight back in his car. That's all I know of him."],
+  ["What was he like, the king?","He opened the new tram line in 1965. He said 'how splendid' and got straight back in his carriage. That's all I know of him."],
   ["Is Marjut all right?","She went up to see him off. Fourteen years she cleaned his rooms. Whatever the palace did to her, she liked him. Grief's not tidy."]],
  "Stand still a minute with me. Then go."],
 11:["(Eila is watching the Bureau doors.) Handed in 12C this morning. Bertil stamped it with a big red stamp. He looked so pleased with himself.",[
@@ -90,7 +92,7 @@ DAILY['Eila']={
 19:["(Eila nods towards the north, where steam rises over the hills.) Look at that. The mountain's breathing. Has been for two days. Nobody official's said a word.",[
   ["Has anyone said anything?","The radio says 'monitor the situation'. Kaisa sounded worried. Kaisa never sounds worried about anything but records."],
   ["Are you frightened?","A bit. I've got a bag packed. Needles, thread, the coal tin and my mother's thimble. Nothing else in my flat's worth saving."],
-  ["Who'd help, if it went?","Hope Springs has cars. The palace has the army. The rest of us have feet. That's how it's always been."]],
+  ["Who'd help, if it went?","Hope Springs has carriages. The palace has the army. The rest of us have feet. That's how it's always been."]],
  "If it goes, head south. Don't wait for anyone to tell you."],
 20:["(Eila is mending a palace footman's coat, of all things.) Oskar brought it down. Torn sleeve. The palace seamstress was one of the two they let go. Ha.",[
   ["Serves them right.","It does. I charged the palace rate. Oskar paid without blinking. It's not his money."],

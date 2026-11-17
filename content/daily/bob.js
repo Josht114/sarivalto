@@ -6,17 +6,20 @@ DAILY['Bob']={
   ["What will you do with it?","Half goes to Olga's shop, half goes in the smoker, and the cheeks go home to Helen. Cod cheek's the best bit, and nobody knows it."],
   ["You're quick with that knife.","Twenty years of it. Kate's quicker. Don't tell her I said so; she'll want it in writing."],
   ["Is this the Communist end of town?","This is the fish end of town. I'm Union, not Party. Helen does the politics. I do the cod."]],
- "Mind the floor, it's slippery. Everything here is."],
+ "Mind the floor, it's slippery. Everything here is.",
+ "Bob fillets fish in Saltwick. He's Union, not Party, and takes the cod cheeks home to Helen."],
 2:["Kate says somebody from Kingsgrad's been asking after my old house. The road's been open a day, and Sally's already sending people.",[
   ["You're selling your house?","Since I moved in with Helen. It's sat empty a good while. Sally at the estate agent's in Kingsgrad has it on her books."],
   ["Who's asking?","Kate didn't know, which means it's somebody very mysterious. Kate knows everything."],
   ["Will you miss it?","The stove. It's a good stove. Helen's flat is better in every other way, mostly because Helen's in it."]],
- "If you want a small house with a good stove, see Sally."],
+ "If you want a small house with a good stove, see Sally.",
+ "Someone from Kingsgrad has been asking about Bob's empty old house. Sally at the estate agent's has it on her books."],
 3:["Helen's meeting ran till midnight, so I made fish soup at eleven and kept it on a low flame. It was perfect at five past twelve.",[
   ["What goes in your fish soup?","Cod, potato, leek, a bay leaf, and cream if Olga's got any. And patience. Mostly patience."],
   ["Does she appreciate it?","She ate two bowls without a word. That's appreciation, from Helen."],
   ["Why not go to her meetings?","Somebody has to keep the soup on. That's my contribution to the struggle."]],
- "Off you go. These fish won't fillet themselves."],
+ "Off you go. These fish won't fillet themselves.",
+ "Bob kept fish soup warm till midnight for Helen after her meeting. She had two bowls."],
 4:["Kate's been telling me the Eastbrook gossip since the road opened at dawn. I don't know how. Nobody from here's been to Eastbrook yet.",[
   ["How does Kate know?","The milk boat. The radio. And something else she won't tell me about. I suspect witchcraft."],
   ["What's the gossip?","That Erik's been snowed in with forty pounds of coffee and has drunk most of it. Don't print that; she'll want paying."],

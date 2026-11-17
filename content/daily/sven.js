@@ -97,7 +97,7 @@ DAILY['Sven']={
   ["Will you ask her out properly?","I'm going to. Next week. Or the week after. When the world's stopped ending."],
   ["Any gossip today?","The palace has started handing out crowns, they say. And the Democrats have a princess. Everybody's royal now except me."]],
  "A scarf is practically a ring, on this island. Ask anyone."],
-26:["(Sven is watching a big car on the coast road.) That's Dario's car, heading for the mountain road. He's going to buy the spa. The whole harbour knows. I told them.",[
+26:["(Sven is watching a big red boat heading up the coast.) That's Dario's boat, off to the north. He's going to buy the spa. The whole harbour knows. I told them.",[
   ["Will he get it?","The owner's turned him down twice. Saga, who works up there, says the owner'd sooner sell to the volcano. But Dario doesn't hear 'no'. It's a medical condition."],
   ["How do you know where he's going?","He stopped for fuel, and asked me if the mountain road's clear of ash. Nobody goes up the mountain road for any other reason now."],
   ["Did he pay you in milkshakes?","Cash, this time. And he tipped. Dario tipping means he's nervous. I've never seen him nervous before."]],

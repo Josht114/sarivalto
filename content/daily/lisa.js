@@ -5,12 +5,14 @@ DAILY['Lisa']={
   ["Actual London.","I knew it! The coat. Nobody here has a coat like that. Is it true there are shops on every street? Shops on top of shops?"],
   ["What's it like working here?","Bread, cola, beer, cigarettes. Bread, cola, beer, cigarettes. Sometimes someone buys a drill and I nearly faint with excitement."],
   ["Do you get many customers?","Today? Everyone. The road's open, and Kingsgrad's been eating tins for a fortnight. I've sold a mountain of bread already."]],
- "Come back and tell me about London. Please. I'll give you a discount. (She lowers her voice.) I can't actually give you a discount."],
+ "Come back and tell me about London. Please. I'll give you a discount. (She lowers her voice.) I can't actually give you a discount.",
+ "Lisa at the supermarket in Kingsgrad sells bread, cola, beer and cigarettes, and is thrilled to meet someone from London."],
 3:["(Lisa is stacking cans into a pyramid.) Don't touch it. It took me twenty minutes. If you take the bottom one, I'll cry.",[
   ["It's very impressive.","Thank you! Nobody ever says that. Birgit at the Nordmart in Frostholm does hers in straight lines. Straight lines! Where's the joy?"],
   ["Why a pyramid?","Because people buy the top one. Then the next. If you stack them flat, they think you've got too many and walk away. It's psychology."],
   ["(Take the bottom one.)","(The pyramid stays up, somehow. She stares at you.) That's never happened before. You must be very lucky. Or a witch."]],
- "Mind the pyramid on your way out."],
+ "Mind the pyramid on your way out.",
+ "Lisa stacks her cans in pyramids. Birgit at the Nordmart in Frostholm uses straight lines."],
 4:["Can I tell you a secret? (She leans over the till.) I'm leaving the island. One day. I'm saving.",[
   ["Where are you going?","London. Where else? I'll work in one of those big shops with the lifts and the perfume counter. I'll wear a uniform with a little badge."],
   ["How much have you saved?","Two hundred and eleven dollars. In a biscuit tin under my bed. Danish butter biscuits, the blue tin. I ate the biscuits first, obviously."],

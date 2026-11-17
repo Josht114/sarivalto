@@ -9,12 +9,14 @@ DAILY['Bertil']={
   ["What's the form for?","Visitors to the Bureau, non-resident, purpose of visit. Three copies. One for me, one for the file, one for the file's file."],
   ["I'm a reporter, from London.","(He writes, very neatly.) Occupation: press. Nationality: British. Hair: tidy. I like to add a detail. It helps me remember people."],
   ["Does the Bureau run the island?","The Bureau keeps the island running. Kings come and go. Forms stay. My father said that, at this desk, with this stamp."]],
- "Your copy, for your records. Don't lose it. Nobody ever loses only one form."],
+ "Your copy, for your records. Don't lose it. Nobody ever loses only one form.",
+ "Bertil at the Civil Service Bureau has added you to his list of visitors, in triplicate."],
 3:["(Bertil is holding a form at arm's length.) Sergeant Hanna's requisition for a new pencil. She's filled it in with a pencil an inch long. I admire the commitment. I can't approve it. Box seven's blank.",[
   ["What's box seven?","Reason for replacement. She's left it empty. I suspect she thought it was obvious. Nothing is obvious to a form."],
   ["Can't you just give her a pencil?","(He looks genuinely pained.) If I gave out pencils without forms, I'd give out everything without forms. Then where would we be? In Moscow, probably."],
   ["How long will it take?","Pencils go to the Supplies Committee, which meets on the first Monday of the month. Unless there's an emergency. A pencil is not an emergency. Yet."]],
- "If you see the Sergeant, mention box seven. Gently."],
+ "If you see the Sergeant, mention box seven. Gently.",
+ "Bertil won't give Sergeant Hanna a new pencil: she left box seven blank on the form."],
 4:["(Bertil has a very large rubber stamp in his hand and is looking at it with something like love.) My father's. APPROVED, in red. It's been used forty thousand times. I've counted. I keep a tally in the back of my diary.",[
   ["Do you ever stamp REJECTED?","I have a separate stamp. It's smaller. I keep it in the drawer. I don't like using it. It makes a sad little noise."],
   ["How old are you, Bertil?","(He touches his grey hair.) Twenty-nine. The hair came at twenty-five, like my father's. He said grey hair was the Bureau's uniform. I didn't think he meant it literally."],

@@ -33,6 +33,31 @@ DAILY['Name']={
 - The code is plain JavaScript strings in double quotes. Escape any `"` inside as `\"`, or use single quotes for quoted speech.
   Don't use backticks or `${}`. Apostrophes are fine.
 
+## Information: summaries, and what the player has heard
+
+Every conversation the player hears goes into the menu's Information tab, under its day, as `'Name:day'` (for example
+`'Elin:2'`). Three optional parts use it:
+
+```js
+3:["What they open with.",[
+  ["A reply everyone gets.","Their answer."],
+  ["A reply only if you heard Elin on the 2nd.","Their answer.","Elin:2"],
+  ["A reply only if you didn't.","Their answer.","!Elin:2"]],
+ "What they say if you talk to them again today.",
+ "A one-line summary for the Information tab: what the player learned.",
+ {"Elin:2":"What they open with instead, if you heard Elin on the 2nd."}],
+```
+
+- **The summary** (fourth part) is one or two short sentences of what the player learned, in the third person: "Elin, Phil's
+  secretary at Kelp Cola, lives with Mats, a clerk at Diversified Petroleum." Without one, the tab shows what the player asked.
+  Days 1 to 3 have summaries so far.
+- **Another opener** (fifth part, after a summary) replaces the first line when the player has heard one of the named
+  conversations; the first one heard wins. Use it when an opener assumes you've met ("You again.").
+- **A reply's third part** shows it only if the player has heard that conversation (`'Elin:2'`) or hasn't (`'!Elin:2'`).
+  Pair them so there are always at least three replies. Use it whenever a reply mentions something from another day.
+- `node tools/build-daily.js` checks that every `'Name:day'` named is a real conversation.
+- The wiki's Information page lists every conversation that changes a later one, and how many days have summaries.
+
 ## Voice and content
 
 - **Setting:** September 198-, on Sarivalto, a snowy, fictional island in the Baltic north of Finland, in the Cold War. The

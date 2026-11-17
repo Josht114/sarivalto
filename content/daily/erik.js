@@ -77,8 +77,8 @@ DAILY['Erik']={
   ["Why a rally in Kingsgrad, not here?","Because Eastbrook already agrees with us. You don't preach to the choir. You go and stand in the king's square and ask everyone else."],
   ["Who's building the stage?","Bjarne, from mill timber, if Dagny can be talked out of charging us for it. If not, we'll stand on the boxes of leaflets. Goodness knows we've got enough of those."]],
  "I'm off to stand in a queue at the Civil Service. Democracy is mostly queues."],
-19:["(Erik is peering out of the window at the street, as if he expects to see someone.) The Russian businessman at the Hotel Aurora. Have you met him? I keep seeing his car in places a businessman wouldn't go.",[
-  ["Where has his car been?","Outside Communist HQ in Saltwick. Outside the monastery gate. And yesterday, at the end of Alder Lane, with nobody in it. Businessmen don't park outside monasteries."],
+19:["(Erik is peering out of the window at the street, as if he expects to see someone.) The Russian businessman at the Hotel Aurora. Have you met him? I keep seeing his carriage in places a businessman wouldn't go.",[
+  ["Where has his carriage been?","Outside Communist HQ in Saltwick. Outside the monastery gate. And yesterday, at the end of Alder Lane, with nobody in it. Businessmen don't park outside monasteries."],
   ["Who do you think he is?","I think he works for someone who'd like the island to stop asking questions. That's as far as I'll go out loud."],
   ["Isn't that a bit paranoid?","I was a schoolteacher. I can tell when someone's passing notes. (He drops the curtain.) He's passing notes."]],
  "Keep your eyes open in Frostholm. I'm told the hotel has thin walls."],

@@ -6,17 +6,20 @@ DAILY['Sirpa']={
   ["News travels fast here.","News is all we've got, love. Fish and news. And the fish plant's gone short hours, so mostly news."],
   ["What's the gossip today?","Anna's had the Party lights on since five, Lucia came home at three in the morning with sand on her shoes, and Hannu's selling last week's paper again."],
   ["Do you ever do anything else?","I knit. I watch. I talk. Three things, and I'm good at all of them. More than the plant manager can say."]],
- "Off you go. I'll know where you went by teatime anyway."],
+ "Off you go. I'll know where you went by teatime anyway.",
+ "Sirpa watches everything on her street in Saltwick. Lucia came home at three in the morning with sand on her shoes."],
 2:["(Sirpa leans in.) Road to Kingsgrad's open. Half the village went up on the first tram like it was Christmas. Not me. What's Kingsgrad got that I haven't seen?",[
   ["The palace, for one.","The palace has got a dead king and a lot of people pretending to be sad. We've got that here, and it's cheaper."],
   ["Who went up?","Mike, to buy boots. Olga, to sell fish. And Lucia, to do whatever Lucia does. You don't ask Lucia."],
   ["Why don't you go?","Tram fare's a day's dinner. And the bench would miss me."]],
- "If you're going up, bring back some gossip. Fair's fair."],
+ "If you're going up, bring back some gossip. Fair's fair.",
+ "Half of Saltwick has gone up to Kingsgrad on the tram. Sirpa hasn't."],
 3:["(Sirpa is knitting something red, fast.) Don't look at it. It's nothing. It's a scarf. For nobody.",[
   ["Who's nobody?","Nobody who pours drinks. Nobody with a moustache. Leave it, will you."],
   ["Ray, from the bar?","(She goes pink.) Tiina told you. I'll kill her. He's cold, that's all. He stands in the door every night with no scarf. It's a public service."],
   ["Lovely colour.","It is, isn't it? Communist red. Anna gave me the wool. Don't tell her who it's for."]],
- "Not a word to Ray. Or to Tiina. Especially Tiina."],
+ "Not a word to Ray. Or to Tiina. Especially Tiina.",
+ "Sirpa is knitting a red scarf for someone who pours drinks and has a moustache."],
 4:["(Sirpa nods down the street.) The plant manager went past at eight. Didn't look at us. When he doesn't look at us it means no more hours this week.",[
   ["How long since the cut?","Since June. Kate and Bob kept their shifts. The rest of us were 'surplus'. I've never been surplus before. I quite liked being plus."],
   ["Who decides the hours?","The manager, the fish, and the people in Kingsgrad who buy the fish. Mostly the people in Kingsgrad."],
@@ -122,9 +125,9 @@ DAILY['Sirpa']={
   ["Ray must be a comfort.","(She smiles.) He came round to check on the block. He said 'right' to everybody, and then sat with me an hour. Not saying anything."],
   ["Will the plant reopen?","When the ash is out of the machines. Kate says next week. She's said next week since June, but this time she means it."]],
  "Hold on to the railings on the stairs. They're shaking loose."],
-25:["(Sirpa is gossiping at full speed.) You've missed everything! Lucia's had a black car outside the block twice this week, and Kaisa's been crying in the stairwell.",[
+25:["(Sirpa is gossiping at full speed.) You've missed everything! Lucia's had a black carriage outside the block twice this week, and Kaisa's been crying in the stairwell.",[
   ["Why is Kaisa crying?","A man, I expect. With Kaisa it's always a man or a record. This time I'd say a man. Nobody cries like that over a record."],
-  ["Whose black car?","You don't ask whose car it is when Lucia's getting out of it. You look at your knitting very hard."],
+  ["Whose black carriage?","You don't ask whose carriage it is when Lucia's getting out of it. You look at your knitting very hard."],
   ["You're back to your old self.","I'm back on the bench. The mountain stopped me for a day. It'll take more than a volcano to keep me quiet."]],
  "I'll have more by tomorrow. I always do."],
 26:["(Sirpa holds up a letter.) The plant's sent letters. Hours back from Monday, for some of us. I'm one of the some. I've read it nine times.",[

@@ -19,7 +19,7 @@ DAILY['Ruth']={
  "Yippee-ki-yay. I'm not allowed to say that to callers, so I say it to you."],
 10:["(Ruth is on the switchboard, plugging in cables.) Everyone's at the king's funeral, so it's just me and the telephones. They don't stop ringing. Half of them are asking what Dario wore.",[
   ["What did Dario wear?","Black, with a silk tie, and an expression like he was pricing the chapel. Don't print that. Actually, print it."],
-  ["Did you want to go?","I watched the old king go past once, in 1968, in an open car in the snow. He waved at me. That's my funeral, and I've had it."],
+  ["Did you want to go?","I watched the old king go past once, in 1968, in an open sleigh in the snow. He waved at me. That's my funeral, and I've had it."],
   ["Who's been calling?","The Gazette, twice. Kelp Cola, once, pretending to be somebody else. I know Elin's voice. She sounds like a sensible woman trying not to laugh."]],
  "If the phones keep up like this, I'll need my own funeral."],
 11:["(Ruth is writing in the appointments book in neat capitals.) A man came through the back door earlier, asked for Dario, and wouldn't leave a name. I wrote him down as 'Hat'.",[
@@ -53,7 +53,7 @@ DAILY['Ruth']={
   ["Will you tell Dario you drew a horse?","I'll tell him Anna was very persuasive and the Democrats were very sincere. That's notes."]],
  "Thunder abstains. He's a very principled horse."],
 17:["(Ruth is answering the telephone for the fourth time in a minute.) No, Mr Dario isn't available. No, I don't know when. (She hangs up.) Nobody's seen him all day. Not even me, and I see everyone.",[
-  ["Where would he go?","When he's in a mood he drives. Up the coast, to the spa, to his villa. Once to the end of the jetty, where he sat in the car for an hour."],
+  ["Where would he go?","When he's in a mood he takes the boat out. Up the coast, to the spa, to his villa. Once to the end of the jetty, where he sat in it for an hour."],
   ["Are you worried?","I'm a receptionist. Worry is above my grade. (She chews her pen.) A little."],
   ["Who's been ringing?","Magnus, twice, from upstairs. Somebody who wouldn't give a name, three times. I've written them all down as 'Worried'."]],
  "If you find him, tell him Ruth wants to know. He'll come back for that."],

@@ -77,7 +77,7 @@ DAILY['Gustavo']={
   ["Why the interest in the palace?","I'm an old man who likes beautiful things. The palace has a great many beautiful things, and not enough people looking after them."],
   ["You're not planning a burglary, Don?","(He closes the book gently.) I'm planning lunch. Rosaria's sending up a calzone. Burglary is a young man's business."]],
  "Go on with you. And keep your opinions about snuffboxes to yourself."],
-21:["(Ash is settling on the windows of the Club, and Gustavo hasn't moved from his chair.) The mountain has opened, journalist. The members ran for their cars. I finished my brandy.",[
+21:["(Ash is settling on the windows of the Club, and Gustavo hasn't moved from his chair.) The mountain has opened, journalist. The members ran for their carriages. I finished my brandy.",[
   ["Aren't you afraid?","I was born under Vesuvius. My grandmother made coffee the day it went up, in 1944, and served it to the Germans. You don't run from a mountain. You make it wait."],
   ["Is everyone in Hope Springs safe?","Paola went round every door. Nobody's hurt. One of the members fainted into the topiary. He's been telling everyone it was a dive."],
   ["What does this do to business?","Everybody needs something tonight that the shops don't have. Candles, glass, a boat. Business, journalist, is what happens when the ground moves."]],

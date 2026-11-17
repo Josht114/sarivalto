@@ -6,12 +6,14 @@ DAILY['Augustus']={
   ["A thousand days on a rock?","With bread brought up by a peasant. I've asked Marta to bring me bread up here. She brought me a pie and a lecture."],
   ["Why read about suffering?","Because it ends. Every one of these books ends with the saint at peace. I like to know how the story finishes."],
   ["Get off the rock, Your Highness.","(He laughs, quietly, as if laughing in a library were a sin.) You sound like my sister."]],
- "Shut the door softly. The books don't like a draught."],
+ "Shut the door softly. The books don't like a draught.",
+ "Prince Augustus reads the lives of the saints in the palace library. He likes to know how a story ends."],
 3:["(Augustus has a small leather book open, not a saint's life.) I've found something. Behind the Lives of the Saints on the third shelf: my grandmother's diaries. Queen Astrid's.",[
   ["What do they say?","The first page is 1921. She's nineteen, and she thinks my grandfather has ridiculous ears. I'm reading a few pages a day, to make them last."],
   ["Should you be reading them?","She hid them in the holiest books in the library. I think she wanted them found by someone who'd read the holy books."],
   ["Did your grandfather have ridiculous ears?","There's a portrait in the chapel. (He considers.) She was right. It's the first unkind thing I've ever agreed with."]],
- "Don't mention the diaries to Daphne. She'd read them all in an evening and tell everyone at dinner."],
+ "Don't mention the diaries to Daphne. She'd read them all in an evening and tell everyone at dinner.",
+ "Augustus has found Queen Astrid's diaries hidden behind the saints' lives in the library, and reads a few pages a day."],
 4:["Brother Ilja wrote from the monastery. He's copying the Psalms by hand and wanted my opinion on an illuminated letter. It's the nicest letter I've had since Father died.",[
   ["What was your opinion?","That the B was too gold. He'll be crushed. He'll also gild it again, because Ilja believes in more gold, always."],
   ["Do you write to the monks often?","Every week. They're the only people who write back about God and not about the crown."],

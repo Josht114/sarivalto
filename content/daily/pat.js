@@ -8,17 +8,20 @@ DAILY['Pat']={
     ["Seriously, though.","Seriously? A bottle, a long time ago, and a captain who didn't like it. That's all you're getting on the first day."],
     ["Fair enough.","There you are. You've got manners. Most people who ask want the sad story, not the man."]]]],
   ["Do you get many visitors?","Gulls. The odd fisherman. Sirpa and Tiina from the village, when they want to gossip somewhere Ray can't hear."]],
- "Mind the tide line. The sand's soft where the river comes in."],
+ "Mind the tide line. The sand's soft where the river comes in.",
+ "Pat lives in a tent on the beach. He won't say what brought him here, beyond a bottle and a captain."],
 2:["(Pat holds up a green glass bottle, corked and waxed.) Look what the sea sent me. There's a letter in it. In Russian, I think: all backwards Rs.",[
   ["Have you opened it?","Not yet. You open a thing like that, it stops being a mystery and starts being someone's business. I'm enjoying the mystery."],
   ["Could it be important?","Could be a spy's secrets. Could be a sailor's shopping list. The sea doesn't tell you which, it just hands them over."],
   ["Sell it to a collector.","Who's collecting? The king's dead and the shop in Eastbrook only takes records. No, I'll keep it."]],
- "If you can read Russian, keep it to yourself for now. I like not knowing."],
+ "If you can read Russian, keep it to yourself for now. I like not knowing.",
+ "Pat has found a corked bottle on the beach with a letter inside, in Russian he thinks. He won't open it."],
 3:["(Pat is rebaiting a long fishing line with bits of mussel.) Cod come in close when it turns cold. Cold's coming. So are the cod, if I'm lucky.",[
   ["Caught anything yet?","A boot, Tuesday. Left foot. If the sea sends me the right one I'll be the best-dressed man in Saltwick."],
   ["How long have you fished here?","Eleven winters. Before that I fished for other people, on boats. Now the fish and I are on more equal terms."],
   ["Doesn't look very efficient.","It isn't. But nobody shouts at me, and the cod don't ask for a union rate."]],
- "Don't step on the line. Took me an hour to bait."],
+ "Don't step on the line. Took me an hour to bait.",
+ "Pat fishes from the beach and has done for eleven winters. The cod come in close when it turns cold."],
 4:["(Pat nods towards the sea.) Saw lights out there last night. Late. A boat with no running lights, coming in slow to the river mouth.",[
   ["Fishermen, surely?","Fishermen want to be seen, or someone runs them down. These didn't want to be seen. That's a different trade."],
   ["What were they landing?",["Crates, two men, a handcart up the path towards the bridge. (He shrugs.) I was asleep. I'm always asleep, when anyone asks.",[

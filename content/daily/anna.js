@@ -8,17 +8,20 @@ DAILY['Anna']={
     ["And the answer?","The people who work it. And Moscow to help us keep it, because nobody else ever offered."],
     ["Three hundred years is a long time.","So is a winter here. We survive both."]]]],
   ["Nice map. Did you draw it?","My mother did, for the herring co-operative, in 1951. She marked the best fishing grounds in pencil. I keep meaning to rub them out, and never do."]],
- "Shut the door behind you, comrade. The heating's a luxury."],
+ "Shut the door behind you, comrade. The heating's a luxury.",
+ "Anna leads the Communist Party from Saltwick. She wants the island owned by those who work it, with Moscow's help."],
 2:["The road to Kingsgrad's clear. Half of Saltwick has gone to stare at the palace gates, as if the old king might still wave.",[
   ["Will you go to Kingsgrad?","When I have business there. The palace isn't business. It's a museum with people still living in it."],
   ["What do you make of Prince Leopold?","A nice young man who's never gutted a fish. That's the whole problem, in one sentence."],
   ["Maybe they just want to see the shops.","(She laughs.) Fair. Kingsgrad has shoes. Saltwick has boots. There's a difference, and you can hear it on the stairs."]],
- "Mind the slush on the main street. It's worse than the snow was."],
+ "Mind the slush on the main street. It's worse than the snow was.",
+ "Anna has no time for the palace, or for Leopold: a nice young man who's never gutted a fish."],
 3:["Phil's cola lorries are back on the road. The first thing through when the snow clears: not bread, not medicine. Cola.",[
   ["People like cola.","People like what they're sold. Show me the islander who asked for kelp in a bottle."],
   ["Is Kelp Cola an enemy of the Party?","Phil pays the girls on his bottling line less than the bottle's worth. Helen has the figures. Ask her, and she'll talk till supper."],
   ["Have you ever tried it?","Once, in 1974. I'm still thinking about it, and not kindly."]],
- "Tell Phil the workers send their regards. He'll know what it means."],
+ "Tell Phil the workers send their regards. He'll know what it means.",
+ "Anna is angry that Kelp Cola's lorries were the first thing through the snow. Helen has figures on Phil's wages."],
 4:["Eastbrook's dug out, and Erik telephoned within the hour. The first thing that man does with a clear road is propose a public debate.",[
   ["Will you accept?","Of course. Never refuse a man the chance to lose in front of his friends. We've said the sixteenth."],
   ["What's Erik like?",["Clever. Earnest. Thinks a vote every four years is freedom.",[

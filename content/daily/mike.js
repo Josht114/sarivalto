@@ -6,17 +6,20 @@ DAILY['Mike']={
   ["You've a good voice.","Twelve years in the Saltwick choir, till they asked me to stop doing the Internationale at Christmas."],
   ["What are you catching?","Cod, if they'll have me. The snow kept us in for a fortnight; the fish have forgotten my face."],
   ["Is that a Party song?","It's the song. The whole world sings it. Well, half of it. The good half."]],
- "Mind the rope. It bites."],
+ "Mind the rope. It bites.",
+ "Mike is a fisherman in Saltwick who sings the Internationale while he works."],
 2:["The Valborg won't start. Third time this week. She's older than me and twice as stubborn.",[
   ["What's wrong with her?","The gearbox, Tom thinks. Tom always thinks it's the gearbox. Tom's usually right."],
   ["Can you borrow a boat?","Tom's. Everybody borrows Tom's. There's a queue. I'm fourth, behind a man who wants to see the palace from the sea."],
   ["Why Valborg?","My grandmother. She was stubborn too, and she wouldn't start in the mornings either."]],
- "If you know anything about gearboxes, I'm all ears."],
+ "If you know anything about gearboxes, I'm all ears.",
+ "Mike's boat, the Valborg, won't start. He's fourth in the queue to borrow Tom's."],
 3:["(Mike is wrapping something small in newspaper, and hides it quickly.) Nothing! It's nothing. A present. For... my mother.",[
   ["Your mother lives here?","In... Kingsgrad. Yes. She likes... (he looks at the parcel) ...pocket knives. She's very practical."],
   ["That's sweet of you.","I'm a sweet man. Ask anyone. Don't actually ask anyone."],
   ["You're blushing.","It's the wind! Saltwick wind. Very red-making."]],
- "Forget you saw that. It's a mother thing."],
+ "Forget you saw that. It's a mother thing.",
+ "Mike is wrapping a pocket knife as a present, he says for his mother in Kingsgrad. He's blushing."],
 4:["Anna wants me to sing the Internationale on the twenty-eighth. In front of the whole island. In Russian.",[
   ["Do you speak Russian?","I speak 'comrade', 'vodka' and 'goal'. I've got three weeks to learn eight lines."],
   ["Will you do it?","Of course. Anna asks, I do it. That's what a Party man is. Even if my knees knock."],

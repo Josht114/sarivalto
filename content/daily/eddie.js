@@ -8,12 +8,14 @@ DAILY['Eddie']={
     ["Surely you've an opinion.","See that jar? Anybody who asks for my opinion puts a coin in. It goes to the orphanage at Christmas. That's a dollar, please."],
     ["Who does the talking, then?","Everyone else. Marjut, at the table there, used to work at the palace. She'll tell you more about the royals than they know themselves."]]]],
   ["Heard any good stories?","Every story in Kingsgrad, usually twice. The second time's always better. Come back tomorrow and I'll tell you which ones."]],
- "Come in from the cold any time. The fire's always lit."],
+ "Come in from the cold any time. The fire's always lit.",
+ "Eddie pours big measures at the City Bar in Kingsgrad. Marjut, at the corner table, used to work at the palace."],
 3:["Frank was in last night and told the bear story again. That's eleven times this year. (She makes a chalk mark on a board behind the bar.) I keep count.",[
   ["What's the bear story?","Frank, a rifle, a bear in his woodshed in 1974. Every time, the bear gets bigger and Frank gets closer. By Christmas he'll have wrestled it."],
   ["What else is on the board?","Jack's pike, which has grown from two feet to five since spring. Otto doing the end of STORMWING, every word. And Sergeant Hanna's one about the goat in the cells."],
   ["Do you ever tell your own stories?","Bartenders don't have stories. We have other people's, and good memories."]],
- "Mind the board on the way past. It's my life's work."],
+ "Mind the board on the way past. It's my life's work.",
+ "Frank has told Eddie his bear story eleven times this year. She keeps count in chalk."],
 4:["(Eila is at the corner table, stitching the hem of an apron.) Eila's mending my apron for a free coffee. Best deal in Kingsgrad, and she knows it.",[
   ["Who's Eila?","Seamstress, thirty years, until the factory in Kingsgrad shut. Now she mends for half the city and grumbles about the other half."],
   ["Is she any good?","Better than any tailor. Don't tell Grace I said so. ...Actually, you can: put a dollar in the jar first."],

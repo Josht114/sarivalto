@@ -7,17 +7,20 @@ DAILY['Hannu']={
   ["How did you know I'd come?","I saw the fishing boat come in with a man in London shoes. Shoes are the first paragraph of any story."],
   ["What else is on the board?","Yesterday it said KING DEAD. The day before it said KING POORLY. I like a story with a shape to it."],
   ["Isn't that the Gazette's job?","(He sniffs.) The Gazette prints it tomorrow. I chalk it today. Henrik in Eastbrook hates me, which is the highest praise in our trade."]],
- "Buy a paper next time. The board's free, but the board doesn't pay the rent."],
+ "Buy a paper next time. The board's free, but the board doesn't pay the rent.",
+ "Hannu chalks the news on his board in Saltwick before the Gazette prints it. Today it's you: British press lands at Saltwick."],
 2:["(Hannu has a cigarette behind each ear and a newspaper under each arm.) The road to Kingsgrad's open. Half of Saltwick went up it to look at the palace and came back saying it was smaller than they'd thought.",[
   ["Did you go?","Me? Leave the stand? The minute I go, something happens, and Olga sees it first. I'd never live it down."],
   ["What do people think of the prince?","This morning, a fisherman told me Leopold's a good man. Ten minutes later, a Party man told me he's a parasite. I agreed with them both. It's good for business."],
   ["Two cigarettes?","One for now, one for when the news gets worse. My mother's rule. She was from Vyborg. They plan ahead in Vyborg."]],
- "Mind Olga's cats on your way past. They're not cats. They're spies."],
+ "Mind Olga's cats on your way past. They're not cats. They're spies.",
+ "Hannu hears everyone's opinion of Leopold, and agrees with them all."],
 3:["(The board says KELP COLA: BIG PLANS. Olga is shouting at it from across the street.) She doesn't believe me. She never believes me. Then it comes true and she says she knew all along.",[
   ["What are Kelp Cola's big plans?","Nobody knows. That's why it's a good headline. Everybody reads it and thinks of a different plan."],
   ["Why are you and Olga always fighting?","Thirty years ago, I chalked OLGA'S HERRING OFF. It was a Tuesday. One herring. She's never forgiven me, and I've never taken it back."],
   ["Is anything on that board ever true?","Most of it, eventually. The island's slow, so I just wait for it to catch up."]],
- "If Olga asks, I said nothing about her herring today. Yet."],
+ "If Olga asks, I said nothing about her herring today. Yet.",
+ "Hannu's board says KELP COLA: BIG PLANS. Olga across the street doesn't believe it."],
 4:["(Hannu is reading a Gazette, moving his lips and shaking his head.) Eastbrook's open, and Henrik's put his own headline on the front. It's my headline. From Tuesday. He's even kept my spelling mistake.",[
   ["What was the headline?","DEMOCRATS DEMAND VOTE. I chalked it on Tuesday, a fellow from Eastbrook read it on Wednesday, and Henrik printed it today. That's how news travels on this island."],
   ["Have you met Henrik?","Once, in 1969. He told me a chalkboard wasn't journalism. I told him a newspaper was a chalkboard that couldn't change its mind."],

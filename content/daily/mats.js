@@ -6,12 +6,15 @@ DAILY['Mats']={
   ["What do you do, when you're working?","I'm a clerk. I file things. Reports, invoices, letters. People think it's dull. It is dull, but it's tidy, and I like tidy."],
   ["Is that yesterday's Financial Times?","Last week's. The boat brings it in a bundle when it brings it at all. The Dow Jones is up, and I'm sitting in Kingsgrad in my socks."],
   ["Who's the milk for?","Me and Elin. My partner. She takes it in her coffee and I take it in my tea, and we've never once agreed which is right."]],
- "If you see the milkman, tell him flat 3B is desperate."],
+ "If you see the milkman, tell him flat 3B is desperate.",
+ "Mats, a clerk at Diversified Petroleum, lives in Kingsgrad with Elin. He reads the financial pages and loves tidy files."],
 3:["(Mats is sitting on the stairs of the Kingsgrad Apartments with a ledger on his knees.) Elin's gone in to work today. Kelp Cola's open again. I'm going through my own household accounts, twice, for something to do.",[
   ["Elin works at Kelp Cola?","She's Phil's secretary. (He lowers his voice.) And I'm with Diversified Petroleum. So we have an agreement: we never talk about work at home."],
   ["How are your household accounts?","Balanced to the cent. Elin spent four dollars on a scarf she says was a bargain. I've written it down as 'scarf, disputed'."],
+  ["Elin told me about the two companies.","(He goes pale, then laughs.) Did she. Then you know why I'm out here on the stairs. Please don't put it in the paper.","Elin:2"],
   ["Does the agreement work?","It works until about seven o'clock every evening. Then one of us says 'You'll never guess what happened', and it's all over."]],
- "Don't mention the agreement to anyone, will you? It's a small island."],
+ "Don't mention the agreement to anyone, will you? It's a small island.",
+ "Mats and Elin work for rival companies, so they've agreed never to talk about work at home. It never lasts past seven."],
 4:["(Mats is reading a library book with a picture of a skyscraper on the cover.) 'The Men of Wall Street.' Mary at the bookshop ordered it in for me. It took four months. It's wonderful.",[
   ["Why Wall Street?","Because everything there moves so fast, and it all goes into the right column in the end. And the suits. Have you seen the suits?"],
   ["Have you ever been to New York?","Never. I've been to Helsinki, twice, and once to Stockholm for a course in double-entry bookkeeping. That was the best week of my life."],
@@ -99,7 +102,7 @@ DAILY['Mats']={
  "Re-addressed and forwarded. That's the end of it, as far as I'm concerned."],
 21:["(Mats has ash on his spectacles and a box of files in his arms.) The mountain's erupted. The tower's being cleared. I've saved what I could: the accounts, the contracts, and Elin's photograph off my desk.",[
   ["Is Elin all right?","She telephoned from Kingsgrad. The ash hasn't got that far south yet. She told me to come home. I said I had to save the files. She called me a name."],
-  ["What's happening in Frostholm?","Ash on the cars, people running for the trams, and the sky up north is orange. Nobody's hurt, they say. Everyone's frightened."],
+  ["What's happening in Frostholm?","Ash on the roofs, people running for the trams, and the sky up north is orange. Nobody's hurt, they say. Everyone's frightened."],
   ["Put the box down.",["(He holds on to it.) If I put it down, I'll start shaking. While I'm holding it, I'm just a clerk with a box.",[
     ["Then hold it. I'll walk you to the tram.","(He nods.) Thank you. Mind the steps. They're slippery with ash."],
     ["Elin would want you to put it down.","(He puts it down, very carefully, and sits on it.) She would. She'd also say I should have left an hour ago."]]]]],

@@ -6,17 +6,20 @@ DAILY['Noora']={
   ["Aren't you at work?","The road to Kingsgrad's still snowed under. The lab's been without me for weeks. I hope somebody's feeding the kelp."],
   ["Who are your neighbours?","Helen from the Union's two doors down, and Anna lives upstairs. Half this block's Communist, and the other half's tired."],
   ["That's a lot of records.","Careful! That's my whole collection: forty-two records, all from Ruby's shop in Eastbrook, back when I could get to Eastbrook."]],
- "Mind the radiator on your way out. It bites."],
+ "Mind the radiator on your way out. It bites.",
+ "Noora is a lab assistant at Kelp Cola who lives in Saltwick, in a block full of Communists. She collects records from Ruby's."],
 2:["I walked all the way to Kingsgrad to check on the lab, and they wouldn't let me past the gate. The HQ doesn't open till tomorrow.",[
   ["Who's feeding the kelp?","Nobody! It lives in a tank of seawater. It's probably fine. Kelp's survived worse than a month without me. (She looks worried.)"],
   ["What do you do in the lab?","Run the equipment, wash the glassware, mix the test batches for Saara. Mostly wash. I've washed a beaker so clean I could see my future in it."],
   ["What's in your future?","A chemistry diploma, by post, from Helsinki. Two more years of exams at the kitchen table. Then I'll be the one who doesn't wash up."]],
- "Tomorrow, then. I'll run the whole way."],
+ "Tomorrow, then. I'll run the whole way.",
+ "Noora walked to Kingsgrad to check on the lab's kelp, but Kelp Cola's HQ doesn't open till the 3rd."],
 3:["(Noora is peering into a tank of seawater.) It's alive! The kelp's alive! Oh, Sigrid, I'm sorry I left you.",[
   ["You named the kelp?","Sigrid. All of it. She's one big family, really."],
   ["Where's Saara?","At her desk, eating lunch out of a jar. She's been here since dawn, with that look: the 'I need a new flavour' look."],
   ["How did you get in from Saltwick?","On the fish lorry, with Bob. I smell of herring and enthusiasm."]],
- "Say hello to Sigrid on your way past. She likes company."],
+ "Say hello to Sigrid on your way past. She likes company.",
+ "Noora's kelp, Sigrid, survived the shutdown. Saara wants a new flavour."],
 4:["I've mixed eleven test batches today: cloudberry, liquorice, pine. Saara tasted each one, wrote something down and poured it down the sink.",[
   ["What did she write?","'No.' Eleven times. In very neat handwriting."],
   ["What's the pine like?","Like licking a Christmas tree. In a good way. No. Not in a good way."],
@@ -48,7 +51,7 @@ DAILY['Noora']={
   ["What flavour would you make?","Something that tastes of the sea, but nicely. Saara says 'nicely' is the hard part."]],
  "If you're going to touch anything, wash it after. Please."],
 10:["The funeral's on the radio. Kaisa's playing hymns between the speeches. She lives on my floor, and she practises her announcing voice in the bath.",[
-  ["Did you ever see the king?","He waved at me once from a car. I was nine. I waved back so hard I fell in a puddle."],
+  ["Did you ever see the king?","He waved at me once from a carriage. I was nine. I waved back so hard I fell in a puddle."],
   ["What's Kaisa like?","Lovely. Loud. She's why I know all the words to everything."],
   ["Is the lab quiet today?","Saara's at her desk with the radio on, pretending not to listen. She took her glasses off for the hymns."]],
  "Quietly on the stairs. Saara's listening."],

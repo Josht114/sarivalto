@@ -6,12 +6,14 @@ DAILY['Marjut']={
   ["Thank you. You worked at the palace?","Fourteen years. Linen, bedrooms, silver. Then the king died, and a week later Edmund told me the household was 'economising'. On me."],
   ["Who's Edmund?","The butler. Grey, polite, smells of silver polish. He's never raised his voice in his life, and he's never needed to."],
   ["Miss it?","I miss the work. I don't miss being invisible. Up there, you're furniture that can carry trays."]],
- "Fix your collar before you go anywhere important."],
+ "Fix your collar before you go anywhere important.",
+ "Marjut worked fourteen years at the palace until Edmund let her go a week after the king died."],
 3:["(Marjut is watching the palace road.) The household's in a state. Black crêpe on every door, the chapel being scrubbed. And they're two maids short. Ha.",[
   ["Short because of you?","Because of me and Inga, who did the mending. Lotta's doing three people's work. She told me last night at the City Bar, in tears."],
   ["Who's still up there?","Ingrid, Lotta, Elsa in the laundry, Marta in the kitchen, Oskar on the doors, Viktor in the gardens. And Edmund, counting spoons."],
   ["Do you want to go back?","(She hesitates.) I want them to ask. I'd say no. But I want them to ask."]],
- "If you go up there, look at the corners. I bet nobody's dusted them."],
+ "If you go up there, look at the corners. I bet nobody's dusted them.",
+ "The palace is two maids short. Marjut wants them to ask her back, so she can say no."],
 4:["(Marjut has a pocketful of job cuttings from the Gazette.) A maid's not much use outside a palace. Everyone in Kingsgrad does their own dusting.",[
   ["Any leads?","Sally at the estate agent's wants someone to clean the houses she shows. Rosaria at the pizzeria wants someone at the sink. Glamour."],
   ["You could work in a hotel.","In Frostholm? They're letting maids go there too. Raili, she's from the Hotel Aurora. Nobody's hiring hands this year."],

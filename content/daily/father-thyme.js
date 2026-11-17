@@ -15,7 +15,7 @@ DAILY['Father Thyme']={
   ["Honey's better with a drop of brandy.","So Brother Teodor says, and so Brother Anselm says he must never say again. Peace in a monastery is a delicate thing."]],
  "Go on. I'll try another page of crossings-out."],
 7:["The north-west road opened this morning, and by lunchtime a man from Diversified Petroleum was at our gate offering to mend the church roof. For nothing. Imagine.",[
-  ["That's generous of them.","Nothing that comes up this mountain in a car with a heater is generous. But the roof does leak on the icons, and the icons don't care who pays."],
+  ["That's generous of them.","Nothing that comes up this mountain in a carriage with a fur rug is generous. But the roof does leak on the icons, and the icons don't care who pays."],
   ["What did Brother Anselm say?","He said it was the devil in a fur collar. I said the devil seldom offers to do roofing. We are both still thinking about it."],
   ["Will the Church take oil money?","The Church has taken kings' money, fishermen's money and once, I'm told, a pirate's. It is what you do with it that God asks about."]],
  "If you see a roofer who prays, send him up."],

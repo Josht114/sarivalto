@@ -8,12 +8,14 @@ DAILY['Sergeant Hanna']={
   ["The whole force?","Since the chief retired in the spring. The Crown was going to send a replacement. Then the Crown died. So it's me, a bicycle and a cell with a bookie in it."],
   ["Who's in the cell?","Mario. Bets for the Syndicate. I caught him with a book of odds on the king's death, two days before. Bad taste and bad timing. He's very good company."],
   ["Is Kingsgrad a dangerous town?","It's a quiet town with loud opinions. Most of my work is lost dogs and men who've argued in Eddie's bar. This month, I think, it'll be more."]],
- "Wipe your feet. I'm the cleaner too."],
+ "Wipe your feet. I'm the cleaner too.",
+ "Sergeant Hanna is the whole of the Kingsgrad police. Mario, a Syndicate bookie, is in her cell."],
 3:["(Sergeant Hanna is filling in a form with a stub of pencil about an inch long.) Bertil at the Civil Service Bureau requires a form for a new pencil. I've filled in the form with my old pencil. This is the end of it. If he says no, I'll write the next one in blood.",[
   ["How long have you waited?","Since June. I've asked four times. Each time the form comes back with a note: 'Please use form 14B.' There's no form 14B. I asked. There's a form for that too."],
   ["Is Bertil unreasonable?","Bertil's very reasonable. That's the problem. He's reasonable and slow, like a glacier with a rubber stamp."],
   ["Can I lend you a pencil?","(She looks at you, then at the pencil, then back.) That's bribery of a police officer. (She takes it.) Thank you. I'll put it on file."]],
- "Don't tell Bertil about the pencil."],
+ "Don't tell Bertil about the pencil.",
+ "Sergeant Hanna has asked Bertil four times since June for a new pencil."],
 4:["(Sergeant Hanna is sorting a stack of letters into two piles.) Letters from the public. That pile's real. This pile's Tiina in the village, who writes to me every week about lights in the hills. I keep them. One day one of them will be true.",[
   ["What does Tiina see?", "Lights in the hills, boats with no lamps, men digging at night. Usually it's the moon, a fisherman and a farmer. Usually."],
   ["Do you answer them?", "I write 'noted' on each one and put it in the drawer. She knows. She says it's enough that somebody's read them."],

@@ -8,12 +8,14 @@ DAILY['Leopold']={
     ["What was he like, at home?","Loud at breakfast, silent at dinner. He read the shipping forecast aloud as if it were scripture."],
     ["Do you miss the noise?","I miss being able to blame someone. Now it's all mine, the creaking included."]]]],
   ["Nice chair.","It's my father's chair. Until a bishop says otherwise, I'm only keeping it warm."]],
- "Edmund will see you out. He sees everyone out. It's his favourite part."],
+ "Edmund will see you out. He sees everyone out. It's his favourite part.",
+ "Prince Leopold stands beside the throne but won't sit on it until a bishop says so. He misses his father's noise."],
 3:["(Leopold is looking at a crate of Kelp Cola by the door.) Phil sent that up from Kingsgrad, with his condolences. Twenty-four bottles of condolence.",[
   ["Kind of him.","Phil is never kind. Phil is early. My father drank one every afternoon at four, on ice, for fifty years. Phil wants to know if I'll keep the habit."],
   ["Will you keep the habit?","I don't much like it. Don't print that, or Phil will send fifty-two bottles to change my mind."],
   ["Can I have one?","Take two. Take the crate. Marta says it rots the teeth, and she'd know: she's taken a bottle a day since 1951."]],
- "Tell Phil, if you see him, that the prince is grateful. It's what princes are for."],
+ "Tell Phil, if you see him, that the prince is grateful. It's what princes are for.",
+ "Phil sent Leopold a crate of Kelp Cola. The old king drank one every afternoon at four. Leopold doesn't like it."],
 4:["I had a letter from Eastbrook today. Erik, the Democrat. Very polite. He'd like an election, at my earliest convenience.",[
   ["What did you write back?","Nothing yet. I've put it with the other polite letters. It's a tall pile, and it leans to the left."],
   ["Is an election so bad?",["It's a question of what comes after it. My father said a vote is a coin tossed by a crowd. He said a great many things, though.",[
@@ -32,7 +34,7 @@ DAILY['Leopold']={
   ["Once or twice.","Then you'll understand. My father kept a boat, the Kestrel, laid up at Eastbrook Harbour. He taught me to sail her when I was nine. I fell in twice."],
   ["Only on ferries, being sick.","Honest. The British usually lie about boats. My father would have liked you, and then sent you below to bail."],
   ["Is she still there?",["Under a tarpaulin, with snow on it. Nobody's touched her since he did. I keep meaning to go down.",[
-    ["Why don't you?","A prince can't just walk down to a harbour. There's a car, and Oskar, and somebody from the Gazette."],
+    ["Why don't you?","A prince can't just walk down to a harbour. There's a carriage, and Oskar, and somebody from the Gazette."],
     ["Will you sail her again?","Before the ice comes in properly, I'd like to. Once. Don't put that in the paper either."]]]]],
  "If you're in Eastbrook, look in on the Kestrel for me. Green hull. Says Kestrel on it, which helps."],
 7:["The road north is open, so I suppose Dario will be up here by supper, wanting to buy something.",[

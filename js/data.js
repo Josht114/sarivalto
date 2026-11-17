@@ -1113,7 +1113,7 @@ const SD_TOPICS=[["Where did you grow up?",'g'],["How did you end up working for
 const SD_HEKKI={start:'a',nodes:{
   a:{say:"(Hekki is up to his chin in the water, pink as a prawn, with a towel folded on his head.) NIGHTJAR. Isn't this the life? Nobody bugs a hot bath. The microphones rust. (He sinks a little lower.) Ask me anything. I'm too warm to lie.",opts:SD_TOPICS},
   h:{say:"(Hekki blows a ripple across the water.) Go on. Ask me something else.",opts:SD_TOPICS},
-  g:{say:"Saltwick. My father mended nets and my mother ran the telephone exchange, so I grew up under a switchboard, listening to the whole island talk. I built my first wireless out of a cocoa tin when I was nine. At night I could hear Moscow, and Luxembourg, and a man in America selling cars.",opts:[["Then what?",'g2']]},
+  g:{say:"Saltwick. My father mended nets and my mother ran the telephone exchange, so I grew up under a switchboard, listening to the whole island talk. I built my first wireless out of a cocoa tin when I was nine. At night I could hear Moscow, and Luxembourg, and a man in America selling vacuum cleaners.",opts:[["Then what?",'g2']]},
   g2:{say:"Technical college, across the water. They taught me valves and soldering, and how to keep my mouth shut, which I'd mostly learned already. Then I came home and got the job at the tower, because nobody else could fix the transmitter.",opts:[["And then us.",'b'],["Something else.",'h']]},
   b:{say:"Four winters ago I started hearing the Soviet trawlers off the north coast. Not fishing talk: numbers and call signs, every night at ten. So I wrote it all down and posted it to the American embassy in Helsinki. Forty-one letters. Nobody wrote back.",opts:[["Forty-one?",'b2']]},
   b2:{say:"I numbered them. Then one wet evening a man in a raincoat knocked on my shack and asked for 'the letter writer'. He'd read every one. He said I had the best ears north of the Arctic Circle. (Hekki goes pinker.) Nobody had ever said anything like that to me.",opts:[["And he signed you up.",'b3',()=>qFlag('spaday','story')]]},
@@ -1846,7 +1846,7 @@ fairpay:{title:"Fair Day's Pay",giver:'Helen',main:true,day:11,seq:true,choices:
   accept:"Good. Go to the mill and hear Knut out first: he runs the saw. Then talk Dagny round, however you can. Better pay, and a safer mill. Get both if you can, and come and tell me.",
   wait:"How did it go at the mill? Hear Knut out, then talk Dagny round: better pay, and a safer mill.",
   looks:[{spot:{m:'mill_in',x:[19,22],y:8},flag:'ledger',what:"Read the ledger on Bjarne's desk",
-    say:"Bjarne sees you reading, and finds something to do at the far end of the mill. The ledger shows the Eastbrook Lumber Company's best year since the war: timber for Kelp Cola's new warehouse, for the palace, for half of Kingsgrad. Wages haven't moved in six years. And in Dagny's own hand: \"Deposit, new motor car.\""},
+    say:"Bjarne sees you reading, and finds something to do at the far end of the mill. The ledger shows the Eastbrook Lumber Company's best year since the war: timber for Kelp Cola's new warehouse, for the palace, for half of Kingsgrad. Wages haven't moved in six years. And in Dagny's own hand: \"Deposit, new sleigh.\""},
     {spot:{m:'mill_in',x:[2,13],y:3},flag:'saw',what:'Look the saw line over',
     say:"The guard over the big blade has been wired up out of the way, to keep the logs moving faster, and the stop lever is tied off with string. Nailed to a post is the accident book: eleven injuries since the spring, four of them hands."}],
   done:[
@@ -1860,12 +1860,12 @@ fairpay:{title:"Fair Day's Pay",giver:'Helen',main:true,day:11,seq:true,choices:
       w:{say:"Wages? The men are paid what the mill can afford, and the mill can afford very little. Timber's a hard trade.",opts:[
         ["$100 says it can afford a little more. ($100 of your own)",'wb',()=>{ME.cash-=100;fpSettle('pay')},()=>ME.cash>=100],
         ["The men walk out tomorrow, and I'll be there with a camera. Front page, every day, until the saws start again.",'wt',()=>fpSettle('pay')],
-        ["I've read the ledger. Your best year since the war, and a new motor car on order.",'we',()=>fpSettle('pay'),()=>FP_FLAGS().ledger],
+        ["I've read the ledger. Your best year since the war, and a new sleigh on order.",'we',()=>fpSettle('pay'),()=>FP_FLAGS().ledger],
         ["Then forget the wages.",'wn',()=>fpSettle('nopay')],
         ["Let me come back to that.",'h']]},
       wb:{say:"(Dagny folds the notes into her pocket without looking at them.) Well. Perhaps the mill can stretch to ten per cent, from Monday. Don't make a habit of this.",opts:[['(Go on)','h']]},
       wt:{say:"You wouldn't. ...You would. Fine. Ten per cent, from Monday. And you keep that camera out of my mill.",opts:[['(Go on)','h']]},
-      we:{say:"(Dagny goes red.) Bjarne leaves that book lying about like a tea towel. ...Fine. Ten per cent, from Monday, and not a word about the car.",opts:[['(Go on)','h']]},
+      we:{say:"(Dagny goes red.) Bjarne leaves that book lying about like a tea towel. ...Fine. Ten per cent, from Monday, and not a word about the sleigh.",opts:[['(Go on)','h']]},
       wn:{say:"Sensible. The wages stay as they are.",opts:[['(Go on)','h']]},
       s:{say:"The saw line? It's a saw. Saws cut things. A careful man keeps his fingers, and a careless one learns.",opts:[
         ["$100 for a new guard, and a stop lever that works. ($100 of your own)",'sb',()=>{ME.cash-=100;fpSettle('safe')},()=>ME.cash>=100],

@@ -5,12 +5,14 @@ DAILY['Otto']={
   ["Not yet. Is it good?","Good? It's eighty seconds of the finest flying ever put on film. I've seen it four hundred times. I cried at three hundred and twelve."],
   ["What's showing besides that?","TOP COMRADE. The Soviet answer. Same story, more forms. I show it for balance. And because the man from Moscow sent it free."],
   ["Who are you?","Otto. I manage the cinema, I sell the tickets, I run the projector and I sweep the floor. I'm the whole staff. I'm also the audience, most nights."]],
- "'Denied, Falcon.' (He smiles.) That's the tower. Come back when you've seen it."],
+ "'Denied, Falcon.' (He smiles.) That's the tower. Come back when you've seen it.",
+ "Otto runs the cinema in Kingsgrad on his own. He shows STORMWING, and the Soviet TOP COMRADE for balance."],
 3:["(A great clatter from the booth upstairs.) That's Bertha. My projector. She does that when it's cold.",[
   ["Is she all right?","She's forty years old and she's never missed a showing. She clanks, she smokes a bit, she eats a bulb a week. We understand each other."],
   ["Why call a projector Bertha?","After my aunt. Big, loud, very warm and unreliable in winter. They'd have got on."],
   ["Can I see the booth?","Nobody goes in the booth. Not even me, unless she's jammed. It's her room. You don't go into a lady's room."]],
- "If you hear a bang during the picture, that's Bertha. Stay seated."],
+ "If you hear a bang during the picture, that's Bertha. Stay seated.",
+ "Otto's forty-year-old projector is called Bertha, after his aunt. Nobody goes in the booth."],
 4:["Do you know what's wrong with this island? Two pictures. Two! A man can't live on two pictures.",[
   ["Why only two?","The distributor in Helsinki sends us whatever's left over. This year, it was STORMWING and a Soviet film the Russians gave away. I'm waiting on a western."],
   ["What western?","RIDERS OF THE PALE SKY. Cowboys, horses, a man with no name and a very long walk. Ordered in June. Somewhere on a boat. I dream about it."],

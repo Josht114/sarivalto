@@ -6,17 +6,20 @@ DAILY['Lucia']={
   ["Word travels fast here.","Faster than the boats. Slower than me, though. (She smiles.) Lucia. I look after things on the docks. People's debts, mostly."],
   ["What do you do here?","I remind people what they owe. Kindly, the first time. You'd be amazed how many people only need reminding once."],
   ["You don't look like a docker.","I'm not. I'm the woman the dockers look round for before they buy a round they can't pay for."]],
- "Nice to meet you, reporter. Don't run up a tab."],
+ "Nice to meet you, reporter. Don't run up a tab.",
+ "Lucia on the Saltwick docks collects people's debts, kindly the first time."],
 2:["(Lucia has a little notebook open and is ticking something off.) Gunnar paid. All of it, in cash, before I'd even said hello. I'm almost disappointed.",[
   ["Who's Gunnar?","He works the warehouse at West Saltwick. Big hands, small brain, plays cards with sailors. He loses on Fridays and pays on Mondays. Today he broke the pattern."],
   ["What does he owe you for?","Not me. Friends of mine. (She snaps the notebook shut.) Reporters ask a lot of questions, don't they?"],
   ["Disappointed? You like collecting?","I like the walk. Fresh air, sea view, a man going pale. It's a good job, if you've got the face for it."]],
- "If you see Gunnar, tell him well done. He'll be terrified."],
+ "If you see Gunnar, tell him well done. He'll be terrified.",
+ "Gunnar paid Lucia every penny he owed, early, which isn't like him."],
 3:["My flat's in the block by the square. (Lucia jerks her head at it.) Third floor. I've got Anna, the Party leader, on one side, and Helen the union woman across the corridor. I hear them through the walls, planning the revolution.",[
   ["Do they know what you do?","They know I work for 'an import firm'. Anna once asked me to join the Party. I said I'd think about it. I'm still thinking. Eight years now."],
   ["What do they plan, through the walls?","Meetings about meetings. Helen practises speeches in the bath. She's quite good. I've nearly been converted twice."],
   ["Who else lives there?","Kaisa from the radio, two girls with no work, Olga from the fish shop, and some fishermen. (She looks at the sea.) Nice enough people."]],
- "Don't tell Anna I said she plans in the bath. That was Helen."],
+ "Don't tell Anna I said she plans in the bath. That was Helen.",
+ "Lucia lives next door to Anna and across from Helen. They think she works for an import firm."],
 4:["(Lucia's knuckles are red, and she's flexing her hand.) Before you ask, I hit a door. Not a person. A door. Ray's back door, at the bar. It stuck.",[
   ["Are you all right?","I'm fine. The door's not. Ray says I owe him a door. (She laughs.) Imagine. Me, owing someone."],
   ["Do you have a temper?","I've got a short one. Somebody told me to count to ten. I get to four, usually. Four's an improvement on none."],

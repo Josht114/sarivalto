@@ -6,12 +6,14 @@ DAILY['Mario']={
   ["How long have you been in here?","Since August. Seven weeks. Not that I count. (He nods at the scratches on the wall.) The wall counts."],
   ["What are you in for?","A misunderstanding about some numbers. I'm a numbers man. The police are not. We'll leave it there, friend."],
   ["You seem very cheerful for a prisoner.","Three meals, a bed, and nobody owes me anything in here. Outside, I've got forty people to chase. This is a holiday."]],
- "Come back. A man in a cell needs his visitors like a plant needs water."],
+ "Come back. A man in a cell needs his visitors like a plant needs water.",
+ "Mario has been in the Kingsgrad police cells since August, over a misunderstanding about some numbers."],
 3:["(Mario is shuffling a pack of cards through the bars.) Gin rummy, with the sergeant. We play every evening. She thinks I let her win on Tuesdays. I do. She thinks I don't know she knows.",[
   ["Who's winning overall?","Me, by two hundred and twelve matchsticks. We play for matchsticks. Money would be a bribe, and I'm a reformed man."],
   ["Is Sergeant Hanna kind to you?","She's the fairest woman on the island. She arrested me, she feeds me, and she beats me at rummy on Thursdays. Fair."],
   ["Could you teach me gin rummy?","Through the bars? I've taught worse in worse places. Sit on the bench there. No: first, empty your pockets. Habit."]],
- "Tell the sergeant I'll have the cards ready after supper."],
+ "Tell the sergeant I'll have the cards ready after supper.",
+ "Mario plays gin rummy for matchsticks with Sergeant Hanna every evening, and lets her win on Tuesdays."],
 4:["I'm reading. (Mario holds up a battered paperback with a dagger on the cover.) Mary from the book shop sends them over. A Swedish detective. He has a cold in every chapter. I like him.",[
   ["What's it about?","A dead banker in a lake. Everybody wanted him dead. The detective works it out on page two hundred. I worked it out on page forty."],
   ["Do you read a lot?","In here? A book a day. Outside, I read the racing pages and the odds. This is better for the soul, the priest says. He visits on Sundays."],
@@ -129,7 +131,7 @@ DAILY['Mario']={
  "Go on. I've got another twenty to do."],
 27:["The tournament! (Mario grips the bars.) The whole island at Rosaria's back table, and I'm here, with a policewoman and a Russian novel. Friend, it's cruel. Who's playing? Tell me who's playing.",[
   ["Everyone who matters, I hear.","And Nico, who doesn't matter but thinks he does. Watch his left ear. It goes red when he's bluffing. I've won two hundred dollars off that ear."],
-  ["Would you win, if you were there?","I'd come second, to Gustavo, on purpose. Then I'd win it all back from Nico in the car park."],
+  ["Would you win, if you were there?","I'd come second, to Gustavo, on purpose. Then I'd win it all back from Nico on the steps outside."],
   ["Want me to tell Nico about his ear?","Never! A man's ear is his own business. If you tell him, I'll lose my pension."]],
  "Go and play. Watch the ear. Don't tell anyone I told you."],
 28:["(Mario has his ear to the little window.) Marches, flags, singing. I can hear the Communists two streets away, and a royal band coming the other way. The sergeant's out keeping them apart.",[

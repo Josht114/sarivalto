@@ -6,17 +6,20 @@ DAILY['Kate']={
   ["News travels fast here.","In Saltwick it doesn't travel, love. It's just everywhere at once, like the smell of fish."],
   ["What's today's gossip?","Tom's lent his boat to three people at once and none of them have brought it back. And Sam's said eleven words this week. That's a lot, for Sam."],
   ["You've got scales on your sleeve.","I've always got scales on my sleeve. I've had them at weddings. Anna says they're a badge of the working class."]],
- "Go on, you're letting the warm out."],
+ "Go on, you're letting the warm out.",
+ "Kate sells fish in Saltwick and hears everything. Tom has lent his boat to three people at once."],
 2:["The Kingsgrad road's open, and half of Saltwick's gone shopping. Who do they think's going to buy their fish? The king's not hungry.",[
   ["Do you ever go to Kingsgrad?","Once a year, for shoes. Grace the tailor once tried to sell me a hat. A hat! I've got a head for headscarves."],
   ["That's a bit grim, about the king.","He's past caring, love. And he'd have laughed. He liked a fishwife. He bought smoked herring off my mother once."],
   ["Can I buy a fish?","You can buy the plaice. It's been looking at me all morning, and I want it gone."]],
- "Wrap it in the Gazette. Best use for it."],
+ "Wrap it in the Gazette. Best use for it.",
+ "Half of Saltwick has gone shopping in Kingsgrad, and Kate's fish is going unsold."],
 3:["I've got a project. Sirpa from the block's been out of work two years, so I'm teaching her to gut. Then the plant takes her on.",[
   ["Is she any good?","She's terrible. She gutted a herring yesterday and it looked surprised. But she's keen, and keen's most of it."],
   ["Will the plant hire her?","If I say so loudly enough. I've been saying things loudly to this plant for twenty years."],
   ["Why help her?","Because nobody helped me, and I'd like it to stop being that way. That's the whole Party in a sentence, love."]],
- "If you see Sirpa, tell her: thumbs out of the way."],
+ "If you see Sirpa, tell her: thumbs out of the way.",
+ "Kate is teaching Sirpa, out of work for two years, to gut fish, so the fish plant will take her on."],
 4:["Do you know what the fishermen in this harbour owe? I do. Kate's ledger: never written down, never forgotten.",[
   ["Who owes the most?","I'd never say. (She leans in.) Not Sam. Sam hasn't owed anybody a penny in forty years. It makes the rest of them look bad."],
   ["Who do they owe?","Ray at the bar, Helmi for the oilskins, and the Syndicate's little book. That last one's the trouble."],

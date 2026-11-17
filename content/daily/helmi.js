@@ -7,17 +7,20 @@ DAILY['Helmi']={
   ["What should I wear?","Wool next to the skin, oilskin on top, and boots a size too big for the second pair of socks. And a hat. You lose half your heat through your head, and you've a big head. I mean that kindly."],
   ["Are you selling me something?","Of course I am. I'm an outfitter. But I'm also right, which is rarer."],
   ["Who buys from you?","Every fisherman in Saltwick, and their boys, who pay me in promises. I keep the promises in a ledger. It's the thickest book on the island."]],
- "Come back when you're cold. You'll be back by Tuesday."],
+ "Come back when you're cold. You'll be back by Tuesday.",
+ "Helmi the outfitter in Saltwick says your London coat won't see October. Every fisherman owes her money."],
 2:["(Helmi is up a stepladder, straightening the sign over her door, and glaring across the lane.) Olga says it's crooked. It isn't. But I'm checking anyway, which means she's won. She always wins before breakfast.",[
   ["Is it crooked?","(She squints.) A hair. A hair, mind. I'll fix it when she's not looking, and deny it when she is."],
   ["Is Olga next door a friend?","We shout at each other across the lane. It's the kindest thing we do."],
   ["Busy with the road open?","Kingsgrad's open, so Kingsgrad's coming down for funeral black. I don't sell funeral black. I sell oilskin. I've put a black ribbon on an oilskin and called it mourning wear."]],
- "Step down off the ladder for me? (She steps down herself.) Never mind."],
+ "Step down off the ladder for me? (She steps down herself.) Never mind.",
+ "Helmi and Olga shout at each other across the lane every morning. Today it's Helmi's sign."],
 3:["(Helmi is unpacking a parcel of jumpers, holding each one up to the light.) My sister knits these, in Oulu. Thirty a month. Every one has a mistake in it somewhere, on purpose, so the devil can get out.",[
   ["Is that a real tradition?","It's my sister's. She says our grandmother did it. Our grandmother couldn't knit. I don't argue: they sell."],
   ["Can I find the mistake?","(She hands you one.) Go on. (You look for a while.) It's on the left cuff. A purl where there should be a plain. Nobody finds it. That's how good she is."],
   ["Is your sister coming to the island?","Never. She came once in 1958 and said the wind was personal. She's right. It is."]],
- "If you buy one, don't look for the mistake. Let the devil out in peace."],
+ "If you buy one, don't look for the mistake. Let the devil out in peace.",
+ "Helmi's sister in Oulu knits her jumpers, each with one deliberate mistake to let the devil out."],
 4:["(Helmi is writing in a fat ledger with a stub of pencil, and sighing.) The boy who owes me since March came in wanting oilskins again. I sent him to Olga for the money. She lent it him. Now he owes us both, and we're both stupid.",[
   ["Why lend to him?","His father drowned when he was nine. I sold his father his first boots. You don't send that boy out in a thin coat."],
   ["How much do the fishermen owe you?","All told? Enough to buy a boat. Not a good boat. But a boat."],

@@ -6,7 +6,8 @@ DAILY['Phil']={
   ["What are all the trophies for?","Best Soft Drink in the Northern Baltic: 1958, 1961 and 1974. There were two entrants in 1974. We still won, and I'll hear no more about it."],
   ["How has the snow treated business?","Like a shut door. The factory's still snowed in behind Eastbrook, and the island's been drinking what it had in the cellar. Kurt rang me twice a day to tell me nothing had changed."],
   ["Who's the stern fellow in the portrait?","My grandfather. He started all this with a cooking pot and a bucket of kelp off the beach. He watches every penny I spend, even now."]],
- "Take a cold one from the fridge on your way out. Everybody does."],
+ "Take a cold one from the fridge on your way out. Everybody does.",
+ "Phil runs Kelp Cola, which his grandfather started with a pot and a bucket of kelp. The factory is still snowed in."],
 4:["(Phil puts down the telephone, beaming.) That was the factory. The Eastbrook road's open, which means the line's open, which means Kurt's happy for the first time since August.",[
   ["Kurt's the foreman?","Kurt drinks a dozen bottles a day and times his own sneezes. Best foreman on the island, and he'd tell you so himself."],
   ["Is the museum open again too?","Wilma had it dusted before the plough reached her door. Kelpy's out on the pavement waving at snowdrifts."],
@@ -76,7 +77,7 @@ DAILY['Phil']={
   ["Will you listen?","Elin will. She'll tell me if I'm mentioned. I'm always mentioned."],
   ["Anna wants to nationalise you.","Anna wants to nationalise the weather. She'll find it's already state-owned: grey."]],
  "If they mention me, tell me what I said back."],
-17:["Did you feel the floor go? My trophies did. 1974 fell flat on its face, and there's steam on the mountain. And Dario's car hasn't moved from his drive for two days.",[
+17:["Did you feel the floor go? My trophies did. 1974 fell flat on its face, and there's steam on the mountain. And Dario's boat hasn't left the harbour for two days.",[
   ["Was it an earthquake?","A little shiver, Saara says. Grandfather said the mountain breathes every forty years. He also said kelp cured gout."],
   ["Where's Dario got to?","Oil men disappear. They go to Houston and come back with a tan. I hope it's nothing worse: I'd have nobody to argue with about the hedge."],
   ["You've been watching his drive?","I've been at my window rather more than usual. That's not the same thing, and I'll thank you not to print it."]],

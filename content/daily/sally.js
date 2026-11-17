@@ -6,16 +6,18 @@ DAILY['Sally']={
   ["About to boom?","Mark my words. A new king, or a new something, and everyone will want a home here. Get in now, while the prices are frozen. Like everything else."],
   ["What have you got on the books?","Five lovely homes, one in every town. Bob's old house in Saltwick, a timber house in Eastbrook, a townhouse in Frostholm, the house along the street here, and a villa. A villa! In Hope Springs!"],
   ["The king's just died. Bad time to sell?","Oh, no, the best time. People get thoughtful at funerals. Thoughtful people buy houses."]],
- "Take a brochure! Take two. Give one to a friend."],
+ "Take a brochure! Take two. Give one to a friend.",
+ "Sally at Sarivalto Homes has five houses for sale, one in every town, including Bob's old house and a villa in Hope Springs."],
 3:["Kelp Cola's HQ opened again today and I've already had a call from an executive asking about Hope Springs. Asking! Interest! The boom's begun.",[
   ["Who called?","I never say who. Discretion's the first rule of property. The second rule is to always mention the fireplace."],
   ["Tell me about the villa.",["Five thousand dollars, Hope Springs Gated Community, a fireplace, a view of the pines, and Phil, Dario and Gustavo as neighbours!",[
     ["Those neighbours sound dangerous.","Prestigious. That's the word. You'd never be burgled in Hope Springs. Nobody would dare."],
     ["Five thousand dollars?","A steal. In Helsinki you couldn't buy a garden shed for that. Well. A large garden shed."]]]],
   ["Do you ever have a bad day?","I had one in 1971. I didn't like it, so I stopped."]],
- "Keep me in mind! Everybody needs a home, even reporters."],
+ "Keep me in mind! Everybody needs a home, even reporters.",
+ "A Kelp Cola executive has asked Sally about the villa in Hope Springs. It's five thousand dollars."],
 4:["(Sally is reading a letter and frowning, which doesn't suit her.) My sister Kirsti, in Helsinki. She says the island's doomed and I should sell up and come south. She says that every month.",[
-  ["Is she right?","Kirsti's been saying the world's ending since 1962. It hasn't yet. She lives in a flat with a view of a car park. I have a view of a palace."],
+  ["Is she right?","Kirsti's been saying the world's ending since 1962. It hasn't yet. She lives in a flat with a view of the tram depot. I have a view of a palace."],
   ["Will you write back?","Every month. I tell her the market's booming and the sun's shining. Sometimes it's even true."],
   ["What does she do in Helsinki?","She sells insurance. Against everything. It's made her very gloomy. You can't sell houses and insurance in one family. One of you has to hope."]],
  "Don't let Kirsti's letter put you off. Have a brochure."],
@@ -76,7 +78,7 @@ DAILY['Sally']={
  "Keep a brochure in your pocket. You never know."],
 16:["Another letter from Kirsti. (She reads aloud.) 'Dear Sally, the papers here say the island's tearing itself apart in public debates. Come home.' (She folds it up.) Debates are good for property.",[
   ["How are debates good for property?","People talk about the future. Then they want to live in it. It's very simple."],
-  ["Will you go to Helsinki?","Never. I'd have to sell my house, and I'd never sell to anyone who didn't love it. And then where would I live? In Kirsti's car park."],
+  ["Will you go to Helsinki?","Never. I'd have to sell my house, and I'd never sell to anyone who didn't love it. And then where would I live? In Kirsti's tram depot."],
   ["Did you watch the debate?","I listened from the back. Lovely voices, both sides. Erik used the word 'home' four times. I'd hire that man."]],
  "Go on. Tell me if you hear of anyone moving."],
 17:["(A picture of a villa slides down the wall, and Sally catches it.) The ground keeps doing that! It's settling. Islands settle. It's just like a new house.",[

@@ -7,18 +7,20 @@ DAILY['Oskar']={
   ["How long are you out here?","From seven till Mr Edmund says. Mr Edmund doesn't say often. I think he forgets I'm out here, like a boot scraper."],
   ["Get some better boots.","Saving for them. Harbour Outfitters in Saltwick have fur-lined ones, real sheepskin. I'm a third of the way there. The left one, roughly."],
   ["You're very cheerful for a frozen man.","Mum says I'd be cheerful at my own hanging. I said only if they let me wear a hat."]],
- "Mind the step, it's glass this time of year."],
+ "Mind the step, it's glass this time of year.",
+ "Oskar holds the palace door all day and is saving up for fur-lined boots."],
 3:["Mum rang from Saltwick. She's in the Party, Mum. She asked if I'm still holding doors for the oppressors. I said yes, and they tip badly.",[
   ["Is she really a Communist?","Since before I was born. She's got a picture of Lenin in the kitchen, next to one of me in my uniform. She says we're both misguided."],
   ["Do they tip badly?","The family don't tip at all. Royals don't carry money. The visitors tip. The man from Kelp Cola gave me a bottle cap. Just the cap."],
   ["What did you say to her?","I said the oppressors give me Marta's pie on Sundays. She went quiet. Mum respects pie."]],
- "If you're ever in Saltwick, don't tell Mum you met me. She'll try to recruit you."],
+ "If you're ever in Saltwick, don't tell Mum you met me. She'll try to recruit you.",
+ "Oskar's mother in Saltwick is in the Party, and teases him for holding doors for the oppressors."],
 4:["(Oskar is hopping from foot to foot.) Mr Edmund says a footman should be like a statue. I said statues don't get chilblains. He said, 'Precisely.'",[
   ["What did he mean?","I've been thinking about it all morning. I think he meant stop complaining. He usually does."],
   ["Is he strict?","He's like a clock that talks. You always know where you are. Mostly in trouble, but you know."],
   ["Do statues get chilblains?","Viktor says the one in the garden has a crack in its foot from the frost. So I think I win, really."]],
  "Close the gate behind you, would you? Mr Edmund will blame me if it swings."],
-5:["Can I tell you something? There was a car up the drive at two in the morning. No lights. Black. It sat by the side door for twenty minutes.",[
+5:["Can I tell you something? There was a carriage up the drive at two in the morning. No lamps. Black. It sat by the side door for twenty minutes.",[
   ["Who was in it?","Couldn't see. A man got out and went in the side. Mr Edmund was there with a lamp, and then the lamp went out."],
   ["Did you tell anyone?","I told Mr Edmund I'd seen it. He told me I hadn't. So now I'm telling you, and you're not anyone."],
   ["What were you doing up at two?","Couldn't sleep. The quarters are next to the boiler, and it sings at night. Ingrid says it's a ghost. Ingrid says everything's a ghost."]],
@@ -34,7 +36,7 @@ DAILY['Oskar']={
   ["What soup was it?","Pea and ham. Very good. I'd eat it again, sin or not. Don't tell the monks."]],
  "If you see Prince Augustus, say I'm sorry about the soup. But it was lovely."],
 8:["Sunday, so the family's split. Prince Augustus has gone up the mountain. The prince is inside with papers. And I'm out here, with the weather.",[
-  ["Do you get a day off?","Wednesday afternoons. I go into Kingsgrad to the cinema, if Otto's showing something with a car chase."],
+  ["Do you get a day off?","Wednesday afternoons. I go into Kingsgrad to the cinema, if Otto's showing something with cowboys in it."],
   ["Do you go to church?","Mum says religion's an opiate. Marta says it's compulsory. I go to the chapel at Easter, so they both think I'm halfway."],
   ["What's the weather doing?","Getting colder. Viktor says snow by Friday. He knows by the way the crows sit."]],
  "Go on in, it's warm by the fire. Not out here, but in there."],
@@ -43,20 +45,20 @@ DAILY['Oskar']={
   ["Who's coming?","Everyone. I've got a list. Mr Edmund wrote it out. Gustavo's on it. I've never taken Gustavo's coat. I'm told you do it very carefully."],
   ["Nervous?","A bit. I've never been in the chapel with that many important people. What if I sneeze?"]],
  "Don't shake my hand. The gloves."],
-10:["(Oskar stands very straight in white gloves, his breath smoking.) The cars have been coming up since eight. I've taken sixty-two coats. I can't feel my arms.",[
+10:["(Oskar stands very straight in white gloves, his breath smoking.) The carriages have been coming up since eight. I've taken sixty-two coats. I can't feel my arms.",[
   ["Any notable coats?","Gustavo's. Camel hair, very heavy, something hard in the pocket. I didn't look. I've been told not to look."],
   ["How are the family?","The prince walked past me like a ghost. Princess Daphne winked at me. Prince Augustus said thank you for the door, which nobody says."],
   ["Hold on, it's nearly over.","It's only just starting. They have to come out again. That's sixty-two coats the other way."]],
- "Mind the drive. It's lined with cars and a lot of very cross chauffeurs."],
+ "Mind the drive. It's lined with carriages and a lot of very cross coachmen."],
 11:["I've got blisters on both thumbs from coats. Lotta put plasters on them in the kitchen. She said I was 'brave', and she was laughing, but still.",[
   ["That's progress.","Is it? (He brightens.) It is, isn't it? She touched my thumbs. Both of them."],
   ["Tell me about the funeral.","It was very quiet, and very long, and Princess Daphne cried in the hymns, which I didn't expect. I had to look at the ceiling."],
   ["Brave about blisters?","She meant it as a joke. But I'm keeping it. It's the nicest thing a girl's said to me since school."]],
  "Don't tell anyone about the thumbs. It's private."],
-12:["Another one, last night. Not the black car. A grey van this time, from the south road. Three men, and one of them had a limp.",[
+12:["Another one, last night. Not the black carriage. A grey van this time, from the south road. Three men, and one of them had a limp.",[
   ["Who was it?","Don't know. They went round the back, to the kitchen. Marta came out and shouted, and they went away again. I think she was shouting about the hour."],
   ["Did you tell Mr Edmund?","He said I'd been dreaming. I said I was standing up. He said footmen can dream standing up. I'm not sure that's true."],
-  ["Are you keeping a list?","(He taps his breast pocket.) In my notebook. Just the cars. Not the people. Mr Edmund doesn't know. Please don't."]],
+  ["Are you keeping a list?","(He taps his breast pocket.) In my notebook. Just the carriages. Not the people. Mr Edmund doesn't know. Please don't."]],
  "If you see a man with a limp, don't mention me."],
 13:["(Oskar has a bottle of Kelp Cola in his coat pocket.) They're giving them away in Kingsgrad. Free. I went at lunch and got four. I've hidden three in the quarters.",[
   ["Why hide them?","Marta says Kelp Cola rots the teeth, and she drinks a bottle every day, so she knows. I'm saving them for Lotta."],
@@ -70,7 +72,7 @@ DAILY['Oskar']={
  "If you see my mum, tell her I'm standing up straight."],
 15:["Everyone's been in and out of the library. The Prince, Princess Daphne, two letters from the monastery and a lot of tea. I've opened that door forty times.",[
   ["What's going on?","Prince Augustus is deciding something. Nobody says what. But Marta's made his favourite cake, so it's big."],
-  ["You're counting the door?","I count everything. Cars, coats, doors. It passes the time. Forty-one now: Ingrid's just gone in with the cocoa."],
+  ["You're counting the door?","I count everything. Carriages, coats, doors. It passes the time. Forty-one now: Ingrid's just gone in with the cocoa."],
   ["What's his favourite cake?","Lemon. Very plain. Like him, Marta says, but she says it kindly."]],
  "Don't knock too loudly if you're going in there. He's thinking."],
 16:["Lotta's going to the big debate on her afternoon off. The Communists and the Democrats. She asked if I wanted to come. Me!",[
@@ -85,7 +87,7 @@ DAILY['Oskar']={
  "If it goes again, hold the railings. I'll be holding them anyway."],
 18:["Mr Edmund says I stood still for four hours yesterday. Not a twitch. Then he said 'well done' and I dropped the umbrella. Four hours, ruined.",[
   ["Not ruined.","That's what Lotta said. She said she'd watched me from the window and I looked 'very professional'. I'm going to frame that."],
-  ["Why the practice?","There's a king coming on the twenty-eighth. A foreign one. I'm to open his car door. I've been practising on the wheelbarrow."],
+  ["Why the practice?","There's a king coming on the twenty-eighth. A foreign one. I'm to open his carriage door. I've been practising on the wheelbarrow."],
   ["Did the umbrella survive?","Bent at the end. I'll straighten it. Mr Edmund will notice. He notices bent things."]],
  "Mind the umbrella stand. It's had a rough week."],
 19:["(Oskar keeps glancing at the side door.) The prince asked me today which door the coal comes in by. The coal. I've never heard a prince ask about coal.",[
@@ -93,7 +95,7 @@ DAILY['Oskar']={
   ["Did you tell him?","The side door, by the kitchen. You can go in and out without passing the hall. (He stops.) I shouldn't have told you that either."],
   ["Maybe he likes coal.","Maybe. He also asked if I owned a flat cap. I said yes. He said 'good'. Just 'good'."]],
  "I'm saying nothing else. My lips are sealed. Sealed like the coal hole."],
-20:["My notebook says it was quiet last night. Not a single car. I sat up till three to be sure. Quiet's worse, somehow.",[
+20:["My notebook says it was quiet last night. Not a single carriage. I sat up till three to be sure. Quiet's worse, somehow.",[
   ["Why is quiet worse?","Because you start hearing things that aren't there. The boiler. The wind in the gate. Footsteps in the gravel that are probably just Viktor."],
   ["Were they Viktor?","I hope so. They stopped at the shed. Viktor doesn't usually walk round at night, though. Viktor's asleep by nine."],
   ["Get some sleep, Oskar.","Can't. Lotta says I look like a ghost. Ingrid says I am one. Ingrid's not helping."]],
@@ -113,7 +115,7 @@ DAILY['Oskar']={
   ["Half the right?","I'm going to ask Mr Edmund for an advance. He'll say no, then give me the money anyway and say I shouldn't tell anyone. He always does that."],
   ["Good job.","I've been cold since July. You don't know what it's like. Every morning, my feet in two blocks of ice."]],
  "Wish me luck with Mr Edmund."],
-24:["Lotta and I are both on the door for the state visit. She's handing the king flowers, and I'm opening his car. We've been practising together.",[
+24:["Lotta and I are both on the door for the state visit. She's handing the king flowers, and I'm opening his carriage. We've been practising together.",[
   ["Practising together?","On the gravel. She hands flowers to the wheelbarrow. I open the wheelbarrow's door. Viktor watches us from the shed and laughs."],
   ["That's lovely.","It is. (He goes red.) I mean it's very professional. We're colleagues. We just laugh a lot, now. I've heard her laugh about forty times."],
   ["What's the visiting king like?","Old, they say. Rich. Brings his own valet. I'm worried his valet will laugh at me."]],
@@ -137,10 +139,10 @@ DAILY['Oskar']={
   ["(Make a face.)","(His lip twitches. He holds it.) That was cruel. I'll get you back. In about thirty years, when I'm a butler."],
   ["Good luck today.","Thank you. The whole island's at it today. Mum's got a red flag. Lotta's got flowers. I've got a door."],
   ["What's happening everywhere?","Everything. Every party's out. Rallies, flags, a lot of people shouting at the same time. And a king. On my step."]],
- "Step aside, please. Royal car. (He freezes, beautifully.)"],
+ "Step aside, please. Royal carriage. (He freezes, beautifully.)"],
 29:["Lotta and I went for a walk after yesterday. Just round the garden. She held my arm because the ice was slippery. The ice was very slippery.",[
   ["Was it really slippery?","(He grins.) Viktor had sanded the paths that morning. They weren't slippery at all."],
-  ["That's wonderful, Oskar.","I know! I don't know what happens now. I suppose I have to ask her to the cinema. Otto's showing something with a car chase."],
+  ["That's wonderful, Oskar.","I know! I don't know what happens now. I suppose I have to ask her to the cinema. Otto's showing something with cowboys in it."],
   ["What's the island deciding?","Who's next. The prince, or Prince Augustus, or nobody. Mum's very excited. I'm trying not to think about it. I'm thinking about Lotta."]],
  "Mind the ice on the path. Or don't. Sometimes it's useful."],
 30:["(Oskar is in new, fur-lined boots.) Look! Helmi held them. My feet are warm for the first time since the king died. Whatever happens today, I'll face it with warm feet.",[

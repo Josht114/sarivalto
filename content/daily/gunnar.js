@@ -7,17 +7,20 @@ DAILY['Gunnar']={
   ["Books, mostly.","Books. (He nods slowly.) That's what everyone says. I don't open suitcases. I only lift them. Lifting tells you plenty."],
   ["What do you do here?","Every boat that comes in, I empty. Every crate that goes out, I fill. I know what's in all of them, and what the paper says is in them. They're not always the same."],
   ["Is your back all right?","It's been all right since 1971, apart from all the time. Aili at the diner rubs liniment into it on Fridays. Don't tell the Union. They'll want a cut."]],
- "Mind the forklift on your way out. It's older than me and doesn't brake."],
+ "Mind the forklift on your way out. It's older than me and doesn't brake.",
+ "Gunnar the docker unloaded your suitcase at Saltwick, and thinks it's heavier than a reporter's should be."],
 2:["(Gunnar is reading a manifest, his finger moving down the page, his lips moving too.) Twenty boxes of tinned peas. I count twenty-one. One of them's going to be lost. Lost things are my speciality.",[
   ["What happens to lost things?","They find a home. Somebody always needs a box of peas. I just introduce them."],
   ["Isn't that stealing?","Stealing's when you take what's on the paper. If it's not on the paper, nobody owns it. That's Union law. I made it up, but it's still law."],
   ["Who sent the peas?","A wholesaler in Helsinki who can't count. God bless him. He's fed half of Saltwick for ten years without knowing it."]],
- "If you need peas, you know where I am."],
+ "If you need peas, you know where I am.",
+ "Gunnar finds homes for crates that aren't on the paperwork. He calls it Union law."],
 3:["(Gunnar is sitting on a crate eating a sandwich the size of a brick.) Kelp Cola's headquarters opened up in Kingsgrad. That means more lorries down here. More lorries means more crates. More crates means my back hates Kelp Cola.",[
   ["Do you drink it?","Every day. I hate the lorries and I drink the cola. A man can do both. That's called modern life."],
   ["What's in the Kelp Cola crates?","Bottles, mostly. Sometimes bottles and something wrapped in straw that isn't a bottle. I don't unwrap straw. Straw's private."],
   ["Is that a sandwich or a brick?","Herring, egg and onion. Aili makes it. It's built to last. A man could survive a winter on one of these if he had to."]],
- "Don't stand under the crane. It drops things when it's bored."],
+ "Don't stand under the crane. It drops things when it's bored.",
+ "Gunnar says some Kelp Cola crates hold something wrapped in straw that isn't a bottle. He doesn't unwrap straw."],
 4:["(Gunnar is arguing cheerfully with Helen, who has a clipboard.) No, Helen, I won't come to the meeting. I'll pay my subs and lift your boxes. That's what a Union man is for.",[
   ["Is Helen trying to recruit you?","Helen's not. Helen knows better. It's Anna, upstairs at the Party, who wants me. Helen just carries the messages."],
   ["Why not join the Party?","They'd want me to read things. I've read the manifest every morning for thirty years. That's all the reading a man needs."],
@@ -28,7 +31,7 @@ DAILY['Gunnar']={
   ["Mike's boat needs a gearbox, doesn't it?","(He taps his nose.) Mike's a Party man. Party men don't take lost things. But Party men's boats do need gearboxes. It's a puzzle."],
   ["Should you report it?","To who? The harbourmaster's in Kingsgrad until Thursday and the police is one woman on a bicycle. Sergeant Hanna doesn't do gearboxes."]],
  "If anyone asks about the gearbox, there's no gearbox."],
-6:["(The warehouse doors are shut, and Gunnar is leaning on them.) A car came down from Hope Springs this morning. Two men in good coats looked at my crates. Didn't ask anything. Just looked.",[
+6:["(The warehouse doors are shut, and Gunnar is leaning on them.) A carriage came down from Hope Springs this morning. Two men in good coats looked at my crates. Didn't ask anything. Just looked.",[
   ["What were they looking for?","Something that isn't here. I told them I just lift. They said lifting's important work. Men who say that always have something heavy."],
   ["Were they Syndicate?","They had very clean shoes for a harbour. That's all I know, and that's all I'm going to know."],
   ["Did they take anything?","They took a long look. And one box of the lost peas. I didn't stop them. Some men you let have peas."]],

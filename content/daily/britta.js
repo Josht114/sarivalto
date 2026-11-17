@@ -52,11 +52,11 @@ DAILY['Britta']={
   ["Do you vote, Britta?","There's never been anything to vote for. If there ever is, I'll vote for whoever's done a day's lifting."],
   ["Bet Dario hates this.","He hates anything he can't buy. You can't buy a radio debate. Though I wouldn't put it past him to try."]],
  "Leave the radio on. Gertrud likes the Democrats; they're very soothing."],
-17:["(Britta is leaning on Gertrud, watching the HQ windows.) Nobody's seen Dario all day. The office is in an uproar. Magnus has asked me twice if Dario's car has been in for fuel.",[
-  ["Has it?","Not since Thursday. Nobody fills that car but me, and I'd know. It's very thirsty and very red."],
+17:["(Britta is leaning on Gertrud, watching the HQ windows.) Nobody's seen Dario all day. The office is in an uproar. Magnus has asked me twice if Dario's boat has been in for fuel.",[
+  ["Has it?","Not since Thursday. Nobody fills that boat but me, and I'd know. It's very thirsty and very red."],
   ["Where do you think he is?","Somewhere with a bottle. He's done it before. The difference is, today the whole building's frightened."],
   ["Why frightened?","Because the Syndicate's been calling, and Ruth's been writing down names, and Magnus has gone the colour of an empty drum."]],
- "If you see a red car, tell him the depot wants him back. Nobody else will say it nicely."],
+ "If you see a red boat, tell him the depot wants him back. Nobody else will say it nicely."],
 18:["(Britta has steadied a stack of drums with both arms.) That shake knocked the whole top row over. Gertrud didn't even blink. She's been through worse.",[
   ["Was anyone hurt?","Only my pride and the cat's dignity. She's gone under the tanks and won't come out."],
   ["Is the volcano going to go?","Ole says the steam's thicker every day, up north. Ole doesn't say things unless they're in a logbook."],

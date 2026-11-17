@@ -8,12 +8,14 @@ DAILY['Mary']={
   ["Do you read everything you sell?","Every word. How else would I know whom to sell it to? I'm on page two hundred of a book about whaling. It's gone very badly for the whale."],
   ["How's Kingsgrad since the king died?","Hushed. People buy black ribbon and sensible novels. Nobody wants to be caught laughing at a book this week."],
   ["Anything on the island's history?","One shelf, and most of it's the king's own memoirs. Three volumes. He rather admired himself, poor man, and so did his editor."]],
- "Close the door behind you. The cold gets into the paper."],
+ "Close the door behind you. The cold gets into the paper.",
+ "Mary runs the bookshop in Kingsgrad. The king's own memoirs fill a shelf, in three volumes."],
 3:["(A fat grey cat is asleep in the shop window, on a pile of poetry.) That's Orwell. He chose the poetry himself. I've decided it means he has taste, rather than that it's the warmest shelf.",[
   ["Why Orwell?","After a writer who knew what happens to books when the wrong people get hold of a country. I named him as a reminder. He's mostly a reminder to buy fish."],
   ["Does he bite?","Only customers who dog-ear pages. He can tell. I don't know how, but he can."],
   ["Who comes in most?","Frank from the gun shop. He comes in for a manual and goes straight to the crime shelf. He's read every one of them twice, and he still guesses wrong."]],
- "Don't step on Orwell. He'd never forgive you, and nor would I."],
+ "Don't step on Orwell. He'd never forgive you, and nor would I.",
+ "Mary's cat Orwell sleeps on the poetry. Frank reads every crime novel and still guesses wrong."],
 4:["(Mary is wrapping two paperbacks in brown paper and string.) For the police station. Mario, the bookie in the cells. He likes Swedish detectives, the gloomy kind with a cold in every chapter. I send him two a week.",[
   ["You send books to a prisoner?","Somebody ought to. A man with nothing to read starts thinking, and Mario thinking is how he ended up in there."],
   ["Does he pay you?","Sergeant Hanna brings me the money, in coins, counted twice. Mario's very honest, for a criminal. Better than some of my respectable customers."],

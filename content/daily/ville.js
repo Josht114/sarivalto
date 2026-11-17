@@ -6,13 +6,15 @@ DAILY['Ville']={
 2:["(Ville peers at you over a rack of magazines.) New face. Not cola, not palace, not Party. Shoes too good for Saltwick. You'll be the reporter. Rosa said you'd be along. Rosa's always right, which is very irritating.",[
   ["What do you sell?","Papers, magazines, cigarettes, and a view. The view's free. It's the best on the island: the cola offices on one side, the road to the palace on the other."],
   ["Who's Rosa?","Hot dogs, next to me. We've stood side by side for eleven years. She knows everything that happens in this square. I know the rest, which is less."],
-  ["What's happening at the palace?","The road's just opened. Cars going up all morning with men in black ties. Nobody's come down yet. They're all inside, looking sorry."]],
- "If you see anything interesting, tell me before Rosa. Please."],
+  ["What's happening at the palace?","The road's just opened. Carriages going up all morning with men in black ties. Nobody's come down yet. They're all inside, looking sorry."]],
+ "If you see anything interesting, tell me before Rosa. Please.",
+ "Ville sells papers in Kingsgrad's square, between the cola offices and the palace road. Rosa knows everything."],
 3:["(Ville has a pencil behind his ear and a folded page on the counter covered in little squares.) Don't look. It's a crossword. My own. I send one to a paper in Helsinki every week. They've never printed one.",[
   ["How many have you sent?","Two hundred and twelve. They write back sometimes. 'Thank you for your interest.' I've got a box of them. Very polite people, Finns."],
   ["Can I try one?","Seven across: 'Fizzy island export, four letters.' (He waits.) Cola. They're not hard. That's probably the problem."],
-  ["What's going on at Kelp Cola?","The headquarters opened its doors this morning. Phil arrived at eight in a blue car. Elin, Phil's secretary, came at seven, as always, with a pastry. She never eats the pastry."]],
- "Come back when you know a word for 'herring', six letters, not 'herring'."],
+  ["What's going on at Kelp Cola?","The headquarters opened its doors this morning. Phil arrived at eight off the tram, in his blue scarf. Elin, Phil's secretary, came at seven, as always, with a pastry. She never eats the pastry."]],
+ "Come back when you know a word for 'herring', six letters, not 'herring'.",
+ "Ville sends a crossword to a paper in Helsinki every week. They've never printed one."],
 4:["(Ville is counting the empty cans in his bin, one by one.) Thirty-one. Yesterday it was twenty-eight. Business is up three cans. That's how I measure the economy. It's more reliable than the Gazette.",[
   ["Why count cans?","When it's quiet, a man needs a hobby. Rosa knits. I count. Between us we know how the island's doing."],
   ["How is the island doing?","Better than last week. Worse than last year. About the same as it was before the king died, but with more people pretending to be sad."],
@@ -90,7 +92,7 @@ DAILY['Ville']={
  "If Elin asks how tall you are, lie."],
 19:["(The square smells faintly of eggs. Ville has his scarf over his nose.) There's steam over the mountain to the north. Rosa says it's nothing. Rosa only says it's nothing when she's worried. I'm worried too.",[
   ["Will the volcano erupt?","The Gazette says no, very loudly. That's the surest sign it will."],
-  ["Are people leaving Kingsgrad?","A few cars, down to the harbours. The rich ones. The rest of us are staying, because where would we go? It's an island."],
+  ["Are people leaving Kingsgrad?","A few carriages, down to the harbours. The rich ones. The rest of us are staying, because where would we go? It's an island."],
   ["What's the strangest thing you've seen today?","The prince, walking in the square at lunchtime, in a hat pulled low. He bought a paper and a packet of mints, and paid with a coin he'd clearly never held before."]],
  "Breathe through your scarf. And mind the trams. They're nervous."],
 20:["(Ville is packing his magazines into a crate.) If the mountain goes tonight, I'm taking my crosswords. Two hundred and thirteen rejections. That's my life's work. I'm not leaving it to the ash.",[
@@ -137,7 +139,7 @@ DAILY['Ville']={
   ["What's on the board in the square?","High stakes, low smiles. The Syndicate's playing cards somewhere, for something big. A man from Nico's lot bought three packs of cigarettes and his hands were shaking."],
   ["Are you nervous about the end of the month?","My crossword's printed. Whatever happens, I've done one thing right. That's more than most of the people making speeches can say."]],
  "Keep your ticket. You might need it, one day, to prove you were here."],
-28:["(The square is full: Party flags at one end, cola banners at the other, a royal car at the palace gate.) Every faction's making its big push today. I've sold more papers before noon than all of last winter.",[
+28:["(The square is full: Party flags at one end, cola banners at the other, a royal carriage at the palace gate.) Every faction's making its big push today. I've sold more papers before noon than all of last winter.",[
   ["What's happening in the square?","A red flag going up over Kingsgrad, if the Party gets its way. A state visit at the palace. Kelp Cola going abroad. All on the same day. My bin's never been so full of cans."],
   ["Who's winning?","Whoever's buying the most papers, which is the oil company. They buy one of everything and read the arts page."],
   ["Have you seen anything you shouldn't?","A man from the palace and a man from the Party, sharing a hot dog at Rosa's cart, not speaking, both very hungry."]],

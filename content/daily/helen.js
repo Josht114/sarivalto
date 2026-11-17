@@ -6,19 +6,22 @@ DAILY['Helen']={
   ["Who pays worst?","The mill. Six years without a rise at Dagny's, and bread's gone up twice in that time. I have the receipts."],
   ["Is that a Union blackboard or a Party one?","Same chalk. Anna says the Party's the head and the Union's the hands. I say the hands do the work."],
   ["My maths isn't good enough to weep.","(She laughs.) Then just weep. It saves time."]],
- "Off you go. I've a blackboard to finish."],
+ "Off you go. I've a blackboard to finish.",
+ "Helen runs the Union. Wages at Dagny's mill haven't risen in six years."],
 2:["Bob's left me a pie on the desk with a note: 'Eat it hot.' It's been cold since half past twelve.",[
   ["Bob cooks for you?","Every day the meetings run long, which is every day. He says a hungry union leader is a short-tempered one."],
   ["Is he a Party man?",["No. Union to the bone, but he won't take a Party card. The comrades never let me forget it.",[
     ["Why won't he join?","He says one of us in politics is plenty for a two-room flat. He's not wrong."],
     ["Does Anna mind?","Anna minds everything. She also eats his pie when she thinks I'm not looking."]]]],
   ["Cold pie is still pie.","Spoken like a fisherman. (She cuts you a slice.) Go on, then."]],
- "Tell Bob it was hot. He likes to hear it."],
+ "Tell Bob it was hot. He likes to hear it.",
+ "Bob leaves Helen pies at the Union. He won't take a Party card."],
 3:["The cola factory's running again. Aino on the bottling line rang me: twelve-hour shifts to catch up for the snow, and not a penny extra.",[
   ["Can the Union do anything?","We can ask Kurt nicely. Then less nicely. Then the bottling line stops, and Phil asks us nicely."],
   ["Who's Kurt?","The foreman. Not a member. He thinks a union is something you catch off a dirty glass."],
   ["Twelve hours on a bottling line?","Clink, clink, clink, for twelve hours. Aino says she hears bottles in her sleep."]],
- "If you see Aino, tell her I'm on it."],
+ "If you see Aino, tell her I'm on it.",
+ "Helen will take up the cola factory's unpaid twelve-hour shifts with Kurt the foreman, who isn't in the Union."],
 4:["Eastbrook's open, so I can finally get word out to the mill. Knut and Ilse have been writing to me all winter.",[
   ["What do they write?","That the guard's off the big saw, that Dagny had it wired back to speed the line up, and that a lad lost two fingers to it in June."],
   ["Isn't Eastbrook Democrat country?","Erik's country, yes. But a saw doesn't ask how you vote."],

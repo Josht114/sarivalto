@@ -6,12 +6,14 @@ DAILY['Marta']={
   ["I'll peel.","(She hands you a knife and a sack of potatoes without looking up.) Thin. If I can't see through the peel I'll know you're from the city."],
   ["How many do you feed?","The family, the staff, the colonel when he calls, the visitors who say they're not hungry and then are. Thirty, some days. Forty since the king died."],
   ["Herring again?","Herring always. The old king ate it every day for forty-one years. The new one does too. It's the only thing in this palace that hasn't changed."]],
- "Put the peelings in the pail for Viktor's compost. Not the bin. He checks."],
+ "Put the peelings in the pail for Viktor's compost. Not the bin. He checks.",
+ "Marta cooks for the whole palace. The old king ate herring every day for forty-one years."],
 3:["Kelp Cola sent a crate for the prince. He doesn't drink it. So I do. One bottle a day, since 1951. My teeth are my own and I'll thank you not to ask how many.",[
   ["Since 1951?","The year I came, a girl of sixteen, to scrub pans. The old cook drank it, so I drank it. Now I'm the old cook. Somebody'll start drinking it because of me."],
   ["Isn't it bad for you?","Everything's bad for you. Herring's bad for the herring. You drink what you like and you work it off at the stove."],
   ["Is it any good?","It's sweet and it's cold and it's the same every day. In a palace, that's a virtue."]],
- "Close the door. I'm not heating the whole of Kingsgrad."],
+ "Close the door. I'm not heating the whole of Kingsgrad.",
+ "Marta drinks the Kelp Cola the prince doesn't. She's had a bottle a day since 1951."],
 4:["Eastbrook's open again, so that boy will be back at work. Arvid. He was my apprentice for nine years. Now he's got his own grill, and my herring sauce.",[
   ["Your herring sauce?","Dill, mustard, a splash of the king's aquavit and something I won't say. He took it with him in his head. I can't arrest a man's head."],
   ["Were you sorry to lose him?","Sorry? I was furious. I was also proud, and I'll thank you not to tell him that, ever."],

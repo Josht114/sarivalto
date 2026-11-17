@@ -5,12 +5,14 @@ DAILY['Grace']={
   ["Good afternoon. Is it really?","It always is, off the peg. They cut for a man who doesn't exist. I've been cutting for real men for forty years. Real men are lopsided."],
   ["Did you make the king's suits?","Every one, since nineteen forty-two. And his father's last two. (She touches a dark coat on the rail.) That was his. He ordered it in August."],
   ["Can you fix my shoulder?","I could. It would take me an afternoon and you a month's wages. Stand up straight instead. It's cheaper."]],
- "Stand up straight on your way out. It's free."],
+ "Stand up straight on your way out. It's free.",
+ "Grace the tailor has made the king's clothes since 1942. His last coat, ordered in August, is still on her rail."],
 3:["(Grace is pinning black cloth onto a mannequin.) Mourning. Everyone wants black, all at once. I've three bolts left. Three!",[
   ["Who's ordering?","Half of Kingsgrad. The palace staff, all in a row. Edmund wants his tails let out. He won't say why. It's the shortbread."],
   ["What happens when you run out?","Then the island mourns in navy. Navy's very respectable. The Swedes mourn in navy. Nobody's ever complained about the Swedes."],
   ["Is the king's coat finished?","Finished. Pressed. Hanging on that rail in a cotton bag. (She doesn't look at it.) I don't know what to do with it. Nobody's come."]],
- "Don't touch the black. It marks."],
+ "Don't touch the black. It marks.",
+ "Grace is running out of black cloth for mourning. Edmund wants his tails let out."],
 4:["(Grace is threading a needle at arm's length, squinting.) Don't help. I can do it. I've done it a million times. (She misses.) Nine hundred and ninety-nine thousand.",[
   ["Do you need glasses?","I have glasses. I need better light, a younger pair of hands and a little less pride. I'll settle for the light."],
   ["Have you thought about an apprentice?","Every day. Then I think about someone else's hands on my cloth, and I go and lie down."],

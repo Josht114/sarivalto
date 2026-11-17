@@ -10,17 +10,20 @@ DAILY['Tom']={
   ["You lend her to anyone?",["Anyone who asks nicely. You'd be surprised how few people ask nicely.",[
     ["Isn't that risky?","She always comes back. Sometimes with fewer nets. Once with a goat. But she comes back."],
     ["Who asks rudely?","Lucia, mostly. Though she doesn't ask, as such. She writes things in a little book."]]]]],
- "If you see the Gull out there, wave. She likes it."],
+ "If you see the Gull out there, wave. She likes it.",
+ "Tom lends his boat, the Gull, to anyone who asks nicely. Lucia doesn't ask, she writes things in a little book."],
 2:["(Tom is chalking on a board outside the harbour office.) My forecast. 'Fair, light winds.' I put one up every day. (He looks at the sky, which is heavy and grey.) I'm wrong more often than I'm right. People read it to know what won't happen.",[
   ["Why keep doing it?","Somebody has to be wrong about the weather, or the weather gets big-headed."],
   ["Is Mike's boat broken?","The Valborg? The gearbox, I'd say. I always say it's the gearbox, and I'm usually right. Mike's fourth in the queue for the Gull, behind a man who wants to see the palace from the sea."],
   ["Who wants to see the palace from the sea?","A gentleman with a camera and a very good coat. He says he's a birdwatcher. There are no birds round the palace, only guards. I'll take him anyway: he's paid in advance."]],
- "Fair, light winds. Bring a coat."],
+ "Fair, light winds. Bring a coat.",
+ "Tom is taking a man with a camera and a very good coat out to see the palace from the sea. He says he's a birdwatcher."],
 3:["(Tom is wiping egg off his chin.) Aili's eggs. Five o'clock, every day, with Sam and Mike. Three coffees, six eggs and one argument about whose turn it is to pay. It's never my turn. It's always me.",[
   ["Who won the argument?","Sam, by saying nothing. Sam wins most arguments by saying nothing. He's said eleven words this week, and four of them were 'no'."],
   ["Do you all talk politics?","Mike does, when Helen's in earshot. Sam does, in his head. I talk about fish. Fish are the one thing everybody in Saltwick agrees on."],
   ["Are Aili's eggs good?","Best on the island. She learnt to cook in Minnesota, where they put butter on everything. I've put on half a stone since she opened."]],
- "Five o'clock, if you want eggs. Bring money: it's never my turn."],
+ "Five o'clock, if you want eggs. Bring money: it's never my turn.",
+ "Tom eats Aili's eggs with Sam and Mike at five every morning."],
 4:["(Tom is mending a net, his needle flying.) The roads are open as far as Eastbrook, so the Eastbrook boats will be out, and the cod will go over there instead. Cod are fickle. Like customers. And girls.",[
   ["Are you married, Tom?","No. I'm wrong about girls the way I'm wrong about weather: confidently, every day. I've stopped forecasting them."],
   ["How long have you fished?","Since I was nine. My father put me in the Gull and said 'don't fall out'. I've been not falling out for forty years. It's a skill."],

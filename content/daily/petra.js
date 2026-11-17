@@ -6,12 +6,14 @@ DAILY['Petra']={
   ["What are you knitting?","A scarf. One row for every Union member at Kelp Cola. It's going to be long."],
   ["What's the pamphlet?","Minutes of the last Union meeting. I took them. I take everything: minutes, notes, abuse."],
   ["It's cold in here.","This is warm. Wait till you see the warehouse."]],
- "Mind the stairs. The light's been out since August."],
+ "Mind the stairs. The light's been out since August.",
+ "Petra is knitting a scarf with a row for every Union member at Kelp Cola. She takes the Union's minutes."],
 3:["Kelp Cola HQ's open today and the warehouse isn't. So Phil's in a heated office, and I'm in here wearing three jumpers.",[
   ["Three jumpers?","Vest, jumper, cardigan, jumper. Four. I said three to sound tougher."],
   ["What do you want from Phil?","Heating in the warehouse, a raise for the line and five minutes of his time. The five minutes is the one he can't spare."],
   ["How's the scarf?","Forty-one rows. That's the factory floor done. The warehouse is next, and that's mostly me."]],
- "Tomorrow the factory road opens. I'll be back in the cold by eight."],
+ "Tomorrow the factory road opens. I'll be back in the cold by eight.",
+ "Kelp Cola's HQ is heated and its warehouse isn't. Petra wants heating, a raise for the line, and five minutes with Phil."],
 4:["(Petra is stacking crates, her breath steaming.) Welcome to the warehouse. It's colder in here than outside. I've measured.",[
   ["How is that possible?","Concrete floor, tin roof, and a window that won't shut. Science."],
   ["How many crates in here?","Four thousand two hundred, give or take Kurt's lunch."],

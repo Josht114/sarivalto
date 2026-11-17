@@ -72,7 +72,7 @@ DAILY['Sergeant Rask']={
 19:["(Rask is handing out blankets, one per man, to a line of soldiers, writing each down.) Second blankets. For everyone. (He makes a mark.) I've never issued second blankets. In thirty years. Not even in 1962. (He hands one over.) Private Aho. One blanket. Sign.",[
   ["Why second blankets?","Because the air smells of eggs, the gulls have gone, and the Colonel has declined a dinner at the palace. (He looks at you.) When the Colonel declines dinner, I issue blankets."],
   ["Are the men frightened?","Aho's hands are shaking. Koski's reading something about a volcano. Niemi's making soup for four hundred. (He signs a sheet.) We have forty-three men. He knows something."],
-  ["What did Koski see at the gate?","(He lowers his voice.) The prince's car went out at dusk. With a man in it in a large hat and a moustache that didn't fit him. Koski says it's straight out of a novel. Koski's very excited."]],
+  ["What did Koski see at the gate?","(He lowers his voice.) The prince's carriage went out at dusk. With a man in it in a large hat and a moustache that didn't fit him. Koski says it's straight out of a novel. Koski's very excited."]],
  "Take a blanket if you need one. Sign for it. Even you."],
 20:["(Rask is at the armoury door with a clipboard, as soldiers march out with carts.) The farms. The Colonel's sending the men to move the animals down from the east. (He ticks a name.) Twelve men. Twenty-four boots. Four carts. One cow, coming back with us, if Corporal Niemi's soup is any guide.",[
   ["Will the soldiers be safe?","I've given every man a whistle, two blankets and a list of what to bring back. (He looks at the line.) They'll come back. I've counted them out. I'll count them in."],

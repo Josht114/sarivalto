@@ -81,14 +81,14 @@ DAILY['Dario']={
   ["Have you met him?","Once, in the hotel bar. He bought me a drink and asked how deep the rig drills. I told him to the bottom."],
   ["Maybe he likes batteries.","Then he's the first Russian I've met who likes anything."]],
  "If the Russian asks about me, tell him I'm charming."],
-21:["(Dario's window is grey with ash, and the lights flicker.) The mountain's blown, journalist. Fire up north, ash on the cars, and every telephone on the island ringing at once.",[
+21:["(Dario's window is grey with ash, and the lights flicker.) The mountain's blown, journalist. Fire up north, ash on the boats, and every telephone on the island ringing at once.",[
   ["Is everyone all right?","As far as I know. I've had Ruth ring round every one of my people. I'm a lot of things, but I count my men."],
   ["What does it mean for the rig?","It means I'm not sleeping tonight. The rig's a long way from the mountain, but the sea floor's all one floor."],
   ["Scared?",["(He pours a bourbon, and doesn't drink it.) A little. Don't print that.",[
     ["I won't.","Good. You're climbing up my list."],
     ["What scares you about it?","That it doesn't want anything. You can't do a deal with a mountain."]]]]],
  "Go home and shut your windows. The ash gets into everything."],
-22:["(Dario is wiping ash off his bowling ball with a handkerchief.) Grey. Everything's grey. The lane's grey, the cars are grey, and Magnus's face is grey, though that's normal.",[
+22:["(Dario is wiping ash off his bowling ball with a handkerchief.) Grey. Everything's grey. The lane's grey, the boats are grey, and Magnus's face is grey, though that's normal.",[
   ["How's Frostholm coping?","Sweeping. Everybody's out with brooms. I sent the depot crew round with a fuel truck to wash the streets down, so the Gazette can say something nice about me."],
   ["Any damage at the rig?","The rig's shaking every time the ground does. I've got men watching it round the clock, and I'm watching them."],
   ["Will the ash wash off the lane?","It'll take wax and a week. I've waited longer for less."]],

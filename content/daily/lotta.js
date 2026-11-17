@@ -6,12 +6,14 @@ DAILY['Lotta']={
   ["How do you do the swan?","Fold, fold, tuck, pull the neck. Takes four seconds. Oskar's been trying for a year. His look like they've been run over."],
   ["Who's coming to dinner?","Only the family. They'll sit at one end of a table for thirty and say 'pass the salt' four times. I count. It's always four."],
   ["Polished you?","Mr Edmund inspects us before dinner. Nails, collars, shoes. He once sent me back for a hair. One hair."]],
- "Mind the swans on your way out. They're very sensitive."],
+ "Mind the swans on your way out. They're very sensitive.",
+ "Lotta serves at the palace table. Edmund inspects the staff before dinner, down to a single hair."],
 3:["The colonel from the barracks was at dinner. Colonel Halvorsen. He talked over the soup about 'keeping order' and 'the loyalty of the men'. Then I came in with the fish and he talked about the fish.",[
   ["What did he mean, loyalty?","I don't know. He said 'the men will follow the crown, Your Highness, as long as there is one.' The prince put his spoon down very slowly."],
   ["Was the fish good?","Herring. Always herring. The colonel had two helpings and said it reminded him of the war."],
   ["Do you always listen?","I don't listen. I serve. It just goes in. Like the gravy into the tablecloth."]],
- "Don't repeat that about the colonel. Soup talk stays in the soup."],
+ "Don't repeat that about the colonel. Soup talk stays in the soup.",
+ "Colonel Halvorsen told Leopold at dinner that the army will follow the crown 'as long as there is one'."],
 4:["(Lotta is ironing a tablecloth.) Twenty feet of damask, and if there's a crease Mr Edmund will find it from the other end of the hall.",[
   ["What do you do on your days off?","Go into Kingsgrad. The cinema, if Otto has anything good. The tearoom. Anywhere nobody wants me to carry soup."],
   ["Do you like the job?","I like the dining room. It's the most beautiful room in the palace and nobody sits in it but three sad people. Someone ought to enjoy it."],
@@ -108,7 +110,7 @@ DAILY['Lotta']={
   ["The hug?","(She throws a napkin at you.) It was the volcano."]],
  "Shake the ash out of your hat. Not on my table."],
 23:["We've been practising for the state visit on the gravel. I hand flowers to the wheelbarrow, and Oskar opens its door. Viktor laughs at us from the shed.",[
-  ["Why the wheelbarrow?","It's about the height of a king's car. And it doesn't mind if you drop the flowers."],
+  ["Why the wheelbarrow?","It's about the height of a king's carriage. And it doesn't mind if you drop the flowers."],
   ["Is Oskar good at it?","He opened the wheelbarrow beautifully. Then he bowed to it. Then he looked at me to see if I'd laughed. I had."],
   ["What flowers?","White roses. From Kingsgrad, if the ash lets them through. If not, Viktor says he'll find something. Viktor always finds something."]],
  "Don't laugh at the wheelbarrow. It's had a hard month."],
@@ -136,7 +138,7 @@ DAILY['Lotta']={
   ["You'll be wonderful.","I know. I practised with the wheelbarrow. The wheelbarrow said I was wonderful."],
   ["What's going on in the streets?","Everything. Flags, rallies, shouting. Oskar's mum's red banner. And a king, in our dining room. I'll be listening over the soup."],
   ["What do you hope he says?","Something worth hearing. I've served a hundred dinners this year, and nobody's said anything worth hearing since the old king winked."]],
- "Step back. Here comes the car. (She takes a breath and lifts her chin.)"],
+ "Step back. Here comes the carriage. (She takes a breath and lifts her chin.)"],
 29:["(Lotta is smiling at nothing.) Oskar and I went for a walk round the garden. I held his arm. The ice was slippery. Well. I said it was slippery.",[
   ["Was it slippery?","Viktor sanded the paths that morning. I saw him do it. I held Oskar's arm anyway."],
   ["Oh, Lotta!","I know. Don't. Marta's already made a face. Ingrid's already cried. Elsa said 'about time'."],

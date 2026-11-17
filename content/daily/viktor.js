@@ -7,12 +7,14 @@ DAILY['Viktor']={
   ["Do you watch the gate all day?","It's what the shed's for. Nobody asks a gardener anything. So I hear the lot, and I say none of it. That's the job."],
   ["What's in the shed?","Tools, seed, a stove, a chair and a window. The window's the important part."],
   ["The garden's under snow.","It's sleeping. The roses are under sacking, the bulbs are under the ground and the fountain's frozen solid. Everything's waiting, like the rest of us."]],
- "Walk on the gravel, not the snow. I take footprints personally."],
+ "Walk on the gravel, not the snow. I take footprints personally.",
+ "Viktor the palace gardener sees everyone from his shed, and says nothing."],
 3:["(Viktor is scattering crumbs on the wall by his shed. A big black crow lands and eyes him.) That's the Bishop. Twelve years he's been coming. He's got a grey patch on his chest like a collar. He takes the best crumbs and blesses nobody.",[
   ["Is he tame?","He's polite. There's a difference. He'll take food from my hand, but he won't be grateful. A proper churchman."],
   ["What do the birds tell you?","Everything, if you watch. When the rooks sit facing north, snow. When they go quiet, something's coming. They're better than the wireless."],
   ["Do the royals like the birds?","The princess does. Daphne follows me round the garden, asking the names of things. Nobody else in that building has asked me a question in twenty years."]],
- "Don't feed the Bishop. He's on a diet. He doesn't know it."],
+ "Don't feed the Bishop. He's on a diet. He doesn't know it.",
+ "Viktor feeds a crow called the Bishop. Daphne is the only one at the palace who asks him questions."],
 4:["(Viktor is crouched by a stone statue of a long-dead queen, looking at her foot.) Cracked. The frost got into it. Oskar on the door says statues can't get chilblains. Look at that. She's got chilblains.",[
   ["Can you mend it?", "Lime mortar, in May, when the frost's out of her. Until then I've wrapped her foot in a sock. One of mine. She's a queen. She won't mind a gardener's sock."],
   ["Who was she?", "Queen Astrid, two hundred years back. She planted the elms on the drive. I look after her trees, so I look after her foot. It's only fair."],

@@ -63,7 +63,7 @@ addEventListener('keydown',e=>{if(e.target.tagName!='SELECT'&&!e.repeat&&!MENU&&
 const ME={cia:PLAYER.ciaFunds,cash:PLAYER.funds,items:PLAYER.items.map(([id,n])=>({id,n})),sel:0,note:'',filmIn:0,light:false,quests:startQuests(),look:{...PLAYER.look},clothes:PLAYER.clothes.slice(),hi:{},equipped:null,tips:{},tape:null,tapeN:0,tapeOn:false,hunger:PLAYER.hunger,nicotine:PLAYER.nicotine,cigsLeft:20,alcohol:0,tattoos:[],homes:[],placed:{},home:'hekki_room',moved:false};
 // your quests, in the order you took them on: {id, met: which conditions are met, done}
 function startQuests(){return Object.keys(QUESTS).filter(id=>QUESTS[id].start&&(QUESTS[id].day??DAY)==DAY).map(id=>({id,met:[],done:false,took:DAY}))}
-const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['journal','Journal'],['map','Map'],['save','Save'],['opts','Options']];
+const startEl=document.getElementById('start'),startBtn=document.getElementById('startbtn'),TABS=[['inv','Inventory'],['quests','Quests'],['journal','Journal'],['info','Information'],['map','Map'],['save','Save'],['opts','Options']];
 // the tabs you can use: the Map tab only with a Map of Sarivalto in your bag (or while you're looking at a map on a wall)
 const tabsNow=()=>TABS.filter(([k])=>k!='map'||has('islandmap')||START=='map');
 let START=null;  // the open tab, or null when the menu is closed
@@ -87,6 +87,12 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
     body=!days.length?'<p>No conversations yet. Everyone you talk to is written down here, day by day.</p>':
       `<div class="jnav"><button data-jd="-1" ${i>0?'':'disabled'} aria-label="The day before">&larr;</button><b>${dateStr(JDAY)}</b><button data-jd="1" ${i<days.length-1?'':'disabled'} aria-label="The next day">&rarr;</button></div>`+
       J.filter(j=>j.d==JDAY).map(j=>`<div class="jent"><h4>${esc(j.n)}${j.night?' <small>(evening)</small>':''}</h4>${j.l.map(([w,t])=>`<p${w=='You'?' class="me"':''}><b>${esc(w)}:</b> ${esc(t)}</p>`).join('')}</div>`).join('')}
+  if(START=='info'){// what you've learned, a day at a time (the arrows step through the days you learned anything): a line for
+    // each conversation, its summary if it has one, or else who, where and what you asked
+    const I=Object.values(ME.info||{}),days=[...new Set(I.map(v=>v.d))].sort((a,b)=>a-b);if(!days.includes(IDAY))IDAY=days[days.length-1];const i=days.indexOf(IDAY);
+    body=!days.length?'<p>Nothing learned yet. What people tell you is noted here, day by day, and some of it will come up again.</p>':
+      `<div class="jnav"><button data-id="-1" ${i>0?'':'disabled'} aria-label="The day before">&larr;</button><b>${dateStr(IDAY)}</b><button data-id="1" ${i<days.length-1?'':'disabled'} aria-label="The next day">&rarr;</button></div>`+
+      `<ul class="info">${I.filter(v=>v.d==IDAY).map(v=>`<li><b>${esc(v.n)}</b>${v.w||v.night?` <small>(${esc([v.w,v.night&&'evening'].filter(Boolean).join(', '))})</small>`:''}<br>${esc(infoLine(v))}</li>`).join('')}</ul>`}
   if(START=='map'){// you are marked at your place on the island map (indoors, at the place the building is in)
     const a=POS[P.m]?P.m:areaOf(P.m),p=a&&POS[a];
     body=`<div class="map"><img src="docs/island-map.svg" alt="Map of the island">${mapFog()}${p?`<span class="you" style="left:${p[0]/17}%;top:${p[1]/8.6}%"></span>`:''}${questPlaces().map(([a,main])=>`<span class="qstar${main?'':' side'}" title="${esc(NM[a])}: someone here has a ${main?'main':'side'} quest for you" style="left:${POS[a][0]/17}%;top:${POS[a][1]/8.6}%">&#9733;</span>`).join('')}</div>
@@ -187,7 +193,7 @@ function quitGame(save){if(save){const r=saveGame('quick');if(!/^Quick saved/.te
   BUSY=true;fadeEl.style.opacity=1;Promise.resolve(save&&LAST_SAVE).finally(()=>setTimeout(()=>{location.href=location.pathname},600))}
 function saveGame(i){if(P.m=='tram')return'You cannot save on the tram.';const a=POS[P.m]?P.m:areaOf(P.m);
   const v={v:1,at:Date.now(),where:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),day:DAY,night:NIGHT,p:{m:P.m,x:P.x,y:P.y,dir:P.dir},
-    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,tips:ME.tips,tape:ME.tape,tapeN:ME.tapeN,tapeOn:ME.tapeOn,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos,homes:ME.homes,journal:ME.journal,talked:ME.talked,placed:ME.placed,home:ME.home,moved:ME.moved},stock:STOCK,stocked:STOCKED,fp:FP};
+    me:{cia:ME.cia,cash:ME.cash,items:ME.items,filmIn:ME.filmIn,light:ME.light,quests:ME.quests,look:ME.look,clothes:ME.clothes,hi:ME.hi,equipped:ME.equipped,tips:ME.tips,tape:ME.tape,tapeN:ME.tapeN,tapeOn:ME.tapeOn,hunger:ME.hunger,nicotine:ME.nicotine,cigsLeft:ME.cigsLeft,smokeT:ME.smokeT,alcohol:ME.alcohol,tattoos:ME.tattoos,homes:ME.homes,journal:ME.journal,info:ME.info,talked:ME.talked,placed:ME.placed,home:ME.home,moved:ME.moved},stock:STOCK,stocked:STOCKED,fp:FP};
   // (if storing fails, say so once it has)
   LAST_SAVE=store.put(i,v).catch(()=>say('The game could not be saved: there is nowhere to store it.',5000));return i=='quick'?'Quick saved.':'Game saved in '+slotName(i).toLowerCase()+'.'}
 // a save as a file to download, and a save file loaded straight into the game
@@ -197,7 +203,7 @@ async function importSave(f){let v=null;try{v=okSave(JSON.parse(await f.text()))
   loadSave(v);say('Loaded '+v.where+', '+dateStr(v.day)+' from the file. Save it in a slot to keep it.',5000)}
 function loadGame(i){const v=readSave(i);if(!v){ME.note='That save could not be loaded.';renderStart();return}loadSave(v);say('Game loaded: '+v.where+', '+dateStr(DAY)+'.',4000)}
 function loadSave(v){
-  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.tips=v.me.tips||{};ME.tape=v.me.tape??null;ME.tapeN=v.me.tapeN??0;ME.tapeOn=v.me.tapeOn??false;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;ME.tattoos=v.me.tattoos||[];ME.homes=v.me.homes||[];ME.placed=v.me.placed||{};ME.home=v.me.home||'hekki_room';ME.moved=!!v.me.moved;if(typeof applyHomes=='function')applyHomes();for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
+  DAY=v.day;setNight(v.night);if(v.fp){Object.assign(FP.pts,v.fp.pts);FP.hist=v.fp.hist||{}}Object.assign(ME,v.me,{sel:0,note:'',confirm:''});ME.quests=(Array.isArray(ME.quests)?ME.quests:startQuests()).filter(q=>QUESTS[q.id]);ME.quests.forEach(q=>{if(QUESTS[q.id].main&&q.took==null)q.took=QUESTS[q.id].day});ME.look={...PLAYER.look,...(v.me.look||{})};ME.clothes=v.me.clothes||PLAYER.clothes.slice();ME.hi=v.me.hi||{};ME.equipped=v.me.equipped??null;ME.tips=v.me.tips||{};ME.tape=v.me.tape??null;ME.tapeN=v.me.tapeN??0;ME.tapeOn=v.me.tapeOn??false;ME.hunger=v.me.hunger??PLAYER.hunger;ME.nicotine=v.me.nicotine??PLAYER.nicotine;ME.cigsLeft=v.me.cigsLeft??20;ME.smokeT=v.me.smokeT??0;ME.alcohol=v.me.alcohol??0;ME.tattoos=v.me.tattoos||[];ME.homes=v.me.homes||[];ME.placed=v.me.placed||{};ME.home=v.me.home||'hekki_room';ME.moved=!!v.me.moved;ME.info=v.me.info||infoFromJournal();if(typeof applyHomes=='function')applyHomes();for(const k in STOCK)delete STOCK[k];Object.assign(STOCK,v.stock);for(const k in STOCKED)delete STOCKED[k];for(const k in STOCK)STOCKED[k]=v.stocked?.[k]??deliveryDay(DAY);
   TRIP=null;closeStart();place(v.p.m,[v.p.x,v.p.y],v.p.dir)}
 // ---- The Faction Tracker (on the computer in your home): every main faction's points, a bar chart comparing them, and a line
 // chart of each faction's points through September. FP.pts holds the points now; FP.hist[day] the points as they stood at the end
@@ -615,14 +621,31 @@ const SERVICE={Otto:'About the pictures',Sally:'About a house',Jonna:"I'd like a
 function serviceOpts(n){const o=[];if(SHOPS[n.name]&&n.m==n.loc){o.push(['Show me your stock',null,()=>openShop(n)]);
     if(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk))o.push(['Sell my catch',null,sellCatch])}
   if(SERVICE[n.name]&&CONVOS[n.name])o.push([SERVICE[n.name],null,()=>converse(n,CONVOS[n.name])]);return o}
+// A day's conversation can also have a summary (DAILY[name][day][3]: a line for the Information tab) and other openers
+// ([4]: {'Name:day': opener}, the first one whose conversation you've heard wins). A reply can need one too ([your reply,
+// their answer, 'Name:day']), or need you not to have heard it ('!Name:day').
 function dailyConvo(n){if(DAY<1)return null;const D=typeof DAILY!='undefined'&&DAILY[n.name]?.[DAY];
   if(!D)return SERVICE[n.name]||SHOPS[n.name]&&n.m==n.loc?null:{start:'a',nodes:{a:{say:`My name is ${n.name}.`}}};
   const svc=serviceOpts(n),end=svc.length?[...svc,['Goodbye',null]]:undefined;
   if((ME.talked??={})[n.name]==DAY)return{start:'a',nodes:{a:{say:D[2],opts:end}}};
-  const nodes={},done=()=>{ME.talked[n.name]=DAY};let k=0;
-  const build=(say,opts)=>{const id='n'+k++;nodes[id]={say};
+  const nodes={},done=()=>{ME.talked[n.name]=DAY};let k=0,alt=D[4]&&Object.keys(D[4]).find(knows);learn(n);
+  const build=(say,opts)=>{const id='n'+k++;nodes[id]={say};opts=opts?.filter(o=>!o[2]||knows(o[2]));
     nodes[id].opts=opts?.length?opts.map(([t,r])=>{const[rs,ro]=Array.isArray(r)?r:[r];return[t,build(rs,ro),ro?.length?null:done]}):end;return id};
-  return{start:build(D[0],D[1]),nodes}}
+  return{start:build(alt?D[4][alt]:D[0],D[1]),nodes}}
+// ---- Information (the Information tab): every day's conversation you've heard, ME.info['Name:day'] = {d: the day, n: who,
+// w: where, night}. Hearing it is enough: what they open with is the news.
+const knows=k=>k[0]=='!'?!ME.info?.[k.slice(1)]:!!ME.info?.[k];
+function learn(n){const a=POS[P.m]?P.m:areaOf(P.m);(ME.info??={})[n.name+':'+DAY]??={d:DAY,n:n.name,w:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),night:NIGHT}}
+// its line: the summary written for it, or else what you asked them (from the journal), or failing that what they opened with
+function infoLine(v){const D=typeof DAILY!='undefined'&&DAILY[v.n]?.[v.d];if(D?.[3])return D[3];
+  const asked=(ME.journal||[]).filter(j=>j.d==v.d&&j.n==v.n).flatMap(j=>j.l.filter(([w])=>w=='You').map(([,t])=>t));
+  return asked.length?'You asked: '+[...new Set(asked)].join(' / '):D?'"'+D[0].replace(/^\([^)]*\)\s*/,'')+'"':'You talked.'}
+// (a save from before the Information tab: what's in its journal counts as heard, where the journal's first line is a daily opener)
+function infoFromJournal(){const I={};for(const j of ME.journal||[]){const D=typeof DAILY!='undefined'&&DAILY[j.n]?.[j.d];
+  if(D&&(j.l[0]?.[1]==D[0]||D[4]&&Object.values(D[4]).includes(j.l[0]?.[1])))I[j.n+':'+j.d]??={d:j.d,n:j.n,w:'',night:j.night}}return I}
+let IDAY=null;
+addEventListener('click',e=>{const b=e.target.closest?.('[data-id]');if(!b||START!='info')return;const days=[...new Set(Object.values(ME.info||{}).map(v=>v.d))].sort((a,b)=>a-b);
+  IDAY=days[Math.max(0,Math.min(days.length-1,days.indexOf(IDAY)+ +b.dataset.id))];renderStart()});
 // what a quest left someone saying that still comes first: a hint while the quest is yours, or anything on the day it's done
 const afNow=n=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>a.name==n.name&&a.say&&q.flags?.[a.flag]&&(!q.done||q.day==DAY&&!a.open)))[0];
 const replies=()=>(CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]]).filter(o=>!o[3]||o[3]());

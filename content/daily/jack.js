@@ -5,12 +5,14 @@ DAILY['Jack']={
   ["A bit of both.","Best way to arrive anywhere. Jack. Rods, tackle, bait, and free advice on where they're biting. The advice is the only thing that's free."],
   ["Where are they biting, then?","Off the jetty at Lake Ilmari, if the ice has gone. Perch, mostly. Use a red float: perch are vain, they like a bit of colour."],
   ["Do you ever catch anything yourself?","Every day, in my head. Running the shop, I get out twice a week if I'm lucky. That's the cobbler's shoes, isn't it?"]],
- "Come back when you've got a rod. Or come back to buy one."],
+ "Come back when you've got a rod. Or come back to buy one.",
+ "Jack sells fishing tackle in Kingsgrad. The perch at Lake Ilmari like a red float."],
 3:["You know what's killing this shop? The harbour tax. Every boat that ties up pays the Crown a fee, and every fisherman takes it out of my prices.",[
   ["How much is the tax?","Two dollars a mooring, a day. Doesn't sound much. Then you count the boats. Then you count the days. Then you go and have a lie down."],
   ["Who could change it?","Whoever runs the island, once there's someone running it. I'm a Republican, and I'll vote for whoever cuts it. Simple as that."],
   ["Is that all you care about?","No. I care about fish. But fish don't vote, so I care about the tax."]],
- "If you meet a politician, ask him about the harbour tax. Watch him squirm."],
+ "If you meet a politician, ask him about the harbour tax. Watch him squirm.",
+ "Jack blames the Crown's harbour tax for his prices. He's a Republican, and will vote for whoever cuts it."],
 4:["(Jack is threading a line through a rod's eyes, very slowly.) Don't talk for a second. It's the last eye.",[
   ["(Wait.)","(He gets it through.) There. Forty years and I still hold my breath. Thank you. You'd be surprised how few people can keep quiet."],
   ["What's the rod for?","A man from Eastbrook. Wants to try for salmon up the Valto River. I told him he's two months late. He wants it anyway."],

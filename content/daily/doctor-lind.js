@@ -6,12 +6,14 @@ DAILY['Doctor Lind']={
   ["Busy morning?","Three frostbitten toes, one sprained wrist and a man who swallowed a fishhook. The roads opened and everyone came to show me what the snow did to them."],
   ["I'm the British reporter.","So I hear. Kingsgrad's very small. Well, welcome. If you need anything stitched, I'm downstairs from the police. Convenient for both of us."],
   ["Is there a hospital on the island?","No. (He dries his hands.) There's me, two beds and a medicine cabinet. Anyone very ill goes by boat to Oulu. Six hours, if the sea's kind."]],
- "Wrap up. The cold's what I see most of, after fishhooks."],
+ "Wrap up. The cold's what I see most of, after fishhooks.",
+ "Doctor Lind's surgery is in Kingsgrad, below the police. Anyone very ill goes by boat to Oulu."],
 3:["(The doctor is writing up notes, very fast.) Sit, if you like. Don't touch the cabinet. Nothing personal: I don't let myself touch it either, after midnight.",[
   ["Do you work nights too?","On call every night. The telephone rings, I put my coat on over my pyjamas. Half of Kingsgrad's seen my pyjamas. They're blue."],
   ["Who was in this morning?","I don't say who. (He keeps writing.) But someone from the palace came in with a cut from a very good knife, and said it was the cheese. It wasn't the cheese."],
   ["You look tired.","I'm always tired. I was tired in nineteen sixty-two. I'll be tired when I'm dead, and then I'll finally get some sleep."]],
- "Don't catch anything. I've no beds."],
+ "Don't catch anything. I've no beds.",
+ "Someone from the palace came to Doctor Lind with a cut from a very good knife and blamed the cheese. It wasn't the cheese."],
 4:["(A chessboard sits on a shelf, mid-game.) Don't knock that. It's taken eleven months to get there.",[
   ["Who are you playing?",["Doctor Salmi, in Turku. We were students together. One move a letter. Fourteen days there, fourteen back. We've made eleven moves.",[
     ["Who's winning?","He is. He's been winning since nineteen fifty-one. That's why I keep playing. One day he'll make a mistake, and I'll be there."],

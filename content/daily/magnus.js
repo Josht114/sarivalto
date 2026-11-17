@@ -20,10 +20,10 @@ DAILY['Magnus']={
 10:["(Magnus is in a black suit, buttoned to the top.) The funeral is today. I have been seated beside Harald, from Kelp Cola. I expect the king would have found that amusing.",[
   ["Will you speak to Harald?","Briefly, and about the weather. In a chapel, even rivals talk about the weather."],
   ["Did you know the king?","I shook his hand once, at the opening of the fuel depot. He asked me whether I liked my job. I said yes. That was not true, but it was correct."],
-  ["Is Dario going?","Dario is going in the second car, and I am going in the fourth. These things are noticed."]],
+  ["Is Dario going?","Dario is going in the second carriage, and I am going in the fourth. These things are noticed."]],
  "Black is very practical. It requires no decisions."],
 11:["(Magnus is adding up a column of figures, twice.) Do you know how many barrels lie under the shelf off this island, by our survey? Neither does anybody, officially. Unofficially, it's a great many.",[
-  ["How many is a great many?","Enough to give every family on Sarivalto a car, and the roads to drive it on. Phil gives them cola."],
+  ["How many is a great many?","Enough to give every family on Sarivalto a boat, and a harbour to keep it in. Phil gives them cola."],
   ["Doesn't the oil belong to the island?","The oil belongs to whoever can lift it. That is not a philosophy. It is engineering."],
   ["You should put that on a card.","(He writes it down.) Card forty-two. I was trying to get down to forty."]],
  "Barrels, not bubbles. That is my slogan. Margit says it needs work."],
@@ -43,7 +43,7 @@ DAILY['Magnus']={
   ["You seem almost excited.","I am never excited. I am, at most, ready."]],
  "If you see Harald, tell him my badge is bigger. It is."],
 15:["(Magnus is reading the Gazette.) Leopold or Augustus. Crown or cross. The whole island is arguing about which prince, and nobody is asking what either of them knows about pipelines.",[
-  ["Which prince would suit you?","Whichever one leaves the economy to grown-ups. I suspect neither, but Leopold at least likes cars."],
+  ["Which prince would suit you?","Whichever one leaves the economy to grown-ups. I suspect neither, but Leopold at least likes yachts."],
   ["Will the Republicans take a side?","The Republicans are waiting to see which side wins, and then they will have taken it all along."],
   ["Why not be king yourself?","(He considers it seriously.) The hours are poor and the pension is uncertain."]],
  "Crown, cross, ballot box. Oil goes under all of them."],

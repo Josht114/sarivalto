@@ -8,17 +8,20 @@ DAILY['Kaisa']={
   ["You announced me?","'A reporter from London has come to cover our sad news. Be kind, and spell your names slowly.' (She smiles.) It's a small island. You're news."],
   ["What do you play?","Slow songs for the late king, until someone tells me to stop. Then the news, the weather, the herring prices, and jazz after midnight, for the night owls and the lighthouse."],
   ["Who's the man in the shack next door?","Hekki. He keeps the transmitter alive. He's sweet, and terribly nervous. He leaves me biscuits and runs away before I can say thank you."]],
- "Spell your name slowly if you're ever on air."],
+ "Spell your name slowly if you're ever on air.",
+ "Kaisa presents Radio Sarivalto, and told the whole island you'd arrived. Hekki leaves her biscuits and runs away."],
 2:["(Kaisa is sorting a stack of letters into two piles.) Requests. This pile wants marches for the king. This pile wants anything but marches. I play one from each, and both piles write in to complain.",[
   ["Which pile's bigger?","The anything-but-marches pile, as of yesterday. Grief's a funny thing. It lasts about a fortnight on the radio, and then people want a waltz."],
   ["Does the palace listen?","The palace sends a footman with its requests, in an envelope with a crest. Oskar. He waits while I read it, in case I need a footman. (She sighs.) Very proper. I give him tea."],
   ["Play something cheerful.","Not this week. The station manager would have me off the air. But I'll slip in a waltz later, between the weather and the herring. Listen for it."]],
- "Listen for the waltz."],
+ "Listen for the waltz.",
+ "Kaisa sorts requests into marches for the king and anything but. Oskar brings the palace's, in an envelope with a crest."],
 3:["(Kaisa is humming something bouncy, and looks annoyed with herself.) Kelp Cola have bought the slot before every news bulletin. 'Kelp Cola: the taste of the Baltic.' I've said it forty times. I'm starting to taste the Baltic.",[
   ["Do they pay well?","Better than the station does. That's the trouble: once you've read their advert, it's hard to read the news as if you hadn't."],
   ["What does the Baltic taste of?","Salt, diesel and regret. Kelp Cola add sugar. It helps, a bit."],
   ["Does anyone else want adverts?","The Polar Burger in Frostholm, the pizzeria in Kingsgrad, and the Party, who want theirs free because the airwaves belong to the people. (She shrugs.) The airwaves belong to whoever pays the electricity."]],
- "The taste of the Baltic. Forgive me."],
+ "The taste of the Baltic. Forgive me.",
+ "Kelp Cola has bought the radio slot before every news bulletin."],
 4:["(Kaisa is wiping a record on her sleeve.) Eastbrook's open, so Ruby's lent me a box of jazz. I give her back about a third. She knows. She calls it a tax on beauty.",[
   ["What's in the box?","Coltrane, Ella, Chet Baker, and one Finnish tango record Ruby swears is jazz. It isn't, but it's lovely, so I'll play it at two in the morning and nobody will argue."],
   ["Who listens at two in the morning?","The lighthouse keeper, the fishermen going out, the night porter at the Hotel Aurora. And somebody who sends in the same request from the tower, every night. (She smiles.) Unsigned. Well, nearly."],

@@ -8,12 +8,14 @@ DAILY['Vince']={
     ["Whose money's that?","(He smiles and turns a card.) The kind that comes in through the front door and goes out through the back. That's all a dealer says."],
     ["Do people win?","Some do, on a Tuesday. Nobody does over a year. I've seen fortunes made and lost at one table in one night."]]]],
   ["Patience in a cardigan. Very glamorous.","I'm on my day off. My forty-third, it feels like. In Frostholm I wear a waistcoat and bow tie. Here I wear what my mother knitted."]],
- "Shut the door on the way out. The cards blow about."],
+ "Shut the door on the way out. The cards blow about.",
+ "Vince deals blackjack at the casino in Frostholm, where some of the money is better not asked about."],
 3:["Still snowed off. (He holds up a battered postcard: palm trees, a white building, a blue sea.) Monte Carlo. One day I'll deal there. Or play there. Or just stand in it.",[
   ["Have you been?","Never. A croupier from Monaco came through the casino in 1979 and left this on my table as a tip. He said I had good hands."],
   ["How far off is it?","About eleven thousand dollars, by my reckoning. (He taps a biscuit tin on the shelf.) I'm a little short."],
   ["Monte Carlo's overrated.","Says a man who's never been warm. Look at that sea. You could put your feet in it."]],
- "Go on. I'll be here, saving."],
+ "Go on. I'll be here, saving.",
+ "Vince is saving to go to Monte Carlo, and is about eleven thousand dollars short."],
 4:["(Vince is shuffling with one hand, endlessly.) Somebody telephoned asking when the casino reopens. Third time. A gambler without a table's like a fish on a dock.",[
   ["Who rang?","Nobody you'd know. Somebody who's lost a lot and needs to win it back before someone notices. That's always who rings."],
   ["Show me a trick.","(He fans the deck, closes it, and turns the top card: the queen of hearts.) Not a trick. Practice. Fourteen years of it."],

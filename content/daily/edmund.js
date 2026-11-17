@@ -7,12 +7,14 @@ DAILY['Edmund']={
   ["When do they start again?","When he is laid in the crypt. I shall wind every one of them myself. There are forty-three."],
   ["Doesn't anyone need the time?","The household keeps time by Marta's kitchen, which has never stopped for anyone. Not even a king."],
   ["What minute did he die?","Twenty past four. He was having his Kelp Cola. (A pause.) I'll thank you not to print the second part."]],
- "Mind the rug at the door. It has opinions about heels."],
+ "Mind the rug at the door. It has opinions about heels.",
+ "Edmund the butler has stopped every clock in the palace at the minute the king died: twenty past four."],
 3:["The young man on the door is Oskar. He's been with us two years. He's honest, which is a virtue, and he talks, which is not.",[
   ["What has he told you?","Everything, sir. He's very thorough. I'm training him to tell me everything and the world nothing."],
   ["How did you start?","As a hall boy, polishing boots at fourteen. Old Queen Astrid's boots. She checked them herself, with a candle."],
   ["Is he any good?","He stands still very well. He can't yet stand still without looking like he's standing still. That takes about ten years."]],
- "Kindly don't encourage Oskar. He's quite encouraged enough."],
+ "Kindly don't encourage Oskar. He's quite encouraged enough.",
+ "Edmund is training Oskar, the young man on the palace door, who is honest but talks too much."],
 4:["(Edmund is folding the Eastbrook Gazette into quarters.) The road to Eastbrook is open, so the newspaper is arriving again. I find it best to read it before the family does.",[
   ["Do you hide it from them?","I curate it, sir. The family have a great deal to bear this month. The Gazette has a great deal to say. I balance the two."],
   ["Anything in it about the palace?","Nora suggests the palace roof costs more than the island's school. That is untrue. It's the gutters that cost more."],

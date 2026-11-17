@@ -6,12 +6,14 @@ DAILY['Rosaria']={
   ["Smells wonderful in here.","That's the oven. Wood-fired, a proper one. I built it with a man from Kingsgrad who'd never seen one. He cried when it was done. So did I."],
   ["Is this the only pizzeria on the island?","The only one and the best one. The others are frozen things in the supermarket. Lisa sells them and apologises at the same time."],
   ["What's behind the door at the back?","Crates, a table, men playing cards. I don't go in, and I don't ask. (She smiles.) What I don't know, I can't burn."]],
- "Come back hungry. Everyone does."],
+ "Come back hungry. Everyone does.",
+ "Rosaria makes pizza in a wood-fired oven. She doesn't ask about the card game in the back room."],
 3:["(Rosaria lifts a cloth off a big earthenware bowl and sniffs.) Good. She's alive. My starter, the mother of every pizza. She's from Naples, thirty-one years old, and she nearly froze in the snow.",[
   ["A starter that's thirty-one years old?","My mother gave me a spoonful in a jam jar the day I left Naples. I fed it on the boat, in the train, in a hotel in Hamburg. It's the oldest thing I own."],
   ["How does a Neapolitan end up here?","A man, of course. He wanted to see the north. He saw it, he hated it, he went home. I stayed. I liked the quiet."],
   ["Does she have a name?","Nonna. Because she's old, she's sour, and she has to be fed every day or she sulks."]],
- "Close the door, the draught upsets Nonna."],
+ "Close the door, the draught upsets Nonna.",
+ "Rosaria's sourdough starter came from her mother in Naples, thirty-one years ago. She calls it Nonna."],
 4:["Eila and Marjut were on the bench in the cold again, by the west end. (Rosaria wraps two slices in paper.) I take them something every afternoon. Don't tell them I made it on purpose.",[
   ["That's kind of you.","Kind? Nobody goes hungry within a hundred metres of my oven. It's a rule. My grandmother's rule. She fed half of Naples in the war."],
   ["Why are so many people out of work?","Ask the cola company. Ask the palace. They all have big plans for the island, and none of the plans have Eila in them."],

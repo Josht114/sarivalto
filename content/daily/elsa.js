@@ -8,12 +8,14 @@ DAILY['Elsa']={
   ["What's it like, working in the laundry?","Hot in the morning, cold by night, and wet all the time. My hands haven't been dry since 1958. I've stopped minding. Dry hands would feel like somebody else's."],
   ["How long have you been here?","Since I was fourteen. Thirty-one years. I've washed for the old king, the old queen, three princes, a princess and a very large dog. The dog was the worst."],
   ["Do the family ever come down here?","Never. Not since Daphne was little. She used to hide in my baskets. Now she sends her silk down with Ingrid and a note saying 'gently'. I'm always gentle."]],
- "Mind the drain on your way out. It's slippery, and I'm not mopping twice."],
+ "Mind the drain on your way out. It's slippery, and I'm not mopping twice.",
+ "Elsa has done the palace laundry for thirty-one years. Daphne used to hide in her baskets."],
 3:["(Elsa is holding a pair of riding boots up to the light, looking at the soles.) Harbour mud again. Grey, with bits of shell. The prince's. He doesn't go riding in this. He goes walking. At night. To the harbour.",[
   ["Why would the prince go to the harbour at night?","I don't ask. I clean. But a man who walks to the sea in the dark has something he can't say indoors."],
   ["Does anyone else know?","Oskar, who carries the boots down. Edmund, who pretends not to know anything. And now you. Don't make me regret it."],
   ["Is it the same every night?","Three nights out of five, since the king died. Before that, never. I keep a count. On the wall, behind the mangle. Little chalk marks."]],
- "If you see the prince, don't look at his boots."],
+ "If you see the prince, don't look at his boots.",
+ "Elsa finds harbour mud on Prince Leopold's boots. He walks to the harbour at night, three nights in five since the king died."],
 4:["(Elsa is kneading her hands together, wincing.) The starch. It gets in the cracks. Marta gave me goose fat for them. It helps, a little. Now I smell like Christmas dinner.",[
   ["Is Marta your friend?","Since we were girls in the kitchens together. She went to the stove, I went to the tubs. We meet on the stairs at four every morning and share a pot of tea. Thirty years of tea."],
   ["Why so much starch?","The family wear black for a year, and black shows every crease. The prince's collars have to stand up like soldiers. Starch is the only thing that makes them obey."],

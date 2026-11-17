@@ -6,17 +6,20 @@ DAILY['Sam']={
   ["Good day for fishing?","Snow's gone. Fish haven't come back. Tomorrow, maybe."],
   ["What's that net?","My father's. He knotted it in 1931. I'm mending it. A knot at a time."],
   ["Are you in the Party?","Since before Anna was born. I vote with her. Saves talking."]],
- "Mind the hooks."],
+ "Mind the hooks.",
+ "Sam the fisherman says very little. He is mending his father's net from 1931, and votes with Anna."],
 2:["Kingsgrad's open. (He doesn't look up.) Don't need anything in Kingsgrad.",[
   ["Ever been to the palace?","Once. 1952. Took herring to the kitchens. Cook gave me a bun. Good bun."],
   ["What do you make of the prince?","Young. (He ties a knot.) We were all young."],
   ["How's the net coming?","Forty-one knots. Four thousand to go. Done by spring. Or I'm done. One or the other."]],
- "Mind the hooks on your way."],
+ "Mind the hooks on your way.",
+ "Sam has been to the palace once, in 1952, to take herring to the kitchens."],
 3:["Cola lorry nearly ran over Hannu's papers. Didn't stop.",[
   ["Is Hannu all right?","Hannu's fine. Papers are wet. He's selling them as 'with sea air'."],
   ["Do you drink Kelp Cola?","Tea. Black. Since 1938."],
   ["You don't say much.","Saving it for when it matters. (A pause.) Doesn't matter yet."]],
- "Tea's on, if you're cold. You look cold."],
+ "Tea's on, if you're cold. You look cold.",
+ "A cola lorry nearly ran over Hannu's papers and didn't stop."],
 4:["(Sam holds up a cod by the tail.) Look at that. Thin. Forty years, never this thin in September.",[
   ["Why is it?","Something's wrong out past the point. Fish know before we do."],
   ["Is it the oil rig?","Didn't say that. (He looks north-west.) Didn't not say it."],

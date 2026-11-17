@@ -5,17 +5,21 @@ DAILY['Frank']={
   ["Just saying hello. I'm new in Kingsgrad.","Then hello. Frank. Guns, ammunition, and advice nobody asks for. The advice is free."],
   ["What does a gun shop owner make of the king's death?","He was a decent shot, for a king. Came in here once, in sixty-eight, bought a duck gun and paid cash. That's more than most governments do."],
   ["Are all these guns legal?","Every one of them, and I've got the paperwork to prove it. Three drawers of it. That's what's wrong with this island, right there."]],
- "Mind the step. It's iced over, and I'm not paying for your hip."],
+ "Mind the step. It's iced over, and I'm not paying for your hip.",
+ "Frank runs the gun shop in Kingsgrad. The old king once bought a duck gun from him and paid cash."],
 3:["(A grey dog is asleep on a sack by the stove.) Don't mind Duke. He's fourteen and he's earned the sack.",[
   ["What a lovely old dog.","Best elk dog on the island, once. Now he points at the stove and waits for it to fall over."],
   ["Do you hunt much?","Every October, up north in the pines. Elk season opens on the first. Twenty-six days and counting, not that I'm counting."],
   ["Does he bite?","Only the post. And the man from the Civil Service Bureau, but that was a misunderstanding. Mostly."]],
- "Don't step on Duke on your way out. He won't move."],
-4:["You again. Either you're writing about guns, or you've nowhere warm to stand.",[
+ "Don't step on Duke on your way out. He won't move.",
+ "Frank's old elk dog Duke sleeps by the stove. Elk season opens on 1 October."],
+4:["(Frank looks up from the counter.) A reporter, in a gun shop. Either you're writing about guns, or you've nowhere warm to stand.",[
   ["Somewhere warm to stand, mostly.","Honest. I like that. Stand by the stove, then, but don't touch the shelf with the red tins."],
   ["What's in the red tins?","Powder. Black powder, for the old muskets the palace guard uses on parades. I'm the only one who still stocks it. Nobody else wants the paperwork."],
   ["Who do you sell to, mostly?","Farmers, for the foxes. Fishermen, for the seals. And a man from Hope Springs who buys more than any one man should. I don't ask. That's the deal."]],
- "Close the door behind you. Cold gets in the barrels."],
+ "Close the door behind you. Cold gets in the barrels.",
+ "Frank sells black powder to the palace guard, and a lot of everything to one man from Hope Springs. He doesn't ask why.",
+ {"Frank:3":"You again. Either you're writing about guns, or you've nowhere warm to stand.","Frank:2":"You again. Either you're writing about guns, or you've nowhere warm to stand."}],
 5:["(Frank is filling in a form with his tongue between his teeth.) Bertil at the Civil Service Bureau wants every box of cartridges written down. Every box. In triplicate.",[
   ["That sounds like a lot of boxes.","It is a lot of boxes. That's the point of a gun shop. You don't see Lisa at the supermarket writing down every loaf."],
   ["Is Bertil being difficult on purpose?","Bertil's never done anything on purpose in his life. He just does what the form says. That's worse."],

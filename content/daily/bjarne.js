@@ -28,7 +28,7 @@ DAILY['Bjarne']={
   ["Don't you ever rest?","Sweeping's resting. Ask any foreman. It's the only time nobody asks you anything."]],
  "Close the door gently. The mill's sleeping."],
 9:["(Bjarne is shaking his head over the ledger.) The price of bread's gone up again. Third time this year. And Dagny's got me writing the same wages in the same column as six years ago.",[
-  ["What does Dagny say?","That the mill can't afford it. And then she drives off in a new car. I keep her books. I know what the mill can afford."],
+  ["What does Dagny say?","That the mill can't afford it. And then she orders a new sleigh with brass bells. I keep her books. I know what the mill can afford."],
   ["Will you tell the men?","They know. They're not stupid. They've been talking to Helen from the union, in Saltwick. I'm not in the union. I'm a foreman. But I've got ears."],
   ["What will you do?",["(He looks at the ledger for a long time.) I'll keep the books straight. That's my job. Whoever wants to read them, they're on my desk.",[
     ["Isn't that disloyal?","Loyal to Dagny or loyal to the lads? That's the question I go to sleep with. I've never been good at sleeping."],

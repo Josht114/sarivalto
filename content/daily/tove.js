@@ -7,17 +7,20 @@ DAILY['Tove']={
   ["That's me. Nice shop.","It was my father's. Same chair, same mirror, same smell of bay rum. I've only changed the prices, and only upwards."],
   ["What does Saltwick think of the king dying?","Saltwick thinks the boats still have to go out. Anna thinks it's the start of something. I think everyone's going to want a haircut for the funeral."],
   ["Is it true you're the only barber on the island?","The only one with a pole. There's a man in Kingsgrad who does it with garden shears, but I don't count him, and nor does his wife."]],
- "Mind the step on your way out. It's iced over and I'm not paying for your teeth."],
+ "Mind the step on your way out. It's iced over and I'm not paying for your teeth.",
+ "Tove the barber in Saltwick has her father's chair and mirror. She expects a rush of haircuts for the funeral."],
 2:["(The radio on the shelf is playing something slow. Tove hums along, scissors going.) Kaisa's on. She always plays the sad ones first thing, then cheers up after her coffee.",[
   ["You know Kaisa?","She lives two floors under me in the block. I cut her hair every six weeks and she tells me which records the station manager has banned. It's a long list."],
   ["Who comes in for a cut, mostly?","Fishermen, before a wedding or after a fight. Party men, before a meeting. And Anna, every Friday, for a fringe trim she doesn't need."],
   ["Doesn't the radio get on your nerves?","It covers the silence when a man's deciding whether to tell me something. They always do, in the end."]],
- "Kaisa says it'll snow again by the weekend. She's usually wrong, which is comforting."],
+ "Kaisa says it'll snow again by the weekend. She's usually wrong, which is comforting.",
+ "Tove cuts Kaisa's hair and hears which records the station manager has banned. Anna comes in every Friday."],
 3:["(A tin on the counter is full of coins, and beside it sits a parcel wrapped in newspaper.) Tom paid me in herring this week. Again. I'm going to have to open a fish shop and put Olga out of business.",[
   ["Does everyone pay in fish?","Half of them. The other half pay in promises. I take cash from anyone mad enough to offer it, like you."],
   ["What will you do with the herring?","Aili will fry it at the diner and give me a coffee for it. That's how money works in Saltwick: it goes round in a circle and smells of fish."],
   ["Your father ran it the same way?","Worse. He once took a goat. It lived in the yard for a year and ate his best strop."]],
- "If you smell herring on your collar later, that's not me. That's Saltwick."],
+ "If you smell herring on your collar later, that's not me. That's Saltwick.",
+ "Tom paid Tove in herring again. In Saltwick, money goes round in a circle and smells of fish."],
 4:["(Tove holds a razor up to the light from the window.) Sheffield steel. My father bought it off an English sailor in 1951 and never let anyone else touch it. Now I don't either.",[
   ["It looks sharp.","Sharp enough to shave a peach, as he used to say. He never actually shaved a peach. We didn't see a peach on this island until 1967."],
   ["What happened to your father?","His heart, three winters ago, sitting in that very chair waiting for a customer. Nobody came that day. I've always thought that was the worst of it."],
@@ -29,7 +32,7 @@ DAILY['Tove']={
   ["Will you teach her to cut?","Not yet. First the broom, then the towels, then the strop. Scissors come when she stops talking to the customers about their ears."]],
  "If you see my sister, tell her Pia's here till six and has eaten."],
 6:["(Tove is trimming a moustache that isn't there, on nobody: practising.) Hope Springs is open, they tell me. Some of those men haven't been barbered since the snow. They'll be walking down here looking like bears.",[
-  ["Do the rich come down to Saltwick?","For me, they do. They send a car for me at first, and I tell them the chair doesn't travel. Then they come, and pretend they were passing."],
+  ["Do the rich come down to Saltwick?","For me, they do. They send a carriage for me at first, and I tell them the chair doesn't travel. Then they come, and pretend they were passing."],
   ["Who's your grandest customer?","I don't say names. Under the hot towel, a man's just a chin. That's the only rule my father ever really kept."],
   ["Bears? Is it that bad?","One of them came in last spring with a beard so big I found a pencil in it. He'd been looking for it since Christmas."]],
  "Ice on the step again. Go on, I'll watch you not fall."],
