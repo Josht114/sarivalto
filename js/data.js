@@ -839,7 +839,7 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //                        options are made for you: pay, or not now)
 // tip: a note on how the game works, in the quest news box once the quest is complete (after Meet the Communists, how to wait for the evening).
 // note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
-// tested: true once the quest has been played through and checked (the wiki's Quests page shows which are; none yet).
+// tested: true once the quest has been played through and checked (the wiki's Quests page shows which are).
 // completed: true once the quest is finished, nothing left to add or fix (the Completed column on the wiki's Quests page).
 // evening: offered on its day once night has fallen (George's jobs), not in the morning. A spot condition can need an item in
 // your inventory (item; lacks: what's said without it), and its x can be a range like its y. orChoice: the choice a talk condition
@@ -1208,12 +1208,12 @@ const BH_HEKKI={start:'a',nodes:{
 const QUESTS={
 // ---- 22 August, at Langley: Joan at the front desk (yours from the start of a new game: start:true), then your alias, then
 // your briefing.
-firstday:{title:'First Morning',giver:'Joan',main:true,day:-9,start:true,text:"Your first morning back at CIA Headquarters, with a new assignment waiting. Report to Joan, at the front desk in the lobby.",
+firstday:{title:'First Morning',tested:true,giver:'Joan',main:true,day:-9,start:true,text:"Your first morning back at CIA Headquarters, with a new assignment waiting. Report to Joan, at the front desk in the lobby.",
   done:[{talk:'Joan',chat:FM_JOAN,what:'Report to Joan, at the front desk in the lobby',gives:'alias'}],
   thanks:"Joan has sent you to the Cover Story Department, through the door on the left of the lobby."},
 // Find Hekki (yours as you land at West Saltwick Harbour on 1 September): meet the CIA's man on the island, at the Radio Tower,
 // who tells you where your room is
-findhekki:{title:'Find Hekki',giver:'Hekki',given:true,text:"You've landed at West Saltwick Harbour. Find Hekki, the CIA's man on the island: a radio tech who works at the Radio Tower, up from Saltwick. He has a room ready for you.",
+findhekki:{title:'Find Hekki',tested:true,giver:'Hekki',given:true,text:"You've landed at West Saltwick Harbour. Find Hekki, the CIA's man on the island: a radio tech who works at the Radio Tower, up from Saltwick. He has a room ready for you.",
   done:[{talk:'Hekki',chat:FH_HEKKI,what:'Find Hekki at the Radio Tower, up from Saltwick, and talk to him',gives:'checkin'}],
   thanks:"Your room is under Hekki's shack, through the bookcase. Call Chuck on the radio set there."},
 // Buy a Map (side quest, from 2 September): Hekki thinks you should have a map of the island. Buy one (Hannu's newsstand in
@@ -1233,15 +1233,15 @@ buymap:{title:'Buy a Map',giver:'Hekki',from:2,seq:true,
   thanks:"You have a map of Sarivalto: the menu (M) has a Map tab now, for whenever you're lost."},
 // Check In with Chuck (given by Find Hekki): call Chuck on the radio in your room; he gives you your first job, Meet the Communists.
 // incoming: the radio flashes INCOMING CALL while the call is waiting
-checkin:{title:'Check In with Chuck',giver:'Chuck',given:true,incoming:true,text:"Chuck will want to hear that you've landed. Go down to your room, under Hekki's shack at the Radio Tower (lean on the third shelf of the bookcase), tune in the radio set and call Langley.",
+checkin:{title:'Check In with Chuck',tested:true,giver:'Chuck',given:true,incoming:true,text:"Chuck will want to hear that you've landed. Go down to your room, under Hekki's shack at the Radio Tower (lean on the third shelf of the bookcase), tune in the radio set and call Langley.",
   done:[{talk:'Chuck',what:"Call Chuck on the radio set in your room, under Hekki's shack at the Radio Tower",gives:'meetreds',chat:{start:'a',nodes:{
     a:{say:"(Chuck's voice, thin through the static.) NIGHTJAR, Langley. Good to hear you. Did you make it in one piece?",opts:[["In one piece. Hekki says hello.",'b'],["Cold, wet, and in place.",'b']]},
     b:{say:"Good. First job: the Communist Party. They want this island in the Soviet Union, and that's exactly what we're here to stop. Their leader is a woman called Anna, at their HQ in Saltwick. Go and talk to her. Friendly. Find out where they stand, and don't tip your hand. Over."}}}}],
   thanks:"Langley has it on the record: NIGHTJAR is in place."},
-alias:{title:'Prepare Your Alias',giver:'Doris',main:true,day:-9,given:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
+alias:{title:'Prepare Your Alias',tested:true,giver:'Doris',main:true,day:-9,given:true,text:'Before you go anywhere, you need a cover. Go to the Cover Story Department, off the lobby at CIA Headquarters, and have Doris make you up: choose how you look and what you wear.',
   done:[{event:'alias',what:'Choose your look and clothes in the Cover Story Department, off the lobby',gives:'briefing'}],
   thanks:'Your new look is ready. Chuck is waiting to brief you, upstairs in his office.'},
-briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in his office, up the stairs from the lobby. Go and get your briefing.',
+briefing:{title:'Your Briefing',tested:true,giver:'Chuck',main:true,day:-9,given:true,text:'Chuck is waiting for you in his office, up the stairs from the lobby. Go and get your briefing.',
   done:[{talk:'Chuck',what:'Get your briefing from Chuck, in his office upstairs',gives:'flyout',chat:{start:'a',nodes:{
     a:{say:"There you are. Sit down. Good to have you back. Like the new look. You're going to Sarivalto, an island in the Baltic. Snow, fish, cola and not much else. Its king has just died, and right now nobody knows who's going to run the place.",opts:[['Who wants it?','b']]},
     b:{say:"Everyone. The Communists want the island in the Soviet Union, and Moscow would love a harbour that far north. The royals want the crown kept on Prince Leopold's head. Kelp Cola wants whoever's best for business. The Democrats want a vote. And there's an oil company and a syndicate sniffing around too.",opts:[['And what do we want?','c']]},
@@ -1251,14 +1251,14 @@ briefing:{title:'Your Briefing',giver:'Chuck',main:true,day:-9,given:true,text:'
 // Board the Plane (given by your briefing): first get something to eat and a pack of cigarettes from the machines in the cafeteria
 // (having them meets those steps: supplyCheck in game.js, events 'supply:food' and 'supply:cigs'; what's said explains hunger and
 // nicotine), then Peggy flies you out from the airstrip at Langley (boarding: questEvent 'board'). She won't go until you have both.
-flyout:{title:'Board the Plane',giver:'Peggy',main:true,day:-9,given:true,text:"You're briefed. It's a long way to Sarivalto, so get supplies first: something to eat from the vending machine in the cafeteria, off the lobby, and a pack of cigarettes from the cigarette machine beside it (pay with your own money). Then board the seaplane with Peggy, on the airstrip out through the lobby's front doors.",
+flyout:{title:'Board the Plane',tested:true,giver:'Peggy',main:true,day:-9,given:true,text:"You're briefed. It's a long way to Sarivalto, so get supplies first: something to eat from the vending machine in the cafeteria, off the lobby, and a pack of cigarettes from the cigarette machine beside it (pay with your own money). Then board the seaplane with Peggy, on the airstrip out through the lobby's front doors.",
   done:[{event:'supply:food',what:'Get something to eat: the vending machine in the cafeteria, off the lobby, sells candy bars',
       said:"Something to eat for the journey. Food keeps up the Hunger bar at the top right of the screen, which runs down as you play (and faster when time passes). To eat, open your inventory (M), choose the food and press Eat: a meal fills you up more than a snack."},
     {event:'supply:cigs',what:'Get a pack of cigarettes from the cigarette machine in the cafeteria, off the lobby',
       said:"A pack of twenty. The Nicotine bar runs down as you play too. Choose the pack in your inventory (M) and press Smoke for one cigarette, or Equip it to smoke one after another as you go. Let hunger or nicotine run low, and you can't think of anything else: nobody will talk business with you until you've eaten or had a smoke (though shopkeepers will still sell to you)."},
     {event:'board',last:true,what:"Board the plane with Peggy, on the airstrip out of the lobby's front doors"}],
   thanks:"You fly out to Sarivalto."},
-meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,given:true,seq:true,text:'Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader. Then report back to Chuck on the radio in your room.',
+meetreds:{title:'Meet the Communists',tested:true,giver:'Chuck',main:true,day:1,given:true,seq:true,text:'Chuck wants a read on the Communist Party, who want the island to join the Soviet Union: go to their HQ in Saltwick and have a conversation with Anna, the Party leader. Then report back to Chuck on the radio in your room.',
   wait:'Talked to Anna yet? Get over to Saltwick, to the Communist Party HQ. A friendly chat, nothing more.',
   done:[{talk:'Anna',what:'Have a conversation with Anna, the Communist Party leader',said:'You have the measure of Anna. Report back to Chuck on the radio in the Hidden Radio Room.'},
     {talk:'Chuck',what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
@@ -1274,7 +1274,7 @@ meetreds:{title:'Meet the Communists',giver:'Chuck',main:true,day:1,given:true,s
     d:{say:"A journalist! Then write this down: Sarivalto's future lies with the Soviet Union. Moscow will give this island what its kings never did.",opts:[['And what does Moscow get?','e'],['I will.',null]]},
     e:{say:"Friends, comrade. A harbour in the north, and an island that stands with the workers of the world. The Americans would rather we stayed a little kingdom they can buy. Now, I have a meeting. Come back any time."}}}},
 // (a talk condition can have its own chat, for a quest with several people to talk to)
-meetroyals:{title:'Meet the Royals',giver:'Chuck',main:true,day:2,call:true,text:'The road to Kingsgrad is open. Chuck wants to know the royal household: go to the Royal Palace and talk to each of the royal family and every one of their staff.',
+meetroyals:{title:'Meet the Royals',tested:true,giver:'Chuck',main:true,day:2,call:true,text:'The road to Kingsgrad is open. Chuck wants to know the royal household: go to the Royal Palace and talk to each of the royal family and every one of their staff.',
   offer:"Morning, NIGHTJAR. Good work on Anna. The snow's cleared on the road to Kingsgrad, so today it's the palace. The old king's dead, and whoever ends up wearing the crown, or tearing it down, matters to us. Meet the family: Prince Leopold, his brother Augustus and his sister Daphne. And talk to the staff, every one of them. Butlers and maids hear everything.",
   accept:"Good. Be polite, be curious, and remember who said what.",wait:"Still working through the palace? All three royals, and every one of the staff. The maids and the laundress too.",
   done:[
@@ -1961,7 +1961,7 @@ crossbeforecrown:{title:'Cross Before Crown',giver:'Father Thyme',main:true,day:
 // Beg from Hekki (a side quest the game gives you, given: js/needs.js begCheck): broke (less than $2 of your own and of the CIA's)
 // and starving with nothing to eat, or craving a smoke with no cigarettes. Hekki gives you $20, a loaf of bread and a pack of
 // cigarettes. If you go broke again later, it comes back.
-beghekki:{title:'Beg from Hekki',giver:'Hekki',given:true,text:"You're broke: no money of your own, and nothing left in the CIA's funds either. Go and ask Hekki for help, at the Radio Tower up from Saltwick (or in his shack there, at night).",
+beghekki:{title:'Beg from Hekki',tested:true,giver:'Hekki',given:true,text:"You're broke: no money of your own, and nothing left in the CIA's funds either. Go and ask Hekki for help, at the Radio Tower up from Saltwick (or in his shack there, at night).",
   done:[{talk:'Hekki',chat:BH_HEKKI,what:'Ask Hekki for help, at the Radio Tower up from Saltwick'}],
   thanks:"Hekki has seen you right: $20, a loaf of bread and a pack of cigarettes."},
 // Cover Blown (a side quest, from 26 September): Solveig, the Gazette's sub-editor, back from Fleet Street, has worked out you're no
