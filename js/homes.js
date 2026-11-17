@@ -5,6 +5,9 @@
 // wardrobe work there. Furniture (bought at Nordhem Furniture in Kingsgrad, FURN in data.js) and your equipment are put down in a
 // home of yours from the Inventory tab (Place): a ghost of it follows the arrow keys, green where it fits and red where it doesn't;
 // Enter puts it down, Escape keeps it. Facing something you've put down, P picks it up again.
+// Own more than one home and Sally will send a removals lorry (MOVE_FEE, from your own money): everything you've put down in one
+// home, and your equipment wherever it is, is set out in another as near as it fits to where it was (what won't fit comes to you to
+// put down), and that home becomes your home.
 // Kept in ME: homes (the homes you own), placed (by home, what you've put down: [x, y, w, h, tile, label, item]), home and moved
 // (whether your equipment has left the Hidden Radio Room); applyHomes() builds the homes' maps from that, and takes down the SALE sign
 // outside a home once it's yours.
@@ -38,12 +41,21 @@ function estateConvo(n){if(n.m!=n.loc)return{start:'a',nodes:{a:{say:"Come and s
   const nodes={},forSale=Object.keys(HOMES_FOR_SALE).filter(id=>!ownHome(id)&&id!=patsHome()),mine=ME.homes.filter(id=>id!=HOME);
   nodes.a={say:ME.homes.length?"Back again! How's the new place? Anything else I can do for you?":"Sally, Sarivalto Homes! Looking for a place of your own while you're on the island? I've some lovely properties on my books.",
     opts:[...forSale.map(id=>[`${aHome(id)[0].toUpperCase()+aHome(id).slice(1)} (${money(price(id))})`,'h_'+id]),...mine.map(id=>[`Move my things into my ${/villa/.test(id)?'villa':'house'} in ${where(id)}`,'m_'+id,()=>moveInto(id)]),
-      ...(ME.homes.length&&HOME!='hekki_room'?[['Move my things back to the radio tower','m_back',()=>moveInto('hekki_room')]]:[]),['Just looking.',null]]};
+      ...(ME.homes.length&&HOME!='hekki_room'?[['Move my things back to the radio tower','m_back',()=>moveInto('hekki_room')]]:[]),
+      ...(ME.homes.length>1?[[`Move everything to another of my homes (${money(MOVE_FEE)})`,'mv']]:[]),...(ME.homes.length?[['How do I furnish it?','fz']]:[]),['Just looking.',null]]};
   for(const id of forSale){const p=price(id);nodes['h_'+id]={say:HOMES_FOR_SALE[id][2]+` It's ${money(p)}. How would you like to pay?`,
     opts:[...(ME.cia>=p?[[`Pay ${money(p)} from CIA funds`,'b_'+id,()=>buyHome(id,'cia')]]:[]),...(ME.cash>=p?[[`Pay ${money(p)} of my own money`,'b_'+id,()=>buyHome(id,'cash')]]:[]),
       [ME.cia<p&&ME.cash<p?"I can't afford it.":'Not today.',null]]};
-    nodes['b_'+id]={say:"Congratulations! The keys are yours, and I've had the boxes cleared out. Shall I have your things moved over? Your screen, your radio, all that.",opts:[['Yes, move my things in.','m_'+id,()=>moveInto(id)],['Not yet.',null]]}}
+    nodes['b_'+id]={say:"Congratulations! The keys are yours, and I've had the boxes cleared out. Shall I have your things moved over? Your screen, your radio, all that.",opts:[['Yes, move my things in.','m_'+id,()=>moveInto(id)],['How do I furnish it?','fz'],['Not yet.',null]]}}
   for(const id of[...ME.homes,...Object.keys(HOMES_FOR_SALE)])nodes['m_'+id]={say:"Consider it done. Hekki's on his way with a handcart: your screen, the radio set, the telephone, the computer and your wardrobe will be waiting for you. Put them wherever you like."};
+  // furnishing: Freja's, across the square
+  nodes.fz={say:"Freja at Nordhem Furniture, across the square. Beds, sofas, stoves, the lot. Carry it home, then set it down wherever you like. (She taps the window.) Mind you leave room to get to the door.",opts:[['Thanks.',null]]};
+  // the removals lorry: everything in one home of yours, and your equipment, to another
+  const from=ME.homes.filter(id=>(ME.placed[id]||[]).length||id==HOME);
+  nodes.mv=from.length?{say:`A removals lorry, two strong lads and Hekki with a clipboard. ${money(MOVE_FEE)} of your own money, furniture and all, and your radio and the rest wherever they are. They'll set it out just as you had it, near enough. Which home are we moving out of?`,
+    opts:[...from.map(id=>[`My ${kind(id)} in ${where(id)}`,'mf_'+id]),['Never mind.',null]]}:{say:"Move what, love? There's nothing in any of them yet. Go and see Freja first."};
+  for(const a of from)nodes['mf_'+a]={say:'And where to?',opts:[...ME.homes.filter(b=>b!=a).map(b=>ME.cash>=MOVE_FEE?[`My ${kind(b)} in ${where(b)} (${money(MOVE_FEE)} of my own money)`,'mt',()=>moveAll(a,b)]:[`My ${kind(b)} in ${where(b)}: I can't afford ${money(MOVE_FEE)}`,null]),['Never mind.',null]]};
+  nodes.mt={say:"Consider it done. The lorry's loading now, and by the time you get there it'll all be in. Your new home, then. Lovely."};
   nodes.m_back={say:"Back to the radio tower? Well, it's your money. Hekki will take everything back over this afternoon."};
   return{start:'a',nodes}}
 function buyHome(id,how){const p=price(id);if(ME[how]<p)return;ME[how]-=p;ME.homes.push(id);applyHomes();say(`${aHome(id)[0].toUpperCase()+aHome(id).slice(1)} is yours.`,4000)}
@@ -54,6 +66,23 @@ function moveInto(id){if(HOME==id)return;
   else{const pl=ME.placed[HOME]||[];for(const p of pl.filter(p=>/^eq_/.test(p[6]))){pl.splice(pl.indexOf(p),1);give(p[6])}}
   if(id=='hekki_room'){ME.moved=false;for(const k of Object.values(EQUIP_ITEM))while(has(k))take(k)}else for(const k of Object.values(EQUIP_ITEM))if(!has(k)&&!Object.values(ME.placed).flat().some(p=>p[6]==k))give(k);
   ME.home=id;applyHomes()}
+// the removals lorry: what's put down in home a (and your equipment, from the Hidden Radio Room or any home) goes to home b, each
+// piece where it was if it fits there, or else the first place it fits; what doesn't fit anywhere comes to you
+const MOVE_FEE=150;
+function moveAll(a,b){if(ME.cash<MOVE_FEE||a==b||!ownHome(b))return;ME.cash-=MOVE_FEE;
+  const load=(ME.placed[a]||[]).splice(0);for(const id in ME.placed)for(const p of ME.placed[id].filter(p=>/^eq_/.test(p[6]))){ME.placed[id].splice(ME.placed[id].indexOf(p),1);load.push(p)}
+  if(!ME.moved){ME.moved=true;for(const f of ORIG.hekki_room.fs)if(EQUIP_ITEM[f[5]]&&!load.some(p=>p[6]==EQUIP_ITEM[f[5]])){const k=EQUIP_ITEM[f[5]],[w,h,ch,lb]=FURN[k];load.push([0,0,w,h,ch,lb,k])}}
+  ME.home=b;applyHomes();let M=MAPS[b];const stop=new Set(EX[b].map(e=>e.ax!=null?e.ax+','+e.ay:'')),left=[];
+  // walking in from the door, can you still get up to every piece in the home that you could get up to before?
+  const walk=()=>{const q=[...stop].filter(Boolean).map(k=>k.split(',').map(Number)),seen=new Set(q.map(c=>c+''));while(q.length){const[x,y]=q.shift();for(const[dx,dy]of[[1,0],[-1,0],[0,1],[0,-1]]){const k=[x+dx,y+dy]+'';if(!seen.has(k)&&M[y+dy]?.[x+dx]&&!SOLID.includes(M[y+dy][x+dx])){seen.add(k);q.push([x+dx,y+dy])}}}return seen},
+    near=(seen,[fx,fy,w,h])=>{for(let j=fy-1;j<=fy+h;j++)for(let i=fx-1;i<=fx+w;i++)if((j<fy||j>=fy+h)!=(i<fx||i>=fx+w)&&seen.has(i+','+j))return true;return false},
+    s0=walk(),must=FL[b].filter(f=>near(s0,f)),reach=()=>{const s=walk();return must.concat(ME.placed[b]||[]).every(f=>near(s,f))};
+  const fits=(x,y,w,h,ch)=>{if(x<1||y<1||x+w>M[0].length-1||y+h>M.length-1)return false;for(let j=y;j<y+h;j++)for(let i=x;i<x+w;i++)if(M[j][i]!='f'||stop.has(i+','+j))return false;
+    setTiles(b,x,y,w,h,ch);const ok=reach()&&near(walk(),[x,y,w,h]);setTiles(b,x,y,w,h,'f');return ok};
+  for(const p of load){const[,,w,h,ch]=p;let at=fits(p[0],p[1],w,h,ch)&&[p[0],p[1]];for(let y=1;!at&&y<M.length;y++)for(let x=1;!at&&x<M[0].length;x++)if(fits(x,y,w,h,ch))at=[x,y];
+    if(!at){left.push(p[6]);continue}p[0]=at[0];p[1]=at[1];(ME.placed[b]??=[]).push(p);setTiles(b,at[0],at[1],w,h,ch);M=MAPS[b]}
+  left.forEach(give);applyHomes();say(`Everything's moved to your ${kind(b)} in ${where(b)}.`+(left.length?` It wouldn't all fit: ${[...new Set(left)].map(k=>{const c=left.filter(x=>x==k).length;return ITEMS[k].name.toLowerCase()+(c>1?` (×${c})`:'')}).join(', ')} came back with you, to put down.`:''),5000)}
+const kind=id=>/villa/.test(id)?'villa':'house';
 const give=id=>{const m=has(id);if(m)m.n++;else ME.items.push({id,n:1})};
 // ---- Putting things down: the ghost, the keys, and the check that it fits
 let PLACE=null;

@@ -617,7 +617,7 @@ addEventListener('click',e=>{const b=e.target.closest?.('[data-jd]');if(!b||STAR
 // to the end, that's today's conversation done (ME.talked), and they only say the last part. Someone with nothing for today just
 // gives their name. Shopkeepers, and the people with a service of their own (SERVICE: its old conversation in CONVOS), offer it
 // at the end.
-const SERVICE={Otto:'About the pictures',Sally:'About a house',Jonna:"I'd like a tattoo.",Tove:'A haircut or a shave.'};
+const SERVICE={Otto:'About the pictures',Sally:'About a house',Freja:'Furnishing a house',Jonna:"I'd like a tattoo.",Tove:'A haircut or a shave.'};
 function serviceOpts(n){const o=[];if(SHOPS[n.name]&&n.m==n.loc){o.push(['Show me your stock',null,()=>openShop(n)]);
     if(n.name==FISH_BUYER&&ME.items.some(i=>FISH[i.id]&&!FISH[i.id].junk))o.push(['Sell my catch',null,sellCatch])}
   if(SERVICE[n.name]&&CONVOS[n.name])o.push([SERVICE[n.name],null,()=>converse(n,CONVOS[n.name])]);return o}
