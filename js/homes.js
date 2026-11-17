@@ -1,6 +1,6 @@
 // ---- Homes of your own. Sally, the estate agent in Kingsgrad, sells the island's empty homes (HOMES_FOR_SALE in data.js), paid from
 // CIA funds or your own money; buying one clears out its boxes and makes it yours ("Your House"). She can also have your equipment
-// moved in: the radio set (and, from an older save, a big screen), the telephone, the computer and the wardrobe leave the Hidden Radio Room (or the home
+// moved in: the radio set (and, from an older save, a big screen), the telephone, the computer, the wardrobe and the notice board leave the Hidden Radio Room (or the home
 // you were in) and come to you as things to put down, and that home becomes your home (HOME): the screen, the telephone and the
 // wardrobe work there. Furniture (bought at Nordhem Furniture in Kingsgrad, FURN in data.js) and your equipment are put down in a
 // home of yours from the Inventory tab (Place): a ghost of it follows the arrow keys, green where it fits and red where it doesn't;
@@ -11,7 +11,7 @@
 // Kept in ME: homes (the homes you own), placed (by home, what you've put down: [x, y, w, h, tile, label, item]), home and moved
 // (whether your equipment has left the Hidden Radio Room); applyHomes() builds the homes' maps from that, and takes down the SALE sign
 // outside a home once it's yours.
-const EQUIP_LABELS=['Big Screen','Radio Equipment','Telephone','Computer','Wardrobe'],EQUIP_ITEM={'Big Screen':'eq_screen','Radio Equipment':'eq_radio',Telephone:'eq_phone',Computer:'eq_computer',Wardrobe:'eq_wardrobe'};
+const EQUIP_LABELS=['Big Screen','Radio Equipment','Telephone','Computer','Wardrobe','Notice Board'],EQUIP_ITEM={'Big Screen':'eq_screen','Radio Equipment':'eq_radio',Telephone:'eq_phone',Computer:'eq_computer',Wardrobe:'eq_wardrobe','Notice Board':'eq_board'};
 // each home's map as the game began, to build it again from
 const ORIG={};for(const id of[...Object.keys(HOMES_FOR_SALE),'hekki_room']){const d=DOORS.find(x=>x[5]==id),out=d&&FL[d[0]].find(([x,y,w,h,c])=>c=='#'&&d[1]>=x&&d[1]<x+w&&d[2]>=y&&d[2]<y+h);
   ORIG[id]={fs:FL[id].map(f=>f.slice()),map:MAPS[id].slice(),name:L[id][0],out,outName:out&&out[5]}}
@@ -30,6 +30,8 @@ function applyHomes(){for(const id in ORIG){const o=ORIG[id];FL[id].length=0;o.f
   // the SALE sign stays up until the home is sold
   for(const id in SALE_SIGN){const p=SALE_SIGN[id];if(!p)continue;const i=PROPS.indexOf(p),sold=ownHome(id)||id==patsHome();if(sold&&i>=0)PROPS.splice(i,1);else if(!sold&&i<0)PROPS.push(p)}
   HOME=ME.home||'hekki_room';
+  // (a save from before the notice board, with your things already moved out: the board comes to you, to put down)
+  if(ME.moved&&!ME.items.some(i=>i.id=='eq_board')&&!Object.values(ME.placed).flat().some(p=>p[6]=='eq_board'))ME.items.push({id:'eq_board',n:1});
   for(const id in ORIG){delete SC[id];delete PCACHE[id];const d=DOORS.find(x=>x[5]==id);if(d){delete SC[d[0]];delete PCACHE[d[0]]}}if(typeof showHere=='function'&&ORIG[P.m])here.text=NM[P.m]}
 const ownHome=m=>ME.homes.includes(m);
 // the home you gave Pat in Alms for the Poor (no longer yours, and no longer for sale), if you did
@@ -47,7 +49,7 @@ function estateConvo(n){if(n.m!=n.loc)return{start:'a',nodes:{a:{say:"Come and s
     opts:[...(ME.cia>=p?[[`Pay ${money(p)} from CIA funds`,'b_'+id,()=>buyHome(id,'cia')]]:[]),...(ME.cash>=p?[[`Pay ${money(p)} of my own money`,'b_'+id,()=>buyHome(id,'cash')]]:[]),
       [ME.cia<p&&ME.cash<p?"I can't afford it.":'Not today.',null]]};
     nodes['b_'+id]={say:"Congratulations! The keys are yours, and I've had the boxes cleared out. Shall I have your things moved over? Your screen, your radio, all that.",opts:[['Yes, move my things in.','m_'+id,()=>moveInto(id)],['How do I furnish it?','fz'],['Not yet.',null]]}}
-  for(const id of[...ME.homes,...Object.keys(HOMES_FOR_SALE)])nodes['m_'+id]={say:"Consider it done. Hekki's on his way with a handcart: your screen, the radio set, the telephone, the computer and your wardrobe will be waiting for you. Put them wherever you like."};
+  for(const id of[...ME.homes,...Object.keys(HOMES_FOR_SALE)])nodes['m_'+id]={say:"Consider it done. Hekki's on his way with a handcart: your screen, the radio set, the telephone, the computer, your wardrobe and the notice board will be waiting for you. Put them wherever you like."};
   // furnishing: Freja's, across the square
   nodes.fz={say:"Freja at Nordhem Furniture, across the square. Beds, sofas, stoves, the lot. Carry it home, then set it down wherever you like. (She taps the window.) Mind you leave room to get to the door.",opts:[['Thanks.',null]]};
   // the removals lorry: everything in one home of yours, and your equipment, to another

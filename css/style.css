@@ -192,3 +192,9 @@ select hr{border:0;border-top:1px solid #000}
 #menu button{font:inherit;font-size:14px;text-align:left;padding:7px 10px;border-radius:6px;border:1px solid #3a5a3a;background:#1c2e1c;color:#fff;cursor:pointer}
 #menu button:hover,#menu button:focus{background:#2f4a14;border-color:#9fe870;outline:none}
 #menu button[data-to=""]{color:#b9c7b0;background:transparent}
+/* the notice board in your home: post-it notes on cork */
+#start .board{display:flex;flex-wrap:wrap;gap:18px;align-content:flex-start;padding:18px;background:#b8865a;border:6px solid #6b4a2e;border-radius:4px;min-height:160px}
+#start .postit{width:170px;min-height:120px;padding:16px 12px 10px;background:#fff27a;color:#2a2a20;font-size:15px;line-height:1.35;box-shadow:2px 4px 8px rgba(0,0,0,.35);position:relative}
+#start .postit::before{content:'';position:absolute;top:5px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#c0392b;box-shadow:1px 1px 1px rgba(0,0,0,.4)}
+#start .postit small{display:block;margin-top:8px;color:#5a5030;font-size:12px}
+#start .postit.plain{color:#5a5030}

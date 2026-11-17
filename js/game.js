@@ -71,7 +71,7 @@ let START=null;  // the open tab, or null when the menu is closed
 const slotsOf=(list,sel,priced)=>Array.from({length:Math.max(16,Math.ceil(list.length/4)*4)},(_,i)=>{const t=list[i];
   return t?`<button class="slot${!priced&&ME.equipped==t.id?' eq':''}" data-item="${i}" aria-pressed="${i==sel}" title="${esc(ITEMS[t.id].name)}${!priced&&ME.equipped==t.id?' (equipped)':''}"><img src="${itemIcon(t.id)}" alt="">${!priced&&ME.equipped==t.id?'<span class="e">E</span>':''}${priced?`<span class="p">$${t.p}</span>`:''}${t.n>1?`<span class="n">${t.n}</span>`:''}</button>`:'<span class="slot"></span>'}).join('');
 const money=v=>'$'+v.toLocaleString('en-US'),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'){renderTracker();return}if(START=='wardrobe'){renderWardrobe();return}if(typeof PLAYS!='undefined'&&PLAYS[START]){PLAYS[START].render();return}let body='';
+function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'){renderTracker();return}if(START=='wardrobe'){renderWardrobe();return}if(START=='board'){renderBoard();return}if(typeof PLAYS!='undefined'&&PLAYS[START]){PLAYS[START].render();return}let body='';
   if(START=='inv'){// the date and money, then a grid of what you carry (at least 4 rows of 4), and the chosen item's panel
     ME.sel=Math.max(0,Math.min(ME.sel,ME.items.length-1));const it=ME.items[ME.sel],d=it&&ITEMS[it.id];
     const slots=slotsOf(ME.items,ME.sel);
@@ -326,6 +326,7 @@ addEventListener('keydown',e=>{if(e.target.tagName=='SELECT'||e.repeat)return;co
   // in a shop the arrows (or WASD) move through the stock, C pays with CIA funds and P with your own money
   // in the casino and arcade games, the game takes the keys
   else if(typeof PLAYS!='undefined'&&PLAYS[START]){if(PLAYS[START].key(k,e))e.preventDefault()}
+  else if(START=='board'){if(k=='e'||k=='E'||k=='Enter'||k==' '){closeStart();e.preventDefault();e.stopImmediatePropagation()}}
   else if(START=='wardrobe'){const m={ArrowUp:-1,w:-1,ArrowDown:1,s:1}[k.length==1?k.toLowerCase():k],c={ArrowLeft:-1,a:-1,ArrowRight:1,d:1}[k.length==1?k.toLowerCase():k];
     if(m){const n=wrows().length;WARD.row=(WARD.row+m+n)%n;renderStart();e.preventDefault()}else if(c){wstep(WARD.row,c);e.preventDefault()}}
   else if(START=='shop'){const st=stockOf(SHOP.n),d={ArrowLeft:-1,a:-1,ArrowRight:1,d:1,ArrowUp:-4,w:-4,ArrowDown:4,s:4}[k.length==1?k.toLowerCase():k];
@@ -455,6 +456,20 @@ const qOf=id=>ME.quests.find(q=>q.id==id);
 const mainTaken=()=>ME.quests.find(q=>QUESTS[q.id].main&&q.took==DAY);
 const offerable=id=>{const Q=QUESTS[id];if(qOf(id)||Q.given||Q.ring)return false;if(Q.evening)return Q.day==DAY&&NIGHT;if(Q.main)return Q.day==DAY&&!NIGHT&&!mainTaken();return(Q.from??-99)<=DAY&&(Q.opens||[]).every(isOpen)};
 const offerOf=n=>Object.keys(QUESTS).filter(id=>QUESTS[id].giver==n.name&&offerable(id)).sort((a,b)=>!!QUESTS[b].main-!!QUESTS[a].main)[0];
+// the side quests someone has for you right now (the notice board in your home flashes while there are any)
+const sideOffers=()=>DAY<1?[]:Object.keys(QUESTS).filter(id=>!QUESTS[id].main&&offerable(id));
+// the notice board in your home: facing it, E shows a post-it note for each side quest on offer, saying who wants to talk to you
+// and where to find them (a quest's own hint, if it has one, instead); Langley's people are reached on the radio set
+const boardAhead=()=>{if(P.m!=HOME&&P.m!='hekki_room')return false;const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return FL[P.m].some(([fx,fy,w,h,,l])=>l=='Notice Board'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h)};
+const boardNote=id=>{const Q=QUESTS[id],n=NPCS.find(n=>n.name==Q.giver);if(Q.hint)return Q.hint;
+  const at=!n?'':/^langley/.test(n.loc)?'On the radio set, from Langley.':n.loc&&NM[n.loc]?`${n.job.replace(/ \(.*\)$/,'')}, ${NM[n.loc]}${POS[n.loc]||!areaOf(n.loc)?'':', '+NM[areaOf(n.loc)]}.`:'';
+  return`<b>${esc(Q.giver)}</b> wants to talk to you.${at?`<small>${esc(at)}</small>`:''}`};
+function openBoard(){if(MENU||RIDE||BUSY)return;SHOP=null;START='board';stack=[];startEl.hidden=false;renderStart()}
+function renderBoard(){const ids=sideOffers(),tilt=[-3,2,-1,3,-2,1];
+  startEl.innerHTML=`<div class="tabs"><h3 class="shopname">Notice Board</h3><button class="close" aria-label="Close the notice board">&times;</button></div>
+    <div class="board">${ids.length?ids.map((id,i)=>`<div class="postit" style="transform:rotate(${tilt[i%tilt.length]}deg)">${boardNote(id)}</div>`).join(''):`<div class="postit plain" style="transform:rotate(-2deg)">Nothing new. Check back tomorrow.</div>`}</div>
+    <p class="note">The board flashes when somebody has a side quest for you. Escape or E closes it.</p>`;
+  startEl.querySelector('.close').onclick=closeStart}
 // the main quest standing between you and the evening: today's, taken on and not yet done ('offer' if there is one today you
 // haven't taken on), or nothing
 const mainDue=()=>{if(DAY<1)return null;const t=mainTaken();if(t)return t.done?null:t;return Object.keys(QUESTS).some(id=>QUESTS[id].main&&QUESTS[id].day==DAY)?'offer':null};
@@ -571,6 +586,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(mapAhead()){openStart('map');return}
   if(computerAhead()){openTracker();return}
   if(wardrobeAhead()){openWardrobe();return}
+  if(boardAhead()){openBoard();return}
   if(mirrorAhead()){openCover();return}
   if(vendingAhead()){cigMachine();return}
   if(planeAhead()){boardPlane();return}
@@ -678,6 +694,7 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(mapAhead()&&!P.mv)return'Press E to look at the map';
   if(computerAhead()&&!P.mv)return'Press E to use the Faction Tracker';
   if(wardrobeAhead()&&!P.mv)return'Press E to open the wardrobe';
+  if(boardAhead()&&!P.mv)return sideOffers().length?'Press E to read the notice board: something new':'Press E to read the notice board';
   if(mirrorAhead()&&!P.mv)return'Press E to work on your alias';
   if(vendingAhead()&&!P.mv)return vendingAhead()=='Cigarette Machine'?'Press E to buy cigarettes':'Press E to buy something to eat';
   if(planeAhead()&&!P.mv)return'Press E to board the plane';

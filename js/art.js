@@ -1699,6 +1699,14 @@ function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   // a potted plant: a broad-leaved fern in a white pot
   if(l=='plant'){const oy=12,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#e8e6e0',3,TT-9,10,9);r('#c8c6c0',3,TT-9,10,1);r('#5a3e27',4,TT-10,8,1);
     for(const[x,y,w,h]of[[2,6,4,3],[10,6,4,3],[5,2,3,8],[8,3,3,7],[1,11,4,2],[11,11,4,2],[6,9,4,4]]){r('#2e6a2e',x,y,w,h);r('#4a9a3a',x+1,y,Math.max(1,w-2),1)}})}}
+  // your notice board: a cork board in a wooden frame on two legs, with three post-it notes pinned to it; while somebody has a side
+  // quest for you, the notes flash bright yellow and the frame glows (the 'nboard' animation)
+  if(l=='notice board'){const oy=18,TT=H+oy,notes=[[4,4],[13,8],[22,5]];return{oy,an:[{t:'nboard',x:0,y:0,w:W,h:26,notes}],c:mk(W,TT,r=>{
+    r('#5a3d24',4,24,2,TT-24);r('#5a3d24',W-6,24,2,TT-24);r('#3a2414',3,TT-2,4,2);r('#3a2414',W-7,TT-2,4,2);
+    r('#6b4a2e',0,0,W,26);r('#8a6038',0,0,W,1);r('#4a3020',0,25,W,1);r('#b8865a',2,2,W-4,22);
+    for(let i=0;i<40;i++)r(i%3?'#a07448':'#c99a6a',2+((i*7)%(W-5)),2+((i*11)%21),1,1);
+    for(const[x,y]of notes){r('#d8c86a',x,y,7,7);r('#e8da80',x,y,7,1);r('#9a8a40',x+1,y+3,5,1);r('#9a8a40',x+1,y+5,4,1);r('#c0392b',x+3,y,1,1)}
+    r('#f2f2f2',27,16,3,4);r('#b0b0b0',28,17,1,2)})}}
   // a tall wooden wardrobe with two panelled doors, brass knobs and a carved top
   if(l=='wardrobe'){const oy=22,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#5a3d24',1,1,W-2,TT-3);r('#3a2414',0,0,W,3);r('#7a5636',0,0,W,1);
     r('#4a3020',(W>>1)-1,4,1,TT-8);for(const x of[3,(W>>1)+1]){r('#6b4a2e',x,5,(W>>1)-4,TT-12);r('#7a5636',x,5,(W>>1)-4,1);r('#4a3020',x,TT-8,(W>>1)-4,1)}
@@ -2315,6 +2323,9 @@ function drawWorld2(m,cx,cy,t,frame){
         [['INCOMING',sy+1],['CALL',sy+7]].forEach(([w,y])=>{const x0=sx+((sw-w.length*4+1)>>1);[...w].forEach((ch,i)=>{const f=FONT[ch];if(f)for(let k=0;k<15;k++)if(f[k]=='1')px('#ffffff',x0+i*4+k%3,y+(k/3|0),1,1)})})}
       else{px('#0e1f16',sx,sy,sw,sh);px('rgba(127,208,160,.12)',sx,sy+((t/90)|0)%sh,sw,1);if(((t/500)|0)%2)px('#7fd0a0',sx+2,sy+2,3,1)}
       px('#ff3b2f',X+a.w-4,Y+a.h-2,2,1)}
+    // the notice board: while somebody has a side quest for you, its notes flash bright yellow and the frame glows
+    if(a.t=='nboard'&&typeof sideOffers=='function'&&sideOffers().length&&((t/450)|0)%2){px('#ffe14a',X,Y,a.w,1);px('#ffe14a',X,Y+a.h-1,a.w,1);px('#ffe14a',X,Y,1,a.h);px('#ffe14a',X+a.w-1,Y,1,a.h);
+      for(const[x,y]of a.notes){px('#fff27a',X+x,Y+y,7,7);px('#fffbd0',X+x,Y+y,7,1);px('#c0392b',X+x+3,Y+y,1,1);px('#6a5a20',X+x+1,Y+y+3,5,1);px('#6a5a20',X+x+1,Y+y+5,4,1)}}
     // the big screen: the camera's light blinking red, and a slow line rolling down the display
     if(a.t=='vcall'){if(((t/600)|0)%2)px('#ff3b2f',X,Y,2,1);px('rgba(159,192,224,.12)',X+a.sx,Y+a.sy+((t/60)|0)%a.h,a.w,1);
       // Chuck calling: the screen flashes red with INCOMING CALL across it

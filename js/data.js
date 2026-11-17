@@ -105,7 +105,7 @@ villa_gustavo:["Gustavo's Villa",16,10,'interior',[[2,1,2,2,'e','Bed'],[6,1,6,1,
 house_thyme:["Father Thyme's House",10,9,'interior',[[2,1,2,2,'e','Bed'],[5,1,3,1,'y','Bookcase'],[6,4,2,2,'u','Table'],[2,5,1,1,'i','Stove']]],
 shack_hekki:["Hekki's Shack",10,7,'interior',[[1,1,2,2,'e','Bed'],[4,1,3,1,'y','Radio Set'],[4,4,2,1,'u','Table'],[8,1,1,1,'q']]],
 // The Hidden Radio Room, with a small living space behind a partition on the right (through the doorway at x14, y5)
-hekki_room:['Hidden Radio Room',22,9,'interior',[[5,1,4,1,'y','Radio Equipment'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[9,4,1,1,'x','Telephone'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
+hekki_room:['Hidden Radio Room',22,9,'interior',[[5,1,4,1,'y','Radio Equipment'],[10,1,2,1,'y','Notice Board'],[1,4,2,1,'y','Tape Recorder'],[5,4,4,2,'u','Desk'],[9,4,1,1,'x','Telephone'],[11,4,2,2,'y','Computer'],[11,7,2,1,'x','Boxes'],[1,7,4,1,'y','Screens'],
 [14,1,1,4,'W'],[14,6,1,2,'W'],[16,1,2,2,'e','Bed'],[18,1,1,1,'y','Wardrobe'],[19,1,2,1,'i','Stove'],[16,5,2,1,'u','Table'],[19,4,2,1,'y','Supplies'],[19,7,2,1,'x','Tins']]],
 // CIA Headquarters at Langley, Virginia, where the game's story begins: not on the island, and reached only from the Jump to list.
 // The lobby has the Agency's seal set in its granite floor, the Memorial Wall of stars between two flags with the Book of Honor in
@@ -618,6 +618,7 @@ eq_radio:{name:'Radio set',desc:'Your radio set. Put it down at home.',actions:[
 eq_phone:{name:'Telephone',desc:'Your telephone, for the calls that come in the morning. Put it down at home.',actions:['Place']},
 eq_computer:{name:'Computer',desc:'Your computer, with the Faction Tracker on it. Put it down at home.',actions:['Place']},
 eq_wardrobe:{name:'Wardrobe',desc:'Your wardrobe, with all your clothes in it. Put it down at home.',actions:['Place']},
+eq_board:{name:'Notice board',desc:'Your cork notice board. It flashes when somebody has a side quest for you, and shows who. Put it down at home.',actions:['Place']},
 drill:{name:'Hand drill',desc:'A carpenter\'s brace and bit, from the supermarket or Harbour Outfitters. It goes through ship\'s planking like butter.',actions:['Look at']},
 hose:{name:'Hose',desc:'A good long rubber hose, from the fishing shop in Kingsgrad.',actions:['Look at']},
 motor:{name:'Small motor',desc:'A little electric motor, from the electronics store in Frostholm. It would drive a pump.',actions:['Look at']},
@@ -2002,7 +2003,7 @@ const HOMES_FOR_SALE={house_bob:[800,'Saltwick','Bob\'s old house on the main st
   villa_forsale:[5000,'Hope Springs','A villa in the Hope Springs gated community, with Phil, Dario and Gustavo for neighbours. It has a fireplace.']};
 const FURN={f_bed:[2,2,'e','Bed'],f_sofa:[3,1,'x','Sofa'],f_armchair:[1,1,'x','Armchair'],f_table:[2,2,'u','Table'],f_desk:[3,2,'u','Desk'],f_bookcase:[3,1,'y','Bookcase'],
   f_lamp:[1,1,'x','Lamp'],f_plant:[1,1,'x','Plant'],f_stove:[2,1,'i','Stove'],f_fireplace:[2,1,'i','Fireplace'],
-  eq_screen:[4,1,'y','Big Screen'],eq_radio:[4,1,'y','Radio Equipment'],eq_phone:[1,1,'x','Telephone'],eq_computer:[2,2,'y','Computer'],eq_wardrobe:[1,1,'y','Wardrobe']};
+  eq_screen:[4,1,'y','Big Screen'],eq_radio:[4,1,'y','Radio Equipment'],eq_phone:[1,1,'x','Telephone'],eq_computer:[2,2,'y','Computer'],eq_wardrobe:[1,1,'y','Wardrobe'],eq_board:[2,1,'y','Notice Board']};
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).
 const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['second',19,8,0,1,'kcmuseum_in'],['second',28,8,0,1,'house_henrik'],
