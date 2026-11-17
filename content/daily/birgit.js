@@ -1,123 +1,126 @@
-// Birgit, manager of the Nordmart supermarket in Frostholm (no faction). Threads: clipboards and strict schedules, aisle-blockers, the oil workers' late shopping, her neighbour Sanna at Polar Burger, the lift in Skyline Apartments, stockpiling before and after the eruption.
+// Birgit, manager of the Nordmart supermarket in Frostholm (the Shopkeepers). Threads: clipboards, schedules and people blocking
+// aisle three; the oil workers' late shopping and the deliveries that never come right; her neighbour Sanna at Polar Burger, whom
+// she looks after by list (and who looks after her by burger); her rivalry with Lisa's pyramids in Kingsgrad (Birgit does straight
+// lines); the lift in Skyline Apartments, which she has reported eleven times; and stockpiling, before and after the eruption.
 DAILY['Birgit']={
-7:["(Birgit is holding a clipboard and does not look up.) Aisle three, you're blocking it. Thank you. Reporter, are you? The roads have been open for an hour and I've already had four deliveries wrong.",[
-  ["Sorry. Nice shop.","It's a supermarket, not a shop. A shop is where you chat. A supermarket is where you move. You'll learn."],
-  ["How's business now the north's open?","Brisk. The oil lot buy by the trolley. I've rationed the tinned peaches."],
-  ["Do you ever relax?","On the second Tuesday of the month, between four and four-fifteen. It's on the schedule."]],
- "Move along, please. There's a queue."],
-8:["(Birgit consults a chart on the wall.) It's Sunday and the monks' delivery is late. I've a van with no driver and a driver with no excuse. Do you know how many spreadsheets I've written this week?",[
-  ["How many?","Eleven. Four on the beans alone. I don't trust a man who hasn't counted his beans."],
-  ["Do you go to church?","I'm busy on Sundays. The Almighty can take it up with the manager."],
-  ["What would help?","A world where deliveries arrive when they say. I'd even settle for a day."]],
- "If you see my driver, tell him to ring. He knows what for."],
-9:["(Birgit sets down a crate of cola with a thump.) Two companies, three labels, one shelf. They've each paid me for the end of the aisle. I've put the beans at the end of the aisle. Everyone's cross.",[
-  ["Who paid you?","Kelp Cola's boys, and a young man for the Party who offered me a flag. I said I'd take the money."],
-  ["Is there a cola war in Frostholm?","There's a cola war in every shop. I just manage the casualties."],
-  ["Which sells best?","The one at eye level. Nobody ever buys what's at the bottom, and that's a fact I've proved."]],
- "Don't touch the display. I've measured it."],
-10:["(Birgit has the radio on a low, solemn tune, and a black ribbon pinned to the clipboard.) We stay open. The old king would have understood. He was a man of schedules himself. He opened every Parliament at precisely ten.",[
-  ["Did you admire him?","I admired his punctuality. It's rarer than wisdom."],
-  ["Is the shop quiet?","The oil men are at the funeral, on the radio. For once nobody's blocking the aisle."],
-  ["What happens next?","A great deal of upheaval. Which is why I'm doubling the bread."]],
- "I'll observe a minute's silence at noon. It's on the schedule."],
-11:["(Birgit looks at the till roll.) Everyone's buying bread. Something's coming, or someone's saying so. It's alms at the church, it's pay at the mill. I'd say people are nervous, but they're buying the right things.",[
-  ["Why bread?","Bread's the sign. When people buy bread, they're afraid. When they buy chocolate, they're hopeful. Right now it's mostly bread."],
-  ["Do you give to the church?","A crate of tins every Sunday. I've a form for it. It saves arguments."],
-  ["Is there enough for everyone?","I plan for it. It's called stock control. It's the only politics I understand."]],
- "Take a trolley. Not that one. It pulls to the left."],
-12:["(Birgit holds a crisp banknote to the light.) A man from the oil office paid for forty trolleys of tinned food, in cash. For a 'department'. I asked what department needs forty trolleys. He said, 'Accounts.'",[
-  ["Who was he?","A Mr Hale, I believe, from Diversified Petroleum. I gave him a receipt and an unconvincing smile."],
-  ["Is it odd?","Odd as a screw in a loaf. But the money's real, and so is the soup."],
-  ["Do you ask questions?","Only about quantities. I never ask why."]],
- "If you see forty trolleys, they're mine."],
-13:["Free samples today. (Birgit stands by a table of tiny cups.) I've been standing here since eight, telling people to take one. Some have taken three. There's always a Sanna among them.",[
-  ["Does Sanna come by?","Between shifts, always. She's a good friend and a terrible shopper. She reads every label and buys the same pie."],
-  ["Is Kelp Cola doing well?","Their samples vanish faster than my patience. The new formula is a hit."],
-  ["Do you like the free days?","They're chaos with a banner. But the till doesn't lie."]],
- "Take a cup and keep moving."],
-14:["(Birgit looks at her watch twice.) The whole island's off to the big day, and the supermarket's like a morgue. I've sent half the staff home and told the other half to dust.",[
-  ["Are you going?","I'm staying. Someone has to keep the lights on. A crowd's a crowd, and I've seen enough of them at the checkout."],
-  ["What do you think will happen?","I think everyone will shout, then queue for a hot dog. It's the way of crowds."],
-  ["Are you worried?","I'm prepared. I've doubled the bread and tripled the batteries."]],
- "If something happens, I'm here. If nothing happens, also here."],
-15:["(Birgit waves a paper at you.) The Royals and the Church, shouting about crowns and crosses. I've told them both: there's a queue at the checkout, and nobody gets served out of turn.",[
-  ["Are they in your shop?","Both, on the same afternoon. A priest with a cart and a prince's man with a list. It was very quiet. Very cold."],
-  ["Who did you serve first?","The one with the exact change. It's the only fair rule I know."],
-  ["Which side are you on?","The side that returns the trolley."]],
- "Keep to the left. It's not just manners, it's safety."],
-16:["(Birgit's radio is on full, in the stockroom.) A debate. Of course they'd hold it on a Thursday, when I've three deliveries. Whoever wins, I want the schedule changed.",[
-  ["Are you following it?","I'm listening between pallets. They say a great deal and mean very little. It's the opposite of a shopping list."],
-  ["Who's got the better case?","The Democrats say everyone's equal. The Party says nobody's more equal than anybody. I say: pay at the till."],
-  ["Will it change the shop?","Not unless they want to change the bread. And I'd fight for the bread."]],
- "If they ask for my vote, I'll ask for their delivery times."],
-17:["(A row of tins trembles on a shelf and Birgit slaps a hand on it.) The ground. Again. It's the fourth time today. I've written it on the schedule as 'minor disturbance'.",[
-  ["Is it frightening?","It's disruptive. A tin falls, and I've a form to fill."],
-  ["Where's Dario? I heard he's gone missing.","So I'm told. The oil office has been very quiet. Nobody's bought a paperclip in a day."],
-  ["Is the shop safe?","It's a steel frame with a good lease. I've seen worse come through."]],
- "If it gets worse, go to the loading bay. It's the sturdiest part."],
-18:["(Birgit is adding a line to the order sheet: 'water, batteries, candles'.) I've never sold so many torches. A man bought thirty. Thirty! What does he plan to light?",[
-  ["Are people stockpiling?","Like squirrels. The monks said something about the mountain, and now everyone's got a plan."],
-  ["Do you believe the monks?","I believe in being prepared. And in the supply chain. A volcano's just another delay."],
-  ["Is there enough?","I've asked for twice what I need. I'll be right or ridiculous. I'm fine with either."]],
- "One tin of peaches per customer. No exceptions. Not even you."],
-19:["(Birgit's counting tins with a pencil.) I had a woman this morning ask for a hundred loaves for 'a rally'. A rally! In a snowstorm. She had a badge and a very good argument.",[
-  ["Which party was she from?","The red one. 'Comrades Wanted.' She wanted bread, and a discount, and a flag in my window. I gave her the bread."],
-  ["Did you give the discount?","A modest one, for a loyal shopper. I'm not above being practical."],
-  ["Do you vote?","On the day. I fill in the form and file it. It's the same as any other."]],
- "Next in line, please. And no politics at the checkout."],
-20:["(Birgit snaps the clipboard against her leg.) Something's going on at the Hotel Aurora, and every man with a hat is buying cigarettes. I've had three suits and one raincoat. They all pay in coins.",[
-  ["Is that strange?","It's very strange. A spy pays in notes. A man hiding pays in coins. I've worked it out."],
-  ["Are you curious?","A little. But curiosity doesn't stack shelves."],
-  ["Who do you think is behind it?","Nobody I'd serve before noon."]],
- "I've said nothing. I saw nothing. I scanned your items."],
-21:["(Birgit stands in a supermarket full of people holding baskets, her clipboard raised like a signal.) Quiet! Orderly! There's enough for everyone! The mountain's erupted, and I will not have a stampede at the bread.",[
-  ["Are you all right?","I'm fine. Grey, and furious. But the shelves are standing, and I've enough for a fortnight."],
-  ["Is anyone hurt?","Nobody. It's a miracle. I've said so to the till and to the Lord, in that order."],
-  ["How are people behaving?","Better than expected. A few arguments over the water. One man tried to take twelve loaves. I've put him at the back."]],
- "One basket each. Wipe your feet. And don't panic."],
-22:["(Birgit waves a broom.) It's on everything. The doors, the trolleys, the tins. I've closed the door at eleven for a deep clean. The ash comes in on every shoe.",[
-  ["Are you open?","Yes, with a mat. And a notice. And a very stern face."],
-  ["What's selling?","Bread, masks, cloths, tinned soup. Not a single bag of crisps. That tells you the mood."],
-  ["Is Sanna all right?","She's been grilling with a scarf over her face. The burgers taste of ash, and nobody's complained."]],
- "Take a cloth. They're by the door. They're free."],
-23:["(Birgit is dragging a pallet.) The oil men have been in, buying everything. They say 'Deep Repairs', whatever that means. I say: pay at the till.",[
-  ["What are they repairing?","Something at the rigs. I don't ask. I only count the tins."],
-  ["Is it a big order?","Enough to feed a battalion. I've put up the price of the beans, and they haven't noticed."],
-  ["Have you seen the Party men?","Spanners, I'm told. A great many spanners. In a supermarket. I've no idea where they got them."]],
- "Check the receipt. It's very long."],
-24:["The ash is slowing. (Birgit rubs her neck.) We've had a clean-up crew in, hired by someone. Men in good gloves. They were very thorough. Too thorough, if you ask me.",[
-  ["Who hired them?","They didn't say. A very quiet team. They cleaned the stockroom twice, and I'd swear they were looking for something."],
-  ["Did they find it?","If they did, they didn't say. They left with a nod and a very clean floor."],
-  ["Is the shop back to normal?","As normal as it'll be. The tins are straight. The aisles are clear."]],
- "Don't ask what they were looking for. I didn't."],
-25:["(Birgit points at a poster in the window.) A crown for everyone and a princess for democracy. I told the man, I'll hang it if you pay for the glass cleaner.",[
-  ["Did he pay?","A fair deal. I'm not political. I'm just fond of clean glass."],
-  ["What do you think of the idea?","It's a very good slogan. Whether it's a good plan, I'll know when I see the invoice."],
-  ["Do you want a vote?","I want a refund policy. I'd settle for a vote."]],
- "Next! You, with the flag. Aisle five."],
-26:["(Birgit eyes a pyramid of cola.) Kelp's got a prince on the bottle now. A prince! In a supermarket! It's brought a very different class of shopper. They hold the bottle and sigh.",[
-  ["Is it selling?","Faster than the bread. A romantic nation. Who'd have guessed?"],
-  ["Which prince is it?","Leopold, I think. The one with the jaw. The label's rather flattering."],
-  ["Is Dario still missing?","I heard he's bought the spa. Or he's buying it. I don't know. The oil lot don't shop here any more."]],
- "If you want the prince, he's in aisle two. Keep it moving."],
-27:["(Birgit tucks her pencil behind her ear.) A film and a card game, I'm told. High stakes, whatever that means. I'm not a gambler. I'm a manager. I only bet on a well-ordered shelf.",[
-  ["Will you go to the pictures?","I'd like to. But I've a rota. And a very long stock count."],
-  ["Is the Syndicate around?","I've no idea. I count the till. If there's a shortfall, I look for the Syndicate."],
-  ["Will it be a big night?","Everyone's hoping for something. I'm hoping for a quiet closing."]],
+7:["(Birgit is holding a clipboard and does not look up.) Aisle three. You're blocking it. Thank you. (She ticks something.) The reporter. The road's been open an hour and I've had four deliveries, all wrong.",[
+  ["Sorry. Nice shop.","It's a supermarket, not a shop. A shop is where you chat. A supermarket is where you find what you came for, pay and leave. In that order."],
+  ["What was wrong with the deliveries?","Tinned peas instead of tinned carrots, twice. Toilet paper for a hotel. And forty crates of Kelp Cola meant for Polar Burger, which I've sent next door to Sanna."],
+  ["Do you ever stop working?","At ten, for eight hours. Then at six, I start again. The schedule's on the staff-room door. I wrote it in 1976. It hasn't needed changing."]],
+ "Aisle three. Keep moving."],
+8:["(Birgit is straightening tins of soup on a shelf so the labels all face forward, exactly.) Sunday. The oil men come in after their shift and pick things up and put them back facing the wrong way. I come in on Sunday and face them the right way. It's not a hobby. It's a principle.",[
+  ["Isn't that a bit much?", "It's exactly enough. If one tin faces the wrong way, the next customer turns another. By Wednesday the whole aisle's looking at the wall. Order's a habit. So is chaos."],
+  ["Do the oil men shop much?", "At eleven at night, in boots, with lists written by their wives on the back of a pay slip. They buy everything on the list and three things that aren't. Usually whisky."],
+  ["Do you ever rest on Sundays?", "This is resting. Nobody's here. Nobody's blocking anything. It's the most peaceful hour of my week."]],
+ "If you take a tin, put the next one forward."],
+9:["(Birgit is reading a delivery note with a red pen.) Three new colas this week, all wanting shelf space. The Party's, Kelp Cola's new one and a bottle from a man in a laboratory. I have one shelf for fizzy drinks. I'm giving it to whichever arrives on time.",[
+  ["Which arrived on time?", "None of them. The Party's came a day early, which is just as bad. Kelp Cola's came on a handcart with a broken wheel. The laboratory man's came with a note saying 'please'. I've given it to him for being polite."],
+  ["Have you tasted them?", "I don't taste stock. Tasting stock is how you end up eating it. I've a sandwich at one o'clock. It's in the schedule."],
+  ["Does Sanna stock cola?", "Whichever one the supplier brings. She doesn't care. It's chaos. I love her dearly."]],
+ "One shelf. One cola. Whoever's on time."],
+10:["(Birgit is standing very straight by the till with a black armband on her clipboard arm.) The king's funeral. The Nordmart's open, because people need bread whatever happens. But I've turned off the music, and the staff are wearing black. I've put it in the schedule.",[
+  ["Did you know the king?", "He opened this supermarket, in 1972. He cut a ribbon, bought a tin of peaches and paid for it himself. Exact change. I've never forgotten it."],
+  ["Will you go to the chapel?", "No. I've a shop. But I've closed the till for ten minutes at eleven, for silence. The oil men took their hats off. I didn't expect it of them."],
+  ["What happens now?", "Somebody new is in charge, and they'll want to change things. I hope they leave supermarkets alone. Supermarkets work."]],
+ "Ten minutes' silence at eleven. Please observe it."],
+11:["(Birgit is writing a note on headed paper.) My twelfth letter to the management of Skyline Apartments about the lift. It stops between the fourth and fifth floors and makes a noise like a cow. I live on the sixth. Sanna lives on the fifth. We both use the stairs.",[
+  ["Twelve letters?", "Eleven so far, plus this one. Each one numbered and copied. If they ever deny I complained, I'll have the carbon paper."],
+  ["Do they answer?", "They sent a man once, in 1980. He got stuck between the fourth and fifth floors. He hasn't been back. I take that as an answer."],
+  ["Is Sanna a good neighbour?", "The best. She comes in between shifts and reads every label and buys the same pie. She's a good friend and a terrible shopper. I'd do anything for her, except let her rearrange my shelves."]],
+ "Take the stairs at Skyline. Never the lift."],
+12:["(Birgit has a photograph in her hand of a supermarket shelf, arranged in pyramids.) Lisa, at the supermarket in Kingsgrad, sent me this. Pyramids. Tins of beans in pyramids. She says it 'brings joy'. Straight lines bring joy. Straight lines bring the right change.",[
+  ["Pyramids aren't so bad.", "Someone takes a tin from the bottom and the whole thing comes down. That's not a display. That's a trap."],
+  ["Are you and Lisa friends?", "We write to each other. She sends me photographs of pyramids. I send her photographs of straight lines. We've done it for six years. It's the best correspondence I've ever had."],
+  ["What's new in Frostholm?", "The oil company's drill has hit something, Sanna's brother says. The oil men are celebrating and buying beer. When oil men celebrate, I order more beer. That's the whole of economics."]],
+ "Straight lines. Always straight lines."],
+13:["(Birgit is standing by a table of free Kelp Cola samples with a clipboard and a fixed expression.) Free samples. Kelp Cola's paying for the table. I've been here since eight, telling people to take one. Some have taken three. There's always a Sanna among them.",[
+  ["Who's a Sanna?", "Somebody who takes one, then comes back for a second because they forgot to try it properly, and a third for a friend who doesn't exist. Sanna took three. I've known her eight years. I knew she would."],
+  ["Do you like the cola?", "I don't drink fizzy drinks. They're unpredictable. You open them and they do things."],
+  ["Friday the thirteenth.", "I don't believe in luck. I believe in deliveries. Today's came on time. That's luckier than a horseshoe."]],
+ "One per customer. I mean it. Even you."],
+14:["(Birgit has a clipboard even now, at the shop door in her coat.) The whole island's gathering. I've shut the Nordmart for the morning, with a sign. 'Closed for history. Open at two.' I'll be back by two.",[
+  ["Closed for history?", "It's a big day. I'd like to be able to say I was there. I'll stand at the back and come home and restock. That's how I'll remember it."],
+  ["Is Sanna going?", "Sven at the fuel dock asked her to stand with him. She's been in my shop three times asking if it's a date. I told her to check her schedule. She hasn't got a schedule. That's her trouble."],
+  ["What do you expect?", "Speeches, crowds and then a rush on aspirin. I've ordered extra. I've seen crowds before."]],
+ "Open at two. Not five past."],
+15:["(Birgit is restocking at speed, with two boys trotting after her.) Everybody came straight back from the gathering wanting bread, milk and aspirin. I'd ordered extra aspirin. I know crowds.",[
+  ["You knew they'd want aspirin?", "Crowds shout. Shouting gives you a headache. Headaches want aspirin. It's not politics. It's arithmetic."],
+  ["How was the gathering?", "Cold. Loud. Very long. Sanna stood with Sven and held his coffee and looked like a girl in a film. I stood at the back with my clipboard. I'll be honest: I enjoyed it."],
+  ["What's the news today?", "The prince and the abbot are arguing about the crown. I don't mind who wears it, as long as they keep the ferry running on time."]],
+ "If you've a headache, aisle six."],
+16:["(Birgit has the radio on behind the till, low, and is frowning at it.) The great debate. Helen and Erik. Neither of them has said a single word about supply. You can't run an island without supply. You can't run a supermarket without it either.",[
+  ["What would you ask them?", "Who's going to make sure the boats come in, the shelves are full and the prices are fair. Nobody ever asks that. Everybody just assumes it happens."],
+  ["Who's winning?", "Helen's angrier. Erik's longer. The oil men in the queue are cheering whoever says 'jobs'. They both say 'jobs'. It's a draw."],
+  ["Do you vote?", "There's never been a vote. If there is, I'll vote for whoever has a clipboard."]],
+ "Supply. Remember that. Nobody else does."],
+17:["(Birgit is picking up tins from the floor of aisle three and stacking them back, straight.) The ground moved. Every tin in aisle three came off the shelf. Aisle four stayed put. I've no idea why. I've written it down.",[
+  ["Why only aisle three?", "I've a theory. It's the aisle nearest the mountain. Things nearest the mountain fall first. I've put the soup in aisle four, as a precaution."],
+  ["Is it the volcano?", "The oil men say steam. They say it's nothing. They say it too often. When men say 'nothing' twice, it's something."],
+  ["What about Dario?", "Missing, they say. His men came in and bought cigarettes and talked about nothing else. If Dario's missing, the oil men's wages are missing. I've extended nobody's credit."]],
+ "Stay out of aisle three. For now."],
+18:["(Birgit is on a stepladder, roping the top shelves with string.) Nils from the electronics shop has made a seismograph out of a record player. He told me about it in aisle five. I told him to stop blocking the aisle. Then I bought string.",[
+  ["Why string?", "If the shelves shake, the tins stay on. I've done the top three shelves in every aisle. It looks like a parcel. It's not pretty. Neither is a floor full of peas."],
+  ["What did Nils say?", "That the needle's been jumping for two days, and that he wants to borrow my storeroom for his machine, because it's quieter. I said no. Then I said yes. He's very persuasive for a man with a record player."],
+  ["Are you worried?", "I'm prepared. That's better than worried. Worried just stands about blocking aisles."]],
+ "If you need string, aisle seven. Not aisle three."],
+19:["(Birgit is watching a queue of oil men buying tins with a calculating eye.) Stockpiling. Tins, candles, matches and whisky. Mostly whisky. I've put a limit on candles. I haven't put a limit on whisky. The oil men would riot.",[
+  ["Why not limit whisky?", "Because a frightened oil man with whisky is a quiet oil man. A frightened oil man without whisky asks to speak to the manager. That's me."],
+  ["What's selling most?", "Candles. And tins of peaches. Nobody knows why peaches. People get odd ideas when they're frightened. Last time there was a storm, it was pickled beetroot."],
+  ["Is the Midnight Note busy?", "Sanna says it's all velvet and smoke and people in disguise. They come to her at two in the morning with their wigs off. They don't come to me. Supermarkets don't do disguises."]],
+ "Two candles per customer. Peaches, as many as you like."],
+20:["(Birgit is standing by a counter with a long thin roll of paper covered in wobbly lines.) Nils brought me this. His seismograph. It's gone off the paper. He had to put a bigger roll on. I asked him, 'Is that bad?' He said yes. (She looks at it.) I bought two torches.",[
+  ["Two torches?", "I never buy two of anything. It's wasteful. (She holds up both torches.) I bought two. That's how I knew I was frightened."],
+  ["Is anyone leaving?", "Some of the oil men's wives took the ferry this morning, with the children. The men stay, for the money. Frostholm's never been so quiet in the daytime."],
+  ["Is Sanna all right?", "Her brother's on the rig, and they're still drilling. She's grilling twice as fast and laughing twice as loud. She's fine, the way a kettle's fine."]],
+ "If it gets dark, I've torches. Two."],
+21:["(Birgit is standing in the middle of the Nordmart, grey with ash, with her clipboard held to her chest.) The mountain's gone up. Ash everywhere, lava in the north. Nobody killed. I've opened the shop. People need bread and water and somewhere to stand that isn't outside.",[
+  ["Are you all right?", "Yes. (She looks at the clipboard.) I've written 'eruption' at the top of today's sheet. Then I didn't know what to write next. I've never not known what to write next."],
+  ["Is Sanna's brother safe?", "He rang from the rig. Safe. She sat on the step and cried, and I sat next to her, and neither of us said anything. I've a list for most things. I didn't have a list for that."],
+  ["What do people need?", "Water, bread, candles and somebody behaving normally. I'm behaving normally. It's the hardest thing I've ever done."]],
+ "Bread's in aisle one. Water's at the front. Take what you need."],
+22:["(Birgit is mopping the floor of aisle one, slowly and steadily, with ash still drifting in through the door.) I mop. I mop through disasters. It's my way. A clean floor is the first thing that's back to normal.",[
+  ["Doesn't it come back?", "Every hour. And every hour I mop it again. One day it won't come back. I'll be mopping when it doesn't."],
+  ["Is Sanna all right?", "She's grilling with a scarf over her face. The burgers taste of ash, and nobody's complained. She brought me one. I ate it in the aisle. I've never eaten in an aisle in my life."],
+  ["Can I help?", "(She hands you a second mop.) Straight lines. Up and back. Never in circles. Circles just move it about."]],
+ "Straight lines with the mop. Up and back."],
+23:["(Birgit is holding a list of what's sold out, and it's very long.) Masks, soap, candles, torches, tins and aspirin. And brooms. I've never sold out of brooms. I didn't know you could.",[
+  ["Will you get more?", "There's a boat tomorrow, if the harbour's clear. I've ordered everything twice. If both orders come, I'll have the best-stocked supermarket in the Baltic."],
+  ["What are people saying?", "That the oil rig's leaking again, and that somebody wants the cola factory broken. Everybody wants to break something this month. I just want my brooms back."],
+  ["Is your flat all right?", "Grey. The lift's stopped altogether, which, frankly, is no worse than before. I've written my thirteenth letter. It's very short. It says 'Well?'"]],
+ "If you've a broom, you're richer than I am."],
+24:["(Birgit is unloading a delivery that's come in by boat, and ticking each crate.) The first boat since the ash. Everything's right. Every crate. (She looks at the clipboard as if it's lying to her.) First time this month.",[
+  ["Isn't that good?", "It's unsettling. I don't trust a delivery that's right. I've counted it three times. It's still right."],
+  ["Who sent it?", "The mainland, mostly. Soap from Helsinki, tins from Stockholm. And a crate of tinned peaches from somebody who'd heard."],
+  ["Is the island recovering?", "Frostholm's shovelling. The oil men are back at work. Sanna's feeding the clean-up crews for nothing, which I've told her is bad business. She ignored me. She's right."]],
+ "Everything's in stock today. Enjoy it. It won't last."],
+25:["(Birgit has the Gazette open on the till, which she never does during hours.) A princess for democracy. A crown for everyone. I've no opinion. (She reads it again.) I've a slight opinion.",[
+  ["What opinion?", "That a princess who wants to give people a vote is either very brave or very bored. Either way, she'll need a schedule."],
+  ["Is Sanna in love?", "She gave Sven a scarf. He hasn't taken it off. He came in this morning wearing it, for tea and sugar, and stood in aisle two smiling at nothing. Blocking it."],
+  ["What did you say to him?", "'Aisle two, Sven.' He moved. Then he came back and stood in aisle three. I let him. Just this once."]],
+ "Don't block the aisles. Even if you're in love."],
+26:["(Birgit is counting cash at the till, very fast.) Business is the best it's been since I opened. Everyone's buying everything. I'd be happy, if the reason weren't a volcano.",[
+  ["Isn't that good for you?", "It's good for the till. It's not good for me. I'd rather sell bread to happy people than candles to frightened ones."],
+  ["What are people buying now?", "Paint, nails, glass and putty. People are fixing things. That's better than stockpiling. Fixing is hopeful."],
+  ["Kelp Cola wants a prince on every bottle?", "If it sells, I'll stock it. If it doesn't, I'll put it at the back. I stock princes the same as peas."]],
+ "Buy putty if you've a window. Everybody has."],
+27:["(Birgit is still at work, though the shop's shut, stocking shelves by lamplight.) The big days are coming. Everyone will want something. I'm getting ready. Sanna's promised to save me a burger. I'll be late.",[
+  ["What are you stocking for?", "Everything. The oil men are having a party. The Party's having a march. Somebody's visiting the palace. People will want beer, crêpe paper, candles and aspirin. Lots of aspirin."],
+  ["Will Sanna save you a burger?", "She always does. She'll leave it by my clipboard with a 'B' on the bag. I'll pretend I didn't see it. Then I'll eat it standing up. It's the arrangement."],
+  ["Can I help?", "(She hands you a box.) Tins, labels forward, straight lines. If you make a pyramid, I'll know. Lisa's sent me spies before."]],
  "Tell Sanna to save me a burger. I'll be late."],
-28:["(Birgit's put a notice on the door: 'Open As Usual. Please Queue.') The big push. Everyone's buying flags, and I've sold out of masking tape. Do you know how much masking tape a rally takes?",[
-  ["How much?","More than I've ever had. They use it for posters, for banners, for arguments. It's the glue of democracy."],
-  ["Are you nervous?","About the stock, yes. Not about the politics."],
-  ["Are the oil men still shopping?","Less than before. They seem to be watching something. It makes me uneasy."]],
- "Don't stand in the doorway. It's a thoroughfare."],
-29:["(Birgit surveys the shop.) Tomorrow's the end. Whatever the outcome, the shelves must be full on Monday. I've doubled the order. I've tripled the bread. I'll sleep afterwards.",[
-  ["Are you ready?","The stock's ready. I'm only mostly ready."],
-  ["What do you hope for?","Order. Calm. A reliable delivery. I'd like the same for the island, if it isn't too much to ask."],
-  ["Any last words?","Check your receipt. And thank you for not blocking the aisle."]],
- "Go home. Rest. It's all on the schedule."],
-30:["(Birgit has her clipboard under her arm and her coat on, for once.) The last day. I've done the count. It's all there. The island may change, but the stock is correct.",[
-  ["How has the month been?","Chaotic. Dusty. I've written a hundred and four forms, and I regret none of them."],
-  ["What will you remember?","The day the ash came in on the trolleys. It's on every tin."],
-  ["Goodbye, then?","Come again. Bring a bag. They're five pennies."]],
- "Mind the step. It's wet, and I've mopped it twice."],
+28:["(Birgit is standing at the door of the Nordmart with her arms folded, watching oil men carry crates of beer past.) Every faction's out today. The oil men are having a party. They've bought all my beer. The Party's bought all my red crêpe paper. Somebody bought all my candles. I don't ask who.",[
+  ["Somebody bought all your candles?", "A man with a list in a stranger's handwriting. He paid cash. He didn't block the aisle. I liked him, and I didn't like that I liked him."],
+  ["Are you worried?", "Not about the shop. About the people in it. Everybody's very loud today. Loud's fine. It's when they go quiet I'll worry."],
+  ["Is the shop open?", "Till four. Then I'm locking up and going next door to sit with Sanna. She's frightened about tomorrow, and pretending she isn't. I'm the same. We'll pretend together."]],
+ "Shop closes at four. Not five past."],
+29:["(Birgit is sitting in Polar Burger, next door, with Sanna and a clipboard.) The Nordmart's shut. Nobody's shopping. I've come to sit with Sanna, because she's frightened and pretending she isn't. I've brought a list of what we'll talk about.",[
+  ["What's on the list?", "'One: tomorrow. Two: the mountain. Three: Sven.' I've underlined Sven. It's the only item either of us wants to talk about."],
+  ["Are you frightened?", "Yes. (She looks at the clipboard.) I've never said that out loud before. It's not on the list."],
+  ["Can I sit with you?", "(She makes a note.) 'Four: the reporter.' Sit. Don't block the aisle between the booths."]],
+ "Item four. You're on the list now."],
+30:["(Birgit has opened the Nordmart, as usual, and is facing every label in aisle three, exactly.) The last day of September. They decide the island today. The shop opens at eight, as it always has. Whoever wins, people need bread.",[
+  ["What if everything changes?", "Then I'll change the schedule. I've changed it once since 1976. I can do it again. (She pauses.) I'd rather not."],
+  ["How's Sanna?", "Next door, with the grill on, and Sven in his scarf. She's made a burger for whoever wins. I've made a list of who might."],
+  ["Thank you, Birgit.", "(She ticks something on her clipboard.) You blocked aisle three on your first day. You've been very good since. (She almost smiles.) Come back. Aisle three's always open."]],
+ "Keep moving. Aisle three."],
 };

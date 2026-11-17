@@ -1,155 +1,156 @@
-// Helmi, owner of Harbour Outfitters in Saltwick (no faction). Threads: bargains and tight margins, fishermen who never pay on time, her sister's knitting, the coming cold, her friendly rivalry with Olga, masks and boots after the ash.
+// Helmi, owner of Harbour Outfitters in Saltwick (the Shopkeepers). Threads: oilskins, boots and jumpers, and a sharp eye for a
+// bargain; fishermen's boys who never pay on time (her ledger of debts); her sister Aune on the mainland, who knits the jumpers
+// she sells; Olga across the lane, shouting; Oskar the palace footman saving for a pair of fur-lined boots (she holds them for
+// him); Anna's twenty tins of red paint; and, after the ash, goggles and masks at a price Olga calls robbery.
 DAILY['Helmi']={
-1:["(Helmi looks you up and down and nods.) That coat won't last a week on this island. Reporter, are you? London will have taught you to dress for drizzle. This is not drizzle.",[
-  ["What should I wear?","Wool next to the skin, oilskin over it and good boots. And a hat, because you lose half your warmth through the head. It's a fact. I've checked."],
-  ["What's the best seller?","Wellies. Every season. Even in a snowstorm, someone's sure they'll need wellies by Thursday."],
-  ["Is the shop old?","It's my father's, and his father's. The sign's been repainted three times. The bargains have never changed."]],
- "Keep the receipt. Everything here has a guarantee, or a grumble."],
-2:["(Helmi is counting souwesters into neat piles.) The boats are out for the first time since the snow, and every man's lost his hat. They always lose the hat in the first hour. I'll sell twenty before noon.",[
-  ["How do you keep the prices low?","I don't, I keep them fair. And I buy in winter, when nobody else wants to."],
-  ["Do the fishermen pay?","Eventually. They settle in herring, in tips, in lies. I take them all and write them in a book."],
-  ["Is Olga next door a friend?","We shout at each other across the lane. It's the kindest thing we do."]],
- "Check the buttons before you buy. Cheap ones fall off in the sea."],
-3:["My sister's been knitting again. (Helmi holds up a jumper with a puffin on the front.) Three hundred of these, she's made. I sell one a month. The puffin is not catching on.",[
-  ["It's a nice puffin.","Don't be kind. It looks like a potato with a beak. But she's happy, and I'll never say otherwise."],
-  ["Would you sell the puffin to tourists?","If I had any. They only come for the lighthouse and the toilets."],
-  ["Does your sister live in Saltwick?","Up the coast. She sends one jumper per week by post, with a note: 'Sell it, you ungrateful girl.'"]],
- "Take a puffin. At cost, for a reporter."],
-4:["(Helmi folds a pair of dungarees with a snap.) Hannu was in. Wanted a discount on a hat because of 'the headline value of the shop'. I asked him what that was worth. He said, 'A mention.' I said, 'I'll take the discount off the mention.'",[
-  ["Did he buy the hat?","He did, at full price. He grumbled for ten minutes. I enjoyed it."],
-  ["Does Hannu write about the shop?","Hannu writes about everything. Mostly it's wrong, but it's interesting."],
-  ["Are you in the paper often?","Only when a sou'wester goes missing. Then I'm a scandal."]],
- "Don't believe the headlines. Believe the weather."],
-5:["(Helmi is stacking oilskins by size.) The monks have sent a boy down for a dozen pairs of warm socks. Warm socks! For men who sleep on stone.",[
-  ["Do the monks pay?","Always, in coin and a blessing. I've no use for the blessing, but I keep it in the till, just in case."],
-  ["What do the monks wear?","Black, wool, and sandals. In winter, they wear all three at once. It's a fashion nobody should copy."],
-  ["Is there anything the monks want that's unusual?",["A very large oilskin. A coat the size of a tent. Brother Teodor, I think, though they wouldn't say.",[
-    ["What would he do with it?","Keep dry in a bell tower, I'd wager. Or smuggle something in it. I never ask."],
-    ["Did you make it?","I stitched two together. The seam's a disgrace, but it'll turn a storm. I charged for the thread."]]]]],
- "If you meet a monk, tell him I do a discount on thick socks."],
-6:["The cold's arriving early, I can feel it in my knees. (Helmi taps a barometer by the door.) I've ordered more peacoats. Hope I'm wrong, but I've never been wrong yet.",[
-  ["Is it going to be a hard winter?","Hard, long and early. The sea's gone a colour I don't like. Grey with a hint of spite."],
-  ["Do you stock for the whole island?","Only the sensible parts. Kingsgrad has its tailor. I've the fishermen, and a few oddballs."],
-  ["What would you buy for a reporter?","A pea coat, a watch cap, and a flask. It's the correct sequence."]],
- "Wrap up. You'll thank me in a fortnight."],
-7:["(Helmi has the door open and is watching the road.) Everyone's passing through now the northwest's clear. Oil men with city shoes. They've no idea. Their feet will be blue by dusk.",[
-  ["Will you sell to them?","At a slightly higher price. They don't know the difference and it keeps them warm."],
-  ["Are they friendly?","They're polite and in a hurry. I like them better than the Party men. The Party men bargain."],
-  ["Any good news?","The roads are open. That alone has doubled my trade."]],
- "If you see a man in thin shoes, send him over."],
-8:["(Helmi has the radio on, quietly, a sermon murmuring.) I don't hold with sermons before noon. A shopkeeper's soul isn't up before the till.",[
-  ["Do you go to church?","Christmas and funerals. Both are good for trade."],
-  ["What would Father Thyme wear on a cold day?","A cassock, three jumpers and a dog. He's a practical man, despite the words."],
-  ["Is Saltwick pious?","In a loud kind of way. Everyone prays when the boats are late. After that, they sell fish."]],
- "Don't stay too long in the cold. It's the sea air that gets you."],
-9:["There's a company handing out cola bottles on the quay and calling it a 'new formula'. (Helmi sniffs.) It's the same fizz. I've a nose for a repackage.",[
-  ["Do you like cola?","With a ham sandwich. In the sun. In a good mood. I have only had that conjunction twice."],
-  ["Will you sell it in the shop?","I'd put a bottle in the window if they paid me a fair margin. Otherwise, no."],
-  ["Is the Party's cola any better?","I've heard it's brown, round and political. That's three more qualities than I'd want."]],
- "I'll try the new one on Thursday, if the sky clears."],
-10:["(Helmi has hung a black cloth in the doorway.) A funeral. I closed at eleven. The late king did buy a coat from my father, once. A reefer, navy. He wore it to a regatta and looked a fool.",[
-  ["Did your father know him?","Briefly. He measured the king for the coat and said afterwards, 'He's thinner than his portraits.' We never forgot it."],
-  ["Is the harbour quiet today?","As a mouse. The boats are in, the flags are half-mast. The sea seems to be listening."],
-  ["Will it change the shop?","The shop outlived the old queen, the war, and a flood. It'll outlive the next king too."]],
- "Be kind today. We've a lot of ghosts in Saltwick."],
-11:["(Helmi is mending a net, sleeves rolled up.) The Church is giving alms to the poor and the Democrats are fighting about pay. And me with a stack of work gloves no one's collected.",[
-  ["Who owes you gloves?","The mill, in Eastbrook. They ordered forty pairs and sent a letter saying they'd 'review the terms'."],
-  ["Will they pay?","They will if there's a fair wage. If there isn't, I'll take the gloves back and sell them to the monks."],
-  ["Is there a lot of tension?","Enough to snap a thread. I keep my needles sharp."]],
- "Tell the mill I'm waiting. Politely."],
-12:["A man in a nice coat came in this morning wanting thermal underwear in bulk. I asked how many. He said, 'Enough for a department.' I've had odd customers, but not an accounts department.",[
-  ["Was he from the oil company?","Frostholm, by the vowels. He didn't give a name. Paid in crisp notes, which always makes me nervous."],
-  ["Is it strange to buy for a department?","It's strange to buy for a department that wears thermal underwear. I hope the heating's broken."],
-  ["Do you ask questions?","I ask the sizes. Everything else is their business."]],
- "If they send a second order, I'll ask what's going on."],
-13:["(Helmi has set a crate of cola by the door.) Free samples. A lad left them and said it was 'a gesture'. I've told him my gestures are on sale for two marks apiece.",[
-  ["Is Kelp Cola popular here?","It's a novelty. The fishermen drink it, say it's all right, and go back to coffee."],
-  ["Is it good for the shop?","They want a poster in the window. I want a discount on a hundred bottles. We'll see who blinks."],
-  ["Do you worry about the big companies?","Always. But a small shop has one advantage: we know your size."]],
- "I'll try one tomorrow. If it kills me, I'll leave you the till."],
-14:["(Helmi has put up the 'Closed' sign and still sits in the window.) The harbour's gone to the big day. I stayed to mind the stock. A fishing boat doesn't care who's king, but a thief does.",[
-  ["What do you expect today?","Noise. Flags. A good deal of boasting. And somebody will leave a hat behind. I'll sell it back to them."],
+1:["(Helmi looks you up and down, and shakes her head slowly.) That coat won't see October. London coat, is it? Made for drizzle. This isn't drizzle. This is an island that wants you dead by Christmas.",[
+  ["What should I wear?","Wool next to the skin, oilskin on top, and boots a size too big for the second pair of socks. And a hat. You lose half your heat through your head, and you've a big head. I mean that kindly."],
+  ["Are you selling me something?","Of course I am. I'm an outfitter. But I'm also right, which is rarer."],
+  ["Who buys from you?","Every fisherman in Saltwick, and their boys, who pay me in promises. I keep the promises in a ledger. It's the thickest book on the island."]],
+ "Come back when you're cold. You'll be back by Tuesday."],
+2:["(Helmi is up a stepladder, straightening the sign over her door, and glaring across the lane.) Olga says it's crooked. It isn't. But I'm checking anyway, which means she's won. She always wins before breakfast.",[
+  ["Is it crooked?","(She squints.) A hair. A hair, mind. I'll fix it when she's not looking, and deny it when she is."],
+  ["Is Olga next door a friend?","We shout at each other across the lane. It's the kindest thing we do."],
+  ["Busy with the road open?","Kingsgrad's open, so Kingsgrad's coming down for funeral black. I don't sell funeral black. I sell oilskin. I've put a black ribbon on an oilskin and called it mourning wear."]],
+ "Step down off the ladder for me? (She steps down herself.) Never mind."],
+3:["(Helmi is unpacking a parcel of jumpers, holding each one up to the light.) My sister knits these, in Oulu. Thirty a month. Every one has a mistake in it somewhere, on purpose, so the devil can get out.",[
+  ["Is that a real tradition?","It's my sister's. She says our grandmother did it. Our grandmother couldn't knit. I don't argue: they sell."],
+  ["Can I find the mistake?","(She hands you one.) Go on. (You look for a while.) It's on the left cuff. A purl where there should be a plain. Nobody finds it. That's how good she is."],
+  ["Is your sister coming to the island?","Never. She came once in 1958 and said the wind was personal. She's right. It is."]],
+ "If you buy one, don't look for the mistake. Let the devil out in peace."],
+4:["(Helmi is writing in a fat ledger with a stub of pencil, and sighing.) The boy who owes me since March came in wanting oilskins again. I sent him to Olga for the money. She lent it him. Now he owes us both, and we're both stupid.",[
+  ["Why lend to him?","His father drowned when he was nine. I sold his father his first boots. You don't send that boy out in a thin coat."],
+  ["How much do the fishermen owe you?","All told? Enough to buy a boat. Not a good boat. But a boat."],
+  ["Who's the worst payer?","Mike, when he's courting, and Sam, when he forgets. Tom pays in herring, which I can't use, so I give it to Olga, who sells it back to me. It's an economy."]],
+ "Pay your debts. Mine aren't, but yours should be."],
+5:["(Helmi is counting tins of paint on a shelf.) Anna from the Party came in and asked how much red paint I had. Twenty tins, I said. She bought twenty tins. Red. I asked what for. She said 'decorating'.",[
+  ["What will she paint?","Something big. You don't buy twenty tins for a kitchen. I'd say it's a wall, or a banner, or the palace."],
+  ["Is she a good customer?","She pays cash, on the day, and says thank you. That puts her ahead of every fisherman in Saltwick."],
+  ["Are you a Communist?","I'm an outfitter. I'll sell red paint to Anna, blue paint to Erik, and gold paint to the prince. Paint doesn't have a vote."]],
+ "If you see red on a wall somewhere, I sold it."],
+6:["(Helmi is pinning a hem on a pair of oilskin trousers, with pins in her mouth.) Lucia's been round the boats with her little book. She came in here too. I paid. Everybody pays.",[
+  ["Doesn't that make you angry?","It makes me careful. Angry costs more."],
+  ["Does Olga pay?","Olga pays and shouts. I pay and say nothing. It comes to the same amount."],
+  ["What does Lucia buy?","Nothing. Though she looked at the fur-lined boots for a long time. Everyone does. They're the best thing I sell, and nobody can afford them."]],
+ "Pins in my mouth. Talk later."],
+7:["(Helmi is stacking boxes of boots by size, from the small at the front to the huge at the back.) The north road's open. The oil men will come down for boots, because theirs are American and fall apart in the salt. I've doubled the price of the big sizes.",[
+  ["Is that fair?","It's fair if I say so. Americans pay double for everything. They expect it. It would be rude not to."],
+  ["Who has the biggest feet on the island?","Gunnar at the warehouse. Size forty-nine. I had to order them from Helsinki. He cried when they fitted. Big men often do."],
+  ["Do you sell anything warm for town?","Scarves, gloves, hats. A good hat is better than a good opinion. You can't take an opinion off when you're indoors."]],
+ "Big feet pay double. Small feet pay single. Write that in London."],
+8:["(Helmi is frowning at a pair of boots with a black stain up the side.) A fisherman brought these back. Oil, off the water. He says I sold him boots that stain. I said I sold him boots that walk. Not boots that clean.",[
+  ["Is that oil?", "Off the water, out by the point. Tom saw a stain. Bob says the cod are thin. Everybody says the rig, and nobody says it to the rig."],
+  ["Will you give him new boots?", "I'll give him turpentine and a lecture. Boots are for when you've walked through them, not when the sea's been rude to them."],
+  ["Is it Sunday trade?", "Sunday's for fishermen who don't go to church. Which is all of them. They come in for a pair of socks and a moan."]],
+ "Turpentine, a rag and patience. That's the cure."],
+9:["(Helmi is scrubbing an oilskin with turpentine, and wrinkling her nose.) Black on everything. The nets, the boots, the oilskins. I'm selling turpentine by the bottle. It's an ill wind, my mother used to say.",[
+  ["Are the fishermen angry?","Tom's quiet, Sam's furious, and Mike's talking about it in Ray's bar so loudly that Helen will hear. That's the Saltwick weather report."],
+  ["Who'll pay for the damage?","Not the oil men. Not the Party. The fishermen will pay, as usual, and they'll pay me, and I'll put it in the ledger."],
+  ["Heard about the cola contest?","The Party's making a cola. Kelp Cola's making a new one. I've a mind to make my own and call it Turpentine. It'd sell this week."]],
+ "Turpentine's half price. That's not a joke. It's half price."],
+10:["(Helmi has a black armband over her sleeve, and the shop door half closed.) The funeral. I'm keeping the door half shut, as a mark of respect. It also keeps the wind out. Both are true.",[
+  ["Did you know the king?","He bought a jumper from my mother, in 1949. Grey, with a mistake on the cuff. They buried him in his robes today. I hope somebody remembered the jumper."],
+  ["Will you go to Kingsgrad?","I've a shop. And I'd cry in public, and I'd rather not. Olga's going to weep loudly enough for the lane."],
+  ["What do you think will happen next?","Arguments, and lots of them. Arguments are good for trade. People stand around in the cold shouting, and they need hats."]],
+ "Half shut. Not closed. Come in if you're cold."],
+11:["(Helmi is holding up a pair of shoes, worn through at the toe, and sighing.) Lisa from the supermarket in Kingsgrad. I've mended these twice. She's brought them back a third time. (She looks at the shoes.) I'm going to say 'Lisa' in a certain voice.",[
+  ["What voice?","The one my mother used when I came home soaked. 'Helmi.' Just the name. It said everything."],
+  ["Will Lisa buy new ones?","She will after the voice. Everybody does."],
+  ["Why does she wear them out?","She stands all day arranging tins in pyramids. Pyramids! Birgit at the Nordmart does straight lines. Straight lines are kinder to shoes."]],
+ "If you ever hear me say your name like that, buy new shoes."],
+12:["(Helmi is at the window, watching a footman in palace livery look at the fur-lined boots in her window.) That's the third time this week. Oskar, from the palace. He looks at the boots, he looks at his purse, and he walks away. My heart's not made of stone, but my prices are.",[
+  ["Why not lower the price?", "Because they're worth every crown. You don't cut the price of good boots. You find a way for the right person to pay for them."],
+  ["What does a footman need fur boots for?", "He stands at the palace gate all winter. Have you seen his feet? Blue. You could keep milk on them."],
+  ["Could he pay in parts?", "(She looks at you.) That's an idea. I'm annoyed I didn't have it myself. Don't tell him it was yours."]],
+ "If you see Oskar, tell him the boots are still in the window."],
+13:["(Helmi has a crate of free Kelp Cola by the door with a hand-written sign: 'PLEASE TAKE ONE. OR SIX.') A girl from Kelp Cola gave me two crates for the window. I don't want them. You'd be doing me a favour.",[
+  ["Is it any good?","It tastes of the sea, which is the last thing a Saltwick fisherman wants to drink. Olga threw one at a gull. Hannu was underneath."],
+  ["Will you sell cola?","No. Oilskins, boots, hats, jumpers and turpentine. I don't sell anything you can drink. Except the turpentine, if you're desperate."],
+  ["Friday the thirteenth.","I don't believe in luck. I believe in good boots. Good boots are luck you can buy."]],
+ "Take one. Take six. I'm begging you."],
+14:["(Helmi has her best scarf on, and is locking the shop door.) The whole island's gathering. I'm going, though I hate crowds. Somebody has to see what happens. Olga's going in her mother's hat. I'll stand on the other side of the field.",[
   ["Did Olga go?","Of course. She'd go to the opening of a drain if it had a crowd."],
-  ["Are you curious?","A little. But it'll be in Hannu's paper tomorrow, with four mistakes."]],
- "Come back and tell me. Skip the speeches."],
-15:["The Royals want a crown, the Church wants a cross. (Helmi looks up from her accounts.) The fishermen want dry socks. I think we know who's got the better priorities.",[
-  ["Who's winning the argument?","The one who shouts loudest. It's nearly always a man in a hat."],
-  ["Do you have a view?","I'm a seamstress by temperament. I'd stitch the two sides together and charge for the thread."],
-  ["Does it affect the harbour?","The harbour feels it in the prices. Everything's up when two parties fight."]],
- "If anyone wants a flag, I've a bolt of cloth. Any colour."],
-16:["There's a debate on the radio, the Party against the Democrats. (Helmi turns the dial up, then down.) I've listened for ten minutes and already I'm on both sides.",[
-  ["Who's winning?","Whoever's speaking at the time. It's the same with Hannu. I think they've been practising together."],
-  ["Is it worth listening to?","It's very good for knitting. You can drop a stitch and no one notices."],
-  ["Which side do you prefer?","The side with the better coats. Which, in my experience, is neither."]],
- "I'll turn it off when they start to quote Marx."],
-17:["(The rail of oilskins sways, all of them at once, like a congregation.) Did you feel that? The ground's trembling. The old men say it's the mountain. I say it's the price of herring.",[
-  ["Is it frightening?","A little. But I've got three hundred jumpers and a very stout counter."],
-  ["Where's Dario? I heard he's missing.","I heard, too. A man like that disappears and everyone says it's convenient. I wonder for whom."],
-  ["Are people buying more?","Torches, ropes and wool. If the mountain's angry, they'll be ready."]],
+  ["What do you expect?","Speeches and cold feet. I've sold forty pairs of thick socks this week. I'm not a prophet, but I know about cold feet."],
+  ["You look smart.","My scarf's older than you, and it's still better than anything in Kingsgrad. Sirpa from the bar's wearing a dress of mine from 1972. Ray said 'right'."]],
+ "Stand somewhere with a wind-break. Trust me."],
+15:["(Helmi is pinning a little card to the fur-lined boots in the window: 'RESERVED'.) Oskar came in. He's saving for these. He's got enough for the left boot. I've told him I'll hold them till he's got the right one too.",[
+  ["That's kind of you.","It's business. A customer who saves is a customer who comes back. (She looks at the boots.) And he's a nice boy. Don't tell Olga."],
+  ["How much are they?","More than a footman earns in a month. Less than they're worth. They'll last him twenty years."],
+  ["Did you see anything at the gathering?","I saw Olga see something. She hasn't stopped talking since. Ask her. Actually, don't. She'll tell you anyway."]],
+ "If you meet Oskar, don't mention the boots. He's shy about it."],
+16:["(Helmi has the radio on low, and is darning a jumper in her lap.) The great debate. Helen and Erik. Olga's got hers on so loud I can hear it through the wall. We're listening to the same thing, a bit out of time. It's like an echo with opinions.",[
+  ["Who's winning?","Helen's louder. Erik's longer. Neither's said a word about the price of wool."],
+  ["What would you ask them?","Who pays when the fishermen can't. Nobody ever answers that one. They just look sad and shake your hand."],
+  ["Is that one of your sister's jumpers?","With a hole a gull made. I'm darning it. The devil got out a bit too enthusiastically."]],
+ "Darn your own socks. It's very calming."],
+17:["(Helmi is on her hands and knees picking up tins of boot polish that have rolled across the floor.) The ground shook. Everything with a curve rolled off the shelves. Everything square stayed put. I'm going to buy square things from now on.",[
+  ["Was it bad?","Just enough to make you think. There's steam on the mountain, Olga says. Olga's shouting at it."],
+  ["Can I help pick these up?","(She hands you a tin.) Black on the left, brown on the right, and the cherry red goes under the counter. Nobody's bought cherry red since 1971."],
+  ["Is anyone hurt?","No. But the old people up north are frightened. When the old people are frightened, I sell more blankets."]],
  "Tell Olga to stop shouting. It's not helping the mountain."],
-18:["(Helmi is selling goggles from a basket.) Safety goggles, thirty pennies. Everyone's suddenly sure they'll need them. I'd never sold one in my life until this morning.",[
-  ["Why goggles?","In case of ash. The monks sent word the mountain's about to cough. I think they're probably right."],
-  ["Do you believe it?","I believe in being prepared. It's why my shop is always full of things nobody needs yet."],
-  ["Is the shaking getting worse?","Every day. Like an old boiler. A clatter, a groan, and then a silence that's worse."]],
- "Buy a spare mask. They run out fast."],
-19:["Hannu says the Party's looking for helpers, 'Comrades Wanted'. (Helmi snorts.) He wants me to stock red armbands. I said, I'll stock what sells, and nothing sells like a pea coat.",[
-  ["Would the Party buy from you?","They would, and ask for a discount in the name of the people. I'd give it, but only in the people's currency."],
-  ["Who's on the street?","Strangers. A lot of strangers in good coats. I've noticed because they're always cold."],
-  ["Do you mind the Communists?","Not if they pay. That goes for everyone."]],
- "Armbands are by the door. Very popular. Don't ask which colour."],
-20:["(Helmi is pinning up a notice about an extra delivery.) Nothing from Kingsgrad lately, not even a postcard. I think the road's busy with people trying to find a hotel. I'm told it's all hush-hush.",[
-  ["What's at the Hotel Aurora?","A man, apparently. Whom everyone's watching. And whom everyone pretends not to."],
-  ["Do you hear much?","People in oilskins talk. I hear about three secrets a week and sell a dozen coats."],
-  ["Is Saltwick safe?","Safe as a boat in a harbour. But the sea's rising, and so are the rumours."]],
- "I never tell what I hear. It's bad for repeat custom."],
-21:["(Helmi is standing in the doorway, a mask over her nose and a broom in her hand.) It went up! The mountain! A great grey cloud rolled over the water, and it's raining ash. My shop's a snowglobe. A dirty one.",[
-  ["Are you hurt?","Not a scratch. A bit of grit in the eye. I sold the last goggles to Olga, who needed them for her face."],
-  ["Is anyone hurt?","Not here, nor in the north, I'm told. The wind was kind. It's a miracle, or a fluke, and I'll take either."],
-  ["What now?","Everyone's going to want masks, boots, and gloves. And I've got all three. I hate to sound pleased."]],
- "Don't track ash in. I'm not joking."],
-22:["I've sold out of masks and ordered more. (Helmi shoves a heavy box across the floor.) The price has gone up, I admit. But so has the cost. It's not profiteering. It's just business in a bad week.",[
+18:["(Helmi is filling a window with blankets and boots, very neatly.) Stockpiling. Everybody wants a blanket and a stout pair of boots, in case they have to walk somewhere fast. I've never sold so many boots in one day.",[
+  ["Is that taking advantage?","It's selling people what they need, at the price they'll pay. That's not taking advantage. That's shopkeeping."],
+  ["Will you leave, if it gets bad?","Leave? With all this stock? I'd sooner stand in the doorway with a mop and argue with the lava."],
+  ["What does your sister say?","She sent a letter: 'Come home.' I sent one back: 'This is home.' Then I sent her an order for forty jumpers."]],
+ "Buy boots, if you haven't. I mean it, this once."],
+19:["(Helmi is wrapping a pair of boots for a red-faced fisherman's boy.) He paid. Cash. All of it, since March. I nearly fainted. He says the Party's paying its new recruits a bonus. I said, recruit his friends.",[
+  ["Is that why he paid?", "The Party's promising its new recruits a bonus, he says. Mike and Kate have clipboards out on the quay. I'll believe the bonus when it pays the ledger."],
+  ["Did you sign up?", "Me? I've a shop. Shopkeepers don't join anything. We just sell the badges."],
+  ["Is everybody signing?", "Tom won't. He gave Mike a herring and lent him the boat. Tom likes everybody, so he can't join anything that doesn't."]],
+ "If anyone gives you a clipboard, hand it back."],
+20:["(Helmi has put a ladder against her shop front, and is roping a sheet of canvas over the window.) Steam's getting thicker. If the mountain goes, I want my stock covered. I've done Olga's too. She doesn't know yet.",[
+  ["Does Olga know?", "Not yet. She'll come out and shout that I've ruined the look of her shop. Then she'll say thank you. Then she'll shout again."],
+  ["Are you frightened?", "I'm busy. Busy's what you do instead of frightened. It works better than you'd think."],
+  ["Can I hold the ladder?", "(She nods down.) Hold it straight. If I fall, fall the other way. I'm forty-nine and I bruise like a pear."]],
+ "Cover what matters. That's all you can do."],
+21:["(Helmi has goggles pushed up on her forehead and ash all over her shoulders.) The mountain's gone up. Ash everywhere. Nobody's hurt, as far as anybody knows, thank God. I've sold every pair of goggles I had. Olga got the last ones, for her face.",[
+  ["Are you hurt?","Not a scratch. A bit of grit in the eye. I'm fine. My shop's fine. The canvas held."],
+  ["What do people need?","Goggles, scarves, anything to tie over the mouth. I've cut up a bolt of muslin and I'm handing it out. I'll worry about the ledger tomorrow."],
+  ["Is Olga all right?","Her roof's in at the back. She's furious. That means she's fine. If Olga ever goes quiet, then you worry."]],
+ "Tie something over your mouth. Muslin, a scarf, a sock. Anything."],
+22:["(Helmi is behind the counter with a neat stack of paper masks and a price card.) Masks and goggles. Olga says I'm charging triple. I'm charging double. She can't count when she's angry.",[
+  ["Isn't that too much?","Half of what I sell, I'm selling at cost, and the other half at double. It comes out about fair. Anyone who can't pay gets muslin, free."],
   ["Is it fair?","It's fair if I say so. Don't tell Olga. She'll want a cut."],
-  ["How are the fishermen?","Bitter. The ash has fouled the nets. They're out all the same, in oilskins and fury."],
-  ["Do you feel safe?","Safe enough. The mountain's a long way off. The prices are close."]],
- "If you're short, I can sell on credit. I've a very long ledger."],
-23:["(Helmi shakes ash out of a blanket on the step.) The island's one colour now. It makes selling boots a challenge. You can't see the stitching.",[
-  ["Do you miss the snow?","I do, God help me. Snow's clean. Ash is a conversation."],
-  ["Is the clean-up under way?","In patches. Everyone's sweeping, and nothing's getting any cleaner. It's the island's new hobby."],
-  ["What's selling best?","Brooms, buckets and bad language. Mostly the last, but I don't stock it."]],
- "A broom's half price. Everyone needs one."],
-24:["The monks are retreating to the peaks, I hear. (Helmi folds blankets in a rush.) They've asked for thirty. The mountain may be cross, but the monks are very warm.",[
-  ["Are they in danger?","They say they're in prayer. Prayer in a blanket's a safer bet."],
-  ["Do you deliver to the monastery?","Not on that road. The boy goes halfway and a monk meets him with a mule."],
-  ["What else do they need?","Rope, oil and very large boots. The sort that only come in black."]],
- "Tell Brother Ilja his boots are ready. He'll know."],
-25:["There's talk of a crown for everyone and a princess for democracy. (Helmi puts down her scissors.) I'd rather talk about trousers. I've a lot of them, and no one's talking.",[
-  ["Is it exciting?","It's loud. I prefer excitement with a discount."],
-  ["Do you want a king?","I want a king who buys a good coat. Or a queen. Or a very warm committee."],
-  ["Is the harbour ready for a change?","The harbour's ready for a hot meal and a sensible tide."]],
- "If a princess comes by, I do very fine gloves."],
-26:["(Helmi squints at a crate on the pavement.) Another cola. 'A Prince in Every Bottle'. I wonder if I'll find one in my hat. There was a prince in my hat once. A cat, actually. It didn't pay either.",[
-  ["Is Kelp Cola spreading?","Like damp. It's in every shop window on the coast."],
-  ["Do you like the prince on the label?","He's pleasant enough. A very clean collar. I'd say he's never done a day's work."],
-  ["Does the label sell it?","Everything sells if it's got a face on it."]],
- "I'll keep a bottle for the cat."],
-27:["(Helmi has a ticket on the counter.) The Party's showing a film in Kingsgrad tomorrow, the cinema's been booked. 'Revolution at the Pictures'. I may go, if there's a bus.",[
-  ["Is it any good?","I've heard it's all marching and no plot. That's most films, mind."],
-  ["Who's going from Saltwick?","Hannu, for the headlines. And half the harbour, for the free sandwiches."],
-  ["Do you like the pictures?","Not particularly. I prefer a good rain on a good roof."]],
- "If you go, tell me whether the hero wears a hat."],
-28:["(Helmi has pinned a flag of every faction in the window, the whole lot in a row.) A shopkeeper can't be too careful. Everybody's in the street, so everybody's a customer.",[
-  ["Is it a big day?","A noisy one. I sold six flags and forty pairs of boots. I don't care who wins, as long as they pay."],
-  ["Are you nervous?","I'm calm. I've sold oilskins to men who were sure the sea was going to drown them. It never does."],
-  ["Is Saltwick ready?","As ready as a harbour can be. The nets are in, the tide's out, and the pubs are full."]],
- "Come back after the speeches. I'll have the kettle on."],
-29:["Tomorrow it's all decided. (Helmi tidies the oilskins into rows.) I've stocked up, put up the prices, and said a prayer. I always do the last two together.",[
-  ["Are you hopeful?","I'm practical. Hope's for people with no stock."],
-  ["Who do you want in charge?","Someone who'll leave the harbour alone. It's a modest wish."],
-  ["Any last advice?","Wear a coat. It's cold. It's always cold. Cold's the only constant on this island."]],
- "Go home early. Get some rest."],
-30:["(Helmi stands in the doorway, arms folded, watching the sea.) The last day, then. Whatever it brings, I'll be here at eight tomorrow with the key.",[
-  ["How's the month been?","Cold. Busy. Dusty. I made more money than I have in years, and I felt rather bad about it."],
-  ["What do you hope for?","A mild winter, a good catch, and a customer who pays on time. It isn't much."],
-  ["Goodbye, then?","Come again. Bring your own coat."]],
- "Take care of yourself. That coat won't last."],
+  ["Who's buying?","Everyone. Even Lucia came in, for six pairs of goggles and a box of brushes. Brushes? She didn't say what for."]],
+ "Buy a mask. Pay what you like. Don't tell Olga that either."],
+23:["(Helmi is holding a pair of fur-lined boots on her lap, polishing them.) Oskar came in. He's got enough for the left boot and half the right. I've said I'll hold them, if he comes in on Wednesday with the rest. Wednesday, I said. Not Thursday.",[
+  ["Why Wednesday?", "Because on Wednesday I'm putting them in the window again, with a price on. A shop's not a charity. (She keeps polishing.) Mostly."],
+  ["Will he make it?", "He's a footman. They're paid on Tuesday. He'll make it, if he doesn't buy anybody a drink."],
+  ["How's Saltwick after the ash?", "Grey and sore. Oil on the hulls again, too: Tom's scrubbing the Gull. Everybody wants scrubbing brushes. I've sold out."]],
+ "Wednesday. Tell him Wednesday, if you see him."],
+24:["(Helmi is counting money with a very straight face.) Boots. I've sold more boots this week than in all of last winter. Everybody wants to walk out of here, in case. I'm making a fortune, and I'm not enjoying it as much as I'd hoped.",[
+  ["Why not?","Because they're buying them to run away in. I'd rather sell boots to people who are staying."],
+  ["Will people leave?","Some will. Most won't. Saltwick's like a barnacle. It complains, and it holds on."],
+  ["What will you do with the money?","Pay off half the ledger: the boys who'll never pay me. Tear out the page. (She looks pleased.) That'll confuse them."]],
+ "Keep your boots by the door. Just in case."],
+25:["(Helmi is wrapping a pair of fur-lined boots in tissue paper, very carefully.) It's Wednesday. Oskar's coming in, if he's got the rest. I've wrapped them anyway. If he hasn't, I'll unwrap them. That's all.",[
+  ["What if he doesn't come?", "Then I'll keep them another week and pretend I forgot. Don't tell anyone that. I've a reputation."],
+  ["Heard about the palace news?", "A crown for everyone, a princess for democracy. I'll believe it when the princess comes in for boots."],
+  ["Why the tissue paper?", "Because good boots deserve to be unwrapped. A man should remember the first time he opened his warm boots."]],
+ "Wednesday's nearly over. He'll come. He'd better."],
+26:["(Helmi is pricing jumpers from a new parcel.) My sister's sent forty more. Every one has a mistake on the left cuff. She says the devil's been very busy on Sarivalto this month, and needs more ways out.",[
+  ["Did Oskar come in?","(She smiles a little.) I won't say. A footman's boots are his own business. But the window's empty."],
+  ["Dario wants to buy the spa?","He can buy what he likes. He's never bought so much as a sock from me. Rich men never buy socks. They're given them."],
+  ["How's the ledger?","Thinner. I tore out three pages. Mike looked at me like I'd turned into a fish."]],
+ "Buy a jumper. The devil needs the exit."],
+27:["(Helmi is sewing a red ribbon onto a hat, frowning.) The Party asked me for red ribbons for the film at the pictures. Fifty yards. I said I'd have it by four. I'm on yard thirty-one, and my fingers are telling me to join the Democrats.",[
+  ["Are you going to the film?","No. I'll be here, sewing ribbons for other people to wave. That's the shopkeeper's lot: making the flags, never waving them."],
+  ["Do you mind sewing for the Party?","I'd sew for the prince, or Erik, or Kelp Cola, if they asked. They don't ask. The Party asks, and pays on time. That's my politics."],
+  ["Can I help?","(She hands you a needle.) Small stitches. If it falls off during the film, they'll blame me, and Helen will tell everybody."]],
+ "Small stitches. Remember that, in life."],
+28:["(Helmi's shop is shut, and she's standing on the step with her arms folded.) Every faction's out today. I've shut the door. I've sold flags to all of them, and I don't want to watch them wave each other's.",[
+  ["Who did you sell to?", "Red to the Party, blue to the Democrats, purple to the palace, and something with bubbles on it to Kelp Cola. I'd vote for whoever pays their invoice first."],
+  ["Are you worried?", "About tomorrow? Yes. About the money? No. I always worry about the right thing."],
+  ["Will you open later?", "When the banners have gone home. It's no day for selling boots. Nobody's going anywhere. They're all here, shouting."]],
+ "Stay indoors if you've any sense. You haven't. You're a reporter."],
+29:["(Helmi is sitting on a crate outside the shop with a cup of tea, not opening.) Nobody's shopping. Everybody's waiting. Olga's on her step, I'm on mine, and we've not shouted once all morning.",[
+  ["Is that strange?","It's like the sea going flat. Tom says when the sea goes quiet, you tie up. I've tied up."],
+  ["What do you hope for tomorrow?","That the fishermen pay their bills, the oil stays off the water and nobody takes the island somewhere it doesn't want to go. Oh, and that Olga shouts at me again. I miss it already."],
+  ["Want some company?","(She shuffles along the crate.) Sit. Don't talk. That's the best company there is today."]],
+ "Sit quiet. That's all anyone's doing."],
+30:["(Helmi has her shop open, and a new jumper on the counter, folded.) The last day. They'll settle the island today. I've opened as usual, because something on this island should be as usual. You've survived a month in that coat. I'm almost proud of you.",[
+  ["Is that jumper for me?","It's for anyone who's cold. You're cold. (She pushes it across.) The mistake's on the left cuff. Let the devil out in London."],
+  ["Did Oskar get his boots?","He walked past this morning in them, grinning, on his way to the palace. Whatever happens today, there's one footman on Sarivalto with warm feet."],
+  ["Will you be all right?","I've a shop full of boots, a ledger with fewer pages and a friend across the lane who shouts at me. I'll be fine. We'll all be fine, or we'll be fine differently."]],
+ "Wool next to the skin. Never forget it."],
 };

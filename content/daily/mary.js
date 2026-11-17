@@ -56,7 +56,7 @@ DAILY['Mary']={
 11:["(Mary is pricing a box of second-hand books, very carefully.) An old soldier died in Eastbrook, and his daughter brought me his books. Military history, and one book of love poems, worn soft, with a lot of underlining.",[
   ["What will you do with the poems?","Keep them, I think. Some books shouldn't be sold. They've been read hard enough already."],
   ["Is there a market for military history?","Frank buys it all. He reads about battles the way other men read about cricket. He'll be in by noon, pretending he isn't."],
-  ["What's the Union doing?","Shouting at Kelp Cola about wages, by the sound of the street. I'm on their side, though nobody's asked a bookseller."]],
+  ["What's the Union doing?","Shouting at Dagny at the mill in Eastbrook about wages, by the sound of the Gazette. I'm on their side, though nobody's asked a bookseller."]],
  "If you've any old books at home, bring them. I'll give you a fair price."],
 12:["(Mary is reading a ledger with her lips pressed tight.) Somebody in the oil company's been buying every book I've got on accounting. Six in a fortnight. Either they're learning, or they're hiding something.",[
   ["Who's buying them?","A nervous young man who pays in cash and never looks up. I've decided not to know his name. It's safer for my nerves."],
