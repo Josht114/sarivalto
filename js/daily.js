@@ -2461,383 +2461,414 @@ DAILY['Brother Teodor']={
   ["What will you bake?","Everything. Rye, white, herb, sweet buns with cardamom. Pirkko's recipe, the buns. I owe her that too."]],
  "Come back hungry, whatever happens. The bread will be waiting."],
 };
-// Bruno, ringmaster of the travelling circus at Lake Ilmari (the Circus). Threads: thirty years on the road and his tall tales, the takings
-// and the permit he hasn't got, his troupe (Igor in the bunk below, Buttons's appetite, Meg who runs things, Zora's forecasts),
-// the island's politicians as an audience, the volcano and whether the circus should move on.
+// Bruno, ringmaster of the travelling circus camped at Lake Ilmari (the Circus). Threads: thirty years on the road in his red coat and
+// his tall tales (the Tsar's niece, the elephant in Tallinn); the permit he hasn't got and the takings; his troupe (Igor snoring in the
+// bunk below, Buttons's appetite and his feud with Bruno's top hat, Meg who really runs everything, Zora's forecasts); his sweet tooth
+// and the slate at Maya's that Meg pays; the speech he makes about everything, even a retired rope (the 16th); wanting to run from the
+// mountain and being talked out of it (the 19th), the free show for the island (the 28th), and saying yes to Hely, with a speech.
 DAILY['Bruno']={
-7:["(Bruno sweeps off his top hat with a flourish.) Ladies and gentlemen, the roads are open, and the press has arrived! Bruno, ringmaster, thirty years on the road, never once on time.",[
-  ["Pleased to meet you. Nice coat.","Red, like all the best things: sunsets, wine and bad debts. I've had it since Bologna. It has been mended more times than I have."],
-  ["How long has the circus been here?","Since the snow went. We came in over the ice before the king died, and then the island shut like a purse. A fine audience, but a captive one."],
-  ["Is the circus licensed to perform here?","(He lowers his voice.) Licensed is such a strong word. We have a letter. It has a stamp on it. Nobody has asked what the stamp says."]],
- "Come to the big top any evening. The first row is free for the press."],
-8:["(Bruno is leaning on a tent pole, reading a Eastbrook Gazette with great suspicion.) The Gazette says Sunday is a day of rest. In my profession, Sunday is when the tickets sell.",[
-  ["Do you not rest at all?","I rest on the day I'm buried, and then only if the grave's got a view. Today Igor is resting. He's lifting only the small anvil."],
-  ["Is the island good for business?","Everyone has a king to mourn and nothing to do about it. A man who is sad and idle will pay for a juggler. That's economics."],
-  ["What does the Gazette say about you?","Nothing. I've asked three times. I've begun to think the editor is jealous of my coat."]],
- "If the church bells stop, that's us. We're louder."],
-9:["(Bruno holds up a bottle of Kelp Cola to the light.) A man in a good suit tried to sponsor my circus this morning. He wanted the name on the big top. KELP COLA PRESENTS. I told him I'd think about it, which is how I say no politely.",[
-  ["Would you take the money?","I'd take a goat if it paid. But I won't be a bottle on a tent. A circus has to stand for something, even if it's only itself."],
-  ["Who was he?","A Kelp Cola man with a clipboard. He had a pen on a chain. I've never trusted a man whose pen is afraid of being stolen."],
-  ["What would you call your own cola?","Ringmaster's Reviver. It would taste of sawdust and applause. It would sell terribly, and I'd be very happy."]],
- "A circus can drink anyone's cola. It's only the name that's not for sale."],
-10:["(Bruno has taken his hat off and, for once, isn't waving it.) They bury the king today. I've buried three ringmasters in my time. The best of them said the show must go on. Today, it won't. We're dark until tomorrow.",[
-  ["That's decent of you.","It's not decency. It's manners. And a little superstition. You don't juggle on the day of someone's last act."],
-  ["Did you ever perform for the king?","Once, in Kingsgrad, years ago. He sat very still through the whole of it. At the end he said, 'Thank you, that was very loud.' I put it on a poster."],
-  ["Will the island be all right?","The island will have a new king, or a vote, or a revolution. Whichever, they'll still want a circus on Saturday."]],
- "Go gently today. We'll be back under the lights tomorrow."],
-11:["(Bruno is counting coins into a tin, with moving lips.) Fourteen krona and a button. The takings from Eastbrook. They love us, but they pay like a people who've been told life is hard.",[
-  ["Is that a good night?","It's a tragedy with a trapeze. But Meg says it's enough to feed us and the horse. We're never ruined while the horse eats."],
-  ["Where did the button come from?","Buttons says it's his. I say it's the dignity of the circus. We'll fight over it later."],
-  ["Why are Eastbrook's wages so low?","I hear the mill hands want a fair day's pay. I told them I'd be on their side if I could find anyone to pay me one. A circus is always on the side of the underdog. Only the underdog usually can't afford a ticket."]],
- "If anyone asks, we were in Kingsgrad today. It sounds richer."],
-12:["(Bruno has a map spread on a barrel and is drawing arrows on it.) A circus moves like an army, only with more sequins. I'm planning our winter. Southwards, if the ice lets us.",[
-  ["Are you leaving the island?","One day. Not today. A circus that leaves a town in the middle of a story is a circus that never finds out the ending."],
-  ["Where does the circus winter?","Wherever there's a barn, a barmaid and a bank manager who can be charmed. Last year it was a barn in Lapland with an organ in it."],
-  ["Do you ever feel like settling?","Every year, in March, for about a day. Then I see a lorry and a road, and I forget what I was thinking."]],
- "I'll draw you a map when it's done. It'll be wrong, but it'll be handsome."],
-13:["(Bruno is practising a bow in a puddle, checking his reflection.) The Cola men are giving away free samples in Kingsgrad tomorrow, I hear. Which means half the island's going to be there. I'm thinking of setting up a tent next door.",[
-  ["Selling what?","Hope. Candy floss. Hope in candy floss. It's the same product, really, but one of them's honest about the sugar."],
-  ["Free samples? Would you take one?","I'd take twelve, and give eleven to Igor. He's worked up a thirst lifting the ringmaster."],
-  ["What do you make of the Kelp Cola people?","They sell sweet water and the feeling of being young. I sell the same thing, but mine has a tiger. Not a real one. A very loud cat."]],
- "The crowds go where the free things are. A ringmaster knows."],
-14:["(Bruno is up since dawn, brushing his coat with a clothes-brush the size of a loaf.) The big day! Everyone's talking about the fourteenth, the whole island. And I, a man of the world, have no idea what's going to happen. It's wonderful.",[
-  ["What are you expecting?","A crowd. Speeches. Someone crying. Someone selling sausages. I've seen that show a hundred times, only the hats change."],
-  ["Are you nervous?","Never. But I'm wearing my lucky socks. I always wear them on days when other people are about to do something."],
-  ["Is the circus involved?","We're a circus. We're always involved. We just wait to be asked, and if we're not asked, we turn up and it's a surprise."]],
- "If I'm not here later, I'm in the front row. Probably."],
-15:["(Bruno shakes out a cape, and a great deal of dust.) Do you know, the two princes both want to be king, and they've each sent a man to ask whether I'll put a banner on the big top? A crown on one, a cross on the other. I said, 'Gentlemen, I only fly the flag of the circus.'",[
-  ["Which banner is nicest?","The crown's got better gold. The cross has better manners. I'd like to see them fight it out in the ring. I'd sell tickets."],
-  ["Did either of them pay you?","Not a krona. They wanted it for nothing, for the honour. I said the honour of the ringmaster is not for sale, only for hire."],
-  ["Would you back a prince?","I'd back whoever laughs at my jokes. So far, it's Augustus's cook and a goat."]],
- "I'm a showman. I sit on a fence, but I do it beautifully."],
-16:["(Bruno is rehearsing a speech to the horse.) Ladies and gentlemen, the Great Debate! I've asked the Communists and the Democrats whether they'd like to borrow the big top. A debate with a ringmaster holding the bell. I'd be marvellous.",[
-  ["Would they let you?","They were polite. They said they'd arranged their own venue. That's what people say when they've never seen you hold a bell."],
-  ["What would you ask them?","Which of you will let the circus keep its horse? The answer tells me everything."],
-  ["Who's going to win the debate?","The one who speaks last and slowest. It's always the one who speaks last and slowest. I learned it from a bishop."]],
- "I've sent them the bell, in case they need it. They'll see."],
-17:["(Bruno has his boot against the ground, as if listening.) Did you feel that? Just now. A little shiver, in the earth. Igor says it's the horse. The horse says nothing, which is suspicious.",[
-  ["It felt like a lorry going by.","There's no lorry for a mile. It came from the north. Where the steam is. (He pulls his coat tight.) Thirty years, and I've never pitched under a volcano."],
-  ["Are you worried?","I'm a ringmaster. I'm paid to look as though nothing's wrong. Ask me again tomorrow, and see if I'm still smiling."],
-  ["What does Madame Zora say?","She's been drawing the curtains and muttering since Tuesday. When Zora goes quiet, we all go quiet. It's the only thing she's ever done that frightens me."]],
- "If the earth wants an act, it'll have to book in advance."],
-18:["(Bruno is tapping a barometer, which is stuck on STORMY.) I'm told that Kelpy, the cup in the cola museum, has a rival now. A man dressed as a bottle. We're all of us, in the end, a kind of mascot.",[
-  ["Have you seen Kelpy?","Not yet. But I'm told Kelpy is very popular with children. In my day we called that talent. Now it's a marketing department."],
-  ["Is it bad for the circus?","Competition's good for the soul. And the little ones will still want a real clown. A cup can't fall off a unicycle."],
-  ["Is the ground still shaking?","A little. Like a cat purring in a very large room. I'd feel better if it stopped. I'd feel better still if it didn't."]],
- "Tell the cup I said break a leg. Does a cup have legs?"],
-19:["(Bruno is watching Meg, who is hanging upside down from the big top rope.) She says the earth's moving, and she can feel it up there. The rope hums. I said it's the wind. She said wind doesn't hum in tune.",[
-  ["Is the big top safe?","It's stood through blizzards in Karelia. A bit of shaking won't harm it. But I'll be moving the audience's chairs to the lakeside, just in case."],
-  ["Has anyone asked you to join a party?","Comrades have asked. The Midnight Note has asked me to come and stand in the audience and look important. I'm doing the second. It has a better bar."],
-  ["What does Igor think?","Igor thinks everything will be fine. Igor thinks the sun will come up in the same place until he's dead. He's the happiest man I know."]],
- "Mind the guy ropes. They're a bit tight today."],
-20:["(Bruno is holding a candle in the middle of the day.) Zora gave it to me. She says to light it if the ground does anything unfair. I said I'd light it, as soon as I've found a match.",[
-  ["Does Zora really know things?","She told me, five years ago, I'd lose my hat in a river. I laughed, and then I lost my hat in a river. I don't laugh at Zora now."],
-  ["Is the circus staying put?","The lake's low. The ground's solid. And we've paid for the pitch till the end of the month. I never leave a paid pitch."],
-  ["What's in the air today?","Everything: a palace job whispered in Frostholm, a hotel man with a secret. Not our business. Our business is sawdust."]],
- "Don't stand under the trapeze. It's a habit I've developed."],
-21:["(Bruno stands in the doorway of his caravan, grey with ash, still in his red coat.) The mountain has spoken. The sky's the colour of old porridge. And I've never in my life been so glad to see Igor, who was holding the caravan up.",[
-  ["Is everybody all right?","All of us. The horse is cross, Buttons is hungry, Meg is fixing a rope, and Zora said she told us so. A normal day."],
-  ["Did you see the eruption?","From the lake, over the pines. A red glow, a roar like a thousand drummers. Thirty years of shows, and nothing's ever got an ovation like that."],
-  ["What now?","Now we sweep. And then we wait. I'm told a circus is the best medicine after a disaster. I'd better start believing that."]],
- "Cover your mouth if the wind turns. The ash is in everything, including the tea."],
-22:["(Bruno is shaking the ash off the big top canvas with a long broom, and a lot of language.) It's like grey snow, only it's not cold and doesn't melt. The audience will think we're doing a trick.",[
-  ["Will you perform in this?","I'll perform in a flood, I'll perform in a fire. But I'll ask the audience to wear scarves."],
-  ["Is anyone hurt on the island?","Nobody, thank the Lord. The north has the lava, and it's keeping to the north. Everyone's frightened, and everyone's still alive. It's a fine beginning."],
-  ["Would you move the circus?","Not with the roads covered. Besides, a circus in a crisis is the thing people remember. We stay. We're the only noise left."]],
- "Sweep it out of the ring before the audience arrives. Preferably into Buttons."],
-23:["(Bruno is writing a poster in white paint on a black board.) GREY SKIES, BRIGHT SPIRITS. THE CIRCUS, STILL STANDING. I'm rather pleased with it. I'll nail it to a tree in Eastbrook if there's a tree that's clean.",[
-  ["Are people coming?","Some. A few brave souls and a lot of children who've been kept indoors for two days. A child with ash on his shoes is a ticket-buyer."],
-  ["What's happening on the island?","The Party people are fixing their machinery, and the oil lot are mending whatever's cracked. Everyone's mending. We're mending the audience."],
-  ["Do you ever stop performing?","On the day I'm dead. And then I'll probably do the funeral oration myself."]],
- "Come early. The good seats are the ones that haven't got ash in them."],
-24:["(Bruno has a blanket over his shoulders and a mug in both hands.) The monks are heading for the peaks, I hear. In a retreat. A fine idea. If I were a holy man with a mountain, I'd go up it too.",[
-  ["Would you retreat?","A ringmaster can't retreat. It's all advance, all the time. But I'd like a week somewhere with a sofa and no applause."],
-  ["What's the mood at the lake?","Tired. Kind. Igor's giving shoulder-rides to children and Buttons is telling the same joke for the ninth time. It's like a family."],
-  ["Have the aftershocks stopped?","One at breakfast, a small one. The horse looked up, and that was that. The horse takes it very well."]],
- "Keep warm. A cold ringmaster is a very quiet one, and that's no use to anyone."],
-25:["(Bruno has been looking at the stars through a tin cup.) Everyone on the island's got a plan for the end of the month. The prince, the princess, the party, the pastor. Me, I've got a trapeze and a very long coat.",[
-  ["Who do you think will come out on top?","I think a crowd always gets what it wants, eventually, even if it doesn't know it's asking. I'd just like it to want something kind."],
-  ["Is the circus on anyone's side?","We're on the side of anybody who buys a ticket. We always have been. It's the only honest politics there is."],
-  ["Do you ever worry about the future?","Never about mine. I worry about the horse's. She's seventeen, and she's earned a pension."]],
- "A good night to look at the sky. Ash and all."],
-26:["(Bruno is polishing a brass bell with his sleeve.) The cola people are talking about making a prince into a bottle. A Prince in every bottle. I'd have thought a prince in the ring was the better act.",[
-  ["Would you sell the prince a ticket?","I'd give him the best seat in the house, and then see if he'll stand on his head. A king should be able to take a joke."],
-  ["Is it true the oil man's buying a spa?","So I'm told. Where do you put the money, if you're an oil man? Into somewhere that smells nice. A circus smells of sawdust and horse, and I think that's more honest."],
-  ["Does the circus have rivals?","Not on the island. In Helsinki there's one with a tiger. A real one. It hates everyone and it's not even paid."]],
- "Everyone's selling something this week. I'm giving mine away, in the evenings."],
-27:["(Bruno's tin is heavy with takings, and he looks suspicious of it.) The Communists have taken over the picture-house, I hear, to show a film. A revolution at the pictures. I'll admit, it's a fine thing to do with a Tuesday.",[
-  ["Would the circus show a film?","We've got no projector. We've got a trampoline and an ox. If you want revolution, you'll need a bigger tent."],
-  ["Are you a revolutionary?","I'm a ringmaster. All my life I've told a crowd where to look. A revolution's just a larger crowd."],
-  ["What's the mood on the island?","Tight. Like a drum. Everyone's waiting for someone to hit it."]],
- "I like a good film. Only I don't like the interval. People start thinking."],
-28:["(Bruno is standing in the big top ring in full costume, alone.) The biggest push of the month, they say. The factions are all out today. And I, in my small way, am out too, rehearsing with no audience.",[
-  ["Who are you rehearsing for?","The last night of the month. I want to make people laugh, whichever way it turns out. A laugh is a kind of ceasefire."],
-  ["Will anything happen at the lake?","Probably nothing. Everyone will be in Kingsgrad, shouting. The lake's a good place to be on a day like this: quiet and wet."],
-  ["Are you frightened?","A little. But not of the shouting. It's the quiet afterwards that I worry about."]],
- "Let them do their pushing. We've got the sawdust."],
-29:["(Bruno is sitting on a barrel, with the whole troupe's boots in a row in front of him.) Cleaning boots the night before the last night. Every circus does it. If you're going to go out, go out well-shod.",[
-  ["What's the plan for tomorrow?","The plan is to put on the best show I've ever put on, and see who turns up. Maybe nobody. Maybe all of them."],
-  ["Is everyone ready?","Meg's checked every rope twice. Igor's lifting. Buttons has been fed. Zora says she's not going to tell me anything. Which I find very reassuring."],
-  ["What will you say if the island asks for a speech?","I'll tell them: ladies and gentlemen, whatever you decide, mind the step. It's an old circus saying."]],
- "Early to bed. A ringmaster needs his voice."],
-30:["(Bruno stands in the lakeside dawn, hat in hand, looking at the grey sky.) The last day. Whatever the island decides, I've had the pleasure of an audience of a lifetime. I only wish I'd had a better poster.",[
-  ["Are you nervous?","I'm always nervous before curtain-up. It's what makes the first bow worth taking."],
-  ["What will the circus do after today?","Pack the caravans, feed the horse, and wait for the road to say where. Wherever it says, we'll go. We always do."],
-  ["Any last words for the British press?","Spell my name right. And say the coat is red, not scarlet. Scarlet is a woman I once knew in Hamburg."]],
- "Ladies and gentlemen, thank you. Mind the step on your way out."],
+7:["(A large man in a scarlet coat and a top hat spreads his arms as if the whole lake were a stage.) Welcome! Welcome, friend, to the Greatest Little Circus in the Baltic! Thirty years on the road! Eleven countries! One elephant, once, briefly! I am Bruno!",[
+  ["Eleven countries?","Eleven! Or nine. Two of them changed their names while we were in them. That's not my fault. I'm very good with countries. Countries are less good with me."],
+  ["What happened to the elephant?","Tallinn, 1961. She walked into the sea and swam to Finland. Nobody's ever believed me. (He taps his nose.) I have a postcard. From the elephant. It's mostly blank."],
+  ["Do you have a permit to camp here?","(A very long pause.) A permit. Yes. Very much in hand. In the post. Being considered. (He waves his hat.) Come to the show! Front row! Free! Just this once!"]],
+ "Come to the show tonight! Eight o'clock! Bring everyone! Bring money, mostly!"],
+8:["(Bruno is sitting on the steps of his caravan in his shirtsleeves, eating a bun, with sugar on his moustache.) Sunday. No show. Bun day. (He brushes off the sugar.) From the coffee shop in Eastbrook. Maya's. Best buns in the Baltic. I have a slate.",[
+  ["Do you pay your slate?","Meg pays it. Quietly. On Mondays. She thinks I don't know. I know. I pretend I don't. That's love, in a circus."],
+  ["What do you do on Sundays?","Count the takings. Lose count. Eat a bun. Start again. Tell Igor a story. He falls asleep in the bunk below. I tell the rest to the ceiling."],
+  ["Who's Igor?","Our strongman. Lifts a cart with one arm, snores like a cart with no wheels. We've shared a caravan for nineteen years. I've never once slept through the night."]],
+ "Bring a bun on Monday. Meg will pay you for it. Don't tell her I said so."],
+9:["(Bruno is watching Meg teach a girl on the low wire, his arms folded, pretending not to be interested.) Who's that? (He knows exactly who it is.) The girl from Eastbrook. Hely. Meg's taken a shine to her. Meg takes shines. I make decisions.",[
+  ["Is she any good?","(He watches Hely fall.) Terrible. (He watches her get up.) Very terrible. (He watches her try again.) Hmm. She gets up. That's the only thing I can't teach. Getting up."],
+  ["Will you take her on?","I'm the ringmaster. I don't take people on. People take on the circus. (He watches her.) We'll see. Probably not. Possibly. Don't tell Meg I said possibly."],
+  ["Why does Meg decide things?","Meg doesn't decide things. Meg makes me think I've decided things. It's a very old trick. It works every time. I'm aware of it. It still works."]],
+ "Don't tell the girl I said possibly. It's bad for a performer to hope."],
+10:["(The big top is dark. Bruno is standing in the empty ring in his red coat, hat in his hands.) No show tonight. For the king. (He looks up into the dark.) I wanted to do a sad show. Meg said there's no such thing. Meg's right. As usual.",[
+  ["Did you meet the king?","1971. The palace. He laughed at Buttons for ten minutes, then came round the back and asked me how a ringmaster keeps order. I said 'I don't, Your Majesty. Meg does.' He laughed for another ten."],
+  ["What will you do tonight?","Stand here. In the ring. Where the sawdust's still warm. Make a speech to nobody. (He clears his throat.) Don't worry. A short one."],
+  ["Can I hear it?",["(He considers, then stands very straight.) 'He laughed at the clown. That's all a circus can ask of a king.' (He puts his hat on.) There.",[
+    ["That was beautiful.","(He blows his nose loudly.) Thirty years and that's the shortest speech I've ever made. Meg will be proud. Don't tell her I cried."],
+    ["That's all?","That's all. A king doesn't need more. (He blows his nose.) A ringmaster does. But not tonight."]]]]],
+ "Go gently today. The circus is."],
+11:["(Bruno is waving a letter with a Bureau stamp.) The Civil Service Bureau! In Kingsgrad! Asking about our permit! (He waves it harder.) 'Kindly provide.' Kindly! They've never been kind to a circus in their lives!",[
+  ["Have you got a permit?","I have something better. A circus. A circus has never needed a permit in thirty years. We arrive, we perform, we leave. Permits arrive after we've gone."],
+  ["Who sent the letter?","A clerk called Bertil. Very tidy handwriting. (He squints at it.) He's added a little note at the bottom: 'P.S. I hear the clown is very funny.' I like him already."],
+  ["What will you do?","Invite him to the show. Front row. Free. Nobody ever refused a circus with a pen in his hand. They're too busy laughing to sign anything."]],
+ "If you meet Bertil, tell him the front row is his."],
+12:["(Bruno is having a stand-up row with Buttons about hats.) Mine is taller because I am the ringmaster! (Buttons jingles.) No, your bells do not count as height! (He turns to you.) Thirty years. Every day. About hats.",[
+  ["What's the argument?","He says his cap has more bells. I say my hat has more dignity. He says dignity's overrated. He's never had any, so he'd know."],
+  ["Who's winning?","(Buttons jingles very loudly.) He thinks he's winning. Nobody ever wins an argument with a jester. You just stop, and he takes a bow."],
+  ["Isn't it a bit silly?","Silly is my profession! And his! We're the only two men on this island arguing about hats instead of crowns. I think that makes us the sanest people here."]],
+ "Don't take sides about the hat. It only encourages him."],
+13:["(Bruno is giving a speech to a crate of free Kelp Cola.) Friends! Kelp Cola has seen fit to gift the circus with refreshment! We thank them! We salute them! We will drink every drop! (He opens one.) Buttons has already had six.",[
+  ["Is Buttons all right?","Bouncing. Off the canvas. Meg's keeping him off the trapeze till Thursday. A jester on sugar is a natural disaster. We have insurance for most disasters. Not that one."],
+  ["Are you going to the gathering tomorrow?","The whole troupe! In costume! The island needs to remember there's a circus! I've prepared a speech. Forty minutes. Meg's cut it to four."],
+  ["What's in the speech?","Welcome, friends, et cetera. The circus is here. Laugh while you can. (He looks at the paper.) That's Meg's four minutes. My forty were about the elephant."]],
+ "Come tomorrow! The circus will be the best thing there!"],
+14:["(Bruno is in his full scarlet coat and his tallest hat, standing at the head of his troupe.) The big gathering! Igor, lift something impressive! Buttons, two bells only! Meg, stop me if I talk for more than four minutes! Forward!",[
+  ["Will you make your speech?","If they let me near a box to stand on. I've brought my own box. A ringmaster always brings his own box."],
+  ["What do you hope happens?","That the island laughs. Once. In the middle of all the speeches about crowns and votes. A laugh is the only thing nobody can argue with."],
+  ["Is Meg in charge?","(He looks back at Meg, who raises an eyebrow.) I'm in charge. (Meg's eyebrow goes higher.) Meg is in charge of me. Same thing."]],
+ "Follow the scarlet coat! Best seats near the circus!"],
+15:["(Bruno is sitting on his box, looking delighted and slightly damp.) Buttons fell in the fountain. At the gathering. Came out with a duck. The whole island cheered. (He wipes his eyes.) Thirty years, and the best act we've ever done was an accident.",[
+  ["Did you make your speech?","Three minutes and fifty seconds. Meg timed it. Then Buttons fell in the fountain and nobody remembered a word. That's showbusiness."],
+  ["What's the news today?","The palace and the Church are fighting over the prince's brother. (He shakes his head.) Two big tents, both wanting the same act. I've seen that before. It never ends well for the act."],
+  ["What happened to the duck?","He's called Mayor. He lives with Buttons now. He's the first mayor who's ever let the circus stay without a permit."]],
+ "Come to the show tonight. The duck's in it now."],
+16:["(Bruno is in the ring, giving a speech to a coil of old rope.) Faithful servant! Twenty years you have caught our Meg! Four times you held when she did not! Today, you retire! (He bows to the rope.) Meg says I'm mad. I say a rope deserves a speech.",[
+  ["Do you make speeches about everything?","Every rope, every horse, every town. I made a speech when we left Bergen. Bergen cried. Bergen had never cried before."],
+  ["Is anyone listening?","(He gestures at the empty seats.) Nobody. (Then at the rope.) It is. And so are you. Two is an audience."],
+  ["Is the debate on?","Buttons has it on the wireless. He agrees with everyone. Very loudly. I've told him a ringmaster should pick a side. He said 'I'm not the ringmaster.' Fair point."]],
+ "Take a bit of the old rope as a souvenir? No. It's retired. It's resting."],
+17:["(Bruno is standing in the middle of the ring, very pale, holding his hat with both hands, as the ground shudders.) The ground moved! Under the ring! (He looks around.) Thirty years, I have never felt the ground move under a ring. The ring is sacred.",[
+  ["Is anyone hurt?","Meg was up a pole. She came down like a cat. Buttons was holding a pole. He stayed holding it. Igor caught a falling lamp. Duchess has gone very quiet."],
+  ["Is it the volcano?","Zora turned a card this morning and went white. Zora has never gone white. She's been the colour of old paper since 1952. (He swallows.) I'm worried."],
+  ["Will the circus move?","We'll see. Meg will decide. Meg always decides. I'll make a speech about it."]],
+ "If the ground moves again, get out from under the big top. Tents bend. Ringmasters don't."],
+18:["(Bruno is pacing in front of the big top, very agitated.) Steam! Grit on the canvas! Zora's cards! The animals are restless. Duchess won't eat. I want to move the circus to Kingsgrad. Tonight. Meg says no.",[
+  ["Why does Meg say no?","She says if we run, the island sees a circus running. She says if we stay, the island sees a circus that's brave. (He throws his hands up.) I don't want to be brave! I want to be in Kingsgrad!"],
+  ["Who'll win the argument?","(He stops pacing.) Meg. Obviously. Meg always wins. But I'll lose magnificently. With a speech."],
+  ["Is everyone else frightened?","Buttons is telling jokes to the horse. Igor is lifting things that don't need lifting. Zora's reading cards and not telling anyone what they say. That's frightened, in a circus."]],
+ "If Meg asks, I'm being brave. Very bravely. Under protest."],
+19:["(The camp smells of eggs. Bruno is standing very still with his hat off.) The animals know. They've gone quiet. All of them. Duchess hasn't bitten anyone in two days. That's how I know it's serious. (He puts his hat back on.) We're staying. Meg won.",[
+  ["Is it safe to stay?","Meg says the lake's safe. Water doesn't burn. And a road full of frightened wagons in the dark is worse than any mountain. She's right. I hate it when she's right."],
+  ["What will you do?","Make a speech to the animals. About courage. (He clears his throat.) I've written it. It's quite good. It's the first speech I've ever written that I actually need to hear myself."],
+  ["Did you pay your slate?","(He looks guilty.) Meg did. On Monday. Maya gave her a bun and said 'the man in the red coat owes you his life'. Meg said I owe her eleven buns. Both true."]],
+ "Breathe through your hat. It helps. Mine's very tall. It holds a lot of air."],
+20:["(Bruno is in the big top, giving a speech to the animals, who are all lying down very quietly.) Friends. Tonight the mountain may speak. We have heard mountains before. We have heard Bergen. We are still here. (Duchess flicks an ear.) She's listening. It's working.",[
+  ["Is it really working?","The animals are calmer. Buttons is calmer. Even Igor's calmer, and Igor's never been calm in his life. (He looks surprised.) I think it's the first speech I've ever made that did anything."],
+  ["Where will everyone sleep?","By the lake. In the open. Away from the poles. Meg's tied down everything that can be tied. Buttons is holding her hand. He doesn't know he's doing it."],
+  ["Are you frightened?","Terrified. But a ringmaster must stand in the middle of the ring when everyone's frightened. That's the whole job. Standing in the middle, in a red coat."]],
+ "Go somewhere safe. And hold someone's hand."],
+21:["(Ash is falling. Bruno is standing by the lake in his red coat, which is now grey, his hat grey, his moustache grey.) It went. The mountain. And the circus is still here. Every animal. Every person. Every bell on Buttons's cap. Grey. But here.",[
+  ["Is everyone all right?","Buttons told jokes all night. Four hundred and eleven. Terrible. Everyone laughed. Even me. During my own speech. That's never happened."],
+  ["Is the big top standing?","Grey, and leaning, and standing. Tents bend. Meg said so. Meg's always right. I'm going to make a speech about it. A short one. For once."],
+  ["Are you all right?",["(He takes off his grey hat and looks at it.) Thirty years. I've never been so frightened. And I've never been so proud.",[
+    ["Proud of what?","My troupe. They didn't run. They didn't panic. They told jokes and held hands and lifted things. (He blows his nose.) A circus is a family. I forget, sometimes. Not tonight."],
+    ["What happens now?","We stay. And we put on a show. A free one. For the whole island. People will need to laugh. That's what we're for. That's all we've ever been for."]]]]],
+ "Cover your mouth. And thank you for coming to see us."],
+22:["(Bruno is announcing to an audience of two grey seagulls.) Hear ye! The Greatest Little Circus in the Baltic will present a FREE SHOW! For the whole island! On Saturday! (The gulls leave.) They'll be back. Everyone comes back for free.",[
+  ["A free show? Can you afford it?","No. Meg says no. I said yes. Meg said find the money. I said the island will remember. Meg said the island doesn't pay for horse feed. We're both right."],
+  ["Why do it?","Because after a mountain, people need to laugh. All of them. Party and palace and cola and oil, in one tent, laughing at a clown and a duck. That's worth more than takings."],
+  ["How's the camp?","Grey. Everything's grey. Zora's crystal ball is grey. She says it's the first time she's been able to see the future properly. I didn't ask what she saw."]],
+ "Come on Saturday! Free! Front row! Bring everyone!"],
+23:["(Bruno is writing a letter with great flourish.) To Bertil! At the Bureau! Inviting him to the free show! Front row! (He signs it with a huge loop.) He asked about the permit. I've sent him a ticket instead. A ticket is a kind of permit.",[
+  ["Will Bertil come?","He's a man who hears the clown is very funny. Of course he'll come. He'll bring a form. He'll forget to fill it in. That's what a circus does to people."],
+  ["What's the news?","Something broken on the oil rig, Igor heard. Spanners. And the Party says not them. (He shrugs.) In thirty years I've learned: whoever's shouting loudest that it wasn't them, it usually was."],
+  ["How are the takings?","Nothing, this week. Meg's doing the costumes herself to save money. Buttons is eating less. (He pauses.) That's a lie. Buttons is eating the same. Meg's eating less."]],
+ "If you see Bertil, tell him to come in the front row. Tell him there's a duck."],
+24:["(Bruno is pacing, glowing.) The princess! Last night! In a headscarf, pretending to be nobody! She laughed at Buttons for an hour! Then she came backstage and said thank you! To a circus! Royalty! Thirty years and that's never happened!",[
+  ["Did you recognise her?","Of course! Nobody laughs like a princess. She snorted. A royal snort. I've heard a Tsar's niece snort. In Riga, 1958. This was better."],
+  ["Was there a Tsar's niece?","(He looks wounded.) There was a woman who said she was. In Riga. She snorted. That's all I know. That's all anyone ever knows about a Tsar's niece."],
+  ["What else is happening?","Meg's in Eastbrook hanging banners for the Democrats. Hely's holding her ladder. (He looks at the road.) That girl gets up every time she falls. I keep noticing."]],
+ "If you meet a princess, tell her the circus thanks her. With a bow."],
+25:["(Bruno is watching Meg sew a hat with a feather, and pretending he isn't.) She's making a hat. For the Eastbrook girl. For Saturday. Programme seller's hat. With a feather. (He clears his throat.) Very fine feather.",[
+  ["What do you think of Hely?","(He looks at the sky.) She gets up when she falls. She holds ladders. She sells programmes for nothing. (A pause.) She reminds me of someone. Me. In 1953. Before the coat."],
+  ["Will you take her on?","I'm thinking. I'm thinking very hard. (Meg looks up.) I'm thinking it was my idea. (Meg looks down again, smiling.)"],
+  ["What's the news?","A crown for everyone, a princess for democracy. Everybody's making promises. I promise the island a show on Saturday. Mine's the only one with a duck."]],
+ "Don't tell Hely I'm thinking. A performer shouldn't hope."],
+26:["(Bruno is watching Buttons teach Hely to juggle, his hat in his hands.) Look at that. Four in a row. Buttons is a good teacher. Don't tell him. He'll want a taller hat.",[
+  ["Is she getting good?","Nearly not terrible, Buttons says. That's the highest praise in this circus. I've had it twice. In thirty years."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. (He looks thoughtful.) I've never had a milkshake. Thirty years of travelling and never a milkshake."],
+  ["Have you decided about Hely?","(He puts his hat on very firmly.) After the last show. On Saturday. When the applause is still in my ears. A ringmaster makes his best decisions with applause in his ears."]],
+ "Watch her catch the fourth. She will. Watch."],
+27:["(Bruno is rehearsing a speech for tomorrow, to the empty ring.) Friends! Neighbours! Comrades! Your Majesties! Fellow Republicans! Monks! (He stops.) I've got to welcome everyone. Every faction. In one breath. It's very difficult.",[
+  ["Will everyone really come?","Everyone. The Party, the palace, the cola men, the oil men, the monks, the Democrats. All in one tent. All laughing. It's never happened on this island. It'll happen tomorrow."],
+  ["What's the news?","A Party picture at the cinema tonight. I wanted to go. Meg said six tractors. I love tractors. (He pauses.) I don't love tractors. I love an audience. Even a tractor audience."],
+  ["How long is the speech?","Meg's allowed me five minutes. Five! For every faction on the island! (He looks at the paper.) I'll do it in four. And then I'll make another one. About Hely."]],
+ "Come tomorrow! Free! Front row! Bring the whole island!"],
+28:["(The big top is packed to the canvas, flags of every faction outside, and Bruno is behind the curtain, sweating in his scarlet coat.) The whole island's here. Every flag. Every party. All in my tent. (He wipes his forehead.) Thirty years, I've never been so frightened.",[
+  ["Are you ready?","Never. But a ringmaster goes on whether he's ready or not. That's the job. You walk into the middle of the ring and you say 'welcome', and you mean it."],
+  ["Who's in the audience?","Bertil from the Bureau, in the front row, with a form he hasn't filled in. The princess, in a headscarf. Anna from the Party. Phil from the cola. Everyone. All laughing at the same duck."],
+  ["What about Hely?",["(He looks through the curtain at the door, where a girl in a feathered hat is selling programmes.) After the show. I've decided. (A pause.) Meg decided. I've agreed. Same thing.",[
+    ["Will you make a speech about it?","Of course. A long one. Meg's allowed me ten minutes for it. She's never allowed me ten minutes for anything. She knows it's important."],
+    ["She'll be so happy.","She'll cry. Buttons will cry. I'll cry. Igor will lift her up. Zora will say she saw it coming. That's how a circus says welcome."]]]]],
+ "Find a seat! Any seat! I'm going on!"],
+29:["(Bruno is sitting on his caravan steps with a cup of coffee and red eyes.) I said yes. Last night. After the show. To Hely. With a speech. Eleven minutes. I cried at minute three. Meg let me finish.",[
+  ["How did Hely react?","She cried. Buttons cried. Igor lifted her into the air and nearly put her through the canvas. Zora said she'd seen it in the cards. Zora sees everything after it happens."],
+  ["How was the show?","The best of thirty years. The whole island laughed at the same moment. At a duck falling out of a bucket. Every party. Every faction. I'll never see anything like it again."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing. And we're packing for the winter tour. (He drinks his coffee.) We're the only people on this island who know exactly where we're going next."]],
+ "Come and see us off. Wave at the second caravan. That's Hely's."],
+30:["(Bruno is standing in the empty ring, the big top half down around him, his scarlet coat brushed clean of ash.) Last day. They're settling the island today. And we're folding up the tent. (He looks up at the sky through the gap.) Whoever wins, they'll need a circus.",[
+  ["Where will you go?","Round the island, every town. Then the boat to Finland, for the winter. Hely in the second caravan. Buttons on the roof. The duck in a bucket. And me in front, in red."],
+  ["What do you hope happens to the island?","That whoever runs it comes to the circus. You can tell everything about a leader from whether they laugh at the clown. Never trust anyone who doesn't."],
+  ["Will you remember this month?",["(He takes off his hat and holds it to his chest.) The mountain, and the lake, and the whole island laughing at one duck. And the girl who kept getting up. Yes.",[
+    ["Make a speech about it.","(He clears his throat, then stops.) No. (He puts his hat back on.) Some things don't need a speech. Meg taught me that. It took thirty years."],
+    ["Will you come back?","In the spring. If the island's still here. If it'll have us. (He smiles.) Circuses always come back. That's what makes them circuses."]]]]],
+ "Come and wave when we go! The scarlet coat at the front! You can't miss it!"],
 };
-// Buttons, jester of the circus at Lake Ilmari (the Circus). Threads: he is always hungry, his terrible jokes, Meg who catches him,
-// his rivalry with Bruno's hat, his wish to be taken seriously for one day, the volcano and the aftermath.
+// Buttons, jester of the circus camped at Lake Ilmari (the Circus), partner of Meg. Threads: he is always hungry (and dreams of a
+// slice of pizza from Kingsgrad); his terrible jokes; Meg, who catches him; his feud with Bruno's top hat; his wish to be taken
+// seriously for one whole day, and the clown's secret that nobody ever really looks at a clown, so a clown sees everything; the
+// secret commission at Jonna's tattoo shop (Meg's name, over his heart, which he shows her on the 30th); teaching Hely to juggle; the
+// fountain and the duck (the 14th), the Kelpy cup (the 18th), the night of jokes by the lake (the 21st), the princess (the 24th).
 DAILY['Buttons']={
-7:["(Buttons juggles three apples, drops one, and eats it.) Ah! A visitor! You've come at an excellent moment: I've got three apples and a feeling of destiny. Now I've got two apples.",[
-  ["I'm the British reporter.","A reporter! Then you can put me in the paper. 'Local Jester Hungry.' It's not news, but it's true."],
-  ["Tell me a joke.","What's red and white and goes up and down? A candy-striped lift. (He waits.) I'm told it's better in the dark."],
-  ["How's life at the lake?","Wet and wonderful. Meg says I'm to behave. I say, what's the fun of a jester who behaves?"]],
- "If you've got a sandwich, I can always find room."],
-8:["(Buttons is lying on his back on the jetty, with his cap over his face.) Sunday. The one day Meg lets me lie down without a rope round my ankle. Don't wake me unless there's cake.",[
-  ["Is there cake?","There's a rumour of cake. It began in Bruno's caravan and hasn't been confirmed. I'm following it like a dog."],
-  ["Do you ever take a day off?","Every day's a day off, if you do it right. Bruno calls it idleness. I call it holding the lake still."],
-  ["What's Meg doing?","Mending a rope, and not speaking to me. It's a terrible thing, a woman mending a rope. You know it's about you."]],
- "Wake me for lunch. Or cake. Or the end of the world, whichever comes first."],
-9:["(Buttons has a bottle of cola in each hand and a worried face.) Everyone's trying to make a new cola. I've been asked to taste six. I've tasted nine. Don't ask me how.",[
-  ["Which is the best?","The blue one. It tasted of nothing. It's a very restful cola. It would make a fine pillow."],
-  ["Who asked you to taste them?","A man in a suit, a woman in a red scarf, and a very small boy. The boy had the best palate. He said they all tasted like medicine."],
-  ["Are you feeling all right?","I'm fizzing. I think I'll float away. Hold my ankle."]],
- "If I burp tonight in the ring, it's not in the act."],
-10:["(Buttons has taken off his cap and is holding the bells in his hand so they don't ring.) The king's funeral. I've never been so quiet in my life. Meg says it's good for me. I think it's like being underwater.",[
-  ["Did you ever meet the king?","No. But Bruno says he said the circus was very loud. And I thought, how rude. And then I thought, how true."],
-  ["It's a hard day for everyone.","Yes. I made a joke this morning, and I couldn't finish it. It's the first time. Meg held my hand and I felt better."],
-  ["Will you perform tomorrow?","I'll tumble and juggle. I'll be silly, and everyone will say how brave. That's what jesters are for: to help people be sad and then stop."]],
- "Be gentle today. If you can't be gentle, be asleep."],
-11:["(Buttons is sitting in the sawdust, counting something on his fingers.) I'm trying to work out how many sausages I'm owed. Bruno says we're paid by the show. I say we're paid by the sausage.",[
-  ["How many sausages are you owed?","Eleven. Possibly twelve. It's complicated. There was one that was half a sausage and I'm not sure about the legal status."],
-  ["Do you get paid properly?","In smiles and soup. I hear the mill hands in Eastbrook are asking for a fair day's pay. I'm with them. I'd go on strike, but I'd miss the juggling."],
-  ["What does Meg say about it?","She says I'm to stop counting and start tumbling. She says the sausages will come. She's never been wrong about a sausage."]],
- "If you see a sausage on the road, think of me."],
-12:["(Buttons has Meg's hat on, and is trying to look dignified.) Meg's gone to look at the horse. She told me not to touch her hat. I've touched it. I'm now, technically, an acrobat.",[
-  ["It suits you.","It's too big. It comes down over my eyes. It's like being kissed by a very large mushroom."],
-  ["How did you and Meg meet?","In a ditch outside Tampere. I'd fallen off a unicycle. She was the only one who didn't laugh. I fell in love on the spot, and then she laughed."],
-  ["Has she forgiven you for the hat?","She's about to find out. Run if you like. I'd rather not be a witness."]],
- "I'll be in the caravan, pretending to have been there all day."],
-13:["(Buttons is in the middle of the ring, throwing his cap up and catching it.) They're giving free cola away in Kingsgrad tomorrow, I hear. I'm thinking of going as a bottle. A very short, very hungry bottle.",[
-  ["Would you do the juggling for them?","For a crate, I'd juggle the entire marketing department. Bruno says we've got our dignity. I say dignity doesn't fizz."],
-  ["What's Meg think of the idea?","She's said no twice, and I'm waiting for her to say yes a third time. It's the third that counts."],
-  ["Is the food good at Kelp Cola?","There's a woman called Pirkko with a van. I hear she makes pancakes that would make a grown man cry. I'd cry."]],
- "A hungry jester's a dangerous jester. Remember that."],
-14:["(Buttons has polished every bell on his cap and is now wearing it with great seriousness.) Today's the big day. The fourteenth! I don't know what's happening, but I've been told to look my best.",[
-  ["What's going to happen?","Nobody will say. Bruno says speeches, Meg says nothing, and Zora just looked at me and said 'eat something'. Which is her worst forecast yet."],
-  ["Are you excited?","I'm so excited I can't juggle. I tried, and I hit myself on the nose. It's a terrible feeling when your own nose lets you down."],
-  ["Will you be telling jokes?","Only if someone asks. And if they do, I'll tell them the one about the bishop. It's very short. So is the bishop."]],
- "Wish me luck. And save me a seat near the sandwiches."],
-15:["(Buttons holds up a gold paper crown in one hand and a wooden cross in the other.) A man from the palace gave me the crown. A monk gave me the cross. I now have the island's two biggest problems, and neither of them is lunch.",[
-  ["Which one are you going to wear?","The crown makes my ears itch. The cross makes me feel I should be nicer. So I'll wear the crown and be nicer."],
-  ["What do you think of the princes?","I think they should have a custard-pie fight. Winner's king. It's how things are done in the best circuses."],
-  ["Does Bruno have an opinion?","Bruno says he's neutral. He's wearing both hats and a smile. He's the finest fence-sitter I know."]],
- "Both's too heavy for one head. Even a fool's."],
-16:["(Buttons is lying on a barrel, practising a speech to the sky.) 'Ladies and gentlemen, my opponent is a goat!' I'm rehearsing for the Great Debate. Nobody's asked me, but I'd win.",[
-  ["Who'd you debate?","A Communist and a Democrat, one in each hand. I'd say to the first, 'Share the sausages.' And to the second, 'Let the sausages vote.'"],
-  ["Are you going to listen to it?","I'm told it's very long. I'll bring a snack. If it gets dull, I'll juggle it."],
-  ["Who do you think will win?","The one with the better snacks. It's a general rule of politics, and a well-known truth about juggling."]],
- "Don't tell them I'm rehearsing. They might ask me to speak."],
-17:["(Buttons is holding his juggling balls still, one in each hand, and not smiling.) The ground did a funny thing just now. I was in mid-toss, and the balls came down at the wrong time. It was like being juggled.",[
-  ["Was it an earth tremor?","Bruno says so. He's very brave about it, and he's standing very near the door. I'd say the lake's got a hiccup."],
-  ["Are you frightened?","A bit. I've never fainted, but I'm told it's very restful. Meg says if I faint, she'll leave me where I fall."],
-  ["Is there steam from the volcano?","A little white thread, up in the north. Like someone's left a kettle on. I'd like to find out who, and give them a talking-to."]],
- "If the ground shakes again, I'll be under the table. Bring a biscuit."],
-18:["(Buttons is eating something out of a paper bag, rather proudly.) A man at the Cola museum has dressed up as a cup, and he's called Kelpy, and I've got a dreadful feeling he's better at it than I am.",[
-  ["Is a cup funnier than a jester?","A cup is a cup. It has no legs and cannot juggle. But children cry when it leaves. I've never made a child cry on leaving. I'm taking notes."],
-  ["Would you like to meet Kelpy?","I'd like to take him for a sandwich. Two entertainers, over lunch. We could swap jokes. Mine are worse but louder."],
-  ["Have the shakes stopped?","Not quite. The ground twitches like a dog dreaming. Igor holds the caravan down, which helps a bit."]],
- "Don't tell the cup I said it. We're colleagues."],
-19:["(Buttons has painted a small grey cloud on his cheek.) Meg says it's silly. I say if the island's going grey, the jester should match. It's called solidarity. Or possibly face paint.",[
-  ["What are the Communists up to?","They want comrades, I hear. I'd be a good comrade. I share my sandwiches, and I've got a red nose."],
-  ["Have you been to the Midnight Note?","Once. Rita sang and I cried into a bowl of peanuts. I've never been so moved by anything that wasn't food."],
-  ["Is Meg still cross about the hat?","She's cross about the hat, the apples, and the thing with the rope. She says I'm very reliable. She means it kindly, I think."]],
- "If you see a comrade, tell him I've got a red nose already."],
-20:["(Buttons is staring at the sky from the jetty with his chin in his hands.) Madame Zora's been predicting something for three days, and she won't tell me what. She just looks at me and says 'Buttons, wear boots.' I'm wearing two pairs.",[
-  ["Does she mean the volcano?","She'd never say. She says things like 'a great fire in a quiet place' and then offers you a biscuit."],
-  ["Are the others worried?","Igor says it's nothing. Bruno says it's everything. Meg says it's Tuesday. I think it's a bit of all three."],
-  ["What are you going to do?","Sit tight and tell jokes. It's all a jester can do when the earth's going to sneeze."]],
- "Wear your boots. Both pairs, if you're me."],
-21:["(Buttons is covered in grey from cap to toe, like a statue that's just heard a joke.) It went up! The whole mountain! There was a roar like a thousand wardrobes falling down stairs. And then it rained ash, and Meg held me, and I held a sandwich.",[
-  ["Is everyone safe?","We're all safe. The lava's far in the north. Nobody's hurt. I've never been so glad to be silly and alive."],
-  ["What did it look like?","A red light in the sky and a black cloud on top, like a hat. It wasn't funny. And then it was, a bit, when Bruno sneezed grey."],
-  ["Are you frightened?","I was. I'm less so now. Fear's like a joke: it's worst before the punchline."]],
- "Brush your shoulders off. You look like a statue of a reporter."],
-22:["(Buttons is sweeping the ash off the jetty with a juggling club.) I've found a use for it at last. It's a very bad broom, and a very good club. Don't tell Bruno. He'll want to put it in the act.",[
-  ["How's the camp?","Grey. Quiet. Everyone's helping everyone, which is a bit unnerving. I helped Zora carry a table. She said thank you. I nearly dropped it."],
-  ["Is there food?","Bruno's got a pot of something on the stove. It's got ash in it, but it's warm. I'm starting to think ash is just a very small spice."],
-  ["How's Meg?","She's checking every rope for dust and humming. When she hums, I know she's worried. It's a nice hum."]],
- "If you find a clean apple, I'll trade you a joke."],
-23:["(Buttons is wearing a scarf over his nose and mouth, and his voice is muffled.) I'm a bandit. A dust bandit. Stand and deliver. Actually, I've forgotten what I was going to ask for. Biscuits?",[
-  ["Has anyone been to the village?","Eastbrook's mending. The Communists and the oil men are mending things, I hear. A great many spanners about. Spanners have never been funnier."],
-  ["Are the audiences back?","A few. They sit in the dark and don't say much, but they laugh at the oddest moments. I think they laugh because they're alive."],
-  ["Do you feel funny?","I feel peculiar, which is a start. Funny comes later."]],
- "Pass the biscuits. I'm nursing a thought."],
-24:["(Buttons is sitting on the caravan steps with his cap in his lap.) The monks have gone up to the peaks, they say, to pray for us all. I've said a prayer too. It was mostly 'please let there be a pie'.",[
-  ["Do you think it'll be answered?","Prayers are like jokes. Some land and some fall flat. But the ones that fall flat make you listen all the harder."],
-  ["Is the aftershock still there?","It comes and goes. Like Bruno's temper, only more polite. We've been rehearsing in the open, and the audience clap in time with the shakes."],
-  ["What do you want most?","A full stomach, a warm bed, and Meg to say I'm funny. In that order. It used to be in the other order. I'm older now."]],
- "A pie's a very small miracle. I'll take it."],
-25:["(Buttons is turning a paper crown over and over in his hands.) They say there's a crown for everyone, and a princess for democracy. I don't understand any of it. But I like the sound of a crown for everyone. I'd wear mine to dinner.",[
-  ["Who'd you give a crown to?","Meg first, then the horse, then Igor. Then I'd have a very silly parade. And then lunch."],
-  ["What's all the talk about?","I think the royals and the Democrats are doing something clever. I can't follow it, but I'd clap if someone told me to."],
-  ["Do you like the princess?","I've never met her. But I hear she's kind, and a kind person's always worth a laugh."]],
- "A crown on every head. Even mine. Even the horse's."],
-26:["(Buttons is carrying a cup with a face painted on it.) I've made a rival to Kelpy. It's called Mugsy. It talks. I do the voice. It's the worst puppet in the island and my finest achievement.",[
-  ["What does Mugsy say?","'Pour me.' He only knows the one line. It's very dramatic. Bruno says it's the best thing I've done."],
-  ["Heard about the Cola prince thing?","A prince in every bottle! It's marvellous. I'd drink a prince. I mean — I'd drink a bottle with a prince on it. It's different."],
-  ["Is there anything on at the lake?","Rehearsals. And a very serious dinner. Meg's making soup. I've promised not to look at the pot."]],
- "Mugsy sends his regards. And asks to be filled."],
-27:["(Buttons is wearing a Red Army cap that's far too big.) The Communists are showing a film tonight in Eastbrook. It's a revolution at the pictures. I said I'd go in costume, and Meg said I'm in costume already.",[
-  ["What's the film about?","I'm told it's long, black and white, and has people shouting at wheat. I'd go for the interval ice cream."],
-  ["Are you going to the pictures?","If someone buys me a ticket. A jester's wallet is a very empty thing."],
-  ["What's the mood?","Taut. Everyone's walking on tiptoe, and I'm doing my best to tiptoe the other way. It's called comedy."]],
- "I'll tell you the plot afterwards. Which is to say, I'll make it up."],
-28:["(Buttons has been up since four, rehearsing a cartwheel and failing.) The biggest day of pushing, they say. Everyone out on the road, waving banners. And I'm doing cartwheels. We all do what we can.",[
-  ["Is it a big day for the circus?","The biggest crowds of the month, if they come this way. Bruno's polishing the bell. Igor's lifting the ringmaster just for practice."],
-  ["Are you worried about tomorrow?","I'm worried about tomorrow, the day after, and my left shoe. It's got a hole, and the ash gets in."],
-  ["Do you have a plan?","I'm going to do the thing I do best: fall over, get up, and bow. It's all politics is, really."]],
- "Don't tell the crowds I'm scared. Tell them I'm funny. It's the same thing."],
-29:["(Buttons is sitting with Meg on the caravan steps, her head on his shoulder.) It's the eve of the last day. We're not saying much. Meg says it's nice to be quiet with me, which is the best thing anyone's said all month.",[
-  ["How are you feeling?","Full and empty at the same time. Like after a big meal. The island's got a lot to decide, and I've got a sandwich."],
-  ["What will you do tomorrow?","Go to the show. Do the show. Whatever happens, the show's the thing. It's the one thing we can all agree on."],
-  ["Is Meg all right?","She's perfect. She's thinking about ropes. When she's thinking about ropes, she's happy."]],
- "Sleep well. Dream of sausages. I will."],
-30:["(Buttons is standing at the lakeside, cap in hand, a rare look of solemnity on his face.) The last day. It's funny: I've told a thousand jokes this month, and I can't think of one.",[
-  ["That's not like you.","No. It's what the day does. Bruno says it's the pause before the punchline. I hope he's right."],
-  ["What will you do afterwards?","Eat. Then juggle. Then eat again. The island will be what it'll be, and I'll be a jester in it."],
-  ["Any message for London?","Tell them we were here, and that the people of this island are kind, and silly, and cold. And that I'm still owed twelve sausages."]],
- "Thanks for listening. Nobody ever does. It's why I'm so loud."],
+7:["(A man in a two-coloured jester's cap with bells jingles towards you and bows so low his nose touches his knees.) A reporter! At last! Somebody to write down my jokes! Why did the herring cross the road? (A pause.) Neither did I. I'm Buttons. Have you got any food?",[
+  ["That joke was terrible.","Thank you! They're all terrible. I've got four hundred of them. The terrible ones are the only ones people remember. Have you got any food?"],
+  ["Why are you called Buttons?","My mother sewed me into my first costume with forty buttons and lost the needle. I couldn't get out for a week. The name stuck. So did I."],
+  ["I haven't got any food.","(He looks crushed, then brightens.) Then you owe me a joke. Why don't jesters ever starve? (He waits.) They do. Constantly. Look at me."]],
+ "If you find any food, you know where I am. I'm always where the food isn't."],
+8:["(Buttons is lying flat on his back in the grass, staring at the sky, his cap's bells tinkling in the breeze.) Sunday. No show. I'm thinking about pizza. There's a pizzeria in Kingsgrad. I've never been. I think about it every day.",[
+  ["Why not go?","Kingsgrad's a long way on an empty stomach, and Meg keeps the money. Meg says pizza's an extravagance. Meg's never smelled one."],
+  ["What else do you think about?","Being taken seriously. For one whole day. Nobody's ever taken me seriously. I'd like to try it. Just once. To see what it feels like."],
+  ["Do you go to church?","I went once. I laughed during the sermon. Not at it. Near it. They asked me to leave. God laughed. I heard Him."]],
+ "If you ever go to Kingsgrad, bring me back a slice. Pepperoni. Two slices. I'm a growing jester."],
+9:["(Buttons is watching Meg teach a young woman to walk a wire a foot off the ground, and is pretending to be the wire.) I'm moral support. If she falls, she lands on me. (Hely falls on him.) Ow. That's the job.",[
+  ["Who's the girl?","Hely. From Eastbrook. She's been watching us every day. Meg likes her. When Meg likes someone, they're in, whether Bruno knows it or not."],
+  ["Is she any good?","She's got nerve and no balance. I had balance and no nerve. Between us we'd be one perfect performer. (Hely falls again.) Ow."],
+  ["Are you hungry?","(He looks at you with enormous eyes.) Always. Since 1951. Is that a sandwich in your pocket? (It isn't.) Is it a biscuit?"]],
+ "If you've got a biscuit, Hely needs it more than me. That's a lie. Give it to me."],
+10:["(Buttons is sitting very still on a barrel, his cap off, the bells silent, for once.) The king. No show tonight. (He turns the cap in his hands.) He laughed at me once. For ten minutes. At the palace. In 1971.",[
+  ["What made him laugh?","I fell off a chair. On purpose. Then on accident. Then on purpose again. He couldn't tell which was which. Neither could I, by the third time."],
+  ["Are you sad?","(He nods.) Clowns are always sad. That's the secret. You can't make people laugh unless you know exactly what sad feels like."],
+  ["What will you do tonight?","Sit with Meg. Not tell jokes. Eat whatever she gives me. (He looks at the cap.) And maybe tell one joke. A quiet one. For him."]],
+ "Go gently today. Even I'm being quiet."],
+11:["(Buttons is counting a handful of coins very carefully, which seems out of character.) Don't look. I'm saving. For something. A secret. (He puts the coins in his shoe.) A clown with a secret. Write that down. Nobody'll believe you.",[
+  ["What's the secret?","(He taps his nose.) Something for Meg. That's all. Jonna, the tattoo lady in Eastbrook, is drawing it for me. A commission. Very artistic. Very secret."],
+  ["Where did you get the money?","People think a clown has nothing. (He wiggles his toes in the shoe.) Nobody ever looks at a clown properly. So a clown sees everything. And sometimes the things he sees are worth something."],
+  ["Will Meg find out?","Meg finds out everything. Except this. I've hidden it in the one place she never looks. My own seriousness."]],
+ "Don't tell Meg. I'll know. I know everything. Nobody ever looks at me."],
+12:["(Buttons is trying to ride the circus horse, who is ignoring him completely.) Duchess! Walk on! (Duchess eats grass.) She's very proud. She was a dancing horse in Bergen. Now she's a horse who ignores clowns. A long way to fall.",[
+  ["Does she ever let you ride?","Once, in 1979. For eleven yards. Then she stopped, turned her head, and looked at me. I got off. It was the look."],
+  ["Is Duchess fond of anyone?","Meg. And Igor, who carries her hay. And any reporter with a notebook, whom she bites. (He looks at your pocket.) Keep it hidden."],
+  ["Are you still hungry?","Duchess has better lunches than me. Oats. Apples. Carrots. I asked if I could share. She bit me. Not the notebook. Me."]],
+ "Keep your notebook away from Duchess. And your fingers. And your lunch."],
+13:["(Buttons is bouncing on the spot, very fast, surrounded by empty cola bottles.) Free cola! Kelp Cola left a crate! I've had six! I can hear colours! (He bounces higher.) Meg says I'm not allowed near the trapeze till Thursday.",[
+  ["Are you all right?","Never better! I've juggled the bottles! All six! Empty! I've given Hely my old clubs. Chipped ones. A girl who can't juggle apples should try something harder."],
+  ["How many jokes have you told today?","Forty. All terrible. Why did the cola cross the road? (He bounces.) It was a soft drink! Not very hard! (He waits.) I told you. Terrible."],
+  ["Should you have six colas?","Probably not. But they were free. And I'm a jester. A jester who refuses free things isn't a jester. He's a sensible person. I'd hate that."]],
+ "If you see me on the big top roof, tell Meg. Gently."],
+14:["(Buttons is in full costume with exactly two bells, looking mournful about the other ten.) The big gathering. Meg says two bells. Two! I'm a twelve-bell jester. Two bells is barely a hat.",[
+  ["Why only two?","Meg says people will be serious today. I said that's when they need twelve bells most. She said two. Meg always wins. It's in the contract."],
+  ["What will you do there?","Juggle. Fall over. Climb something I shouldn't. Bruno will make a speech. Igor will lift something. I'll be the only one doing anything useful."],
+  ["Will you be taken seriously?","Not with two bells. With twelve, maybe. With none, definitely. (He jingles sadly.) Two bells is the worst of both."]],
+ "If you hear two bells, that's me. Being restrained."],
+15:["(Buttons has a duck under one arm and is soaking wet from the waist down.) Don't ask. (The duck quacks.) I climbed the fountain at the gathering to see better. Fell in. Came out with him. His name's Mayor. He's mine now.",[
+  ["Did Meg catch you?","No! First time in ten years! (He looks deeply wounded.) She was looking the other way. She says she was watching the speeches. Nobody watches speeches when I'm on a fountain."],
+  ["Why Mayor?","Because he looked so pompous, sitting in the fountain like he owned it. Also, he's the only mayor that's ever listened to me."],
+  ["How did the crowd react?","They cheered! I bowed! To the duck! The duck bowed back! Meg says that wasn't planned. It wasn't planned. That's what made it perfect."]],
+ "If you see a duck near the big top, that's Mayor. Bow to him. He expects it."],
+16:["(Buttons has the wireless on in the caravan, and is shouting at it.) Oh, that's good! (To the Democrats.) Oh, that's good too! (To the Party.) They're both very good! I'd vote twice!",[
+  ["Who's winning?","Whoever I agreed with last. That's everyone. I agree with everyone. It's very tiring. A jester has to agree with everyone. Otherwise someone throws something."],
+  ["What would you do, if you ran the island?","Free pizza on Tuesdays. A law that everyone has to fall over once a week, to remember what it's like. And twelve bells for everyone."],
+  ["Is Mayor listening?","Mayor's very political. He quacked twice during the Party woman and once during Erik. I think that's a vote."]],
+ "Vote for free pizza. It's the only sensible policy."],
+17:["(Buttons is clinging to a tent pole with both arms, the bells jingling wildly, as the ground shudders.) It's moving! The ground's moving! I'm not doing it! For once, it's not me falling over! Meg! (Meg doesn't come.) Meg's up a pole.",[
+  ["Are you all right?","I'm terrified! And very excited! The ground's doing my act! Nobody laughs when the ground falls over. That's not fair."],
+  ["Is it the volcano?","Zora says so. She turned a card and went white. Zora's never gone white. She's been grey since 1952."],
+  ["Where's Mayor?","Under the caravan. Very sensible duck. Much more sensible than me. (He lets go of the pole.) I'll join him."]],
+ "If the ground moves again, hold onto something that isn't a clown."],
+18:["(Buttons has a bruise on his forehead and looks very proud of it.) A woman from Kelp Cola came looking for someone to wear the Kelpy costume. The cola cup. I went in head first. Got stuck. Igor pulled me out by the ankles. (He beams.) But she asked. Somebody wanted me for a serious job.",[
+  ["Will you be Kelpy?","No. I'm too funny for a cup, she said. Kelpy's meant to be dignified. (He sighs.) I've never been too funny for anything. It's a compliment. It's a terrible compliment."],
+  ["Was it taking you seriously, though?","For one hour. She looked at me, measured me, and wrote my name on a list. A serious list. With a pen. It was the best hour of my life."],
+  ["How's the bruise?","Excellent. Meg kissed it better. And this afternoon I went to Jonna's for the first sitting. For the secret. I sat very still. Not one joke. Meg doesn't know about that bit."]],
+ "If you see a cup with clown shoes, it's not me. I didn't fit. I'm too magnificent."],
+19:["(The camp smells of eggs. Buttons has a peg on his nose and is still trying to tell jokes.) Why did the volcano go to the doctor? (Nasal.) It was feeling a bit flushed. (A pause.) That's not even a joke. I'm frightened. My jokes go bad when I'm frightened.",[
+  ["Are you all right?","No. Meg and Bruno are arguing about whether to stay or go. Meg's winning. Meg always wins. I want to stay. I want to go. I want pizza."],
+  ["Is the circus staying?","Meg says if we run, the island sees a circus running. If we stay, they see a circus that's brave. I don't feel brave. I'll pretend. Pretending's my job."],
+  ["Where's Mayor?","In a bucket. With a lid with holes in. He's very cross about it. I'm keeping him safe. Somebody has to keep somebody safe."]],
+ "Breathe through a peg. It helps. It doesn't. But it looks funny."],
+20:["(Buttons is holding Meg's hand, very tightly, and doesn't seem to know he's doing it.) The ground's moving every hour. Everyone's going to sleep by the lake tonight. Meg's tied everything down. Even me. Not really. Nearly.",[
+  ["Are you scared?","Terrified. But I've got four hundred jokes and a whole night to tell them. If the mountain goes, at least it'll go to the sound of the worst jokes in the Baltic."],
+  ["What will you do?","Tell jokes. To the animals, to the children, to Igor, to Meg. Terrible ones. The worse they are, the more people laugh. That's what frightened people need."],
+  ["Will you let go of Meg's hand?",["(He looks down, surprised to find he's holding it.) Oh. (He doesn't let go.) No. I don't think I will. Not tonight.",[
+    ["Good.","(He squeezes it.) She's always caught me. Tonight I'll hold on. In case she needs catching. She won't. But in case."],
+    ["Does she mind?","(Meg, without turning round:) I don't mind. (Buttons beams so wide his face nearly splits.)"]]]]],
+ "Go somewhere safe. And hold somebody's hand. It helps."],
+21:["(Ash is falling. Buttons is lying with his head in Meg's lap by the lake, grey all over, the bells on his cap clogged with ash.) It went. The mountain. I told jokes all night. Four hundred and eleven. I ran out. I made eleven new ones. They were the worst ones ever written.",[
+  ["Did people laugh?","Everyone. The animals. Igor. The children. Zora. Even Bruno, during his own speech. (He looks up at Meg.) Meg laughed at the four hundred and seventh. She never laughs at my jokes."],
+  ["Which one was it?","Why did the mountain apologise? It had blown its top. (A pause.) Terrible. She laughed so hard she cried. Or she was crying already. I don't know."],
+  ["Are you all right?",["(He looks up at the grey sky.) I'm grey. I'm tired. I've never been so happy. I made a whole lake of frightened people laugh.",[
+    ["You were a hero.","(He goes very quiet.) Meg said that. She said 'You were a hero, Buttons.' She said it seriously. Somebody took me seriously. During a volcano."],
+    ["How's Mayor?","Grey, and furious, and alive. He bit Bruno. That's the first sensible thing Mayor's ever done."]]]]],
+ "Cover your mouth. And tell someone a terrible joke today. It works."],
+22:["(Buttons is helping Meg sweep the ash off the big top, using a broom that is mostly a joke and partly a broom.) Bruno's decided. We're staying. And we're putting on a free show for the island on Saturday. Free! For everyone! I'm doing a new act. With Mayor.",[
+  ["What's the act?","Mayor and I sit in a bucket together and pretend to be a fountain. Then I fall out. Then Mayor falls out. Then we both get back in. It's very moving."],
+  ["How's the camp?","Grey. Everything's grey. Duchess is grey. Zora's crystal ball is grey. Igor's grey and lifting grey things. I'm grey and very hungry."],
+  ["Did you finish the secret?","(He goes very still and looks around for Meg.) Tomorrow. The last sitting at Jonna's. I've got the last coins in a sock. Meg deserves colour, and colour costs."]],
+ "Don't tell Meg about the secret. She's sweeping. She can't hear. She hears everything."],
+23:["(Buttons is sitting on a crate, very serious, reading a book upside down.) I'm being taken seriously today. I've decided. One whole day. No jokes. No falling over. Very dignified. (The book falls on his foot.) Ow. That doesn't count.",[
+  ["Why today?","Because a clown made a whole lake laugh during a volcano. And because this morning Jonna finished the secret, and I paid her, and I cried. Seriously. I've earned a serious day."],
+  ["What's wrong with Bruno's hat?","It's taller than my cap. It's been taller than my cap since 1972. I've never forgiven it. It knows. It looks down on me. Literally."],
+  ["How's the serious day going?","(A pause.) I've lasted forty minutes. It's very hard. Everything's so funny when you're not allowed to laugh at it."]],
+ "If you see me being dignified, don't laugh. It's very fragile."],
+24:["(Buttons is lying in the grass, staring at the sky, with an expression of total bliss.) She came. The princess. Last night. To the circus. In a headscarf. And she laughed at me. For an hour. A whole hour. Without stopping.",[
+  ["Princess Daphne?","In a headscarf, pretending to be nobody. Nobody laughs like that. She snorted. Twice. A royal snort. I'll never wash my ears."],
+  ["What did you do to make her laugh?","Everything. Fell off a chair, fell off Duchess, fell in a bucket with Mayor. She laughed at all of it. Then she came backstage and said 'Thank you. I needed that.'"],
+  ["Did she take you seriously?","She laughed at me for an hour. That's the most serious thing anyone can do for a clown. Meg says so. Meg's right."]],
+ "If you meet a princess, tell her the bucket act is even better on Saturday."],
+25:["(Buttons is watching Meg sew a hat with a feather, and pretending he isn't.) She's making a hat. For Hely. For Saturday. With a feather. (He sniffs.) She's never made me a hat with a feather. I've got bells. Bells aren't feathers.",[
+  ["Are you jealous?","Of a feather? (Long pause.) A little. But Hely needs a feather more than I do. She's never had anything that was just hers. I've got twelve bells. And Mayor."],
+  ["What's the news?","A crown for everyone, a princess for democracy. Everyone's making promises. I promise to fall over on Saturday. That's the only promise on this island I'm sure will be kept."],
+  ["How's the secret?","(He touches his chest very lightly, through the costume.) Done. Paid. Over my heart. Meg's name. In red. I'm waiting for a special day. Don't tell anyone."]],
+ "If you see Meg, tell her I'm not jealous of the feather. Tell her it convincingly."],
+26:["(Buttons is teaching Hely to juggle, standing behind her, guiding her wrists.) Wrist, not arm! Wrist! (She catches four.) There! See? Throw from the wrist. Six years she's been throwing from the arm. Six years!",[
+  ["Is she getting better?","She's nearly not terrible. (Hely beams.) That's the nicest thing I've ever said to anyone. I've never even said it to Meg."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. I've asked if I can join the oil company. For the milkshake machine. No answer yet."],
+  ["Does Bruno know about Hely yet?","Bruno's noticed her. Meg says that's the first step. Then he'll think it's his idea. Then he'll make a speech. Then she's in. Circus politics."]],
+ "Throw from the wrist. It works for juggling and for life. Mostly juggling."],
+27:["(Buttons is in the big top, rehearsing the bucket act with Mayor, very seriously.) Tomorrow's the free show. The last one before the winter. Mayor and I have to be perfect. (Mayor quacks.) Mayor says we're already perfect.",[
+  ["Is the act ready?","We've rehearsed it eleven times. Mayor fell out of the bucket on time nine times. Twice he refused. He's very temperamental. He's a true artist."],
+  ["What's the news?","A Party picture at the cinema and big card games, they say. Bruno wanted to go to the pictures. Meg told him there are six tractors. He went pale."],
+  ["Will the island come tomorrow?","Everyone! Every faction! All in one tent! All laughing at a clown and a duck! It'll be the only thing they agree on all month."]],
+ "Come tomorrow. Sit near the bucket. You might get splashed. That's part of the art."],
+28:["(The big top is packed. Buttons is in full costume, all twelve bells, Mayor under one arm.) Twelve bells! Meg said yes! For the last show, twelve bells! (He jingles ecstatically.) The whole island's here. Every flag. All waiting for me. Me!",[
+  ["Are you nervous?","Terrified! Joyful! Both! Like the night of the mountain, but with more applause. (He peeks through the curtain.) I can see the Party. And the palace. And the cola men. In the same tent."],
+  ["What will you do?","The bucket act. And the chair act. And a new act, just for tonight. Very serious. Nobody will laugh. (He thinks.) Everyone will laugh. That's the plan."],
+  ["Is Hely selling programmes?","At the door! In the hat with the feather! She cried when Meg gave it to her! I cried too! (He wipes his eyes.) I'm crying now. It's the bells. They're very moving."]],
+ "Find a seat! On the left! That's where I fall!"],
+29:["(Buttons is sitting on the caravan steps, very tired, very happy, with Mayor asleep on his knee.) Last night. The whole island laughed. And then Bruno said yes to Hely. She's coming with us. And Bruno made a speech. And I cried. And Mayor bit him.",[
+  ["How was the show?","The best of my life. The bucket act went perfectly. Mayor fell out on cue. The princess was there again, in her headscarf. She snorted. Four times. I counted."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing. And we're packing. We're the only ones on the island who know exactly what we're doing next."],
+  ["Is the secret done?",["(He looks around for Meg, then unbuttons the top of his costume, just a little. There's a tattoo over his heart: MEG, in red.) Jonna did it last week. Nobody's seen it. Not even Meg.",[
+    ["When will you show her?","Tomorrow. The last day. When she's packing ropes and not expecting anything. That's the only time Meg's ever surprised."],
+    ["It's beautiful.","(He buttons it up again, carefully.) Forty buttons. Like my first costume. She'll have to undo every one to see it. I've planned it. Seriously."]]]]],
+ "Don't tell Meg. One more day. Seriously."],
+30:["(Buttons is helping Meg coil ropes into a wagon, and keeps fiddling with the top button of his costume.) Last day. They're settling the island today. And I'm settling something too. (He looks at Meg.) In a minute. After this rope. Or the next one.",[
+  ["Are you going to show her?","After this rope. (He coils it badly.) After this one. (He coils it worse.) Why is it so hard to be serious? I've been practising for a week."],
+  ["What do you hope happens to the island?","That whoever runs it laughs at clowns. Meg says you can trust people who laugh at clowns. Never trust anyone who doesn't."],
+  ["Will you remember this month?",["(He looks at Meg, coiling ropes, not looking at him.) The duck, the mountain, the princess snorting, and four hundred and eleven jokes. And this. Whatever happens in a minute.",[
+    ["Go on. Now.","(He takes a deep breath, walks over to Meg, and starts undoing his buttons. She turns, sees what he's doing, and stops. She puts down the rope.) (Buttons doesn't say a word. For once.)"],
+    ["Good luck.","(He grins.) A clown doesn't need luck. A clown needs timing. (He looks at Meg.) And the timing's now."]]]]],
+ "If you hear a woman laugh and cry at the same time, that's Meg. Don't come over. Give us a minute."],
 };
-// Carlo, the Crime Syndicate's candidate for leader of the Republican Party, living in Hope Springs Residences (Crime Syndicate). Threads: his vanity
-// and good suits, his speeches (lower taxes, safer streets), his rivals Harald and Magnus, Margit and the ballot, Paola next door, the Colonel's dachshund.
+// Carlo, the Crime Syndicate's candidate for leader of the Republican Party, campaigning from the party HQ in Frostholm and living in
+// the Hope Springs Residences (the Crime Syndicate). Threads: his vanity and his suits (and the ties Gustavo disapproves of); his
+// speech, 'lower taxes, safer streets', and the friends who see to the streets either way; Harald two floors up and Magnus from the
+// oil company, his rivals; Margit the party secretary, whom he greets every morning and evening; Paola two doors down, and the
+// Colonel's dachshund Brigadier, who hears all his speeches first; doing what Gustavo tells him, and his growing wish to win one thing
+// on his own; the files disturbed at the HQ (the 18th) and his friends smoking outside (the 20th); the vote (the 29th).
 DAILY['Carlo']={
-6:["(Carlo is adjusting his tie in the hall mirror, and doesn't turn round.) Ah. The press. Come in, come in. Mind the carpet. You're looking at the next leader of the Republican Party.",[
-  ["That's a bold claim.","A modest one. I'd have said the next leader of the island, but I don't want to frighten the Colonel."],
-  ["What do you stand for?","Lower taxes and safer streets. It's all anyone wants. They want to keep their money and walk home at night."],
-  ["Who's backing you?","Friends. Good friends, in good places. A man with the right friends never has to ask for anything twice."]],
- "Put that in your paper. Spell my name with a capital C."],
-7:["(Carlo is trying three ties against his shirt in the mirror.) The roads are open, which means the voters can reach me. I've been asking myself: red, blue, or a very small pattern. The pattern says 'trustworthy'.",[
-  ["Which one do you pick?","The pattern. It's the one that doesn't frighten the elderly."],
-  ["Are you nervous about the campaign?","Nervous? I've never met a nerve I couldn't smile at."],
-  ["Who are your rivals?","Harald, from the Cola people, and Magnus, from the oil. Two decent men, and they'll both be disappointed."]],
- "Wish me luck. Not that I need it. It's a courtesy."],
-8:["(Carlo is practising a speech on the dachshund, who's lying on his foot.) 'Friends, neighbours, Republicans.' Brigadier doesn't blink. It's a very good sign. He's the toughest crowd in Hope Springs.",[
-  ["That's the Colonel's dog?","He visits. He's taken a liking to me. It's my aftershave. It's very expensive, and I believe it contains liver."],
-  ["What's your speech about?","Opportunity. Security. Taxes. And at the end, a small, sincere pause. It always gets applause."],
-  ["Do you go to church?","Whenever there's an audience. The monastery's a bit steep, but the view's excellent."]],
- "Don't let the dog follow you home. He's got a flat to protect."],
-9:["(Carlo has a newspaper open at a photograph of himself.) Look at that jaw. The Gazette called me 'a man of the moment'. I'm having it framed. It's the first review I've had that wasn't from my mother.",[
-  ["What do you think of the cola news?","Harald's company is making a new flavour, I hear. It's a clever move. If he's sweet, they'll vote for him. I'll have to be sweeter."],
-  ["Is the Syndicate involved in the race?","The Syndicate? I have no idea what you mean. I'm the candidate of the sensible, law-abiding people of Hope Springs."],
-  ["Who reads the Gazette?","Everyone, in Eastbrook. In Hope Springs, we read it for the weather and the obituaries."]],
- "I'll sign a copy for you. It's a rare chance."],
-10:["(Carlo is in a black suit and an immaculate black tie, speaking gravely.) A sad day. The king's funeral. I went, in the third row from the back. I'd like to think he saw me. I wore my best.",[
-  ["Did you speak to anyone?","I shook many hands. I asked after everyone's health. The prince thanked me. I think. He might have been sneezing."],
-  ["Was it moving?","Very. I cried a little, in the right places. It's a talent. I've been told it's very endearing."],
-  ["Will it change the race?","A king dies and a new man rises. It's the oldest story. I intend to be the new man, in a better suit."]],
- "Be respectful today. And be seen to be. It's the best of both worlds."],
-11:["(Carlo is counting a roll of notes, then puts it quickly in a drawer.) A donation. From a very generous friend. I've never asked where it comes from. It's the surest way of staying honest.",[
-  ["Who's the friend?","A well-wisher. A man who likes order. I'm told he's fond of the island."],
-  ["Do you think wages are fair?","I think the mill hands deserve more. And the owners deserve less trouble. A good leader finds the point where everyone's slightly disappointed."],
-  ["Would you take a stand?","I'd take a stand if it came with a balcony. A man should be seen to stand."]],
- "A generous heart is a very sound investment."],
-12:["(Carlo is polishing a pair of gleaming black shoes.) A candidate's shoes are his first speech. People look down before they look up. I've been told mine say 'competent, prosperous, slightly dangerous'.",[
-  ["Is that your message?","The first two. The third is for the ladies."],
-  ["Who's winning the race?","In Frostholm, Magnus. In Kingsgrad, Harald. In Hope Springs, me. In the rest, nobody knows who they are. It's a very open contest."],
-  ["Where do you stand on oil?","I stand on a very good carpet. It's a better position than most."]],
- "Wear good shoes. It's the only advice I'm sure of."],
-13:["(Carlo is leaning on the mantelpiece, a glass of something pale in his hand.) There's a recipe, I'm told. The Don's after it. I've told him I'm a politician, not a chef. It's a very good joke. He didn't laugh.",[
-  ["What kind of recipe?","A cola one. It's not my business. But if there's a recipe, there's a margin. And if there's a margin, there's a vote."],
-  ["Do you ever worry about the Don?","I worry about the weather, my tailor, and my hair. The Don is a very good friend, and I don't ask questions."],
-  ["Is it a big week?","It's a week. They all feel big, when you're the one in the mirror."]],
- "I'd offer you a drink, but it's for the cameras. Wait till they arrive."],
-14:["(Carlo is in his best suit, a carnation in the buttonhole, and a small, perfect smile.) The great gathering. I've been up since dawn. I've rehearsed seven expressions. I'm using three.",[
-  ["What do you expect?","Crowds. Hands to shake. A few small speeches. And at the end, a great many people who'll remember my face."],
-  ["Are you nervous?","I'm exhilarated. Nervousness is for men with something to hide."],
-  ["Is Paola going with you?","She's coming along, as an escort. She'll stand behind me and look like a very fine coat-stand. People find it reassuring."]],
- "Come and see it. I'll save you a good view. For a price. I'm joking."],
-15:["(Carlo has a pair of cufflinks, one in the shape of a crown, one in the shape of a cross.) A gift from two admirers. I'll wear one on each wrist. I like to be balanced.",[
-  ["Who do you back, Leopold or Augustus?","The man who wins. It's the only sensible position."],
-  ["Does the Republican Party have a view?","Not yet. It's waiting for a leader. It's a very patient party."],
-  ["What would you do if you were prince?","Lower the taxes and raise the hat. It's a good rule."]],
- "I'll have to tell the tailor. He loves a good dilemma."],
-16:["(Carlo is rehearsing an answer to an imaginary question, with a hand on his heart.) The Great Debate. I've not been invited, of course. It's Communists and Democrats. But I'd have been marvellous. I've got a profile for it.",[
-  ["What would you say?","I'd say: 'Friends, I'm neither left nor right. I'm in the middle, and the middle's where the money is.'"],
-  ["Who'll win the debate?","The one who looks at the camera. There's no camera, I know. But he'll still look at it."],
-  ["Will you go?","Only if I'm asked to sign something. I like a good signing."]],
- "If it gets dull, I'll tell a joke. It always helps."],
-17:["(Carlo has a very slight tremor in his hand, and a very rigid smile.) The floor shook. A little. I've asked the building manager to look into it. He said he'd look into it, and then he looked up, and then he left.",[
-  ["Was it an earth tremor?","It was a mild one. Entirely natural. I intend to include it in my speech, as a symbol of change."],
-  ["Are you worried?","Not at all. I've got excellent insurance, and an excellent tailor. Between them, I'm covered."],
-  ["What about the Syndicate's decision?","A decision? I've no idea. If it's executive, I'm sure it's in the best interests of everyone. They always are."]],
- "Don't stand near the chandelier. It's very expensive, and a bit wobbly."],
-18:["(Carlo has his hair arranged in a very careful wave.) I'm told that Kelp Cola has a new mascot, a cup called Kelpy. It's a clever idea. A mascot can't be asked about taxes. I wonder if I could be a mascot.",[
-  ["Would you dress up?","If the costume were tailored. I don't do polyester."],
-  ["What about Harald?","A decent man. A little dull. He's got the face of someone who's always about to apologise."],
-  ["How's the campaign?","Rising. I've had some very positive letters. One from my mother. She says I'm doing very well. I think she meant it."]],
- "A candidate should never sweat. It's bad for the shirt."],
-19:["(Carlo is polishing a very large silver cup.) I'm having a trophy made. For the winner. It's quite beautiful, and it's got a very large space for the name. I've left it blank, out of modesty.",[
-  ["Whose name will go on it?","I couldn't say. But it's a very long space, and I've a short name."],
-  ["Have you heard about the comrades?","The Communists want volunteers. A very good idea. I'd rather have donors. Volunteers expect to be thanked."],
-  ["Is it a hard campaign?","It's a bit like a long dinner. You have to keep smiling, and avoid the soup."]],
- "Keep the cup out of the draught. It tarnishes."],
-20:["(Carlo is sitting very straight, looking at the clock.) A quiet evening, I think. Paola's gone out on business. I don't ask. It's a courtesy between neighbours.",[
-  ["Is she all right?","Paola's always all right. It's the rest of us I worry about."],
-  ["What do you do when she's away?","I practise. Vowels, mostly. It's a very big part of being a politician. A good O wins an election."],
-  ["Is there anything going on tonight?","A hotel, in Eastbrook, and a man in it. I don't know why I mention it. Just a thought."]],
- "I'm retiring early. A politician needs his beauty sleep."],
-21:["(Carlo sits in his armchair in a grey film of ash, looking at his own reflection.) I've never been so dusty in all my life. My hair's gone grey. My suit's gone grey. For once, I match the island.",[
-  ["The volcano erupted.","So I noticed. It was an extraordinary sound. I've asked my staff to find out what it means, politically."],
-  ["Are you hurt?","Only in dignity. The Colonel's dog hid under my chair. I've never been so honoured."],
-  ["What will you do now?","Dust. Then call a press conference. A crisis is an opportunity, if you've got the right tie."]],
- "Don't touch the sofa. It's cream. It was cream."],
-22:["(Carlo is holding a dustpan in one hand and a speech in the other.) I've been sweeping. It's very good for the image. A leader who sweeps is a leader who cares. I'd like a photograph.",[
-  ["Is that real sweeping?","It's real enough. The photograph's tomorrow. I've been rehearsing."],
-  ["What's the mood in Hope Springs?","Grim. The rich don't like grey. It's a very unfashionable colour."],
-  ["What's your message?","'Together, we'll clean it up.' It's got a ring to it. Taxes and safe streets, and a clean pavement."]],
- "Come back tomorrow. I'll be photogenic."],
-23:["(Carlo is polishing a brass plate that says CARLO FOR LEADER.) I've had this made. It's for the door of the HQ. The ash has got on it, but I'll rub it off. It's a symbol: you can't keep a good man down.",[
-  ["Is the campaign continuing?","Of course. A volcano doesn't stop an election. It just makes it grubbier."],
-  ["What's Margit saying?","Margit's the party secretary. She says the ballot box needs cleaning, and I need to stop talking. She's a very capable woman."],
-  ["Are the others still in?","Harald and Magnus are. I hear Magnus is mending pipes. I hope he gets his hands dirty. It's very good for his image."]],
- "A clean plate, a clean conscience. I've got the first one."],
-24:["(Carlo has a silk handkerchief over his nose and a very small cough.) The Don's put a crew on the clean-up. I'm told it's all in hand. I never ask. A man in my position doesn't need to know where the mop goes.",[
-  ["Does Paola do the cleaning?","Paola does a great many things. Mostly, she looks after me. It's the best-kept secret in the building."],
-  ["Is the Syndicate part of the clean-up?","Whatever the Syndicate does is entirely lawful, and rather good for the neighbourhood."],
-  ["Is it getting to you?","A little. Ash does terrible things to a collar."]],
- "Another few days, and it'll be over. I'll be a leader or a very well-dressed citizen."],
-25:["(Carlo is in front of the mirror in a new suit, a very light grey.) It's called 'volcanic'. The tailor sold it to me as a statement. It's a statement that says: I've seen the worst, and I'm still well dressed.",[
-  ["Is it a good suit?","It's the best suit on the island. It makes me look like a man who's about to give a speech about a bridge."],
-  ["Any news on the royals?","A crown for everyone, I hear. It's a very democratic gesture. If I were royal, I'd have a very good crown."],
-  ["How's the race?","Close. It's a very sharp contest. Three men, three suits, and one ballot box."]],
- "Don't smudge it. It's silk. It's all I've got."],
-26:["(Carlo has a new poster in his hands and is frowning at it.) Look at it. 'CARLO: SAFE STREETS, SOFT TAXES'. It's a lot of words. I'd have gone for 'CARLO' and a nice portrait. The advisers say it's a bit vain.",[
-  ["It is a bit vain.","It's confident. There's a difference. About four inches of jaw."],
-  ["What about Harald's prince-in-a-bottle?","A clever idea. But a prince in a bottle doesn't vote. A man in a suit does."],
-  ["Do you think you'll win?","I know I'll look good. The rest is the Don's department."]],
- "I'll sign one for you. It's a collector's item."],
-27:["(Carlo is straightening a large red rosette on his lapel.) I'm told there's a high-stakes game at the Club tonight. I'd go, but a candidate shouldn't be seen to gamble. I'll be at home, learning my speech.",[
-  ["Do you gamble?","Only on myself. It's the safest bet I know."],
-  ["What do you hear from the Communists?","They're showing a film. A revolution at the pictures. I've no objection. I'd like a cameo. A man in a good suit, being applauded."],
-  ["Are you nervous?","A little. The silence in the room is getting louder. I'd like to fill it with something expensive."]],
- "A good night's sleep, a clean collar, a clear conscience. I've two of the three."],
-28:["(Carlo is in a cream suit, with Paola a silent step behind him.) The biggest day. I've been told to say very little and smile a great deal. It's the best advice I've ever had, and I never thought I'd take it.",[
-  ["What will you say at the HQ?","'Friends, I'm honoured.' Then a pause. Then something about taxes. It's all in the pause."],
-  ["Is everything ready?","The suit is pressed, the speech is short, and the bodyguard is in a very good mood. I couldn't ask for more."],
-  ["Are you frightened?","I'm excited. And a bit frightened. A little of each. It's good for the skin."]],
- "Wish me luck. Or don't. I've got a very good tailor."],
-29:["(Carlo is pacing the carpet in his socks, a glass of water in one hand.) Tomorrow it's all over. I've lost track of what I promised. Something about streets. And about taxes. And a very small bridge.",[
-  ["Are you nervous?","I'm calm. I'm always calm. It's the hands that give me away."],
-  ["Is Paola ready?","Paola's been ready since breakfast. She sits there like a very polite thunderstorm."],
-  ["Any last-minute plans?","A haircut. A deep breath. A final look in the mirror. It's all a man needs."]],
- "I'll sleep like a baby. A very well-dressed baby."],
-30:["(Carlo stands in front of the mirror, in his best suit, and straightens his tie for the last time.) The last day. Whatever happens, I've looked marvellous. It's a great comfort. Not everyone can say it.",[
-  ["Any last words?","Vote for whoever you like. But vote. It's the only way to complain afterwards."],
-  ["What will you do after today?","Whatever the Don asks. Whatever the island needs. And I'll do it in a very good suit."],
-  ["Thank you for talking.","The pleasure was mine. You've a good face for a reporter. Honest, and slightly tired."]],
- "Goodbye. I'll try to look gracious, win or lose."],
+6:["(Carlo is adjusting his tie in a hall mirror, and doesn't turn round.) Ah. The press. Come in. Mind the carpet, it's Persian. Carlo. I'm running to lead the Republican Party. Lower taxes. Safer streets. (He turns, smiling.) You can quote me.",[
+  ["Who's backing you?","Friends. Good friends. Generous friends. (He smooths the tie.) A man is only as strong as his friends, and mine are very strong."],
+  ["What's 'safer streets' mean?","It means the streets will be safe. (He smiles wider.) One way or another. My friends are very keen on safe streets. They make sure of it personally."],
+  ["Nice tie.","(He looks genuinely pleased.) Milanese silk. Don Gustavo says it's too loud. Don Gustavo has never worn a colour in his life. He thinks black is a personality."]],
+ "Come and see me at the party offices in Frostholm. My door is always open. My friends stand outside it."],
+7:["(Carlo is trying three ties against his shirt in a mirror.) The roads are open, so the voters can reach me. Or I can reach them. Which tie says 'reliable'? The blue? The grey? The one with the small birds?",[
+  ["The blue.","(He holds it up.) The blue. Yes. Reliable, honest, a man you could lend money to. (He puts it on.) I've never needed to borrow money in my life. My friends lend it for me."],
+  ["Who are the other candidates?","Harald, from Kelp Cola, who lives two floors above me and smiles in the lift. Magnus, from the oil company, who doesn't smile anywhere. And me. I smile when it's useful."],
+  ["Who's Margit?","The party secretary. She's running the election. Very fair. Very strict. I say 'Good morning, Margit' every morning and 'Good evening, Margit' every evening. Politeness costs nothing. Usually."]],
+ "Remember the blue tie. That's the one in the photographs."],
+8:["(Carlo is practising a speech on a small, stern dachshund lying on his foot.) 'Friends, neighbours, Republicans.' (The dog yawns.) Brigadier. The Colonel's. He walks past my door at six. I've started borrowing him to practise on.",[
+  ["Does Brigadier like the speech?","He hasn't left. That's more than most audiences. When he yawns, I cut a paragraph. He's a very good editor."],
+  ["Doesn't the Colonel mind?","The Colonel thinks I'm walking his dog as a favour. I am. I'm also rehearsing. Two birds, one dachshund."],
+  ["Do you go to church?","Every Sunday, front pew. It's very good for a candidate to be seen praying. (He pauses.) I also pray. Not about the election. About my mother. She's in Turin. She worries."]],
+ "If you see Brigadier, tell him the third paragraph's gone. He'll be pleased."],
+9:["(Carlo is at his campaign desk in the party offices, with a pile of letters, signing each with a flourish.) Letters to the members. Two hundred. Each one personal. (He signs another.) Harald telephones their mothers. I write to them. Ink is more permanent.",[
+  ["Do you write them yourself?","I sign them myself. A friend of a friend writes them. Very good handwriting. Very persuasive. (He signs another.) The signature is entirely mine."],
+  ["What do you promise in them?","Lower taxes and safer streets. And a small personal note. 'I hope your shop is doing well.' Everyone likes to be asked about their shop. Especially by my friends."],
+  ["Is that a threat?","(He looks wounded.) It's a pleasantry. On this island, the difference is all in who's saying it."]],
+ "Tell your friends to vote Carlo. If you have friends. I can lend you some."],
+10:["(Carlo is in an immaculate black suit with a black silk tie, at the door of the Residences.) The funeral. The Don will be at the chapel. I'll stand where he tells me. (He straightens the tie.) The black one. Even Don Gustavo approves of black.",[
+  ["Did you know the king?","I shook his hand once, at a charity dinner. He asked what I did. I said 'import and export'. He said 'Of what?' Nobody had ever asked me that. I didn't have an answer ready."],
+  ["Will it change the election?","Everything changes the election. A death makes people want someone strong. (He looks at himself in the glass.) I look strong in black."],
+  ["Are you sad?","(He pauses with his hand on the door.) A little. He asked me a real question. Nobody asks me real questions. They're too frightened of my friends."]],
+ "Go gently today. Even I'm being quiet."],
+11:["(Carlo is listening to a man in a good coat who is whispering in his ear. He nods, and the man leaves.) Instructions. From the Don. (He sighs.) Where to stand, what to say, who to shake hands with. I'm a very well-dressed puppet.",[
+  ["Does that bother you?","(He looks at you sharply.) Nobody asks me that. (A pause.) A little. A man likes to think he could win something on his own. Just once."],
+  ["Could you?","I don't know. I've never tried. My whole life, someone's arranged things for me. Schools, jobs, this election. I'd like to know what I'm worth without the friends."],
+  ["What did the Don say?","That the tie I wore yesterday was a mistake. The birds. He was right. (He touches his collar.) He's usually right about ties. And everything else."]],
+ "Don't print what I said about the puppet. Please. I mean that."],
+12:["(Carlo is at his desk, being extremely polite to a woman with spectacles and a ledger.) Good morning, Margit. (She nods coldly and moves on.) She doesn't trust me. Quite right. I wouldn't either. I'm very charming.",[
+  ["Why doesn't she trust you?","Because I've never asked her for anything. Every other candidate asks her for something. A room, a date, a favour. I just say good morning. It terrifies her."],
+  ["Is she fair?","Scrupulously. She counts everything twice and locks the ballot box in a cupboard every night. My friends have offered to help her. She said no. I admire her very much."],
+  ["What's the gossip at the party offices?","Harald's ringing everyone's mother. Magnus is giving people lobster. And I'm saying good morning. Margit says I'm the most frightening of the three."]],
+ "Say good morning to Margit on your way out. It confuses her."],
+13:["(Carlo is holding a free bottle of Kelp Cola at arm's length.) Harald brought a crate to the party offices. Free. He's handing them out like ballot papers. (He puts it down.) Cola for votes. How very Kelp Cola.",[
+  ["What will you hand out?","Nothing. My friends say giving things is crude. They prefer people to know what they'd lose. (He looks unhappy.) I'd rather hand out cola. People like cola."],
+  ["Are you going to the gathering tomorrow?","All three candidates will be there. Harald with a smile, Magnus with a speech, and me with friends. (He sighs.) Margit's watching the friends. Everyone's watching the friends."],
+  ["Do you like Harald?","(He considers.) Yes. Annoyingly. He's kind. Kind men are very difficult to run against. You can't frighten them. They just smile and ask about your mother."]],
+ "Take the cola. Tell Harald I didn't drink it. He'll be hurt. He's very easy to hurt."],
+14:["(Carlo is in a new suit, very sharp, flexing his right hand.) The big day. Everyone's there. My friends are there. The Don's watching. I've done four hundred handshakes already, and I'm going back for more.",[
+  ["Is your hand all right?","Numb. I practised on the Don's waiter at the Club. He's very patient. He's also very strong. I think he was practising on me."],
+  ["What do you hope happens?","That someone in the crowd chooses me. Not because my friends are behind them. Because they want to. (He flexes the hand.) Just one person. I'd like to meet them."],
+  ["Is Harald there?","Smiling at everyone's grandmother. Magnus is there, not smiling at anyone. And I stand between them, being perfectly pleasant. Like a sandwich."]],
+ "If you see someone who'd vote for me on their own, send them over. I'd like to shake their hand twice."],
+15:["(Carlo is at his desk, rubbing his right hand, looking oddly cheerful.) Yesterday. A woman at the gathering. An old fishwife from Saltwick. She shook my hand and said 'I like your tie, young man. I'll vote for you.' Nobody told her to.",[
+  ["How do you know nobody told her?","I asked my friends. None of them had spoken to her. (He smiles.) She just liked the tie. The blue one. Reliable. My first real vote."],
+  ["What's the news today?","The palace and the Church are fighting over the prince's brother. (He shrugs.) Everyone wants a quiet man to do what they're told. I know how he feels. Exactly how he feels."],
+  ["What did the Don say about the gathering?","'Four hundred handshakes, Carlo. Fifty were people who matter.' (He looks at his hand.) I don't know which fifty. I'd like to know which one was the fishwife."]],
+ "If you meet an old fishwife from Saltwick, thank her for me."],
+16:["(Carlo has the debate on the wireless and is listening with great interest.) The Party and the Democrats. Margit offered us a debate too. Harald said yes. Magnus said yes. I said I'd prefer a quiet word with each member, privately. (He looks embarrassed.) The Don's idea.",[
+  ["What would you prefer?","(He turns the wireless down.) A debate. On a stage. With nobody behind me. I'd lose. Probably. But I'd like to know how badly."],
+  ["Who's winning the real debate?","Erik. He pauses before the important bits. I've been practising pausing. On Brigadier. He falls asleep in the pauses."],
+  ["Will you tell the Don you want a debate?","(Long pause.) No. Not yet. (Another pause.) Maybe. A man has to say something on his own once. I'm working up to it. It's very hard."]],
+ "Don't tell anyone I said I'd like a debate. Not yet."],
+17:["(The mirror in Carlo's office is crooked, and he's straightening it with great care.) The ground moved. My mirror slipped. (He straightens it.) Margit's ballot box fell off its shelf. She caught it. She dived. I've never seen anyone dive for a box.",[
+  ["Was it an earthquake?","Something under the island. My friends say it's nothing. My friends say everything is nothing. They said that about the police in 1979."],
+  ["Is anything else happening?","Dario's missing, they say. The oil company's chief. Magnus is running the company and his campaign at once. (He shakes his head.) I almost feel sorry for him. Almost."],
+  ["Are you frightened?","Of the ground, yes. Of my friends, always. Of losing, less than I was. (He looks at the mirror.) That's new."]],
+ "Hold onto something on your way out. Not the mirror."],
+18:["(Carlo is standing by Margit's desk, very pale, while she sorts through files that are clearly out of order.) Someone's been in the files. Overnight. Margit's furious. My desk's nearest. (He swallows.) She's looking at me.",[
+  ["Was it you?","(He looks you straight in the eye.) No. On my mother's life. (A pause.) But I don't know about my friends. I don't know what my friends do. That's the arrangement."],
+  ["What will you do?","Tell Margit the truth. That I didn't, and I don't know who did. (He takes a breath.) It's the first time I've ever told the truth to someone who might not believe it."],
+  ["What's the news?","Kelp Cola's mascot is ill. Harald came down to the lift this morning looking worried about a cup. A grown man worried about a cup. (He smiles.) I like him more every day."]],
+ "If Margit asks, I was at home with Brigadier. It's true. He snores."],
+19:["(The office smells of eggs. Carlo has a silk handkerchief over his nose.) Steam on the mountain. My suits will smell of eggs for a month. (He sighs.) The Don says stay calm. I'm calm. My suits are not.",[
+  ["Did Margit believe you about the files?","(He looks surprised.) She did. She looked at me for a long time, then said 'Good morning, Carlo.' First time she's ever said it first. I nearly cried."],
+  ["What's happening in Frostholm?","The prince was seen at the Midnight Note, they say, in a false moustache. (He laughs.) The Don goes there on Thursdays. If he sees the prince, he'll pretend he hasn't. That's manners."],
+  ["Are you worried about the volcano?","I'm worried about my mother hearing about it in Turin. I've telegraphed: 'Safe. Suits fine.' She'll know I'm lying about one of them."]],
+ "Breathe through silk if you have it. It helps the dignity."],
+20:["(Carlo is at the office window, looking down at three men in good coats smoking on the steps.) My friends. They've started standing outside in the evenings. Margit's sleeping in the office, with the ballot box. She says it's the ground. It's not the ground.",[
+  ["Did you ask them to be there?","No. (He watches them.) Nobody asked me. That's the thing about friends like mine. They arrive. They stand. They don't ask."],
+  ["Will you ask them to leave?","(He puts on his coat.) I'm going to try. I've never told them to do anything. (He stops at the door.) I'll ask nicely. That's all I know how to do."],
+  ["Is the volcano going to erupt?","The ground's moving every hour. The Don's told me to come to the Club cellar, with my friends and his brandy. (He looks at Margit's door.) I'll go. I always go where I'm told. I don't like it tonight."]],
+ "Go somewhere safe. I'm going where I'm told. Again."],
+21:["(Ash is falling. Carlo is on the party office steps in a grey suit, very tired.) It went. The mountain. I was in the Don's cellar all night, with my friends and his brandy. At dawn I walked here through the ash. To see Margit and the box.",[
+  ["Was she all right?","Sitting on the box. With a birdcage on her knee. She'd been there all night. She looked at me and said 'You came.' I said 'I'm sorry I was late.'"],
+  ["Is everyone all right?","Everyone in the Don's cellar. Everyone here. Margit, the box, the bird. Not one paper out of place. (He looks at the door.) She checked. Twice."],
+  ["Are you all right?",["(He looks down at his grey suit.) My suit is ruined. Milanese wool. (He almost laughs.) I don't care. Isn't that strange? I don't care at all.",[
+    ["Why don't you care?","Because nobody told me to walk here. I just did. Through the ash, in a good suit, to check on a woman who doesn't trust me and a box. It's the first thing I've ever done on my own."],
+    ["What will the Don say?","That I was foolish to go out in the ash. (He shrugs.) He's right. And I'd do it again."]]]]],
+ "Go carefully. Cover your mouth. And thank you."],
+22:["(Carlo is in shirtsleeves, sweeping ash off the party office steps, very badly.) I've never swept anything in my life. Margit's showing me. (He sweeps ash onto his own shoes.) I'm not good at it. I'm enjoying it enormously.",[
+  ["Why are you sweeping?","Because Margit's sweeping. And because the Don sent men to sweep Hope Springs, and nobody sent anyone here. So I'm here. Sweeping. Badly."],
+  ["What did the Don say about the walk?","'Foolish.' Then he looked at me for a long time and said 'But brave. In a foolish way.' (He sweeps.) It's the nicest thing he's ever said to me."],
+  ["How's Brigadier?","Grey. Sneezing. The Colonel's furious with the mountain. He's written to it, I think. Military letter. Very sternly worded."]],
+ "If you see a man in a silk tie with a broom, it's me. Don't laugh."],
+23:["(Carlo is at his campaign desk, writing a letter in his own hand, slowly.) To the members. Myself. No friend of a friend. My own handwriting. (He shows you.) It's terrible. I'm sending it anyway.",[
+  ["What does it say?","'I walked through the ash to check on the ballot box. I'd like to be your leader. I can't promise much. I can promise to look after the box.' (He sighs.) It's not a speech. It's a confession."],
+  ["Will the Don approve?","He hasn't seen it. (He seals the envelope.) He'll see it when the members do. It's the first thing I've ever done without asking him."],
+  ["What's the news?","Something broken on the oil rig, they say. Magnus is beside himself. He's running the company, the repairs and his campaign. He came into the office this morning and asked me how I stay calm. I said 'Brigadier.'"]],
+ "Post a letter for me? No. I'll do it. A man should post his own confession."],
+24:["(Carlo is reading a reply on cheap paper, very carefully, his eyes bright.) From a member. A fishmonger in Saltwick. 'Dear Carlo. Got your letter. Terrible handwriting. Honest, though. You've got my vote. A member, Saltwick.' (He holds it to his chest.)",[
+  ["Who's it from?","No name. 'A member, Saltwick.' I've never met them. They read my letter and wrote back. (He looks at it again.) My second real vote. The fishwife from the gathering, and now Saltwick."],
+  ["What's the news?","The monks have gone up into the peaks. And the Syndicate's cleaning something up, people say. (He looks at the window.) My friends have been busy at night. I didn't ask what. I've stopped asking. That's worse, isn't it?"],
+  ["Are you going to win?","I don't know. Harald's kinder. Magnus is richer. I've got friends and two real votes. (He folds the letter.) For the first time, I'd like to win for the two."]],
+ "If you're in Saltwick, tell whoever wrote it the handwriting will improve. It won't. But tell them."],
+25:["(Carlo is in front of the mirror, trying on a plain grey tie, and frowning.) The Don sent me a tie. Plain. Grey. Serious. (He holds up the blue one.) The fishwife liked the blue. Saltwick liked my handwriting. Which tie does a man with two real votes wear?",[
+  ["The blue.","(He hesitates, then puts on the blue.) The blue. For the fishwife. (He looks at the grey one.) I'll wear the Don's on the day. Probably. Maybe."],
+  ["What's the news?","A crown for everyone. A princess for democracy. (He shrugs.) Everyone's promising everything. I promised to sit with a box. It's the only promise on this island I've already kept."],
+  ["Is Margit still in the office?","Every night. With the box. I bring her soup now. From Rosaria's, in Kingsgrad. She eats it without looking at me. Then she says 'Good evening, Carlo.' Every time."]],
+ "If you see the Don, don't mention the blue tie. Let him notice."],
+26:["(Carlo's tie is perfectly straight, and he keeps touching it.) Paola did this. This morning, in the lobby of the Residences, without asking. She mends clocks. And ties. She says the Don wants it grey on the day. She says she doesn't mind blue.",[
+  ["Does Paola work for the Don?","Paola works for the Don the way the tide works for the moon. (He touches the tie.) She told me something, then. 'The Don's proud of you. He'd never say.' Then she left."],
+  ["What's the news?","The oil company's buying the spa, they say. And Kelp Cola wants a prince in an advert. Harald's very upset. He suggested his own face. Phil said no. I'd have said yes."],
+  ["How do you feel about the vote?","Three days. I've got friends, two real votes, a terrible handwriting, a blue tie and Brigadier. (He smiles.) It's more than I had a month ago."]],
+ "If you see Harald, tell him his face would make a fine advert. He'll like that."],
+27:["(Carlo is at his desk, very thoughtful.) I was in the lift with Harald this morning. Both of us very still, looking at the doors. I turned and said 'Good luck, Harald.' He went pale. I meant it.",[
+  ["Did you mean it?","Every word. He thinks it was a threat. Everyone thinks everything I say is a threat. That's the price of my friends."],
+  ["What's happening tonight?","The Don's card game at the pizzeria. High stakes. I'm playing, with half the members. (He looks unhappy.) I always lose at cards. The Don says that's the point. Members like to beat a candidate."],
+  ["Are you nervous about the vote?","Very. For the first time in my life, I'm nervous about something I can't arrange. It's horrible. And wonderful."]],
+ "If you see Harald, tell him I meant it. Tell him nicely. He scares easily."],
+28:["(The party offices are full of flags and noise. Carlo is at his desk, writing, very calm, in the middle of it all.) Every faction's making its big push today. My friends wanted a rally. I said no. I'm writing to the members instead. One more letter. My own hand.",[
+  ["You said no to your friends?","(He keeps writing.) For the first time. I said 'Thank you, no.' They looked at each other. Then they went to the pizzeria to tell the Don."],
+  ["What will the Don do?","Nothing, I think. Paola says he's proud. (He signs the letter.) If he's not, I'll find out tomorrow. Very quickly."],
+  ["What does the letter say?","'Tomorrow you'll choose. Choose who you like. Nobody will mind.' (He looks up.) That last line is the most important sentence I've ever written. I hope it's true."]],
+ "Out of the way, please. Margit's coming, and she wants the desk tidy."],
+29:["(Carlo is in the party hall, in a plain grey tie, very upright, as members file past Margit's ballot box. He looks at you.) The day. The members are voting. (He touches the tie.) The Don's tie. I put it on this morning. Then I put the blue one in my pocket.",[
+  ["Why both?","The grey for the Don. The blue for the fishwife. And Saltwick. (He pats his pocket.) A man has to know who he's dressed for. Today, both."],
+  ["Are you nervous?","I've never been so frightened. Or so calm. Margit's guarding the box. Brigadier's at home. My friends aren't outside, for once. I asked the Don. He said yes. Nobody's arranging anything. Not today."],
+  ["Good luck, Carlo.",["(He looks at you for a long moment.) Thank you. (He means it.) Whatever happens, I said something on my own this month. Several things.",[
+    ["What did you say?","'Thank you, no.' 'Good luck, Harald.' 'I'm sorry I was late.' (He counts on his fingers.) Three things. A whole month. It's a start."],
+    ["What will you do if you lose?","Go home. Walk Brigadier. Write to my mother. Bring Margit soup. (He smiles.) It's not a bad life. I'd never noticed."]]]]],
+ "Go and vote, if you're a member. Choose who you like. Nobody will mind."],
+30:["(Carlo is in the blue tie, with dachshund hairs all over his trousers.) Last day. They're settling the island today. Whatever happened yesterday, I walked the Colonel's dog at six. Brigadier doesn't care who won. He's very wise.",[
+  ["How do you feel?","Lighter. Like a man who's taken off a very heavy coat. Milanese wool. Ruined by a volcano. (He laughs.) I never liked that coat."],
+  ["What do you hope happens to the island?","That it's an island where an old fishwife can vote for a man because she likes his tie. And nobody minds. That's all."],
+  ["Will you remember this month?",["(He brushes at the dog hairs.) The walk through the ash, and the letter from Saltwick, and saying 'thank you, no'. Yes. All of it.",[
+    ["And me?","The reporter who asked if 'safer streets' was a threat. Nobody else asked. Everyone just assumed. (He smiles.) Thank you for asking."],
+    ["What will you do tomorrow?","Walk Brigadier. Write to my mother in my own hand. Say good morning to Margit. Same as always. But I'll mean it now."]]]]],
+ "Mind the carpet on your way. It's Persian. Some things I'll keep."],
 };
 // Colonel Halvorsen, commander of the island's army at the Officers' HQ (The Army). Threads: the army stays out of politics (he insists), his frequent dinners at the palace, his neighbours Harald and Carlo at Hope Springs, Sergeant Rask's ledgers, the ash and the army's part in cleaning up.
 DAILY['Colonel Halvorsen']={
@@ -6814,7 +6845,7 @@ DAILY['Hely']={
     ["You'd be good at it.","(She looks at you, very surprised.) Nobody's ever said I'd be good at anything. Say it again? No. Don't. I'll start believing it."]]]]],
  "Don't distract me. I'm holding a ladder for a famous acrobat."],
 25:["(Hely is reading two leaflets, one in each hand, and grinning.) A princess for democracy! A crown for everyone! Everybody wants the island to love them this week. I've never been so popular. Everyone's giving me leaflets.",[
-  ["Would you vote for the princess?","She came to the circus on Saturday, they say, in a headscarf, and laughed at Buttons for an hour. Anyone who laughs at Buttons for an hour can have my vote."],
+  ["Would you vote for the princess?","She came to the circus last night, they say, in a headscarf, and laughed at Buttons for an hour. Anyone who laughs at Buttons for an hour can have my vote."],
   ["Are you betting on any of it?","No. Not since the mountain. I told Paolo I'm retiring from betting. He wrote something in his book. I think it was a line under my name."],
   ["What does Veikko think?","Veikko thinks the Democrats will win if the princess helps. Veikko thinks a lot. I just think whoever wins should come and watch the circus. Everyone's nicer after the circus."]],
  "Take a leaflet. I've got eleven. I'll juggle the rest."],
@@ -6987,142 +7018,150 @@ DAILY['Henrik']={
   ["Thank you, Henrik.", "(He takes the pipe out of his mouth.) For what? You never gave me a story. (He smiles.) But you sat in the right chair once. Freja told me. Come back and tell me what London prints."]],
  "Sit down. It's a good chair. It tells you the truth."],
 };
-// Hilda, farmer at East Farm (The Farmers). Threads: dawn chores and the weather, Olaf's complaining, the old barn that hums, her pumpkins, her low opinion of the towns.
+// Hilda, who runs East Farm with her husband Olaf (the Farmers). Threads: dawn chores and the weather; Olaf's complaints, in order;
+// her prize pumpkin; her low opinion of the towns; the old barn next door, locked since Olaf's grandfather's day, that hums at night,
+// and her wish to have the doors off (the Kelp Cola men's worry about it, the 22nd; she never learns what was in it: after the month, she says); the seed potatoes she takes up to Brother Paavo
+// every spring; taking the cow into Kingsgrad on the tram (the 20th) and walking up to the monastery that night; the ash on the hay
+// barn and the mill lads' timber; the goose that won't eat after the eruption and becomes a pet.
 DAILY['Hilda']={
-5:["(Hilda doesn't look up from the bucket she's scrubbing.) You'll be the London reporter. Boots off at the door, and don't step on the cabbages.",[
-  ["Nice farm. How long have you been here?","Thirty winters, give or take. The farm's older than I am, and it'll be here when I'm not."],
-  ["What does a farmer make of all this fuss?","The king's dead, so there's fuss. The cows still want milking at five. They've no opinion on succession."],
-  ["Is Olaf about?","Out in the barn, finding something to complain about. He'll have found it by now."]],
- "Mind the gate on your way out. It bites."],
-6:["(Hilda is peeling potatoes into a bowl the size of a bathtub.) A woman from Eastbrook came by yesterday asking if we sell to the shops. I told her we sell to whoever pays on time.",[
-  ["Do you grow all that yourselves?","Potatoes, cabbages, wheat and pumpkins. And Olaf's temper, which is the only crop that never fails."],
-  ["Do people from the towns bother you?","They come out in clean shoes and leave in dirty ones. I like to think we improve them."],
-  ["What time do you get up?","Four, when it's light enough. Half past three when Olaf's snoring wakes me first."]],
- "There's soup on, but not for you. Off with you."],
-7:["(Hilda is squinting at the sky.) Frostholm's road is open now, they say. Nobody out here asked for that. More people, more mud on the yard.",[
-  ["Do you have any good news?","The pumpkins are coming on. Fat as bishops, the biggest ones. I've got my eye on the fair prize."],
-  ["Who comes out to buy from you?","Lisa from the supermarket, Pirkko for her food van when she's short. Everyone else shouts through the gate."],
-  ["Is the weather turning?","It's always turning. Today it turns cold, tomorrow it turns colder. I wear the same coat for all of it."]],
- "If you see the post, tell him the gate's mended."],
-8:["(Hilda has a hymn book open on the table, next to a sack of seed.) Father Thyme has a sermon on today, so I've half an ear on the wireless. I'll hear it. I won't be told what to think by a man who's never milked a cow.",[
-  ["Are you religious?","I'm Orthodox in the way weather is. It's there, and I go to church when it's raining."],
-  ["What's the sermon about?",["Nobody knows. They say the Father can't find the words. I've never known a priest short of words before.",[
-    ["Maybe grief does that.","It does. I stood at my own mother's grave with nothing to say. The words came out in the potatoes afterwards."],
-    ["Will you go to hear him?","If the cows allow. They've got a better memory for my chores than I have."]]]],
-  ["Anything strange about the farm lately?","Only the old barn. Locked, boarded up, and it hums at night. Olaf says it's the wind in the beams. I say wind doesn't keep time."]],
- "Eat something before you go, you look like a lamp post."],
-9:["(Hilda is wiping her hands on her apron.) There's talk of a new cola flavour today. Somebody in Kingsgrad is getting a lot of money to decide what sweet water should taste like.",[
-  ["Do you drink Kelp Cola?","Olaf does, in secret. I find the empty bottles in his coat. I pretend to be surprised."],
-  ["Is the Party selling its own cola?","The Communists? They'd give it away and then ask for the bottles back. I'd like to see it."],
-  ["What do you drink?","Tea. Strong, black and made in a pot that's older than your newspaper."]],
- "Close the door. The draught's got a mind of its own."],
-10:["(Hilda is in her black dress, hat pinned on, and holding a handkerchief she won't use.) They're burying him in Kingsgrad today. We can't go, with the cows. So we'll stand in the yard at noon.",[
-  ["Did you like the king?","I never met him. But he waved at the tractor once, on the road, and I've never forgotten it."],
-  ["Will you listen on the radio?","We'll hear it all, over the fence, from the neighbour's set. Olaf will cry, and he'll say it's the wind."],
-  ["Who should be king next?","Not my business. The ones who clean the barns don't pick kings. But I'd like one who knows what a cow is."]],
- "A good day for the king to go. Clear sky. He'd have liked it."],
-11:["(Hilda is stacking firewood by the porch.) The Eastbrook mill hands are asking for fair pay, so I hear. I'll say this: someone who works hard should be paid for it.",[
-  ["Do you hire hands in harvest?","Two lads from the village, every autumn. They eat like horses and sing like crows, and I'd miss them."],
-  ["Is the Democratic Party helping the mill?","Erik's lot, yes. Good men, if they'd stop writing leaflets and pick up a shovel."],
-  ["Do you earn a fair wage?","The land pays what it pays. Some years I'm rich in cabbages and poor in money."]],
- "Take a carrot for the road. A raw one, mind."],
-12:["(Hilda is hauling a pumpkin onto the scales, red in the face.) Forty pounds and it's still growing. I've named it Magnus, after nobody in particular.",[
-  ["Can you win the fair prize?","There's Father Thyme's marrows to beat. He won't admit it's a competition, but he counts every one."],
-  ["Is there anything on at Eastbrook today?","Something to do with a record for Ruby. I don't see the point. You can't eat a record."],
-  ["What does Olaf think of Magnus?","He thinks I love it more than him. He's not wrong, it's very good-looking."]],
- "Don't lean on the scales. I've only just balanced them."],
-13:["(Hilda has a crate of cabbages at the gate.) Somebody's been through the district giving away free cola samples. I've had a boy at the door with a basket of tiny bottles. I told him the cows were thirsty.",[
-  ["Did you try one?","One sip. It tasted like a sweet shop had a fight with a pine tree."],
-  ["Why do they come all the way here?","They'll hand it out to anyone with a mouth, and then they'll want a vote, or a field, or a signature."],
-  ["Did you give the samples to the cows?","One cow sniffed it and walked away. Cows know best."]],
- "If anyone comes with more, point them at the pond."],
-14:["(Hilda is brushing her hair, which she does maybe twice a year.) They're all going to gather tomorrow, I hear. The whole island. I'm not sure what for, but Olaf's polishing his boots.",[
-  ["Are you going to the big day?","Yes. Olaf wants to see what everyone looks like when they're all in one place. I want to see who sits down first."],
-  ["What are you expecting?","Shouting, mostly. And somebody giving a speech that could've been a sentence."],
-  ["Are you nervous?","Nervous is for people with time. We've got a cow due and a roof that leaks."]],
- "We'll leave the lamp on for the cows. They get lonely."],
-15:["(Hilda is in the yard, hanging out sheets in a wind that clearly disapproves.) I hear the royal side and the church side are going at each other today, crown against cross. I'd put them in a field together and see who gets out first.",[
-  ["Whose side are you on?","The side that doesn't send me a bill. I'll pay my tithe to the church and my taxes to the king, and neither will send a thank-you."],
-  ["Is it good to have kings and priests?","It's good to have something to argue about. Otherwise it'd be potatoes, all the way down."],
-  ["Do you ever argue with Olaf?","Daily. Today it's about whether the sheet is dry. It is. He's wrong."]],
- "There's a cold wind coming. I can feel it in my knee."],
-16:["(Hilda has the radio on, loud.) There's some kind of debate today, Communists against Democrats. Olaf says he'll listen with his arms folded.",[
-  ["Who do you think will win?","The one who talks least. They'll all say the potato price will go up and none of them will do it."],
-  ["Do you vote?","If I'm asked. Erik asked me nicely once. The Communists sent a man to explain why I didn't need to."],
-  ["Does the debate matter out here?","Only if it makes the diesel dearer. Politics ends at the farm gate, unless it's dragging a lorry."]],
- "Keep your voice down. I'm trying to hear who's lying."],
-17:["(Hilda is on the porch, with her hand flat against the wooden post.) Did you feel that? The ground gave a little shiver just now. Not much. Like a cow turning over.",[
-  ["Was that an earthquake?","A little one. The old barn hummed louder just after, which is no comfort at all."],
-  ["Is the volcano waking up?","They say so, in the north. I say it's the island clearing its throat."],
-  ["Are you scared?","Of the volcano, no. Of Olaf trying to fix it with a hammer, yes."]],
- "If the milk starts to wobble, I'll let you know."],
-18:["(Hilda is stacking pumpkins in the shed.) There's a church story going round, about some lost relic. Everyone's looking for it under their beds, I hear. I've looked in the barn. Nothing but straw and spiders.",[
-  ["What sort of relic?","A bone, or a finger, or a bit of cloth. They never say. A saint's, they say, if it turns up."],
-  ["Has anybody searched the farm?","Two boys in black coats walked through the yard yesterday, looking in the wells. I told them the only holy thing here is the milk."],
-  ["Does Olaf believe in relics?","He believes in anything that costs less than a tractor."]],
- "If the relic turns up, don't tell Olaf. He'll sell it."],
-19:["(Hilda is boiling something that smells of turnips and thunder.) There was a rumour that the Party's after workers, and the palace is up to something at the Midnight Note. People are always up to something. I'm up to my elbows in soup.",[
-  ["Has any of the Party been out to the farm?","A man in a cap offered to let us all share the land. I said we'd share it with him when he shared his coat."],
-  ["Do you go to the Midnight Note?","Heavens, no. Loud music and expensive tea. I like my evenings dull and my beds made."],
-  ["What's cooking?","Turnip soup. It's a punishment I give myself. Olaf likes it, which says something about Olaf."]],
- "Stand back from the pot. It spits."],
-20:["(Hilda is looking at the sky, sniffing.) There's something in the air. A tang. Like an iron stove that's been left too long. Something's coming, I'll bet my boots.",[
-  ["What do you mean?","Weather. Or worse. The cows won't stand still in the field and the hens have stopped laying out of spite."],
-  ["Any trouble out here?","The old barn was louder last night. A hum like a very large cat. Olaf says it's the pipes. We've no pipes."],
-  ["What are people saying?","That a man's been seen at a hotel in Eastbrook, and the Democrats are scurrying. Not my business."]],
- "Latch the gate. Everything feels a bit loose today."],
-21:["(Hilda is standing in the yard, apron grey with ash, staring north.) Well. Now it's happened. The whole sky's the colour of a dirty sock. Olaf's on the roof with a broom, shouting.",[
-  ["Is everyone all right?","We are. The cows are, though they look offended. Ash on everything. It's in the tea."],
-  ["Is the volcano close?","Far enough. A great black cloud and a smell like a struck match. I never wanted to see that."],
-  ["What will you do?","Sweep. Then sweep again. Then drink something strong and sweep once more."]],
- "Keep your mouth covered. You'll taste it for a week otherwise."],
-22:["(Hilda is shaking a blanket of grey dust off the porch.) There's talk of cola people coming round the farms, something about trouble with a farm. I hope it isn't ours. We've enough trouble with the ash.",[
-  ["Are Kelp Cola men visiting?","Sniffing around, I hear. For fields, for water, for what, I can't say. I told Olaf to keep his mouth shut and his gate shut."],
-  ["Is the ash ruining the crop?","The pumpkins are dusted like cakes. The cabbages are sulking. We'll know in a week."],
-  ["What's the mood out here?","Tired. Everyone's coughing and everyone's cross. Even the hens have gone quiet."]],
- "If anyone from the cola works comes, I'm not in."],
-23:["(Hilda is trying to dust the ash off the old barn's boards, then stops.) It's warmer by this barn. I put my hand on the wood and it's warm. Strange. Like a sleeping animal.",[
-  ["Maybe it's the volcano.","That's the sensible answer, which is why I don't trust it. It was warm before the ash."],
-  ["Did you ever look inside?","Locked since Olaf's father's time. The key's long lost. We'd have to take the doors off."],
-  ["Are there any aftershocks?","Little ones. The cups rattle in the cupboard. It's like living on a drum."]],
- "Don't touch the old barn. I mean it. It's got a mood."],
-24:["(Hilda has a pot of tea and a plate of cold potatoes and looks tired all through.) The church is heading for the mountains today, some retreat. I'd go too if I could leave the cows. Peace and quiet sounds heavenly.",[
-  ["Are you going on the retreat?","No. The cows are my retreat. They don't ask questions."],
-  ["Why the mountains?","Away from the ash and the shouting, I suppose. And nearer to God, but He's got ash on His shoulders too."],
-  ["Is Olaf holding up?","He's grumbling in his sleep about the price of coal. That's how I know he's alive."]],
- "Have a potato. It's not much, but it's hot."],
-25:["(Hilda is sorting seed in the dim light.) I hear the royals are handing out crowns to everybody now, and the Democrats want a princess. Everyone wants something. I just want my turnips.",[
-  ["A crown for everyone?","Why not? We could all wear them to milk the cows. Better than a hat."],
-  ["Is there a princess involved?","So they say. Pretty, clever, in demand. I hope someone remembers she's a person and not a prize pumpkin."],
-  ["How is the ash cleanup?","Done as far as the porch. Beyond that, it's a country matter."]],
- "Come again when you've something other than news. I've plenty of that."],
-26:["(Hilda is at the kitchen table with a lamp lit, though it's afternoon.) Everyone's talking about the Colonel and the cola men and the oil men buying things. Dario buying a spa, of all things. A man who can buy a spa doesn't need our turnips.",[
-  ["Is it true about the spa?","Rumour says so. Soaking in hot water while the rest of us shovel ash. It's the way of the world."],
-  ["Is the cola in the district again?","A little. Princes on bottles, they say. I'd sooner have a cow on a bottle. At least it's honest."],
-  ["Does any of it touch the farm?","It touches everything, in the end. Like the ash."]],
- "Take care on the road. The ruts are deep after the ash."],
-27:["(Hilda is darning a sock by the stove.) There's something at the pictures in Kingsgrad tomorrow, a revolution. I've seen revolutions. They begin with a speech and end with a bill.",[
-  ["Will you go to the pictures?","Never been. Olaf went once, in 1961, and fell asleep during the cowboys."],
-  ["Is the Party planning something?","Whatever it is, they'll do it with flags. They love a flag."],
-  ["What would you like to see?","A film with a good strong cow in it. Or a very long one about rain."]],
- "The stove's warm. Sit a minute, then go."],
-28:["(Hilda has her best hat on, and her second-best expression.) It's the big push, all the factions at once. I can hear the roads humming from here. The state visit, the cola going abroad, the Party and the flag. And the oil lot in their office.",[
-  ["Are you worried?","Only about the hens. They don't like noise, and there's plenty of it."],
-  ["Does the farm matter in all this?","You'd think not. But everybody eats, and everybody's coming to our gate eventually."],
-  ["What do you want to happen?",["I want people to stop shouting for a week. I want the old barn to stop humming. I want ash off my cabbages.",[
-    ["What do you think the old barn is?","I think it's something Olaf's father left in there. A generator, maybe. Rats with ambitions. Don't tell Olaf I said that."],
-    ["Will you open it?","When the key turns up. Or when the hum gets louder than my temper."]]]]],
- "Keep your head down out there. Tomorrow's worse."],
-29:["(Hilda is stirring a pot with great purpose.) Everyone's in a state about lines of success and primaries and goodness knows what. All I know is that someone is going to be disappointed.",[
-  ["Who will be disappointed?","Most of them. It's like the pumpkin fair. One winner, a lot of sour faces."],
-  ["Will you vote tomorrow?","If there's a vote. If there's a pig, I'd vote for the pig. Better manners."],
-  ["Any last wisdom?","Plant what you can. Mend what you can. Don't count on anything you haven't put in the ground."]],
- "Eat well tonight. Nerves taste better with stew."],
-30:["(Hilda is in the yard at first light, arms folded, looking at the sky.) Well, it's the last day. Whatever happens, the sun rises and the cows still need milking. I find that a comfort.",[
-  ["How are you feeling?","Hopeful, and trying not to say so out loud. Hoping is bad luck, like whistling indoors."],
-  ["What have you learned this month?","That the island's much bigger than the farm, and the farm's much bigger than the island's problems."],
-  ["Anything for the paper?","Tell them East Farm kept going. It's not much of a headline, but it's the truth."]],
- "Safe road, reporter. Wipe your feet next time."],
+5:["(Hilda is carrying two buckets of milk across the yard and doesn't put them down.) Town shoes. (She looks at your feet.) London town shoes. You'll ruin them in a week. Hilda. This is East Farm. Mind the hens.",[
+  ["What do you farm?","Cows, hens, potatoes, a few sheep, and a husband. The husband's the most work. He complains in alphabetical order."],
+  ["Is it hard work?","Up at four, in at nine, and the cows don't care if it's Christmas. Hard? It's the only work there is. Everything in the towns is just talking about work."],
+  ["Who's your husband?","Olaf. He's in the byre, telling a cow about the price of diesel. She's heard it before. She's very patient. More patient than me."]],
+ "Close the gate behind you. The hens think they're cleverer than you. They're right."],
+6:["(Hilda is kneeling beside an enormous orange pumpkin, polishing it with her apron.) Don't laugh. This is Bertha. The biggest pumpkin on the island. Again. Five years running. The Kingsgrad lot never win.",[
+  ["What's the secret?","Muck, prayer and talking to her every morning. Olaf says I talk to Bertha more than I talk to him. Bertha listens."],
+  ["Is there a competition?","At the harvest fair, in October. If there's a harvest fair this year, with the king gone. If there isn't, I'll hold one myself. In the yard. Bertha will win."],
+  ["What do you think of Kingsgrad?","Too many people who've never pulled a carrot telling the rest of us what carrots cost. (She polishes.) Present company excepted. You've a carrot face."]],
+ "Don't touch Bertha. She bruises."],
+7:["(Hilda is standing in the yard looking at an old, dark barn next door, with a rusty padlock.) That barn. Olaf's grandfather's. Locked since before the war. It hums at night. Like a kettle that never boils. I want the doors off.",[
+  ["Why hasn't anyone opened it?","The key's lost and the padlock's rusted solid. Olaf says leave sleeping barns alone. I say a barn that hums isn't sleeping."],
+  ["What do you think is inside?","Mice. Old ploughs. Olaf's grandfather's secrets. (She narrows her eyes.) Something that hums. Barns don't hum. I've had barns all my life."],
+  ["Will you open it?","When Olaf's at market. With a crowbar. And a lamp. (She looks at you.) And maybe a witness. A reporter's a good witness."]],
+ "Don't go near the barn. I'll know if you do. The hens tell me everything."],
+8:["(Hilda is in a Sunday hat that's seen better Sundays, pulling Olaf by the arm towards the cart.) Sunday. Church. The Abbot's preaching about the king. Olaf's coming whether he likes it or not. He doesn't like it.",[
+  ["Is Olaf religious?","Olaf believes in God, Kelp Cola and the weather forecast, in that order on weekdays. On Sundays I move God to the front."],
+  ["Do you know the monks?","Brother Paavo, the gardener. I take him a sack of seed potatoes every spring and tell him he's planting them wrong. He is. They grow anyway. That's faith."],
+  ["What will the Abbot say?","Something about grief and a long winter. He'll be right. He usually is. (She pulls Olaf onto the cart.) Olaf will be asleep by the second hymn."]],
+ "Go to church if you like. Sit behind Olaf and poke him when he snores."],
+9:["(Hilda is reading a letter from Kelp Cola with a scowl.) They want more of our kelp, they say. East Farm grows for them, the beds down by the shore. They want twice as much. For a new flavour. For the same money.",[
+  ["Will you grow more?","If they pay more. Kelp doesn't grow faster because a man in Kingsgrad wants a new flavour. Kelp grows when the sea says so."],
+  ["Is the Party making a cola too?","So Olaf says. He's tried it. He says it tastes of beetroot. He drinks Kelp Cola in secret. In the byre. Thinks I don't know. I know everything that happens in my byre."],
+  ["What do you think of Kelp Cola?","Sweet, fizzy and full of my kelp. I've never once been thanked. They put a picture of a cup on the bottle. Not a farmer. A cup."]],
+ "If you see a cola man, tell him kelp costs more than a cup."],
+10:["(Hilda is in the kitchen with the wireless on, a handkerchief in her hand, listening to the funeral.) The king. They're burying him now. (She dabs her eyes.) Olaf's in the byre pretending the cows need him. They don't. He's crying in there.",[
+  ["Did you know the king?","He came to the harvest fair in 1972. He looked at Bertha's grandmother, the pumpkin, for five whole minutes. He said 'Madam, that is a magnificent vegetable.' I've never forgotten it."],
+  ["Is Olaf all right?","He's crying on a cow. That's how Olaf grieves. He'll come in for his dinner and say it was the hay fever. In September."],
+  ["What happens now?","The cows still need milking. The hens still need feeding. Kings come and go. Farms stay. That's what my father said when the last one died."]],
+ "Go gently today. Even the hens are quiet."],
+11:["(Hilda has a sack of potatoes on her back and is setting off up the track.) Taking these up to the monastery. For Brother Paavo. Late, this year. He'll tell me they're too late. I'll tell him he's planting them wrong. That's our friendship.",[
+  ["Isn't the monastery a long way?","Two hours, up. One and a half, down. Olaf says it's too far. Olaf says the yard's too far, on a cold morning."],
+  ["What's the news from the towns?","The mill hands in Eastbrook want more pay. Good for them. Farmers have never had a raise in their lives. The cows would have to ask, and cows don't ask."],
+  ["Do you ever take a day off?","Christmas morning. Till ten. Then the cows."]],
+ "Close the gate behind you. I'll be back by dark."],
+12:["(Hilda is standing outside the old barn at dawn, with a lamp, listening hard.) Shh. Listen. (A low, steady hum comes from inside.) Every night. Louder this week. Olaf says it's the wind. There's no wind.",[
+  ["What could it be?","Bees, Olaf says. Bees don't hum at night. A generator, I say. Olaf says nobody's had a generator in there since his grandfather. Then who's running it?"],
+  ["Should you call someone?","Who? Sergeant Hanna's one woman on a bicycle. The Kelp Cola men only care about the kelp. The Abbot would bless it. I want it opened."],
+  ["Will you open it today?","Olaf's hidden the crowbar. He thinks I don't know where. It's behind the milk churns. (She smiles grimly.) Soon."]],
+ "If you hear humming at night, don't come and look. That's my job."],
+13:["(Hilda has a free bottle of Kelp Cola in her hand and is looking at it with deep suspicion.) A young man from the company left a crate. 'Free samples.' Free. Made with my kelp. They're giving away my kelp and calling it generous.",[
+  ["Will you drink it?","Olaf will. In the byre. In secret. He'll think I don't know. (She hands the bottle to you.) You have it. You're a guest. Guests get the free things."],
+  ["Is the kelp harvest good this year?","Thinner than last. The sea's warmer. The kelp doesn't like warm. Neither do I. Something's wrong with the sea this month."],
+  ["Will you go to the gathering tomorrow?","Somebody has to milk the cows. Olaf's going. He'll stand at the back and complain to anyone who'll listen. He'll have a lovely time."]],
+ "Drink it slowly. It's my kelp."],
+14:["(Hilda is milking a cow alone in the byre, very calmly.) Big gathering. The whole island in one place. (She keeps milking.) And the cows still need milking. That's farming. History happens, and the cows still need milking.",[
+  ["Did Olaf go?","In his Sunday coat. With a list of complaints. Weather, prices, politicians. He'll get through two before anyone stops him."],
+  ["Do you wish you were there?","I'd like to see the faces. Not the speeches. Faces tell you more. (She moves to the next cow.) Olaf will tell me the faces. He notices faces. He thinks he doesn't."],
+  ["What do you hope comes of it?","That somebody remembers there are farms. Everybody eats. Nobody thinks about where it comes from. That's the towns for you."]],
+ "Hand me that stool. Thank you. Now you've been useful. That's more than the gathering."],
+15:["(Hilda is listening to Olaf's report of the gathering while she feeds the hens, nodding.) He says the jester fell in the fountain and came out with a duck. (She scatters grain.) That's the most sensible thing that happened, by the sound of it.",[
+  ["What else did Olaf say?","That everyone was very sure of themselves. That nobody mentioned farms. That a monk heckled the palace in Latin. He enjoyed that. He doesn't know Latin."],
+  ["What's the news today?","The palace and the Church are fighting over the prince's brother. Brother Paavo will be upset. He likes Augustus. Augustus helped him dig the potatoes once."],
+  ["How's the barn?","Humming. Louder. Olaf's started sleeping with cotton wool in his ears. I've started sleeping with the crowbar."]],
+ "Mind the hens. They've heard about the duck. They're jealous."],
+16:["(Hilda is in the kitchen with the wireless on, kneading bread very hard.) The debate. The Party and the Democrats. (She punches the dough.) Neither of them has said 'farm' once. Not once. In an hour.",[
+  ["Who would you vote for?","Whoever says 'farm' first. And then I'd want to see them milk a cow. Words are cheap. Milk's at four in the morning."],
+  ["Does Olaf have an opinion?","Olaf has all the opinions. He's shouting at the wireless from the byre. The cows are very confused."],
+  ["What's the bread for?","Olaf. He's been shouting so long he'll be hungry. (She punches it again.) This is the Party. (And again.) This is the Democrats. Makes very good bread."]],
+ "Take a loaf when it's done. You look like you need feeding."],
+17:["(Hilda is standing in the yard with a hen under each arm, looking north.) The ground moved this morning. The hens stopped laying. Every one. The cows won't settle. There's steam on the mountain.",[
+  ["Is it the volcano?","I've lived under that mountain fifty-two years. It's never steamed. It's steaming now. I don't need a scientist to tell me what that means."],
+  ["What will you do?","Tie everything down. Count the animals. Pray. Frank at the gun shop came by. I asked him if guns could stop lava. He said no. He didn't laugh. That frightened me more."],
+  ["How's the barn?","The hum stopped. When the ground moved. Just stopped. Like something heard it and held its breath. Then it started again. Louder."]],
+ "Go home safely. And count your animals. If you've got any."],
+18:["(Hilda is loading a cart with sacks, very fast, Olaf complaining beside her.) If the mountain goes, the potatoes go with us. And the seed. And Bertha. (She pats the pumpkin.) I'm not losing five years of Bertha to a mountain.",[
+  ["Where will you go?","Olaf's cousin in Kingsgrad, if it gets bad. He's got a cellar. And a cousin who'll complain about the cow. They're a complaining family. It's in the blood."],
+  ["Is Olaf helping?","He's complaining. Same thing, with Olaf. He complains, then he lifts. The complaining is how he gets his strength up."],
+  ["What's happening in the towns?","Kelp Cola's mascot is ill, they say. The cup. Somebody else is in it. (She shakes her head.) Grown people in a cup. And they call farmers simple."]],
+ "Mind the cart on your way out. It's loaded. So is Olaf."],
+19:["(The farm smells of eggs, and Hilda has a wet cloth over her face.) Steam. Everywhere. The cows won't eat. The goose won't eat. Olaf won't stop talking. (She looks at the mountain.) Tomorrow, the cow goes to Kingsgrad. And then we go up to pray.",[
+  ["Up where?","The monastery. With Juniper from the clothes shop in Eastbrook, and Pirkko from the food van. To pray with the brothers. If the mountain speaks, I want to be answering."],
+  ["Isn't that dangerous?","The monastery's on the far peak. Father Thyme says it's safe. I believe him. I also believe in good boots. I've got good boots."],
+  ["What about the barn?","Humming. Day and night now. I told the Kelp Cola men about it last week. They went very quiet on the telephone. Very quiet. I don't like quiet men."]],
+ "Breathe through a cloth. And pray, if you've got it in you."],
+20:["(Hilda is breathless, in her Sunday coat, with a rope over her shoulder.) What a day. I took the cow to Olaf's cousin in Kingsgrad. On the tram. She got off in the wrong place. The supermarket. The bread aisle. (She shakes her head.) Now we're walking up to the monastery.",[
+  ["The cow was in the supermarket?","In the bread aisle. Lisa on the till screamed. The manager had a fit. The cow ate a loaf. I paid for it. Olaf's cousin has her now, in his cellar."],
+  ["You're going to the monastery tonight?","With Juniper and Pirkko and Olaf. To pray with the brothers. Olaf's already complained about the hill twice and we haven't started."],
+  ["Are you frightened?",["(She stops, finally, and looks at the mountain.) Yes. Fifty-two years. Never frightened of anything. Tonight, I'm frightened.",[
+    ["You'll be safe at the monastery.","Father Thyme says so. (She shoulders the rope.) And Olaf will be there. He'll complain the whole night. It'll be very comforting."],
+    ["What will you pray for?","The cows. The hens. Bertha. Olaf. In that order. (A pause.) No. Olaf first. Don't tell him."]]]]],
+ "Go home and be safe. We're going up. Pray for us."],
+21:["(Ash is falling. Hilda is sitting on the farmhouse step, grey from head to foot, Olaf asleep against the doorframe beside her.) It went. The mountain. We were at the monastery all night. The brothers sang. Father Thyme sang at the door. Everyone came down alive.",[
+  ["How did you get down?","Walked. Through the ash. Olaf carried me the last mile. My knee went. He didn't complain once. (She looks at him.) Not once. Fifty years married, and the first mile he's ever not complained."],
+  ["Is the farm all right?","The hay barn roof's in. The fields are grey. The hens are alive, the goose is alive, Bertha's alive. (She looks across the yard.) The old barn's still standing. Still humming."],
+  ["Are you all right?",["(She puts her hand on Olaf's shoulder, gently, so as not to wake him.) I'm all right. I'm grey and my knee's gone and I've never been so glad to see a farm.",[
+    ["Olaf was very brave.","Don't tell him. He'll never stop. (She smiles.) Yes. He was. He carried me and said 'I've got you, Hilda.' Fifty years, and he's never said that."],
+    ["What will you do now?","Milk the cows. Sweep the yard. Cry, a bit, where Olaf can't see. Then feed everyone. That's what you do after."]]]]],
+ "Cover your mouth. And thank you for coming all this way."],
+22:["(Hilda is standing in front of the old barn with a crowbar in her hands and a very determined face.) The Kelp Cola men telephoned three times this morning. About the barn. Something growing out here they're not happy about, they said. Growing. In a barn that hums.",[
+  ["What did you tell them?","I shouted at them. In my grandmother's dialect. I didn't know I still had it. It came out of me like a cow out of a bread aisle."],
+  ["Will you open it now?","Olaf says wait. Olaf always says wait. (She looks at the padlock.) The cola men want it sorted quietly. Quietly. On my farm. In my barn. Without me."],
+  ["How's the farm after the ash?","Father Thyme came at first light and blessed the fields. Olaf asked him to bless the price of diesel too. The cows are off their milk. The goose won't eat. Everything's grey."]],
+ "Don't go near the barn. Not today. Today it's mine."],
+23:["(Hilda is watching a cart unload timber in the yard: Tor from the harbour and Ilse from the mill, both grey with ash.) Timber. For the hay barn roof. From the mill. Free. Dagny sent it. The mill lads brought it. A Communist and a Democrat, carrying the same plank.",[
+  ["That's kind of them.","Kind. (She watches them.) I've said terrible things about the towns. Thirty years of terrible things. And they came. With timber. In the ash."],
+  ["Is anyone else helping?","Juniper from Eastbrook mended the children's coats. Pirkko sent soup. The mill sent planks. Olaf's cousin sent the cow back. With a bill for the bread."],
+  ["What about the old barn?","(She looks at it.) The cola men said leave it to them. Leave it! On my farm. I've told Olaf: after the month, the doors come off, whoever's said what."]],
+ "Thank Ilse for me, if you see her. I'm no good at it. I've never had to be."],
+24:["(Hilda is on the roof of the hay barn, nailing planks, with Olaf holding the ladder and complaining.) Fixing it ourselves. With the mill's timber. Olaf says I'm too old for roofs. I'm fifty-two. He's fifty-four. He's holding the ladder. Who's too old?",[
+  ["Shouldn't someone else do the roof?","Somebody else did the timber. I'll do the roof. It's my roof. (Hammer.) Olaf's ladder. (Hammer.) Our barn."],
+  ["What's the news?","The monks have gone up into the peaks to pray. Father Thyme in Juniper's scarf. And the Syndicate's cleaning something, they say. (Hammer.) Everyone's cleaning something."],
+  ["Has the old barn been opened?","(She stops hammering and looks at it.) Not yet. After the month. When the island's done arguing. Then it's crowbar time."]],
+ "Pass me a nail. Thank you. You've been useful twice. That's a record for a townie."],
+25:["(Hilda is reading a royal leaflet and a Democrat leaflet, one in each hand, with her glasses on the end of her nose.) A crown for everyone. A princess for democracy. (She turns them over.) Not a word about farms. Not one. Again.",[
+  ["Who would you vote for?","Whoever sent the timber. That was Dagny, a mill owner. And Erik, who sent the lads. And Juniper, who mended the coats. They're not standing for anything. They just did it."],
+  ["What do you think of the princess?","She came to the harvest fair once, as a girl. She asked if she could hold Bertha's grandmother. She couldn't lift it. She laughed. I liked her."],
+  ["How's the farm?","The hay barn has a roof. The fields are grey. The cows are milking again, a little. The goose still won't eat. I'm worried about the goose."]],
+ "Take a potato. They survived the ash. So did we."],
+26:["(Hilda is sitting on the step with a large grey goose in her lap, stroking its neck.) She won't eat. Since the mountain. Not a thing. So she's a pet now. She sits with me. (The goose honks softly.) Her name's Marta. After the palace cook. They're both very particular.",[
+  ["A pet goose? On a farm?","I've eaten every goose I've ever raised. Not this one. This one stood in the yard all through the ash and didn't run. A goose like that's earned a name."],
+  ["What's the news?","The oil company's buying the spa, they say. And Kelp Cola wants a prince in an advert. And nobody's told me a thing about my own barn. (She strokes the goose.) Typical."],
+  ["Will Olaf mind the goose?","He's built her a box by the stove. With a blanket. He says it's so she doesn't make a mess. (She smiles.) He tucks her in."]],
+ "Say goodbye to Marta. She likes to be greeted. Like the real one."],
+27:["(Hilda is counting potatoes into sacks for the winter, very steadily.) The potatoes came through the ash. Under the ground. Best place to be, under the ground, when the sky's falling.",[
+  ["Will you go to the cinema?","Olaf wants to see the Party's picture. Six tractors. He's never seen a tractor in a film. He's very excited. I'm staying in with the goose."],
+  ["How's the hay barn?","Roofed. Dry. Full by October. Ilse's timber is the best roof this farm's ever had. I've told her so. Badly. She understood."],
+  ["And the old barn?",["(She looks across the yard at it.) Still shut. Olaf found his grandfather's billhook up in the hay barn rafters yesterday. He sat with it for an hour.",[
+    ["What did he say?","That it's a sign to leave the old barn till spring. I said it's a billhook. (She sighs.) We'll see. Spring's not long."],
+    ["Did he complain?","Not once. He just held it. Fifty years married, and I learn something new about him every week this month."]]]]],
+ "Take a potato. They're the bravest thing on the farm."],
+28:["(Hilda is sweeping out the hay barn under its new roof, with a big broom, and singing.) Every faction's making its big push today, Olaf says. Flags everywhere. Speeches. (She sweeps.) I'm sweeping a barn. Next year it'll be full of hay. That's my big push.",[
+  ["You're singing.","Haven't sung since my wedding. The barn's got an echo. Olaf's hiding in the byre so he doesn't have to hear it. He's humming along. I can hear him."],
+  ["What will you put in the barn?","Hay. Potatoes. Bertha, for the winter. And the goose, when it's cold. (She sweeps.) A barn should be full. That's what barns are for."],
+  ["Are you nervous about the end of the month?","Nervous for the island. Not for the farm. Whoever wins, they'll eat. And somebody will have to grow it. That's us."]],
+ "Come and see the barn full, next year. Bring your town shoes. You'll ruin them."],
+29:["(Hilda is sitting at the kitchen table with Olaf, both with cups of tea, the goose in her box by the stove.) The palace is arguing about who's next. The Republicans are choosing a leader. (She sips.) We're having tea. With a goose. Best day of the month.",[
+  ["How's the farm?","Milking again. Laying again. Grey, but growing. The kelp's coming back in the shore beds. The Kelp Cola men rang to say thank you. Thank you! First time in thirty years."],
+  ["How's Olaf?","(Olaf grunts.) He's got a list of complaints for the new government, whoever it is. Weather, prices, politicians. He's added a new one: 'Not enough geese as pets.'"],
+  ["What do you hope happens tomorrow?","That whoever runs the island comes and milks a cow. Once. Just once. Then they'll understand everything."]],
+ "Have some tea. The goose doesn't share, but we do."],
+30:["(Hilda is standing in the yard at dawn, looking at the farm: the new roof, the old barn still shut, the grey fields, Bertha in the corner, the goose at her feet.) Last day. They're settling the island today. And the cows still need milking. (She picks up a bucket.) That's farming.",[
+  ["What do you hope happens?","That it's still an island where people grow things. Where the towns remember the farms. Where a mill lad brings a farmer timber in the ash. That's all."],
+  ["Will you go to hear the news?","Olaf will. In his Sunday coat. He'll come back and tell me the faces. He notices faces. He thinks he doesn't."],
+  ["Will you remember this month?",["(She looks at Olaf coming out of the byre.) The mountain, and Olaf carrying me, and the new roof going on, and a goose with a name. Yes.",[
+    ["And me?","The reporter in town shoes who held a nail and witnessed a barn. Your shoes are ruined. (She almost smiles.) You'll do."],
+    ["What will you do tomorrow?","Get up at four. Milk the cows. Feed the hens. Talk to Bertha. Listen to Olaf complain. Same as always. The best kind of tomorrow."]]]]],
+ "Close the gate behind you. The hens still think they're cleverer than you. They still are."],
 };
 // Igor, strongman of the circus at Lake Ilmari (the Circus). Threads: he is gentle out of the ring, his iron bars and the ringmaster he
 // lifts nightly, his secret love of knitting and small animals, Bruno's snoring in the bunk above, the volcano and helping others.
@@ -8891,129 +8930,142 @@ DAILY['Lars']={
   ["You've changed this month.","Have I? (He thinks.) Maybe. I've got a bank account. I nearly feel like a grown-up. Don't spread it around."]],
  "Whatever happens, I'll be out here. Somebody's got to keep the lights on."],
 };
-// Leo, saxophonist at The Midnight Note in Frostholm (the Entertainers). Threads: he says more through his horn than out loud, he sleeps
-// until noon, his old Selmer saxophone and its dented bell, Rita's voice, Sid's bar, the rich people who request waltzes, the tremors.
+// Leo, saxophonist at The Midnight Note in Frostholm (the Entertainers). Threads: he says more through his horn than out loud (his lines
+// are short; the stage directions do the talking); his old Selmer, dented at the bell in 1962; Rita, whose voice he has played behind
+// for ten years and never once told how he feels; Sid behind the bar; the rich who ask for waltzes; the man in the false moustache who
+// asks for 'something by Leo, my good fellow' (the 19th); six pizzas from Rosaria for the band (the 29th); Jaana's audition after hours
+// (the 27th), when he stops playing to listen; the tremors, and playing through the eruption.
 DAILY['Leo']={
-7:["(Leo is wiping a saxophone with a soft cloth, and answers a moment late.) Hm? Oh. Morning. Or whatever it is. I've been up since eleven, which is early for me.",[
-  ["I'm the British reporter.","Right. Nice. (He nods slowly.) We don't get many. We get oilmen, mostly, and a man who sells hats."],
-  ["That's a beautiful saxophone.","It's a Selmer. It's older than me, and it's got a dent in the bell where a man threw it at a wall. It plays better for it."],
-  ["Do you play every night?","Every night the doors are open. The roads are open now, so we'll be busy. Frostholm's thirsty."]],
- "Come by The Midnight Note. I'll play you something. I'm better at that than at talking."],
-8:["(Leo is lying on a sofa with the saxophone on his chest.) Sunday. No one in the club till late. I'm practising scales in my head. It's very quiet. Rita says it's the loudest thing she's ever heard.",[
-  ["Do you not talk much?","I talk with this. (He pats the horn.) It's a better listener. It never interrupts."],
-  ["What are you practising?","A slow one. Something with a lot of space in it. You can say a lot with space."],
-  ["How's Rita?","In the next room, singing in the bath. Don't tell her I said so. She'd stop."]],
- "It's a good day for nothing. I'm putting it to full use."],
-9:["(Leo has a bottle of cola on the piano, going flat.) A man from Kelp Cola asked if I'd play on their advert. I said I'd think about it. He said they'd pay. I said I'd think about it faster.",[
-  ["Would you do it?","If it was a good tune. I'd play a jingle if it swung. Nobody's asked me to play a jingle that swings."],
-  ["What would the cola sound like?","Something sweet, a bit fizzy, with a sharp note in the middle. A B-flat, I think. Maybe a B-flat minor."],
-  ["Do you like the stuff?","It's all right. I prefer coffee. Black. With a hint of regret."]],
- "If it's a good tune, I'm in. If not, I'm in bed."],
-10:["(Leo is in a black shirt, and sits very still.) They bury the king today. Sid's closing the club for the evening. Rita's going to sing one song, very quietly. I'll play behind her. I'm told the king liked marches.",[
-  ["Do you play marches?","Only if forced. But I've been practising a slow one. It sounds like a march that's lost its way home."],
-  ["How do you feel about the day?","Quiet. I never knew him. But I know what it is to play for an empty room."],
-  ["Will you play at the funeral?","No. They have their own band. They won't want a saxophone. It's far too honest."]],
- "A slow night ahead. I'll make it count."],
-11:["(Leo is sitting on the edge of the stage, picking at a reed with a penknife.) A man came in at lunchtime to ask if I'd play for free, for the poor. I said yes. Then he asked if I'd play for free for the rich. I said, no.",[
-  ["Why not?","The poor can't afford to pay. The rich can, and don't. There's a difference, and it's about eleven krona."],
-  ["Does the club do well?","It does fine. Sid keeps the books and the bar. I keep the notes. It works."],
-  ["What did you play for the poor?","'Smoke Gets In Your Eyes', slow. It seemed right. Sad, and a little proud."]],
- "Play for those who listen. It's the only rule."],
-12:["(Leo is looking at a cracked reed in the light.) A man at the bar says Ruby, in Eastbrook, has a record that someone wants very badly. A rare one. I'd like to hear it. I'm a sucker for rare things.",[
-  ["Do you know Ruby?","I've bought records from her. She's honest, and she's fierce. She won't sell a thing to someone who won't love it."],
-  ["What record is it?","I can guess. There's only one local jazz record anyone would pay for. I won't say. It's a secret I'd like to keep."],
-  ["Would you pay for it?","If I had the money. I'd give her a tune for it. She'd hate it, but she'd keep it."]],
- "If Ruby sells it, I hope it's to a lover, not a collector."],
-13:["(Leo is blowing a long low note, then stops.) I've heard they're giving free cola in Kingsgrad tomorrow. It's a day for crowds. Sid says the club will be quiet. I say, play a ballad. It's what people want when they've had too much sweet.",[
-  ["Do you go to Kingsgrad?","Sometimes. I play at the palace once in a blue moon. The prince likes a waltz. The princess likes a rumba."],
-  ["Have you any favourite songs?","'Round Midnight'. It's a song about being awake when everyone else isn't. I've lived in it for years."],
-  ["Is there a lot of talk at the club?","A lot. About the Syndicate, the oil, the king. I just play, and the talk goes in one ear and out of the bell."]],
- "Good night, in your own time. I'm only just waking."],
-14:["(Leo is polishing his shoes with a very careful hand.) The fourteenth. A big day, I hear. Rita says everyone on the island will be there. I said, who's going to open the club? She said, nobody. It's a holiday.",[
-  ["Are you going to the gathering?","If I can find my other shoe. I'd like to see what an island looks like when it's all in one place."],
-  ["What do you expect?","A lot of talking, not much listening. It's the usual."],
-  ["Will you play?","If someone asks. If not, I'll just stand at the back and hum. It's a good place to hear."]],
- "If I'm not there, I'm asleep. Wake me in time for the tune."],
-15:["(Leo is sitting at the piano, picking out a hymn with one finger.) A man from the monastery came in. He said the church wants Prince Augustus. Another said the family wants Leopold. I played them both a waltz. They danced.",[
-  ["Who did you vote for?","With a saxophone? I didn't. I'd rather be paid. Kings and crosses are for people with free evenings."],
-  ["Do the princes come to the club?","Leopold, sometimes, in a disguise. A bad one. He wears a hat with a very small feather."],
-  ["What do you think about the choice?","I'm a musician. I'd choose whoever hires me. And whoever doesn't ask for 'Danny Boy'."]],
- "A crown's heavy. A saxophone's heavier, but it's more fun."],
-16:["(Leo is tuning his horn with a sigh.) A great debate between Communists and Democrats. Both sides have asked me to play at it. I said I'd play at both, but I'd charge them each double.",[
-  ["Who'll win?","The one who tells the best story. Nobody ever wins on facts. It's the tune they remember."],
-  ["Do you follow politics?","In the same way I follow the weather. It's coming, I don't know when, and I take an umbrella."],
-  ["What would you play?","A slow blues. Something that says, 'You've both got a point, and I'd like a drink.'"]],
- "Don't tell them I said it. They'd hire me for both."],
-17:["(Leo stops mid-phrase and puts a hand on the piano lid.) The floor moved. Just a bit. The piano hummed a note I didn't play. It's an F, I think. Slightly flat.",[
-  ["Was it a tremor?","I think so. Sid says it's the trams. There aren't any trams. We've told him."],
-  ["Are you frightened?","I play in the dark all night. I'm used to the unexpected. But I'd rather it didn't come from beneath."],
-  ["Is there steam from the volcano?","In the north, yes. A little white plume. It's like the mountain's smoking a cigarette. I'd like to know what it's thinking."]],
- "I'll tune the piano tomorrow. It's out of sorts."],
-18:["(Leo is lying on his back, holding the saxophone above him.) I heard Kelpy the cup's got a new song. A jingle. I'd like to hear it, but I'd hate to like it. It's a very odd position.",[
-  ["Would you play with Kelpy?","If he can keep time. Most cups can't."],
-  ["How's the Midnight Note?","Full. Everyone wants a drink and a tune. The ground's been shaking a little, and the glasses clink in time."],
-  ["Do the shakes bother you?","I've begun to play along. It's a useful beat. A little slow, but I'm told it's a groove."]],
- "Come in. I'll play you the earthquake blues. It hasn't got an ending yet."],
-19:["(Leo is blowing a long soft note into a handkerchief.) It's a quiet one. For the dust that's coming. I can feel it, in the reed. Something's coming, and the saxophone knows before I do.",[
-  ["Are you superstitious?","I'm a musician. I'm full of it. Never whistle in the dressing room. Never play a requested waltz in a bad mood."],
-  ["Is there anything at the club tonight?","I hear someone's coming, in disguise. A person from the palace. I haven't been told who. Sid winked at me. I'll play something royal."],
-  ["Are you looking forward to it?","I'm always looking forward to being surprised. It's the one luxury of the profession."]],
- "Keep an eye on the corners. That's where the interesting ones sit."],
-20:["(Leo has two saxophone cases by the door, as if ready to leave.) Rita says Zora, at the circus, told her to pack. I said I don't believe in fortune tellers. She said, 'Pack anyway.' So I've packed. I've packed the reeds and a sandwich.",[
-  ["Is there a reason?","A feeling. A very low note, from somewhere underneath. I've been hearing it for a week. It's a note I don't like."],
-  ["Where would you go?","The lake, perhaps, or the beach. Somewhere without a ceiling. I've always wanted to play outdoors."],
-  ["Is Rita worried?","She's calm. She's been practising the hymn. She says if the world's ending, she'd like to be in tune."]],
- "Keep your coat by the door. It's the oldest tip in the book."],
-21:["(Leo sits on the pavement, grey with ash, the saxophone across his knees.) It went. The mountain went. I heard it from the flat: a bass note so low I felt it in my teeth. I've never heard that note before. I hope I never do again.",[
-  ["Are you all right?","Fine. The horn's fine. Rita's fine. Sid's under the bar, but he's fine. We're a lucky bunch."],
-  ["What did you see?","A red glow and a great grey cloud. Then the ash, drifting like very slow snow. It was almost beautiful. I'm not proud of that."],
-  ["What now?","Now I play. It's the only thing I know. A slow one. For everyone who's frightened."]],
- "Wipe your shoes. The ash is in the keyhole."],
-22:["(Leo is blowing ash out of the keys of his saxophone, one by one.) It's in every pad. It's in the bell. I'll be coughing up music for weeks. Rita says it's an improvement.",[
-  ["Is the club open?","In a fashion. We've swept it. The candles are lit. People come in grey and leave a bit lighter."],
-  ["What are you playing?","Something low and gentle. A song for people who can't sleep. It's most of the island, tonight."],
-  ["Is anyone hurt?","No. Just frightened. And grey. And thirsty. Sid's selling out of everything."]],
- "Come and listen. It's free, and it's warm."],
-23:["(Leo plays a few notes, a little hoarse.) I can only get about half the range. The ash has got in the reed. I've been boiling them. It's like making soup for a very small, very demanding animal.",[
-  ["Are people coming in?","More than before. They sit in the dark and listen. They don't say much. It's the best audience I've ever had."],
-  ["What's the news?","The Party's fixing its machinery. The oil lot's mending its pipes. Everyone's mending. I'm mending a saxophone."],
-  ["Is Rita singing?","Every night. Her voice has an edge now, a bit of grit. It's even better. She doesn't believe me."]],
- "Don't breathe in too much. It's bad for the lungs. And the solos."],
-24:["(Leo is sitting on the Skyline Apartments stairs in the half-dark.) The monks have gone up the mountain to pray. I wish them luck. I'd go up there with the horn, but it's a long way and I've got a gig.",[
-  ["Would you play for the monks?","If they'd let me. They'd probably prefer chanting. But I'd be happy to play a quiet one, in the corner."],
-  ["Are the aftershocks still going?","One this morning. A small one. The saxophone buzzed on its stand. It's the first note I didn't have to blow."],
-  ["How's the club?","Warm. Dusty. Alive. Sid's put up a sign: 'Ash on the house.' It's his only joke."]],
- "Wrap up. It's colder than it looks."],
-25:["(Leo is practising a very slow, very sweet waltz.) For a princess. I've been asked to play at a party. A princess for democracy, they say. I've no idea what it means, but the waltz is nice.",[
-  ["Who's the princess?","Daphne, I think. She comes to the club sometimes. She tips well, and she cries at the ballads."],
-  ["Is it a big do?","Big enough. A crowd, a few speeches, a lot of canapés. I'll stand by the piano and nod at people."],
-  ["Do you like the royals?","I like anyone who tips. And who requests something I can play."]],
- "If you're there, I'll play you something. Don't ask for a polka."],
-26:["(Leo is looking at a bottle of cola with a prince's face on it.) Look at this. A prince, on a bottle. I've been played on a jukebox, but never printed on a label. I think I'd like it. It's a kind of immortality, with a screw cap.",[
-  ["Would you put your face on a bottle?","I'd put my saxophone on it. My face isn't made for it. It's too long and a bit tired."],
-  ["What do you think of Kelp Cola's plan?","It's a business. They want everyone to drink the same thing. I'd rather we all drank something different, and argued about it."],
-  ["How's the music?","Good. Rita's written a new song. It's about a man who gets everything he wants and then loses his keys."]],
- "I'll drink a prince, if he's cold. It's a very fine thing."],
-27:["(Leo has a ticket for the pictures stuck in his hat-band.) A revolution at the pictures. The Communists are showing a film tonight. I'm told it has a very fine score. It would be good to hear someone else's saxophone, for once.",[
-  ["Are you going?","If Rita's up for it. She likes a good villain. She'd cheer if there was one."],
-  ["Do you like films?","I like the dark. And the music. And the way everyone looks at the same wall. It's a lot like a club, only quieter."],
-  ["What's the mood on the island?","Tight. Like a string just before it's plucked. You can hear it, if you listen."]],
- "I'll tell you what the saxophone's like. I'll be honest."],
-28:["(Leo is playing a very quiet, very slow tune, with his eyes closed.) The biggest day, they say. All the factions are out. I'm playing at home. It's the only thing I can do that won't hurt anyone.",[
-  ["Are you worried?","A bit. I've seen how crowds can go. But I've also seen how a song can stop one."],
-  ["What would you like to see happen?","I'd like everyone to go home, put on a record, and have a rest. It's an unfashionable position."],
-  ["Is the club open tonight?","Of course. Sid says the Syndicate, the oil men and the Party will all be in. It's the only neutral ground. It's got a piano."]],
- "Come in later. I'll save you a stool."],
-29:["(Leo has a very small glass of something amber, and a very big silence.) It's the night before. I'm in no mood to talk. I'll play instead. It's all I've got, and it's mostly enough.",[
-  ["How are you feeling?","Calm. A bit sad. Like at the end of a very long set. You know it's nearly over, and you'd like to play another."],
-  ["What will you play tomorrow?","Whatever's needed. If it's a hymn, a hymn. If it's a waltz, a waltz. I'm a very adaptable man."],
-  ["Is Rita ready?","She's been ready all her life. She's just waiting for the audience."]],
- "Get some sleep. I'm going to practise, very quietly."],
-30:["(Leo stands at the club door, saxophone over his shoulder, in the grey light.) The last day. I woke at eleven, as usual. It's not a bad way to meet the end of things. Rested, and a little late.",[
-  ["Any last thoughts?","Play it as you feel it. And if you can't, play it soft. Someone will hear."],
-  ["What will you do after today?","Play. It's what I do. The island will be what it'll be, and I'll be in the corner, with a horn."],
-  ["Thank you for talking.","Thank you for listening. Most don't. It's why I use the horn."]],
- "Goodnight, whatever time it is. I'll play something for you."],
+7:["(Leo looks up from a saxophone case, nods once, and goes back to polishing the bell.) Leo. (A long pause.) You're the reporter. Sid said.",[
+  ["What do you play?","(He lifts the horn and plays four notes, low and sad, then lowers it.) That. Mostly."],
+  ["Is the club open again?","Road's open. So we're open. Frostholm drinks more in the dark. (He shrugs.) We're the dark."],
+  ["What happened to the bell?","(He touches the dent.) 1962. Helsinki. A man didn't like a solo. I liked it. I kept the dent. Not the man."]],
+ "(He nods at the door.) Night."],
+8:["(Leo is asleep in a chair with the saxophone across his knees. He opens one eye.) Noon? (He shuts it again.) Not yet.",[
+  ["Sorry. I'll come back.","(Without opening his eyes.) Stay. Quiet's fine. Quiet's my favourite people."],
+  ["You play till dawn?","Four. Sometimes five. Then the sun comes up and I go to bed like a respectable owl."],
+  ["Do you go to church?","(He opens both eyes.) Went once. The organ was flat. Couldn't concentrate on God."]],
+ "(Muffled.) Noon. Come back at noon."],
+9:["(Leo is playing scales, very slowly, and stops when he sees you.) Rita's late. She's never late. (He plays a worried little run.) That's how I feel about it.",[
+  ["Where is she?","Don't know. She doesn't say where she goes. Ten years. Never said. (A pause.) I don't ask."],
+  ["How long have you played with Rita?","Ten years in March. She sings. I play behind her. Best seat in the house. (He almost smiles.) Behind."],
+  ["Do you ever sing?","(He looks horrified.) No. That's what the horn's for. I'd frighten the bottles."]],
+ "(He goes back to his scales.) She'll come. She always comes."],
+10:["(Leo is in a black tie, the saxophone in its case, sitting very still.) No music tonight. The king. Sid's shut the club. (He taps the case.) Quietest night I've had in years.",[
+  ["Did you know the king?","Played for him once. 1971. Palace ball. He asked for a waltz. (A pause.) I played him a blues. He clapped. Only one who did."],
+  ["What will you do tonight?","Sit here. Not play. (He looks at the case.) Hardest thing I do, not playing."],
+  ["Will you play something for him?",["(He looks at you for a long moment, then opens the case.) One.",[
+    ["(Listen.)","(He plays something slow and low, eight bars, no more, and the room goes very still. Then he puts it away.) That's for him."],
+    ["Thank you.","(He nods.) He liked the blues. Didn't know it. Most people don't."]]]]],
+ "(He closes the case very gently.) Goodnight, sir."],
+11:["(Leo is having coffee at the bar with Sid, who is talking. Leo is nodding.) Sid's telling me about the mill strike. (He drinks.) Sid talks. I listen. Good arrangement.",[
+  ["What does Sid think?","Sid thinks everyone should be paid. Including musicians. (He looks at Sid.) Especially musicians."],
+  ["Who's Sid?","Owns the place. Pours the drinks. Pays us on Fridays. Mostly. Never asks me to play a waltz. Best boss on the island."],
+  ["Do you ever talk politics?","(He holds up the saxophone.) This is my politics. It's against everyone. Especially people who request waltzes."]],
+ "(He tilts his head at Sid.) Still talking. Go on. Save yourself."],
+12:["(Leo is listening to Rita rehearse a new song, eyes shut, fingers moving on the keys without playing.) Shh. New song. She's learning it. (He listens.) 'Autumn in Helsinki.'",[
+  ["It's beautiful.","(He opens his eyes.) It's hers now. Was somebody else's. Everything she sings becomes hers. (A pause.) That's the trick of her."],
+  ["Why aren't you playing?","Learning it first. In my hands. Then the horn. You don't play a song till you know where it's going."],
+  ["Does Rita know you love her voice?","(He goes very still.) Ten years. (He closes his eyes again.) I play it every night. She knows."]],
+ "Shh. (He's back inside the song.)"],
+13:["(Leo is frowning at a free bottle of Kelp Cola on the bar.) A man left a crate. For the band. (He pushes it away with one finger.) Cola. Bad for the reed.",[
+  ["Will you drink it?","Sid'll put it in drinks. Rum and cola. (He shrugs.) Then it's not cola. It's a decision."],
+  ["Why's it free?","Big day tomorrow. Everybody wants to be loved. (He picks up the horn.) I only want to be listened to. Easier."],
+  ["Will you go to the gathering?","(He shakes his head.) Asleep at noon. Somebody'll tell me. Somebody always does."]],
+ "(He plays a little fizzing run.) That's cola. Don't drink it before you play."],
+14:["(Leo is asleep in the dressing room with his coat over his head.) Mm. (A hand emerges and waves.) Gathering. Big day. Missed it. (The hand goes back.) On purpose.",[
+  ["Everyone's talking about it.","(Muffled.) Then they'll come tonight and drink and talk about it. And I'll play over them. Every big day ends at a bar."],
+  ["What will you play tonight?","Something loud. For the people who shouted. Something quiet after. For the people who didn't."],
+  ["Is Rita singing?","(The coat moves.) She always sings. (A pause.) She sings better on big days. Something in the air. Or in her."]],
+ "(From under the coat.) Tell me later. Much later."],
+15:["(Leo is cleaning the saxophone's keys with a tiny brush, one at a time.) Last night was loud. Crowd shouted till three. Rita sang over them. (He blows dust off a key.) She won.",[
+  ["Was the club busy?","Packed. Party, palace, cola men. All at different tables. All drinking the same thing. (He shrugs.) Music does that."],
+  ["Do you ever take a night off?","Twice. 1966 and 1979. Both times I sat at home and played anyway. (A pause.) To the wall. Wall's a good audience."],
+  ["What's the news?","Prince's brother. Everybody wants him. (He fits a key back.) Nobody asked what he wants. Like a sax player."]],
+ "Thirty-two keys. All clean. Now go."],
+16:["(Leo is listening to the debate on the bar's wireless, saxophone in his lap.) Party and Democrats. (He plays a short, rising phrase, then a falling one.) That's both of them.",[
+  ["Who's winning?","(He plays the rising phrase again.) Her. The Party woman. She's got rhythm. (Then the falling one.) He's got a kinder tone. Hard to say."],
+  ["Will you vote, if there's a vote?","For whoever lets the clubs stay open till four. (A pause.) That's my whole country."],
+  ["Does Sid have an opinion?","Sid has all the opinions. Gives them away free with every drink. (He nods at the bar.) He's on his ninth."]],
+ "(He turns the wireless down.) Better. Now it's music."],
+17:["(The glasses behind the bar rattle. Leo stops playing and holds the saxophone close.) Ground moved. (He waits.) The horn felt it. Went flat for a second. Never goes flat.",[
+  ["Was it an earthquake?","Something. Under the island. (He plays a single, low, uncertain note.) Like that. Not sure of itself."],
+  ["Are you frightened?","For the horn. (He touches the dent.) Survived Helsinki. Survive this."],
+  ["Is anyone hurt?","Sid lost a bottle of good whisky. He's in mourning. (A pause.) Second time this month."]],
+ "Hold on to what matters. (He holds on to the horn.)"],
+18:["(Leo is reading a sheet of music very closely, then holds it up.) Rita's. She wrote it. Never written one before. (He reads it again.) It's good. It's very good.",[
+  ["What's it about?","A city. Somewhere else. Another life. (He folds it.) She won't say which city. I don't ask."],
+  ["Will you play it?","Tonight. First time. (He looks at the music.) I'm nervous. I'm never nervous. Don't tell her."],
+  ["What's the gossip?","The cola mascot's ill. The oil man's missing. Kaisa wants us on the radio again. (He sighs.) Kaisa always wants us on the radio."]],
+ "Don't tell her I was nervous. (He puts the music inside his coat.)"],
+19:["(Leo is trying very hard not to laugh, and failing.) Man at the bar. False moustache. Wants 'something by Leo, please, my good fellow'. (He wipes his eyes.) Nobody says 'my good fellow' here. Nobody.",[
+  ["Who is he?","(He shrugs, still smiling.) Tips in coins with crowns on. Calls Sid 'my man'. Rita won't say who. (A pause.) You do the arithmetic."],
+  ["Will you play for him?","Already did. Three songs. He knew all the words to the second one. Sang along. Badly. Royally."],
+  ["Is the club busy?","Packed. Everyone's watching the moustache. The moustache is watching me. (He lifts the horn.) I'm watching Rita."]],
+ "Goodnight, my good fellow. (He plays a tiny fanfare.)"],
+20:["(Leo is playing something low and slow, alone, with the ground trembling under the stage.) Sid says close early. Mountain's talking. (He doesn't stop playing.) I said one more song.",[
+  ["You should go home.","After this one. (He plays on.) Music's for nights like this. Not for good nights. Anybody can play a good night."],
+  ["Where will you go?","Skyline cellar. Rita's going. Sid's going. (A pause.) I'll bring the horn. Somebody has to play in a cellar."],
+  ["Are you frightened?","(He stops, finally.) Yes. (He starts again.) Better with a tune."]],
+ "Go. (He doesn't stop playing.) I'm right behind you. After this one."],
+21:["(Ash is falling. Leo is sitting with the saxophone across his knees, grey to the shoulders, very tired.) It went. Mountain. Cellar under the Skyline, all night. I played. Six hours. Rita sang. Everyone lived.",[
+  ["You played all night?","Somebody asked for a waltz. (He almost smiles.) I played one. First time in twenty years. Seemed right."],
+  ["How's Rita?","(He looks away.) Asleep. On my coat. She sang till four, then put her head on my shoulder and slept. (A long pause.) I didn't move."],
+  ["Are you all right?",["(He looks at the horn, grey all over.) Tired. Grey. (He touches the dent.) Still here. Both of us.",[
+    ["You were brave.","Wasn't brave. Was playing. (He shrugs.) Same thing, when the mountain's loud enough."],
+    ["Did you tell her?","(He goes very still.) Tell her what. (A long pause.) No. Not yet. Played it instead. Six hours. She'll have heard."]]]]],
+ "Go home. Breathe through something. (He leaves his hand on the case.)"],
+22:["(Leo is cleaning ash out of the saxophone with a long brush and a great deal of patience.) Ash in every key. Every pad. (He holds it up to the light.) Sounds like a goose with a cold. Will take a week.",[
+  ["Will the club reopen?","Tonight. Sid says people need somewhere. (He blows through the neck.) Even if the sax sounds like a goose."],
+  ["How's Frostholm?","Grey. Neon's grey. Oil men are grey. Even the Party's grey, for once. (He shrugs.) Island's all the same colour."],
+  ["How's Rita?","Gave me my coat back. Washed. (He looks at the case.) Didn't have to wash it. She did."]],
+ "Key by key. Come back in a week. It'll sing."],
+23:["(Leo is watching Rita across the bar, and almost smiling.) A girl from Eastbrook wrote. Wants to sing. Rita wrote back yesterday. By hand. Somebody's got a yes.",[
+  ["Will Rita let her?","Rita says come and sing. She always does. Most can't. (He shrugs.) One or two can."],
+  ["Who's the girl?","Name on her letter. Jaana. (He thinks.) The cup. The cola cup. In Eastbrook. (A pause.) I've heard her sing to the tram."],
+  ["Is she any good?",["(He considers.) Sang 'Autumn in Helsinki' to a tram once. Through a cup. I was on the tram.",[
+    ["And?","(He nods slowly.) Cracked on 'road'. But the rest. (He plays three notes.) The rest was that."],
+    ["You should tell Rita.","(He nods at Rita.) She knows. I'll just listen."]]]]],
+ "She'll be here Friday. (He looks at the door.) So will I."],
+24:["(Leo is playing scales on the cleaned saxophone. It sounds like a saxophone again.) Back. (He plays a long, clean note.) Took four days. Worth it.",[
+  ["It sounds wonderful.","(He looks pleased, and hides it.) Sounds like it did. That's all you want from a horn. To sound like itself."],
+  ["Is Rita going to hear the girl from Eastbrook?","Friday. After hours. Rita asked me to play for her. (A pause.) I said yes before she finished asking."],
+  ["What's the news?","Monks up the mountain. Syndicate tidying. (He shrugs.) Gustavo was in last night. Didn't tidy anything. Sat at the back. Listened. Tipped well."]],
+ "Clean. (He plays one more.) Goodnight."],
+25:["(Leo is listening to Rita sing in the empty club, a new song, and isn't playing along.) Her song. The other city one. (He listens.) She's finished it.",[
+  ["Will you play it with her?","Tonight. For the room. First time anyone's heard it. (He swallows.) Including me, properly."],
+  ["What city is it about?","(He shakes his head.) Doesn't say. Never says. (A pause.) Doesn't matter. Song's about leaving somewhere. Everyone's left somewhere."],
+  ["What's the news?","Princess for the Democrats. Crown for everyone. Sid's put up a poster for each. (He shrugs.) Sid wants everyone to drink."]],
+ "Shh. Chorus. (He picks up the horn and joins her.)"],
+26:["(Leo is eating a sandwich very slowly, which seems to be breakfast, at two in the afternoon.) Up early. For me. (He looks at the clock.) Rita wants to rehearse for the cola girl. Tomorrow. Friday.",[
+  ["What's she going to sing?","'Autumn in Helsinki'. Rita's song. Rita says it's a test. If the girl can sing Rita's song, she can sing anything."],
+  ["Is that kind?","(He thinks.) It's fair. Rita doesn't do kind. Does fair. Fair's kinder, in the end."],
+  ["What's the news?","Oil man's buying the spa. Offered a milkshake machine. (He chews.) Wish someone would offer me one. Never had a milkshake."]],
+ "Breakfast's over. Practice. Goodnight."],
+27:["(Leo is on the stage after hours, in the empty club, saxophone ready, watching the door.) She's coming. The cup girl. Jaana. Ten minutes. (He checks the reed for the fifth time.) I'm nervous. For her.",[
+  ["Why are you nervous?","Somebody's going to sing Rita's song in front of Rita. (He plays a soft, steadying note.) Brave. Very brave. Or very foolish. We'll see."],
+  ["Will you be kind?","I'll play. Play's kinder than talk. (A pause.) If she cracks, I'll cover it. That's what the horn's for."],
+  ["What's Rita doing?","(He nods at the bar.) Pretending not to care. Third drink of water. She cares."]],
+ "(The door opens.) Here she is. Go on. Sit at the back."],
+28:["(Leo is sitting very still, with an expression you haven't seen on him before.) Last night. The cup girl. (He shakes his head slowly.) I stopped playing. In the middle. To listen. Never done that. Not in thirty years.",[
+  ["Was she good?","High note. 'Harbour road.' Held it. (He plays it, to show you.) Like that. Clean. Didn't crack. Rita cried. Rita never cries."],
+  ["Will she sing here?","Friday. For the room. Rita asked. (A pause.) I'll play behind her. Second-best seat in the house now."],
+  ["What's happening today?","Big push. Everyone. Flags. (He shrugs.) Tonight they'll all come here. Winners drink. Losers drink more."]],
+ "Come Friday. Sit near the front. You'll hear it."],
+29:["(Leo is on the telephone, which seems to pain him.) Six. Pizzas. For the band. Late. (He listens.) Yes. Garlic. (He hangs up.) Rosaria. In Kingsgrad. Nine seconds. That's my longest call this year.",[
+  ["Six pizzas?","Band, Sid, Rita, me. And the cup girl, she's coming to practise. (He counts on his fingers.) And one for Sid's whisky, which died."],
+  ["What's happening today?","Republicans choosing. Palace arguing. (He shrugs.) Nobody's choosing the music. Music doesn't need a leader."],
+  ["Have you told Rita yet?",["(He puts the telephone down very carefully.) Told her what. (He looks at you for a long time.) You know what.",[
+    ["Tomorrow's the last day.","(He nods slowly.) Last day. (He picks up the horn.) Then I'll play it louder."],
+    ["Maybe she already knows.","(He almost smiles.) She knows. She's always known. She's waiting for me to say it with my mouth. Not my horn."]]]]],
+ "Pizzas at midnight. Come if you like. Bring an appetite."],
+30:["(Leo is on the stage of the empty club in the afternoon, which is unheard of, playing very softly, alone.) Last day. Island's deciding. (He stops.) I'm deciding too. Tonight. After the last song.",[
+  ["Deciding what?","(He looks at the bar, where Rita's coat hangs.) To say it. With my mouth. (A pause.) After ten years. Terrifying."],
+  ["What do you hope happens to the island?","Clubs open till four. People listening. Nobody asking for waltzes. (A pause.) Except on cellar nights. Those are fine."],
+  ["Will you remember this month?",["(He touches the dent in the bell.) The cellar. The waltz. The moustache. The cup girl's high note. (A long pause.) Rita asleep on my coat.",[
+    ["And me?","(He nods.) The reporter. Never asked for a waltz. (He plays four notes, the same four as the first time.) That's for you."],
+    ["Good luck tonight.","(He takes a long breath.) Thanks. (He lifts the horn.) If I can't say it, I'll play it. One more time. Then say it."]]]]],
+ "Wish me luck. (He goes back to the cellar song.)"],
 };
 // Leopold, the prince and heir, in the throne room of the Royal Palace (Royal Family). Threads: his father's shadow and the
 // crown he means to wear; the speech he keeps writing and burning; his father's sailing boat, the Kestrel, laid up at Eastbrook
@@ -11209,129 +11261,138 @@ DAILY['Maya']={
   ["Thank you for all the coffee.","(She smiles, and pours you a cup.) Thank you for drinking it. A roaster's nothing without someone to drink the coffee. This one's on the house."]],
  "Come back tomorrow. I'll still be here. Coffee doesn't stop."],
 };
-// Meg, acrobat of the circus at Lake Ilmari (the Circus). Threads: her ropes and rigging, keeping the troupe organised (the books,
-// the horse, the stove), Buttons who falls and whom she catches, an old injury she doesn't mention, the volcano and the ash.
+// Meg, acrobat of the circus camped at Lake Ilmari (the Circus), partner of Buttons. Threads: her ropes and rigging, checked every
+// morning; keeping the troupe going (the books, the horse, the stove, Bruno's slate at Maya's that she quietly pays); Buttons, who falls
+// and whom she catches; the shoulder she hurt in a fall in Riga in 1975 and never mentions; Hely from Eastbrook, who she teaches the
+// low wire (the 9th), lets hold her ladder while she hangs Erik's banners (the 24th; the hall roof she climbs bare), pays for programmes,
+// and says yes to (the 29th); the volcano, the ash, and the free show for the island (the 28th).
 DAILY['Meg']={
-7:["(Meg is hanging upside down from the big top rope, a checklist in her teeth. She takes it out.) Don't walk under me. I'm checking the knots. Everything here depends on knots.",[
-  ["I'm the British reporter.","Then be useful and hold this end. (She drops a rope into your hands.) Pull. Not that hard. There. You're now part of the rigging."],
-  ["Do you ever fall?","Never. Buttons falls. I catch him. It's the arrangement, and it's worked for six years."],
-  ["How high is the trapeze?","Twelve metres. I measured it with a string and Igor. The string was more accurate."]],
- "Keep clear of the ring while I'm working. It's the only rule I have."],
-8:["(Meg is mending a leather strap with a curved needle.) It's Sunday, but a rope doesn't know it. If I leave this till Monday, somebody will have a very short career.",[
-  ["Is that for the trapeze?","For the net. A net's the most honest thing in a circus. It says out loud that someone might fall."],
-  ["Don't you rest?","I rest when it's done. It's never done, so I rest in small pieces. Like a cat."],
-  ["Where's Buttons?","Asleep on the jetty with his cap on his face. He thinks I don't know. He snores in the key of G."]],
- "If you're passing the jetty, throw a pebble at him. Gently."],
-9:["(Meg has a ledger open on her knee and her pencil tucked behind her ear.) Someone from Kelp Cola came by with a very large cheque. Bruno nearly fainted. I told them we'd have to think. We don't have to think. We have to eat.",[
-  ["Will you take it?","Not for the name on the big top. Perhaps for a crate of cola and a day's peace. There's a difference between money and being owned."],
-  ["Who keeps the circus books?","I do. Bruno can count to three, Igor to four. The rest is me and a very tired pencil."],
-  ["Do you like cola?","Warm, in a thunderstorm. Otherwise I prefer tea. Cola's for people who want to feel they're doing something."]],
- "I'd tell you what the takings are, but then I'd have to cry."],
-10:["(Meg has pulled the net down from the rigging, and folded it in black.) We're dark today. Bruno insisted. And I'll admit it feels right. You don't swing over a room on the day they bury a king.",[
-  ["Did you know the king?","I saw him once, at a window, waving at the lake. Like a man waving at a boat he's not on."],
-  ["Is it hard to stop for a day?","Harder than it looks. My hands don't know what to do. They keep reaching for a rope."],
-  ["How's Buttons coping?","He's gone quiet, which is alarming. I made him soup. He said thank you in a small voice. I nearly cried."]],
- "Tomorrow we'll be loud. Today, let's just be still."],
-11:["(Meg is stacking spare ropes in neat coils.) Buttons has been complaining about wages. He's heard the Eastbrook mill hands want a fair day's pay, and he's decided he's part of the labour movement. He's never worked a day. I mean, never with a lifting job.",[
-  ["Does he have a point?","A small one. We're underpaid. But we're also over-loved, which is a better deal than most. I'd just like both."],
-  ["What do you earn?","Enough to eat, and less than the horse costs. We make it work. It's what a circus does."],
-  ["Would you join a union?","If it came with a safety net. I'd join anything with a safety net."]],
- "I don't do speeches. I do knots. Knots are more honest."],
-12:["(Meg has Buttons's hat on a stick and is looking at it sternly.) He borrowed my hat. I've taken it back, and I'm giving him the silent treatment. It lasts ten minutes, and it's very effective.",[
-  ["Is he in trouble?","Always. It's what he's for. But I'd miss him if he wasn't. I'd have to make my own jokes, and they're dreadful."],
-  ["How did you two meet?","In a ditch outside Tampere. He'd fallen off something. I thought, here's a man who'll never be a danger to anyone but himself. I was right."],
-  ["Do you ever want to leave the circus?","Once or twice. But then I stand at the top of the rope and look down at all those faces, and it's enough. You can't have that in a bank."]],
- "Ten minutes are up. Time to forgive him. He's got sad eyes."],
-13:["(Meg is writing on a card in block letters.) NO FREE SAMPLES. I'm putting it on the ticket booth. Kingsgrad's giving cola away tomorrow, and I've no intention of giving away anything we've worked for.",[
-  ["Would the circus do a free show?","Not for free. For a fair price, we'd do three. Free means they'd value it at nothing."],
-  ["Is Bruno on board?","Bruno thinks everything's a chance to be seen. I think it's a chance to be cheated. We balance each other out."],
-  ["Will you go to Kingsgrad?","Perhaps, for the horse's feed. If the cola men are giving things away, they might have oats."]],
- "Take what's offered, but ask what it costs. A good rule for ropes and men."],
-14:["(Meg is sitting cross-legged in the ring, chalking her hands.) The fourteenth. I've been told it's a gathering of the whole island. I have no idea what that means, but the rigging's tight and the net's down.",[
-  ["Are you ready?","I'm always ready. I'm a bit worried about everyone else. A whole island in one place is a lot of weight on one rope."],
-  ["What do you expect?","Noise, shoving, a speech. Someone will fall over. If I'm there, I'll catch them."],
-  ["Is the circus performing?","We're on standby. If someone needs a distraction, we've got a very good one. He's in a red coat and he never stops."]],
- "Stay near the edges. That's where you can see everything and nothing can fall on you."],
-15:["(Meg has a chart of the circus's expenses, with two little flags on it.) Someone from the palace and someone from the monastery have both asked me to choose a prince. I said I only choose ropes. They said, a rope's a choice, and I said, quite.",[
-  ["Which prince would you choose?","The one who's looked at a net before. A king needs to know what happens when you let go."],
-  ["Is the circus taking sides?","Bruno's keeping a foot on each side. I said that's how men split their trousers. He didn't laugh."],
-  ["What do you make of the crown and the cross?","They're both a kind of rigging. One holds up the throne, the other holds up the sky. I'd trust neither without checking."]],
- "I'll check the knots in the morning. They'll still be knots."],
-16:["(Meg is practising a handstand against a pole, and speaks upside down.) A debate between the Communists and the Democrats. I'd like to watch. They'd be great on a trapeze: all that swinging, and nobody listening.",[
-  ["Who would win?","The one who lets go at the right moment. It's the only thing that matters on a trapeze."],
-  ["Are you going to listen?","I'll get the gist from Buttons, who'll have got it from someone who was asleep."],
-  ["Which side are you on?","The side of fair weather and good rope. That's all a performer needs from politics."]],
- "Be careful who you vote for. It's like picking a catcher. Look at his hands."],
-17:["(Meg is standing very still, one hand on the rope, her face turned up.) Did you feel that? The rope hummed. Not the wind: it was too regular. The whole big top shivered, like a horse.",[
-  ["Was it an earth tremor?","I think so. Bruno says it's nothing. I'd say it's the first one. There'll be a second."],
-  ["Are you frightened?","Not for me. I've fallen from worse. It's the little ones, and the horse, and Buttons, who'll hide under the bed."],
-  ["Where do you think it came from?","North, from the mountain. There's steam, and Zora keeps staring that way. When Zora stares, I check my knots."]],
- "Come away from the poles. They carry it."],
-18:["(Meg is inspecting the net hook by hook.) I've told Bruno we need to move the audience chairs to the lakeside. He said the audience would complain. I said the audience can complain from a safe distance.",[
-  ["Is the big top safe?","It's stood a hundred storms. But I don't trust the ground. I've doubled the guy ropes and put Igor on the main pole."],
-  ["What does the island say?","The cola people are making a cup into a star, and the church is hunting for a relic. Everyone's got a story. I've got a net."],
-  ["Is Buttons helping?","He's carrying things. Mostly sandwiches. It counts as moral support."]],
- "A safe tent is a boring tent. Boring's what I'm aiming for."],
-19:["(Meg is writing a list in the margin of the ledger.) Things to do if the ground gets worse. One: wake Igor. Two: wake the horse. Three: wake Buttons, though it won't help. It's good to have a list.",[
-  ["Who would you save first?","I'd save the rope. Then everyone else. Don't tell Buttons the order."],
-  ["Does the circus have a plan?","Bruno has a plan. It's called 'keep smiling'. I have a plan too, and it has numbers."],
-  ["Have you heard about the Communist call for comrades?","They want volunteers, I hear. I'd volunteer for a rope-pulling team, but I won't sign anything."]],
- "If the ground shakes in the night, grab the horse. She'll know where to go."],
-20:["(Meg has been up all night, and her eyes show it.) Zora stopped by at midnight. She put her hand on the net and said, 'Tomorrow, hold on.' Then she went to bed. I didn't sleep after that.",[
-  ["Does Zora predict real things?","Often enough that I double-check the rope. She said I'd fall in love with a fool, and I'm still waiting for the end of that one."],
-  ["What will you do?","Check everything twice. And keep the horse near. And be there if Buttons trips."],
-  ["Are you scared?","A little. Fear's useful. It tells you where the knots are weak."]],
- "Hold on tight tomorrow. It's good advice for anything."],
-21:["(Meg is sitting on the caravan steps, grey with ash, an arm around Buttons.) It's over, or the first part is. The mountain went off like a gun. The net held, the big top held, and the rope's still humming. We're all here.",[
-  ["Is everyone safe?","Everyone. The horse is shaking, Bruno's pretending not to, Buttons has just had a good cry. Igor held the big top pole up with his shoulder for an hour."],
-  ["What did you see?","A glow in the north, red as a stove. The ground swung like a trapeze. And then ash, falling softly, like the worst kind of snow."],
-  ["How are you?","Tired. Proud. Ready for a very long sleep, after I've counted heads again."]],
- "Check on the others. Then check again. It's what I do."],
-22:["(Meg is beating the dust out of the net with a flat paddle, and coughing.) Everything's grey. The ropes, the horse, Buttons. He looks like a statue of himself. I've told him not to move, and he's thrilled.",[
-  ["Can the circus perform?","With scarves, yes. The audience wears them too. A hundred people with grey mouths and bright eyes. It's very theatrical."],
-  ["How's the camp?","Fine. We've got food and a stove. The lake's grey, but the water's clean enough to boil. It'll be a long few days."],
-  ["What's the news?","Ash on the roads, lava in the north, no one killed. Which is the main thing. The rest is cleaning."]],
- "Wear something over your mouth. It's no fashion, but it works."],
-23:["(Meg has hung every rope in the camp out to air, like washing.) Ash gets into everything. It's in the knots, in the hair, in the soup. I could stand here all day and still find more.",[
-  ["Is it hard work?","It's something to do with my hands. I'm better when I'm busy."],
-  ["Are the audiences coming?","A few. They sit and look at the ring as if they'd forgotten what it was for. Then Buttons trips, and they laugh, and they remember."],
-  ["Who's helping?","Igor does the heavy things. Zora does the quiet things, like telling us it's going to be all right. She's never wrong about that."]],
- "Take a rope home with you. It's good luck, and it's clean."],
-24:["(Meg has a bandage on one palm.) A rope burn. My fault. I wasn't looking. Buttons says I can't be hurt, because I'm made of wire. It was a nice thing to say, and a wrong one.",[
-  ["Does it hurt?","A bit. I've had worse. I broke my wrist in Riga in '76, and I climbed back the next night. It was a mistake, but a proud one."],
-  ["The monks have gone to the peaks, I hear.","A retreat. I understand it. When the ground won't stay still, you go up and look down."],
-  ["Is Buttons being useful?","He's making tea. It's terrible, but he's making it with love. I drank two."]],
- "I'll be back on the rope by tomorrow. It's what I'm for."],
-25:["(Meg is stringing a new line between two poles.) A crown for everyone. That's what the bills say. A crown for everyone, and a princess for democracy. It's a lot of crowns. I'd rather have a good rope.",[
-  ["What do you make of the talk?","It's a lot of balancing, and nobody's holding the net. I'd just like to know who's going to catch them."],
-  ["Would you wear a crown?","Only if it came with a harness. A crown without a harness is how kings fall."],
-  ["What's the mood at the lake?","Tired and a bit hopeful. We're mending. We might even be better."]],
- "A good rope is the only crown I'd trust."],
-26:["(Meg is rehearsing alone, hanging by one knee.) I've been watching Kelp Cola make a prince into an advertisement. A prince in every bottle. It's the circus again, with a different ringmaster.",[
-  ["Is that how you see it?","They want a face on every bottle. We want a face in every seat. It's all the same trade. They just sell fizz."],
-  ["What about the oil man's spa?","Fancier than a circus, and wetter. But I bet there's no net. Not for the guests."],
-  ["Are you looking forward to the end of the month?","I'm looking forward to the day after. When the rope's quiet again."]],
- "Don't sign anything you can't climb."],
-27:["(Meg is tightening a guy rope with her whole weight.) They're showing a film in Eastbrook tonight, I hear, about a revolution. I'd go, but I've seen enough revolutions. They all go in circles, like the ring.",[
-  ["Do you like films?","I love them. The people are all in the right place and nobody falls. I like to be soothed."],
-  ["Are you going?","Maybe, if Buttons can find a ticket. Otherwise I'll stay home and mend. It's the nearest I get to a night out."],
-  ["How's the mood?","Tight. People are like ropes on a hot day: they're expanding, and no one wants to say."]],
- "Have a good evening. Don't let anyone pull your rope."],
-28:["(Meg is stood with her arms folded, looking at the sky.) All the factions are out today, pushing. Everyone's shouting for the last of it. And we're here, a circus by a lake, being quiet. It's rather nice.",[
-  ["Will the circus join in?","We'll stay out of it. We'll put on a show, and let them come to us. We're the one place where no one can win."],
-  ["Is Bruno restless?","He's pacing, polishing the bell. He wants a part in it. I've told him to stay put, and he's sulking."],
-  ["Are you worried?","About the next two days, a bit. But I've held worse weights than this island."]],
- "Stay calm. It's a good trick, and anyone can learn it."],
-29:["(Meg is tightening the last guy rope.) Everything's checked. Everything's tied. All I can do now is wait. I've told the others to get some sleep. They're all pretending.",[
-  ["How are you?","Steady. I don't sleep much before a big night. It's like standing on the edge of the platform, just before the jump."],
-  ["What do you think will happen?","I think the island will do something brave or something foolish. Usually both."],
-  ["Is Buttons asleep?","He's snoring. It's the best sound I've heard all week."]],
- "Sleep if you can. The net will be there in the morning."],
-30:["(Meg stands at the top of the big top ladder, looking out over the lake.) The last day. I've been up here since dawn. The whole island looks small from this height. It makes it easier to think.",[
-  ["What's it like up there?","Quiet. Grey. Everything's equal. A prince and a pig look the same from twelve metres."],
-  ["What will you do after today?","Take the net down, fold it up, and take the circus where the road goes. I'll check the rope first."],
-  ["Any last advice?","Hold on. And if you can't, let go cleanly. It's the half-hearted falls that hurt."]],
- "Thanks for listening. It's easy to forget that people do."],
+7:["(A small woman in a patched leotard and an enormous jumper is hanging upside down from a rope by one knee, checking a knot.) You're the reporter. Come in under the rope. Mind the horse. She bites people with notebooks.",[
+  ["Do you always check the ropes upside down?","It's the only way to see the knot the way it'll see me, at eight tonight, forty feet up. (She swings upright and drops to the ground.) Knots don't lie. People do."],
+  ["What do you do in the circus?","Trapeze, the high wire, the books, the horse, the stove, the costumes and Buttons. Mostly Buttons. Somebody has to keep this circus from falling down. Usually it's me."],
+  ["Who's Buttons?","The jester. My partner. He falls off things for a living and I catch him. Also for a living. Also because I love him. Don't tell him I said that in front of a reporter."]],
+ "Come to the show tonight. Sit on the left. The left's where I fall towards, if I fall."],
+8:["(Meg is doing the circus accounts at a folding table, with a pencil and a frown.) Sunday. No show. Books day. (She crosses something out.) Bruno's had eleven buns from the coffee shop in Eastbrook this week. On a slate. I'll pay it off. Quietly. As usual.",[
+  ["Doesn't Bruno pay his own slate?","Bruno pays in stories. Maya at the coffee shop prefers money. So I go in on Mondays, pay it off, and she gives me a bun for my trouble. It works."],
+  ["Is the circus doing well?","Packed every night since we opened. People are hungry for something that isn't the king or the snow. We're the only thing on the island that's just fun."],
+  ["Do you go to church?","(She doesn't look up.) The big top's my church. Forty feet up, alone, with nothing under you but a net and your own nerve. You pray very sincerely up there."]],
+ "If you see Bruno with a bun, tell me. I'm keeping count."],
+9:["(Meg is standing beside a wire strung a foot off the ground between two posts, watching a young woman wobble along it.) Eyes up! Look at the end, not your feet! (To you.) This is Hely. From Eastbrook. She's been watching us every day. I've put her on the low wire.",[
+  ["Is she any good?","(Hely falls off.) Three steps. That's three more than yesterday. She's got nerve. Nerve's the thing you can't teach. Balance, I can teach anyone."],
+  ["Why help her?","Because I was her, once. In Riga. Watching a circus through the canvas. A woman let me try the low wire. I've been on wires ever since."],
+  ["Isn't it dangerous?","A foot off the ground? The worst that can happen is your pride. Pride's the first thing a wire takes. Then it gives you something better."]],
+ "Eyes up, Hely! (To you.) Come back tomorrow. She'll do four."],
+10:["(The big top is dark, the flag at half-mast. Meg is sitting on the ring fence with her hands in her lap.) No show tonight. The king. Bruno wanted to do a sad show. I said there's no such thing. So: no show.",[
+  ["Did the circus know the king?","We played the palace once, in 1971. He laughed at Buttons for ten minutes. Then he came round the back and asked how the trapeze worked. I showed him. He held the bar."],
+  ["How's the troupe?","Quiet. Igor's polishing his weights. Zora's reading cards and won't say what they said. Buttons is eating, which is how he grieves."],
+  ["What will you do tonight?","Check the ropes. In the dark. Then sit with Buttons. He gets frightened on quiet nights. Clowns hate silence."]],
+ "Go gently today. Even the circus is quiet."],
+11:["(Meg is splicing a rope with a marlinspike, very fast.) This one's frayed. Twenty years, this rope. It's caught me four times. Time for it to retire. (She looks at it fondly.) It's earned it.",[
+  ["Has it really caught you four times?","Twice in Riga, once in Tallinn, once in Bergen. Each time, the rope held and I didn't. That's what ropes are for."],
+  ["Do you ever get hurt?","(She rubs her right shoulder without seeming to notice.) Not badly. Not lately. A wire teaches you to fall properly. Most people never learn."],
+  ["What happened to your shoulder?","(She stops rubbing it.) Nothing. An old thing. 1975. Riga. It aches before rain. (She goes back to the rope.) It's going to rain."]],
+ "Don't mention the shoulder to Buttons. He worries."],
+12:["(Meg is feeding the circus horse, a large, grey, disapproving mare, from a bucket.) This is Duchess. She pulls the wagons, carries the girls in the parade, and bites anyone with a notebook. (Duchess eyes your pocket.) I did warn you.",[
+  ["Why does she bite notebooks?","A newspaper man in Tallinn once wrote that she was 'an elderly nag'. She's never forgiven the press. Neither have I."],
+  ["Who looks after the horse?","Me. Who else? Bruno talks to her. Igor carries her hay. Buttons tries to ride her. I feed her, groom her and apologise for her."],
+  ["How's Hely doing on the wire?","Six steps yesterday. Then she fell off laughing. Buttons gave her some old juggling clubs. She drops them beautifully. She'll get there."]],
+ "Keep your notebook in your coat. Duchess is watching."],
+13:["(Meg is hanging upside down from the trapeze, forty feet up, and calls down.) Kelp Cola left a crate of free bottles for the troupe! Buttons has drunk six! He's bouncing off the canvas!",[
+  ["Is that dangerous?","For the canvas. Buttons on sugar is a force of nature. I'll catch him when he comes down. He always comes down eventually."],
+  ["Are you going to the gathering tomorrow?","Bruno's taking the whole troupe. In costume. He thinks the island needs reminding we're here. I'm going to stand at the back in a jumper and hope nobody notices."],
+  ["Can you hear me up there?","(She drops into the net, rolls out and lands beside you.) Better down here. Up there, everything sounds like it's happening to someone else."]],
+ "Come to the show tonight. Buttons will still be bouncing."],
+14:["(Meg is in a big coat over her leotard, trying to stop Buttons wearing his full jester costume to the gathering.) Not the bells, Buttons. Not today. People are going to be serious. (Buttons jingles sadly.) Fine. Two bells.",[
+  ["Why's Bruno taking the circus?","So the island remembers there's something besides politics. He's right, for once. Don't tell him."],
+  ["What do you hope happens?","That nobody falls. In any sense. I spend my life watching people fall. I'd like a day off."],
+  ["Will you perform?","No. Bruno will make a speech. Buttons will juggle. Igor will lift something heavy. I'll make sure nobody gets hurt. That's my act."]],
+ "If you see a man in two bells, that's mine."],
+15:["(Meg is stitching a tear in Buttons's costume, with a very long needle.) He climbed the fountain at the gathering. To see better. Fell in. Came out with a duck. (She stitches.) I didn't catch him. First time in ten years.",[
+  ["Was he hurt?","His pride, briefly. Then the crowd cheered and he bowed to the duck. Now he says it was planned. It wasn't planned."],
+  ["What did you think of the gathering?","Loud. Everyone very sure of everything. I've stood forty feet up with nothing under me. I'm never sure of anything. It's very freeing."],
+  ["How's the circus doing?","Packed again. And Hely's selling programmes at the door. Unpaid, for now. She wears a hat with a feather. She's terribly proud of it."]],
+ "If you see a duck near the big top, it's Buttons's. He's keeping it."],
+16:["(Meg is high on a ladder, rigging a new rope, and talking down.) The new rope's going up. The old one's retired. Bruno's making a speech about it tonight. A speech. For a rope.",[
+  ["Is Bruno always like that?","Thirty years on the road and he's made a speech about every rope, horse, town and broken bun. He'd make a speech at his own funeral. I've told him I'll make it short."],
+  ["Are you listening to the debate?","Buttons is, on the wireless in the caravan. He keeps shouting 'oh, that's good' at both sides. He'd vote twice if they'd let him."],
+  ["Can I hold the ladder?","(She looks down at you, amused.) I've been up ladders since I was six. I don't need it held. (A pause.) But hold it. It's nice to be looked after, for once."]],
+ "Thank you. You held it very well. Hely holds it like it's going to bite."],
+17:["(The rigging sways and the big top creaks. Meg is at the top of a pole, holding on, very still.) The ground moved! I felt it from up here. The whole tent swung. I've never felt the ground from forty feet before.",[
+  ["Come down!","(She slides down the pole and lands beside you.) I'm down. I'm fine. The rope's fine. Duchess has gone very quiet. That's the first time in eleven years."],
+  ["Is it the volcano?","Zora says so. She turned a card this morning and went white. Zora never goes white. She's seen everything."],
+  ["Is the circus safe?","Tents bend. That's their secret. A building falls in an earthquake. A tent just sways and complains. I trust the tent."]],
+ "Stand clear of the poles if it moves again. They're heavier than they look."],
+18:["(Meg is laughing so hard she has to sit on a bucket.) Buttons tried to get into the Kelpy costume. The cola cup. Elin from Kelp Cola came round asking if anyone in the circus would fit. Buttons went in head first and got stuck. Igor had to pull him out by the ankles.",[
+  ["Who'll be Kelpy, then?","Somebody small, with nerve. Not a clown. Clowns can't help being funny, and Kelpy's meant to be dignified, apparently. For a cup."],
+  ["Is Buttons all right?","He's thrilled. Somebody wanted him for a job. A serious job. He's been taken seriously for a whole hour. It's the best day of his life."],
+  ["How's your shoulder?","(She stops laughing and rubs it.) It aches. It's going to rain. Or something worse. It's been aching for three days."]],
+ "If you see a cup with clown shoes on, it's not Kelpy. It's Buttons."],
+19:["(The camp smells of eggs. Meg is checking every guy rope on the big top, very carefully.) Steam on the mountain. Bruno wants to pack up and move to Kingsgrad. I want to stay. We're arguing. (She tightens a rope.) I'm winning.",[
+  ["Why stay?","Because if we run, the island sees a circus running. If we stay, the island sees a circus that isn't frightened. People need that."],
+  ["Is it safe to stay?","Safer than a road full of wagons and frightened horses in the dark. We'll stay by the lake. Water doesn't burn."],
+  ["Did you pay Bruno's slate?","(She smiles.) Monday. Maya gave me a bun and said 'the man in the red coat owes you his life'. I said he owes me eleven buns."]],
+ "Breathe through your sleeve. And if Bruno asks, I won."],
+20:["(Meg is tying everything down: the wagons, the rigging, Duchess's halter.) If the mountain goes tonight, everything stays tied. The animals are going in the big top. The troupe's sleeping by the lake. Buttons is holding my hand. He doesn't know he's doing it.",[
+  ["Are you frightened?","Yes. But I've been frightened forty feet up for twenty years. You learn to put fear in your pocket. Not away. Just in your pocket."],
+  ["What's Bruno doing?","Making a speech to the animals. About courage. The animals are listening. It's actually working. Don't tell him."],
+  ["Will the circus be all right?","Tents bend. Wagons roll. Clowns fall over and get up. We've survived floods, fires and Bergen. We'll survive a mountain."]],
+ "Go somewhere safe tonight. Not near anything that can fall."],
+21:["(Ash is falling. Meg is sitting on the edge of the lake, grey all over, with Buttons asleep with his head in her lap.) It went. The mountain. The whole north lit up. We were by the lake all night. Every animal, every person. Everyone's alive.",[
+  ["Is the big top standing?","Grey, and leaning a little, but standing. Tents bend. I told you. (She looks at it.) It bent. It didn't break."],
+  ["Is Buttons all right?","He told jokes all night. To the animals, to Igor, to me. Terrible jokes. The worst he's ever told. Everyone laughed. (She strokes his hair.) He's a hero. Don't tell him."],
+  ["Are you all right?",["(She rubs her shoulder.) My shoulder aches. My heart's full. That's a good trade, for a night like that.",[
+    ["Your shoulder?","(She sighs.) Riga. 1975. I fell. Nobody caught me. Since then I've caught everyone. (She looks at Buttons.) It's a better job than being caught."],
+    ["What happens now?","Bruno will make a speech. Zora will say she saw it coming. Igor will lift whatever needs lifting. And we'll put on a show. Soon. People will need one."]]]]],
+ "Cover your mouth. And thank you. Go and find your people."],
+22:["(Meg is brushing ash off the big top's canvas with a broom on a very long pole.) Bruno's decided. We're staying. And we're putting on a show for the island. On Saturday. Free. For everyone. To cheer them up.",[
+  ["That's very generous.","Bruno's idea. Bruno's speech. My work. That's how it always goes. (She pushes a heap of ash off the canvas.) I don't mind. It's a good idea."],
+  ["How's the camp?","Grey. The horse is grey. The wagons are grey. Zora's crystal ball is grey. She says it's the first time she's been able to see the future properly."],
+  ["How's Hely?","Sweeping Eastbrook's square harder than anyone, Buttons says. She'll be back on the wire next week. I've put a cushion under it."]],
+ "Bring someone to the show on Saturday. Everyone's welcome."],
+23:["(Meg is sitting at the folding table, doing the books, with a deep frown.) The show on Saturday. Free. Which means no takings. Which means I'm finding money somewhere. (She taps the pencil.) Bruno says the island will remember. The island doesn't pay for horse feed.",[
+  ["Can the circus afford it?","Just. If Buttons eats less. Which he won't. If Bruno stops buying buns. Which he won't. If I do the costumes myself. Which I will."],
+  ["What's the news?","Something broken out on the oil rig, Igor heard. Spanners. And the Party says it wasn't them. Zora says she knows who it was. She won't say."],
+  ["Will Hely be at the show?","Selling programmes. I'm going to pay her. Real wages. Not much. But it's a wage. She needs one. She needs to know she's worth one."]],
+ "If you've got a krone for the horse, Duchess says thank you."],
+24:["(Meg has just come back from Eastbrook with banner string still wound round her wrist.) Erik's rally banners. Twenty of them, Jonna's lettering. I did the hall roof without a ladder. For the ones in the square I used one, so Hely had something to hold.",[
+  ["Why let her hold it?","Because a girl who's been on a bench for two years needs someone to say 'I'm trusting you'. A ladder's a good way to say it. She held it like it was holding her up. She's got very steady hands."],
+  ["Will you take her into the circus?","(She unwinds the string.) We'll see. 'We'll see' from me means I've decided and I'm waiting for Bruno to think it was his idea."],
+  ["Isn't it strange, a circus hanging political banners?","Erik paid. In bread for the horse. And he laughed at Buttons in 1979. A circus remembers who laughed. (She coils the string.) Good people, Erik's lot."]],
+ "If you see Hely, tell her the banners are straight. She'll want to know."],
+25:["(Meg is sewing a programme seller's hat, with a long feather.) For Hely. For Saturday. A proper one. With a proper feather. (She holds it up.) She's going to cry. I'm going to pretend I didn't see.",[
+  ["You're very fond of her.","She reminds me of someone. (She threads the needle.) Me. In Riga. Before the shoulder. Before everything. Full of nerve and no idea what to do with it."],
+  ["What's the news?","The princess came to the circus last night, Buttons says. In a headscarf. Laughed at him for an hour. Buttons is in heaven. He says royalty takes him seriously."],
+  ["Did she?","(She smiles.) She laughed at him for an hour. That's the most serious thing anyone can do for a clown."]],
+ "Don't tell Hely about the hat. Let her see it on Saturday."],
+26:["(Meg is watching Buttons teach Hely to juggle, from the caravan step, with her arms folded and a very soft expression.) Wrist, not arm! (To you.) He's a good teacher. When he forgets to be funny. Which is never. But sometimes.",[
+  ["Is Hely getting better?","Four in a row today. Buttons says she's 'nearly not terrible'. That's the highest praise he's ever given. He's never said it to me."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. Buttons wants to know if he can join the oil company for the milkshake machine."],
+  ["Have you told Bruno about Hely?","Not yet. I'm letting him notice her himself. He'll think it's his idea. Then he'll make a speech about it. Then she'll be in."]],
+ "If Buttons offers you a juggling lesson, take it. He's better than he looks."],
+27:["(Meg is in the big top, checking every rope and every bolt for tomorrow's show.) Free show tomorrow. For the whole island. After the mountain. (She tugs a rope.) Everything has to hold. Everything has to be perfect.",[
+  ["Are you nervous?","For the troupe. Not for me. Forty feet up, I know what I'm doing. Down here, with three hundred people and a free show, I'm terrified."],
+  ["What's the news?","A Party picture at the cinema tonight, and big card games, they say. Bruno wanted to go to the cinema. I said there are six tractors. He said he loves tractors. He doesn't."],
+  ["Is Hely ready?","She's been practising selling programmes to the horse. Duchess bit three. Hely's very proud. She says it's a good omen."]],
+ "Come to the show tomorrow. Sit on the left. It's free. Everyone's welcome."],
+28:["(The big top is packed, flags everywhere outside, and Meg is in her spangled leotard at the bottom of the rope, rubbing her shoulder.) Last show. Free. The whole island's here. Every faction, all at once, all laughing at Buttons. It's the only thing they've agreed on all month.",[
+  ["How's your shoulder?","(She stops rubbing.) It'll hold. It always holds for the last show. Then it complains for a week. That's our arrangement."],
+  ["Is Hely selling programmes?","At the door, in the hat with the feather. She cried when she saw it. I pretended I didn't see. (She looks towards the door.) She's sold two hundred. Real wages."],
+  ["Will you ask Bruno about Hely?","Tonight. After the show. When he's happy and full of applause. That's when you ask Bruno anything."]],
+ "Go and find a seat. On the left. I'm going up."],
+29:["(Meg is sitting on the caravan step, very tired and very happy, with Hely's feathered hat in her lap.) Bruno said yes. Last night. After the show. He made a speech about it. Hely's coming with us. The winter tour. Juggler's assistant.",[
+  ["That's wonderful.","(She smiles.) She cried. Buttons cried. Bruno cried during his own speech. Igor lifted her up in the air. Zora said she'd seen it in the cards. Zora sees everything after it happens."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next. And the circus is packing for the winter. We're the only ones who know where we're going."],
+  ["Will you miss the island?",["(She looks out at the grey lake.) Every island. Every town. You leave a bit of yourself in every one. This one, I'm leaving more than usual.",[
+    ["Why this one?","The mountain. The ash. The show. And a girl on a bench who reminded me who I used to be. (She touches the feather.) I'll miss it."],
+    ["Will you come back?","In the spring, Bruno says. If the island's still here. If it'll have us. Circuses always come back. That's what makes them circuses."]]]]],
+ "Come and see us off. Tomorrow, or the next day. Wave at the second caravan."],
+30:["(Meg is coiling ropes into a wagon, very neatly, Buttons asleep on the roof of it.) Last day. They're settling the island today. We're packing. (She coils another rope.) Whoever wins, they'll need a circus. Everyone always needs a circus.",[
+  ["What do you hope happens?","That whoever runs the island laughs at clowns. You can trust people who laugh at clowns. Never trust anyone who doesn't."],
+  ["Where will you go?","Round the island first, every town. Then the boat to Finland, for the winter. Hely in the second caravan. Buttons on the roof. Duchess biting reporters."],
+  ["Will you remember this month?",["(She looks at the sleeping Buttons, then at the grey big top coming down.) The mountain, and the lake, and the tent bending, and Hely's feather. Yes.",[
+    ["And me?","The reporter who held my ladder and didn't let go. Most people let go. (She smiles.) Duchess still wants your notebook."],
+    ["What will you do tomorrow?","Check the ropes. Feed the horse. Catch Buttons. Teach Hely. Same as always. On a different road. That's the circus."]]]]],
+ "Wave at the second caravan when we go. And keep your notebook in your coat."],
 };
 // Mike, fisherman at West Saltwick Harbour (Communist Party). Threads: his secret sweetheart (Lucia, never named) and the gifts
 // and lies it costs him, learning the Internationale in Russian for Anna's big day (the 28th), his stubborn old boat the
@@ -12183,128 +12244,138 @@ DAILY['Olaf']={
   ["Will you tell people about the farm?","Tell them it's cold and muddy and ours. They'll understand."]],
  "Safe home, reporter. Next time bring a stool."],
 };
-// Ole, harbourmaster at North Frostholm Harbour (administrators, no faction). Threads: his new import taxes and the shopkeepers who hate him, every boat in and out in his log, Signe's phone calls from the lighthouse, tariffs and manifests, his pride in a tidy quay.
+// Ole, harbourmaster at North Frostholm Harbour, who logs every boat in and out (the Administrators). Threads: his duty on everything
+// that floats, which every shopkeeper hates (Maya's angry letters, which he keeps and admires, and her view of his weak tea), and what
+// he really wants the money for: the harbour wall, which is crumbling, and which the board finally funds after the mountain (the 24th); Liv in Eastbrook, who enforces it to the ounce; Signe at the lighthouse, her telephone calls
+// about boats with no lights, the post he takes her, and the night of the eruption he sits up with her (the 20th and 21st), two flasks
+// and a pillow; suspending the duty for a week after the ash (the 22nd); his pride in a tidy quay, and his moustache.
 DAILY['Ole']={
-7:["(Ole looks up from a ledger with a ruler in his hand.) A stranger on my quay. Name, vessel, cargo, intent? Oh, the reporter. I've heard. The north-west's open, and I've forty boats to log.",[
-  ["Busy day?","Every day, since the snow. Every boat that comes in pays something. I take it, I log it, and I'm hated."],
-  ["Why are you hated?","The import tax. It's perfectly reasonable, and no one likes it. Shopkeepers glare at me in the street."],
-  ["Can I take a photo of the harbour?","Of course. Don't stand on the coil of rope. It belongs to the Crown."]],
- "Mind the cranes. They swing when they please."],
-8:["(Ole peers over his glasses.) A quiet Sunday. Only three boats, and a man trying to sell me a fish. I explained that the harbourmaster doesn't buy fish. I tax them.",[
-  ["Is that a joke?","It's a statute. The fish is taxed on landing, and again on sale."],
-  ["Do you eat fish?","Constantly. I pay the tax on it myself. It's only fair."],
-  ["Is anyone angry about it?","Everyone. But they pay. Eventually. With remarks."]],
- "Tidy quay, tidy mind. That's my motto."],
-9:["(Ole taps a stack of manifests.) The cola men have a shipment of sugar due. Forty tonnes, from Gdansk. I've told them it'll be taxed. They've asked if it can be called 'sweetener'. It can't.",[
-  ["Why not?","It's sugar. Whatever they call it, it weighs the same."],
-  ["Do the cola men argue?","They send letters. Very polite. I file them under 'future amusement'."],
-  ["Is your tax fair?","It's consistent. Which is better."]],
- "A ton's a ton, and a tax is a tax."],
-10:["(Ole has a black band on his hat.) Today's the funeral, and the harbour's closed for the morning. The ships have lowered their flags, and the gulls have gone quiet.",[
-  ["It sounds peaceful.","It is. Only the sound of Signe's horn, three times, from Eastbrook. It carried across the water."],
-  ["Did you know the king?","I once taxed his yacht. He paid it with a smile, and a bottle of cognac."],
-  ["Was that against the rules?","Technically. But I accepted it. I'm not made of stone."]],
- "A good day. Say a prayer, if you're so inclined."],
-11:["(Ole shuffles a pile of notices.) The harbour's back to work, and the shouts are the same as before. A crate of oranges, a crate of nails, a crate I'd rather not describe.",[
-  ["What's in the third crate?","It's marked 'machine parts'. They weigh like machine parts, but they smell like perfume."],
-  ["Will you inspect it?","Eventually. If someone files a complaint. Or a sneeze."],
-  ["Do you get many such crates?","A few. Every harbour does. I note them, and I wait."]],
- "A good harbourmaster waits. A bad one gets splinters."],
-12:["(Ole raps on a barrel.) A telephone call from Signe at the lighthouse. She spotted a tanker off the north point, sitting low and quiet. It wasn't on my list.",[
-  ["Whose is it?","A Diversified Petroleum vessel, I suspect. Not due till next week. They're always early when they want to be unnoticed."],
-  ["Will you stop it?","I'll ask it its business. Politely. And then I'll tax it."],
-  ["Do you trust Signe?","Absolutely. She sees everything. I don't know how she does it, from a tower."]],
- "If the tanker docks, I'll let you know. Or I won't. We'll see."],
-13:["(Ole straightens a row of pens.) Tomorrow's a big day, and I've closed the port to everything but passenger boats. I've also hired two extra men to count heads on the gangplank. It's a very orderly plan.",[
-  ["Do you know what's happening?","Something enormous, with flags. A harbourmaster's duty is to keep it moving."],
-  ["Is it a problem?","Only if they all arrive at once. I've written a schedule."],
-  ["Are you nervous?","About the quay, a little. It's older than it looks."]],
- "Don't lean on the rail. It's a recent repair."],
-14:["(Ole stands on the quay with a clipboard.) The big day, and I've logged eleven boats in an hour, all full of people. Every one of them is smiling too hard.",[
-  ["Is that unusual?","Smiling's suspicious. A boat should be bored."],
-  ["Do you feel part of it?","I feel like the doorman. It's an honourable job."],
-  ["What would you like to see?","An orderly day, and a clean quay."]],
- "Show your ticket to the man by the post."],
-15:["(Ole sorts through a heap of slips.) The aftermath. Every boat that came in yesterday has gone out, and half the cargo's unaccounted for. I'll be sorting it for a week.",[
-  ["Did anything go wrong?","Only my filing. But it's a small thing, in a very big week."],
-  ["Is the harbour busy?","Quieter, in a worrying way. A harbour should shout."],
-  ["Will the taxes stay?","They'll stay until someone repeals them. And then I'll find a new one."]],
- "Please sign the book. And mind the grease."],
-16:["(Ole listens to a radio.) A debate tonight, the Party against the Democrats. I'm told both sides plan to talk about tariffs. I've been asked to say nothing. I'm very good at it.",[
-  ["Will you listen?","With one ear. The other is on the quay."],
-  ["Do you favour a side?","Neither. They'll both tax me, in the end. It's the price of public service."],
-  ["Do you mind being unpopular?","I'm used to it. It's quite restful, in a way."]],
- "A debate's like a tide. It comes in, and goes out."],
-17:["(Ole grips a post.) The quay trembled. A crate slid into the water, and a gull fell off a bollard. I've never seen a bird look so offended.",[
-  ["Was that the volcano?","It might have been. Or the sea, having a thought."],
-  ["Is the harbour safe?","It's stone and timber. It'll cope. I'm less sure about the cranes."],
-  ["Did anyone get hurt?","Nobody. Only a crate of eggs, and a man's dignity."]],
- "If it shakes again, step away from the edge."],
-18:["(Ole wrinkles his nose.) Sulphur on the wind, and a very unpleasant tide. The fishermen are leaving early, and the harbour's full of boats with nowhere to go.",[
-  ["Are they frightened?","They're prudent. A man who stays near a volcano is a man with a good insurance policy."],
-  ["Do you worry?","About the books. They're a mess. The rest I leave to Providence."],
-  ["Is the smell getting worse?","It is. I've put a handkerchief in my hat."]],
- "Breathe slowly. It helps."],
-19:["(Ole checks a list.) A party boat's left for Eastbrook tonight, with a band and a hundred masks. I've charged them a night fee, and a moustache levy. They paid both without a word.",[
-  ["A moustache levy?","I invented it this morning. It's quite popular."],
-  ["Isn't that unfair?","It's creative. And it's going to the lifeboat fund, in theory."],
-  ["Is there a prince on board?","I couldn't confirm. But the boat sat very low in the water. Royal ballast, I'd say."]],
- "Have a good time. And keep your moustache dry."],
-20:["(Ole lowers his voice.) A suspicious crate came in at dusk, and left in a van before dawn. I logged it. A very ordinary crate, with a very unordinary lock.",[
-  ["What was in it?","I couldn't say. But I've an idea it's headed for the palace. And not as a gift."],
-  ["Did you tell Hanna?","I did. She said she'd keep an eye out. She's one woman, with a very large island."],
-  ["Are you afraid?","I'm a harbourmaster. I've seen worse."]],
- "I'd go home early tonight, if I were you."],
-21:["(Ole is covered in grey ash.) The volcano's erupted. The sky's black, the sea's grey, and every boat in Frostholm's been loaded with people. I've never logged so many names.",[
-  ["Is anyone hurt?","Not that I've heard. The lava's far up north. We've been lucky."],
-  ["How's the harbour?","Full, noisy, and very polite. Everyone's saying please. It's alarming."],
-  ["Are you coping?","I've a clipboard and a whistle. It's all a man needs."]],
- "Don't breathe the ash. Keep your cloth wet."],
-22:["(Ole wipes his glasses.) The ash is in the water. A grey film, as far as I can see. The fish are rising, belly up, in the shallows. It's a ghastly business.",[
-  ["Is it dangerous?","To fish, yes. To men, only if they drink it."],
-  ["Will you stop the boats?","Only those with deep drafts. The rest can crawl in."],
-  ["Is there anything you can do?","I can log it. It's what I do. A good log's the best medicine."]],
- "Boil your water. And your tea."],
-23:["(Ole peers at the horizon.) A tanker's caught fire off the north point. No, a small one. A pipeline, or a pump, I'm told. A sabotage, somebody whispered. I've no proof, and I'll not say.",[
-  ["Whose tanker was it?","Diversified Petroleum's. I'd not say it's an accident. But I'm not the police."],
-  ["Is anyone hurt?","A few singed eyebrows. No more."],
-  ["Will you investigate?","I'll log the facts. If anyone asks, I'll tell them what I saw. Which was smoke."]],
- "Keep clear of the north quay. It stinks."],
-24:["(Ole holds up a sheaf of permits.) A flotilla of monks, setting off for the north with a donkey and a reliquary. They've paid the tax. They said it was voluntary. I said it was mandatory. We prayed over it.",[
-  ["Was it a long argument?","Twenty minutes. I won, eventually. The donkey kicked me."],
-  ["Is it wise to go north?","Not for a sane man. But faith isn't sane."],
-  ["Will they be back?","I've logged their departure. I'll log their return, if they have one."]],
- "Safe travels. And mind the donkey."],
-25:["(Ole saluted a launch.) The princess passed through today, in a small boat, with a Democrat and a picnic. I've never seen the harbour so polite. I stood to attention, and the gulls did too.",[
-  ["Did she pay a tax?","I waived it. It seemed rude. Besides, she smiled."],
-  ["Is that allowed?","It's a very small exception. It's in subsection four."],
-  ["Do you like her?","I've no opinion. But I'd be happy to tax her, if asked."]],
- "A good day for the harbour. Smooth water, soft light."],
-26:["(Ole drums his fingers.) A great many deliveries, and every crate has a flag. Cola, oil, Party. I've logged six hundred. I'll need a second ledger, and a third hand.",[
-  ["What's in them all?","Banners, bottles, bunting. The island's dressing for something."],
-  ["Are you taxing it?","Of course. A banner's a luxury. A bottle's a commodity. Bunting's a grey area."],
-  ["Will you survive?","With tea. And the grim knowledge that it'll all be gone by October."]],
- "Please queue. Cargo before people."],
-27:["(Ole looks over a manifest.) Tomorrow's the big push, and I've been told to expect forty vessels. A fleet. I've cleared the quay, and told the gulls to leave.",[
-  ["Did they listen?","They're gulls. They've started a committee."],
-  ["Is the harbour ready?","As ready as it'll be. The ropes are coiled, the log's open, and I've sharpened my pencils."],
-  ["Are you nervous?","About being blamed, yes. It's a harbourmaster's lot."]],
- "Go home early. Tomorrow, the quay's mine."],
-28:["(Ole wades through paperwork.) Today every faction's pushing, and the harbour's choked. Four boats from the cola men, five from the oil firm, and a very red one flying Party flags. I've charged them all.",[
-  ["How did they take it?","Loudly. I've never been so shouted at, or so right."],
-  ["Is the quay holding?","By its fingernails. And so am I."],
-  ["Do you feel the pressure?","Like a plank in a gale. But planks float."]],
- "If you're boarding, do it quickly. The tide won't wait."],
-29:["(Ole closes a ledger.) Tomorrow's the end of it, and I've logged every vessel, every crate, and every complaint. A tidy record, for a very untidy month.",[
-  ["Are you hopeful?","I'm a harbourmaster. I hope for calm seas, and a clean quay."],
-  ["What do you want?","A fair wind for everyone. And a tax rebate for myself."],
-  ["Any worries?","That the next government will abolish the tariff. I'd miss being hated."]],
- "Go home and sleep. The tide's in your favour."],
-30:["(Ole stands on the quay with his hat in his hands.) The last day. The harbour's quiet, the water's grey, and the sky's strangely clear. I've logged my last boat. Now we wait.",[
-  ["How do you feel?","Calm. A harbour's always ready. Whoever comes in, I'll write them down."],
-  ["What will you remember about September?","The king's funeral, the ash, and a reporter who didn't mind the smell of fish."],
-  ["Any last words?","Keep a good log. And pay your tax."]],
- "Fair winds. And thank you for visiting."],
+7:["(A tall grey man with a magnificent moustache looks up from a ledger the size of a door.) The road's open, so here you are. You came in by fishing boat, at Saltwick, on the first. Unregistered landing. I've noted it. (He smiles.) No duty on reporters. Yet.",[
+  ["You noted my landing?","Every boat, every crate, every soul that comes ashore on this island goes in my ledger. Some of them I find out about late. You, I found out about from Hannu's chalkboard."],
+  ["What's this duty everyone talks about?","A small charge on everything that comes in by sea. Small. Fair. Necessary. (He strokes his moustache.) Everyone on the island hates me for it. I've never been so famous."],
+  ["Why charge a duty at all?","The harbour needs the money. (He looks out at the quay.) The harbour needs a great many things. Nobody asks what. They just shout about beans."]],
+ "Mind the bollard on your way out. It's older than the harbour and twice as stubborn."],
+8:["(Ole is walking the quay with his hands behind his back, inspecting every rope.) Sunday. No boats. I walk the quay. Every rope coiled, every crate square, every gull told off. A tidy quay is a safe quay.",[
+  ["Do you ever take a day off?","This is my day off. I walk the quay instead of working on it. It's very different. My feet know the difference."],
+  ["What do you think of the shopkeepers' complaints?","Maya at the coffee shop in Eastbrook has written to me forty-one times. About beans. I keep every letter. They're very well written. I'd frame them if they weren't so rude."],
+  ["Why don't you lower the duty?","(He stops by a crack in the harbour wall and puts his hand on it.) That's why. Look. A wall that's been holding back the sea since 1890. It's tired. Walls cost money."]],
+ "Walk carefully. The quay's tidy. I'd like it to stay that way."],
+9:["(Ole is reading a letter, very slowly, with a pained expression.) Maya. Letter forty-two. 'Dear Toll Bridge with a Moustache.' (He strokes the moustache.) That's new. She's never mentioned the moustache before.",[
+  ["Are you offended?","Wounded. Deeply. (He folds the letter carefully and puts it in a drawer.) It's a very good moustache. I'll write back. Politely. She hates it when I'm polite."],
+  ["What's she angry about?","Her coffee beans sat in my warehouse three weeks waiting for a stamp. They went pale and mouldy. That's fair. That's my fault. Not the duty. The waiting."],
+  ["Will you fix the waiting?","I've asked the harbour board for a second clerk. They said no. I've asked for a stamp that works faster. They said stamps don't have speeds. They're wrong."]],
+ "If you see Maya, tell her the moustache is innocent."],
+10:["(Ole is in his harbourmaster's uniform with a black band on the sleeve, standing on the quay as the flag comes down to half-mast.) The funeral. I'll stay here. Boats don't stop for funerals, Liv says. Neither do harbourmasters.",[
+  ["Did you know the king?","He came in on the royal yacht in 1965. I tied his rope myself. He said 'Good knot, harbourmaster.' I've tied every knot since as if he was watching."],
+  ["Is it busy today?","Quiet. Except Eastbrook. Liv rang. A boat's due in at Eastbrook this morning. She wanted me on the quay there, in case. In case of what, she didn't say."],
+  ["Will you go to Eastbrook?","If Liv rings again. Liv doesn't ring twice for nothing. (He looks at the telephone.) She's never rung twice for anything."]],
+ "Go gently today. The flags are down."],
+11:["(Ole is writing in his ledger, very carefully, with a ruler.) Boats in, boats out. Duty paid, duty owed. (He rules a line.) Nothing on this island is ever finished. Everything is carried forward.",[
+  ["Is the harbour busy?","Busier since the roads opened. Oil drums from Frostholm, timber from Eastbrook, cola from Kingsgrad. Everything comes through here. Everything goes in the book."],
+  ["What's the strangest thing you've logged?","A piano, in 1977, for the Midnight Note. Sid paid the duty in whisky. I logged it as 'piano, one, duty, whisky, two bottles'. The harbour board never asked."],
+  ["What's the news?","The mill hands want more pay, they say. (He looks at the ledger.) Everyone wants more. The wall wants more. The wall doesn't go on strike. It just falls down. Slowly."]],
+ "Don't lean on the wall on your way. It doesn't like it."],
+12:["(Ole is on the telephone, writing as he listens.) Yes, Signe. A boat with no lights. Past the point. After midnight. (He writes it down.) Yes. I'll come out. Thursday. With the post. (He hangs up, and smiles slightly.)",[
+  ["Who's Signe?","The lighthouse keeper at Eastbrook. Twenty years. Never missed a night. She rings me when something's wrong. Something's been wrong a lot lately."],
+  ["What's the boat with no lights?","Somebody who doesn't want to be logged. (He taps the ledger.) Everybody gets logged, in the end. Some people just find out later than others."],
+  ["Do you take Signe's post?","Every Thursday. It's not my job. (He strokes his moustache.) I make it my job. Somebody should go up those steps once a week. Two hundred and eleven of them."]],
+ "If you see a boat with no lights, tell Signe. She'll tell me. That's the system."],
+13:["(Ole is staring at a crate of free Kelp Cola on his desk with a form beside it.) A gift. From the company. Free. Liv in Eastbrook charged herself duty on hers. Four cents. I'm very proud of her. I'm also very embarrassed.",[
+  ["Will you charge yourself duty?","I have to, now. Liv's set the standard. (He writes in the ledger.) Four cents. The harbour board will be delighted. It's the first duty they've ever had from me."],
+  ["Is the free cola coming through the harbour?","Crates of it. All duty-paid by Kelp Cola. They paid without complaint. That's how I know they're frightened of something. Nobody pays without complaining."],
+  ["Are you going to the gathering tomorrow?","I'll stand at the back. Every shopkeeper on the island will be there. Every one of them hates me. I'll wear a hat."]],
+ "Take a bottle. Duty's paid. I checked."],
+14:["(Ole is in his best uniform and a very large hat, pulled low.) The big gathering. I'm going. Incognito. (He adjusts the hat.) Maya will be there. And the grocers. And Hannu with his chalkboard. Every one of them wants my moustache on a stick.",[
+  ["Will the hat help?","No. Everyone knows the moustache. It's famous. It's on Hannu's chalkboard. But a man should try."],
+  ["What do you hope happens?","That someone mentions the harbour wall. Anyone. A prince, a priest, a Party woman. The wall's holding back the sea for all of them. Nobody notices a wall until it falls."],
+  ["Why not tell people why you need the duty?","(He looks at you for a long time.) Because then I'd have to admit the wall's falling down. And then everyone would be frightened. Better they hate me than fear the sea."]],
+ "Don't tell anyone about the wall. Let them hate me. It's easier."],
+15:["(Ole has his hat in his lap and a slightly dazed look.) Yesterday. Maya from the coffee shop found me in the crowd, in my hat. Walked straight up, said 'Toll bridge', and walked off. (He strokes his moustache.) The hat didn't work.",[
+  ["Did she say anything else?","'And weak tea.' Over her shoulder. She's heard I drink it weak, with milk. She considers it a crime against the island. Possibly worse than the duty."],
+  ["What's the news today?","The palace and the Church are fighting over the prince's brother. The monastery's sent a crate of candles through. I've charged them duty. Brother Teodor blessed the stamp."],
+  ["Why not tell her about the wall?","(He looks at the drawer of her letters.) Because then I'd be asking her to understand. Maya doesn't want to understand. She wants to be angry. Anger makes very good coffee, she says."]],
+ "If you see Maya, tell her the tea is perfectly adequate."],
+16:["(Ole has the debate on the wireless in the port office, and is listening with his chin in his hand.) The Party and the Democrats. (He listens.) Neither has mentioned the harbour. Or duty. Or walls. An island surrounded by sea, and nobody talks about the sea.",[
+  ["Who's winning?","Erik's calmer. Anna's louder. The sea doesn't care who's louder. The sea's the loudest thing there is."],
+  ["Would you vote?","I'd vote for whoever fixed the wall. Neither of them will. Walls aren't exciting. Nobody's ever won an election with a wall."],
+  ["Has Maya written again?","Not since letter forty-two. I'm worried. A quiet Maya is planning something. Probably a longer letter."]],
+ "If you're near the harbour board, mention the wall. Loudly."],
+17:["(The ledger slides across Ole's desk and he catches it. Outside, the moored boats bump against the quay.) The ground moved. The whole harbour moved. The wall groaned. I heard it. Walls don't groan unless they mean it.",[
+  ["Is the wall all right?","I've walked it. Twice. There's a new crack by the third bollard. (He touches his moustache.) It's getting tired. The sea isn't."],
+  ["Is anything else wrong?","Signe rang. She's seen steam on the mountain. And the sea's warmer, she says. Two degrees. She's never wrong about the sea."],
+  ["What will you do?","Write it down. Log every crack, every shake, every degree. If the wall goes, I want the record to show I saw it coming."]],
+ "Walk on the landward side of the quay. Just today."],
+18:["(Ole is reading the oil company's latest import manifest and frowning.) Gas masks. Two hundred. For Diversified Petroleum. Duty paid. (He puts it down.) Oil men don't buy gas masks for fun. They know something.",[
+  ["What do they know?","That the mountain's waking. They've been measuring. They've got instruments. (He looks north.) I've got Signe. Signe's better than instruments."],
+  ["Is the harbour ready if it erupts?","I've moored every boat double. Cleared the quay. Put the ledgers in the strongroom. Written to the harbour board. They've 'noted my concern'."],
+  ["What's the gossip?","Kelp Cola's mascot is ill. The cup. (He shakes his head.) I've never charged duty on a cup. I'd like to. It would be a first."]],
+ "If you're near the sea when the ground moves, move away from it. Quickly."],
+19:["(The harbour smells of eggs. Ole is on the telephone.) Yes, Signe. I know. (He listens.) The boats are staying in. (He listens longer.) Tomorrow night. I'll come out. I'll sit with you. (He hangs up, and sits very still.)",[
+  ["You're going to the lighthouse?","Tomorrow night. If the mountain goes, she'll be up there all night with the lamp. Somebody should be with her. (He strokes his moustache.) I've decided it's me."],
+  ["Is the harbour safe?","Boats moored double. Quay cleared. Wall watched. Liv in Eastbrook's done the same. Between us, the island's harbours are as safe as they'll ever be."],
+  ["Are you frightened?","Of the mountain, a little. Of the sea, always. Of sitting up all night with Signe, very much. (He clears his throat.) In a different way."]],
+ "Breathe through something. And keep away from the water."],
+20:["(Ole is packing a bag with great care: two flasks, a blanket, a pillow, a packet of biscuits.) For the lighthouse. Tonight. Two flasks. One for me, one for Signe. (He adds a second packet of biscuits.) She likes ginger. Bertil told me. Don't ask how Bertil knows.",[
+  ["A pillow?","(He goes slightly red.) In case. It's a long night. Two hundred and eleven steps. A man might need to sit down."],
+  ["Are you leaving the harbour?","My clerk's on duty. Liv's on duty in Eastbrook. The harbour can manage one night without me. (He looks at the quay.) I hope."],
+  ["Good luck.","(He picks up the bag.) Luck's for gamblers. I'm a harbourmaster. I'm prepared. (He looks at the pillow.) Mostly."]],
+ "Go home and stay home. I'm going to the lighthouse."],
+21:["(Ash is falling. Ole is sitting on the harbour steps, grey from head to foot, a flask in his hand, very tired and strangely peaceful.) It went. The mountain. I was at the lighthouse all night with Signe. The light stayed on. All night. Not one boat lost.",[
+  ["You were up there for all of it?","All of it. The tower shook. The lens rattled. The ash came down like flour. And Signe kept the light burning, and I held the flask. (He looks at it.) It's empty. Both are."],
+  ["Did you sleep?","I fell asleep on the stairs at four. (He goes red under the ash.) She put a blanket on me. I woke up at six with my head on step ninety-four and a blanket I didn't bring."],
+  ["Are you all right?",["(He strokes his grey moustache.) I'm grey and tired and I've never been so glad of anything in my life.",[
+    ["Glad of what?","That the light stayed on. That the wall held, I've just checked. And that I was there. On the stairs. (A pause.) Mostly that."],
+    ["How's the harbour?","Grey. The wall's still standing. My clerk's been sweeping since dawn. Everyone's alive. That's the only entry in the ledger that matters today."]]]]],
+ "Cover your mouth. And go and see someone you care about."],
+22:["(Ole is pinning a notice to the port office door: DUTY SUSPENDED FOR ONE WEEK. ALL RELIEF GOODS FREE.) There. For the clean-up. Blankets, tins, medicine, timber. Free. No stamp. No waiting. Liv in Eastbrook's done the same.",[
+  ["That's generous.","It's necessary. People need blankets more than the wall needs money. This week. (He looks at the wall.) The wall can wait one week. I've asked it nicely."],
+  ["What will Maya say?","That it's about time. Then she'll find something new to be angry about. She always does. It keeps the island honest."],
+  ["How's Signe?","Cleaning the lens. One stroke at a time. She rang to say thank you for the flask. (He clears his throat.) And the pillow. She says she kept it."]],
+ "If you need a blanket, they're free this week. Take two."],
+23:["(Ole is watching relief boats unload at the quay, very fast, with no stamping at all.) Helsinki, Stockholm, the Red Cross. Blankets, tins, soap. And men from the oil company with cameras, photographing themselves next to the blankets.",[
+  ["Isn't it strange not stamping anything?","Very. My hand keeps reaching for the stamp. Liv says the same. We're both suffering. (He watches a crate go by unstamped.) Terribly."],
+  ["What's the news?","Something broken on the oil rig, they say. The supply boats are going out every hour. Duty-free, this week. The oil company's never been so grateful to me."],
+  ["How's the wall?","Held. Through the mountain and the waves after. (He puts his hand on it.) It's tired. But it held. I'm going to tell the harbour board it deserves a medal. And money."]],
+ "Take a tin of something on your way. Free. This week only."],
+24:["(Ole is stamping again, with great relief.) The duty's back on. One week, and the island's clean enough. (Thump.) There. (Thump.) I've never been so happy to stamp a crate of soap.",[
+  ["You missed it?","Like a man misses his own moustache. You don't notice it until it's gone. Then your whole face feels wrong."],
+  ["What's the news?","The monks have gone up into the peaks. And the Syndicate's cleaning something up, the fishermen say. Men with sacks on the jetty at Eastbrook. Liv's written it down. In triplicate."],
+  ["Did the harbour board reply about the wall?",["(He holds up a letter, and his moustache twitches.) Yes. 'The board will fund repairs to the harbour wall from the duty collected.' After forty years.",[
+    ["That's wonderful!","It was the mountain. A wall that holds through a mountain gets noticed. Forty years of my letters, and it took a volcano. (He looks at the letter again.) I'll take it."],
+    ["Will you lower the duty now?","When the wall's built. Then I'll halve it. And I'll write to Maya myself. 'Dear Coffee Roaster. The toll bridge is closing. Yours, Weak Tea.'"]]]]],
+ "Go and tell someone good news. I'm going to tell the wall."],
+25:["(Ole is reading a letter in big, angry handwriting, and smiling.) Maya. Letter forty-three. 'Your taxes on beans are an insult to the island and to my grandmother.' (He strokes his moustache.) The grandmother's new. She's escalating.",[
+  ["Will you tell her about the wall?","When the first stone's laid. I'll invite her. She'll come to complain. Then she'll see the wall. That's the plan. It's a very slow plan."],
+  ["What's the news?","A crown for everyone, a princess for democracy. Everyone's making promises. (He taps the harbour board's letter.) I've got the only one that's in writing."],
+  ["How's Signe?","The lens is clean. All of it. She says the light reaches further than ever. (He looks at the sea.) I'm going out on Thursday. With the post. And ginger biscuits."]],
+ "If you see Maya, tell her the grandmother was a very nice touch."],
+26:["(Ole is reading a manifest with an eyebrow raised.) The oil company. Importing a milkshake machine. (He reads again.) For the spa. A milkshake machine, for a hot spring. (He stamps it.) Duty paid. I'm not asking.",[
+  ["Is the oil company buying the spa?","So the manifest suggests. And so Saga at the spa telephoned to tell me, very upset. She asked if I could stop the machine at customs. I said no. Rules are rules."],
+  ["Isn't that a bit harsh?","(He pauses.) I said no. Then I said the stamp might take three weeks, like Maya's beans. She laughed. I've never made anyone laugh with a stamp before."],
+  ["What else is happening?","Kelp Cola wants a prince in an advert, the cola men say. I'll believe it when the film comes through customs."]],
+ "If you see a milkshake machine on the quay, it's in a queue. A long queue."],
+27:["(Ole is walking the quay, very slowly, looking at the wall with a builder beside him.) The repairs start next month. New stone. New mortar. Forty years I've waited. (He pats the wall.) Hold on a bit longer, old girl.",[
+  ["You talk to the wall?","Every day for forty years. It's the only thing on this island that's never complained about the duty."],
+  ["What's the news?","A Party picture at the cinema, and big card games, they say. The film came through customs yesterday. Six reels. Very heavy. Liv weighed them three times. Tractors are heavy."],
+  ["Are you nervous about the end of the month?","The wall's funded. The ledger's tidy. Signe's light reaches Saltwick. Maya's still writing. I'm nervous about nothing. It's very strange."]],
+ "Pat the wall on your way. Gently. It's old."],
+28:["(The harbour is full of boats with flags, and Ole is standing on the quay with his ledger, stamping as they come in.) Every faction's making its big push today. Red flags. Royal bunting. Cola crates for abroad. And every one of them is paying duty.",[
+  ["Is everyone paying?","Every one. Without complaint. On the big day, nobody wants to be seen arguing with the harbourmaster. (He stamps.) I should have a big day every week."],
+  ["Who's winning?","From the quay, whoever's got the most crates. That's the cola company, today. They're shipping to Stockholm. The duty on that alone will pay for three yards of wall."],
+  ["How was Thursday with Signe?","(He goes red.) I took the post. And the biscuits. And we sat on step ninety-four, where I fell asleep on the night of the mountain. She said 'This is your step now.' (He stamps something very hard.) Next crate."]],
+ "Out of the way, please. There's a queue and it's got flags."],
+29:["(Ole is at his desk, ledger closed, for once, looking at the sea.) The palace is arguing about who's next. The Republicans are choosing a leader. (He strokes his moustache.) No boats today. Everyone's waiting. Even the sea's waiting.",[
+  ["What are you waiting for?","Tomorrow. Like everyone. Whatever happens, there'll be boats on Monday. And a harbourmaster to log them. That's the one thing I'm sure of."],
+  ["What do you hope happens?","That whoever runs the island remembers the sea. That it's all around us. That walls matter. That lighthouse keepers matter. And harbourmasters. A little."],
+  ["Will you see Signe again?","Thursday. With the post. And Saturday, she's asked. To fish. In her boat. (He clears his throat.) I've never fished in my life. I'm terrified."]],
+ "Sit with me a minute, if you like. No boats today. Just the sea."],
+30:["(Ole is on the quay at dawn, with his ledger open at a fresh page, the wall behind him, the sea in front.) Last day. They're settling the island today. I'll log it. Whatever happens. The date, the weather, the boats, and the island.",[
+  ["What will you write?","'Thirtieth of September. Clear. Wind from the west. Wall holding. Light burning at Eastbrook.' And then, whatever happens. In ink. I'm a harbourmaster. We use ink."],
+  ["What do you hope happens?","That the island stays an island. That the wall gets built. That Signe's light stays on. That Maya keeps writing to me. I've grown fond of the letters."],
+  ["Will you remember this month?",["(He looks at the wall, then north towards Eastbrook.) The mountain, and the light staying on, and step ninety-four, and Maya's grandmother joining the letters. Yes.",[
+    ["And me?","The unregistered landing on the first. I've logged you. When you leave, I'll log that too. (He smiles under the moustache.) No duty on reporters. Still."],
+    ["What will you do tomorrow?","Walk the quay. Stamp the crates. Read Maya's letter. Take Signe's post. Same as always. With a wall that's going to be mended. That's new."]]]]],
+ "Mind the bollard on your way out. Still older than the harbour. Still stubborn."],
 };
 // Olga, owner of the fish shop in Saltwick (the Shopkeepers). Threads: the price of herring and the fishermen she buys from (Tom,
 // Sam, Mike, Bob's clean catch), her loud feud with Hannu at the newsstand over his headlines, Helmi next door at the outfitters
@@ -12793,106 +12864,112 @@ DAILY['Paola']={
   ["What work?","(She looks at you.) I asked you not to. You did anyway. That's a journalist, I suppose."],
   ["Black gloves suit you.","They were my mother's. I wear them twice a year. Today, and her birthday."]],
  "Go home, journalist. It's a day for being at home."],
-11:["(Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole difference between us and them.",[
-  ["Whose watch is it?","A man's in Hope Springs who's late with a payment. I'm mending it while he's still looking for the money. A kindness. He doesn't know it's a hostage."],
-  ["You mend watches?","Clocks, mostly. It's the only job where doing it slowly is doing it well."],
-  ["Mill hands want a fair day's pay, I hear.","So I hear. It's a fine idea. It would make my work a great deal more difficult, since fewer people would borrow."]],
- "Don't breathe on the movement. It's a fine thing, and so is my patience."],
-12:["(Paola is looking at a chessboard on the table, one piece moved.) A letter from Turin. 'G' has answered. Knight to f3, after seven weeks. A man who takes that long deserves a reply of equal care.",[
-  ["Who is G?","I've told you. I don't know. It's a pleasure, not knowing. Everything else I do, I know everything about."],
-  ["What will you play?","Pawn to d4. Ordinary. But ordinary, done well, wins most games and most lives."],
-  ["Do you ever meet your opponents?","The ones at the table, never. The others, daily. They're less polite."]],
- "A quiet afternoon. I'm using it."],
-13:["(Paola is dusting the glass of a grandfather clock in the lobby.) The Colonel's dachshund has been on the clock again. It has an interest in the pendulum. I think it believes it's a very slow rabbit.",[
-  ["Colonel Halvorsen's dog?","Brigadier. He's named after a rank above his master's. The Colonel doesn't know. It's the nicest joke in the building."],
-  ["Does the Colonel know what you do?","He knows I mend clocks. A military man likes to be told things in simple terms. I think he hopes it's all I do."],
-  ["Is there something going on in the Syndicate?","The Don is hunting for something, I'm told. A recipe. I wasn't asked to help. I'm not sorry."]],
- "If the dog comes by, don't feed him. He'll never leave."],
-14:["(Paola is in a grey coat and a hat, and stands by the door, ready to leave.) The Don wants me at the big gathering. To stand somewhere and see. It's what I'm for. I'll be one of a very great many people. Everyone's talking about it.",[
-  ["What do you expect?","Noise. A lot of men who'd like to be heard. I expect nothing more, and I'll be pleased if I'm right."],
-  ["Does the Don worry?","The Don never worries. He plans. It's more expensive, but it lasts longer."],
-  ["Will Carlo be there?","In a new suit, with a new smile. He's been practising in the mirror. I can hear him through the wall."]],
- "I'll be at the edge of the crowd. If you see someone watching, it's me."],
-15:["(Paola is winding a clock, very slowly.) A prince with a crown, a prince with a cross. They're both quite sure of themselves. I prefer a man who has doubts. He's easier to read, and kinder to his horse.",[
-  ["Does the Syndicate take a side?","The Syndicate takes a percentage. It's an older tradition."],
-  ["Who would you choose?","I don't vote. A person in my line of work is never on a list. It's a great comfort."],
-  ["What do you think of the island?","It's very pretty and very cold. I like it. I'd like it more without the snow."]],
- "A good clock tells the time. A great one tells it truthfully. It's rarer."],
-16:["(Paola is listening to the radio, with her head on one side.) The Great Debate. Two sets of men, saying the same thing in different words. In ten minutes, one of them will say 'the people', and the other will say 'the people'.",[
-  ["Who do you think will win?","The one with the better tie. It's a bad thing to say, but I've seen it often enough."],
-  ["Do you follow the debates?","As I follow the chess. Not for the moves, but for the mistakes."],
-  ["What does the Don say?","He says it's a very good time to be quiet. I've taken it as an instruction."]],
- "I'll turn it off. A debate is best heard at a distance."],
-17:["(Paola is looking at the floor, where a cup of tea has a small ring on its surface.) The ground shook a moment ago. A tremor. It's the second this week. I don't like it. I prefer a world that stays where I put it.",[
-  ["Are you worried?","I'm careful. It's different. I've put the watches in a drawer, and the cat on the sofa."],
-  ["Do you hear anything of the Syndicate?","They're making decisions. An executive one, I'm told. I'm not on the committee. I'm what comes after."],
-  ["What does the Colonel say about the shaking?","He's taken it as a military matter. He's inspecting the foundations with a spirit level and a very worried dog."]],
- "If the tea ripples again, step back. It's good advice for most things."],
-18:["(Paola has a bag of small tools on the table and is sorting them by size.) Everything has its place. The Don knows it. The Colonel knows it. Carlo has never known it, and spends a great deal of time looking for his keys.",[
-  ["What's Carlo like as a neighbour?","Loud, vain and charming. He sings in the bath. He sings very badly, but with confidence. He'll make a fine politician."],
-  ["Is he really going to be leader?","He's the Don's choice. It's not for me to say. I'd just like his speeches to be shorter."],
-  ["Do you like him?","I like the way he's never afraid. It's the quality of a man who's never been hit. I find it restful."]],
- "I'll mend your watch, if you've got one. No charge. It's a hobby."],
-19:["(Paola is wearing gloves and carrying a very small parcel.) Don't ask. It's a clock for a very old lady. She wants it ticking when she dies. It's the kind of thing I'm happy to do.",[
-  ["That's a kind thing to do.","It's a precise one. I don't mix the two. But sometimes they coincide."],
-  ["Who's the lady?","A widow in the Residences. She pays me in biscuits. They're very good. Don't tell the Don."],
-  ["Is there much talk in Hope Springs?","A great deal. They're all frightened, but they won't say it. They talk about the weather, the taxes and the dachshund."]],
- "Be careful with old things. They've been through more than you."],
-20:["(Paola is in black, hair tied back, with a small case in her hand.) I've a job tonight. Something at the palace, I'm told. It's the sort of work I don't talk about. You'll forgive me if I'm brief.",[
-  ["I understand.","Thank you. It's a rare quality, in a journalist."],
-  ["Are you nervous?","Never. A person who's nervous has stopped paying attention. I'm paying a great deal."],
-  ["Any advice?","Stay out of corridors. And don't carry anything you can't put down."]],
- "Good night. If you hear nothing, it went well."],
-21:["(Paola stands at the window of her flat, in a shawl of grey ash.) It has gone up. The mountain. I've never heard anything so loud. A very large clock, striking the hour. I counted. It's an extraordinary thing, to hear a clock you can't stop.",[
-  ["Are you all right?","Perfectly. The watches are fine. The cat is under the bed. The Colonel's dog is on the balcony, barking at the sky."],
-  ["Is anyone hurt?","No. Nobody. It's a miracle, or a very good clock."],
-  ["What does the Don say?","He's in the Club, with the doors shut, and a very large brandy. He says nothing yet. When he does, it'll be about money."]],
- "Wipe your feet. I've just swept."],
-22:["(Paola is sweeping the corridor floor in long, even strokes.) Ash. It's on every flat, every sill. I've done the corridor twice. The Colonel's dog sneezes in a very military way.",[
-  ["Are you helping everyone?","I'm helping myself. It's the same thing, when the corridor's shared."],
-  ["Is the Syndicate affected?","The Club's been closed. The bookies are out of business. But the Don's quite calm. He says there's always money in a crisis."],
-  ["What's the mood in Hope Springs?","Shaken. The rich are discovering they've no idea how to sweep. It's quite touching."]],
- "Come in and sit. I've made a pot of tea. It's the only thing I do for free."],
-23:["(Paola has a clock in pieces, laid out on a cloth with a sifting of grey.) The ash gets in the movement. Every watch on the island will need cleaning. It's the best business I've ever had, and I'm doing it for nothing.",[
-  ["Why for nothing?","A person's watch is the one thing they hold on to in a crisis. It would be wrong to charge."],
-  ["Are the Party and the oil men mending things too?","There's a great deal of mending, yes. I hear spanners all day. It's quite pleasant."],
-  ["Is it hard to be kind?","Not at all. It's being precise that's hard. Kindness is just a matter of detail."]],
- "Bring me anything with a tick. I'll look after it."],
-24:["(Paola has a mop and a bucket and a very flat face.) The Don's sent me out with a crew, to clean up. I won't say what. It's a job. I'll do it well, and quietly. It's the best I can offer.",[
-  ["That sounds ominous.","It's a very ordinary job. It only sounds ominous when I say it in that voice."],
-  ["What are the monks doing?","Going up the mountain, I hear. To pray. A sensible thing, when the mountain's been rude."],
-  ["Will you be long?","As long as it takes. Time's a matter of exactness. I'm very exact."]],
- "Stay out of the way. It's safer for both of us."],
-25:["(Paola is looking at a letter from Turin, with a smile that's gone almost as fast as it came.) 'G' has made a mistake. A very small one. A bishop in the wrong place. I've not told him. I'm enjoying it too much.",[
-  ["Will you take the bishop?","Eventually. A mistake should be savoured. It's the only moment a stranger's honest."],
-  ["Would you like to meet G?","No. It would ruin everything. A man at a distance is a mystery. Up close, he's just a man with a pen."],
-  ["How's the island?","Tired. Hopeful. A little drunk on possibility. It's an odd mood, and it won't last."]],
- "I'll reply in a week. It's no time at all."],
-26:["(Paola has a small notebook, and is writing in a very neat hand.) I hear a prince in every bottle, and a spa for an oil man. It's a very good week for people who like to be looked at. I prefer to look.",[
-  ["Do you ever feel you're on the wrong side?","The wrong side of what? I'm on the side of the clock. It's ticking, regardless of what any of us do."],
-  ["What do you make of Dario?","A man who buys a spa has a lot of money and a poor sense of where to spend it. It makes him interesting."],
-  ["What does the Don want?","Everything. In small, careful increments. It's the way of a patient man."]],
- "Don't ask what I write. It's a list. Not a long one."],
-27:["(Paola is tightening a tiny screw, with the tip of her tongue between her teeth.) High stakes tonight, I'm told. A card game at the Club. The Don's playing. It's a very big pot. I'm in the corner, looking at the door.",[
-  ["Do you play cards?","Never. A card game is a way to lose money slowly. I prefer to lose it quickly, and in private."],
-  ["Is the Don a good player?","The best. He plays the man, not the cards. It's why he's rich."],
-  ["Will there be trouble?","There's always the possibility. It's why I'm there. If it comes, it will be brief."]],
- "Come and watch, if you can keep quiet. It's an education."],
-28:["(Paola is in her best black suit, a clean pocket watch on a chain.) The biggest day. The Don has told me to stay close. I'm to stand behind Carlo's chair at the Republican HQ. It's a very simple job. I stand. I watch. I'm good at it.",[
-  ["Are you nervous for Carlo?","I'm never nervous. I'm attentive. He's nervous enough for both of us."],
-  ["Do you think he'll win?","I don't think. I watch. It's less tiring."],
-  ["What's the mood?","Tight, like a spring. It's the same sound as a clock before it chimes."]],
- "Stay out of my line of sight. It's a courtesy, not a threat."],
-29:["(Paola is winding every clock in her flat, one by one.) The night before. I like to have everything running. If it goes wrong tomorrow, at least the clocks will be right.",[
-  ["Are you ready?","I'm prepared. It's not quite the same. But it's close."],
-  ["Is Carlo ready?","He's been rehearsing a speech for a week. He's put it on three cards, and lost one. We've found it, in the dog's basket."],
-  ["How is the Don?","Quiet. It's a bad sign, or a good one. With him, it's the same."]],
- "Sleep, if you can. I won't."],
-30:["(Paola stands at the window of her flat, with the sun on her grey hair.) The last day. Everything I've wound, all month, is about to strike. I've no idea what the hour will be. It's a very peaceful feeling.",[
-  ["Any last words?","Take care of your watch. And your friends. It's an old rule, and it holds."],
-  ["What will you do afterwards?","Mend a clock. Play a game of chess. Walk a dachshund, if the Colonel will let me."],
-  ["Thank you for talking.","You're welcome. You were a good listener. It's more useful than most skills."]],
- "Goodbye, journalist. Mind the stairs."],
+11:["(Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole of my profession, both of them.",[
+  ["Both professions?","Clocks and debts. In each case, something is a little out, and nobody notices until it stops. I notice first."],
+  ["Whose watch is it?","The Colonel's, two doors down. He overwinds it every morning at six, before he walks Brigadier. A soldier's hand. Too much force, too often."],
+  ["Any news from Turin?","(She glances at a postcard on the shelf.) Bishop to c4. My opponent's getting bold. Nine years of letters and he's never been bold before. Something's changed in Turin."]],
+ "Close the gate on your way out. Gently. It sticks."],
+12:["(Paola is standing very still by the fountain, watching a man in a good suit cross the square very fast.) Mr Phil's brother-in-law. He's remembered what he owes. (She watches him go.) He's going to the Club to pay. I won't need to visit.",[
+  ["Do people always pay you?","People always pay the Don. I just remind them that a debt is like a clock. Nobody notices it ticking until it stops."],
+  ["Do you enjoy the work?","I enjoy precision. A debt paid on time. A clock that keeps time. A move in chess that can't be answered. Enjoyment's too loud a word. Satisfaction."],
+  ["What does the Don think of you?","(She almost smiles.) He trusts me with his brandy, his car and his secrets. In that order of importance, I think. He's very fond of the brandy."]],
+ "If you owe anyone in Hope Springs anything, pay it. It saves everyone a walk."],
+13:["(Paola is in the Residences lobby, dusting the glass of a grandfather clock.) The Colonel's dachshund has been on the clock again. Brigadier. It has an interest in the pendulum. I think it believes it's a very slow rabbit.",[
+  ["Is the clock all right?","Four seconds slow. The dog's breath on the glass. (She closes the case.) I've reset it. Brigadier will be back tomorrow. So will I."],
+  ["Who's in the Residences?","The Colonel and his dog. Carlo, two doors down, with his ties. Harald from the cola company, two floors up, with his goldfish. And me. We nod in the lift. It's a very well-mannered building."],
+  ["Is Carlo a good candidate?","He's a very well-dressed candidate. (She dusts the clock.) He does what he's told. That's all the Don asks. Whether it's enough for the members, we'll see."]],
+ "Mind the dog on your way out. He's under the clock."],
+14:["(Paola is in a dark coat at the back of the gathering, very still, watching the crowd, not the speakers.) Big day. The Don wants to know who's here, who's with whom, who's nervous. (She doesn't look at you.) You're nervous. Your left hand.",[
+  ["What else do you see?","Carlo shaking hands with four hundred people and enjoying none of it. Magnus counting the crowd. Harald smiling at a grandmother. The Party watching the palace. The palace watching the Party."],
+  ["Isn't the Don here?","At the back, other side. In black. With a flower. We stand apart so we see more. (A pause.) That's the theory. I think he just likes to be alone."],
+  ["What do you hope comes of it?","That nobody does anything stupid. Stupid is expensive. It always lands on my desk."]],
+ "Watch your left hand. Everyone's reading hands today."],
+15:["(Paola is setting up a chessboard on the Residences' lobby table, from a postcard.) Knight to e5. From Turin. He's attacking. (She studies the board.) He's never attacked in nine years. I don't know who he is, but he's in a hurry now.",[
+  ["Who's your opponent?","A man in Turin who answered an advertisement in a chess magazine in 1975. That's all I know. I've never seen his face. I know his mind better than anyone's on this island."],
+  ["What will you play?","(She moves a piece.) Defend. Then wait. A man in a hurry makes mistakes. I've watched men in a hurry for twenty years."],
+  ["What's the news?","The palace and the Church are fighting over the prince's brother. (She sets the board.) A quiet piece everyone wants. In chess, that's usually the bishop. Here, it's Augustus."]],
+ "Don't touch the board. I'll know."],
+16:["(Paola is mending Carlo's wristwatch while he waits beside her, very nervous.) The Don's candidate. His watch stopped this morning. Before the debate on the wireless. He thinks it's an omen.",[
+  ["Is it an omen?","It's a speck of dust. (She holds it up on the tip of the screwdriver.) There. Most omens are dust. People just don't look closely enough."],
+  ["Is Carlo going to win?","(Carlo goes pale. She doesn't look up.) He'll do as well as he's told to. (A pause.) He asked me yesterday if he'd do well if nobody told him anything. I didn't answer. I'm thinking about it."],
+  ["What do you think of him?","He's vain, and kind, and frightened of his own friends. (She hands him the watch.) There. It works. So does he, mostly."]],
+ "If your watch stops, bring it here. Most omens are dust."],
+17:["(The Residences' lobby clock has stopped, and Paola is on a ladder, very calmly, adjusting its pendulum.) The ground moved. Every clock in the building stopped at the same second. 10.42. (She notes it in a small book.) I like to know the exact time of things.",[
+  ["Was it an earthquake?","Something. The Don says the ground moving is the least of his worries. He's told me to put a cushion under the brandy. I've done it. Two cushions."],
+  ["Is anything else happening?","The oil company's chief has gone missing. Dario. (She restarts the pendulum.) The Don's very interested. He's asked me to find out where. Discreetly."],
+  ["Do you know where he is?","(She steps down.) Not yet. Men who vanish usually leave a trail. Receipts. Tickets. A watch left by a basin. I'll find the watch."]],
+ "Your watch is two minutes fast. Everyone's is today."],
+18:["(Paola is reading a postcard, very still.) Turin. Queen takes rook. (She sets it down.) He's winning. For the first time in nine years, he's winning. And there's a line at the bottom, in his hand: 'Forgive me. I'm ill. I'd like to finish.'",[
+  ["He's ill?","He's never written anything but moves. Not once in nine years. Now: 'I'm ill. I'd like to finish.' (She folds the postcard.) That's why he's in a hurry."],
+  ["What will you do?","Play faster. By telegram, if I have to. I'll finish the game. (A pause.) I won't let him lose because he ran out of time. That's not winning."],
+  ["What's the news?","Somebody's been in the files at the Republican offices. Carlo's frightened Margit thinks it was him. (She looks at you.) It wasn't. I'd know."]],
+ "Don't mention Turin to anyone. Please."],
+19:["(Paola is in an evening dress, very plain, black, putting on her gloves.) Thursday. The Midnight Note. The Don goes to hear Rita sing. I drive him. We sit at the back. (She checks her gloves.) She sings 'Stormy Weather' for him. He pretends not to notice.",[
+  ["Does Rita know who he is?","Everyone knows who he is. She pretends she doesn't. He pretends he believes her. It's the most civilised arrangement on the island."],
+  ["Will anything interesting happen tonight?","(She pauses.) There's a man who's been coming to the club in a false moustache. The Don says not to look. So I'll look very carefully at everything else."],
+  ["Did you telegraph Turin?","This morning. Knight to d7. (She looks at the clock.) Telegrams take a day. I've told him to take his time. I've never told him that before."]],
+ "Go somewhere warm tonight. It smells of eggs. That's the mountain."],
+20:["(Paola is moving bottles of brandy from the Club's shelves into crates lined with cushions.) The ground's moving every hour. The Don's taking his members down to the cellar tonight. With the brandy. And me. (She lays a bottle down very gently.) Mostly the brandy.",[
+  ["Is it going to erupt?","Probably. Everything in Hope Springs is tied down, packed or cushioned. I've stopped every clock in the Residences so the pendulums don't break. The building's very quiet."],
+  ["What about Carlo?","The Don's told him to come to the cellar. He'll come. He always comes when he's told. (She closes the crate.) He looked at the party offices for a long time before he said yes."],
+  ["Any news from Turin?","(She hesitates.) A telegram. 'Thank you for the time. Bishop to b5.' He's still playing. (She tucks it into her glove.) I'm still answering."]],
+ "Go somewhere low tonight. Cellars are good. So are friends."],
+21:["(Ash is falling over Hope Springs. Paola is in the square, grey all over, with a list in her gloved hand, crossing names off.) It went. The mountain. I've been round every door in Hope Springs since dawn. Every resident. Every villa. Everyone's alive.",[
+  ["Is anyone hurt?","Bruises. Fright. One of the Club members fainted into the topiary. He's telling everyone it was a dive. (She crosses off a name.) It wasn't a dive."],
+  ["Was the Don all right?","In the cellar, all night, with the brandy and the members. He told stories about the old king. Everyone listened. Even the frightened ones. (A pause.) Especially them."],
+  ["Are you all right?",["(She looks at the list in her hand, every name crossed off.) I'm all right. I've counted everyone. That's the job, on a night like that. You count, and you count again.",[
+    ["Who counts you?","(She looks at you for a long moment.) Nobody, usually. (A pause.) The Don did. At four in the morning. He said 'Paola. Good.' That's all. It was enough."],
+    ["What about Carlo?","He came out of the cellar at dawn and walked through the ash to the party offices in Frostholm. In his good suit. To check on the ballot box. Nobody told him to. (She almost smiles.) I'm thinking about what that means."]]]]],
+ "Cover your mouth. And go and count your own people."],
+22:["(Paola is sitting on the fountain's edge, which she never does, holding a telegram.) Turin. 'Mate in three. You've found it. Well played. Thank you for nine years.' (She folds it very small.) I didn't play mate in three. He played it for me. He let me find it.",[
+  ["He let you win?","He knew he wouldn't finish another game. So he made sure this one ended well. (She looks at the grey fountain.) That's a very kind thing to do, with a chessboard."],
+  ["Are you sad?","(She doesn't answer for a long time.) I've known him nine years and never heard his voice. I'll miss him more than most people I've seen every day."],
+  ["What will you do?","Write back. One last move. Not a chess move. Just 'Thank you.' In my own hand. (She puts the telegram in her glove.) Then mend some clocks. Clocks help."]],
+ "Leave me a minute, journalist. I'll be all right. I always am."],
+23:["(Paola is back in the Residences lobby, starting every clock again, one by one.) The building's been silent since the twentieth. I stopped them for the mountain. Now they all start again. (She sets a pendulum swinging.) Tick.",[
+  ["Did you write to Turin?","Yesterday. Two words. (She sets another pendulum going.) I don't know if he'll read them. I've decided he will. That's how I'm choosing to keep time."],
+  ["What's the news?","Something broken on the oil rig, they say. Spanners. (She closes a clock case.) The Don's very interested in who. He's always interested in who."],
+  ["How's Carlo?","He's written a letter to the members. In his own hand. Without asking the Don. (She looks at you.) The Don hasn't seen it. When he does, he'll be cross. Then proud. In that order."]],
+ "Listen. (Every clock in the lobby is ticking.) That's the building alive again."],
+24:["(Paola is in a plain dark coat, with flour on one cuff, very calm, and very tired.) A busy morning. Before dawn. Don't ask me what. (She brushes the flour off.) I asked you that once before. You didn't listen then either.",[
+  ["Why the flour?","(She looks at the cuff.) Rosaria's, at the pizzeria. I borrowed an empty sack. And a strong coffee. Rosaria didn't ask why. That's why I like Rosaria."],
+  ["Is everything all right?","Everything is tidy. That's what the Don asked for. Tidy. (She looks at her hands.) I also took a clean shirt to Mario. From the Don. I asked him one question. He answered it."],
+  ["What's the news?","The monks have gone up into the peaks to pray. (She pulls her gloves on.) Some people go up mountains to be closer to God. Some people go down into cellars. I go wherever I'm sent."]],
+ "Close the gate on your way out. I'd like it shut today."],
+25:["(Paola is walking Brigadier, the Colonel's dachshund, on a very short lead, very slowly.) The Colonel's knee is bad. Since the mountain. He asked me to walk the dog. (Brigadier stops at every lamp post.) I think the dog's doing chess problems.",[
+  ["Do you like dogs?","I like this one. He's patient, stubborn and he never forgets where he's buried something. We have a great deal in common."],
+  ["What's the news?","A crown for everyone, a princess for democracy. (She waits while Brigadier investigates a hedge.) Everyone's promising everything. The Don promises nothing. That's why people believe him."],
+  ["Will Carlo win the vote?","(She considers.) The Don has put money on it. Carlo's put a letter in his own hand. Those are two very different bets. I'm watching to see which pays."]],
+ "If you see the Colonel, tell him Brigadier found the bone from 1979. Under the third rose bush."],
+26:["(Paola is straightening Carlo's tie in the Residences' lobby, without asking. He stands very still.) The Don wants it grey on the day. (She steps back.) He's wearing blue. I don't mind blue. (Carlo looks astonished.)",[
+  ["Why don't you mind?","Because a man who wears the tie a fishwife liked is a man who knows who he's dressing for. That's rarer than a good grey tie."],
+  ["What did you just tell him?","(She glances at Carlo as he leaves.) That the Don's proud of him. That he'd never say. (A pause.) It was true. Someone should tell him things that are true."],
+  ["What's the news?","The oil company's buying the spa, they say. Saga at the desk is very frightened. The Don sent her flowers. Lilies. (She almost smiles.) He sends lilies to everyone he respects. Rita sends them back."]],
+ "Straighten your collar on the way out. It's a little out. Nobody would notice. I did."],
+27:["(Paola is laying out a card table in the back room of the pizzeria in Kingsgrad, with a ruler, making sure every chair is exactly the same distance from the table.) The Don's game tonight. High stakes. Half the Republican members are coming. And Carlo. Everything must be precise.",[
+  ["Is it a fair game?","The Don's games are always fair. He doesn't need to cheat. He just needs people to sit at his table. (She straightens a chair.) Sitting at his table is the price."],
+  ["Will Carlo play?","He'll play and lose. Gracefully. The members will like him for it. That's the Don's plan. (She looks at the chair.) Carlo knows. He's going to lose very well."],
+  ["Do you play?","Chess. Never cards. Cards have luck in them. I don't like luck. I like to know where every piece is."]],
+ "Don't come to the game tonight. Not because it's dangerous. Because it's very dull, unless you're losing money."],
+28:["(Paola is in the Residences' lobby, with every clock ticking, reading a letter with an Italian stamp.) Turin. From his sister. (She reads it again.) He read my two words. The day before. She says he smiled. (She folds it.) That's the end of the game.",[
+  ["I'm sorry.","(She nods.) Nine years. Three hundred and twelve moves. And the last one was 'thank you'. That's a good game. A very good game."],
+  ["What's happening today?","Every faction's big push. Flags everywhere. The Don's at the pizzeria, receiving people. I should be with him. (She looks at the clocks.) I asked for an hour. He gave me two."],
+  ["What will you do now, without the game?",["(She looks at the chessboard on the lobby table, the last position still set out.) I don't know. Find another opponent, perhaps. Or leave the board as it is.",[
+    ["Leave it as it is.","(She considers it.) Yes. For a while. A board with a finished game on it is a kind of clock. It tells you something happened."],
+    ["Find another.","Perhaps. Someone who plays slowly. (She looks at you.) Do you play chess, journalist? No. You'd play too fast. Reporters always do."]]]]],
+ "Close the gate on your way. Gently. It still sticks."],
+29:["(Paola is in a dark coat at the back of the Republican hall in Frostholm, watching members file past Margit's ballot box, very still.) The vote. The Don's not here. He sent me. To watch. (She doesn't look at you.) Carlo's wearing the grey tie. The blue one's in his pocket.",[
+  ["What are you watching for?","Who's nervous. Who's been told what to do. Who hasn't. (She watches a member drop a paper in the box.) That one hasn't. He's smiling. Nobody told him to."],
+  ["Who'll win?","(She watches the box.) Whoever the members choose. For once, the Don hasn't sent anyone to stand outside. Carlo asked him not to. The Don said yes. I've never heard him say yes to Carlo."],
+  ["Are you nervous?","I'm precise. (A pause.) And yes. A little. I'd like Carlo to find out what he's worth. Whatever the answer is."]],
+ "Don't stand near the box. Margit bites."],
+30:["(Paola is standing by the fountain in Hope Springs at dawn, very still, with her mother's black gloves on.) Last day. They're settling the island today. The Don's at the Club, waiting. Carlo's walking the dog. (She looks at the gate.) And I'm standing here, because nobody's sent me anywhere.",[
+  ["What will you do with a free day?","Mend a clock. Walk Brigadier, if the Colonel will let me. Set out a chess problem. (She looks at the gloves.) And wear these. It's not my mother's birthday. I just wanted to."],
+  ["What do you hope happens to the island?","That it stays tidy. That debts get paid, and clocks keep time, and men in hurries don't get hurt. And that someone in Turin is resting well."],
+  ["Will you remember this month?",["(She looks at the grey fountain, then at the Residences.) Every clock stopped at 10.42. Every name crossed off. Mate in three. Yes.",[
+    ["And me?","The journalist who asked what work I did, after I asked them not to. Twice. (She almost smiles.) You were nervous with your left hand. You're not now."],
+    ["What will you do tomorrow?","Whatever the Don asks. Mend whatever stops. Close the gate. Same as always. (She pulls the gloves tighter.) Precisely."]]]]],
+ "Close the gate behind you. Gently. I'd like it shut."],
 };
 // Paolo, Syndicate bookie in Eastbrook, who takes bets in the Timberline Tavern (Crime Syndicate). Threads: the ledger he keeps in
 // his head and his party tricks with it, Eastbrook gossip (the mill, the Gazette, Ruby's shop), his hopeless love for Maya at the
@@ -14187,129 +14264,138 @@ DAILY['Ray']={
   ["Can I ring it?","(She looks at you a long while. Then she nods.) When it's done. Not before. And only once."]],
  "Mind the ice on the steps. It's back."],
 };
-// Rita, jazz singer at The Midnight Note in Frostholm (the Entertainers). Threads: her smoky voice and the half of the island that's in love
-// with her, the past she won't discuss (a mysterious "other city"), Leo and his silences, Sid's bar, her nerves before a song, the ash.
+// Rita, jazz singer at The Midnight Note in Frostholm (the Entertainers). Threads: the voice half the island is in love with, and the
+// flowers she sends back (Gustavo's, with a note); the other city she came from and never names, and the song she writes about it (the
+// 18th to the 25th); Leo, who plays behind her and has never said a word about how he feels, and the night in the cellar (the 21st);
+// Sid behind the bar; Kaisa begging her to sing live on the radio; the man in the false moustache (the 19th); the girl from Eastbrook
+// who writes asking to sing, and the audition after hours (the 27th); her nerves before every song, which nobody sees.
 DAILY['Rita']={
-7:["(Rita is sitting at a dressing-table mirror, pinning up her hair.) A new face. A reporter, I hear. I've been asked three times today if I'm the famous singer. I told them I'm the singer. The famous part is optional.",[
-  ["I'm the British reporter.","Then you'll want a story. I haven't got one. I've got a voice and a song, and no previous address."],
-  ["Where were you before Frostholm?","Somewhere warmer. (She smiles and doesn't say.) Ask me something else. Ask me what I'm singing tonight."],
-  ["What are you singing tonight?","'Nature Boy'. It's a song about a strange little man who learns something. I've always felt I knew him."]],
- "Come by the club. Sit near the front. I sing better when someone's frowning."],
-8:["(Rita is in a silk dressing gown, with a cup of tea, standing at the window.) It's Sunday. The bells are going, and I'm still in my nightclothes. The monks have the day and I have the night. It's a fair division.",[
-  ["Do you go to church?","Once, years ago. I sang the Ave Maria and everyone cried. It put me off. I don't like it when I'm that good."],
-  ["Do you sleep late?","Until Leo's saxophone wakes me. He plays a very quiet scale at noon. It means he's up. It's a kind of alarm clock."],
-  ["What's your morning like?","Tea, a long look out of the window, and a lot of pretending I'm not nervous."]],
- "Come back when the lights are low. It's when I'm most myself."],
-9:["(Rita is holding a bottle of cola and looking at it like an old enemy.) They want me to sing a jingle. A cola jingle. 'Fizz, fizz, hurray.' I said I'd rather sing in a drain.",[
-  ["Is it a good offer?","It's a very good offer. That's what worries me. Nobody pays that much for anything honest."],
-  ["Who asked?","A smooth man with a clipboard. He kept calling me 'Ms Rita'. I said I'm just Rita. He wrote it down."],
-  ["Will you sing it?","Not unless they let me change the words. I'd sing 'Fizz, fizz, regret'."]],
- "I'll sing for a fair fee, and a fair tune. Everything else is a jingle."],
-10:["(Rita is in plain black, no jewellery at all.) We're singing a hymn tonight, for the king. Sid asked. I've not sung one in years. I'm a little frightened, if I'm honest. It's a very naked kind of song.",[
-  ["Did you know the king?","No. But I think I knew what it was to be him. A man who'd been everything, and was now, mostly, a portrait."],
-  ["What will you sing?","'Abide with Me'. In D. Leo will play behind me, very softly. If I cry, he'll cover it."],
-  ["Is it a hard day?","It's a long one. I'm good at those. I've had practice."]],
- "Come tonight, if you want. Bring a handkerchief. Not for me."],
-11:["(Rita is stitching a hem on a stage dress, with her mouth full of pins.) A man came to the club asking if I'd sing for the poor. I said yes. Then he said it was a charity ball for the rich. I said, no, thank you.",[
-  ["Did you mind?","I mind being used. I'd sing for either, if they'd just ask honestly."],
-  ["Do you get a fair wage?","Sid pays me what he can, and then a bit more. He's a good man, under the grumbling."],
-  ["What's the buzz at the club?","Alms, pay, politics. Everyone's got an opinion. I let them have it. They tip better when they've been heard."]],
- "Mind the pins. They've a will of their own."],
-12:["(Rita is looking at an old photograph, then puts it face-down.) Nothing. Just an old picture. A man, a city and a coat. It was a long time ago. Ask me something else.",[
-  ["Who's the man?","Somebody I used to sing to. He never listened. It's the only thing I remember about him."],
-  ["What city is it?","A very big one. Very loud. I didn't like it. I ran away to a little island with a lot of snow. It seemed the sensible thing."],
-  ["Is it a sad story?","It's a story. It's got a beginning and a middle. I'm still working on the end."]],
- "Don't print it. Print the song. It's better."],
-13:["(Rita is warming up her voice, with a long, rising 'ah'.) They're giving cola away in Kingsgrad tomorrow, I hear. And the Syndicate's hunting for a recipe. It's a very busy island for a very quiet place.",[
-  ["Do you hear a lot at the club?","I hear everything. A singer's invisible, on a stage. They talk as if you're furniture. It's a very useful kind of fame."],
-  ["What's the recipe about?","I don't ask. I don't want to know. I've learned to keep my ears for the music."],
-  ["Is Leo listening too?","Leo hears everything and says nothing. It's his gift. And his tax dodge."]],
- "If someone offers you a secret, say no. It's heavier than it looks."],
-14:["(Rita is wearing her best dress, a deep red one, and a faint, nervous smile.) The big day. Everyone on the island in one place. I've sung to a hundred. I've never sung to an island.",[
-  ["Are you singing?","If they ask me. I'm not sure what I'd sing. Something simple. A hymn, a lullaby."],
-  ["Are you nervous?","I'm always nervous. It's what keeps me honest. A singer who isn't nervous has stopped listening."],
-  ["What do you expect?","Cold air, loud voices, a lot of feeling. Someone will cry, and someone will cheer. I'll be at the back, with a handkerchief."]],
- "Go and see it for yourself. Come and tell me, afterwards, what it was like."],
-15:["(Rita has two men's roses, one in each hand, and looks at them thoughtfully.) A red one from a royalist, a white one from a monk. They both think I'll sing at their rally. I said I'm a jazz singer. They said, of course, how lovely.",[
-  ["Are you picking a side?","I'm picking a key. D, I think. It suits most kings."],
-  ["Who's your favourite prince?","The one who doesn't ask for a rose back. I haven't met him."],
-  ["Is it getting political at the club?","It's always political. People just usually do it quietly, over a drink. It's the best kind."]],
- "Put them in water. They've done nothing wrong."],
-16:["(Rita is reading a newspaper with a large headline, upside down, and then right way up.) The Great Debate. It sounds so noble. I hear the Democrats are fretting about their ties, and the Communists about their slogans.",[
-  ["Will you go?","I'd like to. I want to hear someone say something they mean. It's a rare thing in politics, and very good for the voice."],
-  ["Do you vote?","I'll vote for whoever sounds most tired. It's a good sign."],
-  ["Who wins?","The one who stays on key. It's always the one who stays on key."]],
- "Don't tell them I'm coming. They'll make a speech about me."],
-17:["(Rita stops in the middle of a note, a hand against the wall.) That was no tram. The floor shook. A faint, low shiver. I've sung through a lot, but I've never been interrupted by the ground.",[
-  ["Was it an earth tremor?","I think so. Leo played a low C at the same moment, and I couldn't tell which one made it."],
-  ["Are you frightened?","A little. I don't like it when the world changes key without warning."],
-  ["Is the mountain steaming?","They say so. I haven't looked. I'm told it's pretty. I'd rather hear about it than see it."]],
- "If it happens again, hum. It steadies the nerves."],
-18:["(Rita is practising a lullaby, very softly.) I'm trying a new song. It's about a mountain that dreams of being a cloud. I wrote it this morning, in the bath. It might be nonsense, but it's my nonsense.",[
-  ["Is it about the volcano?","I didn't mean it to be. But the songs go where they want. They're like cats."],
-  ["Can I hear it?","At the club, tonight. If you're good. If you're not good, you'll have to hear it anyway."],
-  ["Has the shaking got worse?","A bit. The chandeliers tinkle. It's like a very small orchestra. Leo's started to play along."]],
- "Come early. I like a good seat for the nervous."],
-19:["(Rita has the stage lights on, and is practising a bow in front of an empty room.) I'm told someone's coming tonight. Incognito. A member of the palace, in a bad hat. It's always the same. Royalty can't keep a secret in a hat.",[
-  ["Who is it?","I'd rather not say. Sid told me, and Sid never tells. It must be someone very important or very silly."],
-  ["Will you sing for them?","I'll sing for whoever sits in the front. If they're royal, they'll tip. If they're not, they'll be charming."],
-  ["Do you like the disguises?","They're the best part. A prince in a false moustache is a prince finally relaxed."]],
- "Stay for the second set. It's when the interesting people leave."],
-20:["(Rita has a small bag by the door, and a coat over the chair.) Madame Zora sent a note. 'Pack and sleep light.' I've never believed in her, and I've never doubted her. It's a very uncomfortable arrangement.",[
-  ["Are you leaving?","Not yet. But I've found the passport. It's in a shoe. It's been in a shoe for years."],
-  ["What's happening?","I don't know. A feeling, like a held breath. I've felt it before, in another city. It never ended well."],
-  ["Is it a bad omen?","It's an honest one. It's the dull omens that fool you."]],
- "Be ready tomorrow. It's all anyone can do."],
-21:["(Rita is on the steps of the Skyline Apartments, covered in a fine grey dust, her hair loose.) It's happened. The mountain's gone up. The ash is falling like soft rain. I'm all right. I'm singing, a bit, to keep the fear down.",[
-  ["What are you singing?","'Over the Rainbow'. It was the first thing I thought of. It doesn't mean anything. It's just comforting."],
-  ["Is everyone safe?","Leo's safe, and Sid's under the bar, and the piano's fine. It's the best we could've hoped for."],
-  ["How are you?","Shaken. But I've survived worse. A mountain's quite honest, in its way. It doesn't pretend."]],
- "Keep your mouth covered. The ash is in everything, even a song."],
-22:["(Rita is washing her scarves in a basin of grey water, coughing gently.) I can't sing a high note without a little cough. It's like a very small chorus of ghosts. I've decided to take it as harmony.",[
-  ["Is the club open?","Open, and packed. Everyone's come in covered in grey, like statues. We lit every candle in the place."],
-  ["What are you singing?","Something slow and low. A song for people who've had a fright. It's most of the island."],
-  ["Are you coping?","Better than I expected. A fright's a good way to find out what you care about."]],
- "Bring a scarf. A clean one, if you've got it."],
-23:["(Rita is dusting the top of the piano, with a very small brush.) I've never worked so hard in my life, and all I'm doing is cleaning. The ash comes up in the light like a grey fog. It's strangely beautiful.",[
-  ["Are people still coming?","More than before. They want a song and a seat. It's all anyone wants in a crisis."],
-  ["What's the news?","The Party's mending its machines, and the oil men their pipes. Everyone's mending something. I'm mending my voice."],
-  ["How's Leo?","Silent, as ever, and playing beautifully. He's put a mute on the sax, to keep the ash out. It sounds like a man talking in his sleep."]],
- "Come and listen. I'll sing you something clean."],
-24:["(Rita is looking out of the window, north, over the grey roofs.) The monks are going up the mountain. To pray, I hear. I'd go with them, if I knew a good enough hymn. I only know the ones with a drummer.",[
-  ["Do you pray?","I sing. It's the same thing, with better lighting."],
-  ["Are the tremors over?","Just the small ones. They come at night, like a cat jumping on the bed."],
-  ["What's the mood?","Tired. A little tender. People are being nicer to each other. It's lovely, and it won't last."]],
- "Wrap up warm. The cold's coming in under the ash."],
-25:["(Rita has a faint smile, and a very small bunch of paper flowers.) A crown for everyone, they say, and a princess for democracy. I've been asked to sing at a reception. I said I'd sing for anyone who's polite to the waiters.",[
-  ["Who's the princess?","Daphne. She's a lovely girl. She comes to the club in a dark scarf and thinks nobody knows. We all know. We're very discreet."],
-  ["Do you like her?","I do. She listens. It's rare. Most people at a table are just waiting to speak."],
-  ["What will you sing?","A love song, I think, with a bit of a twist. It will be about a woman who's good at leaving."]],
- "If you're there, sit near the front. I'll sing it just for you."],
-26:["(Rita has a bottle of cola on the dressing table, and her own face in the mirror, looking at it.) A prince in every bottle. Imagine if they'd put a singer on it. I'd get very thirsty.",[
-  ["Would you put your face on a bottle?","Only if it were a very small bottle. And a very small face."],
-  ["What about the oil man's spa?","I hear it's the grandest on the island. I'd like to go. I'd like to sing in a steam room. The acoustics must be wonderful."],
-  ["How's the club?","Lively. Everyone's got money, and nowhere to spend it. Sid's thrilled."]],
- "Don't drink a prince on an empty stomach. It goes to the head."],
-27:["(Rita is holding two tickets for the Eastbrook pictures.) A revolution at the cinema, I hear. I'm taking Leo. He'll sit in the back and say nothing, and then say, 'Good tune.' It's the most he's ever said about a film.",[
-  ["Do you like films?","I love them. I like being in the dark and not having to sing. I'd like to be the girl who gets rescued, just once."],
-  ["What's the film about?","A revolution, or something like it. I hope there's a song in it. The best revolutions always have a song."],
-  ["What's the mood on the island?","Taut. Like a drum before the stick. I can feel it in my teeth."]],
- "Save me a seat. I'll sit on the aisle, in case I cry."],
-28:["(Rita is stretching her neck, and humming one long note.) The biggest day of the month, they say. Everyone's out, shouting. I've decided to be quiet. A good singer knows when to rest.",[
-  ["Will you go out?","Not today. I'll stay in, and warm up my voice. I've a feeling I'll need it tomorrow."],
-  ["Are you worried?","A little. I've seen how crowds turn, in other places. It's not the shouting I fear, but the silence after."],
-  ["What would you sing for them?","Something simple. A lullaby, maybe. They've all been up too long."]],
- "Keep your head, and keep your voice. It's the only advice I've got."],
-29:["(Rita sits at the piano, a single candle on the lid.) The night before. I've no show tonight. Sid's given us a rest. It feels strange, to be so quiet, with so much about to happen.",[
-  ["How are you feeling?","Calm. A bit sad. Like at the end of a good long song, when the last note's still in the air."],
-  ["What will you sing tomorrow?","Whatever comes. It might be a hymn, or a ballad, or just a long breath. I'll know when I'm there."],
-  ["Is Leo all right?","He's practising, very softly, next door. It's a good sound to fall asleep to."]],
- "Go home and sleep. The song will still be here."],
-30:["(Rita stands on the empty stage in the grey light, her hands at her sides.) The last day. I've sung a hundred songs this month, and I can't think of one. It's a strange, empty, lovely feeling.",[
-  ["Any last words?","Listen. It's all there is. If you can't hear the music, hear the quiet. It's just as good."],
-  ["What will you do after today?","Sing. Whatever happens, I'll sing. It's the one thing they can't take from me."],
-  ["Thank you for talking.","You're welcome. You asked the right questions. It's rarer than you'd think."]],
- "Goodnight, wherever you are. I'll sing it for you."],
+7:["(Rita is sitting at the end of the bar in a dark green dress, a glass of water in front of her, not looking at anyone.) The reporter. (She doesn't turn round.) Everybody comes to look at the singer once. Then they come back to listen. Or they don't.",[
+  ["I came to listen.","(She turns, and smiles slightly.) Then sit near the back. The front's for people who want to be seen listening."],
+  ["Where are you from?","(The smile goes.) Somewhere with trams and a river. A long time ago. (She sips her water.) Next question."],
+  ["Is it true half the island's in love with you?","Half the island's in love with a song. I'm just standing in front of it. They'll get over it by Easter. They always do."]],
+ "Come back at eleven. That's when I'm worth hearing."],
+8:["(Rita is reading a newspaper in a coat with a fur collar, sunglasses on, though it's grey outside.) Sunday. No singing. I'm incognito. (She lowers the glasses.) Badly, apparently.",[
+  ["Do you go to church?","When the choir's good. The monastery choir's very good. I sat at the back once and cried. Nobody saw. That's what the back's for."],
+  ["What do you do on your night off?","Listen to the radio. Kaisa plays the records nobody else will. She's been begging me to sing live on air. I keep saying no. Live is too close."],
+  ["Why sunglasses?","Because when I go out without them, men buy me things. With them, they just stare. Staring's cheaper for everyone."]],
+ "Don't tell anyone where I sit on Sundays."],
+9:["(Rita comes in late, pulling off her gloves, a little out of breath.) Late. First time in ten years. Leo's been playing worried music for an hour. (She looks at the stage.) I can tell. It's in a minor key.",[
+  ["Where were you?","(She hangs up her coat.) Somewhere. Posting a letter. (A pause.) To someone in the other city. I do it once a year. Don't ask."],
+  ["Is Leo worried about you?","Leo worries in music. He never says. He just plays it, and I hear it from the street. It's very loud for a man who never talks."],
+  ["Are you all right?","I'm fine. I'm always fine by eleven. That's the job. (She checks her lipstick in the bar mirror.) Fine by eleven."]],
+ "Sit at the back. I'll be fine by eleven."],
+10:["(The club is dark. Rita is sitting alone on the edge of the stage in black, with a single candle.) No singing tonight. The king. (She looks at the candle.) Sid let me stay. I like an empty club. It's the only place I'm not on show.",[
+  ["Did you know the king?","He came once. Sat at the back, alone, with a whisky. Asked for 'Stormy Weather'. I sang it. He left without a word and the biggest tip Sid's ever had."],
+  ["Will you sing tonight at all?","(She looks at the dark room.) Maybe one. Later. For nobody. That's the best kind of audience."],
+  ["Is Leo here?","(She nods at the shadows by the piano.) Somewhere. Not playing. He played the king a blues once. He's sitting with that."]],
+ "Leave the candle. I'll put it out when I'm ready."],
+11:["(Rita is arranging flowers in a vase on the bar, a huge bunch of white lilies, and frowning.) From an admirer. Very expensive. I'm sending them back. (She pulls a card out.) With a note.",[
+  ["Who are they from?","A gentleman who sits at the back on Thursdays with a friend. Gold ring. Very good manners. He'll take the note well. He's done it before."],
+  ["What does the note say?","'Thank you. I don't keep flowers. They die, and then you have to watch.' I've sent it to him twice before. He still sends lilies. That's either love or stubbornness."],
+  ["Why not keep them?","(She hands the vase to Sid.) Because a man who sends flowers wants something back. I only give songs. Songs are free. Flowers never are."]],
+ "If you see a man with a gold ring, tell him the lilies were lovely. And gone."],
+12:["(Rita is rehearsing with Leo, singing very softly, then stops.) 'Autumn in Helsinki.' A new one. (She looks at Leo, who's listening with his eyes shut.) He's learning it in his hands first. He always does.",[
+  ["It's beautiful.","It's somebody else's. For now. Give it a week. Every song becomes yours if you sing it enough nights in a row. Then you can't remember it being anyone else's."],
+  ["Have you been to Helsinki?","(She smiles.) Everyone's been to Helsinki. It's on the way to everywhere. Even to here."],
+  ["Does Leo like it?","Leo likes everything I sing. He'll never tell me. He'll just play it a little better than he needs to. That's how I know."]],
+ "Come on Thursday. It'll be ready by Thursday."],
+13:["(Rita is holding a bottle of Kelp Cola at arm's length.) Free. A crate for the band. Leo says it's bad for the reed. I say it's bad for the voice. (She hands it to Sid.) Put it in something strong.",[
+  ["Will you go to the gathering tomorrow?","No. Crowds want to be sung at. I'd rather sing for people who came on purpose."],
+  ["Why's everything free this week?","Everyone wants to be loved before the big day. (She shrugs.) I could tell them it doesn't work. Love's the one thing you can't give away to get."],
+  ["Do you sing every night?","Six nights. Sunday's mine. Thursday's the best. The regulars come on Thursdays. They know all the words and don't sing them. That's manners."]],
+ "Come tomorrow night. Everyone will be tired and honest after the gathering."],
+14:["(Rita is in the dressing room, doing her eyes in a mirror ringed with bulbs.) The big day. I missed it. On purpose. (She blinks at herself.) They'll all come here tonight to tell each other what it meant. I'll sing over them.",[
+  ["What will you sing?","Something that isn't about politics. The crowd will need it. You can only be historic for so long before you want a love song."],
+  ["Are you nervous before you sing?","(She puts the brush down.) Every night. Ten years. My hands shake. Nobody knows. (She holds them up.) Now you do."],
+  ["What helps?","Leo. He plays four notes before I come on. Always the same four. Then my hands stop. He doesn't know he does it. Or he does."]],
+ "Don't tell anyone about my hands. Watch from the back."],
+15:["(Rita is drinking hot water with lemon and honey, her voice a little rough.) Last night was loud. Every faction in Frostholm at different tables. I sang over all of them. (She sips.) My throat's paying for it.",[
+  ["Did it go well?","The Party clapped on the off-beat, the cola men clapped on the on-beat, and the oil men didn't clap at all. They tipped. That's how oil men clap."],
+  ["What's the news?","The prince's brother. Everyone wants him. (She sips.) I know how that feels. Everyone wanting you, nobody asking what you want."],
+  ["Will your voice be all right?","By eleven. It's always all right by eleven. That's the deal I made with it."]],
+ "Come at eleven. The voice will be there."],
+16:["(Rita has the debate on the bar's wireless and is listening with her chin in her hand.) The Party and the Democrats. (She listens.) The Party woman has a good voice. Strong. She'd fill a hall. She's wasted on speeches.",[
+  ["Who's winning?","The one who pauses. Erik. He pauses before the important bits. A singer knows. The pause is where the audience leans in."],
+  ["Would you vote?","For whoever leaves the clubs alone. And then I'd go back to wherever I was before, quietly, and never mention it."],
+  ["What's Sid's view?","Sid's view is that everyone should drink more. He's had nine. He's very convinced."]],
+ "Turn it off on your way. I need the quiet before tonight."],
+17:["(The glasses on the bar rattle, and Rita puts a hand flat on the bar to steady herself.) The ground. (She waits.) It moved in the middle of my scales. I hit a note I've never hit before. I didn't like it.",[
+  ["Are you frightened?","Of the ground, yes. (She looks at Leo, holding his saxophone close.) Of losing things. More."],
+  ["Is anyone hurt?","Sid lost a bottle of good whisky. He's in mourning. Leo's horn went flat for a second. He's in mourning too."],
+  ["What's the news?","The oil man's missing, they say. Dario. (She shrugs.) Men like Dario disappear and come back with better stories. I knew men like that, in the other city."]],
+ "Hold onto something on the way out. Not the glasses."],
+18:["(Rita has a sheet of music in front of her, written in her own hand, and is looking at it as if it might bite.) My song. I wrote it. Never written one before. (She folds it.) Don't ask what it's about.",[
+  ["What's it called?","(A long pause.) 'The River Runs Both Ways.' That's all you're getting."],
+  ["Is it about the other city?","(She looks at you for a long time.) Everything's about the other city. Eventually. (She hands the music to Leo.) He'll play it tonight. First time."],
+  ["Are you nervous?","More than for anything I've ever sung. Somebody else's song, you can hide behind. Your own, you're standing in front of naked."]],
+ "Come tonight. Sit at the back. Don't clap at the end. Just be quiet."],
+19:["(Rita is laughing behind her hand, which she rarely does.) There's a man at the bar in a false moustache. Asking for Leo by name. 'Something by Leo, please, my good fellow.' He tips in coins with crowns on them.",[
+  ["Who is he?","(She shakes her head, still laughing.) I won't say. He's having the best night of his life. I'd never take that away from anyone. He calls Sid 'my man'."],
+  ["Will you sing for him?","Already did. 'Stormy Weather'. His father's favourite, they say. (She stops laughing.) He knew all the words. He sang them. Very quietly. He meant every one."],
+  ["Will you tell anyone?","I rang Kaisa. I had to tell someone. She laughed so hard she had to switch off the microphone. But I didn't tell her who. I'll never tell anyone who."]],
+ "If you see a man with a crooked moustache, buy him a drink. He's earned one."],
+20:["(Rita is sitting very still in the dressing room, the ground trembling under the floor.) Sid's closing early. The mountain. Leo won't stop playing. One more song, he says. (She listens.) He's playing my song.",[
+  ["Will you go to the cellar?","When he stops. I'm not going without him. (A pause.) Don't tell him I said that."],
+  ["Are you frightened?","Terrified. I've been frightened before. In the other city. A different kind. This kind's cleaner. A mountain doesn't lie to you."],
+  ["What will you take?","My song. My green dress. (She looks at the door.) And Leo, if he'll stop playing."]],
+ "Go to the cellar. We'll be right behind you."],
+21:["(Ash is falling. Rita has a grey coat round her shoulders that's clearly a man's, and looks very tired.) It went. The mountain. We were all in the cellar under the Skyline. I sang till four. Leo played for six hours. Everyone lived.",[
+  ["What did you sing?","Everything. Every song I know. And a waltz, because a child asked. Leo played it. First waltz in twenty years, he said. (She almost smiles.) He played it beautifully."],
+  ["Whose coat is that?","(She looks down at it.) Leo's. I fell asleep on his shoulder at four. He put his coat round me and didn't move. For four hours. (A pause.) I wasn't asleep the whole time."],
+  ["Are you all right?",["(She pulls the coat closer.) I'm all right. I'm better than all right. Isn't that a strange thing to say, after a mountain?",[
+    ["Did he say anything?","Leo? (She laughs softly.) No. He played. Six hours. I heard every word of it."],
+    ["What will you do now?","Wash his coat. Give it back. Sing tonight, if Sid opens. And wait. I've been waiting ten years. I'm very good at it."]]]]],
+ "Breathe through something. I'll be all right. I've got a coat."],
+22:["(Rita is writing a letter at the bar, very carefully, with a fountain pen.) A girl from Eastbrook wrote to me. Jaana. She wants to sing. She plays the cola cup at the museum. (She dips the pen.) I'm writing back. Yes.",[
+  ["Is she any good?","Leo says he heard her sing to a tram once, through the cup. Cracked on the high note. The rest, he played me. (She smiles.) The rest was very good."],
+  ["When will she sing?","Friday. After hours. Just me and Leo. I'm going to make her sing my song. 'Autumn in Helsinki'. If she can sing that, she can sing anything."],
+  ["Did you give Leo his coat back?","This morning. Washed. (She doesn't look up from the letter.) He didn't say anything. He went red. Leo doesn't go red."]],
+ "Post this on your way out? No. I'll do it. A yes should be posted by hand."],
+23:["(Rita is rehearsing her own song with Leo in the empty club, stopping and starting.) The bridge isn't right. (She sings two lines, stops.) It's too sad. A song can't be all sad. People need somewhere to stand.",[
+  ["What's the song about?","A river that runs both ways. A city you leave and can't stop walking back to. (She stops.) That's enough."],
+  ["Will you sing it for the room?","When the bridge is right. Leo thinks it needs a major chord. He played it to me this morning. He might be right. He's usually right."],
+  ["What's the news?","Something broken on the oil rig, they say. The oil men drank all night. They're very loud when they're worried."]],
+ "Come back when the bridge is fixed."],
+24:["(Rita is reading a postcard with a foreign stamp, very still.) From the other city. Once a year, I write. Once a year, someone writes back. Three words. (She puts it in her bag.) Same three words.",[
+  ["What does it say?","(She looks at you for a long moment.) 'River still runs.' That's all. That's enough. It's how I know someone there is still alive."],
+  ["Who writes?","(She closes the bag.) Someone I left. That's all you're getting. I've told you more than I've told Leo."],
+  ["Why tell me?","Because you're leaving at the end of the month. People who are leaving are safe to tell things to. They take them away."]],
+ "Don't print it. Take it with you."],
+25:["(Rita is singing her own song for the empty room, all the way through, with Leo playing a major chord on the bridge. When it finishes, she stands very still.) That's it. It's finished. The bridge works. Leo was right.",[
+  ["It's beautiful.","(She looks at Leo.) It's ours now. His chord. My words. (A pause.) That's the closest we've ever come to saying anything."],
+  ["Will you sing it tonight?","For the room. First time anyone's heard it. (She takes a breath.) My hands are shaking already. Leo's four notes won't be enough tonight."],
+  ["What's the news?","A princess for democracy. A crown for everyone. Sid's put up posters for both. Sid wants everyone to drink. That's Sid's party."]],
+ "Come tonight. Sit at the back. Don't clap at the end."],
+26:["(Rita is picking out songs on the piano with one finger.) Planning for Friday. The girl from Eastbrook. Jaana. I'm going to make her sing 'Autumn in Helsinki'. My song, now. If she can sing it in front of me, she can sing anywhere.",[
+  ["Is that fair?","It's fair. It's not kind. Fair's kinder, in the end. Kind lets you sing badly for years. Fair tells you on the first night."],
+  ["How did your song go last night?","(She stops playing.) Nobody clapped. For a whole minute. Then everyone did. (She looks at the keys.) Leo cried. He'll deny it."],
+  ["What's the news?","The oil company's buying the spa, they say. Offered a milkshake machine. Leo wants one. He's never had a milkshake. I'm thinking of buying him one."]],
+ "Come Friday after hours, if you like. Sit very quietly."],
+27:["(Rita is at the bar with her third glass of water, pretending not to look at the door.) She's coming. Jaana. Any minute. (She straightens a glass that doesn't need it.) I'm not nervous. I'm never nervous for other people.",[
+  ["You seem nervous.","(She puts the glass down.) I remember my first audition. In the other city. A man with a cigar told me I'd never sing anywhere. I've sung everywhere. I want her first one to be better than mine."],
+  ["Will you be kind?","I'll be fair. And if she's good, I'll tell her. Nobody told me. I had to find out by not giving up."],
+  ["What does Leo think?","He's checked his reed five times. He's nervous for her. He's never nervous for anybody. (She looks at him.) He's changing."]],
+ "Sit at the back. Very quietly. Here she comes."],
+28:["(Rita has red eyes and isn't hiding them.) She sang. Last night. The high note. 'Harbour road.' She held it. Clean. Leo stopped playing to listen. In the middle. Thirty years and he's never stopped. I cried. I never cry.",[
+  ["Will she sing here?","Friday. For the room. I've asked her. She said yes before I'd finished asking. (She smiles.) She reminds me of someone. Someone I used to be."],
+  ["What's happening today?","The big push. Every faction. They'll all come here tonight. Winners drink. Losers drink more. I'll sing something for both."],
+  ["Did Leo say anything?","About the girl? (She smiles.) He said 'good.' One word. That's a speech, from Leo. She'll be telling people about it for years."]],
+ "Come on Friday. Bring someone who needs to hear her."],
+29:["(Rita is sitting at the piano, not playing, looking at the door to the back where Leo is on the telephone.) He's ordering pizzas. Six. From Kingsgrad. He's been on the telephone for nine seconds. It's the longest call he's made all year.",[
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next. (She shrugs.) And I'm watching a man order pizza. It's the most interesting thing on the island."],
+  ["Has Leo said anything to you?",["(She looks at you very steadily.) About what? (A pause.) No. He plays it. He's been playing it for ten years.",[
+    ["Will you say something first?","(She considers.) I've been waiting ten years for him to say it with his mouth. (She looks at the door.) One more day. Then I'll say it for both of us."],
+    ["Does it matter if he says it?","No. And yes. I know. I've always known. But a woman likes to hear it once. In words. Not in B flat."]]]],
+  ["Will you be nervous tomorrow?","Tomorrow's the last day. Everybody's nervous. (She looks at her hands.) Mine are shaking already. Leo's four notes won't fix this."]],
+ "Come tomorrow night. It'll be a night worth hearing."],
+30:["(Rita is in her green dress, in the empty club, in the afternoon, which she never is.) Last day. They're settling the island today. (She looks at the stage.) And Leo's settling something tonight. After the last song. He told me. In words. Four of them. 'After the last song.'",[
+  ["That's wonderful.","(She laughs, and her voice catches.) Ten years for four words. And they weren't even the words. They were the promise of the words. I'm a fool. I'm a very happy fool."],
+  ["What do you hope happens to the island?","That the clubs stay open. That people keep coming to listen. That nobody ever has to leave a city they love the way I did. Small things. Big things."],
+  ["Will you remember this month?",["(She touches the green dress.) The cellar, and the waltz, and the girl's high note, and a man who wouldn't move for four hours. Yes.",[
+    ["And me?","The reporter who heard about the other city. You're taking it with you, remember. (She smiles.) Keep it safe."],
+    ["Will you sing your song tonight?","Last song of the night. 'The River Runs Both Ways'. And then I'll find out if Leo can say four more words. Or three."]]]]],
+ "Come tonight. Sit at the back. And whatever happens after the last song, don't clap."],
 };
 // Rosa, hot dog vendor outside Kelp Cola HQ in Kingsgrad (food vendors). Threads: knowing everything that happens in the square
 // and telling almost none of it (Elin and her man at the oil company: extra mustard and a look); Ville at the newsstand beside her,
@@ -18173,126 +18259,137 @@ DAILY['Wilma']={
     ["What will you do tomorrow?","Count the bottles. Make Jaana a hot lemon. Sell figurines with broken straws. Same as always. With Arne on the shelf now. That's new."]]]]],
  "Take a leaflet on your way out. Everything in it is still true."],
 };
-// Yuri, a timber businessman (really KGB; he never says so) upstairs at Hotel Aurora, Frostholm (Communist Party). Threads: timber contracts, vodka and rounds, charm, his "letters home", the Party's vote, Anna and Helen, the volcano.
+// Yuri, 'a timber man from Leningrad', upstairs at the Hotel Aurora in Frostholm (the Communist Party, and the KGB; he never says so,
+// and nobody he talks to says it either). Threads: his timber contracts, which never seem to involve any timber; vodka, rounds and
+// oranges for the Party; his very long letters to his 'mother' in Leningrad, who likes to hear everything; his hurry, and Anna's
+// refusal to be hurried (she wants a Party still standing next year); Helen's suspicion and Bob's dislike of generous men; the
+// Democrats asking questions about him (the 20th) and Sergeant Hanna wanting his passport; the volcano; the Party's big push (the
+// 28th); his growing fondness for the island, which is not in his instructions.
 DAILY['Yuri']={
-7:["(Yuri rises with a wide smile and a glass.) A reporter! Sit, sit. Yuri. Timber. I buy fir from anyone who'll sell it and vodka for anyone who'll drink it.",[
-  ["Nice room. Is timber good business?","Splendid. Trees do not argue. Only the people who own them do."],
-  ["What brings a timber man to Sarivalto?","Fir, pine, and a very good lake. The island is a gift, no?"],
-  ["Is that a lot of radio equipment?","A hobby. I like to hear the world. In my line one must hear prices."]],
- "Drink, my friend. The first round is free."],
-8:["(Yuri pours two small glasses.) Sunday, yes? Bells all morning. I like bells. In my country they were forbidden, here they are free. Everything is a matter of whose island it is.",[
-  ["Are you religious?","I am respectful. It costs nothing, and it makes the monks sell me timber."],
-  ["Which side would you like to win?","I am a guest. A guest likes whoever feeds him. Anna feeds me, mostly."],
-  ["Heard any gossip?","Father Thyme cannot find words. Poor man. I would lend him some, but mine are all in Russian."]],
- "Another? No? Next time."],
-9:["(Yuri toys with a bottle of cola.) Everyone makes cola now. The Party wants a cola, Kelp wants a cola. Cola is the new oil. I find that charming.",[
-  ["Would you invest in cola?","I invest in trees. A tree is a safe bank."],
-  ["Does the Party need a cola?","Helen is passionate. A people's drink, she says. I say a people's drink is vodka. Nobody listens."],
-  ["Have you tried the new formula?","Too sweet. Like a politician's smile."]],
- "A toast to fizz."],
-10:["(Yuri has put on a black tie.) The king's funeral. One respects the dead, even a king. I sent a wreath, with the card of my timber company. Very proper.",[
-  ["Is a wreath from a timber company usual?","It is Sarivalto wood, so it is a local wreath. Practical sadness."],
-  ["What did you think of the king?","I never met him. I met his accountants, which is like meeting a man's shadow."],
-  ["What next for the island?","Much talk. Much vodka. Eventually, a vote."]],
- "Respect the dead and the weather."],
-11:["(Yuri pats his coat.) The mill hands argue about wages. A lovely cause. Workers should be paid, that is the whole of my philosophy, and I am a capitalist, so you see my difficulty.",[
-  ["Are you backing the mill hands?","Warmly, from a distance. The Party takes the credit, I take the timber."],
-  ["Do you know Helen well?","She is a force of nature. I admire her, and I stay out of her weather."],
-  ["Isn't it a contradiction?","Of course. The world is made of contradictions, like a good stew."]],
- "Contradictions are good for digestion."],
-12:["(Yuri is writing a letter.) To my wife. Or someone. One writes letters home. They are very long, and full of weather and prices.",[
-  ["Do you miss home?","The cold is the same. The food is worse. That is how I know I am abroad."],
-  ["Do you write much?","Every night. My handwriting is bad, so the letters take hours."],
-  ["Who reads them?","Many people, I imagine. Mail is a crowded road."]],
- "Weather is a safe subject."],
-13:["(Yuri smiles.) Free samples on every corner. Such generosity from Kelp. One only gives free things when one wants a great deal.",[
-  ["Is that a Communist view?","It is a human view. Nothing is free but air, and even that they are working on."],
-  ["Did you take a sample?","I took three, for the glasses. The bottle is nice."],
-  ["Who's winning the cola war?","The one who sells most. Or the one who steals the recipe. I hear there is talk of a recipe."]],
- "Careful with free things."],
-14:["(Yuri adjusts his cuffs.) Tomorrow, the fourteenth. The whole island together. A big day. I shall be there, in the back, with my hat on, like a respectable man.",[
-  ["What do you expect?","Speeches. Faces. A great deal of looking at each other to see who is looking."],
-  ["Will the Party do well?","The Party does well when people are afraid of the future. The future is arriving tomorrow."],
-  ["You sound confident.","I am a timber man. I know how things grow."]],
- "Wear your best coat."],
-15:["(Yuri laughs softly.) Crown against cross. Delicious. Two old rivals fighting over an island that wants neither. In such a fight a third party wins.",[
-  ["Which third party?","I did not say a party. I said a third."],
-  ["Who's stronger, crown or cross?","The crown has soldiers, the cross has candles. Candles last longer."],
-  ["Where does the Party stand?","On its own two feet, and a boot on someone else's, if invited."]],
- "Careful with boots."],
-16:["(Yuri lifts a glass.) The great debate today. Helen and the Democrats. She will eat them. A vote will be the big topic, you know. Votes are very useful things.",[
-  ["Useful how?","A vote is a door. Once the door is open, one can walk through it. Maybe to Moscow."],
-  ["You want the island in the Soviet Union?","I did not say. I said a door."],
-  ["Who will win the debate?","The best-prepared. That is Helen. She rehearsed for a week, in front of a mirror."]],
- "Doors, doors, doors."],
-17:["(Yuri's glass trembles on the table.) You felt that? The earth, a little shake. In my home we have such things. I do not like them.",[
-  ["Is it the mountain?","Everyone says. Old men, mainly. Old men know mountains."],
-  ["Are you frightened?","I am cautious. Fear is a luxury."],
-  ["Heard that Dario is missing?","Dario, the oil man? Interesting. A man of that size does not simply disappear. It is a mystery, and I like mysteries."]],
- "Hold your glass tight."],
-18:["(Yuri looks out of his window.) Steam in the north. A white feather. Everybody pretends not to look at it. I look at it. I am bad at pretending.",[
-  ["Will it erupt?","Someone with a thermometer would know. I have only a bottle."],
-  ["What do you make of the relic story?","The Church lost something. It was always going to. Churches are good at collecting and bad at keeping."],
-  ["Do you go to Kelp's museum?","I find the cup alarming. A cup with a face. It is a very capitalist idea."]],
- "Watch the sky."],
-19:["(Yuri refills a glass.) Comrades wanted, they say, and everywhere the Party signs up fishermen and clerks. I give money to the cause. A small amount, with a large smile.",[
-  ["Is Anna recruiting?","She recruits with soup. It is effective."],
-  ["Will people join?","Some. People join what's warm."],
-  ["Heard about the Midnight Note?","A club of songs. Leo plays saxophone. I enjoy his slow notes. They are good for thinking."]],
- "Sing something."],
-20:["(Yuri has the radio on, low.) Another stranger in the hotel. Staying downstairs, asks about everyone. A man with a camera and a nervous smile. I like him. He is bad at it.",[
-  ["Who is he?","A tourist, he says. Nobody tours Sarivalto in a month like this."],
-  ["Are you suspicious?","I am hospitable. It is the same thing, looked at sideways."],
-  ["What about the palace job?","I heard whispers. A crowd of whispers. The palace is a good place for them."]],
- "Don't trust cameras."],
-21:["(Yuri's hands are steady, but his glass is empty.) That was no small shake. The mountain opens like a book. The sky is orange. I have seen worse, but not recently.",[
-  ["Is it dangerous?","Lava, they say, to the north, in the empty places. People are safe, thank God. And I am not a man who says thank God easily."],
-  ["What does Moscow think?","Moscow thinks what it thinks. I think about my window."],
-  ["Will this change the vote?","A disaster changes everything. That is the one rule."]],
- "Close the window."],
-22:["(Yuri brushes ash from the sill.) Grey everywhere. Like a winter that has run out of snow. Helen's people sweep the streets, and the Party gets the credit. Clever.",[
-  ["Are you helping?","I donate vodka to the sweepers. It warms the hands."],
-  ["How is business?","Timber is warm and dry. I do better in a crisis."],
-  ["What about the farms?","A farm lost a roof. The Party sent blankets. Trust is bought in small things."]],
- "Cover your drink."],
-23:["(Yuri is wiping ash from his radio.) A spanner in the works, I hear, at the dock. Someone wishes to slow the Party. Who? So many people.",[
-  ["Do you suspect anyone?","It is better to suspect everyone gently."],
-  ["Who's fixing the oil rig?","Diversified. Deep repairs. Deep is an interesting word."],
-  ["Is the Party worried?","The Party is always a little worried. It keeps us thin."]],
- "Keep your tools close."],
-24:["(Yuri raises an eyebrow.) The monks go up the mountain, to retreat. Brave men, or very devout, or avoiding something. Meanwhile the clean-up crews tidy up. I do like a tidy island.",[
-  ["Who are the clean-up crews?","Some are Party, some are others. All of them know where the bodies are, in an expression."],
-  ["Are you worried about the retreat?","The peaks are cold. Prayer's good for the knees."],
-  ["Will you go up?","I go nowhere without a coat and a reason."]],
- "Cold air, clear mind."],
-25:["(Yuri laughs.) A princess for democracy! A crown for everyone! Everyone's a monarchist today. If I stay another week, I will be one too.",[
-  ["Is there really a princess?","There is always a princess. It is a law of islands."],
-  ["How does the Party see it?","With patience. A princess is a pretty face on an old argument."],
-  ["Do you like royals?","They are good for postage stamps."]],
- "Stamps are good business."],
-26:["(Yuri taps a bottle.) Kelp puts a prince in every bottle. A prince in a bottle! It is cheaper than a prince on a throne. And Dario buys a spa. A very oily man in a hot bath.",[
-  ["Why a spa?","Steam is where deals are done. Men talk when they are naked."],
-  ["Do you like spas?","I have a sauna in my head. It is quiet."],
-  ["Would you buy a prince?","A prince is a poor investment. They need so much feeding."]],
- "Stay warm."],
-27:["(Yuri smiles over a cup.) The Party shows a revolution at the pictures tonight. It is a good film, with horses. Everybody cries at the end, or at the horses.",[
-  ["Are you going?","In the second row. It is where one sees the faces of the audience."],
-  ["Do you like propaganda?","It is simply persuasion in a good hat."],
-  ["What about the Syndicate's high stakes?","They gamble. I invest. We are not the same, though we sit at the same table."]],
- "Pick a good seat."],
-28:["(Yuri is in his best suit.) The day everyone pushes. The Party marches on Kingsgrad with a red flag. A very big day, and I am a small man in a window.",[
-  ["Are you nervous?","I am never nervous. I am attentive."],
-  ["What will the Party achieve?","A good march. After that, the vote. A vote is in the heart of the matter."],
-  ["Will you march?","I do not march. I observe, and occasionally, I toast."]],
- "Toasts are my marching."],
-29:["(Yuri lights a cigarette.) One day left, and every faction sends their biggest guns. The oil men, the cola men, the Syndicate. It is a very noisy island.",[
-  ["Who will win?","The one who is not noisy. That is always the lesson."],
-  ["What will you do after?","Write a long letter home."],
-  ["Is the Party ready?","As ready as a Party can be. Anna has soup, Helen has speeches. It is enough."]],
- "Sleep, if you can."],
-30:["(Yuri lifts his glass, slowly.) So. The last day. Whatever it brings, it has been a pleasure to know you, reporter. I hope your readers in London will understand us. I doubt it.",[
-  ["Thank you, Yuri. Any last words?","A toast to the island, to the wind, and to the trees."],
-  ["How do you feel?","Calm. It is the calm of a man who has done his work."],
-  ["Will you stay?","Wherever I am sent, I go. Even to the end of a vodka bottle."]],
- "Za zdorovye. Go well."],
+7:["(A broad, smiling man in a beautifully cut grey suit rises from an armchair in the hotel bar and holds out a hand.) The British press! Wonderful! Yuri. Timber. From Leningrad. (He waves at the barman.) Two vodkas. You'll drink with me. Everyone drinks with me.",[
+  ["Timber?","Pine, birch, spruce. I buy, I sell, I drink with the people who cut it down. (He smiles.) Mostly I drink. Timber is a very social business."],
+  ["Why Sarivalto?","Beautiful forests. Beautiful harbours. A little island with a big future. (He raises his glass.) I like to be where the future is. It's very good for business."],
+  ["I'm not drinking at noon.","(He laughs, delighted.) A British reporter who refuses vodka at noon! I'll write home about you. My mother will be fascinated."]],
+ "Come back any evening. The bar is always open, and so am I. (He smiles.) Within reason."],
+8:["(Yuri is writing a very long letter at a desk in the corner of the hotel bar, in tiny handwriting, three pages already.) My mother. In Leningrad. She likes to know everything. What I eat, who I meet, what they say. (He blots a page.) I'm a very dutiful son.",[
+  ["Does she write back?","Every week. Very short letters. 'Write more.' (He smiles.) She's very demanding, my mother. Very interested in the island."],
+  ["Do you go to church?","(He laughs.) The Abbot's preaching today, I hear. I'll send my mother a summary. She likes to know what the Church is saying. For her own reasons."],
+  ["Am I in the letter?","(He covers the page with his hand, smiling.) A gentleman never shows his letters. Let us say my mother knows there's a charming British reporter on the island. That's all."]],
+ "Have a good Sunday. I'll be here, writing to my mother. She's very patient."],
+9:["(Yuri is unpacking a crate of oranges on the hotel bar.) Oranges! For the comrades in Saltwick! From the south! Nobody on this island has seen an orange since the summer. (He presses one into your hand.) Eat. Vitamins. For the revolution.",[
+  ["Where did you get oranges?","A friend of a friend, on a boat. (He winks.) Timber men know a great many boats."],
+  ["What do you think of the Party's cola?","(He tastes it, and his smile stays perfectly steady.) Excellent. Revolutionary. Beetroot is the drink of the future. (He sets it down very gently.) In Leningrad we have better beetroot."],
+  ["Does Anna like the oranges?","Anna says thank you, and then asks me what I want for them. (He laughs.) She's very suspicious. She's quite right. I want the Party to succeed. That's all. Quickly."]],
+ "Take another orange. For your health. And remember who gave it to you."],
+10:["(Yuri is in a black suit with a black tie, at the hotel bar, with an untouched glass in front of him.) The funeral. I'm not going. It's not my king. (He turns the glass.) But I'm not drinking today. A man should respect another country's grief.",[
+  ["Did you know the king?","I met him once, in 1976, at a timber fair in Helsinki. He asked me about birch. I talked about birch for ten minutes. He listened to every word. Very few people listen to me about birch."],
+  ["What happens to the island now?","Everyone is asking. Everyone has an answer. (He looks at the glass.) My mother has an answer too. She's very sure. I'm less sure than I used to be."],
+  ["Why less sure?","(He smiles, and it's a little tired.) Because I've met the island. My mother has only read about it. It's very different, meeting a place."]],
+ "Go gently today. Even I'm being quiet."],
+11:["(Yuri is looking at a full glass of vodka on the bar, beside an empty chair.) Helen, from the Union. She was here an hour ago with a folder of mill wages. Eastbrook. Fair pay! A great struggle! I poured her a vodka. She left it.",[
+  ["Does Helen ever drink with you?","Never. Helen doesn't drink with me. She says I'm too generous. (He shrugs.) Bob, her partner, says the same. He says he's never trusted a generous man."],
+  ["Will the mill hands get their rise?","If Helen has anything to do with it. She's formidable. (He lowers his voice.) Moscow would be proud of her. If Moscow knew her name. Which it doesn't. Obviously."],
+  ["Why are you so interested in the mill?","Timber! I'm a timber man! (He laughs.) A strike at a mill is very interesting to a timber man. For business reasons."]],
+ "If you see Helen, tell her the vodka's still on the table. For later."],
+12:["(Yuri is in the hotel bar, buying a round for a table of oil men, very loudly.) Gentlemen! To Diversified Petroleum! To oil! To the future! (He sits with you while they drink.) They tell me everything after the third round. Oil men are very lonely.",[
+  ["What do they tell you?","Their accounts, their worries, their wives. (He smiles.) Mostly their accounts. Somebody in Frostholm is moving money very cleverly this week. They're all very nervous."],
+  ["Why do you want to know?","A timber man must know the oil business. Oil and timber, they fight over the same forests. (He sips.) My mother is very interested in forests."],
+  ["You buy a lot of rounds.","It's my only talent. That, and listening. A round of vodka costs a dollar. A secret costs a round. It's very good value."]],
+ "Have a drink with the oil men. They'll tell you about their wives."],
+13:["(Yuri is holding a free bottle of Kelp Cola up to the light, smiling.) Free! Capitalism, giving things away! (He drinks.) Very sweet. Very fizzy. Very frightened. A company that gives its product away is a company that knows something is coming.",[
+  ["What's coming?","The big day. Tomorrow. Everyone on the island in one place. (He finishes the cola.) My mother is very interested in tomorrow."],
+  ["Will you go?","At the back. With the Party. Anna says I may stand with them as a friend. Not a member. A friend. (He smiles.) Anna chooses her words very carefully."],
+  ["Does Anna trust you?","Anna trusts nobody. That's why she's still leading the Party after ten years. (He sets down the bottle.) I respect her enormously. She's a very difficult woman to hurry."]],
+ "Drink your free cola. Enjoy capitalism while it's free."],
+14:["(Yuri is at the back of the gathering, behind the Party, in a grey coat, watching everything with a pleasant smile.) The whole island! In one place! (He looks around.) Wonderful. My mother will want to know every face.",[
+  ["Who's interesting?","The palace, nervous. The oil men, counting. The cola men, smiling too much. The Democrats, very sure. (He nods at Anna.) And the Party. Waiting. Anna's very good at waiting. Too good."],
+  ["Too good?","Waiting is a luxury, comrade. (He catches himself.) Friend. History moves fast. A Party that waits may find history has gone without it."],
+  ["Will Anna speak?","Briefly. Very calmly. She has index cards. (He sighs.) I offered to write her a speech. A fiery one. She said no. She said she'd speak in her own words, slowly."]],
+ "Watch the faces. That's where the real gathering is."],
+15:["(Yuri is writing another long letter, eight pages now.) Yesterday. Every face. Every word. (He blots a page.) My mother will need a magnifying glass.",[
+  ["What did you think of the gathering?","Anna was magnificent. Calm, clear, nobody shouted. (He frowns slightly.) Too calm. My mother prefers shouting. Shouting moves people faster."],
+  ["What's the news today?","Crown before cross, cross before crown. The palace and the Church are fighting over the prince's brother. (He smiles.) Feudalism eating itself. My mother will be delighted."],
+  ["Do you agree with your mother?","(He stops writing.) About most things. (He picks up the pen again.) About Anna, less. Anna is building something that will last. My mother wants something fast. You can't have both."]],
+ "Go on. I've seven more pages."],
+16:["(Yuri is putting a flask into his coat pocket, on his way out.) The great debate! Anna and Erik, at the Community Centre in Eastbrook! I'll be in the front row, applauding. I've brought vodka. In a flask. For the interval.",[
+  ["Who's winning?","Anna, obviously. (He watches.) Erik is very calm. Very reasonable. Very dangerous. Reasonable men win elections. Revolutions need unreasonable ones."],
+  ["Will the Party win the island?","If it moves quickly. (He looks at Anna.) Anna wants a vote she can win in ten years. My mother wants an island she can have in ten days."],
+  ["Will anyone be watching you?","(He smiles.) The Democrats, all night. Everyone, always. I'm a very handsome timber man. It's a burden."]],
+ "Clap for Anna. Loudly. She needs it more than she'll say."],
+17:["(The bottles behind the hotel bar rattle, and Yuri puts out a hand to steady his glass.) The ground. (He waits.) In Leningrad the ground never moves. The river floods, the Neva freezes, but the ground stays where it's told.",[
+  ["Is it the volcano?","The oil men have instruments. They've been very quiet since this morning. Quiet oil men are frightened oil men. (He sips.) My mother will want a full report."],
+  ["What else is happening?","Dario's missing, the oil company's chief. (He smiles.) Men who vanish usually reappear somewhere warm. Or somewhere very cold. Depending who they've annoyed."],
+  ["Are you frightened?","Of the mountain? A little. Of my mother, more. (He laughs.) She expects results. Mountains are not an excuse, in Leningrad."]],
+ "Hold onto your glass. The ground has opinions today."],
+18:["(Yuri is turning an index card over in his fingers at the bar.) Anna's. She left it after our argument. One word on it: 'Slowly.' (He sighs.) I told her the moment is now. The island is frightened. She ignored me. Very skilfully.",[
+  ["What do you want her to do?","Move faster. A big push. A red flag over Kingsgrad before the month's out. (He looks at the card.) She says she wants a Party that's still standing next year."],
+  ["Is she right?","(He's quiet for a moment.) Possibly. (He lowers his voice.) Don't tell my mother I said that."],
+  ["What's the gossip?","Kelp Cola's mascot is ill. The cup. And somebody's been in the Republican files. (He smiles.) Everyone suspects the Syndicate. Everyone always suspects the Syndicate. It's very convenient."]],
+ "If Anna asks, I said nothing. I'm a timber man."],
+19:["(The hotel bar smells faintly of eggs. Yuri is buying vodka for a table of young men in work clothes.) Comrades! New friends of the Party! (He sits with you.) Anna's recruiting. I'm helping. With vodka. Vodka makes very good comrades.",[
+  ["Are they joining the Party?","Some of them. The ones who come back sober tomorrow and still want to. (He watches them drink.) Anna's rule. She doesn't want vodka comrades. She wants real ones."],
+  ["What's that smell?","The mountain. Steam. (He sniffs.) In Kamchatka, the volcanoes smell like this before they speak. I've seen one speak. It doesn't ask permission."],
+  ["Have you been to Kamchatka?","(He pauses, very briefly.) For timber. A long time ago. Very good larch. (He smiles.) Another vodka?"]],
+ "Keep a scarf handy. Kamchatka taught me that."],
+20:["(Yuri is at the hotel bar, not drinking, very still, with his room key in his hand.) The Democrats have been asking questions about me. All day. Who I am, who I write to, what timber I've bought. (He turns the key.) And the policewoman wants my passport.",[
+  ["What will you tell them?","That I'm a timber man from Leningrad, who writes to his mother. (He looks at the key.) It's all true. Every word. People never believe the truth. They believe the interesting thing."],
+  ["Are you worried?","(He smiles, but it's thin.) I'm a businessman in a foreign country, with a volcano about to speak and the police at my door. A little. I've been in worse hotels."],
+  ["Why don't they trust you?","Because I buy rounds. Because I bring oranges. Because I'm generous. (He looks at you.) Bob in Saltwick says he's never trusted a generous man. Bob is a very wise fishmonger."]],
+ "If anyone asks where I am, I'm upstairs. Writing to my mother."],
+21:["(Ash is falling past the hotel windows. Yuri is in the lobby, grey from head to foot, handing out blankets from a pile.) It went. The mountain. I was in the cellar all night, with the guests. Everyone's alive. (He hands a blanket to a child.) Here. Warm.",[
+  ["You helped the guests?","I'm a guest. We're all guests on this island. (He hands out another blanket.) I poured vodka for the adults and told stories to the children. About Leningrad. About the white nights. They liked the white nights."],
+  ["Did you write to your mother?","(He looks at you very steadily.) Not last night. Last night was for the people in the cellar. (A pause.) My mother can wait one night. She's waited longer."],
+  ["Are you all right?",["(He stops handing out blankets, and looks out at the grey street.) I'm grey and tired and I've been thinking about my real mother. In Leningrad. She's seventy-three. She makes terrible soup.",[
+    ["Your real mother?","(He catches himself, then smiles.) My mother. There's only one. Of course. (He picks up another blanket.) A mountain makes a man sentimental."],
+    ["You should write to her.","I will. A short letter. About the cellar and the children and the white nights. She'll like it. It won't be the letter anyone else is waiting for."]]]]],
+ "Take a blanket. It's cold. And cover your mouth."],
+22:["(Yuri has ash all over his good shoes and a broom leaning against the bar.) Anna had me sweeping Saltwick all morning. A timber man, with a broom. She says the Party sweeps with the people. My mother would not approve. I enjoyed it.",[
+  ["Is Anna organising the clean-up?","The whole of Saltwick, street by street. Nobody arguing. (He looks at the broom.) This is how you win an island. Not with red flags. With brooms. I've told my mother. She hasn't answered."],
+  ["What's the news?","The farms out east are grey. Kelp Cola has trouble at the farm, they say. (He picks up the broom.) The capitalists' kelp is grey. The workers' brooms are busy. It writes itself."],
+  ["Has the policewoman seen your passport?","(He pauses.) She has. She looked at it for a long time and handed it back. 'Very nice photograph,' she said. (He smiles.) It's a very nice photograph."]],
+ "Take a broom. There's plenty of ash for everyone."],
+23:["(Yuri is in the hotel bar, reading a telegram, and his smile has gone completely.) My mother. (He folds it.) She wants things to move faster. The rig. The factory. Something must stop working, she says. Before the end of the month.",[
+  ["What does that mean?","(He looks at you very carefully.) It means my mother is very impatient. (He puts the telegram in his pocket.) Something broken on the oil rig, they say, today. I didn't break it. I want you to know that."],
+  ["Does Anna know about the telegram?","Anna knows nothing about my mother. Anna would be very angry. (He swallows.) Anna wants a Party that's still standing next year. My mother wants a Party that stands next week. They can't both have it."],
+  ["What will you do?","(He looks at the vodka and doesn't drink it.) I don't know. For the first time in twenty years, I don't know what I'll do."]],
+ "Don't print anything I said today. I said nothing. I'm a timber man."],
+24:["(Yuri is sitting in the hotel bar with a cup of tea, which is unusual, writing a very short letter.) One page. To my mother. The shortest I've ever written. (He blots it.) It says: 'The island is not ready. Anna is right. Give it time.'",[
+  ["Will your mother listen?","No. (He folds the letter.) But I've said it. In writing. With my name on it. That's something, in my family."],
+  ["What's the news?","The monks have gone up into the peaks to pray. The Syndicate's cleaning something up. (He sips the tea.) Everyone's tidying. I'm tidying too. In my own way."],
+  ["Why tea?","Because vodka is for celebrating and forgetting, and I'm doing neither. (He looks at the tea.) Tea is for thinking. The British taught me that. Through you, perhaps."]],
+ "Post this for me? No. I'll do it. A man posts his own short letters."],
+25:["(Yuri is reading a Democrat leaflet with a crooked smile.) A princess for democracy. (He turns it over.) A crown for everyone, from the palace. Everyone's promising the people everything. Except the Party, which is promising them a broom.",[
+  ["Which will the island choose?","(He thinks.) The one it trusts. Not the loudest. Anna knows that. It took me a month and a mountain to learn it."],
+  ["Has your mother answered?","(He touches his pocket.) A telegram. One word. 'Push.' (He takes it out and tears it in half, very calmly.) I'm thinking about it. Very slowly. Like Anna."],
+  ["Will you push?","I'll do what a timber man does. Buy rounds. Bring oranges. Listen. (He puts the halves in the ashtray.) And let Anna lead. She knows where she's going. I only know where I've been told to go."]],
+ "Take an orange. I've still got a crate. They're very good for thinking."],
+26:["(Yuri is at the hotel bar with a crate of oranges, peeling one with great care, offering segments to anyone who passes.) Oranges. The last of the crate. (He hands you a segment.) Eat. Vitamins. Not for the revolution, this time. Just for you.",[
+  ["What's changed?","(He eats a segment.) Nothing. Everything. I've stopped counting who eats my oranges. (He smiles.) My mother would be horrified."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. (He laughs.) Capitalism, buying hot water with milkshakes. In Leningrad we'd nationalise the volcano."],
+  ["Is the Party ready for the end of the month?","Anna says the Party's ready to be the Party. Whatever happens. (He looks at the orange peel.) That's either very wise or very foolish. I've decided it's wise."]],
+ "Take the last orange. For the road. From a timber man."],
+27:["(Yuri is buttoning his coat, a cinema ticket and a bag of popcorn in his hands.) The Party's picture tonight, in Kingsgrad! Six tractors and a combine harvester. (He offers the popcorn.) I've seen it eleven times. In Leningrad. I cry every time at the harvester.",[
+  ["You've seen it before?","Every Soviet citizen has. (He catches himself.) Every timber man who's spent time in Leningrad. (He eats popcorn.) It's very moving. The girl on the harvester was a real tractor driver."],
+  ["Is there going to be trouble tonight?","The Syndicate would like a brawl, the Democrats say. A woman from the mill will be standing at the back with her arms folded, they say. Nobody brawls near her."],
+  ["What's happening at the card tables?","The Don's game at the pizzeria. Big stakes. Half the Republicans. (He smiles.) Everyone's gambling tonight. Some with cards. Some with tractors."]],
+ "Sit near the front. You'll cry at the harvester. Everyone does."],
+28:["(Yuri is very still by the hotel wireless, which is reporting the Party's march.) The big push. Red flags over Kingsgrad, Anna says. I wanted it a month ago. Now it's happening, and I'm only listening.",[
+  ["Why aren't you marching?","Because it's Anna's march. Not mine. Not my mother's. (He turns the wireless up a little.) If it succeeds, it should be hers. If it fails, it should be hers too."],
+  ["Do you think it'll work?","(He's quiet for a long time.) I think Anna's built something that will last, whatever happens today. My mother wanted something fast. Anna built something true. I know which I'd rather."],
+  ["What will your mother say?",["(He takes the torn telegram out of his pocket, both halves, and looks at them.) Something sharp. In one word. (He puts them back.) And I'll write back. In a page.",[
+    ["What will you write?","'The island chose its own speed. I let it.' (He smiles.) It's the truest thing I've ever sent her. It may be the last."],
+    ["Will you be in trouble?","(He shrugs, and buttons his coat.) A timber man who doesn't sell any timber is always in trouble. I'm used to it."]]]]],
+ "Go and see the march if you like. I'm going to sit here and be proud of someone else's work."],
+29:["(Yuri is in the hotel bar with a suitcase at his feet, drinking tea.) The Republicans are choosing a leader. The palace is arguing about who's next. (He sips.) And my mother has sent a telegram. 'Come home.' Two words. She's being generous.",[
+  ["You're leaving?","After tomorrow. I'd like to see how it ends. (He looks at the suitcase.) My mother allows me one day. She's never allowed me a day for anything."],
+  ["Will you miss the island?","(He looks out of the window at the grey street.) The cellar. The children. The oranges. Anna's index cards. Bob not trusting me. (A pause.) Very much."],
+  ["What will happen to you?","Leningrad. A desk. A great many questions. (He smiles.) I'll tell them about the volcano. They'll be very interested in the volcano. It's the only part they'll believe."]],
+ "Have a drink with me. Tea. Tomorrow I'll be a timber man again, somewhere else."],
+30:["(Yuri is on the hotel steps in his grey coat, suitcase beside him, looking at the island in the morning light.) Last day. They're settling the island today. And I'm going home tomorrow. (He breathes in.) It smells of pine, and ash, and the sea. I'll miss it.",[
+  ["What do you hope happens?","(He considers.) That the island chooses for itself. Whatever it chooses. That nobody's mother in a faraway city decides for it. (He looks at you.) Including yours."],
+  ["Did Anna say goodbye?","She came to the hotel this morning. Shook my hand. Said 'Thank you for the oranges, Yuri. And for the broom.' (He looks at his hand.) Not for the vodka. For the broom."],
+  ["Will you remember this month?",["(He picks up his suitcase.) The mountain, the cellar, the broom, and a woman who wouldn't be hurried. Yes. Every day of it.",[
+    ["And me?","The British reporter who wouldn't drink at noon. (He smiles.) My mother knows all about you. Every word. (A pause.) I left out the good parts. Those are mine."],
+    ["What will you do tomorrow?","Get on a boat. Write a very short letter. Go home. (He looks at the island.) And never quite be a timber man again. Something's changed. I don't know what to call it."]]]]],
+ "Have an orange, if you find one. Think of a timber man. And don't drink at noon."],
 };

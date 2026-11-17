@@ -1,124 +1,133 @@
-// Meg, acrobat of the circus at Lake Ilmari (the Circus). Threads: her ropes and rigging, keeping the troupe organised (the books,
-// the horse, the stove), Buttons who falls and whom she catches, an old injury she doesn't mention, the volcano and the ash.
+// Meg, acrobat of the circus camped at Lake Ilmari (the Circus), partner of Buttons. Threads: her ropes and rigging, checked every
+// morning; keeping the troupe going (the books, the horse, the stove, Bruno's slate at Maya's that she quietly pays); Buttons, who falls
+// and whom she catches; the shoulder she hurt in a fall in Riga in 1975 and never mentions; Hely from Eastbrook, who she teaches the
+// low wire (the 9th), lets hold her ladder while she hangs Erik's banners (the 24th; the hall roof she climbs bare), pays for programmes,
+// and says yes to (the 29th); the volcano, the ash, and the free show for the island (the 28th).
 DAILY['Meg']={
-7:["(Meg is hanging upside down from the big top rope, a checklist in her teeth. She takes it out.) Don't walk under me. I'm checking the knots. Everything here depends on knots.",[
-  ["I'm the British reporter.","Then be useful and hold this end. (She drops a rope into your hands.) Pull. Not that hard. There. You're now part of the rigging."],
-  ["Do you ever fall?","Never. Buttons falls. I catch him. It's the arrangement, and it's worked for six years."],
-  ["How high is the trapeze?","Twelve metres. I measured it with a string and Igor. The string was more accurate."]],
- "Keep clear of the ring while I'm working. It's the only rule I have."],
-8:["(Meg is mending a leather strap with a curved needle.) It's Sunday, but a rope doesn't know it. If I leave this till Monday, somebody will have a very short career.",[
-  ["Is that for the trapeze?","For the net. A net's the most honest thing in a circus. It says out loud that someone might fall."],
-  ["Don't you rest?","I rest when it's done. It's never done, so I rest in small pieces. Like a cat."],
-  ["Where's Buttons?","Asleep on the jetty with his cap on his face. He thinks I don't know. He snores in the key of G."]],
- "If you're passing the jetty, throw a pebble at him. Gently."],
-9:["(Meg has a ledger open on her knee and her pencil tucked behind her ear.) Someone from Kelp Cola came by with a very large cheque. Bruno nearly fainted. I told them we'd have to think. We don't have to think. We have to eat.",[
-  ["Will you take it?","Not for the name on the big top. Perhaps for a crate of cola and a day's peace. There's a difference between money and being owned."],
-  ["Who keeps the circus books?","I do. Bruno can count to three, Igor to four. The rest is me and a very tired pencil."],
-  ["Do you like cola?","Warm, in a thunderstorm. Otherwise I prefer tea. Cola's for people who want to feel they're doing something."]],
- "I'd tell you what the takings are, but then I'd have to cry."],
-10:["(Meg has pulled the net down from the rigging, and folded it in black.) We're dark today. Bruno insisted. And I'll admit it feels right. You don't swing over a room on the day they bury a king.",[
-  ["Did you know the king?","I saw him once, at a window, waving at the lake. Like a man waving at a boat he's not on."],
-  ["Is it hard to stop for a day?","Harder than it looks. My hands don't know what to do. They keep reaching for a rope."],
-  ["How's Buttons coping?","He's gone quiet, which is alarming. I made him soup. He said thank you in a small voice. I nearly cried."]],
- "Tomorrow we'll be loud. Today, let's just be still."],
-11:["(Meg is stacking spare ropes in neat coils.) Buttons has been complaining about wages. He's heard the Eastbrook mill hands want a fair day's pay, and he's decided he's part of the labour movement. He's never worked a day. I mean, never with a lifting job.",[
-  ["Does he have a point?","A small one. We're underpaid. But we're also over-loved, which is a better deal than most. I'd just like both."],
-  ["What do you earn?","Enough to eat, and less than the horse costs. We make it work. It's what a circus does."],
-  ["Would you join a union?","If it came with a safety net. I'd join anything with a safety net."]],
- "I don't do speeches. I do knots. Knots are more honest."],
-12:["(Meg has Buttons's hat on a stick and is looking at it sternly.) He borrowed my hat. I've taken it back, and I'm giving him the silent treatment. It lasts ten minutes, and it's very effective.",[
-  ["Is he in trouble?","Always. It's what he's for. But I'd miss him if he wasn't. I'd have to make my own jokes, and they're dreadful."],
-  ["How did you two meet?","In a ditch outside Tampere. He'd fallen off something. I thought, here's a man who'll never be a danger to anyone but himself. I was right."],
-  ["Do you ever want to leave the circus?","Once or twice. But then I stand at the top of the rope and look down at all those faces, and it's enough. You can't have that in a bank."]],
- "Ten minutes are up. Time to forgive him. He's got sad eyes."],
-13:["(Meg is writing on a card in block letters.) NO FREE SAMPLES. I'm putting it on the ticket booth. Kingsgrad's giving cola away tomorrow, and I've no intention of giving away anything we've worked for.",[
-  ["Would the circus do a free show?","Not for free. For a fair price, we'd do three. Free means they'd value it at nothing."],
-  ["Is Bruno on board?","Bruno thinks everything's a chance to be seen. I think it's a chance to be cheated. We balance each other out."],
-  ["Will you go to Kingsgrad?","Perhaps, for the horse's feed. If the cola men are giving things away, they might have oats."]],
- "Take what's offered, but ask what it costs. A good rule for ropes and men."],
-14:["(Meg is sitting cross-legged in the ring, chalking her hands.) The fourteenth. I've been told it's a gathering of the whole island. I have no idea what that means, but the rigging's tight and the net's down.",[
-  ["Are you ready?","I'm always ready. I'm a bit worried about everyone else. A whole island in one place is a lot of weight on one rope."],
-  ["What do you expect?","Noise, shoving, a speech. Someone will fall over. If I'm there, I'll catch them."],
-  ["Is the circus performing?","We're on standby. If someone needs a distraction, we've got a very good one. He's in a red coat and he never stops."]],
- "Stay near the edges. That's where you can see everything and nothing can fall on you."],
-15:["(Meg has a chart of the circus's expenses, with two little flags on it.) Someone from the palace and someone from the monastery have both asked me to choose a prince. I said I only choose ropes. They said, a rope's a choice, and I said, quite.",[
-  ["Which prince would you choose?","The one who's looked at a net before. A king needs to know what happens when you let go."],
-  ["Is the circus taking sides?","Bruno's keeping a foot on each side. I said that's how men split their trousers. He didn't laugh."],
-  ["What do you make of the crown and the cross?","They're both a kind of rigging. One holds up the throne, the other holds up the sky. I'd trust neither without checking."]],
- "I'll check the knots in the morning. They'll still be knots."],
-16:["(Meg is practising a handstand against a pole, and speaks upside down.) A debate between the Communists and the Democrats. I'd like to watch. They'd be great on a trapeze: all that swinging, and nobody listening.",[
-  ["Who would win?","The one who lets go at the right moment. It's the only thing that matters on a trapeze."],
-  ["Are you going to listen?","I'll get the gist from Buttons, who'll have got it from someone who was asleep."],
-  ["Which side are you on?","The side of fair weather and good rope. That's all a performer needs from politics."]],
- "Be careful who you vote for. It's like picking a catcher. Look at his hands."],
-17:["(Meg is standing very still, one hand on the rope, her face turned up.) Did you feel that? The rope hummed. Not the wind: it was too regular. The whole big top shivered, like a horse.",[
-  ["Was it an earth tremor?","I think so. Bruno says it's nothing. I'd say it's the first one. There'll be a second."],
-  ["Are you frightened?","Not for me. I've fallen from worse. It's the little ones, and the horse, and Buttons, who'll hide under the bed."],
-  ["Where do you think it came from?","North, from the mountain. There's steam, and Zora keeps staring that way. When Zora stares, I check my knots."]],
- "Come away from the poles. They carry it."],
-18:["(Meg is inspecting the net hook by hook.) I've told Bruno we need to move the audience chairs to the lakeside. He said the audience would complain. I said the audience can complain from a safe distance.",[
-  ["Is the big top safe?","It's stood a hundred storms. But I don't trust the ground. I've doubled the guy ropes and put Igor on the main pole."],
-  ["What does the island say?","The cola people are making a cup into a star, and the church is hunting for a relic. Everyone's got a story. I've got a net."],
-  ["Is Buttons helping?","He's carrying things. Mostly sandwiches. It counts as moral support."]],
- "A safe tent is a boring tent. Boring's what I'm aiming for."],
-19:["(Meg is writing a list in the margin of the ledger.) Things to do if the ground gets worse. One: wake Igor. Two: wake the horse. Three: wake Buttons, though it won't help. It's good to have a list.",[
-  ["Who would you save first?","I'd save the rope. Then everyone else. Don't tell Buttons the order."],
-  ["Does the circus have a plan?","Bruno has a plan. It's called 'keep smiling'. I have a plan too, and it has numbers."],
-  ["Have you heard about the Communist call for comrades?","They want volunteers, I hear. I'd volunteer for a rope-pulling team, but I won't sign anything."]],
- "If the ground shakes in the night, grab the horse. She'll know where to go."],
-20:["(Meg has been up all night, and her eyes show it.) Zora stopped by at midnight. She put her hand on the net and said, 'Tomorrow, hold on.' Then she went to bed. I didn't sleep after that.",[
-  ["Does Zora predict real things?","Often enough that I double-check the rope. She said I'd fall in love with a fool, and I'm still waiting for the end of that one."],
-  ["What will you do?","Check everything twice. And keep the horse near. And be there if Buttons trips."],
-  ["Are you scared?","A little. Fear's useful. It tells you where the knots are weak."]],
- "Hold on tight tomorrow. It's good advice for anything."],
-21:["(Meg is sitting on the caravan steps, grey with ash, an arm around Buttons.) It's over, or the first part is. The mountain went off like a gun. The net held, the big top held, and the rope's still humming. We're all here.",[
-  ["Is everyone safe?","Everyone. The horse is shaking, Bruno's pretending not to, Buttons has just had a good cry. Igor held the big top pole up with his shoulder for an hour."],
-  ["What did you see?","A glow in the north, red as a stove. The ground swung like a trapeze. And then ash, falling softly, like the worst kind of snow."],
-  ["How are you?","Tired. Proud. Ready for a very long sleep, after I've counted heads again."]],
- "Check on the others. Then check again. It's what I do."],
-22:["(Meg is beating the dust out of the net with a flat paddle, and coughing.) Everything's grey. The ropes, the horse, Buttons. He looks like a statue of himself. I've told him not to move, and he's thrilled.",[
-  ["Can the circus perform?","With scarves, yes. The audience wears them too. A hundred people with grey mouths and bright eyes. It's very theatrical."],
-  ["How's the camp?","Fine. We've got food and a stove. The lake's grey, but the water's clean enough to boil. It'll be a long few days."],
-  ["What's the news?","Ash on the roads, lava in the north, no one killed. Which is the main thing. The rest is cleaning."]],
- "Wear something over your mouth. It's no fashion, but it works."],
-23:["(Meg has hung every rope in the camp out to air, like washing.) Ash gets into everything. It's in the knots, in the hair, in the soup. I could stand here all day and still find more.",[
-  ["Is it hard work?","It's something to do with my hands. I'm better when I'm busy."],
-  ["Are the audiences coming?","A few. They sit and look at the ring as if they'd forgotten what it was for. Then Buttons trips, and they laugh, and they remember."],
-  ["Who's helping?","Igor does the heavy things. Zora does the quiet things, like telling us it's going to be all right. She's never wrong about that."]],
- "Take a rope home with you. It's good luck, and it's clean."],
-24:["(Meg has a bandage on one palm.) A rope burn. My fault. I wasn't looking. Buttons says I can't be hurt, because I'm made of wire. It was a nice thing to say, and a wrong one.",[
-  ["Does it hurt?","A bit. I've had worse. I broke my wrist in Riga in '76, and I climbed back the next night. It was a mistake, but a proud one."],
-  ["The monks have gone to the peaks, I hear.","A retreat. I understand it. When the ground won't stay still, you go up and look down."],
-  ["Is Buttons being useful?","He's making tea. It's terrible, but he's making it with love. I drank two."]],
- "I'll be back on the rope by tomorrow. It's what I'm for."],
-25:["(Meg is stringing a new line between two poles.) A crown for everyone. That's what the bills say. A crown for everyone, and a princess for democracy. It's a lot of crowns. I'd rather have a good rope.",[
-  ["What do you make of the talk?","It's a lot of balancing, and nobody's holding the net. I'd just like to know who's going to catch them."],
-  ["Would you wear a crown?","Only if it came with a harness. A crown without a harness is how kings fall."],
-  ["What's the mood at the lake?","Tired and a bit hopeful. We're mending. We might even be better."]],
- "A good rope is the only crown I'd trust."],
-26:["(Meg is rehearsing alone, hanging by one knee.) I've been watching Kelp Cola make a prince into an advertisement. A prince in every bottle. It's the circus again, with a different ringmaster.",[
-  ["Is that how you see it?","They want a face on every bottle. We want a face in every seat. It's all the same trade. They just sell fizz."],
-  ["What about the oil man's spa?","Fancier than a circus, and wetter. But I bet there's no net. Not for the guests."],
-  ["Are you looking forward to the end of the month?","I'm looking forward to the day after. When the rope's quiet again."]],
- "Don't sign anything you can't climb."],
-27:["(Meg is tightening a guy rope with her whole weight.) They're showing a film in Eastbrook tonight, I hear, about a revolution. I'd go, but I've seen enough revolutions. They all go in circles, like the ring.",[
-  ["Do you like films?","I love them. The people are all in the right place and nobody falls. I like to be soothed."],
-  ["Are you going?","Maybe, if Buttons can find a ticket. Otherwise I'll stay home and mend. It's the nearest I get to a night out."],
-  ["How's the mood?","Tight. People are like ropes on a hot day: they're expanding, and no one wants to say."]],
- "Have a good evening. Don't let anyone pull your rope."],
-28:["(Meg is stood with her arms folded, looking at the sky.) All the factions are out today, pushing. Everyone's shouting for the last of it. And we're here, a circus by a lake, being quiet. It's rather nice.",[
-  ["Will the circus join in?","We'll stay out of it. We'll put on a show, and let them come to us. We're the one place where no one can win."],
-  ["Is Bruno restless?","He's pacing, polishing the bell. He wants a part in it. I've told him to stay put, and he's sulking."],
-  ["Are you worried?","About the next two days, a bit. But I've held worse weights than this island."]],
- "Stay calm. It's a good trick, and anyone can learn it."],
-29:["(Meg is tightening the last guy rope.) Everything's checked. Everything's tied. All I can do now is wait. I've told the others to get some sleep. They're all pretending.",[
-  ["How are you?","Steady. I don't sleep much before a big night. It's like standing on the edge of the platform, just before the jump."],
-  ["What do you think will happen?","I think the island will do something brave or something foolish. Usually both."],
-  ["Is Buttons asleep?","He's snoring. It's the best sound I've heard all week."]],
- "Sleep if you can. The net will be there in the morning."],
-30:["(Meg stands at the top of the big top ladder, looking out over the lake.) The last day. I've been up here since dawn. The whole island looks small from this height. It makes it easier to think.",[
-  ["What's it like up there?","Quiet. Grey. Everything's equal. A prince and a pig look the same from twelve metres."],
-  ["What will you do after today?","Take the net down, fold it up, and take the circus where the road goes. I'll check the rope first."],
-  ["Any last advice?","Hold on. And if you can't, let go cleanly. It's the half-hearted falls that hurt."]],
- "Thanks for listening. It's easy to forget that people do."],
+7:["(A small woman in a patched leotard and an enormous jumper is hanging upside down from a rope by one knee, checking a knot.) You're the reporter. Come in under the rope. Mind the horse. She bites people with notebooks.",[
+  ["Do you always check the ropes upside down?","It's the only way to see the knot the way it'll see me, at eight tonight, forty feet up. (She swings upright and drops to the ground.) Knots don't lie. People do."],
+  ["What do you do in the circus?","Trapeze, the high wire, the books, the horse, the stove, the costumes and Buttons. Mostly Buttons. Somebody has to keep this circus from falling down. Usually it's me."],
+  ["Who's Buttons?","The jester. My partner. He falls off things for a living and I catch him. Also for a living. Also because I love him. Don't tell him I said that in front of a reporter."]],
+ "Come to the show tonight. Sit on the left. The left's where I fall towards, if I fall."],
+8:["(Meg is doing the circus accounts at a folding table, with a pencil and a frown.) Sunday. No show. Books day. (She crosses something out.) Bruno's had eleven buns from the coffee shop in Eastbrook this week. On a slate. I'll pay it off. Quietly. As usual.",[
+  ["Doesn't Bruno pay his own slate?","Bruno pays in stories. Maya at the coffee shop prefers money. So I go in on Mondays, pay it off, and she gives me a bun for my trouble. It works."],
+  ["Is the circus doing well?","Packed every night since we opened. People are hungry for something that isn't the king or the snow. We're the only thing on the island that's just fun."],
+  ["Do you go to church?","(She doesn't look up.) The big top's my church. Forty feet up, alone, with nothing under you but a net and your own nerve. You pray very sincerely up there."]],
+ "If you see Bruno with a bun, tell me. I'm keeping count."],
+9:["(Meg is standing beside a wire strung a foot off the ground between two posts, watching a young woman wobble along it.) Eyes up! Look at the end, not your feet! (To you.) This is Hely. From Eastbrook. She's been watching us every day. I've put her on the low wire.",[
+  ["Is she any good?","(Hely falls off.) Three steps. That's three more than yesterday. She's got nerve. Nerve's the thing you can't teach. Balance, I can teach anyone."],
+  ["Why help her?","Because I was her, once. In Riga. Watching a circus through the canvas. A woman let me try the low wire. I've been on wires ever since."],
+  ["Isn't it dangerous?","A foot off the ground? The worst that can happen is your pride. Pride's the first thing a wire takes. Then it gives you something better."]],
+ "Eyes up, Hely! (To you.) Come back tomorrow. She'll do four."],
+10:["(The big top is dark, the flag at half-mast. Meg is sitting on the ring fence with her hands in her lap.) No show tonight. The king. Bruno wanted to do a sad show. I said there's no such thing. So: no show.",[
+  ["Did the circus know the king?","We played the palace once, in 1971. He laughed at Buttons for ten minutes. Then he came round the back and asked how the trapeze worked. I showed him. He held the bar."],
+  ["How's the troupe?","Quiet. Igor's polishing his weights. Zora's reading cards and won't say what they said. Buttons is eating, which is how he grieves."],
+  ["What will you do tonight?","Check the ropes. In the dark. Then sit with Buttons. He gets frightened on quiet nights. Clowns hate silence."]],
+ "Go gently today. Even the circus is quiet."],
+11:["(Meg is splicing a rope with a marlinspike, very fast.) This one's frayed. Twenty years, this rope. It's caught me four times. Time for it to retire. (She looks at it fondly.) It's earned it.",[
+  ["Has it really caught you four times?","Twice in Riga, once in Tallinn, once in Bergen. Each time, the rope held and I didn't. That's what ropes are for."],
+  ["Do you ever get hurt?","(She rubs her right shoulder without seeming to notice.) Not badly. Not lately. A wire teaches you to fall properly. Most people never learn."],
+  ["What happened to your shoulder?","(She stops rubbing it.) Nothing. An old thing. 1975. Riga. It aches before rain. (She goes back to the rope.) It's going to rain."]],
+ "Don't mention the shoulder to Buttons. He worries."],
+12:["(Meg is feeding the circus horse, a large, grey, disapproving mare, from a bucket.) This is Duchess. She pulls the wagons, carries the girls in the parade, and bites anyone with a notebook. (Duchess eyes your pocket.) I did warn you.",[
+  ["Why does she bite notebooks?","A newspaper man in Tallinn once wrote that she was 'an elderly nag'. She's never forgiven the press. Neither have I."],
+  ["Who looks after the horse?","Me. Who else? Bruno talks to her. Igor carries her hay. Buttons tries to ride her. I feed her, groom her and apologise for her."],
+  ["How's Hely doing on the wire?","Six steps yesterday. Then she fell off laughing. Buttons gave her some old juggling clubs. She drops them beautifully. She'll get there."]],
+ "Keep your notebook in your coat. Duchess is watching."],
+13:["(Meg is hanging upside down from the trapeze, forty feet up, and calls down.) Kelp Cola left a crate of free bottles for the troupe! Buttons has drunk six! He's bouncing off the canvas!",[
+  ["Is that dangerous?","For the canvas. Buttons on sugar is a force of nature. I'll catch him when he comes down. He always comes down eventually."],
+  ["Are you going to the gathering tomorrow?","Bruno's taking the whole troupe. In costume. He thinks the island needs reminding we're here. I'm going to stand at the back in a jumper and hope nobody notices."],
+  ["Can you hear me up there?","(She drops into the net, rolls out and lands beside you.) Better down here. Up there, everything sounds like it's happening to someone else."]],
+ "Come to the show tonight. Buttons will still be bouncing."],
+14:["(Meg is in a big coat over her leotard, trying to stop Buttons wearing his full jester costume to the gathering.) Not the bells, Buttons. Not today. People are going to be serious. (Buttons jingles sadly.) Fine. Two bells.",[
+  ["Why's Bruno taking the circus?","So the island remembers there's something besides politics. He's right, for once. Don't tell him."],
+  ["What do you hope happens?","That nobody falls. In any sense. I spend my life watching people fall. I'd like a day off."],
+  ["Will you perform?","No. Bruno will make a speech. Buttons will juggle. Igor will lift something heavy. I'll make sure nobody gets hurt. That's my act."]],
+ "If you see a man in two bells, that's mine."],
+15:["(Meg is stitching a tear in Buttons's costume, with a very long needle.) He climbed the fountain at the gathering. To see better. Fell in. Came out with a duck. (She stitches.) I didn't catch him. First time in ten years.",[
+  ["Was he hurt?","His pride, briefly. Then the crowd cheered and he bowed to the duck. Now he says it was planned. It wasn't planned."],
+  ["What did you think of the gathering?","Loud. Everyone very sure of everything. I've stood forty feet up with nothing under me. I'm never sure of anything. It's very freeing."],
+  ["How's the circus doing?","Packed again. And Hely's selling programmes at the door. Unpaid, for now. She wears a hat with a feather. She's terribly proud of it."]],
+ "If you see a duck near the big top, it's Buttons's. He's keeping it."],
+16:["(Meg is high on a ladder, rigging a new rope, and talking down.) The new rope's going up. The old one's retired. Bruno's making a speech about it tonight. A speech. For a rope.",[
+  ["Is Bruno always like that?","Thirty years on the road and he's made a speech about every rope, horse, town and broken bun. He'd make a speech at his own funeral. I've told him I'll make it short."],
+  ["Are you listening to the debate?","Buttons is, on the wireless in the caravan. He keeps shouting 'oh, that's good' at both sides. He'd vote twice if they'd let him."],
+  ["Can I hold the ladder?","(She looks down at you, amused.) I've been up ladders since I was six. I don't need it held. (A pause.) But hold it. It's nice to be looked after, for once."]],
+ "Thank you. You held it very well. Hely holds it like it's going to bite."],
+17:["(The rigging sways and the big top creaks. Meg is at the top of a pole, holding on, very still.) The ground moved! I felt it from up here. The whole tent swung. I've never felt the ground from forty feet before.",[
+  ["Come down!","(She slides down the pole and lands beside you.) I'm down. I'm fine. The rope's fine. Duchess has gone very quiet. That's the first time in eleven years."],
+  ["Is it the volcano?","Zora says so. She turned a card this morning and went white. Zora never goes white. She's seen everything."],
+  ["Is the circus safe?","Tents bend. That's their secret. A building falls in an earthquake. A tent just sways and complains. I trust the tent."]],
+ "Stand clear of the poles if it moves again. They're heavier than they look."],
+18:["(Meg is laughing so hard she has to sit on a bucket.) Buttons tried to get into the Kelpy costume. The cola cup. Elin from Kelp Cola came round asking if anyone in the circus would fit. Buttons went in head first and got stuck. Igor had to pull him out by the ankles.",[
+  ["Who'll be Kelpy, then?","Somebody small, with nerve. Not a clown. Clowns can't help being funny, and Kelpy's meant to be dignified, apparently. For a cup."],
+  ["Is Buttons all right?","He's thrilled. Somebody wanted him for a job. A serious job. He's been taken seriously for a whole hour. It's the best day of his life."],
+  ["How's your shoulder?","(She stops laughing and rubs it.) It aches. It's going to rain. Or something worse. It's been aching for three days."]],
+ "If you see a cup with clown shoes on, it's not Kelpy. It's Buttons."],
+19:["(The camp smells of eggs. Meg is checking every guy rope on the big top, very carefully.) Steam on the mountain. Bruno wants to pack up and move to Kingsgrad. I want to stay. We're arguing. (She tightens a rope.) I'm winning.",[
+  ["Why stay?","Because if we run, the island sees a circus running. If we stay, the island sees a circus that isn't frightened. People need that."],
+  ["Is it safe to stay?","Safer than a road full of wagons and frightened horses in the dark. We'll stay by the lake. Water doesn't burn."],
+  ["Did you pay Bruno's slate?","(She smiles.) Monday. Maya gave me a bun and said 'the man in the red coat owes you his life'. I said he owes me eleven buns."]],
+ "Breathe through your sleeve. And if Bruno asks, I won."],
+20:["(Meg is tying everything down: the wagons, the rigging, Duchess's halter.) If the mountain goes tonight, everything stays tied. The animals are going in the big top. The troupe's sleeping by the lake. Buttons is holding my hand. He doesn't know he's doing it.",[
+  ["Are you frightened?","Yes. But I've been frightened forty feet up for twenty years. You learn to put fear in your pocket. Not away. Just in your pocket."],
+  ["What's Bruno doing?","Making a speech to the animals. About courage. The animals are listening. It's actually working. Don't tell him."],
+  ["Will the circus be all right?","Tents bend. Wagons roll. Clowns fall over and get up. We've survived floods, fires and Bergen. We'll survive a mountain."]],
+ "Go somewhere safe tonight. Not near anything that can fall."],
+21:["(Ash is falling. Meg is sitting on the edge of the lake, grey all over, with Buttons asleep with his head in her lap.) It went. The mountain. The whole north lit up. We were by the lake all night. Every animal, every person. Everyone's alive.",[
+  ["Is the big top standing?","Grey, and leaning a little, but standing. Tents bend. I told you. (She looks at it.) It bent. It didn't break."],
+  ["Is Buttons all right?","He told jokes all night. To the animals, to Igor, to me. Terrible jokes. The worst he's ever told. Everyone laughed. (She strokes his hair.) He's a hero. Don't tell him."],
+  ["Are you all right?",["(She rubs her shoulder.) My shoulder aches. My heart's full. That's a good trade, for a night like that.",[
+    ["Your shoulder?","(She sighs.) Riga. 1975. I fell. Nobody caught me. Since then I've caught everyone. (She looks at Buttons.) It's a better job than being caught."],
+    ["What happens now?","Bruno will make a speech. Zora will say she saw it coming. Igor will lift whatever needs lifting. And we'll put on a show. Soon. People will need one."]]]]],
+ "Cover your mouth. And thank you. Go and find your people."],
+22:["(Meg is brushing ash off the big top's canvas with a broom on a very long pole.) Bruno's decided. We're staying. And we're putting on a show for the island. On Saturday. Free. For everyone. To cheer them up.",[
+  ["That's very generous.","Bruno's idea. Bruno's speech. My work. That's how it always goes. (She pushes a heap of ash off the canvas.) I don't mind. It's a good idea."],
+  ["How's the camp?","Grey. The horse is grey. The wagons are grey. Zora's crystal ball is grey. She says it's the first time she's been able to see the future properly."],
+  ["How's Hely?","Sweeping Eastbrook's square harder than anyone, Buttons says. She'll be back on the wire next week. I've put a cushion under it."]],
+ "Bring someone to the show on Saturday. Everyone's welcome."],
+23:["(Meg is sitting at the folding table, doing the books, with a deep frown.) The show on Saturday. Free. Which means no takings. Which means I'm finding money somewhere. (She taps the pencil.) Bruno says the island will remember. The island doesn't pay for horse feed.",[
+  ["Can the circus afford it?","Just. If Buttons eats less. Which he won't. If Bruno stops buying buns. Which he won't. If I do the costumes myself. Which I will."],
+  ["What's the news?","Something broken out on the oil rig, Igor heard. Spanners. And the Party says it wasn't them. Zora says she knows who it was. She won't say."],
+  ["Will Hely be at the show?","Selling programmes. I'm going to pay her. Real wages. Not much. But it's a wage. She needs one. She needs to know she's worth one."]],
+ "If you've got a krone for the horse, Duchess says thank you."],
+24:["(Meg has just come back from Eastbrook with banner string still wound round her wrist.) Erik's rally banners. Twenty of them, Jonna's lettering. I did the hall roof without a ladder. For the ones in the square I used one, so Hely had something to hold.",[
+  ["Why let her hold it?","Because a girl who's been on a bench for two years needs someone to say 'I'm trusting you'. A ladder's a good way to say it. She held it like it was holding her up. She's got very steady hands."],
+  ["Will you take her into the circus?","(She unwinds the string.) We'll see. 'We'll see' from me means I've decided and I'm waiting for Bruno to think it was his idea."],
+  ["Isn't it strange, a circus hanging political banners?","Erik paid. In bread for the horse. And he laughed at Buttons in 1979. A circus remembers who laughed. (She coils the string.) Good people, Erik's lot."]],
+ "If you see Hely, tell her the banners are straight. She'll want to know."],
+25:["(Meg is sewing a programme seller's hat, with a long feather.) For Hely. For Saturday. A proper one. With a proper feather. (She holds it up.) She's going to cry. I'm going to pretend I didn't see.",[
+  ["You're very fond of her.","She reminds me of someone. (She threads the needle.) Me. In Riga. Before the shoulder. Before everything. Full of nerve and no idea what to do with it."],
+  ["What's the news?","The princess came to the circus last night, Buttons says. In a headscarf. Laughed at him for an hour. Buttons is in heaven. He says royalty takes him seriously."],
+  ["Did she?","(She smiles.) She laughed at him for an hour. That's the most serious thing anyone can do for a clown."]],
+ "Don't tell Hely about the hat. Let her see it on Saturday."],
+26:["(Meg is watching Buttons teach Hely to juggle, from the caravan step, with her arms folded and a very soft expression.) Wrist, not arm! (To you.) He's a good teacher. When he forgets to be funny. Which is never. But sometimes.",[
+  ["Is Hely getting better?","Four in a row today. Buttons says she's 'nearly not terrible'. That's the highest praise he's ever given. He's never said it to me."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. Buttons wants to know if he can join the oil company for the milkshake machine."],
+  ["Have you told Bruno about Hely?","Not yet. I'm letting him notice her himself. He'll think it's his idea. Then he'll make a speech about it. Then she'll be in."]],
+ "If Buttons offers you a juggling lesson, take it. He's better than he looks."],
+27:["(Meg is in the big top, checking every rope and every bolt for tomorrow's show.) Free show tomorrow. For the whole island. After the mountain. (She tugs a rope.) Everything has to hold. Everything has to be perfect.",[
+  ["Are you nervous?","For the troupe. Not for me. Forty feet up, I know what I'm doing. Down here, with three hundred people and a free show, I'm terrified."],
+  ["What's the news?","A Party picture at the cinema tonight, and big card games, they say. Bruno wanted to go to the cinema. I said there are six tractors. He said he loves tractors. He doesn't."],
+  ["Is Hely ready?","She's been practising selling programmes to the horse. Duchess bit three. Hely's very proud. She says it's a good omen."]],
+ "Come to the show tomorrow. Sit on the left. It's free. Everyone's welcome."],
+28:["(The big top is packed, flags everywhere outside, and Meg is in her spangled leotard at the bottom of the rope, rubbing her shoulder.) Last show. Free. The whole island's here. Every faction, all at once, all laughing at Buttons. It's the only thing they've agreed on all month.",[
+  ["How's your shoulder?","(She stops rubbing.) It'll hold. It always holds for the last show. Then it complains for a week. That's our arrangement."],
+  ["Is Hely selling programmes?","At the door, in the hat with the feather. She cried when she saw it. I pretended I didn't see. (She looks towards the door.) She's sold two hundred. Real wages."],
+  ["Will you ask Bruno about Hely?","Tonight. After the show. When he's happy and full of applause. That's when you ask Bruno anything."]],
+ "Go and find a seat. On the left. I'm going up."],
+29:["(Meg is sitting on the caravan step, very tired and very happy, with Hely's feathered hat in her lap.) Bruno said yes. Last night. After the show. He made a speech about it. Hely's coming with us. The winter tour. Juggler's assistant.",[
+  ["That's wonderful.","(She smiles.) She cried. Buttons cried. Bruno cried during his own speech. Igor lifted her up in the air. Zora said she'd seen it in the cards. Zora sees everything after it happens."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next. And the circus is packing for the winter. We're the only ones who know where we're going."],
+  ["Will you miss the island?",["(She looks out at the grey lake.) Every island. Every town. You leave a bit of yourself in every one. This one, I'm leaving more than usual.",[
+    ["Why this one?","The mountain. The ash. The show. And a girl on a bench who reminded me who I used to be. (She touches the feather.) I'll miss it."],
+    ["Will you come back?","In the spring, Bruno says. If the island's still here. If it'll have us. Circuses always come back. That's what makes them circuses."]]]]],
+ "Come and see us off. Tomorrow, or the next day. Wave at the second caravan."],
+30:["(Meg is coiling ropes into a wagon, very neatly, Buttons asleep on the roof of it.) Last day. They're settling the island today. We're packing. (She coils another rope.) Whoever wins, they'll need a circus. Everyone always needs a circus.",[
+  ["What do you hope happens?","That whoever runs the island laughs at clowns. You can trust people who laugh at clowns. Never trust anyone who doesn't."],
+  ["Where will you go?","Round the island first, every town. Then the boat to Finland, for the winter. Hely in the second caravan. Buttons on the roof. Duchess biting reporters."],
+  ["Will you remember this month?",["(She looks at the sleeping Buttons, then at the grey big top coming down.) The mountain, and the lake, and the tent bending, and Hely's feather. Yes.",[
+    ["And me?","The reporter who held my ladder and didn't let go. Most people let go. (She smiles.) Duchess still wants your notebook."],
+    ["What will you do tomorrow?","Check the ropes. Feed the horse. Catch Buttons. Teach Hely. Same as always. On a different road. That's the circus."]]]]],
+ "Wave at the second caravan when we go. And keep your notebook in your coat."],
 };

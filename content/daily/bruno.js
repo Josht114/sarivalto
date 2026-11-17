@@ -1,125 +1,135 @@
-// Bruno, ringmaster of the travelling circus at Lake Ilmari (the Circus). Threads: thirty years on the road and his tall tales, the takings
-// and the permit he hasn't got, his troupe (Igor in the bunk below, Buttons's appetite, Meg who runs things, Zora's forecasts),
-// the island's politicians as an audience, the volcano and whether the circus should move on.
+// Bruno, ringmaster of the travelling circus camped at Lake Ilmari (the Circus). Threads: thirty years on the road in his red coat and
+// his tall tales (the Tsar's niece, the elephant in Tallinn); the permit he hasn't got and the takings; his troupe (Igor snoring in the
+// bunk below, Buttons's appetite and his feud with Bruno's top hat, Meg who really runs everything, Zora's forecasts); his sweet tooth
+// and the slate at Maya's that Meg pays; the speech he makes about everything, even a retired rope (the 16th); wanting to run from the
+// mountain and being talked out of it (the 19th), the free show for the island (the 28th), and saying yes to Hely, with a speech.
 DAILY['Bruno']={
-7:["(Bruno sweeps off his top hat with a flourish.) Ladies and gentlemen, the roads are open, and the press has arrived! Bruno, ringmaster, thirty years on the road, never once on time.",[
-  ["Pleased to meet you. Nice coat.","Red, like all the best things: sunsets, wine and bad debts. I've had it since Bologna. It has been mended more times than I have."],
-  ["How long has the circus been here?","Since the snow went. We came in over the ice before the king died, and then the island shut like a purse. A fine audience, but a captive one."],
-  ["Is the circus licensed to perform here?","(He lowers his voice.) Licensed is such a strong word. We have a letter. It has a stamp on it. Nobody has asked what the stamp says."]],
- "Come to the big top any evening. The first row is free for the press."],
-8:["(Bruno is leaning on a tent pole, reading a Eastbrook Gazette with great suspicion.) The Gazette says Sunday is a day of rest. In my profession, Sunday is when the tickets sell.",[
-  ["Do you not rest at all?","I rest on the day I'm buried, and then only if the grave's got a view. Today Igor is resting. He's lifting only the small anvil."],
-  ["Is the island good for business?","Everyone has a king to mourn and nothing to do about it. A man who is sad and idle will pay for a juggler. That's economics."],
-  ["What does the Gazette say about you?","Nothing. I've asked three times. I've begun to think the editor is jealous of my coat."]],
- "If the church bells stop, that's us. We're louder."],
-9:["(Bruno holds up a bottle of Kelp Cola to the light.) A man in a good suit tried to sponsor my circus this morning. He wanted the name on the big top. KELP COLA PRESENTS. I told him I'd think about it, which is how I say no politely.",[
-  ["Would you take the money?","I'd take a goat if it paid. But I won't be a bottle on a tent. A circus has to stand for something, even if it's only itself."],
-  ["Who was he?","A Kelp Cola man with a clipboard. He had a pen on a chain. I've never trusted a man whose pen is afraid of being stolen."],
-  ["What would you call your own cola?","Ringmaster's Reviver. It would taste of sawdust and applause. It would sell terribly, and I'd be very happy."]],
- "A circus can drink anyone's cola. It's only the name that's not for sale."],
-10:["(Bruno has taken his hat off and, for once, isn't waving it.) They bury the king today. I've buried three ringmasters in my time. The best of them said the show must go on. Today, it won't. We're dark until tomorrow.",[
-  ["That's decent of you.","It's not decency. It's manners. And a little superstition. You don't juggle on the day of someone's last act."],
-  ["Did you ever perform for the king?","Once, in Kingsgrad, years ago. He sat very still through the whole of it. At the end he said, 'Thank you, that was very loud.' I put it on a poster."],
-  ["Will the island be all right?","The island will have a new king, or a vote, or a revolution. Whichever, they'll still want a circus on Saturday."]],
- "Go gently today. We'll be back under the lights tomorrow."],
-11:["(Bruno is counting coins into a tin, with moving lips.) Fourteen krona and a button. The takings from Eastbrook. They love us, but they pay like a people who've been told life is hard.",[
-  ["Is that a good night?","It's a tragedy with a trapeze. But Meg says it's enough to feed us and the horse. We're never ruined while the horse eats."],
-  ["Where did the button come from?","Buttons says it's his. I say it's the dignity of the circus. We'll fight over it later."],
-  ["Why are Eastbrook's wages so low?","I hear the mill hands want a fair day's pay. I told them I'd be on their side if I could find anyone to pay me one. A circus is always on the side of the underdog. Only the underdog usually can't afford a ticket."]],
- "If anyone asks, we were in Kingsgrad today. It sounds richer."],
-12:["(Bruno has a map spread on a barrel and is drawing arrows on it.) A circus moves like an army, only with more sequins. I'm planning our winter. Southwards, if the ice lets us.",[
-  ["Are you leaving the island?","One day. Not today. A circus that leaves a town in the middle of a story is a circus that never finds out the ending."],
-  ["Where does the circus winter?","Wherever there's a barn, a barmaid and a bank manager who can be charmed. Last year it was a barn in Lapland with an organ in it."],
-  ["Do you ever feel like settling?","Every year, in March, for about a day. Then I see a lorry and a road, and I forget what I was thinking."]],
- "I'll draw you a map when it's done. It'll be wrong, but it'll be handsome."],
-13:["(Bruno is practising a bow in a puddle, checking his reflection.) The Cola men are giving away free samples in Kingsgrad tomorrow, I hear. Which means half the island's going to be there. I'm thinking of setting up a tent next door.",[
-  ["Selling what?","Hope. Candy floss. Hope in candy floss. It's the same product, really, but one of them's honest about the sugar."],
-  ["Free samples? Would you take one?","I'd take twelve, and give eleven to Igor. He's worked up a thirst lifting the ringmaster."],
-  ["What do you make of the Kelp Cola people?","They sell sweet water and the feeling of being young. I sell the same thing, but mine has a tiger. Not a real one. A very loud cat."]],
- "The crowds go where the free things are. A ringmaster knows."],
-14:["(Bruno is up since dawn, brushing his coat with a clothes-brush the size of a loaf.) The big day! Everyone's talking about the fourteenth, the whole island. And I, a man of the world, have no idea what's going to happen. It's wonderful.",[
-  ["What are you expecting?","A crowd. Speeches. Someone crying. Someone selling sausages. I've seen that show a hundred times, only the hats change."],
-  ["Are you nervous?","Never. But I'm wearing my lucky socks. I always wear them on days when other people are about to do something."],
-  ["Is the circus involved?","We're a circus. We're always involved. We just wait to be asked, and if we're not asked, we turn up and it's a surprise."]],
- "If I'm not here later, I'm in the front row. Probably."],
-15:["(Bruno shakes out a cape, and a great deal of dust.) Do you know, the two princes both want to be king, and they've each sent a man to ask whether I'll put a banner on the big top? A crown on one, a cross on the other. I said, 'Gentlemen, I only fly the flag of the circus.'",[
-  ["Which banner is nicest?","The crown's got better gold. The cross has better manners. I'd like to see them fight it out in the ring. I'd sell tickets."],
-  ["Did either of them pay you?","Not a krona. They wanted it for nothing, for the honour. I said the honour of the ringmaster is not for sale, only for hire."],
-  ["Would you back a prince?","I'd back whoever laughs at my jokes. So far, it's Augustus's cook and a goat."]],
- "I'm a showman. I sit on a fence, but I do it beautifully."],
-16:["(Bruno is rehearsing a speech to the horse.) Ladies and gentlemen, the Great Debate! I've asked the Communists and the Democrats whether they'd like to borrow the big top. A debate with a ringmaster holding the bell. I'd be marvellous.",[
-  ["Would they let you?","They were polite. They said they'd arranged their own venue. That's what people say when they've never seen you hold a bell."],
-  ["What would you ask them?","Which of you will let the circus keep its horse? The answer tells me everything."],
-  ["Who's going to win the debate?","The one who speaks last and slowest. It's always the one who speaks last and slowest. I learned it from a bishop."]],
- "I've sent them the bell, in case they need it. They'll see."],
-17:["(Bruno has his boot against the ground, as if listening.) Did you feel that? Just now. A little shiver, in the earth. Igor says it's the horse. The horse says nothing, which is suspicious.",[
-  ["It felt like a lorry going by.","There's no lorry for a mile. It came from the north. Where the steam is. (He pulls his coat tight.) Thirty years, and I've never pitched under a volcano."],
-  ["Are you worried?","I'm a ringmaster. I'm paid to look as though nothing's wrong. Ask me again tomorrow, and see if I'm still smiling."],
-  ["What does Madame Zora say?","She's been drawing the curtains and muttering since Tuesday. When Zora goes quiet, we all go quiet. It's the only thing she's ever done that frightens me."]],
- "If the earth wants an act, it'll have to book in advance."],
-18:["(Bruno is tapping a barometer, which is stuck on STORMY.) I'm told that Kelpy, the cup in the cola museum, has a rival now. A man dressed as a bottle. We're all of us, in the end, a kind of mascot.",[
-  ["Have you seen Kelpy?","Not yet. But I'm told Kelpy is very popular with children. In my day we called that talent. Now it's a marketing department."],
-  ["Is it bad for the circus?","Competition's good for the soul. And the little ones will still want a real clown. A cup can't fall off a unicycle."],
-  ["Is the ground still shaking?","A little. Like a cat purring in a very large room. I'd feel better if it stopped. I'd feel better still if it didn't."]],
- "Tell the cup I said break a leg. Does a cup have legs?"],
-19:["(Bruno is watching Meg, who is hanging upside down from the big top rope.) She says the earth's moving, and she can feel it up there. The rope hums. I said it's the wind. She said wind doesn't hum in tune.",[
-  ["Is the big top safe?","It's stood through blizzards in Karelia. A bit of shaking won't harm it. But I'll be moving the audience's chairs to the lakeside, just in case."],
-  ["Has anyone asked you to join a party?","Comrades have asked. The Midnight Note has asked me to come and stand in the audience and look important. I'm doing the second. It has a better bar."],
-  ["What does Igor think?","Igor thinks everything will be fine. Igor thinks the sun will come up in the same place until he's dead. He's the happiest man I know."]],
- "Mind the guy ropes. They're a bit tight today."],
-20:["(Bruno is holding a candle in the middle of the day.) Zora gave it to me. She says to light it if the ground does anything unfair. I said I'd light it, as soon as I've found a match.",[
-  ["Does Zora really know things?","She told me, five years ago, I'd lose my hat in a river. I laughed, and then I lost my hat in a river. I don't laugh at Zora now."],
-  ["Is the circus staying put?","The lake's low. The ground's solid. And we've paid for the pitch till the end of the month. I never leave a paid pitch."],
-  ["What's in the air today?","Everything: a palace job whispered in Frostholm, a hotel man with a secret. Not our business. Our business is sawdust."]],
- "Don't stand under the trapeze. It's a habit I've developed."],
-21:["(Bruno stands in the doorway of his caravan, grey with ash, still in his red coat.) The mountain has spoken. The sky's the colour of old porridge. And I've never in my life been so glad to see Igor, who was holding the caravan up.",[
-  ["Is everybody all right?","All of us. The horse is cross, Buttons is hungry, Meg is fixing a rope, and Zora said she told us so. A normal day."],
-  ["Did you see the eruption?","From the lake, over the pines. A red glow, a roar like a thousand drummers. Thirty years of shows, and nothing's ever got an ovation like that."],
-  ["What now?","Now we sweep. And then we wait. I'm told a circus is the best medicine after a disaster. I'd better start believing that."]],
- "Cover your mouth if the wind turns. The ash is in everything, including the tea."],
-22:["(Bruno is shaking the ash off the big top canvas with a long broom, and a lot of language.) It's like grey snow, only it's not cold and doesn't melt. The audience will think we're doing a trick.",[
-  ["Will you perform in this?","I'll perform in a flood, I'll perform in a fire. But I'll ask the audience to wear scarves."],
-  ["Is anyone hurt on the island?","Nobody, thank the Lord. The north has the lava, and it's keeping to the north. Everyone's frightened, and everyone's still alive. It's a fine beginning."],
-  ["Would you move the circus?","Not with the roads covered. Besides, a circus in a crisis is the thing people remember. We stay. We're the only noise left."]],
- "Sweep it out of the ring before the audience arrives. Preferably into Buttons."],
-23:["(Bruno is writing a poster in white paint on a black board.) GREY SKIES, BRIGHT SPIRITS. THE CIRCUS, STILL STANDING. I'm rather pleased with it. I'll nail it to a tree in Eastbrook if there's a tree that's clean.",[
-  ["Are people coming?","Some. A few brave souls and a lot of children who've been kept indoors for two days. A child with ash on his shoes is a ticket-buyer."],
-  ["What's happening on the island?","The Party people are fixing their machinery, and the oil lot are mending whatever's cracked. Everyone's mending. We're mending the audience."],
-  ["Do you ever stop performing?","On the day I'm dead. And then I'll probably do the funeral oration myself."]],
- "Come early. The good seats are the ones that haven't got ash in them."],
-24:["(Bruno has a blanket over his shoulders and a mug in both hands.) The monks are heading for the peaks, I hear. In a retreat. A fine idea. If I were a holy man with a mountain, I'd go up it too.",[
-  ["Would you retreat?","A ringmaster can't retreat. It's all advance, all the time. But I'd like a week somewhere with a sofa and no applause."],
-  ["What's the mood at the lake?","Tired. Kind. Igor's giving shoulder-rides to children and Buttons is telling the same joke for the ninth time. It's like a family."],
-  ["Have the aftershocks stopped?","One at breakfast, a small one. The horse looked up, and that was that. The horse takes it very well."]],
- "Keep warm. A cold ringmaster is a very quiet one, and that's no use to anyone."],
-25:["(Bruno has been looking at the stars through a tin cup.) Everyone on the island's got a plan for the end of the month. The prince, the princess, the party, the pastor. Me, I've got a trapeze and a very long coat.",[
-  ["Who do you think will come out on top?","I think a crowd always gets what it wants, eventually, even if it doesn't know it's asking. I'd just like it to want something kind."],
-  ["Is the circus on anyone's side?","We're on the side of anybody who buys a ticket. We always have been. It's the only honest politics there is."],
-  ["Do you ever worry about the future?","Never about mine. I worry about the horse's. She's seventeen, and she's earned a pension."]],
- "A good night to look at the sky. Ash and all."],
-26:["(Bruno is polishing a brass bell with his sleeve.) The cola people are talking about making a prince into a bottle. A Prince in every bottle. I'd have thought a prince in the ring was the better act.",[
-  ["Would you sell the prince a ticket?","I'd give him the best seat in the house, and then see if he'll stand on his head. A king should be able to take a joke."],
-  ["Is it true the oil man's buying a spa?","So I'm told. Where do you put the money, if you're an oil man? Into somewhere that smells nice. A circus smells of sawdust and horse, and I think that's more honest."],
-  ["Does the circus have rivals?","Not on the island. In Helsinki there's one with a tiger. A real one. It hates everyone and it's not even paid."]],
- "Everyone's selling something this week. I'm giving mine away, in the evenings."],
-27:["(Bruno's tin is heavy with takings, and he looks suspicious of it.) The Communists have taken over the picture-house, I hear, to show a film. A revolution at the pictures. I'll admit, it's a fine thing to do with a Tuesday.",[
-  ["Would the circus show a film?","We've got no projector. We've got a trampoline and an ox. If you want revolution, you'll need a bigger tent."],
-  ["Are you a revolutionary?","I'm a ringmaster. All my life I've told a crowd where to look. A revolution's just a larger crowd."],
-  ["What's the mood on the island?","Tight. Like a drum. Everyone's waiting for someone to hit it."]],
- "I like a good film. Only I don't like the interval. People start thinking."],
-28:["(Bruno is standing in the big top ring in full costume, alone.) The biggest push of the month, they say. The factions are all out today. And I, in my small way, am out too, rehearsing with no audience.",[
-  ["Who are you rehearsing for?","The last night of the month. I want to make people laugh, whichever way it turns out. A laugh is a kind of ceasefire."],
-  ["Will anything happen at the lake?","Probably nothing. Everyone will be in Kingsgrad, shouting. The lake's a good place to be on a day like this: quiet and wet."],
-  ["Are you frightened?","A little. But not of the shouting. It's the quiet afterwards that I worry about."]],
- "Let them do their pushing. We've got the sawdust."],
-29:["(Bruno is sitting on a barrel, with the whole troupe's boots in a row in front of him.) Cleaning boots the night before the last night. Every circus does it. If you're going to go out, go out well-shod.",[
-  ["What's the plan for tomorrow?","The plan is to put on the best show I've ever put on, and see who turns up. Maybe nobody. Maybe all of them."],
-  ["Is everyone ready?","Meg's checked every rope twice. Igor's lifting. Buttons has been fed. Zora says she's not going to tell me anything. Which I find very reassuring."],
-  ["What will you say if the island asks for a speech?","I'll tell them: ladies and gentlemen, whatever you decide, mind the step. It's an old circus saying."]],
- "Early to bed. A ringmaster needs his voice."],
-30:["(Bruno stands in the lakeside dawn, hat in hand, looking at the grey sky.) The last day. Whatever the island decides, I've had the pleasure of an audience of a lifetime. I only wish I'd had a better poster.",[
-  ["Are you nervous?","I'm always nervous before curtain-up. It's what makes the first bow worth taking."],
-  ["What will the circus do after today?","Pack the caravans, feed the horse, and wait for the road to say where. Wherever it says, we'll go. We always do."],
-  ["Any last words for the British press?","Spell my name right. And say the coat is red, not scarlet. Scarlet is a woman I once knew in Hamburg."]],
- "Ladies and gentlemen, thank you. Mind the step on your way out."],
+7:["(A large man in a scarlet coat and a top hat spreads his arms as if the whole lake were a stage.) Welcome! Welcome, friend, to the Greatest Little Circus in the Baltic! Thirty years on the road! Eleven countries! One elephant, once, briefly! I am Bruno!",[
+  ["Eleven countries?","Eleven! Or nine. Two of them changed their names while we were in them. That's not my fault. I'm very good with countries. Countries are less good with me."],
+  ["What happened to the elephant?","Tallinn, 1961. She walked into the sea and swam to Finland. Nobody's ever believed me. (He taps his nose.) I have a postcard. From the elephant. It's mostly blank."],
+  ["Do you have a permit to camp here?","(A very long pause.) A permit. Yes. Very much in hand. In the post. Being considered. (He waves his hat.) Come to the show! Front row! Free! Just this once!"]],
+ "Come to the show tonight! Eight o'clock! Bring everyone! Bring money, mostly!"],
+8:["(Bruno is sitting on the steps of his caravan in his shirtsleeves, eating a bun, with sugar on his moustache.) Sunday. No show. Bun day. (He brushes off the sugar.) From the coffee shop in Eastbrook. Maya's. Best buns in the Baltic. I have a slate.",[
+  ["Do you pay your slate?","Meg pays it. Quietly. On Mondays. She thinks I don't know. I know. I pretend I don't. That's love, in a circus."],
+  ["What do you do on Sundays?","Count the takings. Lose count. Eat a bun. Start again. Tell Igor a story. He falls asleep in the bunk below. I tell the rest to the ceiling."],
+  ["Who's Igor?","Our strongman. Lifts a cart with one arm, snores like a cart with no wheels. We've shared a caravan for nineteen years. I've never once slept through the night."]],
+ "Bring a bun on Monday. Meg will pay you for it. Don't tell her I said so."],
+9:["(Bruno is watching Meg teach a girl on the low wire, his arms folded, pretending not to be interested.) Who's that? (He knows exactly who it is.) The girl from Eastbrook. Hely. Meg's taken a shine to her. Meg takes shines. I make decisions.",[
+  ["Is she any good?","(He watches Hely fall.) Terrible. (He watches her get up.) Very terrible. (He watches her try again.) Hmm. She gets up. That's the only thing I can't teach. Getting up."],
+  ["Will you take her on?","I'm the ringmaster. I don't take people on. People take on the circus. (He watches her.) We'll see. Probably not. Possibly. Don't tell Meg I said possibly."],
+  ["Why does Meg decide things?","Meg doesn't decide things. Meg makes me think I've decided things. It's a very old trick. It works every time. I'm aware of it. It still works."]],
+ "Don't tell the girl I said possibly. It's bad for a performer to hope."],
+10:["(The big top is dark. Bruno is standing in the empty ring in his red coat, hat in his hands.) No show tonight. For the king. (He looks up into the dark.) I wanted to do a sad show. Meg said there's no such thing. Meg's right. As usual.",[
+  ["Did you meet the king?","1971. The palace. He laughed at Buttons for ten minutes, then came round the back and asked me how a ringmaster keeps order. I said 'I don't, Your Majesty. Meg does.' He laughed for another ten."],
+  ["What will you do tonight?","Stand here. In the ring. Where the sawdust's still warm. Make a speech to nobody. (He clears his throat.) Don't worry. A short one."],
+  ["Can I hear it?",["(He considers, then stands very straight.) 'He laughed at the clown. That's all a circus can ask of a king.' (He puts his hat on.) There.",[
+    ["That was beautiful.","(He blows his nose loudly.) Thirty years and that's the shortest speech I've ever made. Meg will be proud. Don't tell her I cried."],
+    ["That's all?","That's all. A king doesn't need more. (He blows his nose.) A ringmaster does. But not tonight."]]]]],
+ "Go gently today. The circus is."],
+11:["(Bruno is waving a letter with a Bureau stamp.) The Civil Service Bureau! In Kingsgrad! Asking about our permit! (He waves it harder.) 'Kindly provide.' Kindly! They've never been kind to a circus in their lives!",[
+  ["Have you got a permit?","I have something better. A circus. A circus has never needed a permit in thirty years. We arrive, we perform, we leave. Permits arrive after we've gone."],
+  ["Who sent the letter?","A clerk called Bertil. Very tidy handwriting. (He squints at it.) He's added a little note at the bottom: 'P.S. I hear the clown is very funny.' I like him already."],
+  ["What will you do?","Invite him to the show. Front row. Free. Nobody ever refused a circus with a pen in his hand. They're too busy laughing to sign anything."]],
+ "If you meet Bertil, tell him the front row is his."],
+12:["(Bruno is having a stand-up row with Buttons about hats.) Mine is taller because I am the ringmaster! (Buttons jingles.) No, your bells do not count as height! (He turns to you.) Thirty years. Every day. About hats.",[
+  ["What's the argument?","He says his cap has more bells. I say my hat has more dignity. He says dignity's overrated. He's never had any, so he'd know."],
+  ["Who's winning?","(Buttons jingles very loudly.) He thinks he's winning. Nobody ever wins an argument with a jester. You just stop, and he takes a bow."],
+  ["Isn't it a bit silly?","Silly is my profession! And his! We're the only two men on this island arguing about hats instead of crowns. I think that makes us the sanest people here."]],
+ "Don't take sides about the hat. It only encourages him."],
+13:["(Bruno is giving a speech to a crate of free Kelp Cola.) Friends! Kelp Cola has seen fit to gift the circus with refreshment! We thank them! We salute them! We will drink every drop! (He opens one.) Buttons has already had six.",[
+  ["Is Buttons all right?","Bouncing. Off the canvas. Meg's keeping him off the trapeze till Thursday. A jester on sugar is a natural disaster. We have insurance for most disasters. Not that one."],
+  ["Are you going to the gathering tomorrow?","The whole troupe! In costume! The island needs to remember there's a circus! I've prepared a speech. Forty minutes. Meg's cut it to four."],
+  ["What's in the speech?","Welcome, friends, et cetera. The circus is here. Laugh while you can. (He looks at the paper.) That's Meg's four minutes. My forty were about the elephant."]],
+ "Come tomorrow! The circus will be the best thing there!"],
+14:["(Bruno is in his full scarlet coat and his tallest hat, standing at the head of his troupe.) The big gathering! Igor, lift something impressive! Buttons, two bells only! Meg, stop me if I talk for more than four minutes! Forward!",[
+  ["Will you make your speech?","If they let me near a box to stand on. I've brought my own box. A ringmaster always brings his own box."],
+  ["What do you hope happens?","That the island laughs. Once. In the middle of all the speeches about crowns and votes. A laugh is the only thing nobody can argue with."],
+  ["Is Meg in charge?","(He looks back at Meg, who raises an eyebrow.) I'm in charge. (Meg's eyebrow goes higher.) Meg is in charge of me. Same thing."]],
+ "Follow the scarlet coat! Best seats near the circus!"],
+15:["(Bruno is sitting on his box, looking delighted and slightly damp.) Buttons fell in the fountain. At the gathering. Came out with a duck. The whole island cheered. (He wipes his eyes.) Thirty years, and the best act we've ever done was an accident.",[
+  ["Did you make your speech?","Three minutes and fifty seconds. Meg timed it. Then Buttons fell in the fountain and nobody remembered a word. That's showbusiness."],
+  ["What's the news today?","The palace and the Church are fighting over the prince's brother. (He shakes his head.) Two big tents, both wanting the same act. I've seen that before. It never ends well for the act."],
+  ["What happened to the duck?","He's called Mayor. He lives with Buttons now. He's the first mayor who's ever let the circus stay without a permit."]],
+ "Come to the show tonight. The duck's in it now."],
+16:["(Bruno is in the ring, giving a speech to a coil of old rope.) Faithful servant! Twenty years you have caught our Meg! Four times you held when she did not! Today, you retire! (He bows to the rope.) Meg says I'm mad. I say a rope deserves a speech.",[
+  ["Do you make speeches about everything?","Every rope, every horse, every town. I made a speech when we left Bergen. Bergen cried. Bergen had never cried before."],
+  ["Is anyone listening?","(He gestures at the empty seats.) Nobody. (Then at the rope.) It is. And so are you. Two is an audience."],
+  ["Is the debate on?","Buttons has it on the wireless. He agrees with everyone. Very loudly. I've told him a ringmaster should pick a side. He said 'I'm not the ringmaster.' Fair point."]],
+ "Take a bit of the old rope as a souvenir? No. It's retired. It's resting."],
+17:["(Bruno is standing in the middle of the ring, very pale, holding his hat with both hands, as the ground shudders.) The ground moved! Under the ring! (He looks around.) Thirty years, I have never felt the ground move under a ring. The ring is sacred.",[
+  ["Is anyone hurt?","Meg was up a pole. She came down like a cat. Buttons was holding a pole. He stayed holding it. Igor caught a falling lamp. Duchess has gone very quiet."],
+  ["Is it the volcano?","Zora turned a card this morning and went white. Zora has never gone white. She's been the colour of old paper since 1952. (He swallows.) I'm worried."],
+  ["Will the circus move?","We'll see. Meg will decide. Meg always decides. I'll make a speech about it."]],
+ "If the ground moves again, get out from under the big top. Tents bend. Ringmasters don't."],
+18:["(Bruno is pacing in front of the big top, very agitated.) Steam! Grit on the canvas! Zora's cards! The animals are restless. Duchess won't eat. I want to move the circus to Kingsgrad. Tonight. Meg says no.",[
+  ["Why does Meg say no?","She says if we run, the island sees a circus running. She says if we stay, the island sees a circus that's brave. (He throws his hands up.) I don't want to be brave! I want to be in Kingsgrad!"],
+  ["Who'll win the argument?","(He stops pacing.) Meg. Obviously. Meg always wins. But I'll lose magnificently. With a speech."],
+  ["Is everyone else frightened?","Buttons is telling jokes to the horse. Igor is lifting things that don't need lifting. Zora's reading cards and not telling anyone what they say. That's frightened, in a circus."]],
+ "If Meg asks, I'm being brave. Very bravely. Under protest."],
+19:["(The camp smells of eggs. Bruno is standing very still with his hat off.) The animals know. They've gone quiet. All of them. Duchess hasn't bitten anyone in two days. That's how I know it's serious. (He puts his hat back on.) We're staying. Meg won.",[
+  ["Is it safe to stay?","Meg says the lake's safe. Water doesn't burn. And a road full of frightened wagons in the dark is worse than any mountain. She's right. I hate it when she's right."],
+  ["What will you do?","Make a speech to the animals. About courage. (He clears his throat.) I've written it. It's quite good. It's the first speech I've ever written that I actually need to hear myself."],
+  ["Did you pay your slate?","(He looks guilty.) Meg did. On Monday. Maya gave her a bun and said 'the man in the red coat owes you his life'. Meg said I owe her eleven buns. Both true."]],
+ "Breathe through your hat. It helps. Mine's very tall. It holds a lot of air."],
+20:["(Bruno is in the big top, giving a speech to the animals, who are all lying down very quietly.) Friends. Tonight the mountain may speak. We have heard mountains before. We have heard Bergen. We are still here. (Duchess flicks an ear.) She's listening. It's working.",[
+  ["Is it really working?","The animals are calmer. Buttons is calmer. Even Igor's calmer, and Igor's never been calm in his life. (He looks surprised.) I think it's the first speech I've ever made that did anything."],
+  ["Where will everyone sleep?","By the lake. In the open. Away from the poles. Meg's tied down everything that can be tied. Buttons is holding her hand. He doesn't know he's doing it."],
+  ["Are you frightened?","Terrified. But a ringmaster must stand in the middle of the ring when everyone's frightened. That's the whole job. Standing in the middle, in a red coat."]],
+ "Go somewhere safe. And hold someone's hand."],
+21:["(Ash is falling. Bruno is standing by the lake in his red coat, which is now grey, his hat grey, his moustache grey.) It went. The mountain. And the circus is still here. Every animal. Every person. Every bell on Buttons's cap. Grey. But here.",[
+  ["Is everyone all right?","Buttons told jokes all night. Four hundred and eleven. Terrible. Everyone laughed. Even me. During my own speech. That's never happened."],
+  ["Is the big top standing?","Grey, and leaning, and standing. Tents bend. Meg said so. Meg's always right. I'm going to make a speech about it. A short one. For once."],
+  ["Are you all right?",["(He takes off his grey hat and looks at it.) Thirty years. I've never been so frightened. And I've never been so proud.",[
+    ["Proud of what?","My troupe. They didn't run. They didn't panic. They told jokes and held hands and lifted things. (He blows his nose.) A circus is a family. I forget, sometimes. Not tonight."],
+    ["What happens now?","We stay. And we put on a show. A free one. For the whole island. People will need to laugh. That's what we're for. That's all we've ever been for."]]]]],
+ "Cover your mouth. And thank you for coming to see us."],
+22:["(Bruno is announcing to an audience of two grey seagulls.) Hear ye! The Greatest Little Circus in the Baltic will present a FREE SHOW! For the whole island! On Saturday! (The gulls leave.) They'll be back. Everyone comes back for free.",[
+  ["A free show? Can you afford it?","No. Meg says no. I said yes. Meg said find the money. I said the island will remember. Meg said the island doesn't pay for horse feed. We're both right."],
+  ["Why do it?","Because after a mountain, people need to laugh. All of them. Party and palace and cola and oil, in one tent, laughing at a clown and a duck. That's worth more than takings."],
+  ["How's the camp?","Grey. Everything's grey. Zora's crystal ball is grey. She says it's the first time she's been able to see the future properly. I didn't ask what she saw."]],
+ "Come on Saturday! Free! Front row! Bring everyone!"],
+23:["(Bruno is writing a letter with great flourish.) To Bertil! At the Bureau! Inviting him to the free show! Front row! (He signs it with a huge loop.) He asked about the permit. I've sent him a ticket instead. A ticket is a kind of permit.",[
+  ["Will Bertil come?","He's a man who hears the clown is very funny. Of course he'll come. He'll bring a form. He'll forget to fill it in. That's what a circus does to people."],
+  ["What's the news?","Something broken on the oil rig, Igor heard. Spanners. And the Party says not them. (He shrugs.) In thirty years I've learned: whoever's shouting loudest that it wasn't them, it usually was."],
+  ["How are the takings?","Nothing, this week. Meg's doing the costumes herself to save money. Buttons is eating less. (He pauses.) That's a lie. Buttons is eating the same. Meg's eating less."]],
+ "If you see Bertil, tell him to come in the front row. Tell him there's a duck."],
+24:["(Bruno is pacing, glowing.) The princess! Last night! In a headscarf, pretending to be nobody! She laughed at Buttons for an hour! Then she came backstage and said thank you! To a circus! Royalty! Thirty years and that's never happened!",[
+  ["Did you recognise her?","Of course! Nobody laughs like a princess. She snorted. A royal snort. I've heard a Tsar's niece snort. In Riga, 1958. This was better."],
+  ["Was there a Tsar's niece?","(He looks wounded.) There was a woman who said she was. In Riga. She snorted. That's all I know. That's all anyone ever knows about a Tsar's niece."],
+  ["What else is happening?","Meg's in Eastbrook hanging banners for the Democrats. Hely's holding her ladder. (He looks at the road.) That girl gets up every time she falls. I keep noticing."]],
+ "If you meet a princess, tell her the circus thanks her. With a bow."],
+25:["(Bruno is watching Meg sew a hat with a feather, and pretending he isn't.) She's making a hat. For the Eastbrook girl. For Saturday. Programme seller's hat. With a feather. (He clears his throat.) Very fine feather.",[
+  ["What do you think of Hely?","(He looks at the sky.) She gets up when she falls. She holds ladders. She sells programmes for nothing. (A pause.) She reminds me of someone. Me. In 1953. Before the coat."],
+  ["Will you take her on?","I'm thinking. I'm thinking very hard. (Meg looks up.) I'm thinking it was my idea. (Meg looks down again, smiling.)"],
+  ["What's the news?","A crown for everyone, a princess for democracy. Everybody's making promises. I promise the island a show on Saturday. Mine's the only one with a duck."]],
+ "Don't tell Hely I'm thinking. A performer shouldn't hope."],
+26:["(Bruno is watching Buttons teach Hely to juggle, his hat in his hands.) Look at that. Four in a row. Buttons is a good teacher. Don't tell him. He'll want a taller hat.",[
+  ["Is she getting good?","Nearly not terrible, Buttons says. That's the highest praise in this circus. I've had it twice. In thirty years."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. (He looks thoughtful.) I've never had a milkshake. Thirty years of travelling and never a milkshake."],
+  ["Have you decided about Hely?","(He puts his hat on very firmly.) After the last show. On Saturday. When the applause is still in my ears. A ringmaster makes his best decisions with applause in his ears."]],
+ "Watch her catch the fourth. She will. Watch."],
+27:["(Bruno is rehearsing a speech for tomorrow, to the empty ring.) Friends! Neighbours! Comrades! Your Majesties! Fellow Republicans! Monks! (He stops.) I've got to welcome everyone. Every faction. In one breath. It's very difficult.",[
+  ["Will everyone really come?","Everyone. The Party, the palace, the cola men, the oil men, the monks, the Democrats. All in one tent. All laughing. It's never happened on this island. It'll happen tomorrow."],
+  ["What's the news?","A Party picture at the cinema tonight. I wanted to go. Meg said six tractors. I love tractors. (He pauses.) I don't love tractors. I love an audience. Even a tractor audience."],
+  ["How long is the speech?","Meg's allowed me five minutes. Five! For every faction on the island! (He looks at the paper.) I'll do it in four. And then I'll make another one. About Hely."]],
+ "Come tomorrow! Free! Front row! Bring the whole island!"],
+28:["(The big top is packed to the canvas, flags of every faction outside, and Bruno is behind the curtain, sweating in his scarlet coat.) The whole island's here. Every flag. Every party. All in my tent. (He wipes his forehead.) Thirty years, I've never been so frightened.",[
+  ["Are you ready?","Never. But a ringmaster goes on whether he's ready or not. That's the job. You walk into the middle of the ring and you say 'welcome', and you mean it."],
+  ["Who's in the audience?","Bertil from the Bureau, in the front row, with a form he hasn't filled in. The princess, in a headscarf. Anna from the Party. Phil from the cola. Everyone. All laughing at the same duck."],
+  ["What about Hely?",["(He looks through the curtain at the door, where a girl in a feathered hat is selling programmes.) After the show. I've decided. (A pause.) Meg decided. I've agreed. Same thing.",[
+    ["Will you make a speech about it?","Of course. A long one. Meg's allowed me ten minutes for it. She's never allowed me ten minutes for anything. She knows it's important."],
+    ["She'll be so happy.","She'll cry. Buttons will cry. I'll cry. Igor will lift her up. Zora will say she saw it coming. That's how a circus says welcome."]]]]],
+ "Find a seat! Any seat! I'm going on!"],
+29:["(Bruno is sitting on his caravan steps with a cup of coffee and red eyes.) I said yes. Last night. After the show. To Hely. With a speech. Eleven minutes. I cried at minute three. Meg let me finish.",[
+  ["How did Hely react?","She cried. Buttons cried. Igor lifted her into the air and nearly put her through the canvas. Zora said she'd seen it in the cards. Zora sees everything after it happens."],
+  ["How was the show?","The best of thirty years. The whole island laughed at the same moment. At a duck falling out of a bucket. Every party. Every faction. I'll never see anything like it again."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing. And we're packing for the winter tour. (He drinks his coffee.) We're the only people on this island who know exactly where we're going next."]],
+ "Come and see us off. Wave at the second caravan. That's Hely's."],
+30:["(Bruno is standing in the empty ring, the big top half down around him, his scarlet coat brushed clean of ash.) Last day. They're settling the island today. And we're folding up the tent. (He looks up at the sky through the gap.) Whoever wins, they'll need a circus.",[
+  ["Where will you go?","Round the island, every town. Then the boat to Finland, for the winter. Hely in the second caravan. Buttons on the roof. The duck in a bucket. And me in front, in red."],
+  ["What do you hope happens to the island?","That whoever runs it comes to the circus. You can tell everything about a leader from whether they laugh at the clown. Never trust anyone who doesn't."],
+  ["Will you remember this month?",["(He takes off his hat and holds it to his chest.) The mountain, and the lake, and the whole island laughing at one duck. And the girl who kept getting up. Yes.",[
+    ["Make a speech about it.","(He clears his throat, then stops.) No. (He puts his hat back on.) Some things don't need a speech. Meg taught me that. It took thirty years."],
+    ["Will you come back?","In the spring. If the island's still here. If it'll have us. (He smiles.) Circuses always come back. That's what makes them circuses."]]]]],
+ "Come and wave when we go! The scarlet coat at the front! You can't miss it!"],
 };

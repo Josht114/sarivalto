@@ -27,104 +27,110 @@ DAILY['Paola']={
   ["What work?","(She looks at you.) I asked you not to. You did anyway. That's a journalist, I suppose."],
   ["Black gloves suit you.","They were my mother's. I wear them twice a year. Today, and her birthday."]],
  "Go home, journalist. It's a day for being at home."],
-11:["(Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole difference between us and them.",[
-  ["Whose watch is it?","A man's in Hope Springs who's late with a payment. I'm mending it while he's still looking for the money. A kindness. He doesn't know it's a hostage."],
-  ["You mend watches?","Clocks, mostly. It's the only job where doing it slowly is doing it well."],
-  ["Mill hands want a fair day's pay, I hear.","So I hear. It's a fine idea. It would make my work a great deal more difficult, since fewer people would borrow."]],
- "Don't breathe on the movement. It's a fine thing, and so is my patience."],
-12:["(Paola is looking at a chessboard on the table, one piece moved.) A letter from Turin. 'G' has answered. Knight to f3, after seven weeks. A man who takes that long deserves a reply of equal care.",[
-  ["Who is G?","I've told you. I don't know. It's a pleasure, not knowing. Everything else I do, I know everything about."],
-  ["What will you play?","Pawn to d4. Ordinary. But ordinary, done well, wins most games and most lives."],
-  ["Do you ever meet your opponents?","The ones at the table, never. The others, daily. They're less polite."]],
- "A quiet afternoon. I'm using it."],
-13:["(Paola is dusting the glass of a grandfather clock in the lobby.) The Colonel's dachshund has been on the clock again. It has an interest in the pendulum. I think it believes it's a very slow rabbit.",[
-  ["Colonel Halvorsen's dog?","Brigadier. He's named after a rank above his master's. The Colonel doesn't know. It's the nicest joke in the building."],
-  ["Does the Colonel know what you do?","He knows I mend clocks. A military man likes to be told things in simple terms. I think he hopes it's all I do."],
-  ["Is there something going on in the Syndicate?","The Don is hunting for something, I'm told. A recipe. I wasn't asked to help. I'm not sorry."]],
- "If the dog comes by, don't feed him. He'll never leave."],
-14:["(Paola is in a grey coat and a hat, and stands by the door, ready to leave.) The Don wants me at the big gathering. To stand somewhere and see. It's what I'm for. I'll be one of a very great many people. Everyone's talking about it.",[
-  ["What do you expect?","Noise. A lot of men who'd like to be heard. I expect nothing more, and I'll be pleased if I'm right."],
-  ["Does the Don worry?","The Don never worries. He plans. It's more expensive, but it lasts longer."],
-  ["Will Carlo be there?","In a new suit, with a new smile. He's been practising in the mirror. I can hear him through the wall."]],
- "I'll be at the edge of the crowd. If you see someone watching, it's me."],
-15:["(Paola is winding a clock, very slowly.) A prince with a crown, a prince with a cross. They're both quite sure of themselves. I prefer a man who has doubts. He's easier to read, and kinder to his horse.",[
-  ["Does the Syndicate take a side?","The Syndicate takes a percentage. It's an older tradition."],
-  ["Who would you choose?","I don't vote. A person in my line of work is never on a list. It's a great comfort."],
-  ["What do you think of the island?","It's very pretty and very cold. I like it. I'd like it more without the snow."]],
- "A good clock tells the time. A great one tells it truthfully. It's rarer."],
-16:["(Paola is listening to the radio, with her head on one side.) The Great Debate. Two sets of men, saying the same thing in different words. In ten minutes, one of them will say 'the people', and the other will say 'the people'.",[
-  ["Who do you think will win?","The one with the better tie. It's a bad thing to say, but I've seen it often enough."],
-  ["Do you follow the debates?","As I follow the chess. Not for the moves, but for the mistakes."],
-  ["What does the Don say?","He says it's a very good time to be quiet. I've taken it as an instruction."]],
- "I'll turn it off. A debate is best heard at a distance."],
-17:["(Paola is looking at the floor, where a cup of tea has a small ring on its surface.) The ground shook a moment ago. A tremor. It's the second this week. I don't like it. I prefer a world that stays where I put it.",[
-  ["Are you worried?","I'm careful. It's different. I've put the watches in a drawer, and the cat on the sofa."],
-  ["Do you hear anything of the Syndicate?","They're making decisions. An executive one, I'm told. I'm not on the committee. I'm what comes after."],
-  ["What does the Colonel say about the shaking?","He's taken it as a military matter. He's inspecting the foundations with a spirit level and a very worried dog."]],
- "If the tea ripples again, step back. It's good advice for most things."],
-18:["(Paola has a bag of small tools on the table and is sorting them by size.) Everything has its place. The Don knows it. The Colonel knows it. Carlo has never known it, and spends a great deal of time looking for his keys.",[
-  ["What's Carlo like as a neighbour?","Loud, vain and charming. He sings in the bath. He sings very badly, but with confidence. He'll make a fine politician."],
-  ["Is he really going to be leader?","He's the Don's choice. It's not for me to say. I'd just like his speeches to be shorter."],
-  ["Do you like him?","I like the way he's never afraid. It's the quality of a man who's never been hit. I find it restful."]],
- "I'll mend your watch, if you've got one. No charge. It's a hobby."],
-19:["(Paola is wearing gloves and carrying a very small parcel.) Don't ask. It's a clock for a very old lady. She wants it ticking when she dies. It's the kind of thing I'm happy to do.",[
-  ["That's a kind thing to do.","It's a precise one. I don't mix the two. But sometimes they coincide."],
-  ["Who's the lady?","A widow in the Residences. She pays me in biscuits. They're very good. Don't tell the Don."],
-  ["Is there much talk in Hope Springs?","A great deal. They're all frightened, but they won't say it. They talk about the weather, the taxes and the dachshund."]],
- "Be careful with old things. They've been through more than you."],
-20:["(Paola is in black, hair tied back, with a small case in her hand.) I've a job tonight. Something at the palace, I'm told. It's the sort of work I don't talk about. You'll forgive me if I'm brief.",[
-  ["I understand.","Thank you. It's a rare quality, in a journalist."],
-  ["Are you nervous?","Never. A person who's nervous has stopped paying attention. I'm paying a great deal."],
-  ["Any advice?","Stay out of corridors. And don't carry anything you can't put down."]],
- "Good night. If you hear nothing, it went well."],
-21:["(Paola stands at the window of her flat, in a shawl of grey ash.) It has gone up. The mountain. I've never heard anything so loud. A very large clock, striking the hour. I counted. It's an extraordinary thing, to hear a clock you can't stop.",[
-  ["Are you all right?","Perfectly. The watches are fine. The cat is under the bed. The Colonel's dog is on the balcony, barking at the sky."],
-  ["Is anyone hurt?","No. Nobody. It's a miracle, or a very good clock."],
-  ["What does the Don say?","He's in the Club, with the doors shut, and a very large brandy. He says nothing yet. When he does, it'll be about money."]],
- "Wipe your feet. I've just swept."],
-22:["(Paola is sweeping the corridor floor in long, even strokes.) Ash. It's on every flat, every sill. I've done the corridor twice. The Colonel's dog sneezes in a very military way.",[
-  ["Are you helping everyone?","I'm helping myself. It's the same thing, when the corridor's shared."],
-  ["Is the Syndicate affected?","The Club's been closed. The bookies are out of business. But the Don's quite calm. He says there's always money in a crisis."],
-  ["What's the mood in Hope Springs?","Shaken. The rich are discovering they've no idea how to sweep. It's quite touching."]],
- "Come in and sit. I've made a pot of tea. It's the only thing I do for free."],
-23:["(Paola has a clock in pieces, laid out on a cloth with a sifting of grey.) The ash gets in the movement. Every watch on the island will need cleaning. It's the best business I've ever had, and I'm doing it for nothing.",[
-  ["Why for nothing?","A person's watch is the one thing they hold on to in a crisis. It would be wrong to charge."],
-  ["Are the Party and the oil men mending things too?","There's a great deal of mending, yes. I hear spanners all day. It's quite pleasant."],
-  ["Is it hard to be kind?","Not at all. It's being precise that's hard. Kindness is just a matter of detail."]],
- "Bring me anything with a tick. I'll look after it."],
-24:["(Paola has a mop and a bucket and a very flat face.) The Don's sent me out with a crew, to clean up. I won't say what. It's a job. I'll do it well, and quietly. It's the best I can offer.",[
-  ["That sounds ominous.","It's a very ordinary job. It only sounds ominous when I say it in that voice."],
-  ["What are the monks doing?","Going up the mountain, I hear. To pray. A sensible thing, when the mountain's been rude."],
-  ["Will you be long?","As long as it takes. Time's a matter of exactness. I'm very exact."]],
- "Stay out of the way. It's safer for both of us."],
-25:["(Paola is looking at a letter from Turin, with a smile that's gone almost as fast as it came.) 'G' has made a mistake. A very small one. A bishop in the wrong place. I've not told him. I'm enjoying it too much.",[
-  ["Will you take the bishop?","Eventually. A mistake should be savoured. It's the only moment a stranger's honest."],
-  ["Would you like to meet G?","No. It would ruin everything. A man at a distance is a mystery. Up close, he's just a man with a pen."],
-  ["How's the island?","Tired. Hopeful. A little drunk on possibility. It's an odd mood, and it won't last."]],
- "I'll reply in a week. It's no time at all."],
-26:["(Paola has a small notebook, and is writing in a very neat hand.) I hear a prince in every bottle, and a spa for an oil man. It's a very good week for people who like to be looked at. I prefer to look.",[
-  ["Do you ever feel you're on the wrong side?","The wrong side of what? I'm on the side of the clock. It's ticking, regardless of what any of us do."],
-  ["What do you make of Dario?","A man who buys a spa has a lot of money and a poor sense of where to spend it. It makes him interesting."],
-  ["What does the Don want?","Everything. In small, careful increments. It's the way of a patient man."]],
- "Don't ask what I write. It's a list. Not a long one."],
-27:["(Paola is tightening a tiny screw, with the tip of her tongue between her teeth.) High stakes tonight, I'm told. A card game at the Club. The Don's playing. It's a very big pot. I'm in the corner, looking at the door.",[
-  ["Do you play cards?","Never. A card game is a way to lose money slowly. I prefer to lose it quickly, and in private."],
-  ["Is the Don a good player?","The best. He plays the man, not the cards. It's why he's rich."],
-  ["Will there be trouble?","There's always the possibility. It's why I'm there. If it comes, it will be brief."]],
- "Come and watch, if you can keep quiet. It's an education."],
-28:["(Paola is in her best black suit, a clean pocket watch on a chain.) The biggest day. The Don has told me to stay close. I'm to stand behind Carlo's chair at the Republican HQ. It's a very simple job. I stand. I watch. I'm good at it.",[
-  ["Are you nervous for Carlo?","I'm never nervous. I'm attentive. He's nervous enough for both of us."],
-  ["Do you think he'll win?","I don't think. I watch. It's less tiring."],
-  ["What's the mood?","Tight, like a spring. It's the same sound as a clock before it chimes."]],
- "Stay out of my line of sight. It's a courtesy, not a threat."],
-29:["(Paola is winding every clock in her flat, one by one.) The night before. I like to have everything running. If it goes wrong tomorrow, at least the clocks will be right.",[
-  ["Are you ready?","I'm prepared. It's not quite the same. But it's close."],
-  ["Is Carlo ready?","He's been rehearsing a speech for a week. He's put it on three cards, and lost one. We've found it, in the dog's basket."],
-  ["How is the Don?","Quiet. It's a bad sign, or a good one. With him, it's the same."]],
- "Sleep, if you can. I won't."],
-30:["(Paola stands at the window of her flat, with the sun on her grey hair.) The last day. Everything I've wound, all month, is about to strike. I've no idea what the hour will be. It's a very peaceful feeling.",[
-  ["Any last words?","Take care of your watch. And your friends. It's an old rule, and it holds."],
-  ["What will you do afterwards?","Mend a clock. Play a game of chess. Walk a dachshund, if the Colonel will let me."],
-  ["Thank you for talking.","You're welcome. You were a good listener. It's more useful than most skills."]],
- "Goodbye, journalist. Mind the stairs."],
+11:["(Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole of my profession, both of them.",[
+  ["Both professions?","Clocks and debts. In each case, something is a little out, and nobody notices until it stops. I notice first."],
+  ["Whose watch is it?","The Colonel's, two doors down. He overwinds it every morning at six, before he walks Brigadier. A soldier's hand. Too much force, too often."],
+  ["Any news from Turin?","(She glances at a postcard on the shelf.) Bishop to c4. My opponent's getting bold. Nine years of letters and he's never been bold before. Something's changed in Turin."]],
+ "Close the gate on your way out. Gently. It sticks."],
+12:["(Paola is standing very still by the fountain, watching a man in a good suit cross the square very fast.) Mr Phil's brother-in-law. He's remembered what he owes. (She watches him go.) He's going to the Club to pay. I won't need to visit.",[
+  ["Do people always pay you?","People always pay the Don. I just remind them that a debt is like a clock. Nobody notices it ticking until it stops."],
+  ["Do you enjoy the work?","I enjoy precision. A debt paid on time. A clock that keeps time. A move in chess that can't be answered. Enjoyment's too loud a word. Satisfaction."],
+  ["What does the Don think of you?","(She almost smiles.) He trusts me with his brandy, his car and his secrets. In that order of importance, I think. He's very fond of the brandy."]],
+ "If you owe anyone in Hope Springs anything, pay it. It saves everyone a walk."],
+13:["(Paola is in the Residences lobby, dusting the glass of a grandfather clock.) The Colonel's dachshund has been on the clock again. Brigadier. It has an interest in the pendulum. I think it believes it's a very slow rabbit.",[
+  ["Is the clock all right?","Four seconds slow. The dog's breath on the glass. (She closes the case.) I've reset it. Brigadier will be back tomorrow. So will I."],
+  ["Who's in the Residences?","The Colonel and his dog. Carlo, two doors down, with his ties. Harald from the cola company, two floors up, with his goldfish. And me. We nod in the lift. It's a very well-mannered building."],
+  ["Is Carlo a good candidate?","He's a very well-dressed candidate. (She dusts the clock.) He does what he's told. That's all the Don asks. Whether it's enough for the members, we'll see."]],
+ "Mind the dog on your way out. He's under the clock."],
+14:["(Paola is in a dark coat at the back of the gathering, very still, watching the crowd, not the speakers.) Big day. The Don wants to know who's here, who's with whom, who's nervous. (She doesn't look at you.) You're nervous. Your left hand.",[
+  ["What else do you see?","Carlo shaking hands with four hundred people and enjoying none of it. Magnus counting the crowd. Harald smiling at a grandmother. The Party watching the palace. The palace watching the Party."],
+  ["Isn't the Don here?","At the back, other side. In black. With a flower. We stand apart so we see more. (A pause.) That's the theory. I think he just likes to be alone."],
+  ["What do you hope comes of it?","That nobody does anything stupid. Stupid is expensive. It always lands on my desk."]],
+ "Watch your left hand. Everyone's reading hands today."],
+15:["(Paola is setting up a chessboard on the Residences' lobby table, from a postcard.) Knight to e5. From Turin. He's attacking. (She studies the board.) He's never attacked in nine years. I don't know who he is, but he's in a hurry now.",[
+  ["Who's your opponent?","A man in Turin who answered an advertisement in a chess magazine in 1975. That's all I know. I've never seen his face. I know his mind better than anyone's on this island."],
+  ["What will you play?","(She moves a piece.) Defend. Then wait. A man in a hurry makes mistakes. I've watched men in a hurry for twenty years."],
+  ["What's the news?","The palace and the Church are fighting over the prince's brother. (She sets the board.) A quiet piece everyone wants. In chess, that's usually the bishop. Here, it's Augustus."]],
+ "Don't touch the board. I'll know."],
+16:["(Paola is mending Carlo's wristwatch while he waits beside her, very nervous.) The Don's candidate. His watch stopped this morning. Before the debate on the wireless. He thinks it's an omen.",[
+  ["Is it an omen?","It's a speck of dust. (She holds it up on the tip of the screwdriver.) There. Most omens are dust. People just don't look closely enough."],
+  ["Is Carlo going to win?","(Carlo goes pale. She doesn't look up.) He'll do as well as he's told to. (A pause.) He asked me yesterday if he'd do well if nobody told him anything. I didn't answer. I'm thinking about it."],
+  ["What do you think of him?","He's vain, and kind, and frightened of his own friends. (She hands him the watch.) There. It works. So does he, mostly."]],
+ "If your watch stops, bring it here. Most omens are dust."],
+17:["(The Residences' lobby clock has stopped, and Paola is on a ladder, very calmly, adjusting its pendulum.) The ground moved. Every clock in the building stopped at the same second. 10.42. (She notes it in a small book.) I like to know the exact time of things.",[
+  ["Was it an earthquake?","Something. The Don says the ground moving is the least of his worries. He's told me to put a cushion under the brandy. I've done it. Two cushions."],
+  ["Is anything else happening?","The oil company's chief has gone missing. Dario. (She restarts the pendulum.) The Don's very interested. He's asked me to find out where. Discreetly."],
+  ["Do you know where he is?","(She steps down.) Not yet. Men who vanish usually leave a trail. Receipts. Tickets. A watch left by a basin. I'll find the watch."]],
+ "Your watch is two minutes fast. Everyone's is today."],
+18:["(Paola is reading a postcard, very still.) Turin. Queen takes rook. (She sets it down.) He's winning. For the first time in nine years, he's winning. And there's a line at the bottom, in his hand: 'Forgive me. I'm ill. I'd like to finish.'",[
+  ["He's ill?","He's never written anything but moves. Not once in nine years. Now: 'I'm ill. I'd like to finish.' (She folds the postcard.) That's why he's in a hurry."],
+  ["What will you do?","Play faster. By telegram, if I have to. I'll finish the game. (A pause.) I won't let him lose because he ran out of time. That's not winning."],
+  ["What's the news?","Somebody's been in the files at the Republican offices. Carlo's frightened Margit thinks it was him. (She looks at you.) It wasn't. I'd know."]],
+ "Don't mention Turin to anyone. Please."],
+19:["(Paola is in an evening dress, very plain, black, putting on her gloves.) Thursday. The Midnight Note. The Don goes to hear Rita sing. I drive him. We sit at the back. (She checks her gloves.) She sings 'Stormy Weather' for him. He pretends not to notice.",[
+  ["Does Rita know who he is?","Everyone knows who he is. She pretends she doesn't. He pretends he believes her. It's the most civilised arrangement on the island."],
+  ["Will anything interesting happen tonight?","(She pauses.) There's a man who's been coming to the club in a false moustache. The Don says not to look. So I'll look very carefully at everything else."],
+  ["Did you telegraph Turin?","This morning. Knight to d7. (She looks at the clock.) Telegrams take a day. I've told him to take his time. I've never told him that before."]],
+ "Go somewhere warm tonight. It smells of eggs. That's the mountain."],
+20:["(Paola is moving bottles of brandy from the Club's shelves into crates lined with cushions.) The ground's moving every hour. The Don's taking his members down to the cellar tonight. With the brandy. And me. (She lays a bottle down very gently.) Mostly the brandy.",[
+  ["Is it going to erupt?","Probably. Everything in Hope Springs is tied down, packed or cushioned. I've stopped every clock in the Residences so the pendulums don't break. The building's very quiet."],
+  ["What about Carlo?","The Don's told him to come to the cellar. He'll come. He always comes when he's told. (She closes the crate.) He looked at the party offices for a long time before he said yes."],
+  ["Any news from Turin?","(She hesitates.) A telegram. 'Thank you for the time. Bishop to b5.' He's still playing. (She tucks it into her glove.) I'm still answering."]],
+ "Go somewhere low tonight. Cellars are good. So are friends."],
+21:["(Ash is falling over Hope Springs. Paola is in the square, grey all over, with a list in her gloved hand, crossing names off.) It went. The mountain. I've been round every door in Hope Springs since dawn. Every resident. Every villa. Everyone's alive.",[
+  ["Is anyone hurt?","Bruises. Fright. One of the Club members fainted into the topiary. He's telling everyone it was a dive. (She crosses off a name.) It wasn't a dive."],
+  ["Was the Don all right?","In the cellar, all night, with the brandy and the members. He told stories about the old king. Everyone listened. Even the frightened ones. (A pause.) Especially them."],
+  ["Are you all right?",["(She looks at the list in her hand, every name crossed off.) I'm all right. I've counted everyone. That's the job, on a night like that. You count, and you count again.",[
+    ["Who counts you?","(She looks at you for a long moment.) Nobody, usually. (A pause.) The Don did. At four in the morning. He said 'Paola. Good.' That's all. It was enough."],
+    ["What about Carlo?","He came out of the cellar at dawn and walked through the ash to the party offices in Frostholm. In his good suit. To check on the ballot box. Nobody told him to. (She almost smiles.) I'm thinking about what that means."]]]]],
+ "Cover your mouth. And go and count your own people."],
+22:["(Paola is sitting on the fountain's edge, which she never does, holding a telegram.) Turin. 'Mate in three. You've found it. Well played. Thank you for nine years.' (She folds it very small.) I didn't play mate in three. He played it for me. He let me find it.",[
+  ["He let you win?","He knew he wouldn't finish another game. So he made sure this one ended well. (She looks at the grey fountain.) That's a very kind thing to do, with a chessboard."],
+  ["Are you sad?","(She doesn't answer for a long time.) I've known him nine years and never heard his voice. I'll miss him more than most people I've seen every day."],
+  ["What will you do?","Write back. One last move. Not a chess move. Just 'Thank you.' In my own hand. (She puts the telegram in her glove.) Then mend some clocks. Clocks help."]],
+ "Leave me a minute, journalist. I'll be all right. I always am."],
+23:["(Paola is back in the Residences lobby, starting every clock again, one by one.) The building's been silent since the twentieth. I stopped them for the mountain. Now they all start again. (She sets a pendulum swinging.) Tick.",[
+  ["Did you write to Turin?","Yesterday. Two words. (She sets another pendulum going.) I don't know if he'll read them. I've decided he will. That's how I'm choosing to keep time."],
+  ["What's the news?","Something broken on the oil rig, they say. Spanners. (She closes a clock case.) The Don's very interested in who. He's always interested in who."],
+  ["How's Carlo?","He's written a letter to the members. In his own hand. Without asking the Don. (She looks at you.) The Don hasn't seen it. When he does, he'll be cross. Then proud. In that order."]],
+ "Listen. (Every clock in the lobby is ticking.) That's the building alive again."],
+24:["(Paola is in a plain dark coat, with flour on one cuff, very calm, and very tired.) A busy morning. Before dawn. Don't ask me what. (She brushes the flour off.) I asked you that once before. You didn't listen then either.",[
+  ["Why the flour?","(She looks at the cuff.) Rosaria's, at the pizzeria. I borrowed an empty sack. And a strong coffee. Rosaria didn't ask why. That's why I like Rosaria."],
+  ["Is everything all right?","Everything is tidy. That's what the Don asked for. Tidy. (She looks at her hands.) I also took a clean shirt to Mario. From the Don. I asked him one question. He answered it."],
+  ["What's the news?","The monks have gone up into the peaks to pray. (She pulls her gloves on.) Some people go up mountains to be closer to God. Some people go down into cellars. I go wherever I'm sent."]],
+ "Close the gate on your way out. I'd like it shut today."],
+25:["(Paola is walking Brigadier, the Colonel's dachshund, on a very short lead, very slowly.) The Colonel's knee is bad. Since the mountain. He asked me to walk the dog. (Brigadier stops at every lamp post.) I think the dog's doing chess problems.",[
+  ["Do you like dogs?","I like this one. He's patient, stubborn and he never forgets where he's buried something. We have a great deal in common."],
+  ["What's the news?","A crown for everyone, a princess for democracy. (She waits while Brigadier investigates a hedge.) Everyone's promising everything. The Don promises nothing. That's why people believe him."],
+  ["Will Carlo win the vote?","(She considers.) The Don has put money on it. Carlo's put a letter in his own hand. Those are two very different bets. I'm watching to see which pays."]],
+ "If you see the Colonel, tell him Brigadier found the bone from 1979. Under the third rose bush."],
+26:["(Paola is straightening Carlo's tie in the Residences' lobby, without asking. He stands very still.) The Don wants it grey on the day. (She steps back.) He's wearing blue. I don't mind blue. (Carlo looks astonished.)",[
+  ["Why don't you mind?","Because a man who wears the tie a fishwife liked is a man who knows who he's dressing for. That's rarer than a good grey tie."],
+  ["What did you just tell him?","(She glances at Carlo as he leaves.) That the Don's proud of him. That he'd never say. (A pause.) It was true. Someone should tell him things that are true."],
+  ["What's the news?","The oil company's buying the spa, they say. Saga at the desk is very frightened. The Don sent her flowers. Lilies. (She almost smiles.) He sends lilies to everyone he respects. Rita sends them back."]],
+ "Straighten your collar on the way out. It's a little out. Nobody would notice. I did."],
+27:["(Paola is laying out a card table in the back room of the pizzeria in Kingsgrad, with a ruler, making sure every chair is exactly the same distance from the table.) The Don's game tonight. High stakes. Half the Republican members are coming. And Carlo. Everything must be precise.",[
+  ["Is it a fair game?","The Don's games are always fair. He doesn't need to cheat. He just needs people to sit at his table. (She straightens a chair.) Sitting at his table is the price."],
+  ["Will Carlo play?","He'll play and lose. Gracefully. The members will like him for it. That's the Don's plan. (She looks at the chair.) Carlo knows. He's going to lose very well."],
+  ["Do you play?","Chess. Never cards. Cards have luck in them. I don't like luck. I like to know where every piece is."]],
+ "Don't come to the game tonight. Not because it's dangerous. Because it's very dull, unless you're losing money."],
+28:["(Paola is in the Residences' lobby, with every clock ticking, reading a letter with an Italian stamp.) Turin. From his sister. (She reads it again.) He read my two words. The day before. She says he smiled. (She folds it.) That's the end of the game.",[
+  ["I'm sorry.","(She nods.) Nine years. Three hundred and twelve moves. And the last one was 'thank you'. That's a good game. A very good game."],
+  ["What's happening today?","Every faction's big push. Flags everywhere. The Don's at the pizzeria, receiving people. I should be with him. (She looks at the clocks.) I asked for an hour. He gave me two."],
+  ["What will you do now, without the game?",["(She looks at the chessboard on the lobby table, the last position still set out.) I don't know. Find another opponent, perhaps. Or leave the board as it is.",[
+    ["Leave it as it is.","(She considers it.) Yes. For a while. A board with a finished game on it is a kind of clock. It tells you something happened."],
+    ["Find another.","Perhaps. Someone who plays slowly. (She looks at you.) Do you play chess, journalist? No. You'd play too fast. Reporters always do."]]]]],
+ "Close the gate on your way. Gently. It still sticks."],
+29:["(Paola is in a dark coat at the back of the Republican hall in Frostholm, watching members file past Margit's ballot box, very still.) The vote. The Don's not here. He sent me. To watch. (She doesn't look at you.) Carlo's wearing the grey tie. The blue one's in his pocket.",[
+  ["What are you watching for?","Who's nervous. Who's been told what to do. Who hasn't. (She watches a member drop a paper in the box.) That one hasn't. He's smiling. Nobody told him to."],
+  ["Who'll win?","(She watches the box.) Whoever the members choose. For once, the Don hasn't sent anyone to stand outside. Carlo asked him not to. The Don said yes. I've never heard him say yes to Carlo."],
+  ["Are you nervous?","I'm precise. (A pause.) And yes. A little. I'd like Carlo to find out what he's worth. Whatever the answer is."]],
+ "Don't stand near the box. Margit bites."],
+30:["(Paola is standing by the fountain in Hope Springs at dawn, very still, with her mother's black gloves on.) Last day. They're settling the island today. The Don's at the Club, waiting. Carlo's walking the dog. (She looks at the gate.) And I'm standing here, because nobody's sent me anywhere.",[
+  ["What will you do with a free day?","Mend a clock. Walk Brigadier, if the Colonel will let me. Set out a chess problem. (She looks at the gloves.) And wear these. It's not my mother's birthday. I just wanted to."],
+  ["What do you hope happens to the island?","That it stays tidy. That debts get paid, and clocks keep time, and men in hurries don't get hurt. And that someone in Turin is resting well."],
+  ["Will you remember this month?",["(She looks at the grey fountain, then at the Residences.) Every clock stopped at 10.42. Every name crossed off. Mate in three. Yes.",[
+    ["And me?","The journalist who asked what work I did, after I asked them not to. Twice. (She almost smiles.) You were nervous with your left hand. You're not now."],
+    ["What will you do tomorrow?","Whatever the Don asks. Mend whatever stops. Close the gate. Same as always. (She pulls the gloves tighter.) Precisely."]]]]],
+ "Close the gate behind you. Gently. I'd like it shut."],
 };

@@ -112,7 +112,7 @@ DAILY['Hely']={
     ["You'd be good at it.","(She looks at you, very surprised.) Nobody's ever said I'd be good at anything. Say it again? No. Don't. I'll start believing it."]]]]],
  "Don't distract me. I'm holding a ladder for a famous acrobat."],
 25:["(Hely is reading two leaflets, one in each hand, and grinning.) A princess for democracy! A crown for everyone! Everybody wants the island to love them this week. I've never been so popular. Everyone's giving me leaflets.",[
-  ["Would you vote for the princess?","She came to the circus on Saturday, they say, in a headscarf, and laughed at Buttons for an hour. Anyone who laughs at Buttons for an hour can have my vote."],
+  ["Would you vote for the princess?","She came to the circus last night, they say, in a headscarf, and laughed at Buttons for an hour. Anyone who laughs at Buttons for an hour can have my vote."],
   ["Are you betting on any of it?","No. Not since the mountain. I told Paolo I'm retiring from betting. He wrote something in his book. I think it was a line under my name."],
   ["What does Veikko think?","Veikko thinks the Democrats will win if the princess helps. Veikko thinks a lot. I just think whoever wins should come and watch the circus. Everyone's nicer after the circus."]],
  "Take a leaflet. I've got eleven. I'll juggle the rest."],

@@ -1,124 +1,135 @@
-// Buttons, jester of the circus at Lake Ilmari (the Circus). Threads: he is always hungry, his terrible jokes, Meg who catches him,
-// his rivalry with Bruno's hat, his wish to be taken seriously for one day, the volcano and the aftermath.
+// Buttons, jester of the circus camped at Lake Ilmari (the Circus), partner of Meg. Threads: he is always hungry (and dreams of a
+// slice of pizza from Kingsgrad); his terrible jokes; Meg, who catches him; his feud with Bruno's top hat; his wish to be taken
+// seriously for one whole day, and the clown's secret that nobody ever really looks at a clown, so a clown sees everything; the
+// secret commission at Jonna's tattoo shop (Meg's name, over his heart, which he shows her on the 30th); teaching Hely to juggle; the
+// fountain and the duck (the 14th), the Kelpy cup (the 18th), the night of jokes by the lake (the 21st), the princess (the 24th).
 DAILY['Buttons']={
-7:["(Buttons juggles three apples, drops one, and eats it.) Ah! A visitor! You've come at an excellent moment: I've got three apples and a feeling of destiny. Now I've got two apples.",[
-  ["I'm the British reporter.","A reporter! Then you can put me in the paper. 'Local Jester Hungry.' It's not news, but it's true."],
-  ["Tell me a joke.","What's red and white and goes up and down? A candy-striped lift. (He waits.) I'm told it's better in the dark."],
-  ["How's life at the lake?","Wet and wonderful. Meg says I'm to behave. I say, what's the fun of a jester who behaves?"]],
- "If you've got a sandwich, I can always find room."],
-8:["(Buttons is lying on his back on the jetty, with his cap over his face.) Sunday. The one day Meg lets me lie down without a rope round my ankle. Don't wake me unless there's cake.",[
-  ["Is there cake?","There's a rumour of cake. It began in Bruno's caravan and hasn't been confirmed. I'm following it like a dog."],
-  ["Do you ever take a day off?","Every day's a day off, if you do it right. Bruno calls it idleness. I call it holding the lake still."],
-  ["What's Meg doing?","Mending a rope, and not speaking to me. It's a terrible thing, a woman mending a rope. You know it's about you."]],
- "Wake me for lunch. Or cake. Or the end of the world, whichever comes first."],
-9:["(Buttons has a bottle of cola in each hand and a worried face.) Everyone's trying to make a new cola. I've been asked to taste six. I've tasted nine. Don't ask me how.",[
-  ["Which is the best?","The blue one. It tasted of nothing. It's a very restful cola. It would make a fine pillow."],
-  ["Who asked you to taste them?","A man in a suit, a woman in a red scarf, and a very small boy. The boy had the best palate. He said they all tasted like medicine."],
-  ["Are you feeling all right?","I'm fizzing. I think I'll float away. Hold my ankle."]],
- "If I burp tonight in the ring, it's not in the act."],
-10:["(Buttons has taken off his cap and is holding the bells in his hand so they don't ring.) The king's funeral. I've never been so quiet in my life. Meg says it's good for me. I think it's like being underwater.",[
-  ["Did you ever meet the king?","No. But Bruno says he said the circus was very loud. And I thought, how rude. And then I thought, how true."],
-  ["It's a hard day for everyone.","Yes. I made a joke this morning, and I couldn't finish it. It's the first time. Meg held my hand and I felt better."],
-  ["Will you perform tomorrow?","I'll tumble and juggle. I'll be silly, and everyone will say how brave. That's what jesters are for: to help people be sad and then stop."]],
- "Be gentle today. If you can't be gentle, be asleep."],
-11:["(Buttons is sitting in the sawdust, counting something on his fingers.) I'm trying to work out how many sausages I'm owed. Bruno says we're paid by the show. I say we're paid by the sausage.",[
-  ["How many sausages are you owed?","Eleven. Possibly twelve. It's complicated. There was one that was half a sausage and I'm not sure about the legal status."],
-  ["Do you get paid properly?","In smiles and soup. I hear the mill hands in Eastbrook are asking for a fair day's pay. I'm with them. I'd go on strike, but I'd miss the juggling."],
-  ["What does Meg say about it?","She says I'm to stop counting and start tumbling. She says the sausages will come. She's never been wrong about a sausage."]],
- "If you see a sausage on the road, think of me."],
-12:["(Buttons has Meg's hat on, and is trying to look dignified.) Meg's gone to look at the horse. She told me not to touch her hat. I've touched it. I'm now, technically, an acrobat.",[
-  ["It suits you.","It's too big. It comes down over my eyes. It's like being kissed by a very large mushroom."],
-  ["How did you and Meg meet?","In a ditch outside Tampere. I'd fallen off a unicycle. She was the only one who didn't laugh. I fell in love on the spot, and then she laughed."],
-  ["Has she forgiven you for the hat?","She's about to find out. Run if you like. I'd rather not be a witness."]],
- "I'll be in the caravan, pretending to have been there all day."],
-13:["(Buttons is in the middle of the ring, throwing his cap up and catching it.) They're giving free cola away in Kingsgrad tomorrow, I hear. I'm thinking of going as a bottle. A very short, very hungry bottle.",[
-  ["Would you do the juggling for them?","For a crate, I'd juggle the entire marketing department. Bruno says we've got our dignity. I say dignity doesn't fizz."],
-  ["What's Meg think of the idea?","She's said no twice, and I'm waiting for her to say yes a third time. It's the third that counts."],
-  ["Is the food good at Kelp Cola?","There's a woman called Pirkko with a van. I hear she makes pancakes that would make a grown man cry. I'd cry."]],
- "A hungry jester's a dangerous jester. Remember that."],
-14:["(Buttons has polished every bell on his cap and is now wearing it with great seriousness.) Today's the big day. The fourteenth! I don't know what's happening, but I've been told to look my best.",[
-  ["What's going to happen?","Nobody will say. Bruno says speeches, Meg says nothing, and Zora just looked at me and said 'eat something'. Which is her worst forecast yet."],
-  ["Are you excited?","I'm so excited I can't juggle. I tried, and I hit myself on the nose. It's a terrible feeling when your own nose lets you down."],
-  ["Will you be telling jokes?","Only if someone asks. And if they do, I'll tell them the one about the bishop. It's very short. So is the bishop."]],
- "Wish me luck. And save me a seat near the sandwiches."],
-15:["(Buttons holds up a gold paper crown in one hand and a wooden cross in the other.) A man from the palace gave me the crown. A monk gave me the cross. I now have the island's two biggest problems, and neither of them is lunch.",[
-  ["Which one are you going to wear?","The crown makes my ears itch. The cross makes me feel I should be nicer. So I'll wear the crown and be nicer."],
-  ["What do you think of the princes?","I think they should have a custard-pie fight. Winner's king. It's how things are done in the best circuses."],
-  ["Does Bruno have an opinion?","Bruno says he's neutral. He's wearing both hats and a smile. He's the finest fence-sitter I know."]],
- "Both's too heavy for one head. Even a fool's."],
-16:["(Buttons is lying on a barrel, practising a speech to the sky.) 'Ladies and gentlemen, my opponent is a goat!' I'm rehearsing for the Great Debate. Nobody's asked me, but I'd win.",[
-  ["Who'd you debate?","A Communist and a Democrat, one in each hand. I'd say to the first, 'Share the sausages.' And to the second, 'Let the sausages vote.'"],
-  ["Are you going to listen to it?","I'm told it's very long. I'll bring a snack. If it gets dull, I'll juggle it."],
-  ["Who do you think will win?","The one with the better snacks. It's a general rule of politics, and a well-known truth about juggling."]],
- "Don't tell them I'm rehearsing. They might ask me to speak."],
-17:["(Buttons is holding his juggling balls still, one in each hand, and not smiling.) The ground did a funny thing just now. I was in mid-toss, and the balls came down at the wrong time. It was like being juggled.",[
-  ["Was it an earth tremor?","Bruno says so. He's very brave about it, and he's standing very near the door. I'd say the lake's got a hiccup."],
-  ["Are you frightened?","A bit. I've never fainted, but I'm told it's very restful. Meg says if I faint, she'll leave me where I fall."],
-  ["Is there steam from the volcano?","A little white thread, up in the north. Like someone's left a kettle on. I'd like to find out who, and give them a talking-to."]],
- "If the ground shakes again, I'll be under the table. Bring a biscuit."],
-18:["(Buttons is eating something out of a paper bag, rather proudly.) A man at the Cola museum has dressed up as a cup, and he's called Kelpy, and I've got a dreadful feeling he's better at it than I am.",[
-  ["Is a cup funnier than a jester?","A cup is a cup. It has no legs and cannot juggle. But children cry when it leaves. I've never made a child cry on leaving. I'm taking notes."],
-  ["Would you like to meet Kelpy?","I'd like to take him for a sandwich. Two entertainers, over lunch. We could swap jokes. Mine are worse but louder."],
-  ["Have the shakes stopped?","Not quite. The ground twitches like a dog dreaming. Igor holds the caravan down, which helps a bit."]],
- "Don't tell the cup I said it. We're colleagues."],
-19:["(Buttons has painted a small grey cloud on his cheek.) Meg says it's silly. I say if the island's going grey, the jester should match. It's called solidarity. Or possibly face paint.",[
-  ["What are the Communists up to?","They want comrades, I hear. I'd be a good comrade. I share my sandwiches, and I've got a red nose."],
-  ["Have you been to the Midnight Note?","Once. Rita sang and I cried into a bowl of peanuts. I've never been so moved by anything that wasn't food."],
-  ["Is Meg still cross about the hat?","She's cross about the hat, the apples, and the thing with the rope. She says I'm very reliable. She means it kindly, I think."]],
- "If you see a comrade, tell him I've got a red nose already."],
-20:["(Buttons is staring at the sky from the jetty with his chin in his hands.) Madame Zora's been predicting something for three days, and she won't tell me what. She just looks at me and says 'Buttons, wear boots.' I'm wearing two pairs.",[
-  ["Does she mean the volcano?","She'd never say. She says things like 'a great fire in a quiet place' and then offers you a biscuit."],
-  ["Are the others worried?","Igor says it's nothing. Bruno says it's everything. Meg says it's Tuesday. I think it's a bit of all three."],
-  ["What are you going to do?","Sit tight and tell jokes. It's all a jester can do when the earth's going to sneeze."]],
- "Wear your boots. Both pairs, if you're me."],
-21:["(Buttons is covered in grey from cap to toe, like a statue that's just heard a joke.) It went up! The whole mountain! There was a roar like a thousand wardrobes falling down stairs. And then it rained ash, and Meg held me, and I held a sandwich.",[
-  ["Is everyone safe?","We're all safe. The lava's far in the north. Nobody's hurt. I've never been so glad to be silly and alive."],
-  ["What did it look like?","A red light in the sky and a black cloud on top, like a hat. It wasn't funny. And then it was, a bit, when Bruno sneezed grey."],
-  ["Are you frightened?","I was. I'm less so now. Fear's like a joke: it's worst before the punchline."]],
- "Brush your shoulders off. You look like a statue of a reporter."],
-22:["(Buttons is sweeping the ash off the jetty with a juggling club.) I've found a use for it at last. It's a very bad broom, and a very good club. Don't tell Bruno. He'll want to put it in the act.",[
-  ["How's the camp?","Grey. Quiet. Everyone's helping everyone, which is a bit unnerving. I helped Zora carry a table. She said thank you. I nearly dropped it."],
-  ["Is there food?","Bruno's got a pot of something on the stove. It's got ash in it, but it's warm. I'm starting to think ash is just a very small spice."],
-  ["How's Meg?","She's checking every rope for dust and humming. When she hums, I know she's worried. It's a nice hum."]],
- "If you find a clean apple, I'll trade you a joke."],
-23:["(Buttons is wearing a scarf over his nose and mouth, and his voice is muffled.) I'm a bandit. A dust bandit. Stand and deliver. Actually, I've forgotten what I was going to ask for. Biscuits?",[
-  ["Has anyone been to the village?","Eastbrook's mending. The Communists and the oil men are mending things, I hear. A great many spanners about. Spanners have never been funnier."],
-  ["Are the audiences back?","A few. They sit in the dark and don't say much, but they laugh at the oddest moments. I think they laugh because they're alive."],
-  ["Do you feel funny?","I feel peculiar, which is a start. Funny comes later."]],
- "Pass the biscuits. I'm nursing a thought."],
-24:["(Buttons is sitting on the caravan steps with his cap in his lap.) The monks have gone up to the peaks, they say, to pray for us all. I've said a prayer too. It was mostly 'please let there be a pie'.",[
-  ["Do you think it'll be answered?","Prayers are like jokes. Some land and some fall flat. But the ones that fall flat make you listen all the harder."],
-  ["Is the aftershock still there?","It comes and goes. Like Bruno's temper, only more polite. We've been rehearsing in the open, and the audience clap in time with the shakes."],
-  ["What do you want most?","A full stomach, a warm bed, and Meg to say I'm funny. In that order. It used to be in the other order. I'm older now."]],
- "A pie's a very small miracle. I'll take it."],
-25:["(Buttons is turning a paper crown over and over in his hands.) They say there's a crown for everyone, and a princess for democracy. I don't understand any of it. But I like the sound of a crown for everyone. I'd wear mine to dinner.",[
-  ["Who'd you give a crown to?","Meg first, then the horse, then Igor. Then I'd have a very silly parade. And then lunch."],
-  ["What's all the talk about?","I think the royals and the Democrats are doing something clever. I can't follow it, but I'd clap if someone told me to."],
-  ["Do you like the princess?","I've never met her. But I hear she's kind, and a kind person's always worth a laugh."]],
- "A crown on every head. Even mine. Even the horse's."],
-26:["(Buttons is carrying a cup with a face painted on it.) I've made a rival to Kelpy. It's called Mugsy. It talks. I do the voice. It's the worst puppet in the island and my finest achievement.",[
-  ["What does Mugsy say?","'Pour me.' He only knows the one line. It's very dramatic. Bruno says it's the best thing I've done."],
-  ["Heard about the Cola prince thing?","A prince in every bottle! It's marvellous. I'd drink a prince. I mean — I'd drink a bottle with a prince on it. It's different."],
-  ["Is there anything on at the lake?","Rehearsals. And a very serious dinner. Meg's making soup. I've promised not to look at the pot."]],
- "Mugsy sends his regards. And asks to be filled."],
-27:["(Buttons is wearing a Red Army cap that's far too big.) The Communists are showing a film tonight in Eastbrook. It's a revolution at the pictures. I said I'd go in costume, and Meg said I'm in costume already.",[
-  ["What's the film about?","I'm told it's long, black and white, and has people shouting at wheat. I'd go for the interval ice cream."],
-  ["Are you going to the pictures?","If someone buys me a ticket. A jester's wallet is a very empty thing."],
-  ["What's the mood?","Taut. Everyone's walking on tiptoe, and I'm doing my best to tiptoe the other way. It's called comedy."]],
- "I'll tell you the plot afterwards. Which is to say, I'll make it up."],
-28:["(Buttons has been up since four, rehearsing a cartwheel and failing.) The biggest day of pushing, they say. Everyone out on the road, waving banners. And I'm doing cartwheels. We all do what we can.",[
-  ["Is it a big day for the circus?","The biggest crowds of the month, if they come this way. Bruno's polishing the bell. Igor's lifting the ringmaster just for practice."],
-  ["Are you worried about tomorrow?","I'm worried about tomorrow, the day after, and my left shoe. It's got a hole, and the ash gets in."],
-  ["Do you have a plan?","I'm going to do the thing I do best: fall over, get up, and bow. It's all politics is, really."]],
- "Don't tell the crowds I'm scared. Tell them I'm funny. It's the same thing."],
-29:["(Buttons is sitting with Meg on the caravan steps, her head on his shoulder.) It's the eve of the last day. We're not saying much. Meg says it's nice to be quiet with me, which is the best thing anyone's said all month.",[
-  ["How are you feeling?","Full and empty at the same time. Like after a big meal. The island's got a lot to decide, and I've got a sandwich."],
-  ["What will you do tomorrow?","Go to the show. Do the show. Whatever happens, the show's the thing. It's the one thing we can all agree on."],
-  ["Is Meg all right?","She's perfect. She's thinking about ropes. When she's thinking about ropes, she's happy."]],
- "Sleep well. Dream of sausages. I will."],
-30:["(Buttons is standing at the lakeside, cap in hand, a rare look of solemnity on his face.) The last day. It's funny: I've told a thousand jokes this month, and I can't think of one.",[
-  ["That's not like you.","No. It's what the day does. Bruno says it's the pause before the punchline. I hope he's right."],
-  ["What will you do afterwards?","Eat. Then juggle. Then eat again. The island will be what it'll be, and I'll be a jester in it."],
-  ["Any message for London?","Tell them we were here, and that the people of this island are kind, and silly, and cold. And that I'm still owed twelve sausages."]],
- "Thanks for listening. Nobody ever does. It's why I'm so loud."],
+7:["(A man in a two-coloured jester's cap with bells jingles towards you and bows so low his nose touches his knees.) A reporter! At last! Somebody to write down my jokes! Why did the herring cross the road? (A pause.) Neither did I. I'm Buttons. Have you got any food?",[
+  ["That joke was terrible.","Thank you! They're all terrible. I've got four hundred of them. The terrible ones are the only ones people remember. Have you got any food?"],
+  ["Why are you called Buttons?","My mother sewed me into my first costume with forty buttons and lost the needle. I couldn't get out for a week. The name stuck. So did I."],
+  ["I haven't got any food.","(He looks crushed, then brightens.) Then you owe me a joke. Why don't jesters ever starve? (He waits.) They do. Constantly. Look at me."]],
+ "If you find any food, you know where I am. I'm always where the food isn't."],
+8:["(Buttons is lying flat on his back in the grass, staring at the sky, his cap's bells tinkling in the breeze.) Sunday. No show. I'm thinking about pizza. There's a pizzeria in Kingsgrad. I've never been. I think about it every day.",[
+  ["Why not go?","Kingsgrad's a long way on an empty stomach, and Meg keeps the money. Meg says pizza's an extravagance. Meg's never smelled one."],
+  ["What else do you think about?","Being taken seriously. For one whole day. Nobody's ever taken me seriously. I'd like to try it. Just once. To see what it feels like."],
+  ["Do you go to church?","I went once. I laughed during the sermon. Not at it. Near it. They asked me to leave. God laughed. I heard Him."]],
+ "If you ever go to Kingsgrad, bring me back a slice. Pepperoni. Two slices. I'm a growing jester."],
+9:["(Buttons is watching Meg teach a young woman to walk a wire a foot off the ground, and is pretending to be the wire.) I'm moral support. If she falls, she lands on me. (Hely falls on him.) Ow. That's the job.",[
+  ["Who's the girl?","Hely. From Eastbrook. She's been watching us every day. Meg likes her. When Meg likes someone, they're in, whether Bruno knows it or not."],
+  ["Is she any good?","She's got nerve and no balance. I had balance and no nerve. Between us we'd be one perfect performer. (Hely falls again.) Ow."],
+  ["Are you hungry?","(He looks at you with enormous eyes.) Always. Since 1951. Is that a sandwich in your pocket? (It isn't.) Is it a biscuit?"]],
+ "If you've got a biscuit, Hely needs it more than me. That's a lie. Give it to me."],
+10:["(Buttons is sitting very still on a barrel, his cap off, the bells silent, for once.) The king. No show tonight. (He turns the cap in his hands.) He laughed at me once. For ten minutes. At the palace. In 1971.",[
+  ["What made him laugh?","I fell off a chair. On purpose. Then on accident. Then on purpose again. He couldn't tell which was which. Neither could I, by the third time."],
+  ["Are you sad?","(He nods.) Clowns are always sad. That's the secret. You can't make people laugh unless you know exactly what sad feels like."],
+  ["What will you do tonight?","Sit with Meg. Not tell jokes. Eat whatever she gives me. (He looks at the cap.) And maybe tell one joke. A quiet one. For him."]],
+ "Go gently today. Even I'm being quiet."],
+11:["(Buttons is counting a handful of coins very carefully, which seems out of character.) Don't look. I'm saving. For something. A secret. (He puts the coins in his shoe.) A clown with a secret. Write that down. Nobody'll believe you.",[
+  ["What's the secret?","(He taps his nose.) Something for Meg. That's all. Jonna, the tattoo lady in Eastbrook, is drawing it for me. A commission. Very artistic. Very secret."],
+  ["Where did you get the money?","People think a clown has nothing. (He wiggles his toes in the shoe.) Nobody ever looks at a clown properly. So a clown sees everything. And sometimes the things he sees are worth something."],
+  ["Will Meg find out?","Meg finds out everything. Except this. I've hidden it in the one place she never looks. My own seriousness."]],
+ "Don't tell Meg. I'll know. I know everything. Nobody ever looks at me."],
+12:["(Buttons is trying to ride the circus horse, who is ignoring him completely.) Duchess! Walk on! (Duchess eats grass.) She's very proud. She was a dancing horse in Bergen. Now she's a horse who ignores clowns. A long way to fall.",[
+  ["Does she ever let you ride?","Once, in 1979. For eleven yards. Then she stopped, turned her head, and looked at me. I got off. It was the look."],
+  ["Is Duchess fond of anyone?","Meg. And Igor, who carries her hay. And any reporter with a notebook, whom she bites. (He looks at your pocket.) Keep it hidden."],
+  ["Are you still hungry?","Duchess has better lunches than me. Oats. Apples. Carrots. I asked if I could share. She bit me. Not the notebook. Me."]],
+ "Keep your notebook away from Duchess. And your fingers. And your lunch."],
+13:["(Buttons is bouncing on the spot, very fast, surrounded by empty cola bottles.) Free cola! Kelp Cola left a crate! I've had six! I can hear colours! (He bounces higher.) Meg says I'm not allowed near the trapeze till Thursday.",[
+  ["Are you all right?","Never better! I've juggled the bottles! All six! Empty! I've given Hely my old clubs. Chipped ones. A girl who can't juggle apples should try something harder."],
+  ["How many jokes have you told today?","Forty. All terrible. Why did the cola cross the road? (He bounces.) It was a soft drink! Not very hard! (He waits.) I told you. Terrible."],
+  ["Should you have six colas?","Probably not. But they were free. And I'm a jester. A jester who refuses free things isn't a jester. He's a sensible person. I'd hate that."]],
+ "If you see me on the big top roof, tell Meg. Gently."],
+14:["(Buttons is in full costume with exactly two bells, looking mournful about the other ten.) The big gathering. Meg says two bells. Two! I'm a twelve-bell jester. Two bells is barely a hat.",[
+  ["Why only two?","Meg says people will be serious today. I said that's when they need twelve bells most. She said two. Meg always wins. It's in the contract."],
+  ["What will you do there?","Juggle. Fall over. Climb something I shouldn't. Bruno will make a speech. Igor will lift something. I'll be the only one doing anything useful."],
+  ["Will you be taken seriously?","Not with two bells. With twelve, maybe. With none, definitely. (He jingles sadly.) Two bells is the worst of both."]],
+ "If you hear two bells, that's me. Being restrained."],
+15:["(Buttons has a duck under one arm and is soaking wet from the waist down.) Don't ask. (The duck quacks.) I climbed the fountain at the gathering to see better. Fell in. Came out with him. His name's Mayor. He's mine now.",[
+  ["Did Meg catch you?","No! First time in ten years! (He looks deeply wounded.) She was looking the other way. She says she was watching the speeches. Nobody watches speeches when I'm on a fountain."],
+  ["Why Mayor?","Because he looked so pompous, sitting in the fountain like he owned it. Also, he's the only mayor that's ever listened to me."],
+  ["How did the crowd react?","They cheered! I bowed! To the duck! The duck bowed back! Meg says that wasn't planned. It wasn't planned. That's what made it perfect."]],
+ "If you see a duck near the big top, that's Mayor. Bow to him. He expects it."],
+16:["(Buttons has the wireless on in the caravan, and is shouting at it.) Oh, that's good! (To the Democrats.) Oh, that's good too! (To the Party.) They're both very good! I'd vote twice!",[
+  ["Who's winning?","Whoever I agreed with last. That's everyone. I agree with everyone. It's very tiring. A jester has to agree with everyone. Otherwise someone throws something."],
+  ["What would you do, if you ran the island?","Free pizza on Tuesdays. A law that everyone has to fall over once a week, to remember what it's like. And twelve bells for everyone."],
+  ["Is Mayor listening?","Mayor's very political. He quacked twice during the Party woman and once during Erik. I think that's a vote."]],
+ "Vote for free pizza. It's the only sensible policy."],
+17:["(Buttons is clinging to a tent pole with both arms, the bells jingling wildly, as the ground shudders.) It's moving! The ground's moving! I'm not doing it! For once, it's not me falling over! Meg! (Meg doesn't come.) Meg's up a pole.",[
+  ["Are you all right?","I'm terrified! And very excited! The ground's doing my act! Nobody laughs when the ground falls over. That's not fair."],
+  ["Is it the volcano?","Zora says so. She turned a card and went white. Zora's never gone white. She's been grey since 1952."],
+  ["Where's Mayor?","Under the caravan. Very sensible duck. Much more sensible than me. (He lets go of the pole.) I'll join him."]],
+ "If the ground moves again, hold onto something that isn't a clown."],
+18:["(Buttons has a bruise on his forehead and looks very proud of it.) A woman from Kelp Cola came looking for someone to wear the Kelpy costume. The cola cup. I went in head first. Got stuck. Igor pulled me out by the ankles. (He beams.) But she asked. Somebody wanted me for a serious job.",[
+  ["Will you be Kelpy?","No. I'm too funny for a cup, she said. Kelpy's meant to be dignified. (He sighs.) I've never been too funny for anything. It's a compliment. It's a terrible compliment."],
+  ["Was it taking you seriously, though?","For one hour. She looked at me, measured me, and wrote my name on a list. A serious list. With a pen. It was the best hour of my life."],
+  ["How's the bruise?","Excellent. Meg kissed it better. And this afternoon I went to Jonna's for the first sitting. For the secret. I sat very still. Not one joke. Meg doesn't know about that bit."]],
+ "If you see a cup with clown shoes, it's not me. I didn't fit. I'm too magnificent."],
+19:["(The camp smells of eggs. Buttons has a peg on his nose and is still trying to tell jokes.) Why did the volcano go to the doctor? (Nasal.) It was feeling a bit flushed. (A pause.) That's not even a joke. I'm frightened. My jokes go bad when I'm frightened.",[
+  ["Are you all right?","No. Meg and Bruno are arguing about whether to stay or go. Meg's winning. Meg always wins. I want to stay. I want to go. I want pizza."],
+  ["Is the circus staying?","Meg says if we run, the island sees a circus running. If we stay, they see a circus that's brave. I don't feel brave. I'll pretend. Pretending's my job."],
+  ["Where's Mayor?","In a bucket. With a lid with holes in. He's very cross about it. I'm keeping him safe. Somebody has to keep somebody safe."]],
+ "Breathe through a peg. It helps. It doesn't. But it looks funny."],
+20:["(Buttons is holding Meg's hand, very tightly, and doesn't seem to know he's doing it.) The ground's moving every hour. Everyone's going to sleep by the lake tonight. Meg's tied everything down. Even me. Not really. Nearly.",[
+  ["Are you scared?","Terrified. But I've got four hundred jokes and a whole night to tell them. If the mountain goes, at least it'll go to the sound of the worst jokes in the Baltic."],
+  ["What will you do?","Tell jokes. To the animals, to the children, to Igor, to Meg. Terrible ones. The worse they are, the more people laugh. That's what frightened people need."],
+  ["Will you let go of Meg's hand?",["(He looks down, surprised to find he's holding it.) Oh. (He doesn't let go.) No. I don't think I will. Not tonight.",[
+    ["Good.","(He squeezes it.) She's always caught me. Tonight I'll hold on. In case she needs catching. She won't. But in case."],
+    ["Does she mind?","(Meg, without turning round:) I don't mind. (Buttons beams so wide his face nearly splits.)"]]]]],
+ "Go somewhere safe. And hold somebody's hand. It helps."],
+21:["(Ash is falling. Buttons is lying with his head in Meg's lap by the lake, grey all over, the bells on his cap clogged with ash.) It went. The mountain. I told jokes all night. Four hundred and eleven. I ran out. I made eleven new ones. They were the worst ones ever written.",[
+  ["Did people laugh?","Everyone. The animals. Igor. The children. Zora. Even Bruno, during his own speech. (He looks up at Meg.) Meg laughed at the four hundred and seventh. She never laughs at my jokes."],
+  ["Which one was it?","Why did the mountain apologise? It had blown its top. (A pause.) Terrible. She laughed so hard she cried. Or she was crying already. I don't know."],
+  ["Are you all right?",["(He looks up at the grey sky.) I'm grey. I'm tired. I've never been so happy. I made a whole lake of frightened people laugh.",[
+    ["You were a hero.","(He goes very quiet.) Meg said that. She said 'You were a hero, Buttons.' She said it seriously. Somebody took me seriously. During a volcano."],
+    ["How's Mayor?","Grey, and furious, and alive. He bit Bruno. That's the first sensible thing Mayor's ever done."]]]]],
+ "Cover your mouth. And tell someone a terrible joke today. It works."],
+22:["(Buttons is helping Meg sweep the ash off the big top, using a broom that is mostly a joke and partly a broom.) Bruno's decided. We're staying. And we're putting on a free show for the island on Saturday. Free! For everyone! I'm doing a new act. With Mayor.",[
+  ["What's the act?","Mayor and I sit in a bucket together and pretend to be a fountain. Then I fall out. Then Mayor falls out. Then we both get back in. It's very moving."],
+  ["How's the camp?","Grey. Everything's grey. Duchess is grey. Zora's crystal ball is grey. Igor's grey and lifting grey things. I'm grey and very hungry."],
+  ["Did you finish the secret?","(He goes very still and looks around for Meg.) Tomorrow. The last sitting at Jonna's. I've got the last coins in a sock. Meg deserves colour, and colour costs."]],
+ "Don't tell Meg about the secret. She's sweeping. She can't hear. She hears everything."],
+23:["(Buttons is sitting on a crate, very serious, reading a book upside down.) I'm being taken seriously today. I've decided. One whole day. No jokes. No falling over. Very dignified. (The book falls on his foot.) Ow. That doesn't count.",[
+  ["Why today?","Because a clown made a whole lake laugh during a volcano. And because this morning Jonna finished the secret, and I paid her, and I cried. Seriously. I've earned a serious day."],
+  ["What's wrong with Bruno's hat?","It's taller than my cap. It's been taller than my cap since 1972. I've never forgiven it. It knows. It looks down on me. Literally."],
+  ["How's the serious day going?","(A pause.) I've lasted forty minutes. It's very hard. Everything's so funny when you're not allowed to laugh at it."]],
+ "If you see me being dignified, don't laugh. It's very fragile."],
+24:["(Buttons is lying in the grass, staring at the sky, with an expression of total bliss.) She came. The princess. Last night. To the circus. In a headscarf. And she laughed at me. For an hour. A whole hour. Without stopping.",[
+  ["Princess Daphne?","In a headscarf, pretending to be nobody. Nobody laughs like that. She snorted. Twice. A royal snort. I'll never wash my ears."],
+  ["What did you do to make her laugh?","Everything. Fell off a chair, fell off Duchess, fell in a bucket with Mayor. She laughed at all of it. Then she came backstage and said 'Thank you. I needed that.'"],
+  ["Did she take you seriously?","She laughed at me for an hour. That's the most serious thing anyone can do for a clown. Meg says so. Meg's right."]],
+ "If you meet a princess, tell her the bucket act is even better on Saturday."],
+25:["(Buttons is watching Meg sew a hat with a feather, and pretending he isn't.) She's making a hat. For Hely. For Saturday. With a feather. (He sniffs.) She's never made me a hat with a feather. I've got bells. Bells aren't feathers.",[
+  ["Are you jealous?","Of a feather? (Long pause.) A little. But Hely needs a feather more than I do. She's never had anything that was just hers. I've got twelve bells. And Mayor."],
+  ["What's the news?","A crown for everyone, a princess for democracy. Everyone's making promises. I promise to fall over on Saturday. That's the only promise on this island I'm sure will be kept."],
+  ["How's the secret?","(He touches his chest very lightly, through the costume.) Done. Paid. Over my heart. Meg's name. In red. I'm waiting for a special day. Don't tell anyone."]],
+ "If you see Meg, tell her I'm not jealous of the feather. Tell her it convincingly."],
+26:["(Buttons is teaching Hely to juggle, standing behind her, guiding her wrists.) Wrist, not arm! Wrist! (She catches four.) There! See? Throw from the wrist. Six years she's been throwing from the arm. Six years!",[
+  ["Is she getting better?","She's nearly not terrible. (Hely beams.) That's the nicest thing I've ever said to anyone. I've never even said it to Meg."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. I've asked if I can join the oil company. For the milkshake machine. No answer yet."],
+  ["Does Bruno know about Hely yet?","Bruno's noticed her. Meg says that's the first step. Then he'll think it's his idea. Then he'll make a speech. Then she's in. Circus politics."]],
+ "Throw from the wrist. It works for juggling and for life. Mostly juggling."],
+27:["(Buttons is in the big top, rehearsing the bucket act with Mayor, very seriously.) Tomorrow's the free show. The last one before the winter. Mayor and I have to be perfect. (Mayor quacks.) Mayor says we're already perfect.",[
+  ["Is the act ready?","We've rehearsed it eleven times. Mayor fell out of the bucket on time nine times. Twice he refused. He's very temperamental. He's a true artist."],
+  ["What's the news?","A Party picture at the cinema and big card games, they say. Bruno wanted to go to the pictures. Meg told him there are six tractors. He went pale."],
+  ["Will the island come tomorrow?","Everyone! Every faction! All in one tent! All laughing at a clown and a duck! It'll be the only thing they agree on all month."]],
+ "Come tomorrow. Sit near the bucket. You might get splashed. That's part of the art."],
+28:["(The big top is packed. Buttons is in full costume, all twelve bells, Mayor under one arm.) Twelve bells! Meg said yes! For the last show, twelve bells! (He jingles ecstatically.) The whole island's here. Every flag. All waiting for me. Me!",[
+  ["Are you nervous?","Terrified! Joyful! Both! Like the night of the mountain, but with more applause. (He peeks through the curtain.) I can see the Party. And the palace. And the cola men. In the same tent."],
+  ["What will you do?","The bucket act. And the chair act. And a new act, just for tonight. Very serious. Nobody will laugh. (He thinks.) Everyone will laugh. That's the plan."],
+  ["Is Hely selling programmes?","At the door! In the hat with the feather! She cried when Meg gave it to her! I cried too! (He wipes his eyes.) I'm crying now. It's the bells. They're very moving."]],
+ "Find a seat! On the left! That's where I fall!"],
+29:["(Buttons is sitting on the caravan steps, very tired, very happy, with Mayor asleep on his knee.) Last night. The whole island laughed. And then Bruno said yes to Hely. She's coming with us. And Bruno made a speech. And I cried. And Mayor bit him.",[
+  ["How was the show?","The best of my life. The bucket act went perfectly. Mayor fell out on cue. The princess was there again, in her headscarf. She snorted. Four times. I counted."],
+  ["What's happening today?","The Republicans are choosing a leader. The palace is arguing. And we're packing. We're the only ones on the island who know exactly what we're doing next."],
+  ["Is the secret done?",["(He looks around for Meg, then unbuttons the top of his costume, just a little. There's a tattoo over his heart: MEG, in red.) Jonna did it last week. Nobody's seen it. Not even Meg.",[
+    ["When will you show her?","Tomorrow. The last day. When she's packing ropes and not expecting anything. That's the only time Meg's ever surprised."],
+    ["It's beautiful.","(He buttons it up again, carefully.) Forty buttons. Like my first costume. She'll have to undo every one to see it. I've planned it. Seriously."]]]]],
+ "Don't tell Meg. One more day. Seriously."],
+30:["(Buttons is helping Meg coil ropes into a wagon, and keeps fiddling with the top button of his costume.) Last day. They're settling the island today. And I'm settling something too. (He looks at Meg.) In a minute. After this rope. Or the next one.",[
+  ["Are you going to show her?","After this rope. (He coils it badly.) After this one. (He coils it worse.) Why is it so hard to be serious? I've been practising for a week."],
+  ["What do you hope happens to the island?","That whoever runs it laughs at clowns. Meg says you can trust people who laugh at clowns. Never trust anyone who doesn't."],
+  ["Will you remember this month?",["(He looks at Meg, coiling ropes, not looking at him.) The duck, the mountain, the princess snorting, and four hundred and eleven jokes. And this. Whatever happens in a minute.",[
+    ["Go on. Now.","(He takes a deep breath, walks over to Meg, and starts undoing his buttons. She turns, sees what he's doing, and stops. She puts down the rope.) (Buttons doesn't say a word. For once.)"],
+    ["Good luck.","(He grins.) A clown doesn't need luck. A clown needs timing. (He looks at Meg.) And the timing's now."]]]]],
+ "If you hear a woman laugh and cry at the same time, that's Meg. Don't come over. Give us a minute."],
 };

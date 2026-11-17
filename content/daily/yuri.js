@@ -1,123 +1,134 @@
-// Yuri, a timber businessman (really KGB; he never says so) upstairs at Hotel Aurora, Frostholm (Communist Party). Threads: timber contracts, vodka and rounds, charm, his "letters home", the Party's vote, Anna and Helen, the volcano.
+// Yuri, 'a timber man from Leningrad', upstairs at the Hotel Aurora in Frostholm (the Communist Party, and the KGB; he never says so,
+// and nobody he talks to says it either). Threads: his timber contracts, which never seem to involve any timber; vodka, rounds and
+// oranges for the Party; his very long letters to his 'mother' in Leningrad, who likes to hear everything; his hurry, and Anna's
+// refusal to be hurried (she wants a Party still standing next year); Helen's suspicion and Bob's dislike of generous men; the
+// Democrats asking questions about him (the 20th) and Sergeant Hanna wanting his passport; the volcano; the Party's big push (the
+// 28th); his growing fondness for the island, which is not in his instructions.
 DAILY['Yuri']={
-7:["(Yuri rises with a wide smile and a glass.) A reporter! Sit, sit. Yuri. Timber. I buy fir from anyone who'll sell it and vodka for anyone who'll drink it.",[
-  ["Nice room. Is timber good business?","Splendid. Trees do not argue. Only the people who own them do."],
-  ["What brings a timber man to Sarivalto?","Fir, pine, and a very good lake. The island is a gift, no?"],
-  ["Is that a lot of radio equipment?","A hobby. I like to hear the world. In my line one must hear prices."]],
- "Drink, my friend. The first round is free."],
-8:["(Yuri pours two small glasses.) Sunday, yes? Bells all morning. I like bells. In my country they were forbidden, here they are free. Everything is a matter of whose island it is.",[
-  ["Are you religious?","I am respectful. It costs nothing, and it makes the monks sell me timber."],
-  ["Which side would you like to win?","I am a guest. A guest likes whoever feeds him. Anna feeds me, mostly."],
-  ["Heard any gossip?","Father Thyme cannot find words. Poor man. I would lend him some, but mine are all in Russian."]],
- "Another? No? Next time."],
-9:["(Yuri toys with a bottle of cola.) Everyone makes cola now. The Party wants a cola, Kelp wants a cola. Cola is the new oil. I find that charming.",[
-  ["Would you invest in cola?","I invest in trees. A tree is a safe bank."],
-  ["Does the Party need a cola?","Helen is passionate. A people's drink, she says. I say a people's drink is vodka. Nobody listens."],
-  ["Have you tried the new formula?","Too sweet. Like a politician's smile."]],
- "A toast to fizz."],
-10:["(Yuri has put on a black tie.) The king's funeral. One respects the dead, even a king. I sent a wreath, with the card of my timber company. Very proper.",[
-  ["Is a wreath from a timber company usual?","It is Sarivalto wood, so it is a local wreath. Practical sadness."],
-  ["What did you think of the king?","I never met him. I met his accountants, which is like meeting a man's shadow."],
-  ["What next for the island?","Much talk. Much vodka. Eventually, a vote."]],
- "Respect the dead and the weather."],
-11:["(Yuri pats his coat.) The mill hands argue about wages. A lovely cause. Workers should be paid, that is the whole of my philosophy, and I am a capitalist, so you see my difficulty.",[
-  ["Are you backing the mill hands?","Warmly, from a distance. The Party takes the credit, I take the timber."],
-  ["Do you know Helen well?","She is a force of nature. I admire her, and I stay out of her weather."],
-  ["Isn't it a contradiction?","Of course. The world is made of contradictions, like a good stew."]],
- "Contradictions are good for digestion."],
-12:["(Yuri is writing a letter.) To my wife. Or someone. One writes letters home. They are very long, and full of weather and prices.",[
-  ["Do you miss home?","The cold is the same. The food is worse. That is how I know I am abroad."],
-  ["Do you write much?","Every night. My handwriting is bad, so the letters take hours."],
-  ["Who reads them?","Many people, I imagine. Mail is a crowded road."]],
- "Weather is a safe subject."],
-13:["(Yuri smiles.) Free samples on every corner. Such generosity from Kelp. One only gives free things when one wants a great deal.",[
-  ["Is that a Communist view?","It is a human view. Nothing is free but air, and even that they are working on."],
-  ["Did you take a sample?","I took three, for the glasses. The bottle is nice."],
-  ["Who's winning the cola war?","The one who sells most. Or the one who steals the recipe. I hear there is talk of a recipe."]],
- "Careful with free things."],
-14:["(Yuri adjusts his cuffs.) Tomorrow, the fourteenth. The whole island together. A big day. I shall be there, in the back, with my hat on, like a respectable man.",[
-  ["What do you expect?","Speeches. Faces. A great deal of looking at each other to see who is looking."],
-  ["Will the Party do well?","The Party does well when people are afraid of the future. The future is arriving tomorrow."],
-  ["You sound confident.","I am a timber man. I know how things grow."]],
- "Wear your best coat."],
-15:["(Yuri laughs softly.) Crown against cross. Delicious. Two old rivals fighting over an island that wants neither. In such a fight a third party wins.",[
-  ["Which third party?","I did not say a party. I said a third."],
-  ["Who's stronger, crown or cross?","The crown has soldiers, the cross has candles. Candles last longer."],
-  ["Where does the Party stand?","On its own two feet, and a boot on someone else's, if invited."]],
- "Careful with boots."],
-16:["(Yuri lifts a glass.) The great debate today. Helen and the Democrats. She will eat them. A vote will be the big topic, you know. Votes are very useful things.",[
-  ["Useful how?","A vote is a door. Once the door is open, one can walk through it. Maybe to Moscow."],
-  ["You want the island in the Soviet Union?","I did not say. I said a door."],
-  ["Who will win the debate?","The best-prepared. That is Helen. She rehearsed for a week, in front of a mirror."]],
- "Doors, doors, doors."],
-17:["(Yuri's glass trembles on the table.) You felt that? The earth, a little shake. In my home we have such things. I do not like them.",[
-  ["Is it the mountain?","Everyone says. Old men, mainly. Old men know mountains."],
-  ["Are you frightened?","I am cautious. Fear is a luxury."],
-  ["Heard that Dario is missing?","Dario, the oil man? Interesting. A man of that size does not simply disappear. It is a mystery, and I like mysteries."]],
- "Hold your glass tight."],
-18:["(Yuri looks out of his window.) Steam in the north. A white feather. Everybody pretends not to look at it. I look at it. I am bad at pretending.",[
-  ["Will it erupt?","Someone with a thermometer would know. I have only a bottle."],
-  ["What do you make of the relic story?","The Church lost something. It was always going to. Churches are good at collecting and bad at keeping."],
-  ["Do you go to Kelp's museum?","I find the cup alarming. A cup with a face. It is a very capitalist idea."]],
- "Watch the sky."],
-19:["(Yuri refills a glass.) Comrades wanted, they say, and everywhere the Party signs up fishermen and clerks. I give money to the cause. A small amount, with a large smile.",[
-  ["Is Anna recruiting?","She recruits with soup. It is effective."],
-  ["Will people join?","Some. People join what's warm."],
-  ["Heard about the Midnight Note?","A club of songs. Leo plays saxophone. I enjoy his slow notes. They are good for thinking."]],
- "Sing something."],
-20:["(Yuri has the radio on, low.) Another stranger in the hotel. Staying downstairs, asks about everyone. A man with a camera and a nervous smile. I like him. He is bad at it.",[
-  ["Who is he?","A tourist, he says. Nobody tours Sarivalto in a month like this."],
-  ["Are you suspicious?","I am hospitable. It is the same thing, looked at sideways."],
-  ["What about the palace job?","I heard whispers. A crowd of whispers. The palace is a good place for them."]],
- "Don't trust cameras."],
-21:["(Yuri's hands are steady, but his glass is empty.) That was no small shake. The mountain opens like a book. The sky is orange. I have seen worse, but not recently.",[
-  ["Is it dangerous?","Lava, they say, to the north, in the empty places. People are safe, thank God. And I am not a man who says thank God easily."],
-  ["What does Moscow think?","Moscow thinks what it thinks. I think about my window."],
-  ["Will this change the vote?","A disaster changes everything. That is the one rule."]],
- "Close the window."],
-22:["(Yuri brushes ash from the sill.) Grey everywhere. Like a winter that has run out of snow. Helen's people sweep the streets, and the Party gets the credit. Clever.",[
-  ["Are you helping?","I donate vodka to the sweepers. It warms the hands."],
-  ["How is business?","Timber is warm and dry. I do better in a crisis."],
-  ["What about the farms?","A farm lost a roof. The Party sent blankets. Trust is bought in small things."]],
- "Cover your drink."],
-23:["(Yuri is wiping ash from his radio.) A spanner in the works, I hear, at the dock. Someone wishes to slow the Party. Who? So many people.",[
-  ["Do you suspect anyone?","It is better to suspect everyone gently."],
-  ["Who's fixing the oil rig?","Diversified. Deep repairs. Deep is an interesting word."],
-  ["Is the Party worried?","The Party is always a little worried. It keeps us thin."]],
- "Keep your tools close."],
-24:["(Yuri raises an eyebrow.) The monks go up the mountain, to retreat. Brave men, or very devout, or avoiding something. Meanwhile the clean-up crews tidy up. I do like a tidy island.",[
-  ["Who are the clean-up crews?","Some are Party, some are others. All of them know where the bodies are, in an expression."],
-  ["Are you worried about the retreat?","The peaks are cold. Prayer's good for the knees."],
-  ["Will you go up?","I go nowhere without a coat and a reason."]],
- "Cold air, clear mind."],
-25:["(Yuri laughs.) A princess for democracy! A crown for everyone! Everyone's a monarchist today. If I stay another week, I will be one too.",[
-  ["Is there really a princess?","There is always a princess. It is a law of islands."],
-  ["How does the Party see it?","With patience. A princess is a pretty face on an old argument."],
-  ["Do you like royals?","They are good for postage stamps."]],
- "Stamps are good business."],
-26:["(Yuri taps a bottle.) Kelp puts a prince in every bottle. A prince in a bottle! It is cheaper than a prince on a throne. And Dario buys a spa. A very oily man in a hot bath.",[
-  ["Why a spa?","Steam is where deals are done. Men talk when they are naked."],
-  ["Do you like spas?","I have a sauna in my head. It is quiet."],
-  ["Would you buy a prince?","A prince is a poor investment. They need so much feeding."]],
- "Stay warm."],
-27:["(Yuri smiles over a cup.) The Party shows a revolution at the pictures tonight. It is a good film, with horses. Everybody cries at the end, or at the horses.",[
-  ["Are you going?","In the second row. It is where one sees the faces of the audience."],
-  ["Do you like propaganda?","It is simply persuasion in a good hat."],
-  ["What about the Syndicate's high stakes?","They gamble. I invest. We are not the same, though we sit at the same table."]],
- "Pick a good seat."],
-28:["(Yuri is in his best suit.) The day everyone pushes. The Party marches on Kingsgrad with a red flag. A very big day, and I am a small man in a window.",[
-  ["Are you nervous?","I am never nervous. I am attentive."],
-  ["What will the Party achieve?","A good march. After that, the vote. A vote is in the heart of the matter."],
-  ["Will you march?","I do not march. I observe, and occasionally, I toast."]],
- "Toasts are my marching."],
-29:["(Yuri lights a cigarette.) One day left, and every faction sends their biggest guns. The oil men, the cola men, the Syndicate. It is a very noisy island.",[
-  ["Who will win?","The one who is not noisy. That is always the lesson."],
-  ["What will you do after?","Write a long letter home."],
-  ["Is the Party ready?","As ready as a Party can be. Anna has soup, Helen has speeches. It is enough."]],
- "Sleep, if you can."],
-30:["(Yuri lifts his glass, slowly.) So. The last day. Whatever it brings, it has been a pleasure to know you, reporter. I hope your readers in London will understand us. I doubt it.",[
-  ["Thank you, Yuri. Any last words?","A toast to the island, to the wind, and to the trees."],
-  ["How do you feel?","Calm. It is the calm of a man who has done his work."],
-  ["Will you stay?","Wherever I am sent, I go. Even to the end of a vodka bottle."]],
- "Za zdorovye. Go well."],
+7:["(A broad, smiling man in a beautifully cut grey suit rises from an armchair in the hotel bar and holds out a hand.) The British press! Wonderful! Yuri. Timber. From Leningrad. (He waves at the barman.) Two vodkas. You'll drink with me. Everyone drinks with me.",[
+  ["Timber?","Pine, birch, spruce. I buy, I sell, I drink with the people who cut it down. (He smiles.) Mostly I drink. Timber is a very social business."],
+  ["Why Sarivalto?","Beautiful forests. Beautiful harbours. A little island with a big future. (He raises his glass.) I like to be where the future is. It's very good for business."],
+  ["I'm not drinking at noon.","(He laughs, delighted.) A British reporter who refuses vodka at noon! I'll write home about you. My mother will be fascinated."]],
+ "Come back any evening. The bar is always open, and so am I. (He smiles.) Within reason."],
+8:["(Yuri is writing a very long letter at a desk in the corner of the hotel bar, in tiny handwriting, three pages already.) My mother. In Leningrad. She likes to know everything. What I eat, who I meet, what they say. (He blots a page.) I'm a very dutiful son.",[
+  ["Does she write back?","Every week. Very short letters. 'Write more.' (He smiles.) She's very demanding, my mother. Very interested in the island."],
+  ["Do you go to church?","(He laughs.) The Abbot's preaching today, I hear. I'll send my mother a summary. She likes to know what the Church is saying. For her own reasons."],
+  ["Am I in the letter?","(He covers the page with his hand, smiling.) A gentleman never shows his letters. Let us say my mother knows there's a charming British reporter on the island. That's all."]],
+ "Have a good Sunday. I'll be here, writing to my mother. She's very patient."],
+9:["(Yuri is unpacking a crate of oranges on the hotel bar.) Oranges! For the comrades in Saltwick! From the south! Nobody on this island has seen an orange since the summer. (He presses one into your hand.) Eat. Vitamins. For the revolution.",[
+  ["Where did you get oranges?","A friend of a friend, on a boat. (He winks.) Timber men know a great many boats."],
+  ["What do you think of the Party's cola?","(He tastes it, and his smile stays perfectly steady.) Excellent. Revolutionary. Beetroot is the drink of the future. (He sets it down very gently.) In Leningrad we have better beetroot."],
+  ["Does Anna like the oranges?","Anna says thank you, and then asks me what I want for them. (He laughs.) She's very suspicious. She's quite right. I want the Party to succeed. That's all. Quickly."]],
+ "Take another orange. For your health. And remember who gave it to you."],
+10:["(Yuri is in a black suit with a black tie, at the hotel bar, with an untouched glass in front of him.) The funeral. I'm not going. It's not my king. (He turns the glass.) But I'm not drinking today. A man should respect another country's grief.",[
+  ["Did you know the king?","I met him once, in 1976, at a timber fair in Helsinki. He asked me about birch. I talked about birch for ten minutes. He listened to every word. Very few people listen to me about birch."],
+  ["What happens to the island now?","Everyone is asking. Everyone has an answer. (He looks at the glass.) My mother has an answer too. She's very sure. I'm less sure than I used to be."],
+  ["Why less sure?","(He smiles, and it's a little tired.) Because I've met the island. My mother has only read about it. It's very different, meeting a place."]],
+ "Go gently today. Even I'm being quiet."],
+11:["(Yuri is looking at a full glass of vodka on the bar, beside an empty chair.) Helen, from the Union. She was here an hour ago with a folder of mill wages. Eastbrook. Fair pay! A great struggle! I poured her a vodka. She left it.",[
+  ["Does Helen ever drink with you?","Never. Helen doesn't drink with me. She says I'm too generous. (He shrugs.) Bob, her partner, says the same. He says he's never trusted a generous man."],
+  ["Will the mill hands get their rise?","If Helen has anything to do with it. She's formidable. (He lowers his voice.) Moscow would be proud of her. If Moscow knew her name. Which it doesn't. Obviously."],
+  ["Why are you so interested in the mill?","Timber! I'm a timber man! (He laughs.) A strike at a mill is very interesting to a timber man. For business reasons."]],
+ "If you see Helen, tell her the vodka's still on the table. For later."],
+12:["(Yuri is in the hotel bar, buying a round for a table of oil men, very loudly.) Gentlemen! To Diversified Petroleum! To oil! To the future! (He sits with you while they drink.) They tell me everything after the third round. Oil men are very lonely.",[
+  ["What do they tell you?","Their accounts, their worries, their wives. (He smiles.) Mostly their accounts. Somebody in Frostholm is moving money very cleverly this week. They're all very nervous."],
+  ["Why do you want to know?","A timber man must know the oil business. Oil and timber, they fight over the same forests. (He sips.) My mother is very interested in forests."],
+  ["You buy a lot of rounds.","It's my only talent. That, and listening. A round of vodka costs a dollar. A secret costs a round. It's very good value."]],
+ "Have a drink with the oil men. They'll tell you about their wives."],
+13:["(Yuri is holding a free bottle of Kelp Cola up to the light, smiling.) Free! Capitalism, giving things away! (He drinks.) Very sweet. Very fizzy. Very frightened. A company that gives its product away is a company that knows something is coming.",[
+  ["What's coming?","The big day. Tomorrow. Everyone on the island in one place. (He finishes the cola.) My mother is very interested in tomorrow."],
+  ["Will you go?","At the back. With the Party. Anna says I may stand with them as a friend. Not a member. A friend. (He smiles.) Anna chooses her words very carefully."],
+  ["Does Anna trust you?","Anna trusts nobody. That's why she's still leading the Party after ten years. (He sets down the bottle.) I respect her enormously. She's a very difficult woman to hurry."]],
+ "Drink your free cola. Enjoy capitalism while it's free."],
+14:["(Yuri is at the back of the gathering, behind the Party, in a grey coat, watching everything with a pleasant smile.) The whole island! In one place! (He looks around.) Wonderful. My mother will want to know every face.",[
+  ["Who's interesting?","The palace, nervous. The oil men, counting. The cola men, smiling too much. The Democrats, very sure. (He nods at Anna.) And the Party. Waiting. Anna's very good at waiting. Too good."],
+  ["Too good?","Waiting is a luxury, comrade. (He catches himself.) Friend. History moves fast. A Party that waits may find history has gone without it."],
+  ["Will Anna speak?","Briefly. Very calmly. She has index cards. (He sighs.) I offered to write her a speech. A fiery one. She said no. She said she'd speak in her own words, slowly."]],
+ "Watch the faces. That's where the real gathering is."],
+15:["(Yuri is writing another long letter, eight pages now.) Yesterday. Every face. Every word. (He blots a page.) My mother will need a magnifying glass.",[
+  ["What did you think of the gathering?","Anna was magnificent. Calm, clear, nobody shouted. (He frowns slightly.) Too calm. My mother prefers shouting. Shouting moves people faster."],
+  ["What's the news today?","Crown before cross, cross before crown. The palace and the Church are fighting over the prince's brother. (He smiles.) Feudalism eating itself. My mother will be delighted."],
+  ["Do you agree with your mother?","(He stops writing.) About most things. (He picks up the pen again.) About Anna, less. Anna is building something that will last. My mother wants something fast. You can't have both."]],
+ "Go on. I've seven more pages."],
+16:["(Yuri is putting a flask into his coat pocket, on his way out.) The great debate! Anna and Erik, at the Community Centre in Eastbrook! I'll be in the front row, applauding. I've brought vodka. In a flask. For the interval.",[
+  ["Who's winning?","Anna, obviously. (He watches.) Erik is very calm. Very reasonable. Very dangerous. Reasonable men win elections. Revolutions need unreasonable ones."],
+  ["Will the Party win the island?","If it moves quickly. (He looks at Anna.) Anna wants a vote she can win in ten years. My mother wants an island she can have in ten days."],
+  ["Will anyone be watching you?","(He smiles.) The Democrats, all night. Everyone, always. I'm a very handsome timber man. It's a burden."]],
+ "Clap for Anna. Loudly. She needs it more than she'll say."],
+17:["(The bottles behind the hotel bar rattle, and Yuri puts out a hand to steady his glass.) The ground. (He waits.) In Leningrad the ground never moves. The river floods, the Neva freezes, but the ground stays where it's told.",[
+  ["Is it the volcano?","The oil men have instruments. They've been very quiet since this morning. Quiet oil men are frightened oil men. (He sips.) My mother will want a full report."],
+  ["What else is happening?","Dario's missing, the oil company's chief. (He smiles.) Men who vanish usually reappear somewhere warm. Or somewhere very cold. Depending who they've annoyed."],
+  ["Are you frightened?","Of the mountain? A little. Of my mother, more. (He laughs.) She expects results. Mountains are not an excuse, in Leningrad."]],
+ "Hold onto your glass. The ground has opinions today."],
+18:["(Yuri is turning an index card over in his fingers at the bar.) Anna's. She left it after our argument. One word on it: 'Slowly.' (He sighs.) I told her the moment is now. The island is frightened. She ignored me. Very skilfully.",[
+  ["What do you want her to do?","Move faster. A big push. A red flag over Kingsgrad before the month's out. (He looks at the card.) She says she wants a Party that's still standing next year."],
+  ["Is she right?","(He's quiet for a moment.) Possibly. (He lowers his voice.) Don't tell my mother I said that."],
+  ["What's the gossip?","Kelp Cola's mascot is ill. The cup. And somebody's been in the Republican files. (He smiles.) Everyone suspects the Syndicate. Everyone always suspects the Syndicate. It's very convenient."]],
+ "If Anna asks, I said nothing. I'm a timber man."],
+19:["(The hotel bar smells faintly of eggs. Yuri is buying vodka for a table of young men in work clothes.) Comrades! New friends of the Party! (He sits with you.) Anna's recruiting. I'm helping. With vodka. Vodka makes very good comrades.",[
+  ["Are they joining the Party?","Some of them. The ones who come back sober tomorrow and still want to. (He watches them drink.) Anna's rule. She doesn't want vodka comrades. She wants real ones."],
+  ["What's that smell?","The mountain. Steam. (He sniffs.) In Kamchatka, the volcanoes smell like this before they speak. I've seen one speak. It doesn't ask permission."],
+  ["Have you been to Kamchatka?","(He pauses, very briefly.) For timber. A long time ago. Very good larch. (He smiles.) Another vodka?"]],
+ "Keep a scarf handy. Kamchatka taught me that."],
+20:["(Yuri is at the hotel bar, not drinking, very still, with his room key in his hand.) The Democrats have been asking questions about me. All day. Who I am, who I write to, what timber I've bought. (He turns the key.) And the policewoman wants my passport.",[
+  ["What will you tell them?","That I'm a timber man from Leningrad, who writes to his mother. (He looks at the key.) It's all true. Every word. People never believe the truth. They believe the interesting thing."],
+  ["Are you worried?","(He smiles, but it's thin.) I'm a businessman in a foreign country, with a volcano about to speak and the police at my door. A little. I've been in worse hotels."],
+  ["Why don't they trust you?","Because I buy rounds. Because I bring oranges. Because I'm generous. (He looks at you.) Bob in Saltwick says he's never trusted a generous man. Bob is a very wise fishmonger."]],
+ "If anyone asks where I am, I'm upstairs. Writing to my mother."],
+21:["(Ash is falling past the hotel windows. Yuri is in the lobby, grey from head to foot, handing out blankets from a pile.) It went. The mountain. I was in the cellar all night, with the guests. Everyone's alive. (He hands a blanket to a child.) Here. Warm.",[
+  ["You helped the guests?","I'm a guest. We're all guests on this island. (He hands out another blanket.) I poured vodka for the adults and told stories to the children. About Leningrad. About the white nights. They liked the white nights."],
+  ["Did you write to your mother?","(He looks at you very steadily.) Not last night. Last night was for the people in the cellar. (A pause.) My mother can wait one night. She's waited longer."],
+  ["Are you all right?",["(He stops handing out blankets, and looks out at the grey street.) I'm grey and tired and I've been thinking about my real mother. In Leningrad. She's seventy-three. She makes terrible soup.",[
+    ["Your real mother?","(He catches himself, then smiles.) My mother. There's only one. Of course. (He picks up another blanket.) A mountain makes a man sentimental."],
+    ["You should write to her.","I will. A short letter. About the cellar and the children and the white nights. She'll like it. It won't be the letter anyone else is waiting for."]]]]],
+ "Take a blanket. It's cold. And cover your mouth."],
+22:["(Yuri has ash all over his good shoes and a broom leaning against the bar.) Anna had me sweeping Saltwick all morning. A timber man, with a broom. She says the Party sweeps with the people. My mother would not approve. I enjoyed it.",[
+  ["Is Anna organising the clean-up?","The whole of Saltwick, street by street. Nobody arguing. (He looks at the broom.) This is how you win an island. Not with red flags. With brooms. I've told my mother. She hasn't answered."],
+  ["What's the news?","The farms out east are grey. Kelp Cola has trouble at the farm, they say. (He picks up the broom.) The capitalists' kelp is grey. The workers' brooms are busy. It writes itself."],
+  ["Has the policewoman seen your passport?","(He pauses.) She has. She looked at it for a long time and handed it back. 'Very nice photograph,' she said. (He smiles.) It's a very nice photograph."]],
+ "Take a broom. There's plenty of ash for everyone."],
+23:["(Yuri is in the hotel bar, reading a telegram, and his smile has gone completely.) My mother. (He folds it.) She wants things to move faster. The rig. The factory. Something must stop working, she says. Before the end of the month.",[
+  ["What does that mean?","(He looks at you very carefully.) It means my mother is very impatient. (He puts the telegram in his pocket.) Something broken on the oil rig, they say, today. I didn't break it. I want you to know that."],
+  ["Does Anna know about the telegram?","Anna knows nothing about my mother. Anna would be very angry. (He swallows.) Anna wants a Party that's still standing next year. My mother wants a Party that stands next week. They can't both have it."],
+  ["What will you do?","(He looks at the vodka and doesn't drink it.) I don't know. For the first time in twenty years, I don't know what I'll do."]],
+ "Don't print anything I said today. I said nothing. I'm a timber man."],
+24:["(Yuri is sitting in the hotel bar with a cup of tea, which is unusual, writing a very short letter.) One page. To my mother. The shortest I've ever written. (He blots it.) It says: 'The island is not ready. Anna is right. Give it time.'",[
+  ["Will your mother listen?","No. (He folds the letter.) But I've said it. In writing. With my name on it. That's something, in my family."],
+  ["What's the news?","The monks have gone up into the peaks to pray. The Syndicate's cleaning something up. (He sips the tea.) Everyone's tidying. I'm tidying too. In my own way."],
+  ["Why tea?","Because vodka is for celebrating and forgetting, and I'm doing neither. (He looks at the tea.) Tea is for thinking. The British taught me that. Through you, perhaps."]],
+ "Post this for me? No. I'll do it. A man posts his own short letters."],
+25:["(Yuri is reading a Democrat leaflet with a crooked smile.) A princess for democracy. (He turns it over.) A crown for everyone, from the palace. Everyone's promising the people everything. Except the Party, which is promising them a broom.",[
+  ["Which will the island choose?","(He thinks.) The one it trusts. Not the loudest. Anna knows that. It took me a month and a mountain to learn it."],
+  ["Has your mother answered?","(He touches his pocket.) A telegram. One word. 'Push.' (He takes it out and tears it in half, very calmly.) I'm thinking about it. Very slowly. Like Anna."],
+  ["Will you push?","I'll do what a timber man does. Buy rounds. Bring oranges. Listen. (He puts the halves in the ashtray.) And let Anna lead. She knows where she's going. I only know where I've been told to go."]],
+ "Take an orange. I've still got a crate. They're very good for thinking."],
+26:["(Yuri is at the hotel bar with a crate of oranges, peeling one with great care, offering segments to anyone who passes.) Oranges. The last of the crate. (He hands you a segment.) Eat. Vitamins. Not for the revolution, this time. Just for you.",[
+  ["What's changed?","(He eats a segment.) Nothing. Everything. I've stopped counting who eats my oranges. (He smiles.) My mother would be horrified."],
+  ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. (He laughs.) Capitalism, buying hot water with milkshakes. In Leningrad we'd nationalise the volcano."],
+  ["Is the Party ready for the end of the month?","Anna says the Party's ready to be the Party. Whatever happens. (He looks at the orange peel.) That's either very wise or very foolish. I've decided it's wise."]],
+ "Take the last orange. For the road. From a timber man."],
+27:["(Yuri is buttoning his coat, a cinema ticket and a bag of popcorn in his hands.) The Party's picture tonight, in Kingsgrad! Six tractors and a combine harvester. (He offers the popcorn.) I've seen it eleven times. In Leningrad. I cry every time at the harvester.",[
+  ["You've seen it before?","Every Soviet citizen has. (He catches himself.) Every timber man who's spent time in Leningrad. (He eats popcorn.) It's very moving. The girl on the harvester was a real tractor driver."],
+  ["Is there going to be trouble tonight?","The Syndicate would like a brawl, the Democrats say. A woman from the mill will be standing at the back with her arms folded, they say. Nobody brawls near her."],
+  ["What's happening at the card tables?","The Don's game at the pizzeria. Big stakes. Half the Republicans. (He smiles.) Everyone's gambling tonight. Some with cards. Some with tractors."]],
+ "Sit near the front. You'll cry at the harvester. Everyone does."],
+28:["(Yuri is very still by the hotel wireless, which is reporting the Party's march.) The big push. Red flags over Kingsgrad, Anna says. I wanted it a month ago. Now it's happening, and I'm only listening.",[
+  ["Why aren't you marching?","Because it's Anna's march. Not mine. Not my mother's. (He turns the wireless up a little.) If it succeeds, it should be hers. If it fails, it should be hers too."],
+  ["Do you think it'll work?","(He's quiet for a long time.) I think Anna's built something that will last, whatever happens today. My mother wanted something fast. Anna built something true. I know which I'd rather."],
+  ["What will your mother say?",["(He takes the torn telegram out of his pocket, both halves, and looks at them.) Something sharp. In one word. (He puts them back.) And I'll write back. In a page.",[
+    ["What will you write?","'The island chose its own speed. I let it.' (He smiles.) It's the truest thing I've ever sent her. It may be the last."],
+    ["Will you be in trouble?","(He shrugs, and buttons his coat.) A timber man who doesn't sell any timber is always in trouble. I'm used to it."]]]]],
+ "Go and see the march if you like. I'm going to sit here and be proud of someone else's work."],
+29:["(Yuri is in the hotel bar with a suitcase at his feet, drinking tea.) The Republicans are choosing a leader. The palace is arguing about who's next. (He sips.) And my mother has sent a telegram. 'Come home.' Two words. She's being generous.",[
+  ["You're leaving?","After tomorrow. I'd like to see how it ends. (He looks at the suitcase.) My mother allows me one day. She's never allowed me a day for anything."],
+  ["Will you miss the island?","(He looks out of the window at the grey street.) The cellar. The children. The oranges. Anna's index cards. Bob not trusting me. (A pause.) Very much."],
+  ["What will happen to you?","Leningrad. A desk. A great many questions. (He smiles.) I'll tell them about the volcano. They'll be very interested in the volcano. It's the only part they'll believe."]],
+ "Have a drink with me. Tea. Tomorrow I'll be a timber man again, somewhere else."],
+30:["(Yuri is on the hotel steps in his grey coat, suitcase beside him, looking at the island in the morning light.) Last day. They're settling the island today. And I'm going home tomorrow. (He breathes in.) It smells of pine, and ash, and the sea. I'll miss it.",[
+  ["What do you hope happens?","(He considers.) That the island chooses for itself. Whatever it chooses. That nobody's mother in a faraway city decides for it. (He looks at you.) Including yours."],
+  ["Did Anna say goodbye?","She came to the hotel this morning. Shook my hand. Said 'Thank you for the oranges, Yuri. And for the broom.' (He looks at his hand.) Not for the vodka. For the broom."],
+  ["Will you remember this month?",["(He picks up his suitcase.) The mountain, the cellar, the broom, and a woman who wouldn't be hurried. Yes. Every day of it.",[
+    ["And me?","The British reporter who wouldn't drink at noon. (He smiles.) My mother knows all about you. Every word. (A pause.) I left out the good parts. Those are mine."],
+    ["What will you do tomorrow?","Get on a boat. Write a very short letter. Go home. (He looks at the island.) And never quite be a timber man again. Something's changed. I don't know what to call it."]]]]],
+ "Have an orange, if you find one. Think of a timber man. And don't drink at noon."],
 };
