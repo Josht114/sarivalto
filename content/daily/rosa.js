@@ -72,7 +72,7 @@ DAILY['Rosa']={
   ["Will Ville be all right?","He'll sit on my stool and be very important. He'll sell nothing, and he'll tell everyone it was quiet. It won't have been."],
   ["What do you expect?","Speeches, promises and somebody falling over. And a lot of hungry people afterwards. I've left Ville sixty buns, just in case."]],
  "Come and find me after. I'll tell you everything I saw."],
-15:["(Rosa is serving a monk and a palace footman, one after the other, with the same smile.) Crown before cross, cross before crown. Everybody's arguing about Augustus. I feed both sides. They're both hungry.",[
+15:["(Rosa is serving a monk and a palace footman, one after the other, with the same smile.) Crown before cross, cross before crown. Everybody's arguing about Augustus. I feed both sides. They're both hungry. I sent a sausage up to the palace for Augustus.",[
   ["What's the argument?","The prince wants his brother at the palace. The Church wants him at the monastery. Augustus wants a sausage and a quiet room. I sent him a sausage."],
   ["You sent the prince's brother a sausage?","With extra mustard, by Oskar the footman. He looked like he needed it. Nobody's thought about what Augustus wants for weeks."],
   ["Whose side are you on?","Augustus's. Somebody has to be."]],

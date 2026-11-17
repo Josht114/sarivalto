@@ -57,7 +57,7 @@ DAILY['Bertil']={
   ["Whose side are you on?","The form's. Always the form's. (He pauses.) The saw line in that mill took Erik's cousin's finger in 1974. I filed the accident report. I remember the handwriting."],
   ["Will they get a hearing?","I've put it at the top of the pile. That's all I'm allowed to do. It's more than most people think."]],
  "If you see Dagny at the mill, tell her the form's at the top. She'll know what that means."],
-12:["(Bertil is reading a stack of oil company accounts with a magnifying glass.) Diversified Petroleum's filed their quarterly figures. They add up. That's what worries me. Nothing on this island has ever added up first time.",[
+12:["(Bertil is reading a stack of oil company accounts with a magnifying glass.) Diversified Petroleum's filed their quarterly figures. They add up. That's what worries me. Nothing on this island has ever added up first time. I've a drawer for everything. I may need a new one.",[
   ["You think they're hiding something?","I think somebody's very good at arithmetic. Better than the oil company usually is. I'm filing them under Interesting."],
   ["Is there an Interesting drawer?","There is now. I made it this morning. It's very small. So far it's only got these accounts and a postcard from Tallinn."],
   ["Will you tell anyone?","Who? Sergeant Hanna doesn't do accounts and the Gazette can't spell 'debit'. I'll keep them. Forms are patient. So am I."]],
@@ -136,7 +136,7 @@ DAILY['Bertil']={
     ["You should have lunch with someone.","Lisa's offered, at the supermarket. She said I could eat my soup there, at the counter, with her. I said I'd fill in a form. She laughed."],
     ["Maybe the month will change things.","Maybe. Everything else is changing. Perhaps a clerk can too. A little. In triplicate."]]]]],
  "Mind the frame on your way out. It's the only one I've got."],
-27:["(Bertil is stamping cinema permits, very fast.) The Party's picture tonight. And high stakes somewhere at the card tables, people say, though nobody's applied for a gaming permit. I'm pretending not to know.",[
+27:["(Bertil is stamping cinema permits, very fast.) The Party's picture tonight. And high stakes somewhere at the card tables, people say, though nobody's applied for a gaming permit. I'm pretending not to know. Lisa from the supermarket asked me to the pictures. I said yes before I'd thought.",[
   ["Will you go to the cinema?","Lisa asked me. To the picture. I said I'd need a permit to have a night off. She said there wasn't one. I'm going anyway."],
   ["You're going with Lisa?","To the pictures. With Lisa. (He takes off his glasses and polishes them for a long time.) I've filled in nothing. It's terrifying."],
   ["Is the Bureau ready for the end of the month?","As ready as paper can be. I've laid out every form anyone might need: for a king, for a vote, for a Party, for a cola. Whatever happens, there'll be a form."]],
@@ -146,7 +146,7 @@ DAILY['Bertil']={
   ["Who's winning today?","Whoever's got the most forms in order. That's the Party, astonishingly. Their red flags are perfectly licensed. Anna's very thorough."],
   ["Are you tired?","Very. But the forms are for something now. Every one of them is somebody trying to make the island what they think it should be. I'm just the man who stamps it."]],
  "Out of the way, please. There's a queue and it's got petitions."],
-29:["(Bertil is sitting at his desk with no forms on it at all, for the first time, and a pair of brand-new walking boots under it.) The Republicans are choosing a leader, and the royals are arguing about who's next. Neither needs a form. So this afternoon I'm inspecting the lighthouse. Two hundred and eleven steps.",[
+29:["(Bertil is sitting at his desk with no forms on it at all, for the first time, and a pair of brand-new walking boots under it.) The Republicans are choosing a leader, and the royals are arguing about who's next. Neither needs a form. So this afternoon I'm inspecting the lighthouse. Two hundred and eleven steps. Lisa from the supermarket came by this morning.",[
   ["Are you frightened of the steps?","Terrified. Signe says she'll hold my hand. I've never had my hand held for an inspection. I've brought the form, and a spare pencil, and plasters."],
   ["What do you think will happen?","I don't know. Nobody does. I've never not known what the next form would be. It's frightening. And a bit exciting."],
   ["How's Lisa?","(He smiles, then doesn't.) She brought me soup. Mushroom. And her passport form, for London. She's been saving for years. I stamped it myself, perfectly straight. That's what you do for someone."]],

@@ -30,7 +30,7 @@ DAILY['Noora']={
   ["Isn't Helen the Union leader too?","She asked me to join the Union. I said lab technicians aren't really workers. She looked at my hands and laughed."],
   ["What was in the pie?","Fish. Everything in Saltwick has fish in it. I'm half herring by now."]],
  "If Helen knocks for you, take the pie and run."],
-6:["I couldn't wait for Saturday. I went to Ruby's after work: Ella Fitzgerald, the Cole Porter Song Book. A dollar off, because I knew who was on piano.",[
+6:["I couldn't wait for Saturday. I went to Ruby's after work: Ella Fitzgerald, the Cole Porter Song Book. A dollar off, because I knew who was on piano. Sigrid's doing well too. My kelp culture.",[
   ["Who was on piano?","Paul Smith. Ruby said hardly anybody gets that. I've been reading sleeve notes since I was twelve."],
   ["How's Sigrid?","She's grown two inches. I measure her every morning. Saara says that isn't science, it's mothering."],
   ["What's Saara like to work for?","Brilliant, very quiet, and she forgets to eat. I've started bringing her an extra sandwich. She eats it without noticing. It's like feeding a bird."]],
@@ -60,7 +60,7 @@ DAILY['Noora']={
   ["Will you join the Union now?","I have! Petra came by the lab with a form. She said if I washed one more beaker without a card, she'd report me to herself."],
   ["How's the revision?","Benzene rings. I dream about them. Last night one rolled down the stairs."]],
  "If you see an orange cat, don't feed him. He's on a Party diet."],
-12:["Have you heard? Ruby's sold the rarest record on the island, Midnight at the Aurora, to a buyer who won't give his name!",[
+12:["Have you heard? Ruby's sold the rarest record on the island, Midnight at the Aurora, to a buyer who won't give his name! And Lenin, Helen's cat, has moved into my room.",[
   ["Why is it so special?","Hardly any were pressed. I've never even heard it, and nor has anyone I know. Ruby's been sitting on it for years."],
   ["Would you have bought it?","With what? I'd have to sell Sigrid. And all my glassware. And Ella."],
   ["How's Lenin?","Still on my bed. Helen came home and he wouldn't go back. He's chosen the bourgeoisie."]],
@@ -80,7 +80,7 @@ DAILY['Noora']={
   ["Leopold or Augustus?","Augustus came down here once, years ago, to ask about the chemistry of incense. He was very sweet. I don't know Leopold, except from the stamps."],
   ["How will you celebrate?","Another record. Ruby's put a Billie Holiday aside for me. I'll get it when I've saved."]],
  "Good! She wrote good!"],
-16:["The whole block's crammed into Helen's flat to hear the debate on the wireless. I'm here, washing glassware and listening on Saara's set. It's much quieter.",[
+16:["The whole block's crammed into Helen's flat to hear the debate on the wireless. I'm here, washing glassware and listening on Saara's set. It's much quieter. I haven't seen Lenin, Helen's cat, all day.",[
   ["Who do you want to win?","Anna lives right above me. If I say Erik, she'll hear me through the floor."],
   ["What does Saara think of debates?","She says they're like titrations: you add and add and nothing happens, and then suddenly the colour changes."],
   ["Where's Lenin?","Back with Helen, wearing my scarf. Petra knitted it. Lenin says it's his now."]],
@@ -105,7 +105,7 @@ DAILY['Noora']={
   ["Is it dangerous?","Saara says the mountain's 'restless'. That's the most worried I've ever heard her sound."],
   ["Has Phil found out?","Not yet. My shoes are still yellow with sulphur. I'm hiding them under the bench."]],
  "Don't mention yellow shoes to anyone upstairs."],
-21:["(Noora's lab coat is grey.) It went. Saara was right. The flasks rang and rang, and then the whole building rocked.",[
+21:["(Noora's lab coat is grey.) It went. Saara was right. The flasks rang and rang, and then the whole building rocked. I checked on Sigrid, my kelp, first.",[
   ["Are you all right?","Yes. Saara held my hand on the stairs. I've never seen her hold anything but a pipette."],
   ["What about Sigrid?","Fine. Water's the best place to be in an earthquake, if you're kelp."],
   ["Is Saltwick all right?","I don't know! I'm going home as soon as it's safe. Helen will have the whole block in the cellar, singing."]],

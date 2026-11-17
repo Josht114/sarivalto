@@ -108,12 +108,12 @@ DAILY['Tom']={
     ["Maybe you're right.","Maybe. But I've been wrong about everything else all my life: weather, girls, the price of cod. Why not this?"]]]],
   ["What's the forecast?","'Settled.' The mountain's steaming, the ground's shaking and Lucia's selling insurance door to door. Settled."]],
  "If you've got a clipboard, I'm out."],
-20:["(Tom is sitting on the quay wall with a flask, watching the north.) The steam's thicker. It's turned the sky the colour of dishwater. I wrote to my sister not to send the boy. Then I wrote again to say send him. I can't decide.",[
+20:["(Tom is sitting on the quay wall with a flask, watching the north.) The steam's thicker. It's turned the sky the colour of dishwater. I wrote to my sister in Helsinki not to send her boy over next summer. Then I wrote again to say send him. I can't decide.",[
   ["Why change your mind?","Because it's still home. Volcano or no volcano, this is where the fish are and where my friends are. The boy should see it, even if it's on fire."],
   ["Is anyone leaving the island?","Some are talking about it. There's a queue at the ferry office for the first time in years. Mostly people who came for the oil money. Fishermen don't leave. Fishermen tie up."],
   ["What's in the flask?","Tea, and something else. (He offers it.) Mostly tea. Mostly's the word of the week."]],
  "Mostly tea. Mostly fine. Mind how you go."],
-21:["(Tom's face is grey with ash, and he's hauling a boat up the slipway.) The mountain's gone up. Lava in the north, ash on everything, and the sea's warm. Warm! I've never felt that in my life. Nobody's hurt. That's what matters.",[
+21:["(Tom's face is grey with ash, and he's hauling a boat up the slipway.) The mountain's gone up. Lava in the north, ash on everything, and the sea's warm. Warm! I've never felt that in my life. Nobody's hurt. That's what matters. At least the Gull, my boat, was tied up.",[
   ["Can I help?","Grab that rope. (You pull together, and the boat comes up the slip.) Good. That's Sam's. He's at Party HQ counting heads, and I'm counting boats."],
   ["Is the Gull safe?","Tied up, like I said. Tied up and fine. (He doesn't sound smug. He sounds grateful.) My father would've said 'told you'."],
   ["Is anyone missing?","Kaisa's reading out names on the radio, everyone who's rung in safe. I've heard half of Saltwick so far. The other half's too busy pulling boats up to ring."]],
@@ -128,7 +128,7 @@ DAILY['Tom']={
   ["Can I help scrub?","(He hands you a brush.) Up and down, not round and round. Round and round just moves it about. That's politics too, Helen says."],
   ["Are you angry?","I'm too tired to be angry. Ask Sam. Sam's angry enough for all Saltwick, and he's still only said nine words this week."]],
  "Up and down, not round and round."],
-24:["(Tom is coiling rope and not quite meeting your eye.) Gustavo's boys were down here asking which boats go out at night. Nobody said anything. Everybody's very busy with their nets all of a sudden.",[
+24:["(Tom is coiling rope and not quite meeting your eye.) Gustavo's boys were down here asking which boats go out at night. Nobody said anything. Everybody's very busy with their nets all of a sudden. They asked about the Gull, my boat, too.",[
   ["Does the Gull go out at night?","The Gull goes out when someone asks nicely. (Pause.) They didn't ask nicely. So she's staying in."],
   ["What do they want a boat for?","I didn't ask. In Saltwick, the less you know about a night boat, the longer you live. My father taught me that, along with knots."],
   ["What's the forecast?","'Dark early.' (He looks at the grey sky.) It's been dark early since the mountain went. I'm getting good at being right."]],

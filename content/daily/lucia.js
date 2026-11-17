@@ -110,10 +110,10 @@ DAILY['Lucia']={
   ["Is everybody safe?","Everybody in Saltwick. I went door to door. Anna's flat, Helen's, Kaisa's, the fishermen. All safe. All terrified. All safe."],
   ["You're very good in a crisis.","I'm good when there's something to hit or something to pull. Today there's a lot to pull."]],
  "Go home and shut the window. Now."],
-22:["(Lucia is sitting on the steps of the apartment block, smoking, with ash on her shoulders.) I didn't sleep. Nobody did. Helen made soup for the whole building, in her biggest pan. I took two bowls.",[
+22:["(Lucia is sitting on the steps of the apartment block, smoking, with ash on her shoulders.) I didn't sleep. Nobody did. Helen made soup for the whole building, in her biggest pan. I took two bowls. I sent the boys round to Olga's with brushes, as well. Even after what she said about me.",[
   ["Two bowls? Hungry?","One was for somebody who'd been out on the boats all day. (She smiles at the ash.) Don't ask who."],
   ["How bad is the damage here?","Windows, gutters, a roof over the fish shop. Olga's flat is full of ash. I sent the Syndicate's boys round with brushes. She won't know who sent them."],
-  ["Helping Olga? After what she said?","She's a gossip, not a villain. And her roof's in. You don't let a neighbour's roof fall in. Even the neighbour with the mouth."]],
+  ["Helping Olga?","She's a gossip, not a villain. And her roof's in. You don't let a neighbour's roof fall in. Even the neighbour with the mouth."]],
  "Mind the steps. They're grey and slippery."],
 23:["I'm frightened, reporter. (Lucia says it very quietly, looking at her boots.) There's trouble coming at the cola factory. People talk at the docks. If certain people get caught up in it, there'll be no coming back.",[
   ["What kind of trouble?","Party trouble. Strike talk, spanners, machines. The fishermen go quiet when I walk past. They never used to go quiet."],

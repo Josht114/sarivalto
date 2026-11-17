@@ -10,7 +10,7 @@ DAILY['Wilma']={
   ["What's in the museum?","Every Kelp Cola bottle since 1931. The first label. The first cap. And Mr Ekholm's bathtub, where he brewed the first batch, under a sheet in the back. It's only shown on his birthday."],
   ["Who's the cup outside?","Kelpy. Our mascot. (She lowers her voice.) Jaana's inside. Never takes the head off in public. Six years. She's the best Kelpy we've ever had."]],
  "Take a leaflet on your way out. Everything in it is true, which is rare for a leaflet."],
-5:["(Wilma is arranging small ceramic Kelpy figurines on a shelf in the gift shop, each exactly an inch apart.) Kelpy figurines. Two dollars. Hand-painted in Kingsgrad. The straw's always the first thing to break. I tell people. They buy them anyway.",[
+5:["(Wilma is arranging small ceramic Kelpy figurines on a shelf in the gift shop, each exactly an inch apart.) Kelpy figurines. Two dollars. Hand-painted in Kingsgrad. The straw's always the first thing to break. I tell people. They buy them anyway. My husband worked the line here, once.",[
   ["Do many people buy them?","Children, mostly. And old men who remember the first Kelpy. And once, a very serious man from Frostholm who bought forty. I didn't ask."],
   ["How long have you worked here?","Since it opened, in 1966. Before that, my husband worked on the bottling line. When the line changed, they made the old bottles into a museum. I came with them."],
   ["What was your husband's name?","(She straightens a figurine that doesn't need it.) Arne. He capped bottles from 1951. He's not with us now. Shall I show you the 1951 shelf?"]],

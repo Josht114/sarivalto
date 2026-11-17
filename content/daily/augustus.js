@@ -8,7 +8,7 @@ DAILY['Augustus']={
   ["Get off the rock, Your Highness.","(He laughs, quietly, as if laughing in a library were a sin.) You sound like my sister."]],
  "Shut the door softly. The books don't like a draught.",
  "Prince Augustus reads the lives of the saints in the palace library. He likes to know how a story ends."],
-3:["(Augustus has a small leather book open, not a saint's life.) I've found something. Behind the Lives of the Saints on the third shelf: my grandmother's diaries. Queen Astrid's.",[
+3:["(Augustus has a small leather book open, not a saint's life.) I've found something. Behind the Lives of the Saints on the third shelf: my grandmother's diaries. Queen Astrid's. She writes that Grandfather had ridiculous ears.",[
   ["What do they say?","The first page is 1921. She's nineteen, and she thinks my grandfather has ridiculous ears. I'm reading a few pages a day, to make them last."],
   ["Should you be reading them?","She hid them in the holiest books in the library. I think she wanted them found by someone who'd read the holy books."],
   ["Did your grandfather have ridiculous ears?","There's a portrait in the chapel. (He considers.) She was right. It's the first unkind thing I've ever agreed with."]],
@@ -73,7 +73,7 @@ DAILY['Augustus']={
   ["Are you nervous?","No. Crowds are only many people who are each alone. God sees each of them. I find that comforting, and Leopold finds it terrifying."],
   ["Will anyone listen?","Somebody always listens. That's why you whisper prayers."]],
  "Peace go with you. You'll be in the thick of it, I expect."],
-15:["(Augustus has two letters on the reading table, side by side, and his hands flat between them.) The monastery wants an answer, and the family wants an answer, and they both want it today.",[
+15:["(Augustus has two letters on the reading table, side by side, and his hands flat between them.) The monastery wants an answer, and the family wants an answer, and they both want it today. I've been reading my grandmother's diaries again. Queen Astrid. She had the same choice once.",[
   ["What does your heart say?","My heart quotes both letters. It's a well-read heart and no use at all."],
   ["What would your grandmother do?",["She packed a bag for the convent and then married a king. (He smiles faintly.) So she'd do both, badly, and write about hats.",[
     ["Have you read to the end?","No. I won't. I'm not going to let a diary decide for me."],
@@ -95,7 +95,7 @@ DAILY['Augustus']={
   ["Who'd steal from monks?","Somebody who doesn't believe in it, or somebody who believes in it far too much. I'm not sure which frightens me more."],
   ["Could it just be mislaid?","In a monastery? Brother Mikael counts the spoons. Nothing's mislaid on that mountain."]],
  "Pray it comes home. Or, if you don't pray, keep your eyes open."],
-19:["(Augustus reads from the diary.) '1950. Leopold born today. Loud. Has his grandfather's ears.' I've just discovered my brother's ears are hereditary.",[
+19:["(Augustus reads from his grandmother's diary.) '1950. Leopold born today. Loud. Has his grandfather's ears.' I've just discovered my brother's ears are hereditary.",[
   ["Will you tell him?","Never. I'll keep it for when he's crowned, or when he's unbearable. Whichever comes first."],
   ["Is there anything about you?","Not yet. I'm 1950. I come along in '53. I'm almost afraid to turn the page and find out what she thought."],
   ["Your grandmother was funny.","She was. Nobody told me. In the portraits she looks like a frozen pond."]],
@@ -125,7 +125,7 @@ DAILY['Augustus']={
   ["Do you mind?","A little. More than a little. I've been looking at the mountain out of the window all day, like a dog at a closed door."],
   ["Go next year.","Next year. (He says it as if trying the word on.) Yes. I'd like there to be a next year where I choose."]],
  "If you see the monks on the road, wave. They'll be singing. Badly."],
-25:["Leopold asked me what I'd think of a king who answered to a parliament. He asked me, not Father Thyme. I've been thinking ever since.",[
+25:["Leopold asked me what I'd think of a king who answered to a parliament. He asked me, not Father Thyme. I've been thinking ever since. I've been looking in my grandmother's diaries for an answer.",[
   ["What do you think?","That God anoints kings, and people elect parliaments, and the trouble's always been deciding which of them gets the last word."],
   ["Did your grandmother have views?","She did. 'A king who listens is worth two who talk.' 1938. Then two pages about a hat."],
   ["And the Church?","The Church would say a king answers to God first. I'm not sure God would mind a few more people asking questions."]],

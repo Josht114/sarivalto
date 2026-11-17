@@ -102,7 +102,7 @@ DAILY['Harald']={
     ["You don't have to smile now.","(The smile goes. He looks older.) Thank you. Nobody's ever said that to me. I'll just sit here, then. With Mandate."],
     ["You were kind tonight.","I tried. Kindness is the only thing I'm good at. I'm hoping it's enough, one day, for something."]]]]],
  "Cover your mouth on the way. And thank you for stopping."],
-22:["(Harald is in shirtsleeves, carrying buckets of water across the square to wash the ash off people's doors.) I've cancelled all my campaign appearances. I'm doing this instead. It's not campaigning. Well. It's not only campaigning.",[
+22:["(Harald is in shirtsleeves, carrying buckets of water across the square to wash the ash off people's doors.) I've cancelled all my campaign appearances. I'm doing this instead. It's not campaigning. Well. It's not only campaigning. Mandate, my goldfish, is safe at home.",[
   ["Is it working?","People say thank you. A man in a bakery cried. I don't know if it's working. I know it's right."],
   ["What's Magnus doing?","Sending photographers to the ash. With a cheque in front of them. Carlo's sending men with brooms, quietly. I'm sending me, with a bucket."],
   ["Is Mandate all right?","Back in my flat, in clean water, sulking. Goldfish sulk. I didn't know that until this week."]],

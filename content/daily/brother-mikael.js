@@ -77,7 +77,7 @@ DAILY['Brother Mikael']={
   ["Are you frightened she'll be found?","A bit. But I didn't put the monastery on the envelope. Just 'your son, who is well.' She'll know. Nobody else will."],
   ["Brave thing to do.","Brave? I've walked into back rooms in Kingsgrad with nothing in my pockets. This was harder."]],
  "If she writes back, I'll be the most pleased monk on this mountain."],
-20:["(Brother Mikael is looking at the steam from the peak, not at Kingsgrad, for once.) Look at it. It's like the mountain's breathing out. Brother Teodor says it's simmering. I think it's holding its breath, and that's the steam leaking out.",[
+20:["(Brother Mikael is looking at the steam from the peak, not at Kingsgrad, for once.) Look at it. It's like the mountain's breathing out. Brother Teodor says it's simmering. I think it's holding its breath, and that's the steam leaking out. My mother in Kingsgrad will have seen it too.",[
   ["Any word from your mother?","Not yet. It only went yesterday. I've been at the gate every time the lorry's come. Brother Anselm's started timing me."],
   ["Does the volcano frighten you?","Not like Kingsgrad did. A mountain's honest. It's going to do what it's going to do. It won't pretend it's your friend first."],
   ["You're not on the wall today.","I'm on the steps. The Prior says it's progress. I think it's because the wall's warm, and I don't trust warm stones any more."]],
@@ -87,7 +87,7 @@ DAILY['Brother Mikael']={
   ["Is everyone safe?","Counted! Every brother. The Prior counted twice and then hugged the Abbot. Nobody's going to mention that. Ever."],
   ["Your voice is carrying well.","(He laughs, coughing on ash.) Ha! The top note of the rite came out just now, with a volcano behind it. Of course it did. Now I just need a volcano every time."]],
  "Go! Down the hill, while there's a road!"],
-22:["(Brother Mikael is sweeping the yard, very badly, in a circle.) The Prior says God isn't a circle. I say I'm sweeping in a circle so I can keep looking down the mountain. Kingsgrad's grey. All of it. Every roof.",[
+22:["(Brother Mikael is sweeping the yard, very badly, in a circle.) The Prior says God isn't a circle. I say I'm sweeping in a circle so I can keep looking down the mountain. Kingsgrad's grey. All of it. Every roof. My mother's down there somewhere.",[
   ["Your mother lives there.","In a flat over a butcher's, near the market. She'll have the windows shut and wet towels on the sills. She did that once when the bakery burned. She's sensible. She's fine. She's fine."],
   ["Kingsgrad didn't get the worst of it.","I know. The lava went north. But from up here, everything grey looks like the end of the world. I need to sweep in straighter lines."],
   ["Want me to take a message down?","No. Thank you. The letter's already gone. If she can't reach me now, it won't be for want of a postman."]],

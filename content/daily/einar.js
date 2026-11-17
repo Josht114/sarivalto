@@ -37,7 +37,7 @@ DAILY['Einar']={
   ["Would Dario mind?","Dario minds most things. He's never been out here, so I can mind my own business. And my own cola."],
   ["Lars has had six?","Six, and he's started singing. Badly. Somebody should take the seventh off him."]],
  "Lasts longer if you sip it. Like a week off."],
-14:["(Einar is in a clean jumper.) The big day, the whole island in one place. The boat's taking us in. I'll find Hilda in the crowd, and I'll stand her on a crate where she can see everything.",[
+14:["(Einar is in a clean jumper.) The big day, the whole island in one place. The boat's taking us in. I'll find Hilda in the crowd, and I'll stand her on a crate where she can see everything. She's nine. Her mother lives in Eastbrook.",[
   ["What do you expect from the day?","Everyone pretending they know what happens next. Nobody does. I'd rather be honest, and sleepy."],
   ["Will her mother mind?","Her mother and I get on better since we stopped living together. That's often the way, I find."],
   ["Clean jumper. Very smart.","Hilda knitted the sleeves. Her mother did the rest. One sleeve's longer. I wear it with pride."]],

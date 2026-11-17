@@ -101,7 +101,7 @@ DAILY['Olga']={
   ["Who came to see her?","Somebody who knows I talk. (She puts the knife down.) That's all. I've learnt my lesson. It cost me forty dollars I haven't paid yet."],
   ["Can I help?","(She looks at you, surprised.) That's kind. But no. Buy a herring. It's the only help I take."]],
  "Quiet day. Don't get used to it."],
-20:["(Olga is staring at the mountain from her doorway, where the steam is a thick white column.) Look at it. Like a kettle left on. My back's aching in a new place. My mother always said the weather lives in your spine.",[
+20:["(Olga is staring at the mountain from her doorway, where the steam is a thick white column.) Look at it. Like a kettle left on. My back's aching in a new place. My mother always said the weather lives in your spine. And my sister's still in trouble with the Syndicate.",[
   ["Is anyone leaving?","There's a queue for the ferry, Hannu says. Oil men, mostly. Saltwick doesn't leave. Saltwick ties up and complains."],
   ["Is your sister all right?","Better. She's paid half, out of my purse. Don't tell anybody. I've stopped telling anybody anything."],
   ["What does Hannu's board say?","'THE END IS NIGH.' I didn't argue. It's the first time I've let him have the last word. He's suspicious."]],
@@ -141,7 +141,7 @@ DAILY['Olga']={
   ["What do you do for fun?","Shout at Hannu. Shout at Helmi. Smoke herring. Gossip, but only a little, these days. I've been told."],
   ["There's poker in Kingsgrad, I hear.","My sister's not going. I made her promise. She swore on our mother's hat."]],
  "Sit in the dark if you like. I'll be here, in the light, with the fish."],
-28:["(Olga is standing on a crate to see down the street.) The Party's out with banners, there's oil men singing on the quay, and Helen's shouting through a tin trumpet. Saltwick's never been so loud. And for once, it's not me.",[
+28:["(Olga is standing on a crate to see down the street.) The Party's out with banners, there's oil men singing on the quay, and Helen's shouting through a tin trumpet. Saltwick's never been so loud. And for once, it's not me. My sister's debt is settled, at least.",[
   ["Who do you think will win?","Whoever's quietest on the thirtieth. That's my experience of men, and of fish."],
   ["Are you frightened for tomorrow?","My back is. My back's frightened of everything. I'm too busy."],
   ["Is your sister safe?","Paid in full. I sold my mother's hat to Grace in Kingsgrad, the tailor. I'll buy it back one day. My mother would understand."]],

@@ -129,7 +129,7 @@ DAILY['Mario']={
   ["Would you ever go to a spa?","Once, in Sorrento, with a girl from Naples. The water was too hot, the girl was too clever, and I lost all my money at cards in the lobby."],
   ["You've got stronger.","Fifty sit-ups, fifty press-ups. When I walk out, I'll walk out like a statue in a square."]],
  "Go on. I've got another twenty to do."],
-27:["The tournament! (Mario grips the bars.) The whole island at Rosaria's back table, and I'm here, with a policewoman and a Russian novel. Friend, it's cruel. Who's playing? Tell me who's playing.",[
+27:["The tournament! (Mario grips the bars.) The whole island at Rosaria's back table, and I'm here, with a policewoman and a Russian novel. Friend, it's cruel. Who's playing? Tell me who's playing. Nico will be there, with that ear of his.",[
   ["Everyone who matters, I hear.","And Nico, who doesn't matter but thinks he does. Watch his left ear. It goes red when he's bluffing. I've won two hundred dollars off that ear."],
   ["Would you win, if you were there?","I'd come second, to Gustavo, on purpose. Then I'd win it all back from Nico on the steps outside."],
   ["Want me to tell Nico about his ear?","Never! A man's ear is his own business. If you tell him, I'll lose my pension."]],

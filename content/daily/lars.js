@@ -27,7 +27,7 @@ DAILY['Lars']={
   ["Does she know who you are?","She knows I'm the fella who claps too loud at the wrong bits. It's a start."],
   ["Maybe she's not interested.","Maybe. But she hasn't met the real me yet. The real me's got a motorbike."]],
  "If you see Rita, tell her the rig says hello. No, don't. Yes, do."],
-12:["(Lars is playing patience on an upturned crate.) Losing to myself. That's how bad my luck is this week.",[
+12:["(Lars is playing patience on an upturned crate.) Losing to myself. That's how bad my luck is this week. I owe Nico the bookie twenty dollars.",[
   ["Bad week?","I owe Nico, the bookie in Frostholm, eighty dollars. Horse called Northern Light. Came in fourth. Out of four."],
   ["What does Nico do if you don't pay?","Smiles. He smiles at you very nicely, and then his friend smiles at you too. I'll pay him."],
   ["Want me to deal?","Go on, then. (You deal. He loses.) See? It's not the cards, it's me. I'm cursed. Charmingly."]],
@@ -79,7 +79,7 @@ DAILY['Lars']={
   ["Is everyone accounted for?","Ruth on the radio's been calling us all by name. Everyone answered. Even the cook, who never answers anything."],
   ["Are you scared now?","(Quietly.) Yeah. Don't tell the lads. I'm twenty-three. I'm supposed to be the brave one."]],
  "Stand by the window with me a minute. It's the biggest thing I've ever seen."],
-22:["(Lars has ash in his eyebrows and his hair.) Went ashore on the supply boat to see the damage. Frostholm's grey. Grey trams, grey trees, grey people. I went into the HQ and Ruth said 'We're always open'.",[
+22:["(Lars has ash in his eyebrows and his hair.) Went ashore on the supply boat to see the damage. Frostholm's grey. Grey trams, grey trees, grey people. I went into the HQ and Ruth said 'We're always open'. I still owe Nico the bookie.",[
   ["How's Frostholm coping?","Sweeping. Everyone's sweeping. Sid's sweeping the Midnight Note. Rita sang to the queue for the generator fuel. I cried. Don't tell anyone that either."],
   ["Did you see Nico?","No. And he didn't see me. I came back on the first boat. He'll find me eventually; Nico always does."],
   ["Wash your eyebrows.","They're my volcano eyebrows. I'm keeping them as a memory."]],
@@ -94,12 +94,12 @@ DAILY['Lars']={
   ["What about the motorbike?","Still want it. But maybe I want to be alive to ride it more than I want it this week."],
   ["You'll be back to normal tomorrow.","(He grins, a little.) Probably. But today I'm a thinker. Leave me be."]],
  "Ten dollars and a bank book. That's my new plan. Write it down so I can't forget."],
-25:["(Lars has a bank book and is showing it off.) Look. Nordbank, account number four, four, nine, one. Ten dollars in it. Agnes counted it twice, and stamped it. I've never been stamped before.",[
+25:["(Lars has a bank book and is showing it off.) Look. Nordbank, account number four, four, nine, one. Ten dollars in it. Agnes counted it twice, and stamped it. I've never been stamped before. Nico the bookie will be pleased.",[
   ["Proud of you.","So am I. Nobody's ever been proud of me for not spending money."],
   ["What about Nico?","I paid him half. He smiled. A real smile, not the other kind. I think he was surprised."],
   ["Will it last?","It's been in there two days. That's a record. I'll let you know at the weekend."]],
  "Four, four, nine, one. Remember it, in case I forget it on purpose."],
-26:["(Lars is laughing.) Dario's gone up the mountain to buy the spa. The spa, on the volcano. A man who owns a rig wants to own a bath too.",[
+26:["(Lars is laughing.) Dario's gone up the mountain to buy the spa. The spa, on the volcano. A man who owns a rig wants to own a bath too. Rita, the singer at the Midnight Note, is still the most beautiful woman on the island.",[
   ["Would you use it?","If it was free. Hot water after two weeks out here would make me cry. Again."],
   ["Is Dario paying you more?","He's buying a spa. I'm saving ten dollars. We're both investing in our futures."],
   ["How's Rita?","She waved at me through the window of the Note when I was ashore. Waved! I'm going to marry her."]],

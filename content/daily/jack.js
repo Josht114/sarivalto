@@ -80,17 +80,17 @@ DAILY['Jack']={
   ["What about Erik?","Erik says we should vote on it. Fine. Let's vote. My vote: cut it. There. Done. Why do they need a whole debate?"],
   ["Who's winning?","The shouting's winning. Neither of them's said anything about fish."]],
  "Turn it off on your way out. I've heard enough."],
-17:["(The rods on the wall rattle gently.) There. Feel that? The ground's been doing it since breakfast.",[
+17:["(The rods on the wall rattle gently.) There. Feel that? The ground's been doing it since breakfast. The Admiral will feel it first. The big pike in the lake.",[
   ["Is it dangerous?","Not here. Up north, maybe. Hilda's chickens stopped laying, she says. And there's steam off the top of the mountain."],
   ["What about the Admiral?","He'll feel it in the lake before we do. Fish always know. I went up at dawn: the water was all ripples, and no wind. No bites either."],
   ["Heard Dario's missing?","Missing! A man like that doesn't go missing. He goes somewhere he hasn't told anyone. That's different. Rich men call it a holiday."]],
  "Steady the rods if you bump them. They're touchy today."],
-18:["You know what makes a good fishing spot? Quiet. And the circus has pitched its big top right on the east shore of the lake.",[
+18:["You know what makes a good fishing spot? Quiet. And the circus has pitched its big top right on the east shore of the lake. The Admiral, my old pike, hates noise.",[
   ["Does the circus scare the fish?","The strongman goes swimming every morning. Igor. Like a walrus in a bathing suit. Every perch in the lake goes to the far end."],
   ["Have you been to the circus?","I went for the fishing and stayed for the fortune teller. Madame Zora. She said I'd land something big 'when the mountain speaks'. Load of nonsense."],
   ["Maybe the Admiral likes the circus.","Maybe he's in it. Maybe that's where he's been all these years, juggling."]],
  "When the mountain speaks. Load of nonsense. (He writes it down anyway.)"],
-19:["(Jack is counting floats into a box.) Three days ago the ground shook. Now it shakes every morning. My cup walks across the table.",[
+19:["(Jack is counting floats into a box.) Three days ago the ground shook. Now it shakes every morning. My cup walks across the table. Madame Zora at the circus told my fortune. I wish she hadn't.",[
   ["Are you frightened?","I'm old. I've seen a few things. I've not seen a mountain go up. I'd like to see it from a long way off, that's all."],
   ["What do the fishermen say?","They're keeping their boats close to Saltwick, ready to go. If the mountain goes, the sea's the safest place there is. Every fisherman knows that."],
   ["Will Madame Zora be right?",["Don't. (He looks at the floats.) I wrote it on a bit of paper and I keep it in my wallet. Don't tell Frank.",[
@@ -102,7 +102,7 @@ DAILY['Jack']={
   ["Are the roads north still open?","Up to Frostholm, yes. Past the lake, the farmers are coming down with their carts. Hilda and Olaf brought their cow to Kingsgrad. A cow! On the tram!"],
   ["Have you seen the mountain?","From the end of the jetty. A grey plume. Like a pipe, smoked by a very big man. Doesn't look like weather."]],
  "Pick that up for me on your way out, would you? I'm on strike."],
-21:["(Ash is drifting in at the door.) Shut that, would you? It's gone up. The mountain. Just after breakfast.",[
+21:["(Ash is drifting in at the door.) Shut that, would you? It's gone up. The mountain. Just after breakfast. Madame Zora at the circus said I'd land something big.",[
   ["Is everyone all right?","Nobody's hurt, so they say. The north's covered. The lava came down in the hills, not the farms. God was looking the other way, and so was the lava."],
   ["What about the lake?","Grey. Grey as dishwater. I went up to look. All the fish'll be on the bottom, hiding. The Admiral too, I hope. The old devil."],
   ["Was Madame Zora right?","(He touches his wallet.) She said I'd land something big. Not that the mountain would. I'm still waiting for my half."]],
@@ -127,8 +127,8 @@ DAILY['Jack']={
   ["What does Doctor Lind think?","Doctor Lind wants a hospital. He'd vote for whoever builds one, and he says Carlo'd build one with a back door. Doctors are funny."],
   ["Will you fall out over it?","Over a vote? Never. We fell out over a perch in nineteen sixty-four and didn't speak for a month. That was a serious matter."]],
  "Rummy's on Thursday. I'll let him win. He's had a hard week."],
-26:["(Jack is restringing a rod.) The lake's clearing. I went up at dawn. Saw something big turn, right in the middle. Grey. Scar.",[
-  ["The Admiral!","The Admiral. Alive, and in a temper. Sent a wave at the jetty like he was telling me off for being late."],
+26:["(Jack is restringing a rod.) The lake's clearing. I went up at dawn. Saw something big turn, right in the middle. Grey. Scar. I've been after one old pike for twenty years. He has a scar.",[
+  ["Your old pike?","The Admiral. Alive, and in a temper. Sent a wave at the jetty like he was telling me off for being late."],
   ["Did you try for him?","Not yet. I want a new line, new rod, new everything. When I go for him this time, it'll be properly. Maybe the first of October."],
   ["Will you ever actually catch him?",["(He thinks about it.) If I catch him, what would I do on Sundays?",[
     ["Let him go again?","Maybe. Shake his fin. Tell him well done. Fifty years we've been at it."],

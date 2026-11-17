@@ -84,7 +84,7 @@ DAILY['Signe']={
   ["Will you leave the lighthouse?","No. If the mountain goes, the boats will need the light more than ever. That's what it's for. My father kept it through a war."],
   ["Is anyone with you?","The gulls have gone. That's new. Ole said he'd come and sit with me tonight. He's bringing a flask. I've told him to bring two."]],
  "Go inland if it gets worse. I'll stay. That's the job."],
-20:["(Signe is filling the lamp with oil, very carefully, by hand.) Full tank. Spare cans on every landing. Blankets round the lens. If the mountain goes tonight, the light stays on. I promised my father.",[
+20:["(Signe is filling the lamp with oil, very carefully, by hand.) Full tank. Spare cans on every landing. Blankets round the lens. If the mountain goes tonight, the light stays on. I promised my father. Ole the harbourmaster said he'd come and sit it out with me.",[
   ["You're very brave.","I'm very stubborn. People mix them up. My father did too."],
   ["What can I do?","Nothing. Go home. Be safe. Look out of your window tonight and see if my light's on. If it is, everything's as right as it can be."],
   ["Is Ole coming?","He's here already. Downstairs. With two flasks. He's never stayed the night at the lighthouse before. He's brought a pillow, which is very optimistic."]],
@@ -116,7 +116,7 @@ DAILY['Signe']={
   ["What do you think of the princess?","She came out here once, as a little girl, with the old king. She asked if the light ever got lonely. I said no. I was lying. She knew."],
   ["Is the lens clean yet?","Halfway. The top half's clear. The bottom half's still grey. So the light reaches the near boats and not the far ones. Like most promises."]],
  "Take the paper boat. Put it in the sea for me."],
-26:["(Signe has a small grey cat on her lap, and looks astonished about it.) She came up the steps this morning. All two hundred and eleven. Grey from the ash, so I can't tell what colour she really is. She won't leave.",[
+26:["(Signe has a small grey cat on her lap, and looks astonished about it.) She came up the steps this morning. All two hundred and eleven. Grey from the ash, so I can't tell what colour she really is. She won't leave. My father kept this light forty years. He'd have known what to do with a cat.",[
   ["You've got a cat!","She's got a lighthouse. I'm not sure who's got who. She sat on the logbook and I had to write around her."],
   ["What will you call her?","Ash. Obviously. Or Lens. Or Father, because he said I couldn't have one. I'm leaning towards Ash."],
   ["What would your father say?","He'd say too many stairs. And then he'd give her the best cushion in the house. He was like that about everything."]],
@@ -126,7 +126,7 @@ DAILY['Signe']={
   ["What's the news?","A picture at the cinema, cards at the pizzeria, and the Republicans choosing a leader soon. The fishermen are betting on all of it."],
   ["Is the lens clean?","Clean. All of it. Every inch. The light reaches as far as it ever did. I stood at the top last night and wept a bit. Ash licked my hand."]],
  "Come back the day after tomorrow. You can watch Bertil climb."],
-28:["(Signe is out on the gallery with the logbook, and the harbour below is full of boats with flags.) Every faction's making its big push today. Red flags, royal flags, cola flags. I've logged forty boats since dawn. It's like a regatta, with arguments.",[
+28:["(Signe is out on the gallery with the logbook, and the harbour below is full of boats with flags.) Every faction's making its big push today. Red flags, royal flags, cola flags. I've logged forty boats since dawn. It's like a regatta, with arguments. Bertil from the Bureau's coming out to inspect the light. He's never climbed it. (Ash, the grey cat who came up the steps, is asleep on the logbook.)",[
   ["Who's winning?","From up here, nobody. They're all just boats. Some big, some small. All a long way from shore."],
   ["Is Bertil still coming?","Tomorrow. He's bought walking boots, he says. Brand new. He'll have blisters by step thirty. I've put plasters on step fifty, just in case."],
   ["How's Ash?","On the logbook, as usual. She hissed at a Party boat. She purred at a royal one. I don't think she's political. I think it's the colour of the flags."]],

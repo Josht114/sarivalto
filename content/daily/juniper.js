@@ -59,7 +59,7 @@ DAILY['Juniper']={
   ["What do you hope for?","That the Church is heard. That someone mentions God without being embarrassed. And that nobody steps on anybody's hem."],
   ["Is Pirkko going?","With sandwiches. For everyone. She's made two hundred. She thinks a crowd that's fed is a crowd that's kind."]],
  "Stand up straight today. Everyone will be looking."],
-15:["(Juniper is very pleased about something, pinning a coat and humming a hymn.) He wore it. The scarf. At the gathering. In front of everyone. A little cross at each end. He stood up straight in it.",[
+15:["(Juniper is very pleased about something, pinning a coat and humming a hymn.) Father Thyme wore it. The scarf I made him. At the gathering. In front of everyone. A little cross at each end. He stood up straight in it.",[
   ["What's the news today?","Crown before cross, says the palace. Cross before crown, says the Church. They're fighting over Augustus. I know whose side I'm on."],
   ["Whose side are you on?","The cross. Obviously. Augustus belongs at the monastery, with his books and his prayers. The palace has Leopold. Let them have one each."],
   ["What does Augustus want?","Nobody's asked him. That's the trouble with this island. Everyone decides what a quiet person wants, because quiet people don't shout."]],

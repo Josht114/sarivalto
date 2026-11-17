@@ -139,7 +139,7 @@ DAILY['Marta']={
   ["How's the banquet going?","Ask me when the plates come back. If they're clean, it went well. If they're not, I'll know who to blame, and it won't be me."],
   ["What's happening outside?","Flags, shouting, rallies, all of it, Oskar says. I've no time for any of it. There's herring to plate."]],
  "Out. Unless you're carrying onions."],
-29:["(Marta is sitting down, for once, with a bottle of Kelp Cola.) The plates came back clean, every one. And today the island's deciding who comes after him. I've made a stock. Whoever it is, they'll want stock.",[
+29:["(Marta is sitting down, for once, with a bottle of Kelp Cola.) The plates came back clean, every one. And today the island's deciding who comes after him. I've made a stock. Whoever it is, they'll want stock. Arvid wrote to me. My old apprentice, from the Cedar Grill.",[
   ["Are you worried?","I'm a royalist cook in a palace on a day like this. Of course I'm worried. I'm also sitting down, which hasn't happened since August."],
   ["What if there's no king?","Then the palace will be a museum, and museums need cafés, and cafés need cooks. I'll cook whatever happens. But I'll mind."],
   ["Will you visit Arvid?","Next week. I've written back. I said yes, and that his sauce is too sharp. He'll know what that means."]],

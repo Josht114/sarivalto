@@ -99,7 +99,7 @@ DAILY['Rosaria']={
   ["Anything interesting at the palace today?","Marta says the guards are jumpy, and the butler's counting the silver twice. Butlers are always counting something."],
   ["You must know everything that goes on here.","I know how many pizzas go into the back room and how many plates come out. That's all. That's all anyone needs to know."]],
  "Out you go. I've got an oven to clean."],
-21:["(The windows are grey with ash, and Rosaria has every chair filled with people who came in off the street.) Sit where you can. The mountain went up. People are frightened. Frightened people need bread.",[
+21:["(The windows are grey with ash, and Rosaria has every chair filled with people who came in off the street.) Sit where you can. The mountain went up. People are frightened. Frightened people need bread. Nonna, my starter, came out first, of course.",[
   ["You're feeding all these people?","Of course. The oven's hot, I've got flour. Eila is pouring water, Marjut is cutting slices. We're a restaurant today, not a business."],
   ["Is Nonna safe?","In her bowl, under a cloth, under the counter. The first thing I grabbed. Then I grabbed the money. Then I remembered to grab my coat."],
   ["Was anyone hurt?","Nobody, they say. Lava in the north, and ash on everything. God is kind to fools and islands."]],

@@ -90,7 +90,7 @@ DAILY['Lisa']={
   ["How's the tin?","Two hundred and forty-one. But I bought candles for my mother. And tins. So that's two thirty-five. The volcano's costing me London."],
   ["Who's buying the most?","Frank from the gun shop bought forty tins of beans. Forty! He said they're for 'October'. I don't know what happens in October."]],
  "Two candles each. Even for London reporters."],
-19:["(Lisa looks tired.) I didn't sleep. The ground kept moving, and the tin kept rattling under the bed, and I kept thinking it was a burglar.",[
+19:["(Lisa looks tired.) I didn't sleep. The ground kept moving, and the tin kept rattling under the bed, and I kept thinking it was a burglar. My mother didn't sleep either.",[
   ["Do you want to leave sooner?","I thought about it all night. I could go now, with what I've got. Get as far as Helsinki. Then what? Sleep on a bench?"],
   ["Is your mother all right?","She's packed a bag and put it by the door. She won't say what's in it. I looked. Photographs, her good teapot and a tin of ham."],
   ["Want me to tell you about London?",["Yes. Please. Anything. Tell me about the shop with the lift.",[
@@ -117,7 +117,7 @@ DAILY['Lisa']={
   ["Would you go to Stockholm instead?","Maybe. It's closer. It's cheaper. But it's not London. If I'm leaving, I want to really leave."],
   ["Is everyone talking about the vote?","The Republicans. The old men from the shops: Frank, Jack, Otto, the doctor. They come in for bread and argue by the beer. Jack's thinking about Carlo, apparently."]],
  "A red bus. One day."],
-24:["(The pyramid's back, three tins high.) Small pyramid. Practice pyramid. The ground's stopped shaking, so I thought I'd try.",[
+24:["(The pyramid's back, three tins high.) Small pyramid. Practice pyramid. The ground's stopped shaking, so I thought I'd try. My mother's stopped worrying, nearly.",[
   ["It looks good.","It looks brave. That's what it is. A brave pyramid. When it's ten tins high, I'll know the island's all right."],
   ["How's your mother?","She's unpacked her bag. Except the teapot. She's keeping the teapot by the door. 'You never know, Lisa.'"],
   ["Is the till busy?","Busy with people buying soap. Everyone wants to wash. Ash in the hair, ash in the sheets. I've sold more soap this week than all year."]],

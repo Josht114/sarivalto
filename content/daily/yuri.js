@@ -65,7 +65,7 @@ DAILY['Yuri']={
   ["Is she right?","(He's quiet for a moment.) Possibly. (He lowers his voice.) Don't tell my mother I said that."],
   ["What's the gossip?","Kelp Cola's mascot is ill. The cup. And somebody's been in the Republican files. (He smiles.) Everyone suspects the Syndicate. Everyone always suspects the Syndicate. It's very convenient."]],
  "If Anna asks, I said nothing. I'm a timber man."],
-19:["(The hotel bar smells faintly of eggs. Yuri is buying vodka for a table of young men in work clothes.) Comrades! New friends of the Party! (He sits with you.) Anna's recruiting. I'm helping. With vodka. Vodka makes very good comrades.",[
+19:["(The hotel bar smells faintly of eggs. Yuri is buying vodka for a table of young men in work clothes.) Comrades! New friends of the Party! (He sits with you.) Anna's recruiting. I'm helping. With vodka. Vodka makes very good comrades. (He shows them a photograph of a forest.) Kamchatka. The finest larch in the world.",[
   ["Are they joining the Party?","Some of them. The ones who come back sober tomorrow and still want to. (He watches them drink.) Anna's rule. She doesn't want vodka comrades. She wants real ones."],
   ["What's that smell?","The mountain. Steam. (He sniffs.) In Kamchatka, the volcanoes smell like this before they speak. I've seen one speak. It doesn't ask permission."],
   ["Have you been to Kamchatka?","(He pauses, very briefly.) For timber. A long time ago. Very good larch. (He smiles.) Another vodka?"]],
@@ -75,7 +75,7 @@ DAILY['Yuri']={
   ["Are you worried?","(He smiles, but it's thin.) I'm a businessman in a foreign country, with a volcano about to speak and the police at my door. A little. I've been in worse hotels."],
   ["Why don't they trust you?","Because I buy rounds. Because I bring oranges. Because I'm generous. (He looks at you.) Bob in Saltwick says he's never trusted a generous man. Bob is a very wise fishmonger."]],
  "If anyone asks where I am, I'm upstairs. Writing to my mother."],
-21:["(Ash is falling past the hotel windows. Yuri is in the lobby, grey from head to foot, handing out blankets from a pile.) It went. The mountain. I was in the cellar all night, with the guests. Everyone's alive. (He hands a blanket to a child.) Here. Warm.",[
+21:["(Ash is falling past the hotel windows. Yuri is in the lobby, grey from head to foot, handing out blankets from a pile.) It went. The mountain. I was in the cellar all night, with the guests. Everyone's alive. (He hands a blanket to a child.) Here. Warm. I'll write to my mother after. I always write to my mother.",[
   ["You helped the guests?","I'm a guest. We're all guests on this island. (He hands out another blanket.) I poured vodka for the adults and told stories to the children. About Leningrad. About the white nights. They liked the white nights."],
   ["Did you write to your mother?","(He looks at you very steadily.) Not last night. Last night was for the people in the cellar. (A pause.) My mother can wait one night. She's waited longer."],
   ["Are you all right?",["(He stops handing out blankets, and looks out at the grey street.) I'm grey and tired and I've been thinking about my real mother. In Leningrad. She's seventy-three. She makes terrible soup.",[
@@ -97,7 +97,7 @@ DAILY['Yuri']={
   ["What's the news?","The monks have gone up into the peaks to pray. The Syndicate's cleaning something up. (He sips the tea.) Everyone's tidying. I'm tidying too. In my own way."],
   ["Why tea?","Because vodka is for celebrating and forgetting, and I'm doing neither. (He looks at the tea.) Tea is for thinking. The British taught me that. Through you, perhaps."]],
  "Post this for me? No. I'll do it. A man posts his own short letters."],
-25:["(Yuri is reading a Democrat leaflet with a crooked smile.) A princess for democracy. (He turns it over.) A crown for everyone, from the palace. Everyone's promising the people everything. Except the Party, which is promising them a broom.",[
+25:["(Yuri is reading a Democrat leaflet with a crooked smile.) A princess for democracy. (He turns it over.) A crown for everyone, from the palace. Everyone's promising the people everything. Except the Party, which is promising them a broom. My mother sent a telegram this morning.",[
   ["Which will the island choose?","(He thinks.) The one it trusts. Not the loudest. Anna knows that. It took me a month and a mountain to learn it."],
   ["Has your mother answered?","(He touches his pocket.) A telegram. One word. 'Push.' (He takes it out and tears it in half, very calmly.) I'm thinking about it. Very slowly. Like Anna."],
   ["Will you push?","I'll do what a timber man does. Buy rounds. Bring oranges. Listen. (He puts the halves in the ashtray.) And let Anna lead. She knows where she's going. I only know where I've been told to go."]],
@@ -112,7 +112,7 @@ DAILY['Yuri']={
   ["Is there going to be trouble tonight?","The Syndicate would like a brawl, the Democrats say. A woman from the mill will be standing at the back with her arms folded, they say. Nobody brawls near her."],
   ["What's happening at the card tables?","The Don's game at the pizzeria. Big stakes. Half the Republicans. (He smiles.) Everyone's gambling tonight. Some with cards. Some with tractors."]],
  "Sit near the front. You'll cry at the harvester. Everyone does."],
-28:["(Yuri is very still by the hotel wireless, which is reporting the Party's march.) The big push. Red flags over Kingsgrad, Anna says. I wanted it a month ago. Now it's happening, and I'm only listening.",[
+28:["(Yuri is very still by the hotel wireless, which is reporting the Party's march.) The big push. Red flags over Kingsgrad, Anna says. I wanted it a month ago. Now it's happening, and I'm only listening. My mother will have something to say about it.",[
   ["Why aren't you marching?","Because it's Anna's march. Not mine. Not my mother's. (He turns the wireless up a little.) If it succeeds, it should be hers. If it fails, it should be hers too."],
   ["Do you think it'll work?","(He's quiet for a long time.) I think Anna's built something that will last, whatever happens today. My mother wanted something fast. Anna built something true. I know which I'd rather."],
   ["What will your mother say?",["(He takes the torn telegram out of his pocket, both halves, and looks at them.) Something sharp. In one word. (He puts them back.) And I'll write back. In a page.",[

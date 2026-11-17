@@ -58,7 +58,7 @@ DAILY['Mike']={
 11:["(Mike is counting coins in his palm.) How much is a good scarf in Kingsgrad? Not for me. A woman's scarf. Cashmere. For my... cousin.",[
   ["Your cousin?","In... Frostholm. Yes. She feels the cold. Very much. All my cousins do."],
   ["Try Grace, the tailor.","She'd ask questions. Tailors always do. 'What colour are her eyes?' That sort of thing."],
-  ["Last week it was your mother.",["(He goes very red.) She's... they're... it's a big family. Look, can we talk about cod?",[
+  ["Your cousin?",["(He goes very red.) She's... they're... it's a big family. Look, can we talk about cod?",[
     ["Cod it is.","Thank you. The cod are thin this year. It's the rig. There. Cod."],
     ["Who is she, Mike?","Nobody. Somebody. (He sighs.) Somebody who'd be in a lot of trouble if people knew. So would I. That's all you're getting."]]]]],
  "Cod. We talked about cod."],
@@ -119,7 +119,7 @@ DAILY['Mike']={
   ["How's the harbour?","Dead fish along the tide line. Sam's out there picking them up one by one, like he's apologising to them."],
   ["Did anyone help you?","Somebody brought me a flask of coffee and didn't say a word. Best help there is. (He doesn't say who.)"]],
  "Mind the ash on the jetty. It's like walking on flour."],
-23:["Dario's rig's pumping again, through all this. The men at Ray's say somebody ought to do something about it.",[
+23:["Dario's rig's pumping again, through all this. The men at Ray's say somebody ought to do something about it. The Valborg, my boat, came through it, at least.",[
   ["Do what?","Something. That's all anybody says: 'something'. Nobody's ever said what. Me included."],
   ["Would you?","I'm a singer and a fisherman. I'd sing at it. Very loudly. It might work."],
   ["How's the Valborg?","Clean, and she started first time. First time in a year. Maybe she likes volcanoes."]],

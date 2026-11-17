@@ -49,7 +49,7 @@ DAILY['Ole']={
   ["What's the news today?","The palace and the Church are fighting over the prince's brother. The monastery's sent a crate of candles through. I've charged them duty. Brother Teodor blessed the stamp."],
   ["Why not tell her about the wall?","(He looks at the drawer of her letters.) Because then I'd be asking her to understand. Maya doesn't want to understand. She wants to be angry. Anger makes very good coffee, she says."]],
  "If you see Maya, tell her the tea is perfectly adequate."],
-16:["(Ole has the debate on the wireless in the port office, and is listening with his chin in his hand.) The Party and the Democrats. (He listens.) Neither has mentioned the harbour. Or duty. Or walls. An island surrounded by sea, and nobody talks about the sea.",[
+16:["(Ole has the debate on the wireless in the port office, and is listening with his chin in his hand.) The Party and the Democrats. (He listens.) Neither has mentioned the harbour. Or duty. Or walls. An island surrounded by sea, and nobody talks about the sea. Maya at the coffee shop hasn't written to complain this week. That's not like her.",[
   ["Who's winning?","Erik's calmer. Anna's louder. The sea doesn't care who's louder. The sea's the loudest thing there is."],
   ["Would you vote?","I'd vote for whoever fixed the wall. Neither of them will. Walls aren't exciting. Nobody's ever won an election with a wall."],
   ["Has Maya written again?","Not since letter forty-two. I'm worried. A quiet Maya is planning something. Probably a longer letter."]],
@@ -81,7 +81,7 @@ DAILY['Ole']={
     ["Glad of what?","That the light stayed on. That the wall held, I've just checked. And that I was there. On the stairs. (A pause.) Mostly that."],
     ["How's the harbour?","Grey. The wall's still standing. My clerk's been sweeping since dawn. Everyone's alive. That's the only entry in the ledger that matters today."]]]]],
  "Cover your mouth. And go and see someone you care about."],
-22:["(Ole is pinning a notice to the port office door: DUTY SUSPENDED FOR ONE WEEK. ALL RELIEF GOODS FREE.) There. For the clean-up. Blankets, tins, medicine, timber. Free. No stamp. No waiting. Liv in Eastbrook's done the same.",[
+22:["(Ole is pinning a notice to the port office door: DUTY SUSPENDED FOR ONE WEEK. ALL RELIEF GOODS FREE.) There. For the clean-up. Blankets, tins, medicine, timber. Free. No stamp. No waiting. Liv in Eastbrook's done the same. Maya at the coffee shop will have something to say. She always does, about duty. I sat out the mountain on the lighthouse steps, with Signe, the keeper.",[
   ["That's generous.","It's necessary. People need blankets more than the wall needs money. This week. (He looks at the wall.) The wall can wait one week. I've asked it nicely."],
   ["What will Maya say?","That it's about time. Then she'll find something new to be angry about. She always does. It keeps the island honest."],
   ["How's Signe?","Cleaning the lens. One stroke at a time. She rang to say thank you for the flask. (He clears his throat.) And the pillow. She says she kept it."]],
@@ -98,7 +98,7 @@ DAILY['Ole']={
     ["That's wonderful!","It was the mountain. A wall that holds through a mountain gets noticed. Forty years of my letters, and it took a volcano. (He looks at the letter again.) I'll take it."],
     ["Will you lower the duty now?","When the wall's built. Then I'll halve it. And I'll write to Maya myself. 'Dear Coffee Roaster. The toll bridge is closing. Yours, Weak Tea.'"]]]]],
  "Go and tell someone good news. I'm going to tell the wall."],
-25:["(Ole is reading a letter in big, angry handwriting, and smiling.) Maya. Letter forty-three. 'Your taxes on beans are an insult to the island and to my grandmother.' (He strokes his moustache.) The grandmother's new. She's escalating.",[
+25:["(Ole is reading a letter in big, angry handwriting, and smiling.) Maya. Letter forty-three. 'Your taxes on beans are an insult to the island and to my grandmother.' (He strokes his moustache.) The grandmother's new. She's escalating. I've a note from Signe at the lighthouse as well. Much kinder.",[
   ["Will you tell her about the wall?","When the first stone's laid. I'll invite her. She'll come to complain. Then she'll see the wall. That's the plan. It's a very slow plan."],
   ["What's the news?","A crown for everyone, a princess for democracy. Everyone's making promises. (He taps the harbour board's letter.) I've got the only one that's in writing."],
   ["How's Signe?","The lens is clean. All of it. She says the light reaches further than ever. (He looks at the sea.) I'm going out on Thursday. With the post. And ginger biscuits."]],
@@ -113,12 +113,12 @@ DAILY['Ole']={
   ["What's the news?","A Party picture at the cinema, and big card games, they say. The film came through customs yesterday. Six reels. Very heavy. Liv weighed them three times. Tractors are heavy."],
   ["Are you nervous about the end of the month?","The wall's funded. The ledger's tidy. Signe's light reaches Saltwick. Maya's still writing. I'm nervous about nothing. It's very strange."]],
  "Pat the wall on your way. Gently. It's old."],
-28:["(The harbour is full of boats with flags, and Ole is standing on the quay with his ledger, stamping as they come in.) Every faction's making its big push today. Red flags. Royal bunting. Cola crates for abroad. And every one of them is paying duty.",[
+28:["(The harbour is full of boats with flags, and Ole is standing on the quay with his ledger, stamping as they come in.) Every faction's making its big push today. Red flags. Royal bunting. Cola crates for abroad. And every one of them is paying duty. I went out to Signe's lighthouse on Thursday, with the post.",[
   ["Is everyone paying?","Every one. Without complaint. On the big day, nobody wants to be seen arguing with the harbourmaster. (He stamps.) I should have a big day every week."],
   ["Who's winning?","From the quay, whoever's got the most crates. That's the cola company, today. They're shipping to Stockholm. The duty on that alone will pay for three yards of wall."],
   ["How was Thursday with Signe?","(He goes red.) I took the post. And the biscuits. And we sat on step ninety-four, where I fell asleep on the night of the mountain. She said 'This is your step now.' (He stamps something very hard.) Next crate."]],
  "Out of the way, please. There's a queue and it's got flags."],
-29:["(Ole is at his desk, ledger closed, for once, looking at the sea.) The palace is arguing about who's next. The Republicans are choosing a leader. (He strokes his moustache.) No boats today. Everyone's waiting. Even the sea's waiting.",[
+29:["(Ole is at his desk, ledger closed, for once, looking at the sea.) The palace is arguing about who's next. The Republicans are choosing a leader. (He strokes his moustache.) No boats today. Everyone's waiting. Even the sea's waiting. Signe at the lighthouse has asked me something. I'm thinking about it.",[
   ["What are you waiting for?","Tomorrow. Like everyone. Whatever happens, there'll be boats on Monday. And a harbourmaster to log them. That's the one thing I'm sure of."],
   ["What do you hope happens?","That whoever runs the island remembers the sea. That it's all around us. That walls matter. That lighthouse keepers matter. And harbourmasters. A little."],
   ["Will you see Signe again?","Thursday. With the post. And Saturday, she's asked. To fish. In her boat. (He clears his throat.) I've never fished in my life. I'm terrified."]],

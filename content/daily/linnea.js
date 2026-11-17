@@ -68,7 +68,7 @@ DAILY['Linnea']={
   ["Do you ever vote?", "There's never been a vote. That's what they're arguing about. I'll vote for the king, if they ask me. They won't ask me that."],
   ["Does Erik come in?", "Every night, for one beer and an argument with Veikko. He leaves a good tip. He's a gentleman. He's just wrong."]],
  "Turn the wireless up for Helen. She deserves it."],
-17:["(The bottles behind the bar rattle, and Linnea grabs two before they fall.) Did you feel that? The ground! Knut says a pile of logs came down at the mill. Nobody under it, thank God. (She sets the bottles down.) My grandmother's aquavit nearly went. I'd never forgive the mountain.",[
+17:["(The bottles behind the bar rattle, and Linnea grabs two before they fall.) Did you feel that? The ground! Knut says a pile of logs came down at the mill. Nobody under it, thank God. (She sets the bottles down.) My grandmother's aquavit nearly went. I'd never forgive the mountain. Paolo had a book running on the mountain, too.",[
   ["Is anything broken?", "One glass, one jar of pickles and my nerve. The king stayed straight on the wall. Leopold went a bit crooked. I've put him right."],
   ["Is Paolo still betting on the mountain?", "He's closed his book. He says it's in bad taste. I wrote it on the slate: 'Paolo closed a book.' History."],
   ["Is it the volcano?", "They say there's steam in the north. My grandmother said the mountain woke when she was a girl and the sea went warm. I'm keeping an eye on the sea."]],

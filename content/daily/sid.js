@@ -71,7 +71,7 @@ DAILY['Sid']={
   ["Who's coming tonight?","Music lovers. Gentlemen in scarves. Ladies in furs. People who'd like to be nobody for an evening. I can't remember a single face, and I've got an excellent memory."],
   ["What's Leo playing?","His Sunday song, on a Friday. He's finally given it a name: 'Rita, Don't Look Up'. He hasn't told her. He's told the band."]],
  "Go on. Come back later, if you like jazz."],
-20:["(Sid is polishing the bar very slowly.) Whatever happened in this club last night stays in this club. I'll say that once. It was a good night. Leo played his best.",[
+20:["(Sid is polishing the bar very slowly.) Whatever happened in this club last night stays in this club. I'll say that once. It was a good night. Leo played his best. Leo's written a song for Rita.",[
   ["Did anything happen?","Music happened. A lot of it. People clapped. People went home. That's what happens in clubs."],
   ["Has Nora from the Gazette been in?","Nora's been in twice today asking questions about last night. I gave her a coffee and a long story about the piano. She left very well informed about pianos."],
   ["Did Leo play his song for Rita?","He did. 'Rita, Don't Look Up.' She looked up. (He smiles.) That's all I'll say about that, too."]],

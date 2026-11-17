@@ -43,7 +43,7 @@ DAILY['Igor']={
   ["Are you nervous?","Of crowds? A little. (He looks down.) I'm very big. In a crowd I'm always worried I'll step on someone. So I stand still. People think I'm guarding something."],
   ["Who do you hope wins?","Whoever makes sure there's enough to eat. (He thinks.) I've been very hungry, in other countries. Hungry people do frightened things. Fed people make jokes."]],
  "If you get lost in the crowd, look for me. I'm the tall thing."],
-15:["(Igor is sitting on the caravan step, looking very contented and a little guilty.) Four hot dogs. Yesterday. From the man with the leaflets. (He pats his stomach.) Very gentle sausages. I lifted an old man onto the fountain so he could see. He said I was a gentleman.",[
+15:["(Igor is sitting on the caravan step, looking very contented and a little guilty.) Four hot dogs. Yesterday. From the man with the leaflets. (He pats his stomach.) Very gentle sausages. I lifted an old man onto the fountain so he could see. He said I was a gentleman. Mrs Pettigrew, the wren on my step, will have missed me.",[
   ["Did Bruno make a speech?","Four minutes. Meg timed it. (He smiles.) Then four more, when Meg wasn't looking. And Buttons fell in the fountain. He came out with a duck. He's kept it."],
   ["What's the news?","The palace and the Church are arguing about the prince's brother. (He thinks.) I'd like to meet him. Bruno says he looks like a man who'd like a good lift. Everyone looks better from up high."],
   ["How's Mrs Pettigrew?","She came at six. As always. (He smiles.) She was cross I was late back. Four hot dogs. She could tell."]],
@@ -73,14 +73,14 @@ DAILY['Igor']={
   ["Is everyone ready?","The animals are in the big top. Bruno made them a speech. They all lay down. (He looks amazed.) It worked. I've never seen a speech of Bruno's work. Even Duchess listened."],
   ["What will you do tonight?","Sit by the lake with everyone. (He looks at the troupe.) And if anything falls, catch it. That's the whole of my job. Tonight it's very important."]],
  "Go home, or come to the lake. Don't be anywhere in between."],
-21:["(Ash is falling. Igor is standing by the lake, holding up one corner of a canvas over the sleeping troupe, with a child's cap in his other hand.) It went. (He doesn't move.) Everyone's here. I counted. Twice. I'm still holding this. In case.",[
+21:["(Ash is falling. Igor is standing by the lake, holding up one corner of a canvas over the sleeping troupe, with a child's cap in his other hand.) It went. (He doesn't move.) Everyone's here. I counted. Twice. I'm still holding this. In case. Mrs Pettigrew, my little wren, hasn't come.",[
   ["Whose cap is that?","A boy from a farm. His family came down to the lake in the night. (He looks at the cap.) He fell asleep on my shoulders. His mother took him. I kept the cap. I'll give it back."],
   ["How long have you held that up?","Since midnight. (He looks at his arm.) It's not heavy. (A pause.) It's very heavy now. But everyone's asleep under it. So I'll hold it a bit longer."],
   ["Did Buttons tell jokes?",["All night. To the animals, the children, me. (He laughs, then coughs.) Terrible ones. The worst. Everyone laughed.",[
     ["Even you?","At every one. (He smiles.) Meg laughed at one. Near the end. Buttons nearly fell in the lake."],
     ["What about Mrs Pettigrew?","(He looks at the grey trees.) I don't know. (He holds the canvas steady.) She's very small. And very brave. I'm hoping."]]]]],
  "Cover your face. Come under the canvas. There's room."],
-22:["(Igor is shovelling ash from around the caravans, very neatly, into straight lines.) Paths. (He shovels.) If we have to move quickly, there'll be clear ways. It's easier than thinking. I like it.",[
+22:["(Igor is shovelling ash from around the caravans, very neatly, into straight lines.) Paths. (He shovels.) If we have to move quickly, there'll be clear ways. It's easier than thinking. I like it. No wren on the step this morning. Mrs Pettigrew. My wren.",[
   ["How's the camp?","Grey. Everything's grey. Duchess, the wagons, Zora's crystal ball. (He shovels.) Me. I'm grey and lifting grey things. It's very restful. Everything's the same colour."],
   ["What's next for the circus?","Bruno's decided. A free show. For the whole island. On Saturday. (He smiles.) To cheer people up. Meg says no takings. Bruno says the island will remember. They're both right."],
   ["Any sign of Mrs Pettigrew?","(He stops shovelling.) No. (He looks at the trees.) I've put crumbs out every morning. On the step. (He starts again.) I'll keep putting them out."]],

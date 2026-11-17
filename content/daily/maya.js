@@ -7,7 +7,7 @@ DAILY['Maya']={
   ["One coffee, please.","(She pours a cup so black it seems to absorb the light.) There. That's the strongest coffee on the island. Erik drinks four a day and he can hear colours."],
   ["You're a Democrat too?","Of course. In a free vote, I'd vote out Ole. In a free market, I'd buy beans from Colombia. Same thing, really. Freedom smells of coffee."]],
  "Drink it while it's hot. It's worse when it's cold."],
-5:["(Maya is writing on a blackboard behind the counter: THIS WEEK'S BLEND: SNOWMELT.) Every week I name a blend. It's the same beans, roasted differently. Mostly it's the same beans, roasted angrily.",[
+5:["(Maya is writing on a blackboard behind the counter: THIS WEEK'S BLEND: SNOWMELT.) Every week I name a blend. It's the same beans, roasted differently. Mostly it's the same beans, roasted angrily. I'm angrier than usual. Ole the harbourmaster's put the duty on beans up again.",[
   ["Why Snowmelt?","Because the roads are open, and everyone's in a good mood, and nobody's noticed yet that it tastes of bark. Name it something cheerful, they drink it cheerfully."],
   ["What's wrong with Ole's taxes?","Ole says the harbour needs the money. The harbour needs a new coat of paint and a harbourmaster who's tasted coffee once in his life. He drinks tea. Weak tea. With milk."],
   ["Is that a bun I can smell?","Cardamom buns, from the back kitchen. My grandmother's recipe. The only thing in this shop that's exactly as good as it should be."]],

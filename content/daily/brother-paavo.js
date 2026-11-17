@@ -67,7 +67,7 @@ DAILY['Brother Paavo']={
   ["The worms knew, didn't they?","Five days ago. I should have listened. They've all gone deep now, or gone somewhere better. Worms are wiser than men; they don't hold opinions."],
   ["Will the garden survive?","Gardens always survive. It's only the gardeners who sometimes don't. I'm being gloomy. Ignore me; it's the steam."]],
  "Don't kneel there. It's hot."],
-18:["(Brother Paavo is leaning on his spade, looking down the path.) Something's been taken from the church in the night. The Prior is beside himself. And I heard nothing. Nothing on the path, all night. That's what troubles me.",[
+18:["(Brother Paavo is leaning on his spade, looking down the path.) Something's been taken from the church in the night. The Prior is beside himself. And I heard nothing. Nothing on the path, all night. That's what troubles me. Even Old Stubborn, the apple tree, shook all night.",[
   ["Is that unusual?","I sleep with my window open over the garden, and I hear every boot on that path, every fox, every drunk novice. Last night: silence."],
   ["So whoever took it didn't use the path?","Or they came some other way, over the rocks. I won't guess. Gardeners shouldn't. We plant and wait."],
   ["How's Old Stubborn?","Shaking with the ground, like the rest of us. Still no apples. Still trying."]],

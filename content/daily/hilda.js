@@ -4,7 +4,7 @@
 // every spring; taking the cow into Kingsgrad on the tram (the 20th) and walking up to the monastery that night; the ash on the hay
 // barn and the mill lads' timber; the goose that won't eat after the eruption and becomes a pet.
 DAILY['Hilda']={
-5:["(Hilda is carrying two buckets of milk across the yard and doesn't put them down.) Town shoes. (She looks at your feet.) London town shoes. You'll ruin them in a week. Hilda. This is East Farm. Mind the hens.",[
+5:["(Hilda is carrying two buckets of milk across the yard and doesn't put them down.) Town shoes. (She looks at your feet.) London town shoes. You'll ruin them in a week. Hilda. This is East Farm. Mind the hens. My husband's about somewhere.",[
   ["What do you farm?","Cows, hens, potatoes, a few sheep, and a husband. The husband's the most work. He complains in alphabetical order."],
   ["Is it hard work?","Up at four, in at nine, and the cows don't care if it's Christmas. Hard? It's the only work there is. Everything in the towns is just talking about work."],
   ["Who's your husband?","Olaf. He's in the byre, telling a cow about the price of diesel. She's heard it before. She's very patient. More patient than me."]],

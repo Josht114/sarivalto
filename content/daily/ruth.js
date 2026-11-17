@@ -119,7 +119,7 @@ DAILY['Ruth']={
   ["What's the gossip?","Margit's counting, and Margit's honest, so nobody can guess. That's very unusual round here. Everyone's on edge."],
   ["How many votes does he need?","Twenty-two out of forty-three. He's written it on his wrist. I saw him check it twice on the stairs."]],
  "Sulking, either way. I've ordered extra biscuits."],
-30:["(Ruth has the appointments book closed for once, with her hand flat on it.) The last day. Whatever's decided, it's decided today. I haven't written anybody in. I thought I'd leave the page empty and see who comes.",[
+30:["(Ruth has the appointments book closed for once, with her hand flat on it.) The last day. Whatever's decided, it's decided today. I haven't written anybody in. I thought I'd leave the page empty and see who comes. I've always meant to see Wyoming.",[
   ["What do you hope for?","That the island stays an island. That somebody who can sit on a horse ends up in charge. That I still have a desk on Monday."],
   ["Who's been through the back door?","Today? Nobody. Everyone's using the front. It's the first honest day this building's ever had."],
   ["And Wyoming?","It's still there. It'll wait. Big skies are very patient."]],

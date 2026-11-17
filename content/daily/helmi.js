@@ -81,7 +81,7 @@ DAILY['Helmi']={
   ["How much are they?","More than a footman earns in a month. Less than they're worth. They'll last him twenty years."],
   ["Did you see anything at the gathering?","I saw Olga see something. She hasn't stopped talking since. Ask her. Actually, don't. She'll tell you anyway."]],
  "If you meet Oskar, don't mention the boots. He's shy about it."],
-16:["(Helmi has the radio on low, and is darning a jumper in her lap.) The great debate. Helen and Erik. Olga's got hers on so loud I can hear it through the wall. We're listening to the same thing, a bit out of time. It's like an echo with opinions.",[
+16:["(Helmi has the radio on low, and is darning a jumper in her lap.) The great debate. Helen and Erik. Olga's got hers on so loud I can hear it through the wall. We're listening to the same thing, a bit out of time. It's like an echo with opinions. My sister in Oulu knits the jumpers I sell. This one's come back with a hole in it.",[
   ["Who's winning?","Helen's louder. Erik's longer. Neither's said a word about the price of wool."],
   ["What would you ask them?","Who pays when the fishermen can't. Nobody ever answers that one. They just look sad and shake your hand."],
   ["Is that one of your sister's jumpers?","With a hole a gull made. I'm darning it. The devil got out a bit too enthusiastically."]],
@@ -91,7 +91,7 @@ DAILY['Helmi']={
   ["Can I help pick these up?","(She hands you a tin.) Black on the left, brown on the right, and the cherry red goes under the counter. Nobody's bought cherry red since 1971."],
   ["Is anyone hurt?","No. But the old people up north are frightened. When the old people are frightened, I sell more blankets."]],
  "Tell Olga to stop shouting. It's not helping the mountain."],
-18:["(Helmi is filling a window with blankets and boots, very neatly.) Stockpiling. Everybody wants a blanket and a stout pair of boots, in case they have to walk somewhere fast. I've never sold so many boots in one day.",[
+18:["(Helmi is filling a window with blankets and boots, very neatly.) Stockpiling. Everybody wants a blanket and a stout pair of boots, in case they have to walk somewhere fast. I've never sold so many boots in one day. My sister in Oulu wants me home, of course.",[
   ["Is that taking advantage?","It's selling people what they need, at the price they'll pay. That's not taking advantage. That's shopkeeping."],
   ["Will you leave, if it gets bad?","Leave? With all this stock? I'd sooner stand in the doorway with a mop and argue with the lava."],
   ["What does your sister say?","She sent a letter: 'Come home.' I sent one back: 'This is home.' Then I sent her an order for forty jumpers."]],
@@ -131,7 +131,7 @@ DAILY['Helmi']={
   ["Heard about the palace news?", "A crown for everyone, a princess for democracy. I'll believe it when the princess comes in for boots."],
   ["Why the tissue paper?", "Because good boots deserve to be unwrapped. A man should remember the first time he opened his warm boots."]],
  "Wednesday's nearly over. He'll come. He'd better."],
-26:["(Helmi is pricing jumpers from a new parcel.) My sister's sent forty more. Every one has a mistake on the left cuff. She says the devil's been very busy on Sarivalto this month, and needs more ways out.",[
+26:["(Helmi is pricing jumpers from a new parcel.) My sister's sent forty more. Every one has a mistake on the left cuff. She says the devil's been very busy on Sarivalto this month, and needs more ways out. And the fur-lined boots I was holding for Oskar the footman? Don't ask.",[
   ["Did Oskar come in?","(She smiles a little.) I won't say. A footman's boots are his own business. But the window's empty."],
   ["Dario wants to buy the spa?","He can buy what he likes. He's never bought so much as a sock from me. Rich men never buy socks. They're given them."],
   ["How's the ledger?","Thinner. I tore out three pages. Mike looked at me like I'd turned into a fish."]],
@@ -151,7 +151,7 @@ DAILY['Helmi']={
   ["What do you hope for tomorrow?","That the fishermen pay their bills, the oil stays off the water and nobody takes the island somewhere it doesn't want to go. Oh, and that Olga shouts at me again. I miss it already."],
   ["Want some company?","(She shuffles along the crate.) Sit. Don't talk. That's the best company there is today."]],
  "Sit quiet. That's all anyone's doing."],
-30:["(Helmi has her shop open, and a new jumper on the counter, folded.) The last day. They'll settle the island today. I've opened as usual, because something on this island should be as usual. You've survived a month in that coat. I'm almost proud of you.",[
+30:["(Helmi has her shop open, and a new jumper on the counter, folded.) The last day. They'll settle the island today. I've opened as usual, because something on this island should be as usual. You've survived a month in that coat. I'm almost proud of you. Oskar the footman was saving for my best boots all month.",[
   ["Is that jumper for me?","It's for anyone who's cold. You're cold. (She pushes it across.) The mistake's on the left cuff. Let the devil out in London."],
   ["Did Oskar get his boots?","He walked past this morning in them, grinning, on his way to the palace. Whatever happens today, there's one footman on Sarivalto with warm feet."],
   ["Will you be all right?","I've a shop full of boots, a ledger with fewer pages and a friend across the lane who shouts at me. I'll be fine. We'll all be fine, or we'll be fine differently."]],

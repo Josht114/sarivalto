@@ -55,7 +55,7 @@ DAILY['Ville']={
   ["Will you stop sending them?","When I'm dead. Then Rosa can send them for me. I've asked her. She said she'll add mustard."],
   ["What's the news in the square?","Helen from the Union was in Kingsgrad, about the mill hands in Eastbrook. She bought every paper with a photograph of the mill in it. She tore out the pictures and left the words."]],
  "Two hundred and fourteen next week. I can feel it."],
-12:["(Ville is watching a woman leave the cola offices with an armful of files.) That's Elin. Phil's secretary. She's carrying the post. She always carries the post herself. She doesn't trust the boy.",[
+12:["(Ville is watching a woman leave the cola offices with an armful of files.) That's Elin. Phil's secretary. She's carrying the post. She always carries the post herself. She doesn't trust the boy. Rosa with the sausages winked at her.",[
   ["Does Elin buy papers?","The financial pages, for a friend, every day. She doesn't read them. She folds them very small and puts them in her handbag. I don't ask. Rosa winks."],
   ["Why does Rosa wink?","Rosa winks at everything. It means she knows something. Sometimes I think she does it just to annoy me."],
   ["What's in the files?","Accounts, or love letters, or both. In my experience, a woman carrying her own post has a reason."]],
@@ -127,7 +127,7 @@ DAILY['Ville']={
   ["What's this about a princess?","Daphne, they say, has been seen with the Democrats. Or the Democrats have been seen with Daphne. Depends which paper you read. I sell both."],
   ["Is your crossword finished?","'Promise made, promise broken, nine letters.' I've got the answer. I'm keeping it to myself until the month's over."]],
  "Read both papers. The truth's always in between."],
-26:["(Ville is waving a letter with a Helsinki postmark, his hands shaking.) They printed one! Two hundred and fourteen! Page eleven, bottom left, under the weather! My crossword! In a Helsinki paper!",[
+26:["(Ville is waving a letter with a Helsinki postmark, his hands shaking.) They printed one! Two hundred and fourteen! Page eleven, bottom left, under the weather! My crossword! In a Helsinki paper! I've been sending crosswords to Helsinki for years.",[
   ["Congratulations! Which one was it?","The one about the mountain, from the cellar. I don't remember sending it. I must have. 'The mountain speaks, and everyone listens.' They said it was the first clue they'd ever cried over."],
   ["What will you do now?","Frame it. Send two hundred and fifteen. Tell Rosa she was right to make me keep going. Buy everyone in the square a hot dog. In that order."],
   ["Does Rosa know?",["(He turns to the cart.) ROSA! (She waves a sausage without looking up.) She knew before me. She always knows.",[

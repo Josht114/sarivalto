@@ -107,7 +107,7 @@ DAILY['Ilse']={
   ["Will it delay the truck?","A month. Two. The truck can wait. The farm families can't. My mother would say that. She's very sensible. She married a fisherman."],
   ["What's the news?","Something broken on the oil rig, they say. And the Party says not them. I believe them. They can't fix anything. How could they break it?"]],
  "Don't tell anyone about the farm money. It's not for talking about."],
-24:["(Ilse is helping Bjarne carry a long timber beam towards a cart.) Erik's rally stage. Our timber. Bjarne's building it. Jonna's doing the banners. Meg from the circus is hanging them. I'm carrying everything.",[
+24:["(Ilse is helping Bjarne carry a long timber beam towards a cart.) Erik's rally stage. Our timber. Bjarne's building it. Jonna's doing the banners. Meg from the circus is hanging them. I'm carrying everything. Knut's got a pine tattooed on his wrist now.",[
   ["Did you get the tattoo, like Knut?","(She shows you her wrist: bare.) No. I don't need a pine on my wrist to know what I believe. Knut does. Knut needs everything written on him."],
   ["What's the news?","The monks have gone up into the peaks to pray. The Syndicate's cleaning something up. Paolo's taking bets on all of it. I don't bet. Betting's for people who can't lift things."],
   ["Is the saw safe?","Bjarne checked it after the ash. It purrs. Knut says it's never purred before. Knut says a lot of things."]],

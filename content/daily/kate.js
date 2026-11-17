@@ -109,7 +109,7 @@ DAILY['Kate']={
   ["What does she want with Yuri?","Erik's lot think he's a spy. A spy who sends oranges? Spies don't send oranges. They send... I don't know what spies send."],
   ["Will Sam mind?","Sam's said nothing for forty years. He's not going to start over a mermaid."]],
  "If it's in the Gazette, buy two copies. One for Sam."],
-21:["(Kate has a headscarf tied over her mouth.) The mountain's blown! Ash in the fish, ash in my hair, ash in places I won't mention to a reporter.",[
+21:["(Kate has a headscarf tied over her mouth.) The mountain's blown! Ash in the fish, ash in my hair, ash in places I won't mention to a reporter. And nobody can find Sirpa.",[
   ["Are you all right?","I'm fine, love. Frightened half to death, but fine. My house shook like a dog shaking off water."],
   ["Has anyone found Sirpa?","Helen found her on the beach with Tiina and Pat, staring at the sky. I gave her an earful and a cup of tea."],
   ["What happens to the plant?","Shut till they've cleaned the tanks. No fish, no wages. But Helen's got a tin for that."]],

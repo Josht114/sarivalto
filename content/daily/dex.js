@@ -102,7 +102,7 @@ DAILY['Dex']={
   ["How's business?","Never better. Frightened people eat. Tired people eat. People sweeping ash eat twice. I'm going to need a second cart."],
   ["A second cart?","(His eyes shine.) The Dogfather Two. Up at the tram stop. Or Kingsgrad, outside the palace. Right next to Rosa. Imagine her face."]],
  "The Dogfather Two. Remember where you heard it first."],
-24:["(Dex is drawing on a napkin: a cart, with a little roof.) The Dogfather Two. I've got the plans. Bjarne says he'll build the frame from mill offcuts, if Dagny doesn't count them. Dagny counts everything.",[
+24:["(Dex is drawing on a napkin: a cart, with a little roof.) The Dogfather Two. I've got the plans. Bjarne says he'll build the frame from mill offcuts, if Dagny doesn't count them. Dagny counts everything. Rosa's cart won't know what hit it. Rosa's my rival, in Kingsgrad.",[
   ["Where will it go?","Kingsgrad, outside the palace gates. Every tourist, every royal, every guard on his tea break. And opposite Rosa, at Kelp Cola, so she can watch me."],
   ["Any gossip today?","The monks have gone up to the peaks for a retreat. And the Syndicate's cleaning up after something. Paolo's gone very quiet. When Paolo's quiet, I count my spoons."],
   ["Why do you hate Rosa so much?","Hate? (He looks shocked.) I don't hate Rosa. She taught me to cook onions in 1975. I just have to beat her. That's love, on this island."]],

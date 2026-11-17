@@ -80,7 +80,7 @@ DAILY['Brother Ilja']={
     ["Why do you ask?","Oh, no reason. A scribe's curiosity. Pianos have histories too, you know. Some of them very sad."]]]],
   ["You hum well, Brother.","(He goes pink.) I hum terribly. But thank you. Don't tell the Prior. He thinks humming is a gateway to dancing."]],
  "Close the door behind you. The tune gets out."],
-20:["(Brother Ilja is holding a register very close to the candle, squinting through the good half of his spectacles.) Another trace of the forgotten brother. Here, in the margin of a book of hours. A line of writing, faded. 'Forgive me, brother.' In a hand like the old king's.",[
+20:["(Brother Ilja is holding a register very close to the candle, squinting through the good half of his spectacles.) Another trace of the forgotten brother, the monk the books lost. Here, in the margin of a book of hours. A line of writing, faded. 'Forgive me, brother.' In a hand like the old king's.",[
   ["Which old king?","The late king's grandfather. The elder brother. If it's his hand, then he wrote it in a prayer book and never sent it. A king, saying sorry to a brother no one remembers."],
   ["Sorry for what?","For whatever's on the page that was cut out, I'd guess. But a scribe shouldn't guess. A scribe should find."],
   ["Does Father Thyme know?","I've told him a little. He told me to keep reading, and to keep quiet. He's very good at both."]],

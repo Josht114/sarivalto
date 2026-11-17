@@ -25,7 +25,7 @@ DAILY['Ruby']={
     ["Is it worth a lot?","Depends who you ask. To me, about a month's rent. To a man in a fur collar, apparently, his whole weekend."]]]],
   ["At least the roads are open. Tourists, any day now.","Tourists. (She laughs.) I've been saying 'any day now' since 1974. The last one bought a postcard of the mural and asked where the real shops were."]],
  "If anyone from Frostholm asks, I've moved to Sweden."],
-8:["(The radio's on, low, with a sermon from the monastery. Ruby reaches over and turns the dial until she finds a saxophone.) There. God can have Sunday. I'll have Kaisa.",[
+8:["(The radio's on, low, with a sermon from the monastery. Ruby reaches over and turns the dial until she finds a saxophone.) There. God can have Sunday. I'll have Kaisa. My delivery boat's still stuck in Helsinki.",[
   ["Kaisa on the radio plays jazz?","On Sundays, when the station manager's at church. She borrows half her records from me and brings back about a third."],
   ["You're not a churchgoer, then?","My mother was. She used to say the organ at the monastery was the closest thing on the island to Coltrane. She'd never heard Coltrane, but she wasn't far wrong."],
   ["Any news of your delivery boat?","Stuck in Helsinki with a box of records for me and a crate of tinned peaches for Lisa. The peaches will get here first. They always do."]],
@@ -54,7 +54,7 @@ DAILY['Ruby']={
     ["And the singer?","No name on the sleeve. Just a white dress in the photograph. I've always wondered about her."]]]],
   ["Why's everyone so desperate for it?","Because it's beautiful, and there's none left. That's all a collector needs. (She frowns.) Though some people want things the way dogs want bones."]],
  "Mind the ice on the steps. I'm feeling superstitious about things that fall."],
-13:["(A Kelp Cola girl in a paper hat has left a free bottle on Ruby's counter. Ruby has put it on the turntable lid, as if it were a stranger.) They're giving it away in the street now. Nothing that free is ever free.",[
+13:["(A Kelp Cola girl in a paper hat has left a free bottle on Ruby's counter. Ruby has put it on the turntable lid, as if it were a stranger.) They're giving it away in the street now. Nothing that free is ever free. I keep thinking about the Arvo Lind record. The one from the Aurora, in 1959.",[
   ["Free samples are nice, though.","A free song on the radio's nice. A free cola's a fishhook with sugar on it. Next month it's ten pence, and the month after you can't remember life without it."],
   ["Still thinking about the Arvo Lind record?","(She glances under the counter.) I keep thinking about the Aurora in 1959. All those people in their good coats, not knowing they'd be the only ones who ever heard it live. Whatever happens to a record, the night happened."],
   ["Want me to drink it for you?","Be my guest. (She slides it across.) Tell me if it tastes of kelp. I've always suspected."]],

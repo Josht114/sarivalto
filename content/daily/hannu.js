@@ -41,7 +41,7 @@ DAILY['Hannu']={
   ["What's the headline today?","OIL MEN THIRSTY. It's not much. But it's true, and it'll be true next week, and Olga can't argue with it."],
   ["Do you smoke your own stock?","Two a day, behind the ears. If I smoked what I wanted, there'd be no stock and no Hannu."]],
  "Take a packet for the road. Pay me twice tomorrow."],
-8:["(The board says SERMON SUNDAY. Hannu is leaning on it, looking pleased.) The Abbot's preaching about the king, they say. I chalked it on Friday. Look at me, I'm a prophet.",[
+8:["(The board says SERMON SUNDAY. Hannu is leaning on it, looking pleased.) The Abbot's preaching about the king, they say. I chalked it on Friday. Look at me, I'm a prophet. My mother would've had something to say about it.",[
   ["Are you religious?","On Sundays I sell more papers to the church people than all week to the Party. So I'm very respectful of God. He's a good customer."],
   ["How did you know about the sermon?","A monk came down for tobacco on Thursday. Monks are the biggest gossips on the island. They've got nothing else to do but listen."],
   ["What would your mother say?","She'd say the Abbot talks well and the fish still need gutting. She said that about every sermon, including her own wedding."]],

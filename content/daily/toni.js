@@ -101,12 +101,12 @@ DAILY['Toni']={
   ["Will the machines break?","If they get much hotter, I'll be fixing them every hour. I've got the screwdriver in my belt and a spare kick ready."],
   ["Any sign of RIT?","Not last night. Too hot to play, maybe. Or she's got other things on her mind."]],
  "Go on. Stay cool. Don't touch the machines, they bite when they're hot."],
-21:["(The arcade's dark, and the neon's out. Toni is sitting on the counter with a torch.) The power went when the mountain went. All the machines died at once. I've never heard it so quiet in here.",[
+21:["(The arcade's dark, and the neon's out. Toni is sitting on the counter with a torch.) The power went when the mountain went. All the machines died at once. I've never heard it so quiet in here. Saga next door, from the spa, was up the mountain.",[
   ["Are you all right?","I'm fine. Scared. The ground shook so hard the Brick Breaker fell over. I picked it up by myself. I didn't know I could."],
   ["Is Saga safe?","She came down the mountain with the bathers, all in towels, I heard. She's at home. I'm going to knock on the wall when I get back and listen for humming."],
   ["What will you do now?","Wait till the power's back. Then I'll fix every one of them. Then I'll set new high scores. Somebody's got to make things normal again."]],
  "Go on. Get home safe. Don't go north."],
-22:["(Toni is wiping ash off the Invaders screen.) Power's back. Every machine was full of ash. The Snake game's snake is grey. I think it'll stay grey.",[
+22:["(Toni is wiping ash off the Invaders screen.) Power's back. Every machine was full of ash. The Snake game's snake is grey. I think it'll stay grey. Saga next door hums through the wall most nights.",[
   ["Did all the scores reset?","All of them. Every cabinet's at zero. The whole month of scores. Mine, RIT's, the kids'. It's like the year started again."],
   ["Is that sad?","It's sad and it's fair. Now nobody's on top. First one to play gets the record. I'm going to play every machine tonight."],
   ["Did Saga hum last night?","She did. Quietly. The sailor song. I didn't bang on the wall. I nearly cried, actually. Don't print that."]],

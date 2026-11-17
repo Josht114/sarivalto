@@ -116,7 +116,7 @@ DAILY['Hely']={
   ["Are you betting on any of it?","No. Not since the mountain. I told Paolo I'm retiring from betting. He wrote something in his book. I think it was a line under my name."],
   ["What does Veikko think?","Veikko thinks the Democrats will win if the princess helps. Veikko thinks a lot. I just think whoever wins should come and watch the circus. Everyone's nicer after the circus."]],
  "Take a leaflet. I've got eleven. I'll juggle the rest."],
-26:["(Hely is practising with the clubs, and catching more than she drops.) Look! Four in a row! Four! Buttons came down from the lake and showed me a trick. You throw from the wrist, not the arm. I've been throwing from the arm for six years.",[
+26:["(Hely is practising with the clubs, and catching more than she drops.) Look! Four in a row! Four! Buttons came down from the lake and showed me a trick. You throw from the wrist, not the arm. I've been throwing from the arm for six years. I still owe Paolo the bookie. I'm getting there.",[
   ["You're getting better.","I am, aren't I? Buttons says I'm 'nearly not terrible'. That's the nicest thing a clown's ever said to me."],
   ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. Linnea says the whole island's gone mad. I think it was always mad. Now it's just louder."],
   ["Have you paid Paolo?","(She drops a club.) Not yet. I've been selling programmes for the circus, for wages now, real wages. Meg's paying me. I've got nearly enough. Nearly."]],
@@ -126,7 +126,7 @@ DAILY['Hely']={
   ["Is the circus going on tour?","After the month, Bruno says. Round the island, every town, then over to Finland for the winter. If Meg says yes, I'm going with them. In a caravan. With a hat."],
   ["What does Linnea think?","(Linnea pours the tea.) Linnea thinks I'll be the best thing that's happened to that circus since the bear. There was a bear, once. It's retired."]],
  "Drink some tea with us. Linnea's made a pot for three. She knew."],
-28:["(Hely is holding a fat envelope, and her hands are shaking.) I've paid Paolo. All of it. Every krone. From programme money. He counted it, put it in his book, and drew a line under my name. A real line. Then he shook my hand.",[
+28:["(Hely is holding a fat envelope, and her hands are shaking.) I've paid Paolo. All of it. Every krone. From programme money. He counted it, put it in his book, and drew a line under my name. A real line. Then he shook my hand. Now I've asked Meg if I can join the circus.",[
   ["How does it feel?","Like taking off a coat I've been wearing for two years. In summer. I'm so light I might float up to Meg's wire."],
   ["What's happening today?","Every faction's big push. Flags everywhere. Erik's rally on the stage Bjarne built. I'm going. I'm going to stand at the front and cheer for everything. I'm not betting on any of it. I'm just cheering."],
   ["Has Meg said yes?","Tomorrow, she says. After the last show tonight. Bruno has to agree. Buttons has already said yes. Buttons is easy. Bruno's not."]],

@@ -120,7 +120,7 @@ DAILY['Freja']={
   ["Is Doctor Lind all right?", "Exhausted and cheerful. She's a terrible patient and a wonderful doctor. She said 'thank you' to the mattress before she said it to me."],
   ["How's your own flat?", "Grey. I haven't had time to rearrange it. It's the first Sunday in years I didn't move the sofa. I felt quite ill."]],
  "Steady on the corners."],
-25:["(Freja is in her doorway, watching the street.) A crown for everyone, a princess for democracy. The palace and the Democrats are talking, they say. I hope someone's thought about where they'll all sit.",[
+25:["(Freja is in her doorway, watching the street.) A crown for everyone, a princess for democracy. The palace and the Democrats are talking, they say. I hope someone's thought about where they'll all sit. Doctor Lind's got my mattress now, for her patients.",[
   ["Does it matter where they sit?","It's all that matters. Put two enemies side by side and they sulk. Put them across a corner and they talk. Put them face to face and they fight."],
   ["Did Doctor Lind like the mattress?","She sent a note: 'Bless you. Please send another.' I've sent another. She's a doctor; I've stopped asking where she puts them."],
   ["How's the green chair?","Clean again. Henrik came in this morning and sat in it for an hour without speaking. Then he said, 'Thank you,' and left. I think it helped him with something."]],
@@ -130,7 +130,7 @@ DAILY['Freja']={
   ["Will you take the job?","If they pay. Dario's never paid anybody on time in his life, Bertil says, and Bertil keeps the forms."],
   ["Is Kelp Cola putting a prince on the bottles?","So they say. If they want a throne for the advertisement, I've got a very good chair. It's green. It's never been on a bottle."]],
  "Teak for steam. Oak for most things. Velvet for nothing that gets wet."],
-27:["(Freja is folding dust sheets.) The Party's showing a film at the pictures. Otto rang to ask if I could lend him fifty chairs for the overflow. Fifty! I said yes. I'll go along and make sure they're in rows.",[
+27:["(Freja is folding dust sheets.) The Party's showing a film at the pictures. Otto rang to ask if I could lend him fifty chairs for the overflow. Fifty! I said yes. I'll go along and make sure they're in rows. Henrik from the Gazette was meant to come and sit in the green chair.",[
   ["Are you going to see the film?", "I'll go to see the chairs. Tractors and wheat, Helen says. I'll watch the audience instead. You can tell a lot about a country by how it sits through a film."],
   ["Is Otto paying?", "Otto's paying me in tickets. I've now got fifty tickets to a film about tractors. Would you like one? Would you like ten?"],
   ["Where's Henrik?", "Covering the film, he says. He's sending Nora. He'll come and sit in the green chair afterwards and write it up from her notes."]],

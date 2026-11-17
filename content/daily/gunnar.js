@@ -113,7 +113,7 @@ DAILY['Gunnar']={
     ["Bob owes you a drink.","Bob can buy it when the ash stops. I'll make it a small one. A man shouldn't profit too much off a mountain."],
     ["You're a good man, Gunnar.","I'm a big man. People mix them up. Today, maybe both. Tomorrow, just big."]]]]],
  "Cover your mouth. And thank you for asking."],
-22:["(Gunnar is shovelling ash off the dock into a barrow.) Mike's paying lads to clear the harbour. I'm doing it for free. Don't tell Mike. He'll stop paying the lads.",[
+22:["(Gunnar is shovelling ash off the dock into a barrow.) Mike's paying lads to clear the harbour. I'm doing it for free. Don't tell Mike. He'll stop paying the lads. Bob owes me a drink for a crate I carried.",[
   ["How's your back?","Like a rusty hinge. Aili rubbed in twice the liniment this morning. I smell like a chemist's shop in a fire."],
   ["What's the damage at the harbour?","Grey everything. The water's grey. The boats are grey. The fish are fine. Fish don't care about volcanoes."],
   ["Did Bob buy your drink?","He did. A small one, as agreed. Then he bought me a bigger one, because he's Bob. Then I bought him one. We're even, or drunk."]],

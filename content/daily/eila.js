@@ -2,7 +2,7 @@
 // her letters to the Civil Service Bureau about relief money (Bertil, and a form that never comes back), her needle (armbands for
 // the funeral, then Grace's overflow, then Grace's offer), her worry for Marjut and her grudge, and her quiet anger at Hope Springs.
 DAILY['Eila']={
-2:["(Eila is threading a needle without looking.) You're the reporter. The first tram from Saltwick brought you and half of Saltwick with you. Eila. I mend things.",[
+2:["(Eila is threading a needle without looking.) You're the reporter. The first tram from Saltwick brought you and half of Saltwick with you. Eila. I mend things. I sewed at Lindqvist's, the dressmaker's, till it shut.",[
   ["What do you mend?","Coats, collars, trousers, the odd wedding dress. Anything with a seam. Twenty-two years at Lindqvist's dress shop, before it shut."],
   ["What happened to Lindqvist's?","Frostholm happened. Ready-made from Helsinki, shipped in by the crate. Nobody wants a dress that fits when they can have one that's new."],
   ["You don't look pleased to see me.","I don't look pleased to see anyone. It saves time. (A pause.) Welcome to Kingsgrad."]],

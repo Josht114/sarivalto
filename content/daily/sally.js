@@ -115,7 +115,7 @@ DAILY['Sally']={
   ["Did she believe you?","She hung up on me. That means she's worried. Kirsti only hangs up on people she loves."],
   ["Any more interest in houses?","Three calls this morning! All asking how far each house was from the mountain. I've got tape measures out. The furthest one's Saltwick."]],
  "Mind the ash on the step. I've given up sweeping it."],
-23:["(Sally is drawing a new brochure: the volcano, with a cosy-looking villa in front.) 'Hope Springs: a view to remember.' What do you think? Too soon?",[
+23:["(Sally is drawing a new brochure: the volcano, with a cosy-looking villa in front.) 'Hope Springs: a view to remember.' What do you think? Too soon? Bob's trying to sell his house too.",[
   ["Much too soon.","Oh, you sound like Kirsti. All right, I'll draw a tree in front of the volcano. There. Now it's a nice tree."],
   ["It's a lovely drawing.","Thank you! I've been drawing since I was a girl. My father said I'd be an artist. I said artists don't sell houses."],
   ["How's Bob's house?","The low offer went higher. Not high enough. I said no, nicely, with a biscuit."]],

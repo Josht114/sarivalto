@@ -113,7 +113,7 @@ DAILY['Saara']={
   ["What's next for the lab?","Phil wants a cola for the foreign buyers. 'Light', he calls it: less sugar. The king asked for that twenty years ago, and nobody listened."],
   ["How's Noora?","Her exam's still on. I've told Helsinki the ash is no excuse. She's furious with me, and revising harder."]],
  "Less sugar. Twenty years late, but less sugar."],
-23:["I've started collecting the ash, a jar a day. Sulphur, silica, iron. The island's insides are on the outside now.",[
+23:["I've started collecting the ash, a jar a day. Sulphur, silica, iron. The island's insides are on the outside now. And Phil wants his Light cola by Friday.",[
   ["Why collect it?","Because nobody else will, and in fifty years somebody will want to know what this month was made of."],
   ["How's the Light cola?","Less sugar, more acid, and an American sweetener that tastes of tin. I'm trying to make the tin polite."],
   ["Kurt's guarding the factory.","If anyone throws a spanner into his machinery, I pity the spanner."]],

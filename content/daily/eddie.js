@@ -142,7 +142,7 @@ DAILY['Eddie']={
   ["What film?","Something with tractors in it, he says. He hasn't seen it, which upsets him more than the Communists."],
   ["Are you going?","To a film with tractors in it? I'll hear all about it from twenty people tonight. I'll have seen it twenty times."]],
  "Go easy. Kingsgrad's full of people with strong feelings."],
-28:["(Through the window, flags and banners go past, and a band somewhere is playing badly.) Everybody's in Kingsgrad today. Every party, every flag, every band. I've doubled the beer order.",[
+28:["(Through the window, flags and banners go past, and a band somewhere is playing badly.) Everybody's in Kingsgrad today. Every party, every flag, every band. I've doubled the beer order. Marjut's at the window, trying to decide about Helsinki.",[
   ["Who's out there?","Erik's got a rally in the square, the Party's marching, there's a state visit at the palace, and everyone's hanging out of windows to see. Kingsgrad's never had a day like it."],
   ["Will it turn ugly?","Sergeant Hanna's got every policeman she owns out there. I've put the good glasses away. Make of that what you like."],
   ["What's your hope for all this?",["(She takes a long breath, and doesn't point to the jar.) That everybody gets to go home tonight. That's all.",[

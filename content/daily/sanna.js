@@ -58,7 +58,7 @@ DAILY['Sanna']={
   ["Is it the volcano?", "There's steam in the north, the oil men say. They say it like it's nothing. They say everything like it's nothing. That's how you know it's something."],
   ["What about Dario?", "Missing, they say. His men came in for burgers and talked about nothing else. If Dario's missing, the oil men don't get paid. They're very worried about Dario."]],
  "If you hear from the rig, tell me."],
-18:["(Sanna is standing on the back step with a cup of tea, looking north.) You can see the steam from here. A white column, like a chimney. The oil men say it's nothing. They say it a bit too often.",[
+18:["(Sanna is standing on the back step with a cup of tea, looking north.) You can see the steam from here. A white column, like a chimney. The oil men say it's nothing. They say it a bit too often. My brother's out on the rig in all this.",[
   ["Is it frightening?", "Beautiful, then frightening. Like a man you shouldn't like. (She drinks her tea.) Don't put that in your paper."],
   ["Has your brother rung?", "Last night. He says the rig shook and the coffee spilled and the drill's stopped. They're all waiting. He sounds cheerful. That's worse."],
   ["How's Birgit?", "Stockpiling. Tins, candles, torches. Nils from the electronics shop told her about his seismograph, and she bought two torches. She's never bought two of anything."]],
@@ -88,7 +88,7 @@ DAILY['Sanna']={
   ["Can you knit?", "My grandmother taught me. She taught me the sauce too. I'm much better at the sauce."],
   ["What colour?", "Blue, like the sea on a good day. And a bit grey, where I ran out of blue. That's the ash's fault, I'll tell him."]],
  "Don't tell Sven. It's a surprise. It's a very obvious surprise."],
-24:["(Sanna is serving burgers to men in overalls, quickly.) The clean-up crews. They come in black to the elbows and eat three burgers each. I've stopped charging the ones who've been up north. Don't tell Birgit. She'd make a policy.",[
+24:["(Sanna is serving burgers to men in overalls, quickly.) The clean-up crews. They come in black to the elbows and eat three burgers each. I've stopped charging the ones who've been up north. Don't tell Birgit. She'd make a policy. My brother's ashore from the rig, for once.",[
   ["Won't you go broke?", "Probably. But they've been up there shovelling ash off people's roofs. A burger's the least I can do. Frostholm feeds its own."],
   ["What's a policy?", "A rule on a clipboard. Birgit's got one for everything. Free burgers would need a form, a signature and a reason. The reason is they're tired and black and hungry."],
   ["How's your brother?", "Ashore, for three days. He came in and ate four burgers and fell asleep in the booth by the window. I've put a blanket on him. Don't wake him."]],
@@ -98,7 +98,7 @@ DAILY['Sanna']={
   ["What's the news?", "A crown for everyone, a princess for democracy, they're saying. Sven says it's all very exciting. Sven says everything's very exciting this week. I wonder why."],
   ["Does he like the scarf?", "He's worn it to the fuel dock, to the Nordmart and to bed, he says. Birgit saw him in it and asked if I'd made it. I said no. Birgit said 'hm'."]],
  "Don't tell Sven I went pink. He'll be unbearable."],
-26:["(Sanna is wiping down the counter, and laughing at something in the Gazette.) Kelp Cola wants a prince on every bottle. A prince! On the bottles I sell to oil men! They'll think the prince is advertising seaweed.",[
+26:["(Sanna is wiping down the counter, and laughing at something in the Gazette.) Kelp Cola wants a prince on every bottle. A prince! On the bottles I sell to oil men! They'll think the prince is advertising seaweed. My brother's gone back out to the rig.",[
   ["Which prince?", "They don't say. I'd put the one who looks hungriest on the bottle. A hungry man sells drinks."],
   ["Is Dario buying the spa?", "So I hear. He's never eaten here, Dario. His men have. He sends them in with a list. He likes his burger with no sauce. No sauce! I nearly refused."],
   ["How's your brother?", "Back on the rig. Something's leaking, he says, deep down, and they can't reach it. He says don't worry. I've stopped hearing it."]],

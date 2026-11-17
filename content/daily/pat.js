@@ -64,7 +64,7 @@ DAILY['Pat']={
   ["What would you want, if you could have anything?","A bottle and a smoke, if I'm honest. If I'm being very honest, a door to shut. But I'm only honest on Sundays."],
   ["You're shivering.","I'm keeping warm. Shivering's the body's way of doing a jig without asking you first."]],
  "Go on, you've got places to be. I've got the sea to watch."],
-12:["(Pat gazes out at the water.) The sea's grey all the way to Finland today. On a day like this you'd think nobody had ever crossed it.",[
+12:["(Pat gazes out at the water.) The sea's grey all the way to Finland today. On a day like this you'd think nobody had ever crossed it. Somebody of mine is over there, in Turku.",[
   ["Have you ever crossed it?","Hundreds of times, on the steamer. Kingsgrad to Helsinki, Helsinki to Turku, Turku back. I could cook a stew in a force eight."],
   ["What's in Turku?","(He's quiet a moment.) A daughter. Leena. She'd be thirty now. I haven't written in eleven years, so she'll have stopped waiting."],
   ["Finland's not that far.","Far enough. Distance isn't miles, friend. It's how long since you last wrote."]],
@@ -119,7 +119,7 @@ DAILY['Pat']={
   ["What's it like everywhere else?","Everyone sweeping. Saltwick's grey, Kingsgrad's grey, the cola tram's grey. The whole island looks like an old photograph."],
   ["Will the fish come back?","The fish always come back. They've seen worse than us. They'll wait till we stop shouting."]],
  "Breathe through your scarf. I'm not joking."],
-23:["(Pat is turning a smooth black stone in his fingers.) Volcano glass. The ash washed it up the beach, or brought it down from the hills. Look how it shines.",[
+23:["(Pat is turning a smooth black stone in his fingers.) Volcano glass. The ash washed it up the beach, or brought it down from the hills. Look how it shines. Leena, my daughter, would like it.",[
   ["It's beautiful.","The mountain makes something pretty and something dreadful in the same afternoon. Like a lot of people I know."],
   ["Is that for Leena too?","(He looks at it.) Maybe it is. A gull and a stone. She'll think her father's gone simple. She won't be wrong."],
   ["Worth anything?","To a tourist, a krone. To me, it's the first new thing the island's made in years."]],

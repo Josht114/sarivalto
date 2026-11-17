@@ -79,7 +79,7 @@ DAILY['Margit']={
   ["Is anyone hurt?","Nobody, they say. Thank heaven. Lava in the hills. Ash on everything. Quorum's very upset. So am I."],
   ["Will the vote still happen?","Rule one. The vote goes ahead. Rule one doesn't mention volcanoes. If it did, it would still say the vote goes ahead."]],
  "Brush yourself down before you leave. And don't sit on the box. That's mine."],
-22:["(Margit is wiping ash off the ballot box with a clean handkerchief.) Every inch of it. Ash in the lock, ash in the slot. I'll not have a grey vote.",[
+22:["(Margit is wiping ash off the ballot box with a clean handkerchief.) Every inch of it. Ash in the lock, ash in the slot. I'll not have a grey vote. Quorum, my canary, didn't like it either.",[
   ["Are you sending the letters?","Typed them last night. 'Dear member, the leadership vote will take place on the twenty-ninth, as planned, volcano notwithstanding.' 'Notwithstanding'. I like that word."],
   ["Did the candidates help with the ash?","Harald sent men to sweep. Magnus sent a bill for the sweeping. Carlo swept it himself, in his good suit, and said 'Good morning, Margit'. I don't know what to think."],
   ["How's Quorum?","Singing again. Ash on his feathers, but singing. Birds forgive. People take longer."]],

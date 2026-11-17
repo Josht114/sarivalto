@@ -13,17 +13,17 @@ DAILY['Raili']={
   ["Do you go to church?","For the warm. (She shrugs.) And the hymns. (She looks at the wireless.) But I prefer Kaisa's music. God won't mind. He likes jazz, I think. He made saxophones, in the end."],
   ["How's the job hunt?","Sunday. (She looks at the folded paper under her arm.) No jobs on Sundays. Just the jazz. (She smiles.) It's my day off from looking. I've earned it."]],
  "Listen, if you've got a wireless. Kaisa's playing something nice."],
-9:["(Raili is reading a red leaflet with her nose wrinkled.) 'The People's Cola.' (She folds it.) I've been asked three times today to sign a petition for a cola. (She sighs.) I said I'll sign for a job. The girl wrote that down. She was very sincere.",[
+9:["(Raili is reading a red leaflet with her nose wrinkled.) 'The People's Cola.' (She folds it.) I've been asked three times today to sign a petition for a cola. (She sighs.) I said I'll sign for a job. The girl wrote that down. She was very sincere. My friend Arto from the phone box signed one too. He signs everything. He says it's practice for a contract.",[
   ["Would you work for the Party?","I'd work for a goat if it paid. (She puts the leaflet away.) The Party says everyone will have a job. (She looks at you.) They don't say what. I've a feeling it's mostly carrying leaflets."],
   ["What's Arto doing?","Reading about whales. (She smiles.) He's very worried about them. I told him the whales are fine. They don't need jobs. (A pause.) He said that's why he likes them."],
   ["What did you do at the Aurora?","Rooms on the second floor. (She smiles.) Twenty rooms. Every bed. Every towel. (She looks at the hotel.) Greta on the desk does my floor now as well. She waves through the window. It's the only reason I walk this way."]],
  "If you're staying at the Aurora, say hello to Greta. And check the towels."],
-10:["(Raili is sitting on a bench with the wireless on her knee, playing the funeral very low, and a black ribbon in her pink scarf.) Since seven. (She listens.) Kaisa's doing the commentary. (She looks at the wireless.) She's very good. She hasn't cried once. I've cried four times.",[
+10:["(Raili is sitting on a bench with the wireless on her knee, playing the funeral very low, and a black ribbon in her pink scarf.) Since seven. (She listens.) Kaisa's doing the commentary. (She looks at the wireless.) She's very good. She hasn't cried once. I've cried four times. My friend Arto won't miss it either, in his way.",[
   ["Did you know the king?","I made his bed once. (She smiles faintly.) At the Aurora. He stayed one night in 1979. For a dinner. (She looks at the wireless.) He left a note on the pillow. 'Thank you. Very comfortable.' I kept it."],
   ["Where's Arto?","At the café window. (She nods.) Listening through the glass. He won't go in. It costs a coffee. (She sighs.) I'll buy him one after. He'll say no. Then yes."],
   ["What's happening now?","The guns. (She turns it up a little.) Kaisa's counting them. Very quietly. (She listens.) She says the army's guns. Twenty-one. (She closes her eyes.) Her voice is shaking. Just a little. I'm glad. It means she's a person."]],
  "Sit, if you like. Kaisa won't mind. She likes company."],
-11:["(Raili is cutting an advertisement out of the paper with very small scissors.) 'Mill hands demand fair pay.' (She cuts carefully.) I'm keeping it. (She folds it.) I'd be happy to be exploited. If it came with a wage.",[
+11:["(Raili is cutting an advertisement out of the paper with very small scissors.) 'Mill hands demand fair pay.' (She cuts carefully.) I'm keeping it. (She folds it.) I'd be happy to be exploited. If it came with a wage. My friend Arto would say the same. He's had a long week with that telephone.",[
   ["Would you work at the mill?","In Eastbrook? (She thinks.) It's a long tram. (She puts the cutting in her purse.) But yes. I'd go anywhere. (She looks at the purse.) I've got four cuttings now. Four places I'd go. None of them want me."],
   ["Why keep the cuttings?","So I remember what I've tried. (She takes them out.) Fishmonger. Welder. Mill hand. Cola girl. (She looks at them.) If I ever get a job, I'll throw them in the sea. All at once. Like confetti."],
   ["How's Arto?","He rang the oil company's number twelve times. (She shakes her head.) It rings out. (She smiles.) He says it's like a job. A very bad one. I said at least he's punctual."]],
@@ -80,7 +80,7 @@ DAILY['Raili']={
     ["The council might need help.","(She brightens.) Feeding people. (She looks at the street.) Clearing up. (She straightens her scarf.) I'm very good at clearing up. Nine years of it."],
     ["Rest first.","(She smiles.) Kaisa said that too. (She sits back down.) Rest. Drink water. Look after your neighbours. (She looks at the wireless.) I'll do all three. In that order."]]]]],
  "Cover your mouth. And thank you for asking."],
-22:["(Raili is behind a trestle table with an enormous tea urn, a pile of cups, and a queue of grey men with shovels.) Tea! (She pours.) The council wanted volunteers to feed the clean-up crews. (She pours another.) I've got the urn. I've never been so glad to be useful.",[
+22:["(Raili is behind a trestle table with an enormous tea urn, a pile of cups, and a queue of grey men with shovels.) Tea! (She pours.) The council wanted volunteers to feed the clean-up crews. (She pours another.) I've got the urn. I've never been so glad to be useful. My friend Arto's out there somewhere, with a shovel.",[
   ["You're not paid?","No. (She pours.) I don't care. (She hands a cup to a man with a shovel.) Look at them. Grey, cold, shovelling. (She smiles.) They need tea. I make very good tea. Nine years of room service."],
   ["Is Arto in the queue?","(She points.) Third from the front. With a shovel. And an armband. (She grins.) He's got a job. Four dollars a day. (She pours.) He hasn't stopped smiling. It's very strange to see. I keep giving him extra sugar."],
   ["Does the urn have a name?","(She pats it.) Wobbles. (She laughs.) It shakes every time there's an aftershock. And the tea sloshes. (She looks at it fondly.) It's the least I could do. Name it."]],
@@ -92,7 +92,7 @@ DAILY['Raili']={
     ["And the cuttings?","(She takes them out of her purse.) Six cuttings. (She looks at the sea.) Tonight. Off the harbour wall. (She grins.) Confetti. I promised."],
     ["What will you tell Kaisa?","(She looks at the wireless.) I'll write her a letter. (She smiles.) To say thank you. For the song. And for talking all night. (A pause.) She'll never read it out. I'll send it anyway."]]]]],
  "Sorry, I have to run. Forty journalists. All wanting towels."],
-24:["(Raili is on her lunch break, sitting on the bench in her Aurora uniform with her feet up on a crate.) My feet. (She wiggles them.) I'd forgotten. Nine years of stairs. Four months off. (She smiles.) They remember. They're very cross.",[
+24:["(Raili is on her lunch break, sitting on the bench in her Aurora uniform with her feet up on a crate.) My feet. (She wiggles them.) I'd forgotten. Nine years of stairs. Four months off. (She smiles.) They remember. They're very cross. I bought my friend Arto a sandwich with my first wage.",[
   ["How's the hotel?","Full of journalists. (She rolls her eyes.) All writing about the volcano. All wanting towels. (She smiles.) One of them asked me what it was like. The night it went. (A pause.) I told him about Kaisa's song. He wrote it down."],
   ["Did you buy Arto his sandwich?","Ham. (She grins.) Real ham. He's making it last. (She looks down the boulevard.) He says it might be the best sandwich of his life. (She laughs.) It's a very ordinary sandwich. But I bought it. With my wage."],
   ["Did you throw the cuttings?","Last night. (She smiles.) Off the harbour wall. Six cuttings. (She looks at the sea.) Ole the harbourmaster saw me. He said 'are you littering?' I said 'I'm celebrating.' He let me off."]],
@@ -102,7 +102,7 @@ DAILY['Raili']={
   ["Arto's upset about the poster.","(She laughs.) It's his phone box. (She looks at it.) He's guarded it for three months. (She shakes her head.) Now there's a princess on it. He says she should have asked."],
   ["How's work?","Hard. (She stretches her back.) Wonderful. (She smiles.) Greta and I have lunch together. Like before. (She looks at the hotel.) It's like I never left. Except my feet."]],
  "If you see the princess, tell her Arto's very cross. Politely."],
-26:["(Raili is sitting on the bench in her uniform, listening to a slow song on the wireless.) 'A Prince in Every Bottle.' (She shakes her head.) That's the rumour now, they say. (She listens.) It sounds like a fairy tale for people who drink.",[
+26:["(Raili is sitting on the bench in her uniform, listening to a slow song on the wireless.) 'A Prince in Every Bottle.' (She shakes her head.) That's the rumour now, they say. (She listens.) It sounds like a fairy tale for people who drink. My friend Arto's been excited all morning. Ask me why.",[
   ["What's the news at the hotel?","Diversified Petroleum's buying the spa, the journalists say. (She smiles.) They talk about everything in the lift. (She looks at the Aurora.) Chambermaids hear everything. Nobody notices us. (A pause.) That's the job."],
   ["Do you tell anyone?","(She looks shocked.) Never. (She smiles.) Greta says a receptionist sees nothing. A chambermaid sees less. (She thinks.) Greta sees everything and tells me. That's different."],
   ["How's Arto?","Toni's game came today. (She laughs.) Turbo Rally. From Japan. He's going to have a go after his shift. (She looks at the arcade.) He's never driven anything. Not even a bicycle."]],
@@ -119,7 +119,7 @@ DAILY['Raili']={
     ["How did it feel?","(She lowers her hands, smiling.) Like being counted. (She looks at the wireless.) Agnes says that. Being counted. (A pause.) I've never been counted on the radio before."],
     ["Did she say anything else?","'Thank you, Raili. Tomorrow's another day.' (She smiles.) Same as every night. (She holds the wireless.) But this time, she said it to me."]]]]],
  "Go and see the marches. I'll hear it all on the wireless."],
-29:["(Raili is on the bench with her hands round a mug, very tired and very content, in her uniform.) The Republicans are voting today. The palace is deciding who's next. (She sips.) And I've made forty beds this morning. (She smiles.) Tomorrow's the end of it.",[
+29:["(Raili is on the bench with her hands round a mug, very tired and very content, in her uniform.) The Republicans are voting today. The palace is deciding who's next. (She sips.) And I've made forty beds this morning. (She smiles.) Tomorrow's the end of it. My friend Arto's got a job of his own today. A very small one.",[
   ["Are you ready?","As ready as a woman can be. (She looks at the Aurora.) Whoever wins, they'll need beds made. (She sips.) Somebody always does. (She smiles.) I'll be there."],
   ["How's Arto?","Watching a door for Sven. (She laughs.) Two coffees. He's very serious about it. (She looks down the boulevard.) He says it's the first time he's used the phone box to make a call. (She smiles.) He's so proud."],
   ["What will you remember?","(She thinks.) Kaisa's song. Wobbles the urn. (She smiles.) The cuttings off the harbour wall. (She looks at you.) And a reporter who asked how I was, every time. (A pause.) Nobody asks chambermaids anything."]],

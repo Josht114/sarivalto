@@ -41,7 +41,7 @@ DAILY['Saga']={
   ["Are you religious?","I pray for boats. That's my religion. Every boat that leaves the harbour, I say a little word. It hasn't failed yet, since 1976."],
   ["What do you do on Sundays?","Fold. Look at the sea. Hum. Go home on the tram and hum some more. Aino bangs on the wall when I get to the sad one."]],
  "Enjoy your Sunday. I'll be here, humming."],
-9:["(Saga is laughing, quietly, behind the desk.) Two people came up today asking about cola flavours. A man from Kelp Cola, then a woman from the Party. Both very serious. Both very lost.",[
+9:["(Saga is laughing, quietly, behind the desk.) Two people came up today asking about cola flavours. A man from Kelp Cola, then a woman from the Party. Both very serious. Both very lost. Next they'll want to bottle the Lava Tube, the cave up past the springs.",[
   ["What did you tell them?","Taste the springs. Everyone says the water tastes of the volcano. Smoky, salty, a bit of a kick. And if they want the real thing, there's a cave mouth on the ledge above us. The Lava Tube. Mind your eyebrows."],
   ["Will they really make a volcano cola?","The Party woman wrote it down. The cola man laughed, and then wrote it down twice. I think someone's going to try."],
   ["Is it safe, the Lava Tube?","For someone careful. The rock's hot enough to cook on in places. The monks went up once for a dare. Brother Teodor came back with no eyebrows."]],
@@ -113,7 +113,7 @@ DAILY['Saga']={
   ["Will it open again?","When the ash stops. Mrs Valo sent another telegram: 'Is the water still hot?' I wrote back: yes. Same as always."],
   ["Who's helping you?","Nobody yet. The rich have gone to their villas. The Abbot sent two monks with brooms. They're very good at sweeping. It's very calm."]],
  "If you go up the mountain, bring a mop."],
-23:["(Saga is humming as she mops, a tune that isn't any of the three.) Oh. You heard. That's a new one. I made it up. Last night, in the bath at home. Toni banged on the wall and asked what it was.",[
+23:["(Saga is humming as she mops, a tune that isn't any of the three.) Oh. You heard. That's a new one. I made it up. Last night, in the bath at home. Toni banged on the wall and asked what it was. My brother's up north. I hum when I'm worried about him.",[
   ["What is it?","A song about a boat that comes home. That's all it's about. A boat, coming home, and someone on the shore who's been waiting."],
   ["Is it about your brother?","(She stops mopping.) I suppose it is. I didn't mean it to be. It just came out, after the mountain. Things come out, after a mountain."],
   ["Will you sing it for me?","Not yet. It's not finished. It hasn't got an ending. I don't know how a song like that ends."]],

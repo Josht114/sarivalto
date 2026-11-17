@@ -50,7 +50,7 @@ DAILY['Arvid']={
   ["Does Tom mind?","Tom smiles a lot and says nothing. He's a good fisherman and a better diplomat."],
   ["Isn't it a bit unfair on Marta?","(He looks guilty.) It's very unfair. She taught me how to choose herring. Now I choose it before her. That's either a compliment or a betrayal."]],
  "If you see Marta, don't mention herring."],
-13:["(Arvid is unpacking another crate of lemons and slipping a card into the pie he's packing to go back.) Friday. Lemons in, pie out. I've written a card this time. Just two words. Don't look.",[
+13:["(Arvid is unpacking another crate of lemons and slipping a card into the pie he's packing to go back.) Friday. Lemons in, pie out. I've written a card this time. Just two words. Don't look. The lemons are from Linnea, at the Timberline Tavern. The pie's from me.",[
   ["What does the card say?","(He blushes.) 'Thank you.' That's all. Twelve weeks of lemons and I've finally said thank you. It's a big step."],
   ["Will Linnea reply?","She might send a lemon with a note. Or she might not. That's the beauty of it. Nobody has to say anything."],
   ["Is everyone drinking free Kelp Cola?","Everyone. The whole restaurant. I serve it with the herring. It's terrible with herring. Everyone's too polite to say."]],
@@ -65,7 +65,7 @@ DAILY['Arvid']={
   ["What's the news today?","Crown before cross, cross before crown. Augustus. The prince wants him at the palace. The Church wants him for the monastery. I want him to eat more. He was always thin."],
   ["Did you cook for Augustus?","When he was a boy. He'd come to the kitchen and ask for bread and honey. Every day. He'd sit on the step and eat it and read. Marta adored him."]],
  "If you see Augustus, tell him there's bread and honey at the Cedar Grill."],
-16:["(Arvid is serving a table of Democrats who are arguing about the debate.) The great debate. The Party and the Democrats. Every table in my restaurant has an opinion. I've got a portrait of the king and a pot of soup. I'm neutral.",[
+16:["(Arvid is serving a table of Democrats who are arguing about the debate.) The great debate. The Party and the Democrats. Every table in my restaurant has an opinion. I've got a portrait of the king and a pot of soup. I'm neutral. Linnea at the Timberline's a royalist too. She sends me lemons on Fridays, and I send back pie.",[
   ["Who's winning the debate?","Erik, according to table four. Anna, according to table seven. The soup, according to everyone. The soup always wins."],
   ["What do you think?","I think the king should be king. But I don't say so at table four. I bring them extra bread instead. It's diplomacy."],
   ["Is Linnea watching the debate?","At the Timberline, with the wireless on loud. She sent a note with the pie dish: 'Erik's waffling.' It's the first note she's ever sent. I've framed it."]],
@@ -75,12 +75,12 @@ DAILY['Arvid']={
   ["Was it an earthquake?","A little one, Linnea says. She came running over. In her apron. From the tavern. She ran. (He looks at the door.) She ran."],
   ["Are you all right?","My hands are shaking. Chefs' hands shouldn't shake. Linnea held them for a minute. They stopped. Then she went back. They started again."]],
  "Stand in a doorway if it happens again. That's what Linnea says."],
-18:["(Arvid is trying to cook, but keeps stopping to check the portrait is straight.) The ground's been moving all morning. Small ones. My soufflés won't rise. Soufflés hate earthquakes. Everyone knows that.",[
+18:["(Arvid is trying to cook, but keeps stopping to check the portrait is straight.) The ground's been moving all morning. Small ones. My soufflés won't rise. Soufflés hate earthquakes. Everyone knows that. At least His Majesty's happy. My sourdough starter. I named him after the king.",[
   ["Is the volcano going to erupt?","My grandmother said the mountain sleeps with one eye open. I always thought it was just something grandmothers said."],
   ["How's His Majesty?","My starter? Bubbling like mad. He loves the warm air. He's the only one in the kitchen who's happy."],
   ["Are customers still coming?","More than ever. Frightened people eat. They sit close together and order soup and don't finish it."]],
  "Eat something. You look pale. Everyone looks pale."],
-19:["(The Cedar Grill smells of eggs, and Arvid is furious about it.) Eggs! The whole kitchen smells of eggs! From the mountain! Do you know what that does to a herring? It makes it smell like breakfast.",[
+19:["(The Cedar Grill smells of eggs, and Arvid is furious about it.) Eggs! The whole kitchen smells of eggs! From the mountain! Do you know what that does to a herring? It makes it smell like breakfast. And Linnea from the Timberline's sent her lemons early, with a note.",[
   ["Can you still cook?","I can cook through anything. I cooked through the stove exploding in 1974. I'll cook through a mountain. But I'll complain."],
   ["Are people frightened?","Very. They're sitting in here for hours, not eating. Just being together. I keep bringing bread. Bread helps."],
   ["What's Linnea doing?","She's sent a crate of lemons, a day early. With a note: 'Just in case.' Just in case of what? She didn't say. I'm afraid to ask."]],
@@ -104,7 +104,7 @@ DAILY['Arvid']={
   ["How's Eastbrook after the ash?","Grey, but standing. Erik's got everyone sweeping. The mill's shut for a day. Dagny's sent her lads to help clear the street. Everyone's being very kind."],
   ["Will the Cedar Grill open?","Tonight. For everyone. Free soup. The ash took the harvest, they say. People will need feeding. That's what a kitchen's for."]],
  "Go on, before she gets here. I need to concentrate on the pancakes."],
-23:["(Arvid has tailor's chalk marks on his apron, and keeps holding his arms out without meaning to.) Don't laugh. I've been to Grace's in Kingsgrad. She's making me a jacket. I've never owned a jacket. I'm forty-one.",[
+23:["(Arvid has tailor's chalk marks on his apron, and keeps holding his arms out without meaning to.) Don't laugh. I've been to Grace's in Kingsgrad. She's making me a jacket. I've never owned a jacket. I'm forty-one. It's for the palace banquet. Marta, the palace cook, trained me for nine years. Now I'm a guest.",[
   ["What's the jacket for?","I can't say. (He looks at the ceiling.) Something at the palace. A dinner. For a foreign king. That's all. I've said nothing."],
   ["You're going to a royal dinner?","As a guest. Edmund sent a card. 'The prince remembers the herring at his father's wake.' A guest. At a state banquet. In a jacket."],
   ["Will Marta be cooking?","Of course. It's her banquet. I'll be eating her food. At her table. For the first time in twelve years. I'm more nervous about that than the king."]],
@@ -114,12 +114,12 @@ DAILY['Arvid']={
   ["Why now?","Because I'm going to eat her food at the palace. She should eat mine. That's fair. That's what a cook owes another cook."],
   ["Will she say yes?","She'll say my sauce is too sharp. Then she'll say yes. Or no. With Marta, the sauce comes first. The answer comes second."]],
  "Post it for me? No. I'll do it. A man should post his own please."],
-25:["(Arvid is pacing the kitchen.) She'll have it by now. The letter. She'll be reading it in the palace kitchen, between the pots. She'll read it twice and put it in her apron.",[
+25:["(Arvid is pacing the kitchen.) Marta will have it by now. My letter. Marta, the palace cook, who taught me everything. She'll be reading it in the palace kitchen, between the pots. She'll read it twice and put it in her apron. And Linnea from the tavern's been bringing the lemons herself.",[
   ["How do you know?","Because that's what she did with the king's notes, every year. Twice, then the apron pocket. I've seen her do it a hundred times."],
   ["What's the news today?","A crown for everyone, says the palace. A princess for democracy, say the Democrats. Every table's arguing. I'm serving soup and waiting for the post."],
   ["Is Linnea all right?","She had breakfast here again. Third time. She brings the lemons herself now. On Tuesdays too. It's not a pattern. It's lemons."]],
  "If the post comes, I'll be the one shouting."],
-26:["(Arvid is holding up a bottle of Kelp Cola and frowning at it.) Kelp Cola's cooking up a new advert, people say, with a famous face. Linnea heard at the tavern: a royal face. A prince, selling cola. I don't know whether to laugh or curtsey.",[
+26:["(Arvid is holding up a bottle of Kelp Cola and frowning at it.) Kelp Cola's cooking up a new advert, people say, with a famous face. Linnea heard at the tavern: a royal face. A prince, selling cola. I don't know whether to laugh or curtsey. I'm still waiting to hear from Marta, at the palace. I wrote to her.",[
   ["Would the king have minded?","The king would have laughed. He had a good laugh. He'd have bought a crate, and then told them no."],
   ["Has Marta written back?","Not yet. She's busy with the banquet. Plucking geese. I know her. She won't answer until it's over. Then she'll answer in one line."],
   ["Is the jacket ready?","Tomorrow. Grace says it'll fit if I don't eat between now and Thursday. I'm a chef. I'll do my best."]],
@@ -129,7 +129,7 @@ DAILY['Arvid']={
   ["Are you nervous about tomorrow?","Terrified. A foreign king, the family, Edmund, and Marta's food. I'll have to eat everything. Every course. And not say the sauce is too mild."],
   ["What else is happening?","A Party picture at the cinema. Card games somewhere. Everyone's nervous. It's lemon Friday. I've sent the pie with a card that says 'Tomorrow, the jacket.'"]],
  "If you see Linnea, tell her the jacket fits."],
-28:["(Arvid is in his new jacket, the Cedar Grill shut for the night, checking his reflection in a pan.) The banquet. I'm off to the palace. I'll go to the kitchen door first. Habit. Twelve years, and my feet still take me to the kitchen.",[
+28:["(Arvid is in his new jacket, the Cedar Grill shut for the night, checking his reflection in a pan.) The banquet. I'm off to the palace. I'll go to the kitchen door first. Habit. Twelve years, and my feet still take me to the kitchen. Marta, the palace cook, trained me there.",[
   ["Will you see Marta?","After. When the plates come back. If they're clean, she'll be happy. If they're not, she'll throw a ladle. I'll know which by the sound."],
   ["What's on the menu?","She won't tell anyone. Not even Edmund. I could smell goose from Kingsgrad, I swear. And herring. In a sauce. Not too sharp. Just right. Her sauce."],
   ["You look wonderful.","(He straightens the jacket.) Thank you. I feel like a fraud. A cook at a king's table. But the prince remembered the herring. That's enough."]],
@@ -139,7 +139,7 @@ DAILY['Arvid']={
   ["How was the banquet?","The foreign king spilled soup on his sash. Twice. Daphne laughed. Leopold didn't. The goose was perfect. Her sauce was better than mine. Don't tell her."],
   ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next in line. I'm making a menu for Marta's visit. That's my big push."]],
  "If you see Marta, don't tell her I said hers was better."],
-30:["(Arvid is in the kitchen, the king's portrait straight above the stove, His Majesty rising in his jar, a crate of lemons on the side.) Last day. They're settling the island's future today. I'm cooking. Whatever happens, people will be hungry tonight.",[
+30:["(Arvid is in the kitchen, the king's portrait straight above the stove, His Majesty rising in his jar, a crate of lemons on the side.) Last day. They're settling the island's future today. I'm cooking. Whatever happens, people will be hungry tonight. Linnea brought the lemons again this morning. I wrote to Marta at the palace, too.",[
   ["What do you hope happens?","That there's a king. You knew I'd say that. And that whoever it is, they come to the Cedar Grill and have the herring. In the sauce. Too sharp."],
   ["What will you cook for Marta?","Her own recipe. The herring, exactly as she taught me. No extra lemon. Just once. To show her I remember."],
   ["Will you remember this month?",["(He looks at the portrait, then at the lemons.) The ash, and the pie, and the jacket, and 'Your sauce is too sharp. Yes.' Every day of it.",[

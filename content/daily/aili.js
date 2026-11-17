@@ -23,7 +23,7 @@ DAILY['Aili']={
   ["Are they Party men?","Sam is. Mike is, when Helen's looking. Tom just likes eggs. Everybody in here is something. I'm a cook."]],
  "Come early tomorrow. The eggs are better before the fishermen eat them all.",
  "Tom, Sam and Mike eat at Aili's every morning at five and argue about whose turn it is to pay. It's always Mike's."],
-4:["(Aili is scraping the grill.) Eastbrook's open, they say. Half my coffee customers have gone over to the fancy place with the roaster. Can't blame them. My coffee tastes of the pot.",[
+4:["(Aili is scraping the grill.) Eastbrook's open, they say. Half my coffee customers have gone over to the fancy place with the roaster. Can't blame them. My coffee tastes of the pot. Walt would have bought a roaster. Walt bought everything.",[
   ["Your coffee's fine.","You're a liar, hon, but you're a polite one. That's the British, isn't it? Walt was the same. He'd say the pancakes were perfect while he picked the burnt bits off."],
   ["Who was Walt?","My husband. He did the books and the pancakes, and I did everything else. He'd have hated it here. Too cold for a man who wore shorts in October."],
   ["Will they come back?","They always come back. Fancy coffee doesn't stay open at three in the morning."]],
@@ -154,7 +154,7 @@ DAILY['Aili']={
   ["Which side are you on?","The side with the coffee, hon. Everybody's welcome. Nobody gets a discount."],
   ["Can I help?","Fill the sugar bowls. If you spill, blame the volcano. Everybody else does."]],
  "Come back later. I'll still be here."],
-29:["(Aili is leaning on the counter, chin in her hand.) Tomorrow it's all settled, they say. I've heard that before. In Minnesota, every election, everything was settled. Then it snowed.",[
+29:["(Aili is leaning on the counter, chin in her hand.) Tomorrow it's all settled, they say. I've heard that before. In Minnesota, every election, everything was settled. Then it snowed. Walt, my late husband, always had something to say about elections.",[
   ["Are you worried?","About the island? A bit. About the diner? No. Whoever wins will want breakfast."],
   ["Will anything change for you?","The roof will still leak and the D will still fall off. That's the only government I trust."],
   ["What would Walt say?","'Keep the grill hot and your mouth shut, Aili.' Then he'd say something about the Vikings. The football team. Not the real ones."]],

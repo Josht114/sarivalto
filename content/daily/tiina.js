@@ -20,7 +20,7 @@ DAILY['Tiina']={
   ["Fog's dangerous everywhere.","Fog's only dangerous if someone else is out in it who shouldn't be. Matti knew those waters better than his own house."]],
  "The fog'll lift by noon. It always does, after.",
  "Tiina's husband Matti went down with his boat in a fog last season."],
-4:["(Tiina is quiet a while before she speaks.) The Lumikki. That was the boat. Matti named it for the snow. Painted it white every spring.",[
+4:["(Tiina is quiet a while before she speaks.) My husband Matti had a boat, the Lumikki. He named it for the snow, and painted it white every spring. It went down last season, in a fog, with him in it.",[
   ["Was it ever found?","A bit of the wheelhouse washed up by the point. White paint, with a black scrape down it. Like something hit it."],
   ["What do you think happened?",["The harbourmaster says fog and bad luck. (She pulls her coat tighter.) The harbourmaster wasn't out in it.",[
     ["Were you?","I was on the pier with a lamp, waiting. I heard Matti's engine. Then another engine, bigger, with no lights. Then only one."],
@@ -62,7 +62,7 @@ DAILY['Tiina']={
   ["What does Pat need?","A dry bed and a hot meal. He'll ask for a bottle. If anyone gives it to him, that's on them, not Pat."],
   ["Where would he get a bottle?","Ray's, if he's feeling soft. Or he'll want the stuff from the farm. Jussi's barn. (She grimaces.) Everybody knows about that barn now. Except Olaf."]],
  "If you see him, tell him Tiina says keep warm."],
-12:["(Tiina is sitting alone for once.) Sirpa's gone to the plant to beg for hours again. She goes every Thursday. She comes back every Thursday.",[
+12:["(Tiina is sitting alone for once.) Sirpa's gone to the plant to beg for hours again. She goes every Thursday. She comes back every Thursday. My husband Matti's boat went down last season. I'm thinking of him today.",[
   ["Don't you go with her?","I'm not a fishmonger. I'm a net-maker. The plant doesn't need nets, it needs hands. Mine are the wrong shape."],
   ["What was Matti's last day like?","(She looks at you a long time.) Ordinary. Porridge, an argument about the roof, a kiss at the door. He said 'back by dark'. That was the only lie he ever told me."],
   ["Nice to have the bench to yourself?","It's too quiet. You don't know how much someone talks until they stop."]],
@@ -117,7 +117,7 @@ DAILY['Tiina']={
   ["Are the boats going out?","Not today. Ash on the water, ash in the engines. The whole harbour's sitting on its hands. Like me, but louder."],
   ["Your hands look sore.","They've been sore before. They're net-maker's hands. They don't know how to be anything else."]],
  "Shake your coat out before you go indoors."],
-23:["(Tiina is trying not to smile.) She gave him the scarf. Sirpa. Last night, at the bar. And he put it on. Ray. In front of everybody.",[
+23:["(Tiina is trying not to smile.) Sirpa gave Ray the scarf she's been knitting him all month. At the bar. And he put it on. In front of everybody.",[
   ["You must be happy for her.","I am. Don't tell her I said so. She'll cry, and then I'll have to look at the sea till she stops."],
   ["Did you see it happen?","From my table. She went pink to the ears. He said 'right', and wrapped it round three times. The whole bar clapped."],
   ["Will you have someone again?","(A long pause.) Not this year. Maybe not any year. Matti was a lot of husband. You don't find two."]],
@@ -127,7 +127,7 @@ DAILY['Tiina']={
   ["Is anyone hurt?","Not that I've heard. A chimney down in Kingsgrad, Olga's window cracked. Nobody missing. That's a good shake, in my book."],
   ["You're steadier than most.","When the worst thing's already happened, the rest of it's only noise."]],
  "Hold the rail on the harbour steps. They're loose."],
-25:["(Tiina is thoughtful.) I went and talked to Pat. Pat sees everything at night. He's seen boats with no lights at the river mouth for years.",[
+25:["(Tiina is thoughtful.) I went and talked to Pat. Pat sees everything at night. He's seen boats with no lights at the river mouth for years. It might be the boat I heard the night my husband Matti went down.",[
   ["Who are they?","He doesn't know, or won't say. Crates, handcarts, men who don't wave. Pat's not stupid either."],
   ["The same boat that hit Matti?","Maybe. A boat that comes in dark to land crates doesn't stop for a fishing boat in the fog. It doesn't stop for anything."],
   ["Will you tell the police?","And say what? 'A hobo saw lights'? Sergeant Hanna's got a drawer full of my letters already. I'll keep this one."]],
@@ -147,7 +147,7 @@ DAILY['Tiina']={
   ["What's the street saying?","Anna's lot are wild with it. Lucia's on her step with her arms folded, same as me. That's the only thing we've got in common."],
   ["Who do you hope wins?","Whoever looks after the boats. I'll find out which one that is when I see what they do, not what they say."]],
  "Mind yourself out there today. Come back in one piece."],
-29:["(Tiina looks at you, and nods.) I said yes to Tom. I start on his nets on Monday. In Matti's old shed. My shed, I suppose, now.",[
+29:["(Tiina looks at you, and nods.) I said yes to Tom. I start on his nets on Monday. In Matti's old shed. My shed, I suppose, now. Matti's boat was the Lumikki. I've still got the harbourmaster's letter about her.",[
   ["I'm glad.","So am I. I didn't think I would be. It's a strange thing, being glad again. Like a coat you've grown out of."],
   ["And the Lumikki?","I'll keep Ole's letter. When the island's settled, whoever's in charge, I'll take it to Kingsgrad and make them read it. I've got time."],
   ["Tomorrow's the big day.","Everybody's big day. Mine was today. (She almost smiles.) Don't tell Sirpa I said anything that soppy."]],

@@ -93,7 +93,7 @@ DAILY['Grace']={
   ["Is she any good?","She's quick, she's careful, and she doesn't talk while she sews. That's three more things than I expected. Don't tell her."],
   ["What changed your mind?","The muslin. Cutting a hundred masks by myself with a bad hip and a tremor. I sat down, and I couldn't get up, and Tiina was at the door looking for work. That's all."]],
  "Tiina, straighter. (To you.) Goodbye."],
-20:["(Grace is folding finished pieces into tissue paper, very fast.) If the mountain goes, I want everything finished and wrapped. Nobody's coat is getting ash on it.",[
+20:["(Grace is folding finished pieces into tissue paper, very fast.) If the mountain goes, I want everything finished and wrapped. Nobody's coat is getting ash on it. Tiina from Saltwick's been helping. My first apprentice. On trial.",[
   ["Is it going to go?","My hip says yes. The doctor says maybe. Nils in Frostholm says his record player says yes. I'm wrapping."],
   ["Is the uniform finished?","Leopold's? Last stitch this morning. Gold frogging, red sash. He'll look like a king. Or a hotel doorman. Depends who wins."],
   ["How's Tiina doing?","She stayed late last night and finished three hems without being asked. (She folds a jacket.) I didn't say thank you. I'll say it on Friday."]],
@@ -103,9 +103,9 @@ DAILY['Grace']={
   ["Is anyone hurt?","Nobody, they say, thank God. The lava came down in the hills. Everything else is just grey. Grey's not a tragedy. It's a colour."],
   ["What about your cloth?","Every bolt covered. (She pats the dust sheet.) Forty years of cloth, under a sheet, safe. Ash can't get through good cotton."]],
  "Wear your mask. The muslin one. It suits you."],
-22:["(Grace is brushing a jacket with a clothes brush, slow strokes.) Ash in every seam on the island. They'll all be coming to me. I'll be brushing till Christmas.",[
+22:["(Grace is brushing a jacket with a clothes brush, slow strokes.) Ash in every seam on the island. They'll all be coming to me. I'll be brushing till Christmas. Tiina, my apprentice, did half of it. I keep meaning to thank her.",[
   ["Is it bad for cloth?","It's sharp. It cuts the threads if you rub it. You brush it out, gently, the way the nap lies. Tiina's learning. She's very patient."],
-  ["You said you'd thank Tiina.","I did. On Friday. (She doesn't look up.) Well. Today. It's not Friday. But she'd earned it."],
+  ["Have you thanked Tiina?","I did. On Friday. (She doesn't look up.) Well. Today. It's not Friday. But she'd earned it."],
   ["What's the gossip now?","Nobody's gossiping. Everybody's coughing. The fitting room's never been so quiet. It's unnatural."]],
  "Brush with the nap. Never against."],
 23:["(Grace is measuring a big man in a white apron for a jacket.) Arms up. Chin up. (To you.) This is Arvid from the Cedar Grill. He's never owned a jacket in his life.",[
@@ -123,7 +123,7 @@ DAILY['Grace']={
   ["What's happening on the twenty-eighth?","A state visit. A king from somewhere with more money than us. The palace wants to look like a palace. They've ordered everything at once."],
   ["Does Daphne still have the old king's coat?","She wore it to her fitting. Over her nightdress. Three sizes too big. (She smiles.) I didn't say a word."]],
  "If you see Daphne, tell her the waist's right now."],
-26:["Lisa from the supermarket carried my shopping home. I gave her five dollars. Don't tell her it was too much. She'll only argue.",[
+26:["Lisa from the supermarket carried my shopping home. I gave her five dollars. Don't tell her it was too much. She'll only argue. (She glances at an old photograph by the mirror, signed 'Aaro'.)",[
   ["That was kind.","It wasn't kind. It was payment. My hip, two bags and a hill. Five dollars is cheap. (She sniffs.) Don't call me kind. It's bad for business."],
   ["She's saving for London.","I know. Forty years ago, I saved for Paris. I got as far as Helsinki, met a cutter called Aaro and came home with him instead. Paris can wait."],
   ["What happened to Aaro?","Died in sixty-eight. Best buttonholes in the north. (She touches a mannequin.) He's why I don't take apprentices. You take one, and you lose them."]],
@@ -133,12 +133,12 @@ DAILY['Grace']={
   ["Do you mind dressing them?","I mind the cards in my lining. Everything else is business. Cloth doesn't care who wears it. I care, but I've stopped telling cloth."],
   ["Is everyone going?","Everyone who's ordered something from me this month. Which is everyone who matters. I've sewn half the room. I'd recognise them in the dark."]],
  "Cards out of the lining. Always."],
-28:["(Grace is in her mother's hat, watching the street.) Look at them. Every faction on the island in their best. And I've made half of it.",[
+28:["(Grace is in her mother's hat, watching the street.) Look at them. Every faction on the island in their best. And I've made half of it. Tiina, my apprentice, is out there somewhere with a needle.",[
   ["What do you see?","Daphne's gown, going up to the palace. Leopold's uniform on the steps. Harald's suit at the cola stand. Carlo's men in pinstripes. Gold frogging and pinstripes. What an island."],
   ["Are you proud?","Of the seams. Yes. Of what they're doing in them, I'm not sure yet. A tailor doesn't choose who wears the coat."],
   ["Is Tiina here?","She's at the palace, with a sewing kit, in case Daphne pops a stitch. My first apprentice at a state visit. (She sniffs.) I'm not crying. It's the ash."]],
  "Stand up straight. The whole island's watching."],
-29:["(Grace is ironing.) The Republicans are voting. Three candidates, and I've dressed all three. Whoever wins, he'll be in one of my suits.",[
+29:["(Grace is ironing.) The Republicans are voting. Three candidates, and I've dressed all three. Whoever wins, he'll be in one of my suits. Tiina, my apprentice, asked me something this morning.",[
   ["Who'd you vote for, if you could?","I can't. Not a member. If I could, I'd vote for the best posture. Which means nobody. I'd spoil my paper."],
   ["Does it matter who leads them?","To the island, it might. To me, he'll still need taking in at the waist by Christmas. They always do, once they've won."],
   ["How's Tiina?","She's asked if she can stay on after the trial. (She irons a sleeve.) I said I'd think about it. I've already ordered her a thimble."]],

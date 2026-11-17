@@ -60,7 +60,7 @@ DAILY['Mary']={
   ["Is there a market for military history?","Frank buys it all. He reads about battles the way other men read about cricket. He'll be in by noon, pretending he isn't."],
   ["What's the Union doing?","Shouting at Dagny at the mill in Eastbrook about wages, by the sound of the Gazette. I'm on their side, though nobody's asked a bookseller."]],
  "If you've any old books at home, bring them. I'll give you a fair price."],
-12:["(Mary is reading a ledger with her lips pressed tight.) Somebody in the oil company's been buying every book I've got on accounting. Six in a fortnight. Either they're learning, or they're hiding something.",[
+12:["(Mary is reading a ledger with her lips pressed tight.) Somebody in the oil company's been buying every book I've got on accounting. Six in a fortnight. Either they're learning, or they're hiding something. (Her fat grey cat, Orwell, yawns on the counter.)",[
   ["Who's buying them?","A nervous young man who pays in cash and never looks up. I've decided not to know his name. It's safer for my nerves."],
   ["Have you seen Ruby?","Ruby from the record shop was in, asking about a book on old recordings. She's hunting for one record in particular. She had that look people get before they do something foolish."],
   ["How's Orwell?","Enormous. Lisa at the supermarket saves him the fish ends. I pretend not to know, and Orwell pretends to be starving."]],
@@ -97,7 +97,7 @@ DAILY['Mary']={
   ["Are you frightened?","A bit. Everyone is. I've packed a small bag. It has three books in it and a jumper. Priorities."],
   ["What's in the bag?","Dickens, for the long wait. A book of poems, for if it's bad. And a detective, for if it's very bad. A good mystery takes your mind off anything."]],
  "Keep an umbrella. It's raining steam."],
-19:["(Mary is on her knees surrounded by fallen books, and very cross.) The floor jumped again. Every shelf in the shop came down, and they were alphabetical. Arto helped me pick them up. Now Dickens is next to Dostoevsky, which is fine, and Agatha Christie is in poetry, which isn't.",[
+19:["(Mary is on her knees surrounded by fallen books, and very cross.) The floor jumped again. Every shelf in the shop came down, and they were alphabetical. Arto helped me pick them up. Now Dickens is next to Dostoevsky, which is fine, and Agatha Christie is in poetry, which isn't. I send Mario, in the cells, two books a week.",[
   ["Can I help sort them?","Bless you. Fiction on the left, everything else on the right. If you find a book with a red cover and a woman on it, that's for Mario. Put it with the parcel."],
   ["Is Mario's parcel ready?","It went this morning. (She stops.) Oh no. (She holds up a detective novel.) Then what did I send him? (Pause.) A love story. I sent Mario a love story."],
   ["Did Arto do a good job?","He picked up every book and put none of them in the right place. I gave him tea and a stale biscuit. He said it was a good wage. Bless him."]],
@@ -117,7 +117,7 @@ DAILY['Mary']={
   ["Have you sold anything since?","A book on volcanoes. Several, in fact. The one I hid. People want to know what's happened to them. It's the oldest reason to read."],
   ["How's Kingsgrad?","Grey and quiet and everyone sweeping. Lisa's sold out of soap. Grace is selling grey cloth by the yard, so the ash won't show."]],
  "From the spine outwards. Remember that."],
-23:["(Mary is reading the Gazette with her coffee going cold.) The oil rig's leaking again, it says, and there's whispering about the cola factory: somebody wants its machines to stop. Somebody in Kingsgrad doesn't want things to run smoothly.",[
+23:["(Mary is reading the Gazette with her coffee going cold.) The oil rig's leaking again, it says, and there's whispering about the cola factory: somebody wants its machines to stop. Somebody in Kingsgrad doesn't want things to run smoothly. Mario, in the cells, has finished his love story.",[
   ["Who'd do that?","I don't know, and I don't want to. In books, the person who says 'I don't want to know' always finds out. I'd rather be the exception."],
   ["Is the island coming apart?","It's being pulled apart. That's different. Pulled things can be put back. Coming apart is for paper in the rain."],
   ["Has Mario finished the love story?","He sent a note back with Sergeant Hanna: 'Nobody died. Very disappointing. Please send murders.' I've sent him three."]],

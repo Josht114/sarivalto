@@ -126,7 +126,7 @@ DAILY['Hekki']={
   ["Kaisa kept the island going yesterday.","(He stops sweeping.) She did. Eleven hours without a break, reading out who was safe. I took her a flask of tea at four in the morning. She said 'thank you, Hekki'. (He starts sweeping again, much faster.)"],
   ["Any trouble out at the farm?","The Kelp Cola people were on the telephone to East Farm three times. Something growing out there they're not happy about. Hilda shouted at them in a dialect I didn't know she had."]],
  "Mind the ash on the path. It's slippery as soap."],
-23:["(Hekki is squinting at a meter.) There's a lot of noise coming off the oil rig's radio. Static or swearing. Out there it's hard to tell.",[
+23:["(Hekki is squinting at a meter.) There's a lot of noise coming off the oil rig's radio. Static or swearing. Out there it's hard to tell. Morse, my cat, has gone off in a sulk.",[
   ["Trouble on the rig?","Something's broken underwater, and someone's to be sent down to weld it. I've heard 'welding' on the rig frequency twenty times since breakfast. Higher every time."],
   ["You sound like you're enjoying this.","(He looks guilty.) I don't enjoy other people's problems. I just find them very well tuned."],
   ["How's Morse?","Sulking. He doesn't like the ash on his paws, so he's taken to sitting on your big screen while it's warm. If Chuck ever sees a cat's bottom, that's why."]],
@@ -166,7 +166,7 @@ DAILY['Hekki']={
   ["What about the primaries?","The Republicans can pick whoever they like, and the royals can argue about whose turn it is. I've got twenty metres to walk, and that's all the politics I can manage today."]],
  "Twenty metres. Feed Morse if I'm not back."],
 30:["(Hekki is smiling at nothing in particular. There's heather in a jam jar on the bench.) The last day of September. Whatever happens to the island today, the tower stays on. I promised someone.",[
-  ["You promised Kaisa?","(He goes pink to the ears.) She asked me to keep the signal clean for her last show of the month. I said I'd keep it clean for the rest of my life. It came out a bit strong."],
+  ["Who did you promise?","(He goes pink to the ears.) She asked me to keep the signal clean for her last show of the month. I said I'd keep it clean for the rest of my life. It came out a bit strong."],
   ["What happens after today?","You go home, I expect. To London, or wherever you really go. (He looks at the bookcase.) I'll keep the room as it is. In case. You never know when a nightjar needs a nest."],
   ["Thank you, Hekki. For everything.",["(He looks at the floor, then at you.) You're the most exciting thing that's ever happened to me. Apart from yesterday. Yesterday was quite exciting too.",[
     ["What happened yesterday?","She said yes to a cup of tea. Just a cup of tea, at the hut, today. (He beams.) She's warming the pot."],

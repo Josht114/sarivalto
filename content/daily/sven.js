@@ -37,7 +37,7 @@ DAILY['Sven']={
   ["Is it any good?","It's the best thing that's ever been free. I gave one to Sanna. She said it tasted of seaweed. She drank it anyway."],
   ["Did Ole get one?","He said accepting gifts was against his principles. I left one on his windowsill. It's gone."]],
  "Take one. Everyone's had one. You'll fit in."],
-14:["(Sven has his hair wetted down and a clean collar.) The big day. The whole island in one place. You know what that means for me? Gossip. Everyone in one place, talking. It's Christmas.",[
+14:["(Sven has his hair wetted down and a clean collar.) The big day. The whole island in one place. You know what that means for me? Gossip. Everyone in one place, talking. It's Christmas. And I might ask Sanna from Polar Burger to come.",[
   ["What do you expect from it?","Everybody pretending they're not looking at everybody else. And me, looking at everybody."],
   ["Will you take Sanna?","I'm going to ask her to stand with me. If she says yes, it's the best day of my life. If she says no, I'll still have the gossip."],
   ["Will Ole be there?","With his logbook, writing down the time of everyone's arrival. I'll tell him who they came with. He hates that."]],

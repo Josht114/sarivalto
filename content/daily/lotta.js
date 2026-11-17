@@ -64,7 +64,7 @@ DAILY['Lotta']={
   ["Who was he?","He gave a name I've never heard. He tipped me, under the plate. Nobody here tips. It made me want to give it back."],
   ["Did you keep it?","I put it in the poor box in the chapel. It felt like the right thing to do with that sort of money."]],
  "If you see a man with a ring like that, don't let him buy you anything."],
-14:["The whole island in one place today. I'm off at two, so I'll see the end of it. I'm going to stand at the back and see who shouts loudest.",[
+14:["The whole island in one place today. I'm off at two, so I'll see the end of it. I'm going to stand at the back and see who shouts loudest. Oskar the footman wanted to come with me.",[
   ["Who do you think will?","The Communists. They have the best banners. Oskar's mum's going. She's made her own, he says. In red felt."],
   ["What do you want?","I'm a maid. I'm not supposed to want anything. (She shrugs.) But I'd like to be asked, once. About anything. Even soup."],
   ["Are you going with Oskar?","He's on duty. He's walking behind Mr Edmund. Two paces. I'll wave at the back of his head."]],
@@ -74,7 +74,7 @@ DAILY['Lotta']={
   ["Did he eat it?","One slice. He'll eat the rest tonight when nobody's looking. He's like a mouse with cake."],
   ["Which train will he take?","I don't know. Marta's praying he takes neither and stays on the platform with us."]],
  "Go easy in the library, if you're going. He's very fragile today."],
-16:["It's my afternoon off and I'm going to the big debate. The Communists and the Democrats, arguing about who should run the island. I've never been to a debate.",[
+16:["It's my afternoon off and I'm going to the big debate. The Communists and the Democrats, arguing about who should run the island. I've never been to a debate. Oskar the footman wanted to come too.",[
   ["Who do you support?","I don't know yet. That's why I'm going. I'd like to hear someone explain it without shouting."],
   ["What does Marta say?","She says I'll come back with ideas. I said I've already got ideas. She said 'that's what I'm worried about.'"],
   ["Is Oskar going?","He's on the door. He looked so miserable I said I'd tell him all about it. He said 'every word?' I said 'every word that's interesting.'"]],

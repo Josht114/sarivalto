@@ -3,7 +3,7 @@
 // years on Fleet Street and coming home for her mother's funeral, subbing Nora's and Henrik's copy, the Gazette crossword she sets,
 // her neighbours in the Timber Lofts.
 DAILY['Solveig']={
-4:["(Solveig doesn't get up. She's marking a proof with a blue pencil.) Solveig. I sub the Gazette: I cut what Nora writes and fix what Henrik writes. You'll be the one from London. Which paper?",[
+4:["(Solveig doesn't get up. She's marking a proof with a blue pencil.) Solveig. I sub the Gazette: I cut what Nora writes and fix what Henrik writes. You'll be the one from London. I did eleven years there myself. Which paper?",[
   ["A daily. You won't have read it.","I read all of them, for eleven years, on the night train home. Try me another day."],
   ["What does a sub-editor do?","Takes a reporter's best sentence out and puts a full stop where it was. Then writes the headline, and gets the blame for it."],
   ["You were in London?",["Eleven years on Fleet Street. The subs' desk, then the night editor's chair, then the train home.",[

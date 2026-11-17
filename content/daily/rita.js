@@ -81,7 +81,7 @@ DAILY['Rita']={
     ["Did he say anything?","Leo? (She laughs softly.) No. He played. Six hours. I heard every word of it."],
     ["What will you do now?","Wash his coat. Give it back. Sing tonight, if Sid opens. And wait. I've been waiting ten years. I'm very good at it."]]]]],
  "Breathe through something. I'll be all right. I've got a coat."],
-22:["(Rita is writing a letter at the bar, very carefully, with a fountain pen.) A girl from Eastbrook wrote to me. Jaana. She wants to sing. She plays the cola cup at the museum. (She dips the pen.) I'm writing back. Yes.",[
+22:["(Rita is writing a letter at the bar, very carefully, with a fountain pen.) A girl from Eastbrook wrote to me. Jaana. She wants to sing. She plays the cola cup at the museum. (She dips the pen.) I'm writing back. Yes. Leo lent me his coat in the ash.",[
   ["Is she any good?","Leo says he heard her sing to a tram once, through the cup. Cracked on the high note. The rest, he played me. (She smiles.) The rest was very good."],
   ["When will she sing?","Friday. After hours. Just me and Leo. I'm going to make her sing my song. 'Autumn in Helsinki'. If she can sing that, she can sing anything."],
   ["Did you give Leo his coat back?","This morning. Washed. (She doesn't look up from the letter.) He didn't say anything. He went red. Leo doesn't go red."]],

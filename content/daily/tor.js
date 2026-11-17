@@ -126,7 +126,7 @@ DAILY['Tor']={
   ["What's the film about?","Six tractors and a girl on a combine harvester. The harvest of the people. Anna says it's very moving. I've heard it's very long."],
   ["Are you nervous?","Very. I'll sit very still, not boil anything, and try not to cry at the combine harvester. I'll fail. Like a good Communist."]],
  "Wish me luck. Not for the revolution. For the cinema."],
-28:["(Tor is shifting crates with a dazed, happy look.) She came. Liv. To the pictures. I cried at the combine harvester. She gave me her handkerchief. I said it was the dust. It wasn't the dust.",[
+28:["(Tor is shifting crates with a dazed, happy look.) She came. Liv, from the customs shed. I asked her to the pictures, and she came. I cried at the combine harvester. She gave me her handkerchief. I said it was the dust. It wasn't the dust.",[
   ["How was the film?","Six tractors, a speech and a girl on a combine harvester bringing in the harvest of the people. It was magnificent. Liv said it was 'a film'. That's very high praise, for Liv."],
   ["What's happening today?","Every faction's making its big push. Red flags in Kingsgrad, they say. Anna's marching. I'm here. Somebody has to load the timber. It's my push."],
   ["Are you going to see Liv again?","For tea. Tonight. She's making it. Properly. Not boiled. It's the most important thing that's happened to me since 1956."]],

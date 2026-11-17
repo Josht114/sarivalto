@@ -45,7 +45,7 @@ DAILY['Private Aho']={
   ["Has the sergeant found the blankets?","Not yet. (He eats faster.) He's stopped counting every hour. Now he counts every two hours. (A pause.) That's worse. It means he's thinking."],
   ["How are the farms?","(He lowers his voice.) The old woman's stove's mended. A man came from the village. The widow said I'm a good boy. (He looks into his stew.) My mother says that. It was nice to hear it from someone else."]],
  "Have some stew. It's the best strange thing."],
-14:["(Aho is in his dress uniform, standing at the mess hall door with a huge basket of sandwiches.) The gathering. We're keeping order at the edges. (He shifts the basket.) And carrying sandwiches. Four hundred. I've got a hundred. My arms are already shaking.",[
+14:["(Aho is in his dress uniform, standing at the mess hall door with a huge basket of sandwiches.) The gathering. We're keeping order at the edges. (He shifts the basket.) And carrying sandwiches. Four hundred. I've got a hundred. My arms are already shaking. My mother would've loved to see it.",[
   ["What does keeping order mean?","Standing in a line. Not moving. Looking stern. (He tries to look stern.) The sergeant says I look like a lost lamb trying to look stern. He's right. I'm practising."],
   ["Who do you hope wins?","I don't know enough. (He thinks.) My mother says whoever's kind. I don't know which one's kind. They all shout. Kind people don't shout. Except the sergeant. Maybe."],
   ["Is your mother coming?","She can't. It's too far. Nine miles. (He shifts the basket.) I'll write her everything tonight. Every speech. Every sandwich. It'll be a very long letter."]],
@@ -107,7 +107,7 @@ DAILY['Private Aho']={
   ["Are you nervous?","Very. (He salutes.) A foreign king. Forty-one men in a line. White gloves. If I sway, everyone will see. (He salutes.) My mother will hear it on the wireless. 'A private swayed.'"],
   ["You won't sway.","(He salutes.) I might. I sway when I'm frightened. (He looks at his arm.) I'll stand next to the sergeant. Nobody sways next to the sergeant. It isn't allowed."]],
  "Don't salute back. I'll get confused."],
-26:["(Aho has a pair of white gloves on his bunk and is looking at them as if they might bite.) White gloves. For the state visit. (He doesn't touch them.) The sergeant counted them out. Forty-one pairs. One spot of mud and he'll know.",[
+26:["(Aho has a pair of white gloves on his bunk and is looking at them as if they might bite.) White gloves. For the state visit. (He doesn't touch them.) The sergeant counted them out. Forty-one pairs. One spot of mud and he'll know. And Lumi, a girl from home, has been asking about me, my mother says.",[
   ["Have you tried them on?","Once. (He looks at them.) I took them off again. In case. (He sits on his hands.) I'm keeping them perfect till Saturday. I'm not touching anything till Saturday."],
   ["What's the news?","The oil company's buying something. The cola company's doing an advert. (He keeps sitting on his hands.) I don't understand any of it. I just want to stand still on Saturday."],
   ["How's Lumi?",["(He goes red.) She sent a letter. To me. (He pulls it from under his pillow.) My mother told her about the old woman. She says I'm brave.",[
@@ -124,12 +124,12 @@ DAILY['Private Aho']={
   ["Are your gloves clean?","(He holds them up.) Perfect. The sergeant checked them. Twice. (He looks at them.) He said 'perfect, Aho.' Two good words in two days. (He breathes.) I might faint from that alone."],
   ["Think about something nice.","(He closes his eyes.) Lumi. The old woman singing. Niemi's soup. (He opens them.) And my mother hearing it on the wireless. (He smiles.) All right. I'm ready."]],
  "Go and watch. Please don't wave. I'll wave back. That's not allowed."],
-29:["(Aho is sitting on his bunk in his shirtsleeves, looking dazed and very happy.) I didn't sway. (He holds up his gloves.) The foreign king passed. I saluted. I didn't sway at all. My legs were like iron.",[
+29:["(Aho is sitting on his bunk in his shirtsleeves, looking dazed and very happy.) I didn't sway. (He holds up his gloves.) The foreign king passed. I saluted. I didn't sway at all. My legs were like iron. I'll write and tell my mother.",[
   ["Well done.","Thank you. (He beams.) I felt a bit dizzy at the end. But my legs held me up. All on their own. (He looks at his legs.) I didn't know they could do that."],
   ["Did you hear the humming?","Niemi. The turnip song. (He laughs.) Half the line was humming by the end. The sergeant was furious. The Colonel smiled. I hummed. Very quietly. Don't tell anyone."],
   ["What will you write to your mother?","Everything. 'I didn't sway.' (He grins.) In capital letters. Twice. (He looks at the gloves.) And the sergeant said 'well done, Aho.' Three good words in three days."]],
  "Thank you for coming yesterday. I didn't see you. But I knew you were there."],
-30:["(Aho is sitting on his bunk with a fresh sheet of paper, not writing, just looking at it.) Last day. The island's being settled today. (He looks at the paper.) Whatever happens, I've still got twenty-two months. Same bunk. Same sergeant.",[
+30:["(Aho is sitting on his bunk with a fresh sheet of paper, not writing, just looking at it.) Last day. The island's being settled today. (He looks at the paper.) Whatever happens, I've still got twenty-two months. Same bunk. Same sergeant. I'm writing to my mother. And maybe to Lumi, from home.",[
   ["How do you feel about that?","(He thinks.) A month ago I'd have cried. (He looks round the dormitory.) Now? Niemi. The farms. The sergeant writing to my mother. (He smiles.) It's not so bad. It's quite good, actually."],
   ["What will you write today?",["(He looks at the paper.) 'Dear Mother. The island's settled. I'm well. The soup is good.' (He writes it.)",[
     ["Anything else?","(He thinks, then writes.) 'The sergeant is very kind. Don't tell him I said so.' (He grins.) He'll read it. He weighs them. He reads them. I know that now."],

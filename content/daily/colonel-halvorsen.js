@@ -49,7 +49,7 @@ DAILY['Colonel Halvorsen']={
   ["Will you speak?","The army doesn't speak at political gatherings. (A pause.) The prince looked at me during his speech. I looked at the horizon. That's my speech."],
   ["Is Brigadier enjoying it?","He's growled at the Party, the Democrats, the oil company and a seagull. He's the only one in the army with political opinions. I'm considering a court martial."]],
  "Stand at the edge, if you're sensible. The middle is very loud."],
-15:["(The Colonel is at his map, moving flags with unusual force.) Crown before cross. Cross before crown. The palace and the Church both want the prince's brother. (He jams a flag in.) Both have asked whether the army has a view. The army has no view.",[
+15:["(The Colonel is at his map, moving flags with unusual force.) Crown before cross. Cross before crown. The palace and the Church both want the prince's brother. (He jams a flag in.) Both have asked whether the army has a view. The army has no view. Brigadier, my dachshund, came to the palace dinner last night.",[
   ["Has the palace asked you directly?","At dinner. Last night. Number five. Between the soup and the fish. (He looks at the map.) I said the army serves the crown and respects the cross. Lotta dropped a fork."],
   ["Is that an answer?","It's the answer I've been practising for thirty years. It means nothing. It sounds like everything. That's what generals are for."],
   ["What does Brigadier think?","Brigadier went to sleep under the dinner table. On the prince's foot. (A flicker.) The prince didn't move. That's the most royal thing I've seen this month."]],

@@ -27,7 +27,7 @@ DAILY['Paola']={
   ["What work?","(She looks at you.) I asked you not to. You did anyway. That's a journalist, I suppose."],
   ["Black gloves suit you.","They were my mother's. I wear them twice a year. Today, and her birthday."]],
  "Go home, journalist. It's a day for being at home."],
-11:["(Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole of my profession, both of them.",[
+11:["(Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole of my profession, both of them. My chess game by post, with a man in Turin. Nine years.",[
   ["Both professions?","Clocks and debts. In each case, something is a little out, and nobody notices until it stops. I notice first."],
   ["Whose watch is it?","The Colonel's, two doors down. He overwinds it every morning at six, before he walks Brigadier. A soldier's hand. Too much force, too often."],
   ["Any news from Turin?","(She glances at a postcard on the shelf.) Bishop to c4. My opponent's getting bold. Nine years of letters and he's never been bold before. Something's changed in Turin."]],
@@ -67,12 +67,12 @@ DAILY['Paola']={
   ["What will you do?","Play faster. By telegram, if I have to. I'll finish the game. (A pause.) I won't let him lose because he ran out of time. That's not winning."],
   ["What's the news?","Somebody's been in the files at the Republican offices. Carlo's frightened Margit thinks it was him. (She looks at you.) It wasn't. I'd know."]],
  "Don't mention Turin to anyone. Please."],
-19:["(Paola is in an evening dress, very plain, black, putting on her gloves.) Thursday. The Midnight Note. The Don goes to hear Rita sing. I drive him. We sit at the back. (She checks her gloves.) She sings 'Stormy Weather' for him. He pretends not to notice.",[
+19:["(Paola is in an evening dress, very plain, black, putting on her gloves.) Thursday. The Midnight Note. The Don goes to hear Rita sing. I drive him. We sit at the back. (She checks her gloves.) She sings 'Stormy Weather' for him. He pretends not to notice. I've a move to send to Turin, too. My chess game.",[
   ["Does Rita know who he is?","Everyone knows who he is. She pretends she doesn't. He pretends he believes her. It's the most civilised arrangement on the island."],
   ["Will anything interesting happen tonight?","(She pauses.) There's a man who's been coming to the club in a false moustache. The Don says not to look. So I'll look very carefully at everything else."],
   ["Did you telegraph Turin?","This morning. Knight to d7. (She looks at the clock.) Telegrams take a day. I've told him to take his time. I've never told him that before."]],
  "Go somewhere warm tonight. It smells of eggs. That's the mountain."],
-20:["(Paola is moving bottles of brandy from the Club's shelves into crates lined with cushions.) The ground's moving every hour. The Don's taking his members down to the cellar tonight. With the brandy. And me. (She lays a bottle down very gently.) Mostly the brandy.",[
+20:["(Paola is moving bottles of brandy from the Club's shelves into crates lined with cushions.) The ground's moving every hour. The Don's taking his members down to the cellar tonight. With the brandy. And me. (She lays a bottle down very gently.) Mostly the brandy. Still no move from Turin. My chess.",[
   ["Is it going to erupt?","Probably. Everything in Hope Springs is tied down, packed or cushioned. I've stopped every clock in the Residences so the pendulums don't break. The building's very quiet."],
   ["What about Carlo?","The Don's told him to come to the cellar. He'll come. He always comes when he's told. (She closes the crate.) He looked at the party offices for a long time before he said yes."],
   ["Any news from Turin?","(She hesitates.) A telegram. 'Thank you for the time. Bishop to b5.' He's still playing. (She tucks it into her glove.) I'm still answering."]],
@@ -89,7 +89,7 @@ DAILY['Paola']={
   ["Are you sad?","(She doesn't answer for a long time.) I've known him nine years and never heard his voice. I'll miss him more than most people I've seen every day."],
   ["What will you do?","Write back. One last move. Not a chess move. Just 'Thank you.' In my own hand. (She puts the telegram in her glove.) Then mend some clocks. Clocks help."]],
  "Leave me a minute, journalist. I'll be all right. I always am."],
-23:["(Paola is back in the Residences lobby, starting every clock again, one by one.) The building's been silent since the twentieth. I stopped them for the mountain. Now they all start again. (She sets a pendulum swinging.) Tick.",[
+23:["(Paola is back in the Residences lobby, starting every clock again, one by one.) The building's been silent since the twentieth. I stopped them for the mountain. Now they all start again. (She sets a pendulum swinging.) Tick. I've written to Turin. My chess partner.",[
   ["Did you write to Turin?","Yesterday. Two words. (She sets another pendulum going.) I don't know if he'll read them. I've decided he will. That's how I'm choosing to keep time."],
   ["What's the news?","Something broken on the oil rig, they say. Spanners. (She closes a clock case.) The Don's very interested in who. He's always interested in who."],
   ["How's Carlo?","He's written a letter to the members. In his own hand. Without asking the Don. (She looks at you.) The Don hasn't seen it. When he does, he'll be cross. Then proud. In that order."]],

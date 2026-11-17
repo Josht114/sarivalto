@@ -8,7 +8,7 @@ DAILY['Mats']={
   ["Who's the milk for?","Me and Elin. My partner. She takes it in her coffee and I take it in my tea, and we've never once agreed which is right."]],
  "If you see the milkman, tell him flat 3B is desperate.",
  "Mats, a clerk at Diversified Petroleum, lives in Kingsgrad with Elin. He reads the financial pages and loves tidy files."],
-3:["(Mats is sitting on the stairs of the Kingsgrad Apartments with a ledger on his knees.) Elin's gone in to work today. Kelp Cola's open again. I'm going through my own household accounts, twice, for something to do.",[
+3:["(Mats is sitting on the stairs of the Kingsgrad Apartments with a ledger on his knees.) Elin's gone in to work today. Elin and I live together; she's Phil's secretary at Kelp Cola, and I'm a clerk at the oil company, so we keep it quiet. Kelp Cola's open again. I'm going through my own household accounts, twice, for something to do.",[
   ["Elin works at Kelp Cola?","She's Phil's secretary. (He lowers his voice.) And I'm with Diversified Petroleum. So we have an agreement: we never talk about work at home."],
   ["How are your household accounts?","Balanced to the cent. Elin spent four dollars on a scarf she says was a bargain. I've written it down as 'scarf, disputed'."],
   ["Elin told me about the two companies.","(He goes pale, then laughs.) Did she. Then you know why I'm out here on the stairs. Please don't put it in the paper.","Elin:2"],
@@ -20,12 +20,12 @@ DAILY['Mats']={
   ["Have you ever been to New York?","Never. I've been to Helsinki, twice, and once to Stockholm for a course in double-entry bookkeeping. That was the best week of my life."],
   ["Isn't that a bit dry?","Dry? (He looks hurt.) A balance sheet is the most honest thing in the world. It can't lie, it can only be lied to."]],
  "Chapter nine is about the Crash. I'm saving it for a rainy day."],
-5:["(Mats is helping Bertil from the floor below carry a box of files up the stairs.) Bertil brings his work home too. We're the two tidiest men in the Kingsgrad Apartments, and possibly the island.",[
+5:["(Mats is helping Bertil from the floor below carry a box of files up the stairs.) Bertil brings his work home too. We're the two tidiest men in the Kingsgrad Apartments, and possibly the island. Elin's out. Elin's Phil's secretary at Kelp Cola, and I work for Dario, so we keep it quiet, her and me.",[
   ["What's in the box?","Forms. Bertil says the king's death has made a great many forms necessary. He seemed almost happy about it."],
   ["Do you and Bertil get on?","He plays chess by post with a man in Helsinki, and I help him address the envelopes. It's a quiet friendship. Those are the best ones."],
   ["Does Bertil know about you and Elin?","Bertil knows everything about everybody in this building, and he's never said a word. That's what a civil servant is."]],
  "Mind the third stair. It squeaks, and Doctor Lind on the ground floor complains."],
-6:["(Mats is on the telephone in the hallway, and hangs up.) That was the office. Frostholm opens tomorrow. Back to the Petro Tower. Seven days of mail on my desk, unfiled. I can feel it.",[
+6:["(Mats is on the telephone in the hallway, and hangs up.) That was the office. Frostholm opens tomorrow. Back to the Petro Tower. Seven days of mail on my desk, unfiled. I can feel it. Elin will be pleased. She's Phil's secretary, at Kelp Cola. We keep that quiet, her and me.",[
   ["You sound excited.","I am. Is that sad? I think it might be sad. But the filing won't do itself, and nobody else does it properly."],
   ["What did Elin say about it?","She said 'Good, you can stop alphabetising the spice rack.' I had it by country of origin. She's moved the paprika."],
   ["How do you get to Frostholm?","The tram, up the coast. Forty minutes each way with the financial pages. It's the best part of my day, apart from the evenings."]],
@@ -45,7 +45,7 @@ DAILY['Mats']={
   ["Is it really so bad to talk?","With Magnus and Harald both trying to lead the Republicans? If anyone found out, they'd think one of us was a spy. Probably both."],
   ["Who'd you be spying for?","Nobody! I'm a clerk. I'd make a terrible spy. I'd file the secrets and hand them back."]],
  "Never again. Until the next time, probably."],
-10:["(Mats is in a dark suit, with a black band on his sleeve.) They're burying the king today. Clerks aren't invited to the chapel, of course, but I'll stand on the road in Kingsgrad when the procession passes.",[
+10:["(Mats is in a dark suit, with a black band on his sleeve.) They're burying the king today. Clerks aren't invited to the chapel, of course, but I'll stand on the road in Kingsgrad when the procession passes. Elin will be there with Phil. She's his secretary, and she and I keep ourselves to ourselves in public.",[
   ["Will Elin be there?","She's going with Phil, holding his umbrella and his notes. If we see each other, we'll nod politely, like strangers. It's become a sort of game."],
   ["Did you admire the old king?","He kept the island's books very straight for a king. The royal accounts are public, you know. I've read them. He spent almost nothing on himself."],
   ["Nice suit.","It's my only good one. It's a copy of a picture in a magazine, of a man from Morgan Stanley. Grace the tailor in Kingsgrad did her best with it."]],
@@ -80,7 +80,7 @@ DAILY['Mats']={
   ["Did you and Elin agree?","We agreed we'd both rather have a vote than a Soviet. That's the first political thing we've ever said to each other."],
   ["Two pencils?","One for filing and one for crosswords. I lost track of which is which around ten o'clock."]],
  "A vote is just a ledger of what people want. I approve of ledgers."],
-17:["(Mats is filing very fast, and his hands shake slightly.) Dario's missing. Nobody's seen him. The whole company's ringing the tower to ask if he's here. He's never once been to the tower.",[
+17:["(Mats is filing very fast, and his hands shake slightly.) Dario's missing. Nobody's seen him. The whole company's ringing the tower to ask if he's here. He's never once been to the tower. Elin will want to know. She's Phil's secretary at Kelp Cola, and we don't tell each other company things.",[
   ["Where could he be?","I don't know. I file where things go. People, I can't help with. People don't stay in their drawers."],
   ["Are you frightened?","A bit. When the man at the top goes missing, things start falling out of cabinets. Paperwork and people."],
   ["Have you told Elin?","Not yet. If I tell her, she'll tell me something back, and then we've both said too much on a day like this."]],
@@ -122,7 +122,7 @@ DAILY['Mats']={
   ["Did you choose each other?","We chose to make cocoa and not talk about it. That seemed like the wisest choice available."],
   ["Your paper's upside down.","(He turns it round.) So it is. The Dow's down, either way."]],
  "Each other. Not too quickly. Not too slowly. I've been practising."],
-25:["(Mats is reading a list of Republican voters with a frown.) Magnus asked me to file the Republican Party's member list. Forty-three names. Doctor Lind. Frank. Otto from the cinema. Half my building.",[
+25:["(Mats is reading a list of Republican voters with a frown.) Magnus asked me to file the Republican Party's member list. Forty-three names. Doctor Lind. Frank. Otto from the cinema. Half my building. Elin will want to know if she's on it. She's Phil's secretary, and she lives with me. Quietly.",[
   ["Is Elin on it?","No, thank goodness. Neither am I. We're the only two people in the Kingsgrad Apartments not in a party. We're very lonely at the meetings."],
   ["Is Magnus going to win?","I couldn't possibly say. (Pause.) He has a great many index cards. That's not nothing."],
   ["Isn't that list confidential?","Everything I file is confidential. That's why they give it to me. I'm the quietest man on the island."]],
@@ -147,7 +147,7 @@ DAILY['Mats']={
   ["Did you talk about it at breakfast?","We passed each other the marmalade. It said everything."],
   ["What will you do when it's done?","File the results, in capitals, and go home early. For the first time in six years."]],
  "Whatever happens, it'll be filed by Monday."],
-30:["(Mats has cleared his desk entirely, and is sitting with his hands flat on it.) The last day. Whatever happens to the island, happens today. I've filed everything. There's nothing left in the in-tray.",[
+30:["(Mats has cleared his desk entirely, and is sitting with his hands flat on it.) The last day. Whatever happens to the island, happens today. I've filed everything. There's nothing left in the in-tray. Elin and I have made a plan. Elin's Phil's secretary. We've kept us quiet all month.",[
   ["How does an empty desk feel?","Frightening. Wonderful. Like the top of a page before you write the first line."],
   ["What will you and Elin do?","Have dinner. Talk about work, openly, all evening, for once. We've decided. Whatever happens, we're done pretending."],
   ["And Wall Street?","Still there. It's a big street. One day, maybe. Not at present."]],

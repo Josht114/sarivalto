@@ -15,7 +15,7 @@ DAILY['Tove']={
   ["Doesn't the radio get on your nerves?","It covers the silence when a man's deciding whether to tell me something. They always do, in the end."]],
  "Kaisa says it'll snow again by the weekend. She's usually wrong, which is comforting.",
  "Tove cuts Kaisa's hair and hears which records the station manager has banned. Anna comes in every Friday."],
-3:["(A tin on the counter is full of coins, and beside it sits a parcel wrapped in newspaper.) Tom paid me in herring this week. Again. I'm going to have to open a fish shop and put Olga out of business.",[
+3:["(A tin on the counter is full of coins, and beside it sits a parcel wrapped in newspaper.) Tom paid me in herring this week. Again. I'm going to have to open a fish shop and put Olga out of business. My father would've taken the herring too. He had this chair forty years.",[
   ["Does everyone pay in fish?","Half of them. The other half pay in promises. I take cash from anyone mad enough to offer it, like you."],
   ["What will you do with the herring?","Aili will fry it at the diner and give me a coffee for it. That's how money works in Saltwick: it goes round in a circle and smells of fish."],
   ["Your father ran it the same way?","Worse. He once took a goat. It lived in the yard for a year and ate his best strop."]],
@@ -115,7 +115,7 @@ DAILY['Tove']={
     ["You've still got the razor?","(She pats her pocket.) Right here. Old man would've been proud. Or he'd have told me I was being soft. Both."],
     ["Can I do anything?","Sit with me a minute. That's all anyone wants today. Sit with someone and look at the grey."]]]]],
  "Wear a scarf over your mouth. The ash gets in everything."],
-22:["(Tove is washing a man's hair in the basin, and the water runs grey.) Ash. Everyone's hair is full of it. I've done nothing but wash heads since the shop opened. I've stopped charging for it.",[
+22:["(Tove is washing a man's hair in the basin, and the water runs grey.) Ash. Everyone's hair is full of it. I've done nothing but wash heads since the shop opened. I've stopped charging for it. Pia, who's learning the trade with me, is still waiting for her first real customer.",[
   ["Free? That's kind.","It's not kindness. It's self-defence. I can't cut hair that's half volcano. It ruins the scissors."],
   ["How's the town holding up?","Better than you'd think. Ray's giving the first drink free. Olga's selling fish at last week's prices. Anna's organising a sweep of the main street, and for once nobody's arguing."],
   ["Did Pia get her first real customer?","Tomorrow. Hannu, as promised. We've told him it's an ash wash. It's not. Don't tell him."]],

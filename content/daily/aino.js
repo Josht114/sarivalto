@@ -107,7 +107,7 @@ DAILY['Aino']={
     ["You were brave.","I was singing. People think that's brave. Really, it's just what I do when I'm frightened. It's the only thing I've got."],
     ["What happens to the factory?","Kurt says we'll start again when the ash stops. He's already been up to the roof. His pigeons came back. He cried. Don't tell him I saw."]]]]],
  "Cover your mouth on the way. It's everywhere."],
-22:["(Aino is wiping ash off bottles with a cloth, one by one.) Every bottle on the line is grey. Kurt says we have to wipe them all before they go out. Eight thousand bottles. Wipe, wipe, wipe.",[
+22:["(Aino is wiping ash off bottles with a cloth, one by one.) Every bottle on the line is grey. Kurt says we have to wipe them all before they go out. Eight thousand bottles. Wipe, wipe, wipe. My mother rang. Ash in her bread dough.",[
   ["Is it paid work?","Helen says it should be. Kurt says he'll try. Phil says the ash was an act of God. I'm starting to think God owes me a lot of money."],
   ["How's the town?","Coming back. The trams are running. The farmers out east are in trouble, they say. Kelp Cola's got problems at the farm. Something about the kelp."],
   ["Is your mother all right?","Fine, and furious about her bread. She's baking a new loaf. It'll be a brick by Thursday, like always. That's how I know things are normal."]],

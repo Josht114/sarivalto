@@ -77,7 +77,7 @@ DAILY['Sam']={
   ["What do you hope for?","A fair price for fish. Same as every day."],
   ["You don't seem excited.","Seventy-two. Seen a war, two floods, three kings. Excited's for the young."]],
  "Back row. That's where I'll be."],
-15:["Church and palace fighting now. (He shrugs.) The sea doesn't care who's king.",[
+15:["Church and palace fighting now. (He shrugs.) The sea doesn't care who's king. (He turns a wedding ring on a string round his neck.)",[
   ["Are you religious?","My wife was. Lit a candle every time I went out. I always came back. Can't argue with that."],
   ["Who should be king?","Nobody. The sea's king. The rest of us rent."],
   ["You had a wife?",["Aili. Forty years. Gone six winters.",[
@@ -108,7 +108,7 @@ DAILY['Sam']={
  "Soup on Thursday. Good soup. Come."],
 20:["Kate told the girl from the Gazette I married a mermaid. (He shakes his head.) Kate.",[
   ["Is it true?","(He looks at you for a long time.) No."],
-  ["Are you angry?","No. Aili would've laughed till she cried. I laughed a bit. Don't tell Kate."],
+  ["Are you angry?","No. My Aili, my late wife, would've laughed till she cried. I laughed a bit. Don't tell Kate."],
   ["What was Nora asking about?","The Russian at the Hotel Aurora. Who he sees. Told her I see fish."]],
  "If anybody asks, I was a widower. Not a merman."],
 21:["(Sam stands on the quay, looking north at the black cloud.) Grandfather was right.",[
@@ -126,7 +126,7 @@ DAILY['Sam']={
   ["What would you do?","(He ties a knot, very tight.) Old men don't do. Old men remember who did."],
   ["Is the oil still coming in?","Black line on every hull. Tom's scrubbing. Mike's swearing. I'm watching."]],
  "Write that. Old man, watching."],
-24:["Aili's birthday. She'd be seventy. (There's a candle stub on the crate beside him.)",[
+24:["Aili's birthday. My wife. She'd be seventy. (There's a candle stub on the crate beside him.)",[
   ["I'm sorry.","Don't be. Forty good years. More than most get."],
   ["What was she like?","Talked for both of us. Laughed at my jokes. I made two, in forty years. She laughed at both."],
   ["Will you light the candle?","Later. In the window. Facing the sea. She liked to see the boats."]],
@@ -147,7 +147,7 @@ DAILY['Sam']={
   ["Why not STORMWING instead?","What's a Stormwing? (You explain.) Robots. No."]],
  "If I snore, nudge me."],
 28:["(Sam has his best cap on, with a red ribbon tied round it.) The twenty-eighth. Anna said wear something red. This is red.",[
-  ["You look smart.","Aili's ribbon. From her hair. First time out of the drawer in six years."],
+  ["You look smart.","My late wife's ribbon. Aili's. From her hair. First time out of the drawer in six years."],
   ["Where are you going?","Kingsgrad. With the Party. Slowly. Knee."],
   ["Are you nervous?","No. (A long pause.) Little bit."]],
  "Go on. I'll get there. Slowly."],
@@ -159,6 +159,6 @@ DAILY['Sam']={
 30:["(Sam ties a last knot, bites off the twine and holds the whole net up.) Done. Father's net. Fifty years torn, one month mended.",[
   ["It's beautiful.","It's a net. (A pause.) Yes. It is."],
   ["What happens to the island now?","Whatever happens, the fish come back in spring. Somebody catches them. Hope it's us."],
-  ["Will you hang it up?","On the wall. By Aili's candle. Two things I couldn't let go of. Now I don't have to."]],
+  ["Will you hang it up?","On the wall. By my wife's candle. Two things I couldn't let go of. Now I don't have to."]],
  "Thank you for coming by. All month. Good listener. Rare."],
 };

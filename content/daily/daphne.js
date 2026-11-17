@@ -20,7 +20,7 @@ DAILY['Daphne']={
   ["Why the whisper?","Because the walls in there have ears, and out here only Viktor does. And Viktor's only interested in thrushes."],
   ["You sound interested.","I'm interested in everything I'm told not to be. It's the only hobby a princess is allowed."]],
  "Bring me back some gossip from Eastbrook. I'll trade you some of ours."],
-5:["(Daphne is looking at the fountain, frozen solid, with an icicle down the middle.) The fountain's frozen. It does it every winter. Daddy called it 'the king's ice lolly'.",[
+5:["(Daphne is looking at the fountain, frozen solid, with an icicle down the middle.) The fountain's frozen. It does it every winter. Daddy called it 'the king's ice lolly'. My brother went up to the monastery this morning.",[
   ["Did he?","He was funny, sometimes, when nobody official was about. Then a minister would walk in and he'd turn back into a statue."],
   ["When does it thaw?","May, usually. Viktor puts sacks round the pipes and talks to it. I don't know what he says, but it's very effective."],
   ["Your brother's gone up the mountain.","Augustus? He goes up whenever he wants to feel holy. I go into the garden whenever I want to feel wicked. We each have our mountains."]],

@@ -97,7 +97,7 @@ DAILY['Bob']={
   ["Did Helen answer?","By hand, slowly, with crossings-out. That's how Helen says no to somebody important."],
   ["Filleting and noticing are the same?","You look for the bones. Every letter's got bones. So's every man."]],
  "Back to the bones."],
-19:["Helen's trying to sign me up again. It's the Party's big recruiting day, and she brought her clipboard to breakfast.",[
+19:["Helen's trying to sign me up again. It's the Party's big recruiting day, and she brought her clipboard to breakfast. I made eggs Benedict for it, with herring. She signed nobody.",[
   ["Will you sign?","I made her eggs Benedict. She forgot the clipboard. That's six years running."],
   ["Eggs Benedict in Saltwick?","With smoked herring for the ham. Eggs Bob, Kate calls them. They're going in the cookbook."],
   ["Isn't that unfair on Helen?",["Maybe. (He puts the knife down.) But she'd stop respecting me if I signed for her sake. She told me so once, by accident.",[

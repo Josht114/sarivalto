@@ -49,12 +49,12 @@ DAILY['Buttons']={
   ["Why Mayor?","Because he looked so pompous, sitting in the fountain like he owned it. Also, he's the only mayor that's ever listened to me."],
   ["How did the crowd react?","They cheered! I bowed! To the duck! The duck bowed back! Meg says that wasn't planned. It wasn't planned. That's what made it perfect."]],
  "If you see a duck near the big top, that's Mayor. Bow to him. He expects it."],
-16:["(Buttons has the wireless on in the caravan, and is shouting at it.) Oh, that's good! (To the Democrats.) Oh, that's good too! (To the Party.) They're both very good! I'd vote twice!",[
+16:["(Buttons has the wireless on in the caravan, and is shouting at it.) Oh, that's good! (To the Democrats.) Oh, that's good too! (To the Party.) They're both very good! I'd vote twice! Mayor, my duck from the fountain, is listening too.",[
   ["Who's winning?","Whoever I agreed with last. That's everyone. I agree with everyone. It's very tiring. A jester has to agree with everyone. Otherwise someone throws something."],
   ["What would you do, if you ran the island?","Free pizza on Tuesdays. A law that everyone has to fall over once a week, to remember what it's like. And twelve bells for everyone."],
   ["Is Mayor listening?","Mayor's very political. He quacked twice during the Party woman and once during Erik. I think that's a vote."]],
  "Vote for free pizza. It's the only sensible policy."],
-17:["(Buttons is clinging to a tent pole with both arms, the bells jingling wildly, as the ground shudders.) It's moving! The ground's moving! I'm not doing it! For once, it's not me falling over! Meg! (Meg doesn't come.) Meg's up a pole.",[
+17:["(Buttons is clinging to a tent pole with both arms, the bells jingling wildly, as the ground shudders.) It's moving! The ground's moving! I'm not doing it! For once, it's not me falling over! Meg! (Meg doesn't come.) Meg's up a pole. Mayor! Where's Mayor? My duck!",[
   ["Are you all right?","I'm terrified! And very excited! The ground's doing my act! Nobody laughs when the ground falls over. That's not fair."],
   ["Is it the volcano?","Zora says so. She turned a card and went white. Zora's never gone white. She's been grey since 1952."],
   ["Where's Mayor?","Under the caravan. Very sensible duck. Much more sensible than me. (He lets go of the pole.) I'll join him."]],
@@ -64,7 +64,7 @@ DAILY['Buttons']={
   ["Was it taking you seriously, though?","For one hour. She looked at me, measured me, and wrote my name on a list. A serious list. With a pen. It was the best hour of my life."],
   ["How's the bruise?","Excellent. Meg kissed it better. And this afternoon I went to Jonna's for the first sitting. For the secret. I sat very still. Not one joke. Meg doesn't know about that bit."]],
  "If you see a cup with clown shoes, it's not me. I didn't fit. I'm too magnificent."],
-19:["(The camp smells of eggs. Buttons has a peg on his nose and is still trying to tell jokes.) Why did the volcano go to the doctor? (Nasal.) It was feeling a bit flushed. (A pause.) That's not even a joke. I'm frightened. My jokes go bad when I'm frightened.",[
+19:["(The camp smells of eggs. Buttons has a peg on his nose and is still trying to tell jokes.) Why did the volcano go to the doctor? (Nasal.) It was feeling a bit flushed. (A pause.) That's not even a joke. I'm frightened. My jokes go bad when I'm frightened. Mayor, my duck, hates the smell.",[
   ["Are you all right?","No. Meg and Bruno are arguing about whether to stay or go. Meg's winning. Meg always wins. I want to stay. I want to go. I want pizza."],
   ["Is the circus staying?","Meg says if we run, the island sees a circus running. If we stay, they see a circus that's brave. I don't feel brave. I'll pretend. Pretending's my job."],
   ["Where's Mayor?","In a bucket. With a lid with holes in. He's very cross about it. I'm keeping him safe. Somebody has to keep somebody safe."]],
@@ -76,7 +76,7 @@ DAILY['Buttons']={
     ["Good.","(He squeezes it.) She's always caught me. Tonight I'll hold on. In case she needs catching. She won't. But in case."],
     ["Does she mind?","(Meg, without turning round:) I don't mind. (Buttons beams so wide his face nearly splits.)"]]]]],
  "Go somewhere safe. And hold somebody's hand. It helps."],
-21:["(Ash is falling. Buttons is lying with his head in Meg's lap by the lake, grey all over, the bells on his cap clogged with ash.) It went. The mountain. I told jokes all night. Four hundred and eleven. I ran out. I made eleven new ones. They were the worst ones ever written.",[
+21:["(Ash is falling. Buttons is lying with his head in Meg's lap by the lake, grey all over, the bells on his cap clogged with ash.) It went. The mountain. I told jokes all night. Four hundred and eleven. I ran out. I made eleven new ones. They were the worst ones ever written. Mayor, my duck, is somewhere about.",[
   ["Did people laugh?","Everyone. The animals. Igor. The children. Zora. Even Bruno, during his own speech. (He looks up at Meg.) Meg laughed at the four hundred and seventh. She never laughs at my jokes."],
   ["Which one was it?","Why did the mountain apologise? It had blown its top. (A pause.) Terrible. She laughed so hard she cried. Or she was crying already. I don't know."],
   ["Are you all right?",["(He looks up at the grey sky.) I'm grey. I'm tired. I've never been so happy. I made a whole lake of frightened people laugh.",[

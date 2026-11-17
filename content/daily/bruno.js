@@ -93,12 +93,12 @@ DAILY['Bruno']={
   ["What's the news?","Something broken on the oil rig, Igor heard. Spanners. And the Party says not them. (He shrugs.) In thirty years I've learned: whoever's shouting loudest that it wasn't them, it usually was."],
   ["How are the takings?","Nothing, this week. Meg's doing the costumes herself to save money. Buttons is eating less. (He pauses.) That's a lie. Buttons is eating the same. Meg's eating less."]],
  "If you see Bertil, tell him to come in the front row. Tell him there's a duck."],
-24:["(Bruno is pacing, glowing.) The princess! Last night! In a headscarf, pretending to be nobody! She laughed at Buttons for an hour! Then she came backstage and said thank you! To a circus! Royalty! Thirty years and that's never happened!",[
+24:["(Bruno is pacing, glowing.) The princess! Last night! In a headscarf, pretending to be nobody! She laughed at Buttons for an hour! Then she came backstage and said thank you! To a circus! Royalty! Thirty years and that's never happened! Not unless you count the Tsar's niece.",[
   ["Did you recognise her?","Of course! Nobody laughs like a princess. She snorted. A royal snort. I've heard a Tsar's niece snort. In Riga, 1958. This was better."],
   ["Was there a Tsar's niece?","(He looks wounded.) There was a woman who said she was. In Riga. She snorted. That's all I know. That's all anyone ever knows about a Tsar's niece."],
   ["What else is happening?","Meg's in Eastbrook hanging banners for the Democrats. Hely's holding her ladder. (He looks at the road.) That girl gets up every time she falls. I keep noticing."]],
  "If you meet a princess, tell her the circus thanks her. With a bow."],
-25:["(Bruno is watching Meg sew a hat with a feather, and pretending he isn't.) She's making a hat. For the Eastbrook girl. For Saturday. Programme seller's hat. With a feather. (He clears his throat.) Very fine feather.",[
+25:["(Bruno is watching Meg sew a hat with a feather, and pretending he isn't.) She's making a hat. For Hely, the Eastbrook girl. For Saturday. Programme seller's hat. With a feather. (He clears his throat.) Very fine feather.",[
   ["What do you think of Hely?","(He looks at the sky.) She gets up when she falls. She holds ladders. She sells programmes for nothing. (A pause.) She reminds me of someone. Me. In 1953. Before the coat."],
   ["Will you take her on?","I'm thinking. I'm thinking very hard. (Meg looks up.) I'm thinking it was my idea. (Meg looks down again, smiling.)"],
   ["What's the news?","A crown for everyone, a princess for democracy. Everybody's making promises. I promise the island a show on Saturday. Mine's the only one with a duck."]],

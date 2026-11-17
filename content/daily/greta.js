@@ -8,7 +8,7 @@ DAILY['Greta']={
   ["Tell me about the hotel.","Forty rooms, a ballroom we don't use, a lift that works on Tuesdays, and a view of the Petro Tower from every window. The road's only just open, so we've three guests. One of them's been here all winter."],
   ["Anybody famous ever stayed?","Everyone famous who ever came to Sarivalto. Which is to say, about four people. Ask me another day. I'll tell you about 1959."]],
  "Come back any time. The armchairs are free; the coffee isn't."],
-8:["(Greta is sorting post into pigeon holes.) The gentleman upstairs has had eleven letters this week. From Helsinki, Tallinn and somewhere with no stamp at all. A receptionist sees nothing, of course.",[
+8:["(Greta is sorting post into pigeon holes.) The gentleman upstairs has had eleven letters this week. From Helsinki, Tallinn and somewhere with no stamp at all. A receptionist sees nothing, of course. He's been here since February.",[
   ["Who's the gentleman?","Yuri. A timber businessman, he says, from Leningrad. Charming. Buys the bar a round every night. Tips like a prince. Has been here since February."],
   ["Since February? Doing what?","Buying timber, he says. I've never seen any timber. I've seen a great many visitors, late at night, who don't look like they know which end of a tree is up."],
   ["You see a lot for someone who sees nothing.","I see everything. I just don't say it. ...Mostly."]],
@@ -30,7 +30,7 @@ DAILY['Greta']={
   ["Why tell me?","I tell nobody. You're nobody yet. You're from London. In London you have so many Russians you won't care."],
   ["You should tell the police.","And say what? 'A guest has friends'? Sergeant Hanna would laugh at me. And Mr Lehto would fire me for gossiping about a paying guest."]],
  "If anyone asks, I was talking about towels."],
-12:["People have been asking about 1959 all of a sudden. Two telephone calls this week asking if the hotel has a recording of the night the Arvo Lind Quartet played the ballroom. As if I'd keep it under the desk.",[
+12:["People have been asking about 1959 all of a sudden. Two telephone calls this week asking if the hotel has a recording of the night the Arvo Lind Quartet played the ballroom. As if I'd keep it under the desk. My mother worked here in 1959.",[
   ["What happened in 1959?","The Arvo Lind Quartet recorded a whole night, live, in our ballroom. 'Midnight at the Aurora.' They pressed two hundred copies. It's the only famous thing the Aurora ever did."],
   ["Who's asking?","One call from Frostholm, a man who wouldn't give a name but breathed like an oil executive. One from up the mountain, very polite, with a sort of echo."],
   ["Was your mother there?",["She was a chambermaid. She took coffee in at three in the morning and stayed, standing at the back with the tray, till they finished. Got a telling-off.",[

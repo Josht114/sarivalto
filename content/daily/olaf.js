@@ -54,7 +54,7 @@ DAILY['Olaf']={
   ["Has anyone mentioned farms?","No. Three thousand people and not one mention of where their breakfast came from. (He makes a note.) That's going on the list. Under politicians."],
   ["Did you enjoy it?","No. (A pause.) A bit. A man fell in the fountain. A jester. Came out with a duck. That's the best thing I've seen all year."]],
  "If you go, look at the faces. That's the real gathering."],
-15:["(Olaf is telling the cows about the gathering, very seriously.) And then the jester fell in the fountain. And came out with a duck. (The cow chews.) She's not impressed. Hilda laughed for ten minutes.",[
+15:["(Olaf is telling the cows about the gathering, very seriously.) And then the jester fell in the fountain. And came out with a duck. (The cow chews.) She's not impressed. Hilda laughed for ten minutes. And a monk heckled in Latin, Hilda says.",[
   ["Did Hilda like your report?","She said I noticed the faces very well. (He looks surprised.) I told her the prince looked pale and the oil men looked nervous. She said that's very good noticing. Thirty years, first compliment."],
   ["What's the news today?","The palace and the Church are fighting over the prince's brother. Brother Paavo will be upset. Augustus helped him dig the potatoes once. A prince with dirt on his hands. I liked that."],
   ["Did a monk really heckle in Latin?","At the back. Very loudly. I don't know any Latin. It sounded rude. I enjoyed it very much."]],

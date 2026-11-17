@@ -72,7 +72,7 @@ DAILY['Brother Teodor']={
   ["Where were you last night?","Asleep in the kitchen chair, with a cloth on my face, snoring. The novices can tell you. They put a spoon in my mouth for a joke."],
   ["Do you know who took it?","If I knew, I'd have made them a meal and asked for it back. Nobody steals from a cook who's just fed them. That's the oldest rule there is."]],
  "Have a biscuit. I need someone to have a biscuit."],
-19:["(The pot on the stove holds a soup so thin you can see the bottom.) The Prior's declared a fast. Three days, for the relic and the mountain. This is fast soup. It's water that's heard of vegetables.",[
+19:["(The pot on the stove holds a soup so thin you can see the bottom.) The Prior's declared a fast. Three days, for the relic and the mountain. This is fast soup. It's water that's heard of vegetables. I've been teasing Pirkko with the van, a clue at a time. She wants my soup recipe.",[
   ["You look miserable.","I am a cook in a fast. I'm a painter with no colours. A singer with a sore throat. A... I'll stop. I'm hungry."],
   ["Is it really just water?","(He lowers his voice.) There's a stock cube in it. One. Hidden in the bottom. God sees it, but He's merciful."],
   ["Did Pirkko get another clue?","I sent her a note with the milk lorry. 'A spoonful of something sour.' Ha! That'll keep her busy through the fast. Someone should be cooking something."]],
@@ -97,7 +97,7 @@ DAILY['Brother Teodor']={
   ["Can you make more?","Next autumn, when the plums come. Seven years to make it good. I'll be old. I'm already old. I'll be older."],
   ["Was it really medicine?","For the heart. Specifically, for mine. One small glass on the feast days. Two at Christmas. The rest was for guests, I promise."]],
  "Mind the floor in the larder. And don't breathe too deeply, it's strong."],
-24:["(Brother Teodor is packing rye bread and dried sausage into every brother's pack.) The retreat to the peaks. The Prior says we're to take only what we need. I need sausage. I've decided we all need sausage.",[
+24:["(Brother Teodor is packing rye bread and dried sausage into every brother's pack.) The retreat to the peaks. The Prior says we're to take only what we need. I need sausage. I've decided we all need sausage. And something for Pirkko, with the van. She's been after my soup recipe for twenty years.",[
   ["Is that allowed?","He said what we need. He didn't say who decides. I've decided. It's the cook's prerogative."],
   ["Anything for Pirkko before you go?","I sent her a little jar of the soup itself this morning. 'Taste, and work it out.' She'll be furious. She'll be thrilled. She'll be up the mountain by Christmas."],
   ["What do you do up there?","Walk until my knees beg, sleep on rock, and listen to the brothers say things they never say at supper. And I share the sausage. That's when they say the most."]],
@@ -127,7 +127,7 @@ DAILY['Brother Teodor']={
   ["What will you tell her?","One word. I owe her that. I'll send it with the milk lorry in the morning. I'll be thinking about which word all night."],
   ["Are you sad the secret's out?","A little. But a recipe isn't a secret. It's a gift that hasn't been given yet. It's about time I gave it."]],
  "Twenty years. Well. Well, well, well."],
-30:["(Brother Teodor is kneading dough on the big table, flour up to his elbows.) The last day, they say. Whatever they decide down there, people will come up this mountain hungry afterwards. Happy or sad. So I'm baking.",[
+30:["(Brother Teodor is kneading dough on the big table, flour up to his elbows.) The last day, they say. Whatever they decide down there, people will come up this mountain hungry afterwards. Happy or sad. So I'm baking. Pirkko with the van asked me again for the soup recipe. I've given her an answer.",[
   ["Did you send Pirkko her word?","With the milk lorry, first thing. One word. 'Yes.' I can hear her from here, if I listen."],
   ["Are you worried about the island?","I'm worried about everyone who'll go to bed angry tonight. A full stomach is the first step towards a full heart. I can't do the second step for them. I can do the first."],
   ["What will you bake?","Everything. Rye, white, herb, sweet buns with cardamom. Pirkko's recipe, the buns. I owe her that too."]],

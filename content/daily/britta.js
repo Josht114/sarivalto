@@ -62,7 +62,7 @@ DAILY['Britta']={
   ["Is the volcano going to go?","Ole says the steam's thicker every day, up north. Ole doesn't say things unless they're in a logbook."],
   ["Should you be stacking drums in an earthquake?","Probably not. But the drums don't know there's an earthquake, and the tankers still want filling."]],
  "If it shakes again, come and stand by Gertrud. She's never fallen over once."],
-19:["(Britta is laughing at something.) Ruth's been at my door at midnight, saying somebody royal's been sneaking into the Midnight Note in a false moustache. She wants us to go and look.",[
+19:["(Britta is laughing at something.) Ruth's been at my door at midnight, saying somebody royal's been sneaking into the Midnight Note in a false moustache. She wants us to go and look. Ruth lives next door to me, in the Skyline flats.",[
   ["Will you go?","Not at midnight. I'm up at five for the drums. Royals can sneak about all they like after nine o'clock."],
   ["Who told her?","Rita, the singer there. She lives in the Skyline too. The whole building is one big telephone."],
   ["What's the Skyline like to live in?","Thin walls, good views and a lift that stops between floors when it's moody. Like Gertrud, but taller."]],
@@ -77,7 +77,7 @@ DAILY['Britta']={
   ["What can be done?","Keep the generators fuelled, keep the roads clear, keep the hose going. That's what the depot's for, when it isn't for Dario."],
   ["Did you check on Ruth?","First thing. Swept her balcony, too, because she was too shaken to do it. She'd do the same for me. Probably with a lasso."]],
  "Cover your mouth when you go out. The ash is in everything."],
-22:["(Britta is filling jerry cans for a queue of people.) Every generator in Frostholm wants feeding, and Dario's got the trucks washing down the streets for the Gazette's photographer. Guess who's filling all of it.",[
+22:["(Britta is filling jerry cans for a queue of people.) Every generator in Frostholm wants feeding, and Dario's got the trucks washing down the streets for the Gazette's photographer. Guess who's filling all of it. Even Gertrud, our old hoist, is working.",[
   ["You must be exhausted.","Past exhausted. Out the other side, where it goes quiet and you can't feel your feet."],
   ["Is Dario paying overtime?","He says 'loyalty is its own reward'. I said so is overtime. He laughed. I've no idea what that means for my wages."],
   ["Has Gertrud survived?","Gertrud is the hero of the eruption. She started first time today. First time in a month. I nearly cried."]],

@@ -60,7 +60,7 @@ DAILY['Oskar']={
   ["Did you tell Mr Edmund?","He said I'd been dreaming. I said I was standing up. He said footmen can dream standing up. I'm not sure that's true."],
   ["Are you keeping a list?","(He taps his breast pocket.) In my notebook. Just the carriages. Not the people. Mr Edmund doesn't know. Please don't."]],
  "If you see a man with a limp, don't mention me."],
-13:["(Oskar has a bottle of Kelp Cola in his coat pocket.) They're giving them away in Kingsgrad. Free. I went at lunch and got four. I've hidden three in the quarters.",[
+13:["(Oskar has a bottle of Kelp Cola in his coat pocket.) They're giving them away in Kingsgrad. Free. I went at lunch and got four. I've hidden three in the quarters. One's for my mum in Saltwick. She's a Communist. She'll pretend not to want it.",[
   ["Why hide them?","Marta says Kelp Cola rots the teeth, and she drinks a bottle every day, so she knows. I'm saving them for Lotta."],
   ["Is it any good?","It's free. Free's always good. It's a bit like flat sea water with sugar in it, but in a nice way."],
   ["Did your mum hear?","She rang to say it's capitalist propaganda in a bottle. Then she asked if I could bring her one."]],
@@ -75,7 +75,7 @@ DAILY['Oskar']={
   ["You're counting the door?","I count everything. Carriages, coats, doors. It passes the time. Forty-one now: Ingrid's just gone in with the cocoa."],
   ["What's his favourite cake?","Lemon. Very plain. Like him, Marta says, but she says it kindly."]],
  "Don't knock too loudly if you're going in there. He's thinking."],
-16:["Lotta's going to the big debate on her afternoon off. The Communists and the Democrats. She asked if I wanted to come. Me!",[
+16:["Lotta's going to the big debate on her afternoon off. The Communists and the Democrats. She asked if I wanted to come. Me! My mum will be there too. She's a Communist, in Saltwick.",[
   ["Are you going?","I'm on the door. Mr Edmund said the door doesn't take afternoons off. I said that's not what he said about Wednesdays."],
   ["She asked you!","I know! I've been walking around grinning. Viktor asked if I'd been kicked by a horse."],
   ["Does your mum know?","Mum'll be at the debate. On the Communist side, at the front, with a banner. Lotta will meet Mum. That's terrifying."]],
@@ -95,7 +95,7 @@ DAILY['Oskar']={
   ["Did you tell him?","The side door, by the kitchen. You can go in and out without passing the hall. (He stops.) I shouldn't have told you that either."],
   ["Maybe he likes coal.","Maybe. He also asked if I owned a flat cap. I said yes. He said 'good'. Just 'good'."]],
  "I'm saying nothing else. My lips are sealed. Sealed like the coal hole."],
-20:["My notebook says it was quiet last night. Not a single carriage. I sat up till three to be sure. Quiet's worse, somehow.",[
+20:["My notebook says it was quiet last night. Not a single carriage. I sat up till three to be sure. Quiet's worse, somehow. Only footsteps in the gravel, by Viktor's shed.",[
   ["Why is quiet worse?","Because you start hearing things that aren't there. The boiler. The wind in the gate. Footsteps in the gravel that are probably just Viktor."],
   ["Were they Viktor?","I hope so. They stopped at the shed. Viktor doesn't usually walk round at night, though. Viktor's asleep by nine."],
   ["Get some sleep, Oskar.","Can't. Lotta says I look like a ghost. Ingrid says I am one. Ingrid's not helping."]],
@@ -105,7 +105,7 @@ DAILY['Oskar']={
   ["What's it like in town?","People in the street, with their scarves over their faces, looking north. Lisa from the supermarket was handing out wet cloths."],
   ["Was the prince pleased?","He put his hand on my shoulder and said 'thank you, Oskar'. In front of everyone. I'll remember that till I'm a hundred."]],
  "Cover your mouth on the way out. It's worse than it looks."],
-22:["Ash everywhere. I've swept the steps five times. Every time I turn round they're grey again. It's like painting the sea.",[
+22:["Ash everywhere. I've swept the steps five times. Every time I turn round they're grey again. It's like painting the sea. I keep thinking of my mum down in Saltwick.",[
   ["Your boots look grey too.","They were black. Now they're grey and wet and I've lost a toe somewhere. The fur-lined ones can't come soon enough."],
   ["Is your mum all right?","She rang. Saltwick's fine, just grey. She asked if the palace was safe. Then she asked if the king's horses were safe. She likes horses more than kings."],
   ["How's Lotta?","She's sweeping the dining room. I helped her carry the rugs out. She sneezed on me. I didn't mind."]],
@@ -145,7 +145,7 @@ DAILY['Oskar']={
   ["That's wonderful, Oskar.","I know! I don't know what happens now. I suppose I have to ask her to the cinema. Otto's showing something with cowboys in it."],
   ["What's the island deciding?","Who's next. The prince, or Prince Augustus, or nobody. Mum's very excited. I'm trying not to think about it. I'm thinking about Lotta."]],
  "Mind the ice on the path. Or don't. Sometimes it's useful."],
-30:["(Oskar is in new, fur-lined boots.) Look! Helmi held them. My feet are warm for the first time since the king died. Whatever happens today, I'll face it with warm feet.",[
+30:["(Oskar is in new, fur-lined boots.) Look! Helmi held them. My feet are warm for the first time since the king died. Whatever happens today, I'll face it with warm feet. And I've asked Lotta something. Lotta, the maid.",[
   ["They suit you.","Thank you. Mr Edmund said 'sheepskin' as if it were a swear word. Then he asked where I got them."],
   ["What will you do if things change?","Open doors. Somebody'll always need doors opening. Maybe the doors of a parliament. Mum would like that."],
   ["Did you ask Lotta to the cinema?","Wednesday. Otto's showing a film about a bank robbery. She says she likes the bit where they get caught. I like the bit where she said yes."]],

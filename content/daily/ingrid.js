@@ -34,7 +34,7 @@ DAILY['Ingrid']={
   ["Is he very religious?","He prays on the floor, not the kneeler. I can see the marks on the rug. I hoover round them. It feels rude to hoover them away."],
   ["Who's the icon of?","Saint Nicholas. For sailors and children. He says it was his mother's. He touches the frame every morning, I think. It's the only thing in here that isn't dusty."]],
  "Close the door softly. He doesn't like it banged, even when he's not in."],
-8:["I heard her again. The ghost. Last night, in the corridor, a voice reading, very soft, like someone reading a letter to themselves.",[
+8:["I heard the palace ghost again. Last night, in the corridor, a voice reading, very soft, like someone reading a letter to themselves.",[
   ["Are you sure it was a ghost?","No. (She hesitates.) It might have been Prince Augustus. He reads aloud sometimes. But at three in the morning, with no light under his door?"],
   ["What did it say?","Something about ears. Ridiculous ears. I didn't stay to hear more. I pulled the blanket over my head."],
   ["What does the ghost want?","Mrs Marta says the old queen walks when the family's in trouble. She walked the winter the king's wife died, Mrs Marta says."]],
@@ -104,7 +104,7 @@ DAILY['Ingrid']={
   ["Is everyone all right?","Oskar ran to town. Nobody's hurt. The princess stood at the top of the garden in the ash, laughing and crying at once."],
   ["What can I do?","Nothing. Just being here helps. Isn't that silly? You're a stranger and it helps."]],
  "Close the windows when you go home. All of them."],
-22:["Ash in every bedroom. On the pillows. In the princess's perfume bottles. On Prince Augustus's icon. I've been wiping since dawn with a damp cloth.",[
+22:["Ash in every bedroom. On the pillows. In the princess's perfume bottles. On Prince Augustus's icon. I've been wiping since dawn with a damp cloth. Mr Edmund says dry cloths only.",[
   ["Damp? Mr Edmund said dry.","Dry for the carpets. Damp for the faces. Saint Nicholas has a face, so I did him damp. I think he deserved it."],
   ["The princess is restless.","She's walking about the palace like a cat in a box. She asked me today if I knew anyone who grew 'herbs'. I said Brother Paavo grows cabbages. She laughed for ages."],
   ["Did the typing survive?","The typewriter's full of ash. Prince Augustus is cleaning it with a goose feather. He said it was 'good practice'. For what, I don't know."]],

@@ -77,7 +77,7 @@ DAILY['Nico']={
   ["Will you pay Raili?","(Long pause.) The bet said 'erupt'. This could be called 'venting'. There's a technical difference. A geologist might agree with me."],
   ["Get indoors, Nico.","Yes. Yes, good idea. (He doesn't move.) I just want to watch the money go up the mountain for a minute."]],
  "Go home. Shut the windows. Don't bet on anything."],
-22:["(Nico is brushing ash off his notebook, page by page.) I looked it up. In the library. An eruption is 'the discharge of lava, ash or gas from a volcano'. There's lava in the north. I've no argument.",[
+22:["(Nico is brushing ash off his notebook, page by page.) I looked it up. In the library. An eruption is 'the discharge of lava, ash or gas from a volcano'. There's lava in the north. I've no argument. Raili from the Skyline bet me in August the mountain would go before October. I gave her fifty to one.",[
   ["So you'll pay Raili?","I'll pay her. I'm a man of my word. Slowly, but a man of my word. Fifty dollars a week, for ten weeks. She laughed for a very long time."],
   ["How's Frostholm after the eruption?","Grey and quiet. The oil men are working from candles. The arcade's shut, the casino's shut, the Midnight Note opened for anyone who wanted a drink and some company."],
   ["Why not just pay it all?","Because then I'd have nothing left for the tournament. On the twenty-seventh. Everyone who matters, at Rosaria's back table. I've been practising."]],
@@ -87,7 +87,7 @@ DAILY['Nico']={
   ["Who'll be at the tournament?","The Don, Carlo, people from the oil company, people from the palace, maybe. Anybody with money and nerve. I've got nerve. Money, I've got a payment plan for."],
   ["Deal me a hand.","(He deals two cards face down to you, and two to himself.) Look at yours. Don't let me see your face. (He stares.) You've got a pair. (You haven't.)"]],
  "Practise your poker face. I'm reading you anyway."],
-24:["Arto's paid. (Nico looks hurt.) All of it. The funeral bells bet. I gave him forty dollars and he gave me a hug. In public! A bookie doesn't get hugged. It's bad for business.",[
+24:["Arto's paid. (Nico looks hurt.) All of it. The funeral bells bet. I gave him forty dollars and he gave me a hug. In public! A bookie doesn't get hugged. It's bad for business. Raili's next. I still owe her for the mountain bet.",[
   ["That's nice, Nico.","It's not nice, it's a precedent. Now everyone will want paying on time and hugging me. Raili's already looking."],
   ["What's the news in Frostholm?","People keep their voices down today. Something happened somewhere, something nobody's saying. In my experience, that's the loudest kind of news."],
   ["How's the payment plan with Raili?","First fifty dollars, paid. She put it on the bar at the Midnight Note and bought everyone a drink. Including me. With my own money. Twice."]],

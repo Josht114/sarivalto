@@ -41,7 +41,7 @@ DAILY['Doctor Lind']={
   ["Could they bring anyone here?","A boat from the rig to Eastbrook Harbour, then a cart. An hour, if they're quick. This is what I mean about a hospital. An hour's a long time when you're burnt."],
   ["Did you hear the sermon?","On the wireless, while I counted bandages. It was decent. Plain words. The old king would have liked it. He disliked long sermons. He told me so, as a patient."]],
  "Let's hope I've laid it all out for nothing."],
-9:["(The doctor is writing a letter.) Knight to F-five. I've posted it. Now I'm writing to Salmi again to say I've changed my mind.",[
+9:["(The doctor is writing a letter.) Knight to F-five. I've posted it. My chess game by post, with Doctor Salmi in Turku. Thirty-one years. Now I'm writing to him again to say I've changed my mind.",[
   ["Can you change your mind by post?","No. That's the rule. But I like to tell him I'd have liked to. It makes him nervous."],
   ["What's the cola business?","Everyone's talking about the Communists making their own cola. And Kelp Cola making a new one. I'll be treating the stomachs of both."],
   ["Do you ever take a day off?","Christmas. In the morning. Then somebody's goose goes down the wrong way, and that's Christmas."]],
@@ -56,7 +56,7 @@ DAILY['Doctor Lind']={
   ["Should someone do something?","Somebody should. Dagny should buy new guards. Helen says she'll make her. I wish them both luck. I'd like fewer fingers in jars."],
   ["You can't talk about patients.","I'm not. I'm talking about saws. Saws don't have privacy."]],
  "Mind your fingers, wherever you go."],
-12:["(The doctor is asleep in his chair. He wakes with a jolt.) I'm awake. I wasn't asleep. Who's bleeding?",[
+12:["(The doctor is asleep in his chair. He wakes with a jolt.) I'm awake. I wasn't asleep. Who's bleeding? (There's a new line in the register on the desk: 'Birth, 4 a.m.')",[
   ["Nobody. Long night?","Three calls. A baby, a broken ankle, and an old lady who thought she was dying and was just very cold. Two hours' sleep. Very glamorous."],
   ["You should rest.","I'll rest when there's another doctor on the island. There's a nurse in Saltwick, very good, and me. And Madame Zora at the circus, who thinks she's a doctor."],
   ["Who had the baby?","A girl. Healthy. Loud. That's all. Her mother can tell you the rest."]],
@@ -106,12 +106,12 @@ DAILY['Doctor Lind']={
   ["Where is everyone?","In the church, half of them. Sleeping on pews. Lotta from the palace is making soup in the big pot. Sergeant Hanna's counting heads."],
   ["You should rest.","I'll sit for five minutes. Then the telephone will ring, and I'll put my coat on over my pyjamas. Except I'm already wearing the coat."]],
  "Wear the mask. Please. Everyone's lungs are mine for the next month."],
-22:["(He's listening to a fisherman's chest.) Breathe in. Out. (To you.) Ash cough. I'll hear it in my sleep. If I sleep.",[
+22:["(He's listening to a fisherman's chest.) Breathe in. Out. (To you.) Ash cough. I'll hear it in my sleep. If I sleep. My chess by post with Doctor Salmi, in Turku, is the only thing keeping me sane.",[
   ["How many coughs today?","Forty. Children worst. Old people second. Fishermen, never, because fishermen don't come to the doctor till they're dead."],
   ["Is there anything to do for it?","Steam, rest, warm drinks, and stay indoors till the ash is washed off the street. The rain'll help. I've asked God for rain."],
   ["How's Doctor Salmi?","(He smiles.) I got a letter. He says he heard about the volcano on the Finnish radio. He's offered me a draw. Thirty-one years, and a draw. It's the volcano. He feels sorry for me."]],
  "Breathe through your nose. And don't sweep without a mask."],
-23:["Margit's sent everyone a letter. The vote's still on, the twenty-ninth. I nearly forgot it existed. Then I remembered the hospital.",[
+23:["Margit's sent everyone a letter. The vote's still on, the twenty-ninth. I nearly forgot it existed. Then I remembered the hospital. And Doctor Salmi in Turku, my chess partner by post, has made me an offer.",[
   ["Has anyone promised you a hospital?","After the eruption? All three of them. Harald, Magnus and Carlo. In letters. Very good letters. I've put them in the drawer with the hospital plans."],
   ["Do you believe them?","I believe the eruption. That's real. The letters are good writing. Nobody writes a good letter about a hospital unless they want something."],
   ["Will you take Salmi's draw?","(He looks at the board.) No. I've found a move. Rook to E-one. Thirty-one years. I'm going to win."]],
@@ -146,7 +146,7 @@ DAILY['Doctor Lind']={
   ["What will you do with the rest of your hour?","Sit in a café in Frostholm and drink coffee that someone else made. Then come back. Then something will be broken."],
   ["Good luck.","Luck's for card players. I'm a doctor. I'll take a steady hand and a short queue."]],
  "If anybody's ill in the next hour, tell them to wait. Politely."],
-30:["(He has the hospital plans on the desk, and the chessboard beside them.) Last day. Whatever happens to the island, I'll still be here, with two beds and a cabinet.",[
+30:["(He has the hospital plans on the desk, and the chessboard beside them.) Last day. Whatever happens to the island, I'll still be here, with two beds and a cabinet. And a move in the post to Doctor Salmi in Turku. Our chess game. Thirty-one years.",[
   ["What do you hope for?","An island that builds hospitals instead of statues. That's all. It doesn't matter much who's in the palace, if there's a bed in the ward."],
   ["Did Salmi answer?","Not yet. Rook to E-one's still in the post. Whatever happens today, in a fortnight I'll find out whether I've won. Something to look forward to."],
   ["Are you afraid?","Of the future? No. Of the night shift? Always. I'll be on call. Whatever happens, someone will need stitching."]],

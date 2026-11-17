@@ -123,7 +123,7 @@ DAILY['Nora']={
   ["What about the poker game?", "Henrik's forbidden it. (She pats her coat pocket.) I'll go after the film. Somebody's got to write it up. Somebody's got to lose a week's wages so the readers don't have to."],
   ["Will there be trouble?", "At the pictures? Only if the projector breaks. At the poker? Only if somebody wins. I'm expecting both."]],
  "If I'm crying when I come out, it's the horse. Not the politics."],
-28:["(Nora is at the door with her coat half on and three notebooks under her arm.) Every faction's out today. Banners, bands, speeches. I'm going to all of them. Henrik says that's impossible. Henrik's never seen me with a tram timetable.",[
+28:["(Nora is at the door with her coat half on and three notebooks under her arm.) Every faction's out today. Banners, bands, speeches. I'm going to all of them. Henrik says that's impossible. Henrik's never seen me with a tram timetable. My mother's been on the telephone, of course.",[
   ["Isn't it dangerous?", "Everything's dangerous today. That's why somebody has to be there with a notebook. Otherwise it's just shouting. With a notebook, it's history."],
   ["What are you expecting?", "Bands, banners, speeches, and one thing nobody expects. It's always the one thing nobody expects. I've learnt that this month."],
   ["Is your mother worried?", "She's rung three times. She says to wear the scarf, stay on the pavement and not get arrested. I'm doing one of the three."]],

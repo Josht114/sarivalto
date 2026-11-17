@@ -10,7 +10,7 @@ DAILY['Ray']={
   ["Do you always stare at people like that?","My father did. He ran this bar for thirty years and never once had to raise his voice. I'm working on it."]],
  "Mind the ice on the steps. Half of Saltwick's gone down them this winter.",
  "Ray runs the bar in Saltwick, with one rule: no politics at the bar."],
-2:["(Ray looks you up and down, and puts a glass on the bar.) A new face. Either you've heard about my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace.",[
+2:["(Ray looks you up and down, and puts a glass on the bar.) A new face. Either you've heard about my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace. My father kept this bar before me.",[
   ["Your whisky's fine.","Fine's all it is. The good bottles went on the king's wake, and the beer boat from Frostholm's still iced in."],
   ["Who drinks here, mostly?","Fishermen from the West Harbour, dockers, the girls from the fish plant. And Sirpa and Tiina, at that table, from opening to closing, on one coffee each."],
   ["What did your father think of the king?","He kept a picture of him over the till, and darts holes in it from a bad night in 1971. Both things are true. That's Saltwick for you."]],

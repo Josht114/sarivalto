@@ -117,7 +117,7 @@ DAILY['Veikko']={
   ["What did you do?","Told him she was out. Then I went to the pawnshop window in Kingsgrad and looked at my father's watch for a long time."],
   ["Will you pawn it?","(He doesn't answer for a while.) It's a watch. It tells the time. Hely's twenty-three. She's got more time than the watch."]],
  "Don't tell her. She'd never let me."],
-27:["(Veikko's wrist is bare.) Paolo's been settled. Don't ask how. Hely doesn't know. If she finds out, it wasn't me.",[
+27:["(Veikko's wrist is bare.) Paolo's been settled. Don't ask how. Hely doesn't know. If she finds out, it wasn't me. I've sold something of my father's. Don't tell Hely.",[
   ["Your father's watch?","My father kept it forty years and never once was on time. He'd laugh at me pawning it for a girl's card debts. Then he'd have done the same."],
   ["Does Paolo know it was you?","Paolo knows everything. He shook my hand. Told me I was 'a gentleman'. Coming from Paolo, I'm not sure it's a compliment."],
   ["That was kind.","It was stupid. Kind and stupid are cousins. They turn up at the same funerals."]],

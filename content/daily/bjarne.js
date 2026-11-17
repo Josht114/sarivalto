@@ -72,7 +72,7 @@ DAILY['Bjarne']={
   ["Why does Helen worry you?","Because she's been in this mill, and she's right about the saw and the pay. And I've been here thirty years, and I haven't fixed either. That's not a nice thought."],
   ["Will Ilse heckle?","Ilse will heckle until they carry her out. She's been rehearsing on the logs all week."]],
  "Lock the gate behind you. The mill doesn't want to hear any speeches."],
-17:["(The stacks of timber creak, and Bjarne puts out a big hand to steady one.) That's twice today. The ground. Stacks don't like it. I've had the lads re-stack the tall ones. A falling log's a bad way to go.",
+17:["(The stacks of timber creak, and Bjarne puts out a big hand to steady one.) That's twice today. The ground. Stacks don't like it. I've had the lads re-stack the tall ones. A falling log's a bad way to go. My daughter Annika, on the mainland, writes every week.",
  [
   ["Is it the volcano?","Steam off the old mountain, they say. My grandfather saw it go, as a boy. He said the trees in the north went down like matches."],
   ["Is anyone hurt?","Not yet, and not on my floor. I've told the lads: when the ground shakes, step back from the saw and the stacks. Knut says he's never stepped back from anything. Knut's a fool."],
@@ -90,7 +90,7 @@ DAILY['Bjarne']={
   ["Does Dagny know you're building it?","She knows about the planks she's counted. (He grins.) She doesn't know about the ones she hasn't."],
   ["Isn't the foreman meant to stay neutral?","The foreman's meant to cut timber. This is cutting timber. Very carefully. Very democratically."]],
  "Mind the stage parts. They're not for sitting on yet."],
-20:["(Bjarne is sitting on a log with a cup of tea, staring at the trees in the forest beyond the yard.) The forest's quiet. No birds. Have you noticed? Birds always know before we do.",
+20:["(Bjarne is sitting on a log with a cup of tea, staring at the trees in the forest beyond the yard.) The forest's quiet. No birds. Have you noticed? Birds always know before we do. My daughter Annika, on the mainland, writes every day now.",
  [
   ["Know what?","That something's coming. My grandfather said the birds left the island for a week before the mountain went, last time. He was a boy. He never forgot the silence."],
   ["Are you scared?","I'm watching. That's what you do with something big you can't stop. You watch it, and you keep your men out of its way."],
@@ -152,7 +152,7 @@ DAILY['Bjarne']={
   ["What do the lads think?","They think a vote would be grand. They think a rise would be grander. They think lunch should be longer. They're mill hands. They're always right about lunch."],
   ["What will you do after?","Write to Annika. Tell her who won, and what it means for her old dad. And tell her about the stage. She'll want to see a photograph. I'll look like a bear."]],
  "Sit, if you like. The log's comfortable."],
-30:["(Bjarne is sweeping the empty mill, slowly, the way he does on Sundays.) The last day. I came in to sweep. I don't know what else to do with my hands.",
+30:["(Bjarne is sweeping the empty mill, slowly, the way he does on Sundays.) The last day. I came in to sweep. I don't know what else to do with my hands. I've written to my daughter Annika, in Turku.",
  [
   ["What do you hope for?","A vote, a fair wage, a guard on every saw. And the lads going home with ten fingers. That's all a foreman wants. Same as any father."],
   ["Are you nervous?","I'm sixty-two. I've seen a king crowned and a king buried and a mountain go up. I'm nervous. But I'm sweeping. Sweeping helps."],

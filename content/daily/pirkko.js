@@ -82,7 +82,7 @@ DAILY['Pirkko']={
   ["You could just buy his soup.","He doesn't sell it. That's the maddening part. You have to climb a mountain and be humble."],
   ["Seen the steam on the mountain?","Everyone has. The lads say it looks like the island's having a smoke. I don't like it, love. Mountains should keep still."]],
  "Lingonberries. I'll try it tonight. Wish me luck."],
-20:["(There's a candle burning on the dashboard of the van.) Five years ago today Pekka drove this van home, sat down in his chair and didn't get up again. I light a candle and sell pasties. He'd want the pasties.",[
+20:["(There's a candle burning on the dashboard of the van.) Five years ago today Pekka drove this van home, sat down in his chair and didn't get up again. I light a candle and sell pasties. He'd want the pasties. I've been after Brother Teodor's soup recipe for twenty years. Pekka loved that soup.",[
   ["I'm sorry, Pirkko.","Don't be, love. He had a good life and a bad heart. I still talk to him in the van, when the queue's quiet. He disagrees with me about mustard."],
   ["What was he like?","Big, slow, kind. Fixed anything. Laughed at his own jokes before he'd finished them. Couldn't make soup to save his life."],
   ["Is that why you want Teodor's recipe?","(She smiles.) Pekka always said if he could have one bowl of the monks' soup a week, he'd live for ever. I'd like to make it once, for him. Daft, really."]],
@@ -112,7 +112,7 @@ DAILY['Pirkko']={
   ["Would she make a good queen?","She'd make a good anything. Whether she'd want it is the thing. You can't make a girl like that wear a crown if she doesn't fancy it."],
   ["Did she pay?","She paid double and told me not to tell her brother. I haven't. Until now. Oh dear."]],
  "Forget what I said about the princess, love. Have a bun."],
-26:["(A crate of Kelp Cola is going past on a trolley, and Pirkko stares at it.) The lads say Phil wants a prince's face on every bottle. A royal on the cola! Pekka would've laughed himself silly.",[
+26:["(A crate of Kelp Cola is going past on a trolley, and Pirkko stares at it.) The lads say Phil wants a prince's face on every bottle. A royal on the cola! Pekka would've laughed himself silly. Brother Teodor's still sending me clues to his soup, a word at a time.",[
   ["Would you drink it?","I'd drink it and feel bad about it, which is how I feel about most things from that factory."],
   ["And Dario's buying the spa, they say.","Let him. I've never been in a spa. I've got a bucket of hot water and a stool in the kitchen. That's my spa."],
   ["Any news of Teodor's recipe?","He's back from the retreat, all thin and holy. I sent up a pasty and one word: lingonberries? He sent back one word: warmer."]],
@@ -124,7 +124,7 @@ DAILY['Pirkko']={
  "Put your coat on, it's turning raw."],
 28:["(The van's queue goes round the corner. Pirkko is serving with both hands.) Every faction's out today, love! Everyone's pushing. The factory's shipping cola abroad, the Party's got something planned for Kingsgrad, the monks are up the mountain burning herbs. And all of them want a hot dog.",[
   ["How do you keep up?","Prayer and a second fryer. Mostly the fryer."],
-  ["Are you going up to the Herbal Rite?","After the shift, if Bertta'll climb the hill. It smells like a summer meadow up there on rite day. I wouldn't miss it for all the cola in Kingsgrad."],
+  ["Are you going up to see the monks' herbs?","After the shift, if Bertta'll climb the hill. It smells like a summer meadow up there on rite day. I wouldn't miss it for all the cola in Kingsgrad."],
   ["Who do you want to win, Pirkko?","Whoever feeds the poor and keeps the churches open. I'd settle for one out of two."]],
  "Move along now, love, there's a queue. God bless."],
 29:["(Pirkko is standing very still with a ladle in her hand.) I've got it. I think. I think I've got Brother Teodor's soup. I sent him a jar up the mountain this morning, and now I'm waiting like a girl at a dance.",[
@@ -132,7 +132,7 @@ DAILY['Pirkko']={
   ["What if you're wrong?","Then I'll try again, and he'll laugh, and I'll bribe him with buns until Christmas. It's the best argument I've ever had."],
   ["Busy day on the island.","Line of succession, they're all saying. Who's next for the throne. I'm only worried about who's next in my queue."]],
  "Pray for my soup. And the island. In that order, today."],
-30:["(Bertta's hatch is up, the urn is on and Pirkko is tying her apron.) Last day, they say. The island's future decided by tonight. And look at me, open as usual.",[
+30:["(Bertta's hatch is up, the urn is on and Pirkko is tying her apron.) Last day, they say. The island's future decided by tonight. And look at me, open as usual. I asked Brother Teodor one last time for his soup recipe. I'm waiting on his answer.",[
   ["Why open, today of all days?","Because people will be frightened, or happy, or drunk, and all three get hungry. Bread doesn't care who's king."],
   ["Did Teodor answer about the soup?","(She pulls a note from her apron.) One word, love. 'Yes.' Twenty years. I cried into the mustard."],
   ["What do you hope for?","That whoever wins remembers the people at the back of the queue. And that Bertta starts tomorrow. Both would be miracles."]],

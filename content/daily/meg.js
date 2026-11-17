@@ -101,7 +101,7 @@ DAILY['Meg']={
   ["What's the news?","The princess came to the circus last night, Buttons says. In a headscarf. Laughed at him for an hour. Buttons is in heaven. He says royalty takes him seriously."],
   ["Did she?","(She smiles.) She laughed at him for an hour. That's the most serious thing anyone can do for a clown."]],
  "Don't tell Hely about the hat. Let her see it on Saturday."],
-26:["(Meg is watching Buttons teach Hely to juggle, from the caravan step, with her arms folded and a very soft expression.) Wrist, not arm! (To you.) He's a good teacher. When he forgets to be funny. Which is never. But sometimes.",[
+26:["(Meg is watching Buttons teach Hely to juggle, from the caravan step, with her arms folded and a very soft expression.) Wrist, not arm! (To you.) He's a good teacher. When he forgets to be funny. Which is never. But sometimes. Hely wants to join us. Bruno doesn't know yet.",[
   ["Is Hely getting better?","Four in a row today. Buttons says she's 'nearly not terrible'. That's the highest praise he's ever given. He's never said it to me."],
   ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. Buttons wants to know if he can join the oil company for the milkshake machine."],
   ["Have you told Bruno about Hely?","Not yet. I'm letting him notice her himself. He'll think it's his idea. Then he'll make a speech about it. Then she'll be in."]],
@@ -111,7 +111,7 @@ DAILY['Meg']={
   ["What's the news?","A Party picture at the cinema tonight, and big card games, they say. Bruno wanted to go to the cinema. I said there are six tractors. He said he loves tractors. He doesn't."],
   ["Is Hely ready?","She's been practising selling programmes to the horse. Duchess bit three. Hely's very proud. She says it's a good omen."]],
  "Come to the show tomorrow. Sit on the left. It's free. Everyone's welcome."],
-28:["(The big top is packed, flags everywhere outside, and Meg is in her spangled leotard at the bottom of the rope, rubbing her shoulder.) Last show. Free. The whole island's here. Every faction, all at once, all laughing at Buttons. It's the only thing they've agreed on all month.",[
+28:["(The big top is packed, flags everywhere outside, and Meg is in her spangled leotard at the bottom of the rope, rubbing her shoulder.) Last show. Free. The whole island's here. Every faction, all at once, all laughing at Buttons. It's the only thing they've agreed on all month. Hely's at the door selling programmes. She wants to come on tour with us, and Bruno has to say yes.",[
   ["How's your shoulder?","(She stops rubbing.) It'll hold. It always holds for the last show. Then it complains for a week. That's our arrangement."],
   ["Is Hely selling programmes?","At the door, in the hat with the feather. She cried when she saw it. I pretended I didn't see. (She looks towards the door.) She's sold two hundred. Real wages."],
   ["Will you ask Bruno about Hely?","Tonight. After the show. When he's happy and full of applause. That's when you ask Bruno anything."]],

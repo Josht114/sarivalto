@@ -57,7 +57,7 @@ DAILY['Paolo']={
   ["Are you going to watch?","I'll stand by the back with my ears open. Afterwards, everyone in Eastbrook will want to tell me what they saw. I'll know more than anyone who was there."],
   ["Why the flower?","Maya's going. She might stand near me. She might ask me where I got it. I've got an answer prepared."]],
  "Go on, go and watch. Tell me who cried first."],
-15:["She asked. (Paolo is beaming.) Maya asked where I got the flower. I said 'from the window box of a beautiful woman'. She said 'that's my window box, Paolo'. It was. I'd forgotten.",[
+15:["She asked. (Paolo is beaming.) Maya from the coffee shop asked where I got the flower I gave her. I said 'from the window box of a beautiful woman'. She said 'that's my window box, Paolo'. It was. I'd forgotten.",[
   ["What did she say then?","She laughed. Then she said I owed her a flower. Then she gave me a coffee for free. I drank it. I've had a stomach ache all morning. It's the happiest day of my life."],
   ["You stole her flower?","I didn't steal it. I borrowed it, for luck. I'll give it back with interest. I'm a bookie, it's how I think."],
   ["What's the gossip from the palace?","The abbot and the prince are arguing over the crown. Linnea's on the prince's side, so she's in a good mood again. The tavern's a cheerful place today."]],
@@ -82,7 +82,7 @@ DAILY['Paolo']={
   ["Who's going to the club this week?","Sid says somebody very grand is coming, all hush-hush, in disguise. (He grins.) Every week on this island somebody grand is coming in disguise. It's never anyone."],
   ["Nico on credit? Tell me more.","He took me for a drink and asked Sid to put it on his tab. Sid laughed for a full minute. I paid."]],
  "Don't tell Nico I said a word about his tab."],
-20:["The Democrats are in a fuss. (Paolo nods at the community centre.) Erik's had a telephone call about some man at the Hotel Aurora in Frostholm. Very hush. Very Democrat. They whisper like they're planning a picnic.",[
+20:["The Democrats are in a fuss. (Paolo nods at the community centre.) Erik's had a telephone call about some man at the Hotel Aurora in Frostholm. Very hush. Very Democrat. They whisper like they're planning a picnic. Maya at the coffee shop's in a better mood, at least. I owed her a flower.",[
   ["What's the man at the hotel about?","Some Russian businessman, they say, who goes up mountains and makes phone calls. Erik thinks he's a spy. Erik thinks the postman's a spy."],
   ["Heard anything from Kingsgrad?","The palace is jumpy. Guards counting doors, butlers counting spoons. (He looks innocent.) Nothing to do with me. I'm in Eastbrook. Everybody saw me."],
   ["Did you give Maya her flower back?","With interest! A whole bunch, from the Kingsgrad market, wrapped in the Gazette. She put them in a coffee tin by the till. She said 'thank you, Paolo'. With my name in it."]],
@@ -102,7 +102,7 @@ DAILY['Paolo']={
   ["What will you do instead?","Sit with someone. I'm good at it. I sat with Hely on the bench for an hour this morning, and Veikko after, and Linnea after that. Nobody said a word."],
   ["Any gossip from the cola factory?","The Party's up to something there, they say. Machines, spanners, strike talk. Helen's been seen in Eastbrook twice. Helen doesn't come to Eastbrook for the coffee."]],
  "Sit, if you like. I'm not taking bets."],
-24:["(Paolo is pale, and has his hands in his pockets.) Don't ask me what kind of morning I've had. Some mornings a man hears things he shouldn't, and wishes he'd been born deaf, in Genoa.",[
+24:["(Paolo is pale, and has his hands in his pockets.) Don't ask me what kind of morning I've had. Some mornings a man hears things he shouldn't, and wishes he'd been born deaf, in Genoa. I'd rather talk about Maya at the coffee shop. Anything else.",[
   ["What did you hear?","Nothing. I heard nothing, and I've already forgotten it. You see? Even Paolo can forget something, if he tries very hard."],
   ["Are the monks going up the mountain?","Linnea says the abbot's taking them on a retreat, up in the peaks, with the ash still falling. They're braver than me, or holier."],
   ["Want to talk about Maya instead?","(His face lights up, slowly.) Yes. Please. She laughed at my hat this morning. It's the best thing anyone's said all week."]],
@@ -127,7 +127,7 @@ DAILY['Paolo']={
   ["Will the Syndicate mind?","The Syndicate wants Carlo in Frostholm tomorrow. Today, Paolo's carrying coffee. A man can do two things in a weekend."],
   ["What's the mood in Eastbrook?","Loud. Hopeful. Ruby's playing records out of her window. Even Dagny's come out to watch, with her arms folded."]],
  "Grab a coffee, it's free. Don't tell Maya I said it was weak."],
-29:["(Paolo has a tiny sliver of paper in his hand.) The Republican vote, in Frostholm. I'm going up to watch with the Syndicate. Carlo's nervous. He's phoned me twice to ask what the odds are. I lied, both times.",[
+29:["(Paolo has a tiny sliver of paper in his hand.) The Republican vote, in Frostholm. I'm going up to watch with the Syndicate. Carlo's nervous. He's phoned me twice to ask what the odds are. I lied, both times. Maya at the coffee shop's made me a promise, if I come back in one piece.",[
   ["What are the real odds?","Paolo doesn't give odds on Syndicate business. (He tears the paper into tiny bits.) That was the real odds. Now it's confetti."],
   ["Why lie to Carlo?","Because he's a nervous man with a speech to make. You don't tell a tenor the theatre's half empty."],
   ["Anything new with Maya?","She said, if I come back from Frostholm in one piece, she'll teach me to like coffee. I said I'd come back in two pieces, to get two lessons."]],

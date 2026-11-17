@@ -146,7 +146,7 @@ DAILY['Phil']={
   ["Why does a cola company need a party?","Because a company without a voice gets told what to do. My grandfather took orders from a king. I'd sooner take them from a vote."],
   ["The palace and the Church are at it too.","Everybody's busy and nobody's buying. It's a terrible day for cola."]],
  "If you're going up to Frostholm, take a crate for the queue."],
-30:["(Phil sits at his desk with an unopened bottle in front of him.) The last day. Whatever happens, somebody on this island will be thirsty tomorrow. I keep telling myself that.",[
+30:["(Phil sits at his desk with an unopened bottle in front of him.) The last day. Whatever happens, somebody on this island will be thirsty tomorrow. I keep telling myself that. My grandfather started all this, with a tonic.",[
   ["Are you nervous?","I'm sixty-one and I run a cola company on a volcano. Nervous is the least of it."],
   ["What would your grandfather have wanted?","The island healthy, happy and drinking his tonic. No king's ever managed all three."],
   ["Open the bottle, then.","(He opens it, and pours two glasses.) To the island. Whoever gets it."]],

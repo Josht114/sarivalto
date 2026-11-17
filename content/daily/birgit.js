@@ -73,7 +73,7 @@ DAILY['Birgit']={
   ["Is anyone leaving?", "Some of the oil men's wives took the ferry this morning, with the children. The men stay, for the money. Frostholm's never been so quiet in the daytime."],
   ["Is Sanna all right?", "Her brother's on the rig, and they're still drilling. She's grilling twice as fast and laughing twice as loud. She's fine, the way a kettle's fine."]],
  "If it gets dark, I've torches. Two."],
-21:["(Birgit is standing in the middle of the Nordmart, grey with ash, with her clipboard held to her chest.) The mountain's gone up. Ash everywhere, lava in the north. Nobody killed. I've opened the shop. People need bread and water and somewhere to stand that isn't outside.",[
+21:["(Birgit is standing in the middle of the Nordmart, grey with ash, with her clipboard held to her chest.) The mountain's gone up. Ash everywhere, lava in the north. Nobody killed. I've opened the shop. People need bread and water and somewhere to stand that isn't outside. Sanna next door's been waiting by the telephone. Her brother's on the rig.",[
   ["Are you all right?", "Yes. (She looks at the clipboard.) I've written 'eruption' at the top of today's sheet. Then I didn't know what to write next. I've never not known what to write next."],
   ["Is Sanna's brother safe?", "He rang from the rig. Safe. She sat on the step and cried, and I sat next to her, and neither of us said anything. I've a list for most things. I didn't have a list for that."],
   ["What do people need?", "Water, bread, candles and somebody behaving normally. I'm behaving normally. It's the hardest thing I've ever done."]],

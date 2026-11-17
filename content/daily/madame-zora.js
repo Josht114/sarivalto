@@ -82,7 +82,7 @@ DAILY['Madame Zora']={
     ["It helped me.","(She closes your hand over yours.) Then it's magic. (She smiles.) That's how it works. It's only glass until somebody needs it."],
     ["What now?","Now? (She looks at the grey camp.) Tea. Then sweeping. (She sighs.) The cards can wait. Everybody knows what happened. It's my favourite kind of day. Nobody needs a fortune teller."]]]]],
  "Keep the bead. It's yours now. Even grey."],
-22:["(Zora is sweeping the steps of her caravan with a silver-handled brush, and the crystal ball beside her is grey all the way through.) Look at it. (She points at the ball.) Grey. Inside and out. (She sweeps.) It's the first time I've ever seen the future properly.",[
+22:["(Zora is sweeping the steps of her caravan with a silver-handled brush, and the crystal ball beside her is grey all the way through.) Look at it. (She points at the ball.) Grey. Inside and out. (She sweeps.) It's the first time I've ever seen the future properly. Jack from the fishing shop laughed when I said he'd land something big.",[
   ["What does it show?","Grey. (She sweeps.) Everyone the same colour. Party, palace, Church, oil. (She looks at the ball.) It won't last. But for a week, nobody can tell who's who. That's the future. A short one."],
   ["What's next for the circus?","A free show. For the whole island. Bruno's idea. (She sweeps.) Meg says no takings. I say the cards approve. (She smiles.) They do, actually. I looked."],
   ["Was Jack right to laugh?","(She stops sweeping.) Did he land anything? (She thinks.) He'll say not. (She sweeps again.) But the mountain spoke. And he's still on the jetty. That's quite big, for a fisherman."]],
@@ -99,7 +99,7 @@ DAILY['Madame Zora']={
     ["Can you tell me anything?","That she laughed. (She looks at the door.) And that she asked about the cat. Not the future. The cat. (She smiles.) That's a good sign in a princess."]]]],
   ["How's Hely?","The Eastbrook girl. She's at the camp every day. (She shuffles.) Meg's making her a hat. Bruno's pretending he hasn't decided. (She smiles.) I've seen it in the cards. I'll say so afterwards."]],
  "Go quietly. The Hermit's on the table. He likes a quiet room."],
-25:["(Zora has three cards face up: a crown, a rose and a bridge.) A crown for everyone, the leaflets say, and a princess for the vote. (She looks at them.) It's a pretty spread. I don't know who dealt it. But the Bridge is a very good card.",[
+25:["(Zora has three cards face up: a crown, a rose and a bridge.) A crown for everyone, the leaflets say, and a princess for the vote. (She looks at them.) It's a pretty spread. I don't know who dealt it. But the Bridge is a very good card. (Her black cat is asleep on the crystal ball.)",[
   ["What does the Bridge mean?","Two sides, and something between them. (She taps it.) It's the only card that doesn't take a side. (She smiles.) Bridges are very unpopular in politics. Everybody wants to be one side or the other."],
   ["Who will win?","(She gathers the cards.) Whoever's still standing on Monday. (She looks at you.) That's not mysterious. That's arithmetic. Ask the bank teller in Frostholm. She counts better than I see."],
   ["What does the cat think?","(The cat yawns.) He thinks it's nearly dinnertime. (She sighs.) He's never once been wrong. If I had his gift I'd be a very rich woman."]],
@@ -114,7 +114,7 @@ DAILY['Madame Zora']={
   ["Isn't that dishonest?","It's tailoring. (She smooths the cloth.) Everyone's future is a little better than they think. That's not a lie. That's the only thing I've ever been sure of."],
   ["What's happening tonight?","A Party picture in Eastbrook, and the Don's card game. (She shuffles.) I've been invited to neither. (She smiles.) The Don won't let me near a card table. He says I'd win. He's right."]],
  "Come early tomorrow. Front row. I'll tell you something better than you came for."],
-28:["(Zora is wearing every ring she owns and sitting at her starred table by the ring, with a queue of people from every faction waiting.) The biggest day. (She takes a hand.) Every faction's out making a push. And then they're all coming here. To have their fortunes told. By a woman in a tent.",[
+28:["(Zora is wearing every ring she owns and sitting at her starred table by the ring, with a queue of people from every faction waiting.) The biggest day. (She takes a hand.) Every faction's out making a push. And then they're all coming here. To have their fortunes told. By a woman in a tent. Even Bruno's nervous. Hely wants to join the circus, and he has to decide.",[
   ["How's the queue?","A monk, a Party man, an oil man and a lady from the palace. In that order. (She smiles.) They're standing very close together. Nobody's noticed. Don't tell them."],
   ["What are you telling them?","'You'll be surprised.' (She turns a card.) To every one. (She looks up.) And every one will be. I've never been so sure of anything."],
   ["Will Bruno ask Hely tonight?","(She smiles mysteriously.) The cards say yes. (She leans in.) Meg told me. Meg's better than the cards. But I'll say the cards said it. After."]],

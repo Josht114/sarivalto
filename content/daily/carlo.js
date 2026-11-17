@@ -87,7 +87,7 @@ DAILY['Carlo']={
     ["Why don't you care?","Because nobody told me to walk here. I just did. Through the ash, in a good suit, to check on a woman who doesn't trust me and a box. It's the first thing I've ever done on my own."],
     ["What will the Don say?","That I was foolish to go out in the ash. (He shrugs.) He's right. And I'd do it again."]]]]],
  "Go carefully. Cover your mouth. And thank you."],
-22:["(Carlo is in shirtsleeves, sweeping ash off the party office steps, very badly.) I've never swept anything in my life. Margit's showing me. (He sweeps ash onto his own shoes.) I'm not good at it. I'm enjoying it enormously.",[
+22:["(Carlo is in shirtsleeves, sweeping ash off the party office steps, very badly.) I've never swept anything in my life. Margit's showing me. (He sweeps ash onto his own shoes.) I'm not good at it. I'm enjoying it enormously. The Colonel's dachshund, Brigadier, came to help. He didn't.",[
   ["Why are you sweeping?","Because Margit's sweeping. And because the Don sent men to sweep Hope Springs, and nobody sent anyone here. So I'm here. Sweeping. Badly."],
   ["What did the Don say about the walk?","'Foolish.' Then he looked at me for a long time and said 'But brave. In a foolish way.' (He sweeps.) It's the nicest thing he's ever said to me."],
   ["How's Brigadier?","Grey. Sneezing. The Colonel's furious with the mountain. He's written to it, I think. Military letter. Very sternly worded."]],

@@ -13,7 +13,7 @@ DAILY['Corporal Niemi']={
   ["Can't you shoot at all?","Every year, the range test. Every year, I miss. The target, the bank, the hill. (He chops.) Last year I hit the Colonel's hat. He was wearing it. He's very forgiving."],
   ["What's Rask like?","He counts everything. Including my turnips. (He looks round.) He thinks I don't know he counts them. I do. I eat one a day to keep him interested."]],
  "Don't stand near the knife. I'm very good. I'm not that good."],
-8:["(Niemi is in a clean apron, very excited, rolling dough.) Sunday! Church parade, then a Sunday dinner. (He rolls.) The Abbot's preaching about the king. I'm making a pie. A real pie. With a lid. Rask allowed one extra egg.",[
+8:["(Niemi is in a clean apron, very excited, rolling dough.) Sunday! Church parade, then a Sunday dinner. (He rolls.) The Abbot's preaching about the king. I'm making a pie. A real pie. With a lid. Rask allowed one extra egg. My mother's recipe, near enough.",[
   ["One extra egg?","For the glaze. He signed for it. (He looks very proud.) That's the first egg in four months. I'm going to make it the best egg the barracks has ever seen."],
   ["Do you go to church?","I sing at the back. Loudly. The Abbot once asked me to sing a little quieter. I said I'm singing to God, Father. God's further away than the front row."],
   ["What's your mother's best recipe?","Fish soup. With dill and cream and a bit of something she never told anyone. (He sighs.) I've tried for thirty years. I'm close. It's not the cream. I'm sure it's not the cream."]],
@@ -58,7 +58,7 @@ DAILY['Corporal Niemi']={
   ["Would you vote?","For whoever puts a proper budget in the army kitchen. (He looks at the Admiral.) Eggs. Butter. Cream for my mother's soup. That's my manifesto."],
   ["Is anyone else listening?","Rask is counting the words. He says the Party woman's ahead forty-one to thirty-eight. (He shakes his head.) He counts everything. Even debates."]],
  "Turn the wireless down on your way. The Admiral's trying to simmer."],
-17:["(Niemi is holding the Admiral's lid on with both hands as the pot rattles.) The ground! The ground's moving! (He holds on.) Hold on, Admiral! Hold on! (It stops.) There. Forty years old. It's survived worse. It survived the bishop.",[
+17:["(Niemi is holding the Admiral's lid on with both hands as the pot rattles.) The ground! The ground's moving! (He holds on.) Hold on, Admiral! Hold on! (It stops.) There. Forty years old. It's survived worse. It survived the bishop. My mother would know what to do.",[
   ["Is it the volcano?","Something's very wrong. The soup won't settle. It ripples by itself. (He looks at it.) I've never seen soup ripple without being stirred. My mother would have said it's an omen."],
   ["What would your mother do?","Make more soup. (He looks determined.) Whatever's coming, people will need feeding. I'm going to make the biggest soup the Admiral's ever made."],
   ["How big?","(He looks at the pot, then at the store.) Four hundred bowls. If Rask lets me have the potatoes. He'll say no. Then he'll say yes. Then he'll count the bowls."]],
