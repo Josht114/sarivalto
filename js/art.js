@@ -1305,7 +1305,7 @@ const LK={},HAIRS={
   buzz:{f:[[5,0,6,1],[4,1,8,1]],b:[[5,0,6,1],[4,1,8,6]],s:[[5,0,6,1],[4,1,8,1],[9,2,3,4]]},
   bald:{f:[[4,4,1,2],[11,4,1,2]],b:[[4,4,8,3]],s:[[9,4,3,2]]}};
 const wearing=lk=>({hat:CLOTHES[lk.hat]||CLOTHES.nohat,top:CLOTHES[lk.top]||CLOTHES.parka_blue,legs:CLOTHES[lk.legs]||CLOTHES.jeans_blue,shoes:CLOTHES[lk.shoes]||CLOTHES.boots_brown});
-function lookChar(d,fr,lk){const key=d+','+fr+','+JSON.stringify(lk);if(LK[key])return LK[key];const w=wearing(lk);
+function lookChar(d,fr,lk){if(CLOTHES[lk.top]?.style=='cup')return costume('cup',d,0);const key=d+','+fr+','+JSON.stringify(lk);if(LK[key])return LK[key];const w=wearing(lk);
   const sk='#f1c7a0',skd='#d9a37a',side=d>1,v=d==0?'f':d==1?'b':'s',tc=w.top.col,pt=w.legs.col,sh=w.shoes,hair=lk.hairCol,bc=lk.beardCol;
   return LK[key]=mk(16,20,r0=>{const r=(c,x,y,ww=1,h=1)=>r0(c,d==3?16-x-ww:x,y,ww,h);
     // legs and feet, each [leg x, leg width, leg length, foot x, foot width, foot top]: boots and snow boots are two rows high (snow
@@ -1355,7 +1355,8 @@ function lookChar(d,fr,lk){const key=d+','+fr+','+JSON.stringify(lk);if(LK[key])
     if(ht.style=='souwester'){r(c,4,0,8,3);r(shade(c,.25),5,0,3,1);r(shade(c,-.25),2,3,12,1);if(d==1)r(c,3,4,10,3);else if(side)r(c,9,3,5,4);else{r(c,2,3,2,2);r(c,12,3,2,2)}}
     if(ht.style=='stetson'){r(c,5,0,6,2);r(shade(c,-.2),7,0,2,1);r('#4a2e1a',5,2,6,1);r(c,1,3,14,1);r(c,1,2,1,1);r(c,14,2,1,1);r(shade(c,.2),6,0,1,1)}
     if(ht.style=='beret'){r(c,3,1,9,2);r(c,4,0,6,1);r(shade(c,-.3),4,3,8,1);r(shade(c,.25),5,1,2,1)}})}
-function dressed(px,py,d,fr,lk){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
+// (in the Kelpy costume, the player is drawn as the cup, as Jaana is)
+function dressed(px,py,d,fr,lk){if(CLOTHES[lk.top]?.style=='cup'){costumed(px,py,d,'cup',performance.now());return}ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
 // Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
 const COST={};
 function costume(kind,d,fr){const key=kind+d+fr;if(COST[key])return COST[key];const side=d>1,back=d==1,f=d==3?(x,w=1)=>16-x-w:(x)=>x;
@@ -1450,6 +1451,7 @@ mart:{fl:'tile',f:['#e8eef2','#dfe6ea'],wall:'#f2f2f2',wall2:'#cfe0f0',pap:'tile
 cinemain:{fl:'carpet',f:['#5a1a2a','#3a1520'],wall:'#2a1a3a',wall2:'#c9a040',pap:'panel',base:'#c9a040',deco:[[2,'poster'],[8,'neon','NOW SHOWING','#ffd23a'],[15,'poster']]},
 cafe:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#3a2a20',deco:[[2,'win'],[6,'pic'],[10,'win']]},
 tavern:{fl:'wood',f:['#6b4a2e','#5e4128','#74513a'],wall:'#3d5a4a',wall2:'#34503f',pap:'stripe',curtain:'#7a2a1e',deco:[[1,'win'],[8,'pic'],[12,'dart'],[16,'win']]},
+kcmuseum_tour:{fl:'wood',f:['#7a5a38','#6b4a2e','#86643c'],wall:'#e8f2ea',wall2:'#9fd6c0',pap:'stripe',base:'#2e5a3a',rug:'#2e9d57',deco:[[8,'pic'],[10,'pic']]},
 kcmuseum_in:{fl:'check',f:['#e8f2ea','#2e9d57'],wall:'#e8f2ea',wall2:'#9fd6c0',pap:'stripe',base:'#2e5a3a',rug:'#c0392b',deco:[[2,'poster'],[6,'neon','KELP COLA','#2e9d57'],[12,'pic'],[15,'poster'],[19,'win']]},
 clothes_in:{fl:'wood',f:['#9a7049','#8c6542','#a5794f'],wall:'#3d5a4a',wall2:'#2f4a3c',pap:'stripe',base:'#2f2a26',rug:'#c0392b',curtain:'#e0a100',deco:[[1,'win'],[4,'pic'],[9,'poster'],[12,'win']]},
 records_in:{fl:'check',f:['#2a2a30','#e8e2d4'],wall:'#9a5040',wall2:'#c9b8a8',pap:'brick',base:'#2f2a26',rug:'#7a1e2a',deco:[[1,'poster'],[4,'poster'],[7,'neon','VINYL','#ff8a3a'],[11,'poster']]},
@@ -1676,6 +1678,17 @@ function interiorLayer(m){
 // Furniture for one feature: the outlined picture, how far it reaches above its tiles (oy), and an optional animation.
 function furn(ch,w,h,lb,f,v){const W=w*16,H=h*16,l=(lb||'').toLowerCase();
   if(/rotary table|mud pump|drawworks|generator|driller|pipe rack/.test(l))return machineArt(l,W,H);
+  // the founder's statue in the Kelp Cola Museum: Phil's grandfather in bronze, bent over on a bronze beach, an armful of kelp in one
+  // hand and a bucket in the other, on a granite plinth with a brass plaque
+  if(l=='founder statue'){const oy=18,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#7a7a76',3,TT-12,W-6,12);r('#9a9a96',3,TT-12,W-6,1);r('#5a5a56',3,TT-1,W-6,1);r('#c9a040',11,TT-8,10,3);r('#8a6a2a',12,TT-7,8,1);
+    r('#6b5030',4,TT-15,W-8,3);r('#86643c',5,TT-15,W-12,1);
+    // the man: head, cap, stooped back, legs apart
+    r('#5a4028',9,TT-30,6,5);r('#7a5a38',10,TT-30,2,2);r('#4a3420',8,TT-31,8,2);r('#4a3420',10,TT-26,12,6);r('#6b4a2e',11,TT-26,8,2);r('#4a3420',12,TT-20,3,5);r('#4a3420',18,TT-20,3,5);
+    // an arm down to the kelp, an armful of kelp, and the bucket
+    r('#4a3420',8,TT-24,3,6);r('#3a5a2a',5,TT-19,6,3);r('#2e4a22',4,TT-18,2,3);r('#4a6a32',7,TT-20,3,1);r('#4a3420',21,TT-24,3,5);r('#5a4a3a',21,TT-19,6,4);r('#7a6a58',21,TT-19,6,1);r('#3a5a2a',22,TT-21,4,2)})}}
+  // a placard: a framed card of text on the wall, or (standing in the room) on a little brass stand
+  if(/^placard/.test(l)){if(ch=='y'){const oy=10,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#2e5a3a',2,2,12,12);r('#f4efe4',3,3,10,10);r('#2e9d57',3,3,10,2);for(let y=6;y<12;y+=2)r('#9a948a',4,y,8,1);r('#c9a040',6,15,4,2)})}}
+    const oy=6,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#8a6a2a',7,10,2,TT-12);r('#5a4020',4,TT-3,8,3);r('#2e5a3a',2,1,12,10);r('#f4efe4',3,2,10,8);r('#2e9d57',3,2,10,2);for(let y=5;y<10;y+=2)r('#9a948a',4,y,8,1)})}}
   // an American flag on a brass pole, its stripes hanging in folds, on a heavy base
   if(l=='flag'){const oy=24,TT=H+oy;return{oy,c:mk(W,TT,r=>{r('#c9a040',7,0,2,2);r('#8a6a2a',7,2,2,TT-4);r('#3a3d44',3,TT-3,10,3);
     for(let y=4;y<TT-12;y++){r(((y>>1)%2)?'#f4f4f0':'#c0392b',1,y,6,1);r(((y>>1)%2)?'#e8e8e4':'#a52f24',9,y,6,1);if((y>>1)&1){r('rgba(0,0,0,.12)',3,y,1,1);r('rgba(0,0,0,.12)',12,y,1,1)}}

@@ -218,6 +218,10 @@ spa_in:['Hot Springs Spa',22,12,'interior',[[2,2,5,1,'c','Reception Desk'],[1,6,
 // a record shop, and the lumber mill at the Mill
 kcmuseum_in:['Kelp Cola Museum',22,12,'interior',[[1,1,4,1,'y','Vintage Bottles'],[7,1,7,2,'g','Old Bottling Line'],[16,1,5,1,'y','Bottle Caps'],[1,4,2,2,'x','Kelp Cola Crates'],
 [5,4,1,1,'n','Mannequin'],[7,5,3,1,'o'],[14,6,6,1,'c','Gift Shop Counter'],[16,8,5,1,'y','Souvenir Shelves'],[1,8,4,1,'y','Postcard Rack']]],
+// the Kelp Cola Story: the museum's gallery, through the door at the back of the hall, where Kelpy gives the tour: the founder's bronze
+// statue (Phil's grandfather, gathering kelp) in the middle, and a placard for each part of the story round the walls (PLACARDS)
+kcmuseum_tour:['The Kelp Cola Story',18,10,'interior',[[8,2,2,2,'x','Founder Statue'],[2,1,1,1,'y','Placard: Beach'],[6,1,1,1,'y','Placard: Pot'],
+[11,1,1,1,'y','Placard: 1911'],[15,1,1,1,'y','Placard: Fizz'],[1,5,1,1,'x','Placard: Tram'],[16,5,1,1,'x','Placard: Secret'],[3,7,3,1,'o','Bench'],[12,7,3,1,'o','Bench']]],
 clothes_in:['Flannel and Folk',14,10,'interior',[[1,1,5,1,'y','Clothes Rail'],[8,1,5,1,'y','Clothes Rail'],[1,4,1,1,'n','Mannequin'],[12,4,1,1,'n','Mannequin'],
 [3,4,3,1,'y','Clothes Rail'],[9,4,2,1,'y','Cloth'],[8,7,4,1,'c','Counter'],[1,7,3,1,'y','Cloth']]],
 records_in:['Vinyl Resting Place',14,9,'interior',[[1,1,5,1,'y','Record Shelves'],[8,1,5,1,'y','Record Shelves'],[2,4,3,1,'x','Record Crates'],[9,3,3,1,'x','Record Crates'],
@@ -646,6 +650,7 @@ trench:{name:'Trench coat',desc:'A belted tan trench coat with a turned-up colla
 slacks:{name:'Black trousers',desc:'Pressed black trousers to go with a jacket. It goes into your wardrobe.',actions:[]},
 oxfords:{name:'Black Oxfords',desc:'Polished black leather shoes. It goes into your wardrobe.',actions:[]},
 fedora:{name:'Grey fedora',desc:'A grey felt hat with a black band. It goes into your wardrobe.',actions:[]},
+kelpy:{name:'Kelpy costume',desc:'A Kelpy the cup costume, the same as the real one: a giant red cola cup with a lid, a straw, white gloves and big shoes. Very hot inside. It goes into your wardrobe.',actions:[]},
 stetson:{name:'Stetson',desc:'A tan ten-gallon hat with a wide brim, as worn by Texas oilmen. It goes into your wardrobe.',actions:[]},
 cowboyboots:{name:'Cowboy boots',desc:'Tooled tan leather boots with a heel. It goes into your wardrobe.',actions:[]},
 oilskin:{name:'Yellow oilskin',desc:'A stiff yellow oilskin jacket that keeps out the sea spray. It goes into your wardrobe.',actions:[]},
@@ -741,7 +746,7 @@ Hekki:{start:'hello',nodes:{
 // ---- Opening hours: places open only by day, and places open only at night. Their doors don't open while they're shut, and the
 // people who work in a night-only place work at night and are at home by day. Everywhere else is always open. (The street
 // stalls have no door: their vendors are simply at home at night.)
-const DAY_ONLY=['clothes_in','outfitters_in','kcmuseum_in','records_in','electro','mart','bookshop','fishingshop','gunshop','tailor','fishshop','tattoo','bank_in','estateagent','fuel_in'];
+const DAY_ONLY=['clothes_in','outfitters_in','kcmuseum_in','kcmuseum_tour','records_in','electro','mart','bookshop','fishingshop','gunshop','tailor','fishshop','tattoo','bank_in','estateagent','fuel_in'];
 const NIGHT_ONLY=['jazz_in','caravan3_in'];
 // the staff of the places open day and night (bars, restaurants, the hotel, the casino, the arcade, the stalls that stay open, and
 // the doctor and the police sergeant, on call, the supermarket and the cinema):
@@ -773,7 +778,7 @@ nohat:{slot:'hat',name:'No hat',style:'none'},
 beanie_yellow:{slot:'hat',name:'Yellow beanie',style:'beanie',col:'#e8c33a'},beanie:{slot:'hat',name:'Navy wool beanie',style:'beanie',col:'#2a3a5e'},
 flatcap:{slot:'hat',name:'Tweed flat cap',style:'flatcap',col:'#7a6a4a'},ushanka:{slot:'hat',name:'Fur ushanka',style:'ushanka',col:'#6b4a2e'},
 beret:{slot:'hat',name:'Black beret',style:'beret',col:'#2a2a33'},fedora:{slot:'hat',name:'Grey fedora',style:'fedora',col:'#5a5f68'},
-stetson:{slot:'hat',name:'Stetson',style:'stetson',col:'#c8a46a'},cowboyboots:{slot:'shoes',name:'Cowboy boots',style:'boots',col:'#a0703a'},
+stetson:{slot:'hat',name:'Stetson',style:'stetson',col:'#c8a46a'},kelpy:{slot:'top',name:'Kelpy costume',style:'cup',col:'#c0392b'},cowboyboots:{slot:'shoes',name:'Cowboy boots',style:'boots',col:'#a0703a'},
 parka_blue:{slot:'top',name:'Blue parka',style:'parka',col:'#2a5db0'},sweater_grey:{slot:'top',name:'Grey jumper',style:'sweater',col:'#7a7f88'},
 shirt:{slot:'top',name:'Flannel shirt',style:'flannel',col:'#b03a2e'},sweater:{slot:'top',name:"Fisherman's jumper",style:'sweater',col:'#3d6a4a'},
 suit:{slot:'top',name:'Tailored suit',style:'suit',col:'#2b2f3a'},trench:{slot:'top',name:'Trench coat',style:'trench',col:'#b8a070'},
@@ -784,6 +789,8 @@ snowboots:{slot:'shoes',name:'Snow boots',style:'snowboots',col:'#5a5f68'},oxfor
 oilskin:{slot:'top',name:'Yellow oilskin',style:'parka',col:'#f0c020'},cableknit:{slot:'top',name:'Cable-knit jumper',style:'sweater',col:'#1e2a50'},peacoat:{slot:'top',name:'Pea coat',style:'trench',col:'#1e2a44'},
 dungarees:{slot:'legs',name:'Dungarees',style:'trousers',col:'#3a5a8a'},wellies:{slot:'shoes',name:'Green wellies',style:'boots',col:'#2e5a2e'},
 souwester:{slot:'hat',name:"Sou'wester",style:'souwester',col:'#f0c020'},watchcap:{slot:'hat',name:'Red watch cap',style:'beanie',col:'#c0392b'}};
+// stock that only shows once something has happened: the Kelpy costume in the museum's gift shop, once you've taken the tour
+const SHOP_WHEN={kelpy:()=>{const q=qOf('colatour');return!!q&&(q.done||!!q.met[0])}};
 const SHOPS={
 Ray:{stock:[['beer',24,2],['whisky',10,4],['cigarettes',10,2]]},
 Eddie:{stock:[['beer',24,2],['whisky',12,4],['cigarettes',10,2]]},
@@ -801,7 +808,7 @@ Olga:{stock:[['smokedfish',12,4]]},
 Aili:{stock:[['coffee',30,1],['hotdog',20,1],['burger',20,2],['meal',10,6]]},
 Helmi:{stock:[['floats',3,12],['drill',2,35],['oilskin',3,40],['souwester',4,12],['wellies',3,25],['cableknit',4,30],['peacoat',2,60],['dungarees',3,28],['watchcap',5,8]]},
 Frank:{stock:[['pistol',2,150],['ammo',10,12]]},
-Wilma:{stock:[['souvenir',8,6],['cola',30,1]]},
+Wilma:{stock:[['souvenir',8,6],['cola',30,1],['kelpy',2,60]]},
 Birgit:{stock:[['bread',10,1],['cola',24,1],['batteries',12,2],['cigarettes',20,2],['flashlight',3,9]]},
 Lisa:{stock:[['bread',15,1],['cola',24,1],['beer',24,2],['cigarettes',20,2],['drill',2,35]]},
 Ruby:{stock:[['record',12,9],['tape_neon',6,6],['tape_harbour',6,6],['tape_saltwick',6,6],['tape_valto',6,6],['tape_tanets',6,6]]},
@@ -840,7 +847,8 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 //   use:label, m:place, play:'safe' or 'forge'   facing that furniture opens a minigame instead (js/heist.js): crack the safe, or
 //                        forge a card to match the recipe (that one needs the real card, and gives two forged cards)
 //   tour:name, price     pay that person for a tour, from CIA funds (the condition's chat is the tour; its first node's
-//                        options are made for you: pay, or not now)
+//                        options are made for you: pay, or not now); inside:[place, x, y, dir] takes you there the moment you
+//                        pay, and sets the quest flag 'touring' (for a meet that takes the guide in with you)
 // tip: a note on how the game works, in the quest news box once the quest is complete (after Meet the Communists, how to wait for the evening).
 // note: a few words the wiki's Quests page adds to a step (a point given from its conversation, say).
 // tested: true once the quest has been played through and checked (the wiki's Quests page shows which are).
@@ -855,6 +863,30 @@ Dex:{stock:[['hotdog',30,1],['cola',20,1]]},
 // island map marks where they are.
 // Meet the Royals: whether you heard something at the palace (a flag on the quest, set by what you asked)
 const RY_HEARD=f=>!!qOf('meetroyals')?.flags?.[f];
+// ---- Placards and plaques you can read (facing them, E): by the label of the furniture they're on. The Kelp Cola Story, the
+// museum's gallery, tells the company's history as the company tells it
+const PLACARDS={
+'Founder Statue':"A bronze man in a fisherman's smock, bent double on a bronze beach, an armful of kelp in one hand and a bucket in the other. The plaque says: THE FOUNDER. HE TOOK WHAT THE SEA GAVE. (Someone has left a bottle cap on his boot.)",
+'Placard: Beach':"THE BEACH. After every winter storm, the sea left kelp on the north shore in great brown heaps. Most folk walked past it. One young man stopped, and filled a bucket.",
+'Placard: Pot':"THE POT AND THE BUCKET. In his mother's kitchen, in her best cooking pot, Phil's grandfather boiled the kelp with sugar, roots and something he never wrote down. He called it a tonic. His mother called it a ruined pot.",
+'Placard: 1911':"FREE AT THE HARBOUR, 1911. He gave his tonic away to the fishermen coming in cold off the boats. For colds, for aches, for the long winter blues. The first bottle was free. The second was two cents.",
+'Placard: Fizz':"LESS SEAWEED, MORE FIZZ. Year by year the recipe changed: a little less kelp, a little more sugar, and then the bubbles. The tonic became a cola, and the cola became Kelp Cola. (A small card underneath adds: it no longer cures gout.)",
+'Placard: Tram':"THE TRAM. He laid the tram line so the workers could reach the factory and the visitors could reach this museum. (A photograph shows a red and cream tram, a crowd of workers, and no visitors at all.)",
+'Placard: Secret':"THE SECRET. The recipe is still written in his own hand, which nobody can read, and it's locked away somewhere very safe. Only the family knows it. (Beside the placard, an empty glass case, with a sign: THIS IS NOT WHERE IT IS.)"};
+// ---- Quest topics: while a quest is yours and not finished, the people listed here can be asked about it, as an extra reply on
+// their conversation (even once today's conversation is over): QUEST_TOPICS[questId] = {label: your line, people: {Name: answer}}
+const QUEST_TOPICS={
+colatour:{label:'About the Kelp Cola tour.',people:{
+  Elin:"(Elin lowers her voice.) Phil sends everyone to the museum. Buyers from Helsinki, the bishop's nephew, a man who came to mend the boiler. Pay your five dollars and smile at Kelpy. He'll ask if you did.",
+  Harald:"The tour? (A thin smile.) Phil's pride and joy. Seaweed, a widow, a secret recipe. It's a good story, and most of it's even true. Tell him you liked it. He'll like you.",
+  Saara:"(She doesn't look up from her clipboard.) The tour tells the recipe's story better than I could. I only make it. And no, I won't tell you what's in it. Phil would have my lab coat.",
+  Noora:"I've done the tour four times. Once with my mother and three times with my nephews. Kelpy gets the dates muddled in the middle. Nobody minds. Everybody gets a free cap.",
+  Kurt:"The museum? (He wipes his hands on a rag.) Nice pictures of the first bottling line. My father's in one of them, at the back. They cut his head off. Look for the boots.",
+  Ville:"Every visitor to the island ends up on Phil's tour. Eastbrook, on the main street, once the road's open. Look for the giant cup waving. You can't miss it. Nobody can.",
+  Rosa:"(She turns a sausage.) Phil's tour. Five dollars, and you come out wanting a cola. Then you come out here wanting a hot dog. That's the real Kelp Cola story.",
+  Wilma:"Kelpy takes you round, and the gift shop's at the end. (She straightens a row of keyrings.) Everyone says they won't buy anything. Everyone buys a keyring.",
+  Jaana:"(The giant cup tilts its head.) Hiya, hiya! The fizz-tory of Kelp Cola! (A woman's voice, much lower, from inside.) It's five dollars and it's very hot in here. Please come in.",
+  Hekki:"(Hekki looks up from the set.) Phil's sent you to his museum? Go. Pay, smile, buy a postcard. A reporter who takes the tour is a reporter Phil trusts. Keep the receipt. Chuck likes receipts."}}};
 // The people who suggest a volcano flavour, in The People's Cola and New Formula (either of them meets the first condition)
 const VOLCANO_ASKED=['Rosa','Saga','Brother Teodor'];
 const VOLCANO_IDEA={
@@ -1366,8 +1398,10 @@ meetcola:{title:'Meet the Cola Boys',tested:true,giver:'Chuck',main:true,day:3,c
 // so on the morning it's ready (arrives).
 colatour:{title:'The Kelp Cola Tour',tested:true,giver:'Phil',given:true,seq:true,text:'Phil wants you to take the tour of the Kelp Cola Museum in Eastbrook, given by Kelpy the mascot, once you can get there, then go back to his office at Kelp Cola HQ and tell him what you thought.',
   wait:"Been to the museum yet? Eastbrook, once the road's clear. Kelpy will look after you.",
+  // (paying Kelpy takes you both into the museum's gallery, the Kelp Cola Story, for the tour; she stays in there until you've reported to Phil)
+  meet:[{name:'Jaana',m:'kcmuseum_tour',x:11,y:4,dir:0,flag:'touring'}],
   done:[
-    {tour:'Jaana',price:5,what:'Take the tour of the Kelp Cola Museum in Eastbrook, with Kelpy the mascot',said:'That was the Kelp Cola story, as the company tells it. Now go back to Phil at Kelp Cola HQ and tell him what you thought.',chat:{start:'a',nodes:{
+    {tour:'Jaana',price:5,inside:['kcmuseum_tour',11,5,1],what:'Take the tour of the Kelp Cola Museum in Eastbrook, with Kelpy the mascot',said:'That was the Kelp Cola story, as the company tells it. Now go back to Phil at Kelp Cola HQ and tell him what you thought.',chat:{start:'a',nodes:{
       a:{say:"Hiya, hiya! I'm Kelpy, the Kelp Cola cup! Welcome to the Kelp Cola Museum! The grand tour is five dollars. Ready for the fizz-tory of Kelp Cola?"},
       b:{say:"Follow me! A long, long time ago, before there was any Kelp Cola, there was a beach, and on that beach there was kelp. Lots and lots of kelp! It washed up on the sand after every storm.",opts:[['Go on.','c']]},
       c:{say:"Well, our CEO Phil's grandfather gathered up that kelp from the shore, took it home, and brewed it into a health tonic! Folk swore by it: for colds, for aches, for the long winter blues!",opts:[['A health tonic?','d']]},
@@ -2006,7 +2040,7 @@ const FURN={f_bed:[2,2,'e','Bed'],f_sofa:[3,1,'x','Sofa'],f_armchair:[1,1,'x','A
   eq_screen:[4,1,'y','Big Screen'],eq_radio:[4,1,'y','Radio Equipment'],eq_phone:[1,1,'x','Telephone'],eq_computer:[2,2,'y','Computer'],eq_wardrobe:[1,1,'y','Wardrobe'],eq_board:[2,1,'y','Notice Board']};
 // ---- Building doors: [outerId, doorX, doorY, frontDX, frontDY, innerId, innerDoorX?, innerDoorY?, innerArriveDX?, innerArriveDY?]
 // The inner door defaults to the bottom centre of the interior. Walk onto a door tile to go in (or out).
-const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['second',19,8,0,1,'kcmuseum_in'],['second',28,8,0,1,'house_henrik'],
+const DOORS=[['second',4,8,0,1,'eblofts'],['second',11,8,0,1,'house_pekka'],['second',19,8,0,1,'kcmuseum_in'],['kcmuseum_in',14,0,0,1,'kcmuseum_tour'],['second',28,8,0,1,'house_henrik'],
 ['second',31,8,0,1,'house_nora'],['second',38,8,0,1,'commcentre'],['second',4,14,0,1,'cedargrill'],['second',9,14,0,1,'cafe'],['second',15,14,0,1,'records_in'],
 ['second',21,14,0,1,'tattoo'],['second',29,14,0,1,'clothes_in'],['second',36,14,0,1,'newsroom'],['second',44,14,0,1,'tavern'],['millroad',10,5,0,1,'mill_in'],
 ['village',6,10,0,1,'plant'],['village',20,10,0,1,'hq'],['village',35,10,0,1,'apartments'],['village',5,18,0,1,'bar'],

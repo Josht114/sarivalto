@@ -129,7 +129,8 @@ select hr{border:0;border-top:1px solid #000}
 @media (max-width:620px){#start .wprev.tprev{grid-template-columns:140px}#start .wprev.tprev canvas{width:140px;height:140px}}
 /* quests: the Quests tab, and the stars on the map marking someone with a quest to give */
 #start ul.quests{list-style:none;padding:0;margin:4px 0 10px}#start ul.quests>li{margin:0 0 8px;padding:6px 8px;border:1px solid #3a5a3a;border-radius:6px}
-#start ul.quests>li.qdone{opacity:.6}#start ul.qconds{list-style:none;padding:0;margin:4px 0 0;font-size:12px}#start ul.qconds li.met{color:#9fe870}
+#start ul.quests>li.qdone{opacity:.6}#start h4.qsub{margin:6px 0 2px;font-size:12px;color:#c8d8b8;text-transform:uppercase;letter-spacing:.05em}
+#start button.qfold{margin-left:8px;font-size:11px;padding:1px 8px;vertical-align:middle}#start ul.qconds{list-style:none;padding:0;margin:4px 0 0;font-size:12px}#start ul.qconds li.met{color:#9fe870}
 #start .jnav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 8px}#start .jnav b{flex:1;text-align:center}#start .jent{margin:0 0 10px;padding:6px 8px;border:1px solid #3a5a3a;border-radius:6px}#start .jent h4{margin:0 0 4px}#start .jent p{margin:2px 0;font-size:13px}#start .jent p.me{color:#9fd0ff}
 #start ul.info{list-style:none;margin:0;padding:0}#start ul.info li{margin:0 0 8px;padding:6px 8px;border:1px solid #3a5a3a;border-radius:6px;font-size:13px}#start ul.info li small{color:#9ab}
 #start .qstar.side{color:#dde3ec}

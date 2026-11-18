@@ -80,8 +80,11 @@ function renderStart(){if(START=='shop'){renderShop();return}if(START=='tracker'
       <p>${esc(d.desc)}${itemState(it.id)}</p><div class="acts">${itemActions(it.id).map((x,i)=>`<button data-act="${i}">${esc(x)}</button>`).join('')}</div>${ME.note?`<p class="note">${esc(ME.note)}</p>`:''}`:'<p>You are carrying nothing.</p>'}</div></div>`}
   if(START=='quests'){const li=q=>{const Q=QUESTS[q.id],g=NPCS.find(n=>n.name==Q.giver);return`<li class="${q.done?'qdone':''}"><b>${esc(Q.title)}</b> <small>${Q.main?'Main quest':'Side quest'}, from ${esc(Q.giver)}${g?', '+esc(g.job.replace(/ \(.*\)$/,'')):''}</small><br>${esc(Q.text)}`+
       `<ul class="qconds">${Q.done.map((c,i)=>c.if&&q.choice!=c.if?'':`<li class="${q.done||q.met[i]?'met':''}">${q.done||q.met[i]?'&#9745;':'&#9744;'} ${esc(c.what)}</li>`).join('')}</ul></li>`};
-    const on=ME.quests.filter(q=>!q.done),off=ME.quests.filter(q=>q.done);
-    body=(on.length?`<h3>Active</h3><ul class="quests">${on.map(li).join('')}</ul>`:'<p>No active quests.</p>')+(off.length?`<h3>Completed</h3><ul class="quests">${off.map(li).join('')}</ul>`:'')}
+    // active quests split into main and side; the completed ones folded away until you open them (ME.qOpen)
+    const on=ME.quests.filter(q=>!q.done),off=ME.quests.filter(q=>q.done),onM=on.filter(q=>QUESTS[q.id].main),onS=on.filter(q=>!QUESTS[q.id].main);
+    const part=(t,l)=>l.length?`<h4 class="qsub">${t}</h4><ul class="quests">${l.map(li).join('')}</ul>`:'';
+    body=(on.length?`<h3>Active</h3>`+part('Main quests',onM)+part('Side quests',onS):'<p>No active quests.</p>')+
+      (off.length?`<h3>Completed <button class="qfold" data-qfold aria-expanded="${!!ME.qOpen}">${ME.qOpen?'Hide':'Show'} (${off.length})</button></h3>`+(ME.qOpen?`<ul class="quests">${off.map(li).join('')}</ul>`:''):'')}
   if(START=='journal'){// every conversation you've had, a day at a time (the arrows step through the days you talked to anyone)
     const J=ME.journal||[],days=[...new Set(J.map(j=>j.d))];if(!days.includes(JDAY))JDAY=days[days.length-1];const i=days.indexOf(JDAY);
     body=!days.length?'<p>No conversations yet. Everyone you talk to is written down here, day by day.</p>':
@@ -158,7 +161,8 @@ const deliveryDay=d=>d<1?d:d%2?d:d-1;
 function stockOf(n){const full=SHOPS[n.name].stock,dd=deliveryDay(DAY),st=STOCK[n.name];
   if(!st||STOCKED[n.name]==null||STOCKED[n.name]<dd||STOCKED[n.name]>DAY){
     STOCK[n.name]=[...full.map(([id,c,p])=>{const had=st&&st.find(t=>t.id==id);return{id,n:Math.max(c,had?had.n:0),p}}),...(st||[]).filter(t=>!full.some(([id])=>id==t.id))];STOCKED[n.name]=dd}
-  return STOCK[n.name]}
+  // (stock with a condition in SHOP_WHEN shows only once it's met)
+  return STOCK[n.name].filter(t=>!SHOP_WHEN[t.id]||SHOP_WHEN[t.id]())}
 function openShop(n){if(MENU||RIDE)return;SHOP={n,sel:0,note:''};START='shop';stack=[];startEl.hidden=false;renderStart()}
 function renderShop(){const n=SHOP.n,st=stockOf(n);SHOP.sel=Math.max(0,Math.min(SHOP.sel,st.length-1));const t=st[SHOP.sel],d=t&&ITEMS[t.id];
   const pay=(k,label,v,key)=>`<button data-pay="${k}"${v<t.p?' disabled':''}>${label} <small>(${key})</small></button>`;
@@ -172,7 +176,7 @@ function renderShop(){const n=SHOP.n,st=stockOf(n);SHOP.sel=Math.max(0,Math.min(
 function buy(how){const st=stockOf(SHOP.n),t=st[SHOP.sel];if(!t)return;const nm=ITEMS[t.id].name.toLowerCase();
   if(CLOTHES[t.id]&&ME.clothes.includes(t.id)){SHOP.note=`You already have the ${nm} in your wardrobe.`;renderStart();return}
   if(ME[how]<t.p){SHOP.note=`You don't have enough ${how=='cia'?'CIA funds':'money of your own'} for the ${nm}.`;renderStart();return}
-  ME[how]-=t.p;if(CLOTHES[t.id])ME.clothes.push(t.id);else{const mine=has(t.id);if(mine)mine.n++;else ME.items.push({id:t.id,n:1})}if(--t.n<=0)st.splice(SHOP.sel,1);
+  ME[how]-=t.p;if(CLOTHES[t.id])ME.clothes.push(t.id);else{const mine=has(t.id);if(mine)mine.n++;else ME.items.push({id:t.id,n:1})}if(--t.n<=0){const S=STOCK[SHOP.n.name];S.splice(S.indexOf(t),1)}
   SHOP.note=`You buy the ${nm} for ${money(t.p)}, paid from ${how=='cia'?'CIA funds':'your own money'}.`+(CLOTHES[t.id]?' It will be waiting in your wardrobe at home.':'');questEvent('buy:'+t.id);renderStart()}
 // ---- Saving and loading: a quick save and three slots, kept by store (js/store.js: in the browser, or as files in the app). A save holds where you are, the date and time of day, your money,
 // items and quests, and what is left in every shop.
@@ -368,6 +372,8 @@ function snowBlocks(m){if(BLOCKS.has(m))return BLOCKS.get(m);
     return{x,y,to:e.to,sx:side[0],sy:side[1]}});
   BLOCKS.set(m,out);return out}
 const snowAt=(m,x,y)=>snowBlocks(m).find(b=>b.x==x&&b.y==y||b.sx==x&&b.sy==y);
+// a placard or plaque you can read (PLACARDS, by the label of the furniture it's on), on the tile you're facing
+const placardAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy,f=FL[P.m]?.find(([fx,fy,w,h,,l])=>PLACARDS[l]&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);return f?f[5]:null};
 const signAhead=()=>{const[dx,dy]=DIR[P.dir],x=P.x+dx,y=P.y+dy;return snowBlocks(P.m).find(b=>b.sx==x&&b.sy==y)};
 function useExit(e){const b=EX[e.to].find(q=>q.to==P.m);P.m=e.to;[P.x,P.y]=inw(b);P.rx=P.x;P.ry=P.y;showHere(P.m)}
 function update(dt){
@@ -393,9 +399,11 @@ function update(dt){
 // a padlocked building (BLD locked: what it says): walking up into its front says so
 function lockedFront(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.locked&&y==fy+h-1&&x>=fx&&x<fx+w);return f?BLD[f[6]].locked:null}
 // stairs go one way: up from the bottom (walking up into them), down from the top (walking down into them); from any other side
-// they say which way they go
+// they say which way they go. Stairs down set against the back wall (nothing above them to come from) are taken from below
+// instead, walking up into them (Kelp Cola HQ's stairs down to the lab)
 function stairsWay(x,y,d){if(MAPS[P.m][y]?.[x]!='z')return null;const f=FL[P.m].find(([fx,fy,w,h,c])=>c=='z'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h),up=/up/i.test(f?.[5]||'');
-  return DIR[d][1]==(up?-1:1)?null:up?'These stairs go up: climb them from the bottom.':'These stairs go down: take them from the top.'}
+  const way=up||MAPS[P.m][y-1]?.[x]=='W'?-1:1;
+  return DIR[d][1]==way?null:up?'These stairs go up: climb them from the bottom.':'These stairs go down: take them from the top.'}
 function bigDoor(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.deco=='whs'&&y==fy+h-1&&x>=fx&&x<fx+w);if(!f)return null;
   const[fx,fy,w,h]=f,bx=(w*16>>1)-12,i=x-fx;if(i*16+15<bx||i*16>bx+24)return null;
   const e=EX[P.m].find(e=>e.y==fy+h-1&&e.x>=fx&&e.x<fx+w&&L[e.to]?.[3]=='interior');return e&&!shut(e.to)?e:null}
@@ -541,7 +549,9 @@ function questTalk(n){
     return{start:'a',nodes:{a:{say:'Got everything?',opts:[['Hand over the '+c.bring.map(id=>ITEMS[id].name.toLowerCase()).join(', '),'ok',()=>{c.bring.forEach(id=>take(id));meet(q,i,true)}],...alt,['Not yet',null]]},ok:{say:c.said||'Thanks.'},alt:altNode}}}
   // a tour: pay for it (from CIA funds) and it's yours; the quest moves on once it's over, if you paid
   const tr=openConds().find(([,,c])=>c.tour==n.name);if(tr){const[q,i,c]=tr;let paid=false;
-    const a={...c.chat.nodes.a,opts:ME.cia>=c.price?[['Pay $'+c.price+' for the tour (CIA funds)','b',()=>{ME.cia-=c.price;paid=true}],['Not now',null]]:[["Not now (you don't have $"+c.price+')',null]]};
+    // (a tour with somewhere to go, inside: you and your guide are there the moment you pay)
+    const go=()=>{if(!c.inside)return;qFlag(q.id,'touring');[P.m,P.x,P.y,P.dir]=c.inside;P.rx=P.x;P.ry=P.y;P.mv=null;showHere(P.m)};
+    const a={...c.chat.nodes.a,opts:ME.cia>=c.price?[['Pay $'+c.price+' for the tour (CIA funds)','b',()=>{ME.cia-=c.price;paid=true;go()}],['Not now',null]]:[["Not now (you don't have $"+c.price+')',null]]};
     return{start:'a',nodes:{...c.chat.nodes,a},onEnd:()=>{if(paid)meet(q,i)}}}
   const tk=openConds().find(([,,c])=>[c.talk].flat().includes(n.name));if(tk){const[q,i,c]=tk;return{...(c.chats?.[n.name]||c.chat||QUESTS[q.id].chat),onEnd:()=>{if(!c.ok||c.ok(q))meet(q,i);
     // a choice made in the conversation may have moved the quest on to another step with this same person, already settled
@@ -592,6 +602,7 @@ function act(){if(P.mv||MENU||RIDE||START||BUSY||CONVO)return;const now=performa
   if(planeAhead()){boardPlane();return}
   if(typeof canFish=='function'&&canFish()){startFishing();return}
   if(typeof waterAhead=='function'&&has('fishrod')&&ME.equipped!='fishrod'&&waterAhead()){say('Equip your fishing rod first: open the menu (M), choose it in your inventory and press Equip.',4500);return}
+  const pc=placardAhead();if(pc){say(PLACARDS[pc],9000);return}
   const sg=signAhead();if(sg){say('DANGER! SNOW. NO ACCESS. The road to '+NM[sg.to]+' is buried in drifts.',5000);return}
   const g=typeof gameAhead=='function'&&gameAhead();if(g){openPlay(g);return}
   const n=npcAhead();if(n){talk(n);return}
@@ -625,6 +636,8 @@ function jot(o,cv){const j=ME.journal?.[ME.journal.length-1];if(!j)return;if(!['
   if(o[1]!=null&&cv.c.nodes[o[1]])j.l.push([cv.n.name,cv.c.nodes[o[1]].say])}
 // (talking to someone again and hearing the very same thing isn't written down twice the same day)
 function jotDone(){const J=ME.journal,j=J?.[J.length-1];if(!j)return;const s=JSON.stringify(j.l);if(J.slice(0,-1).some(k=>k.d==j.d&&k.n==j.n&&JSON.stringify(k.l)==s))J.pop()}
+// the Quests tab: show or hide the completed quests
+addEventListener('click',e=>{if(START!='quests'||!e.target.closest?.('[data-qfold]'))return;ME.qOpen=!ME.qOpen;renderStart()});
 addEventListener('click',e=>{const b=e.target.closest?.('[data-jd]');if(!b||START!='journal')return;const days=[...new Set((ME.journal||[]).map(j=>j.d))];
   JDAY=days[Math.max(0,Math.min(days.length-1,days.indexOf(JDAY)+ +b.dataset.jd))];renderStart()});
 // ---- Daily conversations (DAILY, in js/daily.js, built from content/daily/ by tools/build-daily.js): each person has their own
@@ -640,14 +653,17 @@ function serviceOpts(n){const o=[];if(SHOPS[n.name]&&n.m==n.loc){o.push(['Show m
 // A day's conversation can also have a summary (DAILY[name][day][3]: a line for the Information tab) and other openers
 // ([4]: {'Name:day': opener}, the first one whose conversation you've heard wins). A reply can need one too ([your reply,
 // their answer, 'Name:day']), or need you not to have heard it ('!Name:day').
+// a quest topic (QUEST_TOPICS) on a quest of yours that isn't finished: an extra reply, with its answer as a node of its own
+function topicOpts(n,nodes,end){return Object.entries(typeof QUEST_TOPICS!='undefined'?QUEST_TOPICS:{}).filter(([id,t])=>t.people[n.name]&&ME.quests.some(q=>q.id==id&&!q.done))
+  .map(([id,t])=>{nodes['t_'+id]={say:t.people[n.name],opts:end};return[t.label,'t_'+id]})}
 function dailyConvo(n){if(DAY<1)return null;const D=typeof DAILY!='undefined'&&DAILY[n.name]?.[DAY];
-  if(!D)return SERVICE[n.name]||SHOPS[n.name]&&n.m==n.loc?null:{start:'a',nodes:{a:{say:`My name is ${n.name}.`}}};
-  const svc=serviceOpts(n),end=svc.length?[...svc,['Goodbye',null]]:undefined;
-  if((ME.talked??={})[n.name]==DAY)return{start:'a',nodes:{a:{say:D[2],opts:end}}};
+  const svc=serviceOpts(n),end=svc.length?[...svc,['Goodbye',null]]:undefined,tn={},tp=topicOpts(n,tn,end),plus=o=>{if(!tp.length)return o;const bye=!o||o.some(x=>x[0]=='Goodbye');return[...(o||[]).filter(x=>x[0]!='Goodbye'),...tp,...(bye?[['Goodbye',null]]:[])]};
+  if(!D)return SERVICE[n.name]||SHOPS[n.name]&&n.m==n.loc?null:{start:'a',nodes:{a:{say:`My name is ${n.name}.`,opts:plus()},...tn}};
+  if((ME.talked??={})[n.name]==DAY)return{start:'a',nodes:{a:{say:D[2],opts:plus(end)},...tn}};
   const nodes={},done=()=>{ME.talked[n.name]=DAY};let k=0,alt=D[4]&&Object.keys(D[4]).find(knows);learn(n);
   const build=(say,opts)=>{const id='n'+k++;nodes[id]={say};opts=opts?.filter(o=>!o[2]||knows(o[2]));
     nodes[id].opts=opts?.length?opts.map(([t,r])=>{const[rs,ro]=Array.isArray(r)?r:[r];return[t,build(rs,ro),ro?.length?null:done]}):end;return id};
-  return{start:build(alt?D[4][alt]:D[0],D[1]),nodes}}
+  const st=build(alt?D[4][alt]:D[0],D[1]);if(tp.length)nodes[st].opts=plus(nodes[st].opts==end?end:nodes[st].opts);return{start:st,nodes:{...nodes,...tn}}}
 // ---- Information (the Information tab): every day's conversation you've heard, ME.info['Name:day'] = {d: the day, n: who,
 // w: where, night}. Hearing it is enough: what they open with is the news.
 const knows=k=>k[0]=='!'?!ME.info?.[k.slice(1)]:!!ME.info?.[k];
@@ -700,6 +716,7 @@ function tramHint(){if(CONVO)return null;if(P.m=='tram')return MENU?null:'Press 
   if(planeAhead()&&!P.mv)return'Press E to board the plane';
   if(bedAhead()&&!P.mv)return DAY>=DAYS?'The last day: no time to sleep':NIGHT?'Press E to sleep':'Your bed: sleep once it is night';
   if(signAhead()&&!P.mv)return'Press E to read the sign';
+  if(placardAhead()&&!P.mv)return/statue/i.test(placardAhead())?'Press E to look at the statue':'Press E to read the placard';
   if(typeof canFish=='function'&&canFish()&&!P.mv)return'Press E to fish';
   if(typeof waterAhead=='function'&&has('fishrod')&&ME.equipped!='fishrod'&&waterAhead()&&!P.mv)return'Equip your fishing rod to fish';
   const ga=typeof gameAhead=='function'&&gameAhead();if(ga&&!P.mv&&!npcAhead())return GAME_HINT[ga];

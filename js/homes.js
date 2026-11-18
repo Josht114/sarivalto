@@ -30,8 +30,10 @@ function applyHomes(){for(const id in ORIG){const o=ORIG[id];FL[id].length=0;o.f
   // the SALE sign stays up until the home is sold
   for(const id in SALE_SIGN){const p=SALE_SIGN[id];if(!p)continue;const i=PROPS.indexOf(p),sold=ownHome(id)||id==patsHome();if(sold&&i>=0)PROPS.splice(i,1);else if(!sold&&i<0)PROPS.push(p)}
   HOME=ME.home||'hekki_room';
-  // (a save from before the notice board, with your things already moved out: the board comes to you, to put down)
-  if(ME.moved&&!ME.items.some(i=>i.id=='eq_board')&&!Object.values(ME.placed).flat().some(p=>p[6]=='eq_board'))ME.items.push({id:'eq_board',n:1});
+  // (with your things moved out of the Hidden Radio Room, any piece of your equipment that's neither with you nor put down in a
+  // home, the radio set included, comes back to you, to put down: a save from before the notice board, or anything lost on the way)
+  if(ME.moved)for(const k of new Set([...ORIG.hekki_room.fs.map(f=>EQUIP_ITEM[f[5]]).filter(Boolean),'eq_board']))
+    if(!ME.items.some(i=>i.id==k)&&!Object.values(ME.placed).flat().some(p=>p[6]==k))ME.items.push({id:k,n:1});
   for(const id in ORIG){delete SC[id];delete PCACHE[id];const d=DOORS.find(x=>x[5]==id);if(d){delete SC[d[0]];delete PCACHE[d[0]]}}if(typeof showHere=='function'&&ORIG[P.m])here.text=NM[P.m]}
 const ownHome=m=>ME.homes.includes(m);
 // the home you gave Pat in Alms for the Poor (no longer yours, and no longer for sale), if you did
