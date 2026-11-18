@@ -2196,7 +2196,7 @@ const PROPS=[
 ['second',8,24,'bush'],['second',11,24,'stump'],['second',29,26,'woodpile'],['second',37,25,'bush'],['second',44,27,'stump'],
 // the Mill: the log yard by the mill, and stumps where the trees have been felled
 ['millroad',4,2,'logs'],['millroad',4,4,'logs'],['millroad',22,3,'logs'],['millroad',25,4,'logs'],['millroad',7,3,'axe'],['millroad',20,4,'woodpile'],
-['millroad',5,9,'stump'],['millroad',11,9,'stump'],['millroad',19,10,'stump'],['millroad',25,9,'stump'],['millroad',20,6,'lamp'],['monastery',12,12,'woodpile'],['monastery',3,9,'bench'],['monastery',15,1,'barrel'],['monastery',4,14,'bush'],['monastery',12,1,'bush'],
+['millroad',5,9,'stump'],['millroad',11,9,'stump'],['millroad',19,10,'stump'],['millroad',25,9,'stump'],['millroad',20,6,'lamp'],['monastery',12,12,'woodpile'],['monastery',3,9,'bench'],['monastery',15,1,'barrel'],['monastery',12,1,'bush'],
 ['town',27,24,'buffer'],['town',44,9,'bench'],['town',44,5,'lamp'],['town',45,14,'lamp'],
 ['town',3,8,'bench'],['town',5,8,'lamp'],['town',4,12,'bush'],['town',4,22,'bench'],['town',2,18,'lamp'],['town',5,25,'bush'],['town',28,26,'lamp'],['town',43,26,'lamp'],['town',31,26,'bench'],['town',41,26,'bench'],
 ['tramstop',3,5,'lamp'],['tramstop',18,5,'lamp'],['tramstop',6,5,'bench'],['tramstop',16,5,'bench'],['tramstop',15,6,'phone'],['tramstop',2,1,'bush'],['tramstop',19,1,'bush'],['tramstop',3,10,'bush'],['tramstop',18,11,'bush'],['tramstop',12,10,'signpost'],
