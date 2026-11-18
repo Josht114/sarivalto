@@ -78,8 +78,10 @@ DAILY['Father Thyme']={
  "If you hear anything down in the towns, you'll tell an old man?"],
 19:["(Steam rises from the peak behind the monastery, thin and white against the sky.) The mountain is breathing. Brother Paavo says the soil in the garden is warm to the elbow. In September.",[
   ["Should you leave?","Leave? The monastery has stood here since before the first king. If God wants it moved, He'll send a better sign than steam."],
-  ["How's the chess going?","Badly. Augustus has my bishop pinned, and he wrote 'Sorry' beside the move. I shall have to lose to him with some dignity."],
-  ["What do the chronicles say about steam?","That it came before the grey snow. Brother Ilja has stopped reading me the chronicles. I asked him to. I wish I hadn't."]],
+  ["How's the chess going?","Badly. Augustus has my bishop pinned, and he wrote 'Sorry' beside the move. I shall have to lose to him with some dignity.","Father Thyme:5|Father Thyme:12"],
+  ["Do you play chess, Father?","With Prince Augustus, by note, a move a week. Badly. He has my bishop pinned, and he wrote 'Sorry' beside the move. I shall have to lose to him with some dignity.","!Father Thyme:5|Father Thyme:12"],
+  ["What do the chronicles say about steam?","That it came before the grey snow. Brother Ilja has stopped reading me the chronicles. I asked him to. I wish I hadn't.","Father Thyme:17"],
+  ["Has the mountain done this before?","The monastery's chronicles record a waking, two hundred years ago. Steam came before the grey snow. Brother Ilja has stopped reading them to me. I asked him to. I wish I hadn't.","!Father Thyme:17"]],
  "Keep one eye on the peak, if you're up here again."],
 20:["A Russian came up the mountain again this morning. The one with the expensive shoes, from the Hotel Aurora. He brought me a small icon as a gift. Very old, very beautiful. And very far from home.",[
   ["Did you keep it?","I have it in the cupboard, under a cloth, while I decide whether it was a gift or a key. Russians are like that: generous, and always with a door in mind."],

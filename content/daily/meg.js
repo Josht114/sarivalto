@@ -32,7 +32,8 @@ DAILY['Meg']={
 12:["(Meg is feeding the circus horse, a large, grey, disapproving mare, from a bucket.) This is Duchess. She pulls the wagons, carries the girls in the parade, and bites anyone with a notebook. (Duchess eyes your pocket.) I did warn you.",[
   ["Why does she bite notebooks?","A newspaper man in Tallinn once wrote that she was 'an elderly nag'. She's never forgiven the press. Neither have I."],
   ["Who looks after the horse?","Me. Who else? Bruno talks to her. Igor carries her hay. Buttons tries to ride her. I feed her, groom her and apologise for her."],
-  ["How's Hely doing on the wire?","Six steps yesterday. Then she fell off laughing. Buttons gave her some old juggling clubs. She drops them beautifully. She'll get there."]],
+  ["How's Hely doing on the wire?","Six steps yesterday. Then she fell off laughing. Buttons gave her some old juggling clubs. She drops them beautifully. She'll get there.","Meg:7|Meg:9|Meg:11"],
+  ["Is the Eastbrook girl still coming round?","Hely? Every day. I'm teaching her the wire. Six steps yesterday. Then she fell off laughing. Buttons gave her some old juggling clubs. She drops them beautifully. She'll get there.","!Meg:7|Meg:9|Meg:11"]],
  "Keep your notebook in your coat. Duchess is watching."],
 13:["(Meg is hanging upside down from the trapeze, forty feet up, and calls down.) Kelp Cola left a crate of free bottles for the troupe! Buttons has drunk six! He's bouncing off the canvas!",[
   ["Is that dangerous?","For the canvas. Buttons on sugar is a force of nature. I'll catch him when he comes down. He always comes down eventually."],
@@ -67,7 +68,8 @@ DAILY['Meg']={
 19:["(The camp smells of eggs. Meg is checking every guy rope on the big top, very carefully.) Steam on the mountain. Bruno wants to pack up and move to Kingsgrad. I want to stay. We're arguing. (She tightens a rope.) I'm winning.",[
   ["Why stay?","Because if we run, the island sees a circus running. If we stay, the island sees a circus that isn't frightened. People need that."],
   ["Is it safe to stay?","Safer than a road full of wagons and frightened horses in the dark. We'll stay by the lake. Water doesn't burn."],
-  ["Did you pay Bruno's slate?","(She smiles.) Monday. Maya gave me a bun and said 'the man in the red coat owes you his life'. I said he owes me eleven buns."]],
+  ["Did you pay Bruno's slate?","(She smiles.) Monday. Maya gave me a bun and said 'the man in the red coat owes you his life'. I said he owes me eleven buns.","Meg:8"],
+  ["Does Bruno pay his way?","He has a slate at Maya's, for buns. (She smiles.) I paid it Monday. Maya gave me a bun and said 'the man in the red coat owes you his life'. I said he owes me eleven buns.","!Meg:8"]],
  "Breathe through your sleeve. And if Bruno asks, I won."],
 20:["(Meg is tying everything down: the wagons, the rigging, Duchess's halter.) If the mountain goes tonight, everything stays tied. The animals are going in the big top. The troupe's sleeping by the lake. Buttons is holding my hand. He doesn't know he's doing it.",[
   ["Are you frightened?","Yes. But I've been frightened forty feet up for twenty years. You learn to put fear in your pocket. Not away. Just in your pocket."],

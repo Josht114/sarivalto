@@ -866,11 +866,11 @@ const RY_HEARD=f=>!!qOf('meetroyals')?.flags?.[f];
 // ---- Placards and plaques you can read (facing them, E): by the label of the furniture they're on. The Kelp Cola Story, the
 // museum's gallery, tells the company's history as the company tells it
 const PLACARDS={
-'Founder Statue':"A bronze man in a fisherman's smock, bent double on a bronze beach, an armful of kelp in one hand and a bucket in the other. The plaque says: THE FOUNDER. HE TOOK WHAT THE SEA GAVE. (Someone has left a bottle cap on his boot.)",
+'Founder Statue':"A bronze man in a fisherman's smock, bent double on a bronze beach, an armful of kelp in one hand and a bucket in the other. The plaque says: MR EKHOLM, THE FOUNDER. HE TOOK WHAT THE SEA GAVE. (Someone has left a bottle cap on his boot.)",
 'Placard: Beach':"THE BEACH. After every winter storm, the sea left kelp on the north shore in great brown heaps. Most folk walked past it. One young man stopped, and filled a bucket.",
 'Placard: Pot':"THE POT AND THE BUCKET. In his mother's kitchen, in her best cooking pot, Phil's grandfather boiled the kelp with sugar, roots and something he never wrote down. He called it a tonic. His mother called it a ruined pot.",
 'Placard: 1911':"FREE AT THE HARBOUR, 1911. He gave his tonic away to the fishermen coming in cold off the boats. For colds, for aches, for the long winter blues. The first bottle was free. The second was two cents.",
-'Placard: Fizz':"LESS SEAWEED, MORE FIZZ. Year by year the recipe changed: a little less kelp, a little more sugar, and then the bubbles. The tonic became a cola, and the cola became Kelp Cola. (A small card underneath adds: it no longer cures gout.)",
+'Placard: Fizz':"LESS SEAWEED, MORE FIZZ. Year by year the recipe changed: a little less kelp, a little more sugar, and then the bubbles. The tonic became a cola, and in 1931 Mr Ekholm bottled the first Kelp Cola, brewed in his mother's bathtub. (The bathtub itself is in the back room, under a sheet. A small card adds: it no longer cures gout.)",
 'Placard: Tram':"THE TRAM. He laid the tram line so the workers could reach the factory and the visitors could reach this museum. (A photograph shows a red and cream tram, a crowd of workers, and no visitors at all.)",
 'Placard: Secret':"THE SECRET. The recipe is still written in his own hand, which nobody can read, and it's locked away somewhere very safe. Only the family knows it. (Beside the placard, an empty glass case, with a sign: THIS IS NOT WHERE IT IS.)"};
 // ---- Quest topics: while a quest is yours and not finished, the people listed here can be asked about it, as an extra reply on

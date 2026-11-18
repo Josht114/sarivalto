@@ -48,7 +48,7 @@ DAILY['Otto']={
   ["What did the king watch?","A comedy. Swedish. Dreadful. He laughed so hard his crown fell off. Well. His hat. He didn't wear the crown to the pictures."],
   ["Are you all right?","I'm sixty-one. I've buried my mother, my aunt and two projectors. This is the first king. (He shrugs.) You'd think it'd get easier."]],
  "Row F. I'll put a little card on it. Nobody'll know but me."],
-11:["(Otto is in the booth door, wiping his hands.) Bertha ate another bulb. That's three this month. The bulbs come from Helsinki. Helsinki doesn't care.",[
+11:["(Otto is in the booth door, wiping his hands.) Bertha, the projector, ate another bulb. That's three this month. The bulbs come from Helsinki. Helsinki doesn't care.",[
   ["Can Nils fix her?","Nils in Frostholm? He offered. He'd make her electric. Bertha's been electric since nineteen forty-one, I told him. He meant 'more' electric. I said no."],
   ["How many bulbs do you have left?","Two. If she eats two more, it's lights out for the pictures. And then where will Kingsgrad go of an evening? The City Bar. God help us."],
   ["Isn't she worth replacing?","Replace Bertha? (He puts a hand on his heart.) You'd replace your grandmother if she needed new glasses?"]],
@@ -78,7 +78,7 @@ DAILY['Otto']={
   ["What about Erik?","Erik talks like a man reading the menu. Good food, no music. He'll never get the girl."],
   ["Have the Communists ever asked about your cinema?","Helen asked once what it'd cost to hire it for an evening. I said more than the Party's got. She said, 'For now.' I didn't like the 'for now'."]],
  "'Comrade, there are no zones.' (He shakes his head.) There are zones in my cinema. Row A's mine."],
-17:["(Bertha clanks above. The whole building shudders, and dust falls from the ceiling.) That wasn't Bertha.",[
+17:["(Bertha, the projector, clanks above. The whole building shudders, and dust falls from the ceiling.) That wasn't Bertha.",[
   ["Was that an earthquake?","A tremor, they're saying. My popcorn machine walked six inches to the left. I've never seen it walk anywhere."],
   ["Is the building safe?","Built in nineteen twenty-two. Stood through a war and two kings. It'll stand through a wobble. It's the screen I worry about. It's on wires."],
   ["Heard about Dario?","Missing, they say. A rich man vanishes. Everybody looks. (He narrows his eyes.) In a picture, he'd be in the last place you'd look. Usually somewhere warm."]],
@@ -105,7 +105,7 @@ DAILY['Otto']={
   ["Are you hurt?","Not a scratch. Grey all over, that's all. Nobody's hurt, they say, thank God. The lava went down into the hills."],
   ["Can we see the film?","It needs developing. In Helsinki. (He groans.) It'll come back in a month with a telegram saying 'Regret. Stop.'"]],
  "Cinema's open tonight. People need the pictures more than ever."],
-22:["(Otto is cleaning the projector lenses with a soft cloth, very carefully.) Ash got into Bertha. I spent all night on her. She's cross with me.",[
+22:["(Otto is cleaning the projector lenses with a soft cloth, very carefully.) Ash got into Bertha, the projector. I spent all night on her. She's cross with me.",[
   ["Is she working?","She ran the evening showing with a cough. You could see the ash on the screen, little grey stars, all through STORMWING. Very atmospheric."],
   ["Did people come?","A full house. Everyone wanted to sit in the dark with other people. We cheered when Falcon said 'Fox two.' Nobody's ever cheered before."],
   ["Did your film survive?","The tin's in my coat pocket, wrapped in a sock. I'll send it to Helsinki when the boats run. With a note: 'Do not put on a shelf.'"]],
@@ -118,7 +118,8 @@ DAILY['Otto']={
 24:["(Otto is counting the takings.) Takings are up since the mountain went. Up! I've had to order more peanuts.",[
   ["Why do you think that is?","People want to forget, for eighty seconds. And for thirty-four seconds of Sokol. A good picture's like a warm bath. You come out different."],
   ["Who's been coming?","Everyone. Sergeant Hanna came on her night off. She sat in the back and said 'Fox two' under her breath. I've never been so happy."],
-  ["Any word on the western?","They've found the tin. They've lost the boat. Some day both will be in the same place. Till then, cowboys in my dreams."]],
+  ["Any word on the western?","They've found the tin. They've lost the boat. Some day both will be in the same place. Till then, cowboys in my dreams.","Otto:4|Otto:6|Otto:12|Otto:15|Otto:19|Otto:23"],
+  ["What's on next week?","I'm waiting on a western, from Helsinki. They've found the tin. They've lost the boat. Some day both will be in the same place. Till then, cowboys in my dreams.","!Otto:4|Otto:6|Otto:12|Otto:15|Otto:19|Otto:23"]],
  "Bring a friend. Peanuts are on me today."],
 25:["Ville from the newsstand says people are talking about my cinema. Saying the Party wants to put on a picture of their own.",[
   ["Is that true?","Nobody's asked me. Not properly. Hints, looks through the booth window. If they want my screen, they can come and ask like everybody else, with money."],

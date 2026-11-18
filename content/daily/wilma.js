@@ -60,7 +60,7 @@ DAILY['Wilma']={
   ["What do you hope happens?","That the island stays an island. That's all. That we don't lose the things that make it ours. The bottles, the trams, the people."],
   ["Is Jaana nervous?","Terrified. She's been humming since seven. I've given her a hot lemon and a talking-to. She's ready."]],
  "If you see a cup in the crowd, wave. That's us."],
-15:["(Wilma is dusting Mr Ekholm's bathtub, under the edge of its sheet.) Yesterday went well. Kelpy only poked one person. A Party man. He's fine. He's sulking. (She coughs.) Jaana's coughing too. I'm worried.",[
+15:["(Wilma is dusting Mr Ekholm's bathtub, under the edge of its sheet: the founder's, where he brewed the first batch.) Yesterday went well. Kelpy only poked one person. A Party man. He's fine. He's sulking. (She coughs.) Jaana's coughing too. I'm worried.",[
   ["Is Jaana ill?","She's been out there two weeks in the snow, in foam. She's got a cough she won't admit to. I'm counting her coughs. Eleven this morning."],
   ["Why dust a bathtub nobody sees?","Because somebody will, on his birthday. And it'll be clean. That's what a museum is: keeping things ready for when someone wants to see them."],
   ["What's the news today?","The palace and the Church are arguing over the prince's brother. I've nothing on bishops in my museum. Just bottles. Bottles don't take sides."]],

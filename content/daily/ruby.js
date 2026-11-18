@@ -127,7 +127,8 @@ DAILY['Ruby']={
 27:["(Ruby has three stacks of records on the counter and is moving them between stacks with great seriousness.) Erik's asked me to choose the music for the rally. The big one, in Kingsgrad, tomorrow.",[
   ["What will you play?","Something to march to that isn't a march. Something to sing that isn't a hymn. Something to dance to that won't get us arrested. Three records, and I can't pick."],
   ["So you're joining in the speeches after all?","(She points a record at you.) I'm playing the bits between speeches. That's the important part. That's when people decide."],
-  ["Play the accordion orchestra.","Don't tempt me. If the Communists turn up to heckle, I might."]],
+  ["Play the accordion orchestra.","Don't tempt me. If the Communists turn up to heckle, I might.","Ruby:24"],
+  ["What's the worst record in the shop?","Forty copies of a Finnish accordion orchestra. Nobody buys them. If the Communists turn up to heckle the rally, I might play it at them.","!Ruby:24"]],
  "Three stacks, one gramophone. I'll be up till dawn."],
 28:["(Ruby is loading a portable gramophone and a crate into a borrowed van.) Rally day. I've got the music, Dex has the hot dogs, Erik has a speech he's rewritten nine times. And I've got butterflies.",[
   ["What did you pick in the end?","That's a secret until it's playing. But I'll tell you this much: it swings."],

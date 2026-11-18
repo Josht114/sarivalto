@@ -11,7 +11,8 @@ DAILY['Kurt']={
 3:["Kelp Cola HQ's open and the factory isn't. They can push paper in Kingsgrad, but nobody's pushing bottles. (He drinks.)",[
   ["When does the factory open?","When they clear the road to Eastbrook. Tomorrow, they say. I've laid out my overalls. I've ironed them."],
   ["You iron your overalls?","A foreman sets the standard. If the foreman's creased, the line's creased."],
-  ["Tell me about the pigeons.","The grey one's Phil. The fat one's Harald. The one that keeps flying off towards Frostholm I haven't named. I don't trust it."]],
+  ["Tell me about the pigeons.","The grey one's Phil. The fat one's Harald. The one that keeps flying off towards Frostholm I haven't named. I don't trust it.","Kurt:2"],
+  ["What do you do when there's no work?","Pigeons. Twelve of them, in a loft on my roof. The grey one's Phil. The fat one's Harald. The one that keeps flying off towards Frostholm I haven't named. I don't trust it.","!Kurt:2"]],
  "Tomorrow, then. On the minute.",
  "Kelp Cola's HQ is open but the factory isn't. Kurt has named his pigeons after Phil and Harald."],
 4:["(Kurt stands on the factory floor with a stopwatch and a bottle.) We're back. The line started four seconds late. Somebody's going to hear about those four seconds.",[
@@ -32,12 +33,14 @@ DAILY['Kurt']={
 7:["Frostholm's open, and I've had an order from Polar Burger already. Sanna wants forty crates. Those oil men drink cola like water.",[
   ["Do oil men like Kelp Cola?","They drink it, complain it isn't American, and buy more."],
   ["Did you see Doctor Lind?","He listened to my heart and said it fizzes. I said thank you."],
-  ["Found the pigeon's owner?","The crest on her ring's a crown. I've a royal pigeon in my loft. I'm keeping it quiet."]],
+  ["Found the pigeon's owner?","The crest on her ring's a crown. I've a royal pigeon in my loft. I'm keeping it quiet.","Kurt:2|Kurt:3|Kurt:6"],
+  ["Any news from your loft?","My pigeons brought a stranger home: a hen with a ring on her leg. The crest on the ring's a crown. I've a royal pigeon in my loft. I'm keeping it quiet.","!Kurt:2|Kurt:3|Kurt:6"]],
  "Not a word about the pigeon. She's settling in."],
 8:["Sunday, so the line's quiet, so I'm here oiling it. A quiet line is a line with time to think about breaking.",[
   ["Do you ever take a day off?","I took one in 1977. I spent it worrying. Not worth it."],
   ["Heard about the oil rig?","Oil in the sea, so they say. Dario's men couldn't time a boiled egg. Good thing kelp's tough."],
-  ["What about the royal pigeon?","Edmund at the palace says they've lost a bird. I haven't told him I've got her. She's happy where she is."]],
+  ["What about the royal pigeon?","Edmund at the palace says they've lost a bird. I haven't told him I've got her. She's happy where she is.","Kurt:2|Kurt:3|Kurt:6|Kurt:7"],
+  ["Is that a pigeon feather?","From my loft. I keep pigeons, and one's a royal hen that flew in with mine. Edmund at the palace says they've lost a bird. I haven't told him. She's happy where she is.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7"]],
  "Mind the oil can. It's full."],
 9:["Saara's hunting for a new flavour. A new flavour means new labels, new caps and new timings. I've a headache already.",[
   ["What flavour would you want?","Kelp Cola. The proper one. If it isn't broken, don't put cloudberries in it."],
@@ -52,7 +55,8 @@ DAILY['Kurt']={
 11:["Petra went up to HQ in her dinner hour to see Phil. Took her an hour and twenty. I docked nobody. Don't tell her.",[
   ["Why didn't you dock her?","I should have. A foreman who doesn't dock isn't a foreman. But it was about the heating, and I'm cold too."],
   ["Is the factory shut up at night?","Empty by six, locked by a quarter past. I check the doors myself, every one."],
-  ["How are the pigeons?","The royal hen's laid an egg. In my loft. On my roof. I may be harbouring a prince."]],
+  ["How are the pigeons?","The royal hen's laid an egg. In my loft. On my roof. I may be harbouring a prince.","Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9"],
+  ["Anything good happen this week?","I keep pigeons, and a royal hen's moved into my loft. She's laid an egg. On my roof. I may be harbouring a prince.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9"]],
  "Doors locked, lights off, on the minute."],
 12:["Tomorrow's the giveaway. I've eleven pages of delivery rounds and a crate for every street on the island. Elin typed it; I timed it.",[
   ["Every street?","Every street and every farm. Two bottles for Olaf at East Farm, who'll say he doesn't drink it and then drink four."],
@@ -62,7 +66,8 @@ DAILY['Kurt']={
 13:["(Kurt is loading crates onto a trolley at a run.) No time! Giveaway. Every crate's numbered. If one goes missing, I'll know which.",[
   ["Can I help?","Can you lift? No? Then hold the door."],
   ["Who'd steal a crate?","Anyone with arms. And there's a man in a good coat hanging about by the gate. Not my business, but I've written down when he came."],
-  ["Any pigeon news?","Two eggs now. I've named them Leopold and Augustus. Let's see which one hatches first."]],
+  ["Any pigeon news?","Two eggs now. I've named them Leopold and Augustus. Let's see which one hatches first.","Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11"],
+  ["What's on your mind besides crates?","My pigeon loft. A royal hen's sitting on two eggs up there. I've named them Leopold and Augustus. Let's see which one hatches first.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11"]],
  "Out of the way! Crate coming through!"],
 15:["The palace and the Church are at it again today. So are my eggs, in their way: sitting very still and saying nothing.",[
   ["Which prince do you back?","The one that hatches first. That's as scientific as anyone else's method."],
@@ -81,7 +86,8 @@ DAILY['Kurt']={
  "If you're listening too, keep it quiet."],
 17:["The ground moved, and every bottle on the packing bench rang like a bell. Prettiest sound I've ever heard, and the most frightening.",[
   ["Was anything broken?","Six bottles. I've written them down. If the mountain wants to pay for them, it can."],
-  ["How did the pigeons take it?","They flew up all at once and came down five minutes later. Birds know things. I've started watching them like a barometer."],
+  ["How did the pigeons take it?","They flew up all at once and came down five minutes later. Birds know things. I've started watching them like a barometer.","Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11"],
+  ["Did anything else feel it?","My pigeons. I keep a loft on the roof. They flew up all at once and came down five minutes later. Birds know things. I've started watching them like a barometer.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11"],
   ["There's steam on the volcano.","My grandmother says it smoked like this in '38 and did nothing. She also says she's forty."]],
  "Keep away from the shelves. They're nervous today."],
 18:["Phil wants somebody in the Kelpy suit while Jaana's poorly. Elin asked me. I said I've a factory to run and a neck to keep.",[
@@ -96,12 +102,14 @@ DAILY['Kurt']={
  "Bring me any leaflets you find. The window's still rattling."],
 20:["(Kurt sniffs the air.) Smell that? Rotten eggs, off the mountain. Doctor Lind says it's sulphur and it won't hurt. Doctor Lind's never been right yet.",[
   ["Are you worried?","I've drawn up a plan. If the mountain goes, everyone out of the east door in ninety seconds. We practised: ninety-four. Not bad."],
-  ["What do the pigeons make of it?","They won't fly north. Not one of them. Birds know."],
+  ["What do the pigeons make of it?","They won't fly north. Not one of them. Birds know.","Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11|Kurt:17"],
+  ["Does anything else notice the smell?","My pigeons. I keep a loft of them. They won't fly north. Not one of them. Birds know.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11|Kurt:17"],
   ["Do you and Doctor Lind get on?","He's a Republican and I'm a Kelp Cola man. We agree on Harald and nothing else."]],
  "East door, ninety seconds. Remember it."],
 21:["(Kurt's overalls are grey with ash.) Everyone out of the east door in eighty-eight seconds. Best time yet. Then it rained ash for an hour.",[
   ["Was anyone hurt?","Not one. I counted heads here, then went up to HQ and counted those. Elin had already counted. I counted again."],
-  ["And the pigeons?","I ran home. Every bird in the loft, huddled up, eggs and all. I've never been so glad to see a pigeon."],
+  ["And the pigeons?","I ran home. Every bird in the loft, huddled up, eggs and all. I've never been so glad to see a pigeon.","Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11|Kurt:17|Kurt:20"],
+  ["What did you run home for?","My pigeons. I keep a loft on the roof. Every bird huddled up, eggs and all. I've never been so glad to see a pigeon.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11|Kurt:17|Kurt:20"],
   ["Were you frightened?","Of course. I was frightened in eighty-eight seconds, and I'm frightened now. I'll be frightened on time tomorrow, too."]],
  "Cover your mouth outside. That's an order."],
 22:["Brooms. Everybody on brooms. I've timed the sweeping, and Petra's fastest. Don't tell her I said.",[
@@ -116,7 +124,8 @@ DAILY['Kurt']={
  "Doors locked. All of them. I'll check again in ten minutes."],
 24:["My back hasn't spoken to me since I slept on that packing bench. It's sulking.",[
   ["Did anything happen in the night?","I heard every creak in the building and blamed each one on Helen. That's all I'll say."],
-  ["Who fed your pigeons?","Petra, from down the corridor. A Union woman feeding a foreman's pigeons. Don't you dare print it."],
+  ["Who fed your pigeons?","Petra, from down the corridor. A Union woman feeding a foreman's pigeons. Don't you dare print it.","Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11|Kurt:17|Kurt:20|Kurt:21"],
+  ["Who's minding your house?","My pigeons needed feeding while I slept here. Petra did it, from down the corridor. A Union woman feeding a foreman's pigeons. Don't you dare print it.","!Kurt:2|Kurt:3|Kurt:6|Kurt:7|Kurt:8|Kurt:9|Kurt:11|Kurt:17|Kurt:20|Kurt:21"],
   ["How many colas yesterday?","Fourteen. The night shift counts double."]],
  "If you see Doctor Lind, don't mention my back."],
 25:["I've signed Petra's petition for heating in the warehouse. Not the Union. Just the petition.",[

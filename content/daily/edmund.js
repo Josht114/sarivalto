@@ -77,7 +77,8 @@ DAILY['Edmund']={
  "Should you go into the library, knock first. And keep your voice down. He hears everything."],
 16:["I've noticed the Princess reading the Eastbrook Gazette behind the hedge. She thinks it's a secret. I've arranged for the paper to be left where she'll find it.",[
   ["You're on her side?","I'm on the family's side, sir. All of it. If the Princess is curious, better she's curious with the facts than without them."],
-  ["You said you curate the paper.","I curate it for the Prince. For the Princess, I leave it on the bench. Each according to his nature."],
+  ["You said you curate the paper.","I curate it for the Prince. For the Princess, I leave it on the bench. Each according to his nature.","Edmund:4|Edmund:6"],
+  ["Do you choose what the Prince reads?","I curate the paper for the Prince, sir: the pages that won't upset him. For the Princess, I leave it on the bench. Each according to his nature.","!Edmund:4|Edmund:6"],
   ["Does she know you know?","She knows. She's known since she was six. We don't speak of it. It's a very comfortable arrangement."]],
  "Kindly don't tell the Princess I told you. It would spoil her morning."],
 17:["(A crystal on the chandelier is still swinging.) The building shook, sir. I've told the household it was the boiler. I've told the boiler nothing.",[

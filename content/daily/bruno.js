@@ -69,7 +69,8 @@ DAILY['Bruno']={
 19:["(The camp smells of eggs. Bruno is standing very still with his hat off.) The animals know. They've gone quiet. All of them. Duchess hasn't bitten anyone in two days. That's how I know it's serious. (He puts his hat back on.) We're staying. Meg won.",[
   ["Is it safe to stay?","Meg says the lake's safe. Water doesn't burn. And a road full of frightened wagons in the dark is worse than any mountain. She's right. I hate it when she's right."],
   ["What will you do?","Make a speech to the animals. About courage. (He clears his throat.) I've written it. It's quite good. It's the first speech I've ever written that I actually need to hear myself."],
-  ["Did you pay your slate?","(He looks guilty.) Meg did. On Monday. Maya gave her a bun and said 'the man in the red coat owes you his life'. Meg said I owe her eleven buns. Both true."]],
+  ["Did you pay your slate?","(He looks guilty.) Meg did. On Monday. Maya gave her a bun and said 'the man in the red coat owes you his life'. Meg said I owe her eleven buns. Both true.","Bruno:8"],
+  ["How do you pay for buns?","On a slate, at Maya's in Eastbrook. (He looks guilty.) Meg paid it. On Monday. Maya gave her a bun and said 'the man in the red coat owes you his life'. Meg said I owe her eleven buns. Both true.","!Bruno:8"]],
  "Breathe through your hat. It helps. Mine's very tall. It holds a lot of air."],
 20:["(Bruno is in the big top, giving a speech to the animals, who are all lying down very quietly.) Friends. Tonight the mountain may speak. We have heard mountains before. We have heard Bergen. We are still here. (Duchess flicks an ear.) She's listening. It's working.",[
   ["Is it really working?","The animals are calmer. Buttons is calmer. Even Igor's calmer, and Igor's never been calm in his life. (He looks surprised.) I think it's the first speech I've ever made that did anything."],

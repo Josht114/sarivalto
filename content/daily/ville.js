@@ -125,7 +125,8 @@ DAILY['Ville']={
 25:["(Ville is reading every paper on his stand at once, spread across the counter.) Promises everywhere. A crown for everyone. A princess for democracy. The royals and the Democrats are fighting over who loves the people more.",[
   ["Who do you think loves the people more?","Rosa. She gives them mustard. Nobody else on this island has ever given the people anything, except promises."],
   ["What's this about a princess?","Daphne, they say, has been seen with the Democrats. Or the Democrats have been seen with Daphne. Depends which paper you read. I sell both."],
-  ["Is your crossword finished?","'Promise made, promise broken, nine letters.' I've got the answer. I'm keeping it to myself until the month's over."]],
+  ["Is your crossword finished?","'Promise made, promise broken, nine letters.' I've got the answer. I'm keeping it to myself until the month's over.","Ville:3|Ville:6|Ville:8|Ville:9|Ville:10|Ville:15|Ville:18|Ville:20|Ville:21|Ville:23"],
+  ["What are you working on?","A crossword. I send one to a paper in Helsinki every week. 'Promise made, promise broken, nine letters.' I've got the answer. I'm keeping it to myself until the month's over.","!Ville:3|Ville:6|Ville:8|Ville:9|Ville:10|Ville:15|Ville:18|Ville:20|Ville:21|Ville:23"]],
  "Read both papers. The truth's always in between."],
 26:["(Ville is waving a letter with a Helsinki postmark, his hands shaking.) They printed one! Two hundred and fourteen! Page eleven, bottom left, under the weather! My crossword! In a Helsinki paper! I've been sending crosswords to Helsinki for years.",[
   ["Congratulations! Which one was it?","The one about the mountain, from the cellar. I don't remember sending it. I must have. 'The mountain speaks, and everyone listens.' They said it was the first clue they'd ever cried over."],

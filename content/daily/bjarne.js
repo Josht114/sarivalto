@@ -24,7 +24,8 @@ DAILY['Bjarne']={
  "Benches for the palace. Back to it."],
 8:["(Bjarne is sweeping sawdust in an empty mill.) Sunday. The saw's off and the lads are home, and I come in and sweep. It's a habit. I like the mill quiet. You can hear it think.",[
   ["What does a mill think about?","Wood. Weather. Who's going to pay the bill. Same as me, really."],
-  ["How are the benches coming?","A hundred and sixty. The rest by Wednesday. The lads have earned a drink. I've stood them one at the Timberline Friday, out of my own pocket. Don't tell Dagny."],
+  ["How are the benches coming?","A hundred and sixty. The rest by Wednesday. The lads have earned a drink. I've stood them one at the Timberline Friday, out of my own pocket. Don't tell Dagny.","Bjarne:5|Bjarne:7"],
+  ["What has the mill been making?","Pine benches for the king's funeral. A hundred and sixty done, the rest by Wednesday. I've stood the lads a drink at the Timberline. Don't tell Dagny.","!Bjarne:5|Bjarne:7"],
   ["Don't you ever rest?","Sweeping's resting. Ask any foreman. It's the only time nobody asks you anything."]],
  "Close the door gently. The mill's sleeping."],
 9:["(Bjarne is shaking his head over the ledger.) The price of bread's gone up again. Third time this year. And Dagny's got me writing the same wages in the same column as six years ago.",[
@@ -60,7 +61,7 @@ DAILY['Bjarne']={
   ["Won't Dagny be angry?","Very. And I'll tell her the mill shut out of respect for the island. And she'll look at me, and I'll look at her, and we'll both know."],
   ["You look smart.","(He tugs at his collar.) My daughter sent this shirt for Christmas, three years ago. First time I've worn it. It itches like a guilty conscience."]],
  "Go on, then. See you in the crowd. I'm the big one."],
-15:["(Bjarne is reading another letter, and frowning this time.) Annika's heard about the shaking ground in the papers in Turku. Already! Before we've had any. She wants me on the next boat.",
+15:["(Bjarne is reading another letter, and frowning this time.) Annika, my daughter in Turku, has heard about the shaking ground in the papers in Turku. Already! Before we've had any. She wants me on the next boat.",
  [
   ["What shaking ground?","Nothing yet. A rattle in the cups, maybe. But the papers in Finland have got hold of the steam from the old mountain, and now they're writing about it as if we're Pompeii."],
   ["Will you go?","No. My place is here. (He folds the letter.) But I'll write back very kindly, and tell her I'm minding the saw."],
@@ -102,7 +103,7 @@ DAILY['Bjarne']={
   ["What about the mill?","The mill's been here eighty years. It'll be here tomorrow. Timber can wait. People can't."],
   ["Can I help?","Get in the lorry. And hold on. Ilse's driving. She drives the way she loads logs."]],
  "Lorry! Now! I mean it."],
-22:["(Bjarne is standing in the mill yard, grey with ash, looking at the logs.) Every log grey. Every roof grey. The saw's full of it. But everyone's alive. I've written to Annika to tell her. First thing.",
+22:["(Bjarne is standing in the mill yard, grey with ash, looking at the logs.) Every log grey. Every roof grey. The saw's full of it. But everyone's alive. I've written to my daughter Annika to tell her. First thing.",
  [
   ["How's the mill?","Ash in the gears, ash on the belts, ash on the timber. We'll be cleaning a week before the saw runs. But the walls are up and the roof's on. My father built that roof. It held."],
   ["What about the forest?","The north of the forest's grey and burnt. The south is just grey. Trees come back. That's the thing about trees. They're patient."],
@@ -116,7 +117,7 @@ DAILY['Bjarne']={
   ["How are the lads?","Tired and grey and cheerful. Ilse's carrying sacks of ash like they're pillows. Knut's telling everyone he caught a lump of lava with his bare hand. He didn't."],
   ["Want me to hold the ladder?","(He looks down.) If you would. And if I fall, step aside. I'm a big man. I'd flatten you."]],
  "Thanks. Mind the ash coming down."],
-24:["(Bjarne is at his desk, writing a letter in big careful handwriting.) Annika. I'm telling her I'm staying, at least till the vote. And that I've built a stage. She'll think I've gone mad.",
+24:["(Bjarne is at his desk, writing a letter in big careful handwriting.) To my daughter, Annika, in Turku. I'm telling her I'm staying, at least till the vote. And that I've built a stage. She'll think I've gone mad.",
  [
   ["Have you?","A bit. (He chuckles.) Building stages for speeches at my age. My father would have laughed himself silly. Then he'd have built a bigger one."],
   ["Will you ever retire?","When the lads are paid fair and the saw's safe and the island's got a vote. Then I'll go to Turku and eat herring and be a grandfather. Not before."],

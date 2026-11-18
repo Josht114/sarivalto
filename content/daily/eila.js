@@ -31,7 +31,8 @@ DAILY['Eila']={
  "Take one. On the house. Reporters should look respectful."],
 7:["(Eila holds up an envelope.) Form 12B, back again. 'Incomplete.' I went in and asked Bertil which box. He went pink and said 'all of them, I'm afraid'.",[
   ["All of them?","There's a new form. 12C. Nobody told anyone. He gave me a copy and apologised four times. I'll grant him that."],
-  ["Does anyone ever get relief?","Bertil says a man from Frostholm got some in 1978. He said it like a miracle."],
+  ["Does anyone ever get relief?","Bertil says a man from Frostholm got some in 1978. He said it like a miracle.","Eila:4"],
+  ["What's Form 12B?","An application for relief. Money for the out of work. Bertil says a man from Frostholm got some in 1978. He said it like a miracle.","!Eila:4"],
   ["You're very patient.","I'm not patient. I'm stubborn. They're different things, but they look the same from the outside."]],
  "12C. Six pages. I'll have it in by Wednesday."],
 8:["(Eila sniffs.) Sunday. The Church bells were going all morning up at the monastery, you could hear them on the wind. Do you go to church?",[
@@ -121,7 +122,8 @@ DAILY['Eila']={
  "Mind the step. It moved an inch yesterday."],
 25:["(Eila looks almost amused.) Bertil came into Grace's this morning. With his collar frayed to threads. I mended it while he waited, and didn't charge.",[
   ["That was generous.","It was strategic. A man owes you a collar, he remembers your form. (She smiles.) And he looked so cold."],
-  ["Any news of your relief?","He says the relief committee meets in October. 'Whoever's in charge by then.' He went white saying it."],
+  ["Any news of your relief?","He says the relief committee meets in October. 'Whoever's in charge by then.' He went white saying it.","Eila:4|Eila:7"],
+  ["Did Bertil say anything else?","About my relief application, from the start of the month? The relief committee meets in October, he says. 'Whoever's in charge by then.' He went white saying it.","!Eila:4|Eila:7"],
   ["Do you still need it?","Less, now. But Marjut does. And all the others on the benches. I'll keep the form going for them."]],
  "Bertil's a good man. Somebody should tell him."],
 26:["(Eila is worried.) Marjut's been talking about Edmund again. 'Evening the score.' I don't like the sound of it. She's been up at the palace gate twice this week.",[

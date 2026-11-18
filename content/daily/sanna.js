@@ -71,7 +71,8 @@ DAILY['Sanna']={
 20:["(Sanna has her brother's last letter open on the counter, reading it again.) The rig's been told to keep working. The mountain's steaming like a kettle and the company says keep drilling. My brother says don't worry. I'm worrying for both of us.",[
   ["Keep drilling?", "Through the steam and the shaking. They've hit something and they won't stop. Dario wants it before the end of the month, the oil men say. My brother says he's earning triple. I said, earn it on land."],
   ["Is anyone leaving?", "Some of the oil men's wives are on the ferry. The men are staying, for the money. Frostholm's never been so full of men and so empty of women."],
-  ["Is the sauce safe?", "(She pats a battered jar.) In the jar, in the cupboard, under a tea towel. If the mountain goes, the sauce comes with me. My grandmother would want that."]],
+  ["Is the sauce safe?", "(She pats a battered jar.) In the jar, in the cupboard, under a tea towel. If the mountain goes, the sauce comes with me. My grandmother would want that.","Sanna:7|Sanna:11"],
+  ["What would you save first?","The sauce. My grandmother's recipe, for the burgers. (She pats a battered jar.) In the cupboard, under a tea towel. If the mountain goes, the sauce comes with me.","!Sanna:7|Sanna:11"]],
  "If you see my brother, tell him to come ashore."],
 21:["(Sanna is grey with ash, standing in the doorway of Polar Burger with her arms wrapped round herself.) The mountain's gone up. Lava in the north. Nobody killed, they're saying on the radio. My brother rang from the rig. He's fine. He's fine. (She sits down on the step.)",[
   ["He's safe?", "He's safe. They're all safe. The rig shook and the sea went warm and everyone's fine. He laughed down the telephone. I cried. That's how we've always been."],

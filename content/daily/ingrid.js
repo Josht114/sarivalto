@@ -81,7 +81,8 @@ DAILY['Ingrid']={
  "Close the door gently. There's still something nice in the air in here."],
 17:["(Ingrid is pale.) The whole corridor shook. The portraits rattled. I was in the library and the shelves were coming down, and Prince Augustus was reading a psalm out loud.",[
   ["Did you help?","I read it with him. Psalm 46. 'Though the earth be removed.' My voice was very small, but I read it."],
-  ["Was it the ghost?","(She swallows.) Mrs Marta says it's the mountain in the north. But the queen's portrait was the only one that fell. I'm just saying."],
+  ["Was it the ghost?","(She swallows.) Mrs Marta says it's the mountain in the north. But the queen's portrait was the only one that fell. I'm just saying.","Ingrid:2|Ingrid:8|Ingrid:14"],
+  ["Is anyone hurt?","No. But the queen's portrait was the only one that fell. (She swallows.) The maids say there's a ghost in the east corridor. Mrs Marta says it's the mountain. I'm just saying.","!Ingrid:2|Ingrid:8|Ingrid:14"],
   ["Are you hurt?","A book hit my shoulder. A big one. The lives of the saints. Prince Augustus said it was a blessing. It didn't feel like one."]],
  "If it happens again, I'm going under the stairs. I don't care how it looks."],
 18:["The prince listens to the radio late. Jazz, very low, through his door. I'm not supposed to know. Oskar's not supposed to know I told him.",[
@@ -107,7 +108,8 @@ DAILY['Ingrid']={
 22:["Ash in every bedroom. On the pillows. In the princess's perfume bottles. On Prince Augustus's icon. I've been wiping since dawn with a damp cloth. Mr Edmund says dry cloths only.",[
   ["Damp? Mr Edmund said dry.","Dry for the carpets. Damp for the faces. Saint Nicholas has a face, so I did him damp. I think he deserved it."],
   ["The princess is restless.","She's walking about the palace like a cat in a box. She asked me today if I knew anyone who grew 'herbs'. I said Brother Paavo grows cabbages. She laughed for ages."],
-  ["Did the typing survive?","The typewriter's full of ash. Prince Augustus is cleaning it with a goose feather. He said it was 'good practice'. For what, I don't know."]],
+  ["Did the typing survive?","The typewriter's full of ash. Prince Augustus is cleaning it with a goose feather. He said it was 'good practice'. For what, I don't know.","Ingrid:6"],
+  ["What else did the ash get into?","The typewriter. I'm learning to type, on the palace's old machine. It's full of ash. Prince Augustus is cleaning it with a goose feather. He said it was 'good practice'. For what, I don't know.","!Ingrid:6"]],
  "Wipe your feet. Twice. Three times. Mr Edmund's orders."],
 23:["The prince walked again last night. Not twelve steps. More. Up and down, and then he stopped at the window for an hour. No paper in the grate this morning.",[
   ["No paper?","None. Just coal ashes. I think he finished it. Or gave up. I don't know which."],
@@ -117,7 +119,8 @@ DAILY['Ingrid']={
 24:["I'm doing the guest suite for the visiting king. The best rooms, in the east wing. Nobody's slept there since the old king's coronation jubilee.",[
   ["Is it haunted?","(She laughs, finally.) No. It's just cold. And there's a mouse. I've named him Bertil, after the man at the Civil Service Bureau. They look alike."],
   ["What's the room like?","Blue, with a bed big enough for four kings and a painting of a sea battle. Elsa and I aired the curtains for two days. They still smell of 1959."],
-  ["How's the typing?","Twenty-two words a minute! The typewriter's clean. Prince Augustus gave it back with a note: 'Practice makes saints.' I've kept the note."]],
+  ["How's the typing?","Twenty-two words a minute! The typewriter's clean. Prince Augustus gave it back with a note: 'Practice makes saints.' I've kept the note.","Ingrid:6|Ingrid:22"],
+  ["Have you any news of your own?","I'm learning to type! Twenty-two words a minute. The typewriter's clean again. Prince Augustus gave it back with a note: 'Practice makes saints.' I've kept the note.","!Ingrid:6|Ingrid:22"]],
  "Don't tell anyone about Bertil the mouse. The king might not like mice."],
 25:["Something happened last night. I heard the ghost in the corridor again, reading. I opened the door, very brave, and it was Prince Augustus, in his dressing gown, reading an old diary aloud to himself.",[
   ["So it wasn't a ghost.","It was never a ghost. (She looks almost disappointed.) He was doing voices. A young woman's voice, very bossy. He went bright red when he saw me."],
@@ -147,6 +150,7 @@ DAILY['Ingrid']={
 30:["The last day. I've done all three rooms. I left a note in each. Just 'good luck', typed. Twenty-eight words a minute now.",[
   ["Typed notes?","Prince Augustus said it was a waste of my new skill to type two words. I said they were the two most important words today."],
   ["What will you do, after?","Keep the rooms. Learn to type faster. Maybe the course in Kingsgrad, in spring. Maybe not. I'm not in a hurry any more."],
-  ["Will you miss the ghost?","There's no ghost. (She smiles.) But if there is, I left her a note too."]],
+  ["Will you miss the ghost?","There's no ghost. (She smiles.) But if there is, I left her a note too.","Ingrid:2|Ingrid:8|Ingrid:14|Ingrid:17|Ingrid:25"],
+  ["Will you miss the palace?","(She smiles.) The maids say there's a ghost in the east corridor. There's no ghost. But if there is, I left her a note too.","!Ingrid:2|Ingrid:8|Ingrid:14|Ingrid:17|Ingrid:25"]],
  "Thank you for listening. Nobody listens to the maid."],
 };

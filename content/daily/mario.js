@@ -111,7 +111,8 @@ DAILY['Mario']={
  "Wipe your shoes. I've just done this floor."],
 23:["Gin rummy, after the eruption. (Mario lays out a hand on the bunk.) The sergeant's been winning every game. She's playing like a woman who's decided life's too short to lose at cards.",[
   ["What's the tally now?","Two hundred and two. She's taken thirteen in three days. At this rate she'll own me by Christmas."],
-  ["Has the lawyer come yet?","The boats are stuck with the ash. The lawyer's in Helsinki, eating herring, sending letters. Expensive letters. 'Patience, Mr Mario.' I've got patience. I've got nothing else."],
+  ["Has the lawyer come yet?","The boats are stuck with the ash. The lawyer's in Helsinki, eating herring, sending letters. Expensive letters. 'Patience, Mr Mario.' I've got patience. I've got nothing else.","Mario:7|Mario:11|Mario:16"],
+  ["Who's getting you out?","A lawyer from Helsinki. The boats are stuck with the ash. He's in Helsinki, eating herring, sending letters. Expensive letters. 'Patience, Mr Mario.' I've got patience. I've got nothing else.","!Mario:7|Mario:11|Mario:16"],
   ["Do you like the sergeant?","She arrested me with a smile and a 'sorry'. She's brought me soup every day for seven weeks. If that's not love, it's something better."]],
  "Don't tell her about the tally. She doesn't need the encouragement."],
 24:["(Mario is quiet today, staring at the wall.) Paola came by, to bring me a clean shirt from Gustavo. She asked me one question and left. Paola never comes for nothing.",[
@@ -146,7 +147,8 @@ DAILY['Mario']={
  "If you go to Frostholm, shout once for Carlo. From me."],
 30:["(Mario is sitting up, very straight, in his clean shirt, with his hair combed.) The last day. Tomorrow, whoever runs this island, they'll need a judge, a court and a lawyer. Something will move. It must.",[
   ["Do you think you'll be out soon?","I think the door will open one day, and I'll walk out and eat a pizza in the street. Maybe tomorrow. Maybe at Christmas. Soon."],
-  ["What's the final tally with the sergeant?","Two hundred and two, my favour. We've agreed not to settle it. If we settle it, there's no reason to keep playing."],
+  ["What's the final tally with the sergeant?","Two hundred and two, my favour. We've agreed not to settle it. If we settle it, there's no reason to keep playing.","Mario:9|Mario:20|Mario:23"],
+  ["Who's ahead at cards?","Me. Sergeant Hanna and I have played gin rummy all month. Two hundred and two, my favour. We've agreed not to settle it. If we settle it, there's no reason to keep playing.","!Mario:9|Mario:20|Mario:23"],
   ["Was it worth it? Keeping quiet?","(Mario looks at you a long time.) Friend. A man who keeps his word is a man who sleeps well. Even on this bunk."]],
  "Whatever happens tomorrow, come and visit. I'll be here. Probably."],
 };

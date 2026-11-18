@@ -21,7 +21,8 @@ DAILY['Private Koski']={
 9:["(Koski is checking the papers of a Party man in a red armband, very slowly.) Name. Purpose. (He reads.) 'To bring beetroot to the people's army.' (He looks at the sack.) It's beetroot. Very good. You may pass.",[
   ["Do you check everyone?","Everyone. The post van. The Colonel. Niemi, when he comes back from the shop. (He hands the papers back.) Niemi gets cross. He says 'Koski, I've lived here eleven years.' I say 'papers, corporal.'"],
   ["Why so careful?","(He lowers his voice.) Captain Rook was betrayed by a man with no papers. In book three. He let him on the ship. (He shakes his head.) The man was a pirate. I'm not letting a pirate in."],
-  ["How many novels have you got?","(He looks round.) Six. All Captain Rook. In my coat. (He pats it.) Two in each pocket and two in the lining. It keeps me warm. And it's very good reading."]],
+  ["How many novels have you got?","(He looks round.) Six. All Captain Rook. In my coat. (He pats it.) Two in each pocket and two in the lining. It keeps me warm. And it's very good reading.","Private Koski:7"],
+  ["Is that a book in your coat?","(He looks round.) Captain Rook. Adventure novels. Six of them, in my coat. Two in each pocket and two in the lining. It keeps me warm. Don't tell the sergeant.","!Private Koski:7"]],
  "You may pass. If you see a pirate, come back and tell me."],
 10:["(Koski is at the gate in his dress uniform, very still, with no book anywhere.) The funeral. (He doesn't move.) No novels today. Not one. It wouldn't be right. (A pause.) They're in my bunk. All six. Under the mattress.",[
   ["Did you know the king?","He came through this gate when I was nine. I was visiting my uncle, who was a sentry. (He looks at the gate.) The king said 'good afternoon, young man.' To me. I decided to be a sentry. So I could say it back."],
@@ -31,7 +32,8 @@ DAILY['Private Koski']={
 11:["(Koski is reading behind his coat, looking very serious, and closes it as you come.) Halt. (He sees you.) Oh. Papers. (He takes them without looking.) Have you heard? Three blankets. Gone. From the store.",[
   ["Who took them?","(He leans in.) Not through this gate. I'd have seen. I see everything. (He thinks.) I see most things. (He thinks again.) I see the gate. Not the wall. Somebody could go over the wall."],
   ["Is the sergeant upset?","He came to the gate. He asked if I'd seen blankets. (He looks worried.) I said 'no, sergeant.' He said 'are you sure, Koski?' (A pause.) Then he looked at my coat. For a long time."],
-  ["Did he find the novels?","(He goes pale.) He looked. He didn't find. (He pats the coat.) He said 'that's a very thick coat, Koski.' I said 'it's a very cold gate, sergeant.' He went away. I'm still shaking."]],
+  ["Did he find the novels?","(He goes pale.) He looked. He didn't find. (He pats the coat.) He said 'that's a very thick coat, Koski.' I said 'it's a very cold gate, sergeant.' He went away. I'm still shaking.","Private Koski:7|Private Koski:9|Private Koski:10"],
+  ["Did he search you?","(He goes pale.) I keep six novels in my coat. He looked. He didn't find. He said 'that's a very thick coat, Koski.' I said 'it's a very cold gate, sergeant.' He went away. I'm still shaking.","!Private Koski:7|Private Koski:9|Private Koski:10"]],
  "You may pass. Don't mention blankets near the sergeant. Or coats."],
 12:["(Koski is very still, facing the road, and his lips are moving. He's reading a page held flat inside the coat.) ...and Rook raised his cutlass... (He sees you.) Halt! (He snaps shut.) Who goes there. Papers.",[
   ["What's happening in the book?","(He can't help it.) The serpent's back. It's followed the raft. Rook's got one cutlass and a monkey. (He looks very worried.) I don't think the monkey's going to be much help."],
@@ -46,7 +48,8 @@ DAILY['Private Koski']={
 14:["(Koski is standing at the gate in his dress uniform with a rifle and a very serious face.) The gathering. The others have gone into town. (He looks at the road.) Somebody has to keep the gate. I've been chosen. Again.",[
   ["Aren't you sad to miss it?","(He looks at the empty road.) Very. (He pats his coat.) But I've got a lot of reading to catch up on. The monkey's not dead. I read the next page. He jumped out of the serpent's mouth."],
   ["Who do you hope wins?","I don't know enough about politics. I know a lot about sea serpents. (He thinks.) The island's like a ship in a storm. It needs a captain. Someone who'd go back for the monkey."],
-  ["Who'd go back for the monkey?","(He thinks very hard.) The princess, maybe. She came to the range when she was eight. She hit the target first time. (He looks at the gate.) I've never hit the target. Not once. In four years."]],
+  ["Who'd go back for the monkey?","(He thinks very hard.) The princess, maybe. She came to the range when she was eight. She hit the target first time. (He looks at the gate.) I've never hit the target. Not once. In four years.","Private Koski:8|Private Koski:12|Private Koski:13"],
+  ["What would Captain Rook do?","(He brightens.) In my books, Captain Rook goes back for his monkey. Always. The princess would, maybe. She hit the target at the range at eight. (He looks at the gate.) I've never hit the target. Not once.","!Private Koski:8|Private Koski:12|Private Koski:13"]],
  "You may pass. Tell me who won. I'll be here."],
 15:["(Koski is at the gate, looking very cheerful, holding a newspaper.) The Gazette! (He reads.) A man fell in the fountain with a duck. (He looks up.) That's like book four. Captain Rook fell overboard with a pelican.",[
   ["What else does it say?","Three thousand one hundred and four people. The sergeant counted. (He reads.) The Gazette says three thousand. (He looks up.) The sergeant's furious. He's written to the Gazette. Four pages."],
@@ -98,7 +101,8 @@ DAILY['Private Koski']={
 24:["(Koski is at the gate, very cold, stamping his feet, reading inside his coat.) The monks went past this morning. Up to the mountains. (He reads.) To pray. Singing. (He looks up.) It was like the monks in book three. The ones who hid Rook from the pirates.",[
   ["What's the news?","The Syndicate's cleaning something up, the post man said. (He looks at the road.) I don't know what. I'm a sentry. I keep the gate. (He reads.) The Syndicate doesn't come through the gate."],
   ["How's Aho?","Niemi made him fish soup. A whole pot. (He looks at the mess hall.) He came out smiling. First time in a week. (He turns a page.) Captain Rook says a ship's only as happy as its youngest sailor."],
-  ["How's the bugle?","(He looks at it.) The bugler's back. (He looks relieved.) I'm the reserve again. (A pause.) I've been practising. Very quietly. In the sentry box. The crows have learned to leave."]],
+  ["How's the bugle?","(He looks at it.) The bugler's back. (He looks relieved.) I'm the reserve again. (A pause.) I've been practising. Very quietly. In the sentry box. The crows have learned to leave.","Private Koski:8"],
+  ["Are you still on the bugle?","(He looks at it.) I'm the reserve bugler. The bugler's back, so I'm the reserve again. I've been practising. Very quietly. In the sentry box. The crows have learned to leave.","!Private Koski:8"]],
  "You may pass. Mind the crows. They're nervous of me now."],
 25:["(Koski is at the gate looking embarrassed, while a private across the yard laughs.) Aho's mother says the princess hit the target when she was eight. (He goes red.) I haven't. Ever. Everyone knows now. Aho told the whole barracks.",[
   ["Is it true?","(He sighs.) Yes. She came to the range with her father. Hit it first time. (He looks at the range.) Four years. Nine hundred rounds. Not once. (A pause.) I hit the Colonel's hat once. That doesn't count."],

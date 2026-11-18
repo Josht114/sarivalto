@@ -71,7 +71,7 @@ DAILY['Doctor Lind']={
   ["Do you feel part of it?","Everyone's part of it. That's the point. I'll stand at the back with the bag and watch the island decide what it wants to be."],
   ["What's in the bag?","Smelling salts, bandages and a flask of tea. That's what a crowd needs, mostly."]],
  "If you see anyone go down, shout for me. I'll be at the back."],
-15:["(He's writing.) Two letters. One to Salmi, one to Harald. Salmi will answer. Harald won't.",[
+15:["(He's writing.) Two letters. One to Doctor Salmi in Turku, my chess partner by post, one to Harald. Salmi will answer. Harald won't.",[
   ["What did you ask Harald?","For the third time, for the X-ray machine. I said I'd name it after him. The Harald Machine. I don't think he's tempted."],
   ["Did Salmi reply?","Bishop to G-four. (He groans.) He's got me. Again. Thirty-one years and the man's never lost a game against me."],
   ["Isn't there trouble between the palace and the Church?","So they say. I don't take sides. I treat both. Augustus came in last month with a bad back from kneeling. Leopold, for nothing at all. He never has anything wrong."]],

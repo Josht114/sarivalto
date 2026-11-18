@@ -666,7 +666,8 @@ function dailyConvo(n){if(DAY<1)return null;const D=typeof DAILY!='undefined'&&D
   const st=build(alt?D[4][alt]:D[0],D[1]);if(tp.length)nodes[st].opts=plus(nodes[st].opts==end?end:nodes[st].opts);return{start:st,nodes:{...nodes,...tn}}}
 // ---- Information (the Information tab): every day's conversation you've heard, ME.info['Name:day'] = {d: the day, n: who,
 // w: where, night}. Hearing it is enough: what they open with is the news.
-const knows=k=>k[0]=='!'?!ME.info?.[k.slice(1)]:!!ME.info?.[k];
+// (several conversations joined by | : any of them heard, or with !, none of them)
+const knows=k=>k[0]=='!'?!k.slice(1).split('|').some(x=>ME.info?.[x]):k.split('|').some(x=>!!ME.info?.[x]);
 function learn(n){const a=POS[P.m]?P.m:areaOf(P.m);(ME.info??={})[n.name+':'+DAY]??={d:DAY,n:n.name,w:NM[P.m]+(a&&a!=P.m?', '+NM[a]:''),night:NIGHT}}
 // its line: the summary written for it, or else what you asked them (from the journal), or failing that what they opened with
 function infoLine(v){const D=typeof DAILY!='undefined'&&DAILY[v.n]?.[v.d];if(D?.[3])return D[3];

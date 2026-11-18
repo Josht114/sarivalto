@@ -146,6 +146,7 @@ DAILY['Grace']={
 30:["(Grace is sitting at her table, unusually still.) Last day. Whatever's decided today, the island will need clothes tomorrow.",[
   ["What do you hope for?","That I can keep cutting cloth. That nobody tells me what colour to use. That Tiina has a shop of her own one day, here, on this island."],
   ["Are you worried?","I've seen a war, a coronation, a funeral and a volcano from behind this table. I'm too old to worry. I'm just going to thread my needle."],
-  ["Let me thread it.","(She hands it to you without a word. You thread it.) Hm. Steady hands still. (She takes it back.) Thank you."]],
+  ["Let me thread it.","(She hands it to you without a word. You thread it.) Hm. Steady hands still. (She takes it back.) Thank you.","Grace:4|Grace:16|Grace:22"],
+  ["Can I help with anything?","(She holds out a needle and thread at arm's length, squinting.) This. My eyes won't do it any more. (You thread it.) Hm. Steady hands still. Thank you.","!Grace:4|Grace:16|Grace:22"]],
  "Stand up straight, whatever happens. It's free."],
 };

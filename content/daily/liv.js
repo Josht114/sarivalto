@@ -105,7 +105,8 @@ DAILY['Liv']={
 23:["(Liv is reading a letter with a Party seal.) Anna. 'Thank you for the Community Centre, comrade.' She's heard about Eastbrook. Party and Democrats on the same floor all night. She says it's the future. I think it was just a cold night.",[
   ["Do you think it's the future?","I think when the mountain goes, people stop arguing about mountains. That's not politics. That's just people."],
   ["What's the news?","Something broken out on the oil rig, they say. The oil company's boats are going out every hour. Nobody's declaring anything. I'm letting it pass. For now."],
-  ["How's your ankle?","(She smiles, very slightly.) Not yet. Jonna says after the ash. She doesn't want grey ink. Neither do I."]],
+  ["How's your ankle?","(She smiles, very slightly.) Not yet. Jonna says after the ash. She doesn't want grey ink. Neither do I.","Liv:18"],
+  ["Any plans of your own?","A tattoo. On my ankle, where nobody'll see it. (She smiles, very slightly.) Not yet. Jonna says after the ash. She doesn't want grey ink. Neither do I.","!Liv:18"]],
  "If Anna asks, tell her it was a cold night."],
 24:["(The scales are back on the counter, and Liv is weighing a parcel with something like relief.) The duty's back on. Ole's rule. I'm weighing again. Three times. I've never been so happy to weigh a parcel of soap.",[
   ["You missed it?","Like a person misses a clock that's stopped. You don't notice it ticking until it stops. Then you can't think of anything else."],

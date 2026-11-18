@@ -91,7 +91,8 @@ DAILY['Lars']={
  "Pass me a towel. And a cigarette. And a prayer, if you've got one."],
 24:["(Lars is lying on his bunk, unusually quiet.) I've been thinking. That's new for me. If something goes wrong out here, I've got nothing. Eighty dollars in a sock and a debt to Nico.",[
   ["What would you change?","Save. Properly. Not in a sock. In a bank. Agnes at Nordbank says she'll open me an account with ten dollars."],
-  ["What about the motorbike?","Still want it. But maybe I want to be alive to ride it more than I want it this week."],
+  ["What about the motorbike?","Still want it. But maybe I want to be alive to ride it more than I want it this week.","Lars:9|Lars:11"],
+  ["What were you saving for?","A motorbike. I still want it. But maybe I want to be alive to ride it more than I want it this week.","!Lars:9|Lars:11"],
   ["You'll be back to normal tomorrow.","(He grins, a little.) Probably. But today I'm a thinker. Leave me be."]],
  "Ten dollars and a bank book. That's my new plan. Write it down so I can't forget."],
 25:["(Lars has a bank book and is showing it off.) Look. Nordbank, account number four, four, nine, one. Ten dollars in it. Agnes counted it twice, and stamped it. I've never been stamped before. Nico the bookie will be pleased.",[

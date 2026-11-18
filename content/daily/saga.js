@@ -46,14 +46,15 @@ DAILY['Saga']={
   ["Will they really make a volcano cola?","The Party woman wrote it down. The cola man laughed, and then wrote it down twice. I think someone's going to try."],
   ["Is it safe, the Lava Tube?","For someone careful. The rock's hot enough to cook on in places. The monks went up once for a dare. Brother Teodor came back with no eyebrows."]],
  "If someone makes a volcano cola, I'd like a bottle. For the bath."],
-10:["(The spa is closed, a black ribbon on the door. Saga is sitting on the steps outside, looking towards Kingsgrad.) The funeral. I closed the spa. Mrs Valo would want me to. She knew the old king. Everyone did, a little.",[
+10:["(The spa is closed, a black ribbon on the door. Saga is sitting on the steps outside, looking towards Kingsgrad.) The funeral. I closed the spa. Mrs Valo, who owns the spa, would want me to. She knew the old king. Everyone did, a little.",[
   ["Did you know the king?","He came here once, in 1970, when his back was bad. He sat in the water for an hour and talked about the herring. He was nicer than I expected."],
   ["Are you going to the funeral?","I'll watch from here. You can see the palace from the steps, if you squint. I'll see the flag come down."],
   ["What happens now?","Everyone in the water's been asking that for a week. I hand them a towel. That's my answer."]],
  "Go gently today."],
 11:["(Saga has her sleeves rolled up and is scrubbing the edge of the bath.) The minerals. They stain the stone yellow. Every Thursday I scrub it. Every Friday it's yellow again. It's like the tide.",[
   ["Is it hard work?","Hard on the knees. Easy on the head. I think about other things. The cottage. Jussi. The three songs."],
-  ["What would your cottage be like?","One room, one window, facing the sea. A kettle. A chair by the window. Somewhere a boat could come into, if it wanted to."],
+  ["What would your cottage be like?","One room, one window, facing the sea. A kettle. A chair by the window. Somewhere a boat could come into, if it wanted to.","Saga:5"],
+  ["Do you live here, at the spa?","For now. I'm saving for a cottage by the sea. One room, one window, facing the water. A kettle. A chair. Somewhere a boat could come into, if it wanted to.","!Saga:5"],
   ["Is there news from the town?","The mill hands in Eastbrook want fair pay, the bathers say. Half of them own shares in the mill. They talked about it very quietly. I didn't hear a word."]],
  "Mind the floor. It's slippery after I scrub."],
 12:["(Saga is holding a towel that's come back damp, with a cigar burn in it, and frowning at it.) A man from Frostholm. Oil. He sat in the water for two hours with his accounts in a waterproof bag. He burned a towel. He tipped very well.",[
@@ -66,7 +67,7 @@ DAILY['Saga']={
   ["Why is Kelp Cola giving it away?","Before the big day, everyone wants to be loved. I hand out towels for free, and nobody calls me a politician."],
   ["Do the bathers talk about the big day?","Constantly, and in low voices. The steam's full of plans. I just keep the towels coming."]],
  "Take a warm one. Trust me."],
-14:["(The spa is empty, and Saga is sitting in the water herself, fully dressed except her shoes, feet dangling in.) Everybody's at the big gathering. I've got the spa to myself. First time in years. I'm not telling Mrs Valo.",[
+14:["(The spa is empty, and Saga is sitting in the water herself, fully dressed except her shoes, feet dangling in.) Everybody's at the big gathering. I've got the spa to myself. First time in years. I'm not telling Mrs Valo, the owner.",[
   ["Aren't you going to the gathering?","Crowds and speeches? No. I'll hear all of it tomorrow, in the steam, from forty people who each saw something different."],
   ["Do you ever bathe here?","Never. It's like a cook eating her own pie. Today I'm making an exception. My feet have earned it."],
   ["What do you think will happen?","Promises. Everyone will come here afterwards, tired and hoarse. I've put out extra towels."]],
@@ -91,7 +92,7 @@ DAILY['Saga']={
   ["Are people still coming to bathe?","Fewer. The ones who come are the ones who don't believe in danger. They sit in the bubbling water and tell me it's very relaxing."],
   ["What will you do?","Keep writing the numbers. Keep handing out towels. And keep one bag packed under the desk, with a coat and Jussi's photograph."]],
  "Go home safely. And keep your coat near."],
-19:["(The air smells of eggs. Saga has closed the spa and is standing at the door with her coat on.) Closed. Mrs Valo agreed, by telegram. 'Keep the water, save yourself.' Six words. The most she's ever written.",[
+19:["(The air smells of eggs. Saga has closed the spa and is standing at the door with her coat on.) Closed. Mrs Valo, the owner, agreed by telegram from Helsinki. 'Keep the water, save yourself.' Six words. The most she's ever written.",[
   ["Is the volcano going to erupt?","The steam's coming out of the ground now, not just the springs. There's a crack in the path. I think the mountain's going to speak."],
   ["Where will you go?","Down to Kingsgrad, to the flats. Aino's mother has a cellar. Toni says we can all go down there together. I'll bring the towels."],
   ["Will you come back?","When it's safe. The springs will still be here. They were here before me. They'll be here after."]],
@@ -118,7 +119,7 @@ DAILY['Saga']={
   ["Is it about your brother?","(She stops mopping.) I suppose it is. I didn't mean it to be. It just came out, after the mountain. Things come out, after a mountain."],
   ["Will you sing it for me?","Not yet. It's not finished. It hasn't got an ending. I don't know how a song like that ends."]],
  "If you hear me humming it, don't tell me it's sad. I know."],
-24:["(Saga has a letter from the oil company on the desk, with a very large seal.) Dario. From Diversified Petroleum. He wants to buy the spa. He's written to me, because he knows Mrs Valo won't answer him.",[
+24:["(Saga has a letter from the oil company on the desk, with a very large seal.) Dario. From Diversified Petroleum. He wants to buy the spa. He's written to me, because he knows Mrs Valo, the owner, won't answer him.",[
   ["What does he offer?","A great deal of money, a new roof, and a job for me for life. He wants me to persuade Mrs Valo. He thinks I can."],
   ["Can you?","Nobody can persuade Mrs Valo of anything. Her husband built the bath. She'll sell when the mountain stops breathing. And it's breathing harder than ever."],
   ["Will you tell him no?","I'll tell him I'll pass it on. Which I will. Mrs Valo will write back two lines. I already know what they'll be."]],
@@ -143,7 +144,8 @@ DAILY['Saga']={
 28:["(Saga is looking out of the window at the sea, with the steam rising behind her.) Every faction's making its big push today. I can see the boats from here. All flags. Red ones, royal ones, cola ones. Like a regatta.",[
   ["Who's winning?","From up here, nobody. They're all just boats. Some big, some small. All of them a long way from shore."],
   ["Are you nervous about the end of the month?","The mountain's quiet now. That's all I really care about. Whoever wins, the water will still be hot."],
-  ["Are you still saving for the cottage?","Every week. A little more, since the ash. I've got enough for a window now. I'm saving for the walls."]],
+  ["Are you still saving for the cottage?","Every week. A little more, since the ash. I've got enough for a window now. I'm saving for the walls.","Saga:5|Saga:11|Saga:25"],
+  ["What do you want for yourself?","A cottage by the sea. I've been saving since 1976. A little more since the ash. I've got enough for a window now. I'm saving for the walls.","!Saga:5|Saga:11|Saga:25"]],
  "Look at the boats on your way down. Count them for me."],
 29:["(Saga is humming the new song, out loud, while she folds towels.) The one about the boat. It's finished. I sang it in the bath last night, all the way through. Toni didn't bang on the wall. She clapped.",[
   ["Will you sing it for me now?","(She sings one verse, very quietly. A boat comes in through the fog, and someone on the shore waves a towel, and the boat waves back.)"],
@@ -152,7 +154,8 @@ DAILY['Saga']={
  "Hum it on your way down. It's catchy. Toni's been humming it all morning."],
 30:["(Saga is standing on the steps of the spa, looking out at the sea, a towel over her arm.) Last day. They're settling the island today. I'm going to stand here and watch the boats. Whatever happens, they'll come home.",[
   ["What do you hope happens?","That the springs stay hot, that the mountain sleeps, that the boats come home. And that someone remembers to ask what the people in towels think."],
-  ["Will you get your cottage?","One day. Not yet. I've got a window and a door saved. Next year, the walls. I'm in no hurry. I've got a song now."],
+  ["Will you get your cottage?","One day. Not yet. I've got a window and a door saved. Next year, the walls. I'm in no hurry. I've got a song now.","Saga:5|Saga:11|Saga:25|Saga:28"],
+  ["What happens to you now?","I'll keep saving for my cottage by the sea. A window and a door, so far. Next year, the walls. I'm in no hurry. I've got a song now.","!Saga:5|Saga:11|Saga:25|Saga:28"],
   ["Will you remember this month?",["(She folds the towel on her arm into a perfect square.) The mountain speaking, and Toni clapping through the wall, and saying Jussi's name out loud. Yes.",[
     ["And me?","The reporter who asked about my brother. Nobody had, for years. I'll put you in a verse. You'll be the one on the shore, waving."],
     ["What will you do tomorrow?","Open the spa. Hand out towels. Look for boats. Same as always. But I'll be humming my own song now."]]]]],

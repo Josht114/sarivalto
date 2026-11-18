@@ -44,6 +44,9 @@ its future after the old king's death. See `README.md` for the full picture.
 - The player speaks in short lines (15 words at most). Everyone thinks the player is a reporter; only Hekki, Chuck and George
   know otherwise.
 - Nothing later than the early 1980s: no internet, no mobile phones. Telephones, radios, the Eastbrook Gazette, trams, boats.
+- Every day's conversation stands on its own: the player may have skipped any earlier day. A reply that picks up an earlier
+  thread needs the heard-before condition (`'Name:2|Name:6'`) and a sibling for those who didn't hear; an opener says who a name
+  is. See "Every day stands on its own" in `content/daily/README.md`, and check with `node tools/daily-continuity.js`.
 
 ## Commits
 

@@ -32,7 +32,8 @@ DAILY['Tom']={
 5:["(Tom is checking the Gull's fuel with a stick.) Mike had her this morning. Caught more in two hours than he did all August, he says. And he filled the tank. (He looks at the stick.) Mostly.",[
   ["Mostly?","Half. Mike's half is everyone else's quarter. But he brought her back clean, and he brought me a fish. That's the rent."],
   ["Is the Gull lucky?","Mike thinks boats pick up their owner's luck. I've never had a bad day at sea. Plenty on land, mind."],
-  ["Did the birdwatcher go out?","Yesterday, with his camera. He came back looking at his notebook, not at the birds. I asked him what he'd seen. He said 'a great deal'. Strange sort of birdwatcher."]],
+  ["Did the birdwatcher go out?","Yesterday, with his camera. He came back looking at his notebook, not at the birds. I asked him what he'd seen. He said 'a great deal'. Strange sort of birdwatcher.","Tom:2"],
+  ["Any odd visitors?","A man who says he's a birdwatcher. He went out yesterday, with his camera. Came back looking at his notebook, not at the birds. He said he'd seen 'a great deal'. Strange sort of birdwatcher.","!Tom:2"]],
  "Tell Mike he owes me half a tank. He'll laugh."],
 6:["(Tom is counting coins into his palm.) Lucia came round the boats with her little book. I paid. I always pay. It's cheaper than a new boat.",[
   ["That's protection money.","It's a quiet life. Same thing, if you squint. Sam paid too. Mike didn't, somehow, and nobody knows why."],
@@ -44,7 +45,8 @@ DAILY['Tom']={
 7:["(Tom is looking out to sea, towards the north-west.) The north road's open, so the rig's busy. You can see its lights from here, out past the point. I don't like it out there. Neither do the cod.",[
   ["Why don't the cod like it?","Noise. Hammering, day and night, through the water. Fish hear everything. It's like trying to sleep under a blacksmith."],
   ["Do you go near it?","Not if I can help it. There's a rope round it, and men with whistles. The Gull's not a whistle sort of boat."],
-  ["What's the forecast?","'Calm and bright.' (A gust nearly takes his cap.) I'll put a question mark on it."]],
+  ["What's the forecast?","'Calm and bright.' (A gust nearly takes his cap.) I'll put a question mark on it.","Tom:2|Tom:4"],
+  ["What's that on your board?","My forecast. I chalk one up every morning, and I'm always wrong. Today: 'Calm and bright.' (A gust nearly takes his cap.) I'll put a question mark on it.","!Tom:2|Tom:4"]],
  "Calm and bright. Hold your hat."],
 8:["(Tom is crouched at the edge of the quay, staring at the water.) There's a stain off the point. Black, with a rainbow on top, like a puddle in a workshop. I don't like it.",[
   ["Is it oil?","Smells like it. It's coming from the north-west, and there's only one thing up there that bleeds black. (He spits in the sea.) Sorry. Habit."],
@@ -69,7 +71,8 @@ DAILY['Tom']={
 12:["(Tom is reading a letter with his lips moving.) From my sister in Helsinki. Her boy wants to come and fish with me next summer. (He folds it.) I've told her it's all snow and oil and politics here. She says so's Helsinki.",[
   ["Will you take him on?","If he can mend a net and keep his mouth shut, yes. If he's like his mother, he'll talk the fish into the net. She could."],
   ["What's new in Saltwick?","Ruby from Eastbrook was down at the harbour asking if anyone had an old record in a sea chest. We haven't. We've got old sea chests full of old socks."],
-  ["What's the forecast?","'Snow by evening.' (He squints up.) Which means sunshine. You could set your watch by me, if you set it backwards."]],
+  ["What's the forecast?","'Snow by evening.' (He squints up.) Which means sunshine. You could set your watch by me, if you set it backwards.","Tom:2|Tom:4|Tom:7"],
+  ["What does the board say today?","My forecast. Wrong every day, so far. 'Snow by evening.' (He squints up.) Which means sunshine. You could set your watch by me, if you set it backwards.","!Tom:2|Tom:4|Tom:7"]],
  "Sunshine, then. Probably."],
 13:["(Tom has a free Kelp Cola in one hand and a herring in the other.) They're giving it away in Kingsgrad, and Mike brought a crate back in the Gull. Cola and herring. It's not a good combination. I've tried.",[
   ["How was it?","Like kissing a mermaid with a cold. Once is enough."],
@@ -79,7 +82,8 @@ DAILY['Tom']={
 14:["(Tom is in his good jumper, turning his cap in his hands.) The whole island's gathering today, and Saltwick's emptying out. Sam and I are walking over together, for once. We'll argue quietly.",[
   ["What do you expect?","Speeches, a lot of standing about in the cold, and somebody's pocket picked. Lucia's coming. I'd keep your hands in your coat."],
   ["You and Sam don't agree?","Sam thinks the island should belong to the Soviets. I think it should belong to the people who fish off it. On a good day that's the same thing. Today might be a good day."],
-  ["What's the forecast?","'Fine and dry.' (Pause.) So bring an umbrella."]],
+  ["What's the forecast?","'Fine and dry.' (Pause.) So bring an umbrella.","Tom:2|Tom:4|Tom:7|Tom:12"],
+  ["What's chalked on the board?","My weather forecast. I'm always wrong. 'Fine and dry.' (A pause.) So bring an umbrella.","!Tom:2|Tom:4|Tom:7|Tom:12"]],
  "See you in the crowd. I'm the one with the cap."],
 15:["(Tom is untangling a crab pot that's come back in a knot.) Borrowed, and returned in a knot the shape of the Kingsgrad road. People are kind to borrow and terrible at giving back.",[
   ["Who borrowed it?","A monk. Brother Mikael, from up the mountain, wanted crabs for a soup. He brought me some of the soup in a jar. That was decent."],
@@ -106,7 +110,8 @@ DAILY['Tom']={
   ["Why won't you join?",["Because I like everybody. I like Anna, I like Helen, I like the king's family, I like Ray, and Ray likes nobody. (He shrugs.) The Party wants you to pick.",[
     ["Is that a political position?","It's the only one I've got. Sam says it's cowardice. Sam's said that twice this year. That's eight words."],
     ["Maybe you're right.","Maybe. But I've been wrong about everything else all my life: weather, girls, the price of cod. Why not this?"]]]],
-  ["What's the forecast?","'Settled.' The mountain's steaming, the ground's shaking and Lucia's selling insurance door to door. Settled."]],
+  ["What's the forecast?","'Settled.' The mountain's steaming, the ground's shaking and Lucia's selling insurance door to door. Settled.","Tom:2|Tom:4|Tom:7|Tom:12|Tom:14"],
+  ["Is that the weather on your board?","My forecast. Wrong every time, but I keep at it. 'Settled.' The mountain's steaming, the ground's shaking and Lucia's selling insurance door to door. Settled.","!Tom:2|Tom:4|Tom:7|Tom:12|Tom:14"]],
  "If you've got a clipboard, I'm out."],
 20:["(Tom is sitting on the quay wall with a flask, watching the north.) The steam's thicker. It's turned the sky the colour of dishwater. I wrote to my sister in Helsinki not to send her boy over next summer. Then I wrote again to say send him. I can't decide.",[
   ["Why change your mind?","Because it's still home. Volcano or no volcano, this is where the fish are and where my friends are. The boy should see it, even if it's on fire."],
@@ -121,7 +126,8 @@ DAILY['Tom']={
 22:["(Tom is pushing the Gull off, grinning through the grime.) I'm going out. The water's gone milky and warm, and the fish are hungry. That's all a fisherman needs to hear, volcano or not.",[
   ["Is it safe?","As safe as Saltwick ever is. The mountain's settled into a sulk, and the fish have come up close to feed. I'd be a fool to tie up again."],
   ["What's the ash done to the town?","Everything's grey. Aili's sweeping her step every hour. Tove at the barber's has given up and gone grey on purpose. She says it suits her."],
-  ["Any forecast?","'Ash, then more ash.' (He looks pleased.) For the first time this month, I think I'll be right."]],
+  ["Any forecast?","'Ash, then more ash.' (He looks pleased.) For the first time this month, I think I'll be right.","Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19"],
+  ["What's on the chalkboard?","My forecast. Usually wrong. 'Ash, then more ash.' (He looks pleased.) For the first time this month, I think I'll be right.","!Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19"]],
  "If I come back with a boatful, the eggs are on me."],
 23:["(Tom is scrubbing the side of the Gull with a stiff brush.) A black line, a hand's width up the hull. Oil, again. I scrubbed it off yesterday and it's back. It's like being haunted by a dirty bath.",[
   ["More oil from the rig?","There's trouble on it, underwater, they say: something leaking where nobody can reach. And the Party says it's no accident. The Party says nothing's an accident."],
@@ -131,7 +137,8 @@ DAILY['Tom']={
 24:["(Tom is coiling rope and not quite meeting your eye.) Gustavo's boys were down here asking which boats go out at night. Nobody said anything. Everybody's very busy with their nets all of a sudden. They asked about the Gull, my boat, too.",[
   ["Does the Gull go out at night?","The Gull goes out when someone asks nicely. (Pause.) They didn't ask nicely. So she's staying in."],
   ["What do they want a boat for?","I didn't ask. In Saltwick, the less you know about a night boat, the longer you live. My father taught me that, along with knots."],
-  ["What's the forecast?","'Dark early.' (He looks at the grey sky.) It's been dark early since the mountain went. I'm getting good at being right."]],
+  ["What's the forecast?","'Dark early.' (He looks at the grey sky.) It's been dark early since the mountain went. I'm getting good at being right.","Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19|Tom:22"],
+  ["Is that a forecast on your board?","Mine. Wrong more often than not. 'Dark early.' (He looks at the grey sky.) It's been dark early since the mountain went. I'm getting good at being right.","!Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19|Tom:22"]],
  "If anyone asks you about boats, you're a reporter. Report somewhere else."],
 25:["(Tom is mending a net in the lee of the harbour office, out of the wind.) The palace and the Democrats are making friends, Ray says. Footmen walking up the Eastbrook road. Next they'll be fishing together.",[
   ["Would that be good?","For the fish, no: two more boats. For the island, maybe. People who argue over a table don't usually argue over a gun."],
@@ -153,7 +160,8 @@ DAILY['Tom']={
   ["Are you worried about tomorrow?",["(He takes a long time to answer.) A bit. Everybody's pulling the island their own way. Something's going to tear.",[
     ["What would you do about it?","Lend my boat to whoever needs to get away. That's all a fisherman can do. That, and keep the herring coming."],
     ["It'll work out.","That's what I've said about the weather every day this month. (He smiles.) But thank you. It helps, hearing it from somebody who isn't me."]]]],
-  ["What's the forecast?","'Stormy.' (He looks at the clear sky.) For once, I hope I'm wrong. I usually am."]],
+  ["What's the forecast?","'Stormy.' (He looks at the clear sky.) For once, I hope I'm wrong. I usually am.","Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19|Tom:22|Tom:24"],
+  ["What does your board say?","My forecast. I've been wrong all month. 'Stormy.' (He looks at the clear sky.) For once, I hope I'm wrong. I usually am.","!Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19|Tom:22|Tom:24"]],
  "Stormy. Let's hope I'm wrong again."],
 29:["(Tom is eating breakfast on the quay: Aili's eggs, wrapped in newspaper.) Aili brought them out to the boats. She says everyone's too nervous to sit down. She's right. Sam's eaten three plates and said nothing at all.",[
   ["What happens tomorrow?","Nobody knows. That's the strange thing. The whole island, waiting on one day. Like waiting for the weather, except I'm not the one forecasting it."],
@@ -162,7 +170,8 @@ DAILY['Tom']={
  "Eat something. Nobody chooses well on an empty stomach."],
 30:["(Tom is sitting in the Gull, tied up at the quay, with his boots on the gunwale.) The last day of September. The island decides today. I'm not going out. I'm staying right here, where anyone can borrow me.",[
   ["Why not go fishing?","Because if something happens, someone will need a boat. And the Gull's the one everybody asks for. Today she's ready for anyone. Even Lucia."],
-  ["What's the forecast?","(He nods at his chalkboard.) 'Wait and see.' It's the first forecast I've ever been sure about."],
+  ["What's the forecast?","(He nods at his chalkboard.) 'Wait and see.' It's the first forecast I've ever been sure about.","Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19|Tom:22|Tom:24|Tom:28|Tom:29"],
+  ["What did you chalk up today?","(He nods at his chalkboard, where he's chalked a forecast every morning this month, and got it wrong.) 'Wait and see.' It's the first forecast I've ever been sure about.","!Tom:2|Tom:4|Tom:7|Tom:12|Tom:14|Tom:19|Tom:22|Tom:24|Tom:28|Tom:29"],
   ["Thanks for everything, Tom.","For what? I mended a net in front of you and told you about eggs. (He shakes your hand.) But you're welcome. Come back in the summer. The boy will be here. He'll talk your ear off about whales."]],
  "If you need a boat, you know where she is."],
 };

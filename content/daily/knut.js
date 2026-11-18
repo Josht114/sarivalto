@@ -61,7 +61,8 @@ DAILY['Knut']={
  "Stand near us if you want to be safe. Stand near Ilse if you want to be very safe."],
 15:["(Knut is hoarse and very cheerful.) Somebody said 'saw' yesterday! At the gathering! Out loud! In front of everyone! Ilse cried. She'll deny it. She's denying it now.",[
   ["Who said it?","A man near the front. A Democrat. Maybe Erik. Maybe me. I was shouting a lot. It might have been me."],
-  ["Did you tell the dragon story?","To three people near the back. One of them was a monk. He said it was a parable. I said it was a dragon."],
+  ["Did you tell the dragon story?","To three people near the back. One of them was a monk. He said it was a parable. I said it was a dragon.","Knut:14"],
+  ["Did you tell any stories yesterday?","How I lost my finger. Yesterday it was a dragon. I told it to three people near the back. One of them was a monk. He said it was a parable. I said it was a dragon.","!Knut:14"],
   ["What's the news today?","The palace and the Church are fighting over the prince's brother. I say let the lad saw some wood. Sawing clears the head. Ask anyone with nine and a half fingers."]],
  "If you meet a monk, tell him about the dragon. He liked it."],
 16:["(Knut is in a clean shirt, with a flask in his pocket.) The great debate, at the Community Centre. Erik and Anna. Ilse's going to heckle. Quietly. She promised Erik. I'm going to sit next to her and stop her. I won't.",[
@@ -107,7 +108,8 @@ DAILY['Knut']={
   ["How's the finger?","Itching. It always itches before rain. Or before a big week. It's itching very hard."]],
  "If you go to the Timberline, don't stare at Linnea and Arvid. Everyone else does."],
 24:["(Knut is holding out his right wrist, where there's a small, fresh tattoo of a pine tree in a box.) Jonna. This morning. The Democrats' emblem. Three of us from the mill got them. Little pines. On the wrist. It hurt more than the finger.",[
-  ["Did you get the saw blade on the stump?","(He holds up the finger.) Not yet. Jonna's still thinking about it. She says the tattoo should match the real story. I told her the real story. She said 'Then it's a heart, not a saw.'"],
+  ["Did you get the saw blade on the stump?","(He holds up the finger.) Not yet. Jonna's still thinking about it. She says the tattoo should match the real story. I told her the real story. She said 'Then it's a heart, not a saw.'","Knut:6|Knut:21"],
+  ["Why the tattoo?","Jonna's doing me. I wanted a saw blade on a tree stump, for the finger. Not yet. She says the tattoo should match the real story. I told her the real story. She said 'Then it's a heart, not a saw.'","!Knut:6|Knut:21"],
   ["Isn't a party tattoo risky?","Jonna says your tattoo's always yours, whoever you put it on for. If the Democrats lose, I'll have a pine on my wrist and a story. Stories are worth more."],
   ["What's the news?","The monks have gone up into the peaks. The Syndicate's cleaning something up. And Erik's got twenty banners for the rally. Bjarne's building the stage from our timber."]],
  "Show me yours, if you get one. Everyone's getting one."],

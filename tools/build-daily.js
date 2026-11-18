@@ -25,7 +25,8 @@ for(const f of files){const src=fs.readFileSync(path.join(dir,f),'utf8'),b={DAIL
   if(errs.length){bad.push(...errs.map(e=>f+': '+e));continue}
   Object.assign(box.DAILY,b.DAILY);out+=src.trim()+'\n'}
 // every 'Name:day' a reply or opener needs is a day someone really has a conversation
-if(!only.length)for(const[w,d,k]of needs){const m=/^!?(.+):(\d+)$/.exec(k);if(!m||!box.DAILY[m[1]]?.[m[2]])unknown.push(`${w} day ${d}: no conversation called '${k}'`)}
+// (a need can join several with |: 'Kurt:2|Kurt:6', any of them heard, or with ! in front, none of them)
+if(!only.length)for(const[w,d,k0]of needs)for(const k of k0.replace(/^!/,'').split('|')){const m=/^(.+):(\d+)$/.exec(k);if(!m||!box.DAILY[m[1]]?.[m[2]])unknown.push(`${w} day ${d}: no conversation called '${k}'`)}
 if(unknown.length){console.error('Needs a conversation that does not exist:\n'+unknown.join('\n'));if(strict)process.exit(1)}
 for(const r of roster.filter(r=>!only.length||only.includes(r.slug+'.js'))){const days=box.DAILY[r.name]||{};for(let d=r.first;d<=30;d++)if(!days[d])missing.push(r.name+' '+d)}
 const people=Object.keys(box.DAILY).length,convs=Object.values(box.DAILY).reduce((a,d)=>a+Object.keys(d).length,0);

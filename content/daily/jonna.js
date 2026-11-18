@@ -77,7 +77,8 @@ DAILY['Jonna']={
 18:["(Jonna is sitting with her feet up, eating a sandwich, with a bottle of ink beside her like a trophy.) It came. My black. Liv brought it up herself. She said she'd 'weighed it once more, for luck'.",[
   ["So you've made up with Liv?","We've been made up. I glared at her on the stairs for two weeks, and she stood there and took it, and then brought the ink. I've offered her a tattoo, free. She went pink."],
   ["Will you tattoo Liv?","She asked for a tiny customs stamp on her ankle. Approved. I've never liked anybody so much."],
-  ["How's the private commission?","(She lowers her voice.) He came in for the first fitting. Sat very still. Didn't make a single joke. That's how you know it's serious, with a jester."]],
+  ["How's the private commission?","(She lowers her voice.) He came in for the first fitting. Sat very still. Didn't make a single joke. That's how you know it's serious, with a jester.","Jonna:9"],
+  ["Any interesting customers?","(She lowers her voice.) A private commission. A jester. He came in for the first fitting. Sat very still. Didn't make a single joke. That's how you know it's serious, with a jester.","!Jonna:9"]],
  "Black's back. Ink and Pine's open for business. Properly, this time."],
 19:["(Jonna has a sheet of cartridge paper pinned to the wall, with a pine tree drawn on it, and a ballot box in the trunk.) The party emblem. Erik asked for something people would recognise from the back of a crowd. I've drawn it nine times.",[
   ["What does it mean?","The pine's Eastbrook, and the island. The box is the vote. And the lantern's the bit I put in for myself: you keep a light on for people you don't know yet."],
@@ -104,7 +105,8 @@ DAILY['Jonna']={
 23:["(Jonna has her own sleeve rolled up and is tattooing a tiny grey cloud above her elbow.) My own. Left-handed. The twenty-first. Everyone else has one, so I want one too. It's going to be terrible.",[
   ["Is it?","(She looks at it.) It looks like a sheep. A very angry sheep. I'll tell people it's a volcano sheep. Very rare."],
   ["How's business?","Busy. Ash clouds, mostly. And one man who wanted the date and the words 'I SURVIVED'. I talked him into 'STILL HERE'. Ruby's got postcards that say the same."],
-  ["How's the private commission?","(She checks the door, then whispers.) Finished, and he's paid. Last coins in a sock. He cried a bit. He wants to show her on a special day. Not a word."]],
+  ["How's the private commission?","(She checks the door, then whispers.) Finished, and he's paid. Last coins in a sock. He cried a bit. He wants to show her on a special day. Not a word.","Jonna:9|Jonna:18"],
+  ["Any secret work?","(She checks the door, then whispers.) A private commission, for a jester. Finished, and he's paid. Last coins in a sock. He cried a bit. He wants to show her on a special day. Not a word.","!Jonna:9|Jonna:18"]],
  "Volcano sheep. Ask for it by name."],
 24:["(Jonna is pinning Erik's new emblem to her wall, beside the flash.) Erik approved it. With the smaller lantern. Bjarne's cutting it into the rally stage, Meg from the circus is hanging the banners, and I'm doing the lettering on all twenty.",[
   ["Twenty banners?","Twenty. All in my hand. If one of them has a spelling mistake, I'll resign from the party, the island and possibly my own name."],

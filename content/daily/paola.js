@@ -62,7 +62,7 @@ DAILY['Paola']={
   ["Is anything else happening?","The oil company's chief has gone missing. Dario. (She restarts the pendulum.) The Don's very interested. He's asked me to find out where. Discreetly."],
   ["Do you know where he is?","(She steps down.) Not yet. Men who vanish usually leave a trail. Receipts. Tickets. A watch left by a basin. I'll find the watch."]],
  "Your watch is two minutes fast. Everyone's is today."],
-18:["(Paola is reading a postcard, very still.) Turin. Queen takes rook. (She sets it down.) He's winning. For the first time in nine years, he's winning. And there's a line at the bottom, in his hand: 'Forgive me. I'm ill. I'd like to finish.'",[
+18:["(Paola is reading a postcard, very still.) Turin. My chess partner, by post. Queen takes rook. (She sets it down.) He's winning. For the first time in nine years, he's winning. And there's a line at the bottom, in his hand: 'Forgive me. I'm ill. I'd like to finish.'",[
   ["He's ill?","He's never written anything but moves. Not once in nine years. Now: 'I'm ill. I'd like to finish.' (She folds the postcard.) That's why he's in a hurry."],
   ["What will you do?","Play faster. By telegram, if I have to. I'll finish the game. (A pause.) I won't let him lose because he ran out of time. That's not winning."],
   ["What's the news?","Somebody's been in the files at the Republican offices. Carlo's frightened Margit thinks it was him. (She looks at you.) It wasn't. I'd know."]],
@@ -84,7 +84,7 @@ DAILY['Paola']={
     ["Who counts you?","(She looks at you for a long moment.) Nobody, usually. (A pause.) The Don did. At four in the morning. He said 'Paola. Good.' That's all. It was enough."],
     ["What about Carlo?","He came out of the cellar at dawn and walked through the ash to the party offices in Frostholm. In his good suit. To check on the ballot box. Nobody told him to. (She almost smiles.) I'm thinking about what that means."]]]]],
  "Cover your mouth. And go and count your own people."],
-22:["(Paola is sitting on the fountain's edge, which she never does, holding a telegram.) Turin. 'Mate in three. You've found it. Well played. Thank you for nine years.' (She folds it very small.) I didn't play mate in three. He played it for me. He let me find it.",[
+22:["(Paola is sitting on the fountain's edge, which she never does, holding a telegram.) From Turin, my chess partner by post. 'Mate in three. You've found it. Well played. Thank you for nine years.' (She folds it very small.) I didn't play mate in three. He played it for me. He let me find it.",[
   ["He let you win?","He knew he wouldn't finish another game. So he made sure this one ended well. (She looks at the grey fountain.) That's a very kind thing to do, with a chessboard."],
   ["Are you sad?","(She doesn't answer for a long time.) I've known him nine years and never heard his voice. I'll miss him more than most people I've seen every day."],
   ["What will you do?","Write back. One last move. Not a chess move. Just 'Thank you.' In my own hand. (She puts the telegram in her glove.) Then mend some clocks. Clocks help."]],
@@ -114,7 +114,7 @@ DAILY['Paola']={
   ["Will Carlo play?","He'll play and lose. Gracefully. The members will like him for it. That's the Don's plan. (She looks at the chair.) Carlo knows. He's going to lose very well."],
   ["Do you play?","Chess. Never cards. Cards have luck in them. I don't like luck. I like to know where every piece is."]],
  "Don't come to the game tonight. Not because it's dangerous. Because it's very dull, unless you're losing money."],
-28:["(Paola is in the Residences' lobby, with every clock ticking, reading a letter with an Italian stamp.) Turin. From his sister. (She reads it again.) He read my two words. The day before. She says he smiled. (She folds it.) That's the end of the game.",[
+28:["(Paola is in the Residences' lobby, with every clock ticking, reading a letter with an Italian stamp.) Turin. From my chess partner's sister. (She reads it again.) He read my two words. The day before. She says he smiled. (She folds it.) That's the end of the game.",[
   ["I'm sorry.","(She nods.) Nine years. Three hundred and twelve moves. And the last one was 'thank you'. That's a good game. A very good game."],
   ["What's happening today?","Every faction's big push. Flags everywhere. The Don's at the pizzeria, receiving people. I should be with him. (She looks at the clocks.) I asked for an hour. He gave me two."],
   ["What will you do now, without the game?",["(She looks at the chessboard on the lobby table, the last position still set out.) I don't know. Find another opponent, perhaps. Or leave the board as it is.",[

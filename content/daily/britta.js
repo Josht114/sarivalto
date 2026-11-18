@@ -14,7 +14,8 @@ DAILY['Britta']={
  "If you're going out to the rig, take a coat. The wind out there's got teeth."],
 9:["(Britta is rubbing the small of her back.) Gertrud lifted, I didn't. That's the deal, and Gertrud broke the deal at four o'clock. Eight drums by hand.",[
   ["Your back must be killing you.","My back's been killing me since 1977. It's taking its time about it."],
-  ["Can't the company fix the forklift?","I've put in for a new one four times. Magnus sent back a memo about 'capital expenditure priorities'. Which means his campaign posters."],
+  ["Can't the company fix the forklift?","I've put in for a new one four times. Magnus sent back a memo about 'capital expenditure priorities'. Which means his campaign posters.","Britta:7"],
+  ["Why by hand?","The forklift's broken. Old yellow thing, older than me. I've put in for a new one four times. Magnus sent a memo about 'capital expenditure priorities'. Which means his campaign posters.","!Britta:7"],
   ["Why not make Magnus lift them?","(She grins.) I'd sell tickets. He'd fold like a deckchair."]],
  "Hot water bottle and an early night. That's my whole evening planned."],
 10:["(Britta is eating a sandwich on an upturned drum.) They're burying the king today, and the bosses are all off in their black suits. So the depot's quiet. Best funeral I've ever had.",[
@@ -110,7 +111,8 @@ DAILY['Britta']={
 28:["(Britta has a paper hat on, and a chocolate milkshake.) Party day, and the whole island's out pushing at once. The Communists in Kingsgrad, the Church, the Cola lot. I'm pushing a milkshake.",[
   ["Having a good time?","Surprisingly. Ruth's dressed as a train robber, Lars bowled the ball the wrong way, and Magnus has undone a button. It's like the circus came to Frostholm."],
   ["Heard anything worth knowing?","The bosses are drinking, and drink talks. I'm keeping my ears open and my mouth full of milkshake."],
-  ["Did you get your forklift?","(She laughs.) I asked Dario between frames. He said 'Ask me tomorrow.' I've heard that before."]],
+  ["Did you get your forklift?","(She laughs.) I asked Dario between frames. He said 'Ask me tomorrow.' I've heard that before.","Britta:7|Britta:9|Britta:15|Britta:24|Britta:26"],
+  ["How's the depot holding up?","Still lifting drums by hand, because the forklift's still broken. (She laughs.) I asked Dario between frames. He said 'Ask me tomorrow.' I've heard that before.","!Britta:7|Britta:9|Britta:15|Britta:24|Britta:26"]],
  "Pass the straws. It's the only day off I've had this month."],
 29:["(Britta is back in her overalls, loading drums.) The Republicans are voting today, and Magnus left in his good suit. The whole floor heard him practising at six. Forty-three cards.",[
   ["Do you hope he wins?","If he wins, he'll be too busy to play the cello. That's my only politics."],

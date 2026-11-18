@@ -109,7 +109,8 @@ DAILY['Colonel Halvorsen']={
 26:["(The Colonel is at his map, which now has a little silver flag on it marked 'Spa'.) The oil company's buying the spa, they say. (He taps the flag.) The army has been asked to guard the sale. The army has declined. The army does not guard milkshake machines.",[
   ["Milkshake machines?","Dario has offered one to the attendant. Apparently. (He looks at the map.) Rask has written it in the ledger under 'threats'. I've asked him to move it to 'curiosities'."],
   ["Is anything else happening?","Kelp Cola wants the prince in an advert, they say. (He straightens.) The prince asked me, at dinner. Number seven. Whether an officer would appear in an advert. I said never. He looked thoughtful."],
-  ["How many dinners now?","Seven. (He sighs.) I've stopped rounding down. Lotta has started setting my place without asking. That's when you know you've become furniture."]],
+  ["How many dinners now?","Seven. (He sighs.) I've stopped rounding down. Lotta has started setting my place without asking. That's when you know you've become furniture.","Colonel Halvorsen:7|Colonel Halvorsen:9|Colonel Halvorsen:21"],
+  ["Does the palace still ask you to dinner?","Every week, while the army stays out of politics. Seven dinners this month. (He sighs.) Lotta has started setting my place without asking. That's when you know you've become furniture.","!Colonel Halvorsen:7|Colonel Halvorsen:9|Colonel Halvorsen:21"]],
  "Don't count my dinners. Lotta does that."],
 27:["(The Colonel is inspecting his dress uniform on a stand, very closely, with a clothes brush.) The state visit. The day after tomorrow. A foreign king. The army lines the road from the harbour to the palace. (He brushes a sleeve.) That's not politics. That's manners.",[
   ["Who's the foreign king?","Very old, very grand, wears a sash. (He brushes.) The palace wants the army in white gloves. We have forty-one pairs. Rask has counted them nine times."],

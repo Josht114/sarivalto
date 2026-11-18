@@ -54,7 +54,22 @@ Every conversation the player hears goes into the menu's Information tab, under 
 - **Another opener** (fifth part, after a summary) replaces the first line when the player has heard one of the named
   conversations; the first one heard wins. Use it when an opener assumes you've met ("You again.").
 - **A reply's third part** shows it only if the player has heard that conversation (`'Elin:2'`) or hasn't (`'!Elin:2'`).
+  Join several with `|` for "any of these" (`'Kurt:2|Kurt:6'`), or, after `!`, "none of these" (`'!Kurt:2|Kurt:6'`).
   Pair them so there are always at least three replies. Use it whenever a reply mentions something from another day.
+
+## Every day stands on its own
+
+A player won't talk to everyone every day. So no conversation may rely on an earlier one having been heard:
+
+- **A reply** that picks up a thread from an earlier day ("How are the pigeons?") needs the days that mention it
+  (`'Kurt:2|Kurt:6|Kurt:9'`), and beside it a reply for a player who heard none of them (`'!Kurt:2|Kurt:6|Kurt:9'`), whose
+  answer brings the thread up from the start ("What do you do when there's no work?" "Pigeons. Twelve of them, on my roof...").
+- **An opener** that names someone or something from an earlier day says who or what it is, in a few words: "Annika, my
+  daughter in Turku", "Bertha, the projector". Or it gets another opener for those who heard (the fifth part).
+- **A reply** can't lean on another reply's answer on the same day: the player sees all the replies before any answer.
+- Check with `node tools/daily-continuity.js <slug>`. It lists the replies and openers that use a distinctive word this person
+  only said on an earlier day. Fix each one, or, if it's fine as it is, run it with `--ok` to add it to
+  `continuity-ok.txt` (the lines already looked at), so only new ones show.
 - `node tools/build-daily.js` checks that every `'Name:day'` named is a real conversation.
 - The wiki's Information page lists every conversation that changes a later one, and how many days have summaries.
 

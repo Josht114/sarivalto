@@ -100,7 +100,8 @@ DAILY['Sven']={
 26:["(Sven is watching a big red boat heading up the coast.) That's Dario's boat, off to the north. He's going to buy the spa. The whole harbour knows. I told them.",[
   ["Will he get it?","The owner's turned him down twice. Saga, who works up there, says the owner'd sooner sell to the volcano. But Dario doesn't hear 'no'. It's a medical condition."],
   ["How do you know where he's going?","He stopped for fuel, and asked me if the mountain road's clear of ash. Nobody goes up the mountain road for any other reason now."],
-  ["Did he pay you in milkshakes?","Cash, this time. And he tipped. Dario tipping means he's nervous. I've never seen him nervous before."]],
+  ["Did he pay you in milkshakes?","Cash, this time. And he tipped. Dario tipping means he's nervous. I've never seen him nervous before.","Sven:19"],
+  ["Does he pay well?","Last time he paid me in milkshakes. Cash, this time. And he tipped. Dario tipping means he's nervous. I've never seen him nervous before.","!Sven:19"]],
  "If he comes back smiling, I'll know before the Gazette does."],
 27:["(Sven is counting coins from a cigar box.) The harbour pool's running on the poker game at the pizzeria. Who's going to win. I've got a dollar on Gustavo. He usually wins at his own table.",[
   ["Who else is playing?","Everyone who matters, they say. Carlo, Phil's man Harald, and a few men who don't use their names. I wish I'd been asked. I'd have lost, but I'd have heard everything."],

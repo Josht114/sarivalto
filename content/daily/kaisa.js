@@ -67,7 +67,8 @@ DAILY['Kaisa']={
 12:["(Kaisa is on the telephone, laughing.) No, Ruby, I can't announce that. (She hangs up.) Ruby wants me to say on air that a certain record has found a good home. She won't tell me which record, or which home.",[
   ["What record?","Something rare and local. She says it'll be the most important record on the island by October. Ruby says that about every record. Sometimes she's right."],
   ["Can I make a request?","Of course. Reporters get the slot between the herring and the weather. What's it to be? (She waits.) Take your time. Everyone does."],
-  ["Still getting the request from the tower?","Every night. 'The Very Thought of You'. The handwriting shakes a little, as if it was written in a hurry. Or in a fright."]],
+  ["Still getting the request from the tower?","Every night. 'The Very Thought of You'. The handwriting shakes a little, as if it was written in a hurry. Or in a fright.","Kaisa:2|Kaisa:4"],
+  ["Who writes in to you?","Fishermen, mostly. And someone at the radio tower who sends the same request every night: 'The Very Thought of You'. The handwriting shakes a little, as if it was written in a hurry. Or in a fright.","!Kaisa:2|Kaisa:4"]],
  "Your slot's between the herring and the weather. Spell it slowly."],
 13:["(Kaisa has a Kelp Cola bottle on the desk, with a ribbon round it.) It's free today, and they've sent a crate to the studio so I'll say how lovely it is. I'll say it. I'll just say it in my news voice.",[
   ["What's your news voice?","(She drops half an octave.) 'Kelp Cola is a drink. It is free today. The weather will be cold.' Nobody's ever bought anything off my news voice."],

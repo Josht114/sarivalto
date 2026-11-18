@@ -17,7 +17,7 @@ DAILY['Brother Paavo']={
   ["Maybe he needs a talking-to.","I've tried. I've tried coaxing, I've tried scolding, I've tried singing. Brother Mikael sang to him once. He lost two leaves."],
   ["What kind of apple is he?","A Finnish Antonovka, from a cutting the old king's gardener sent up. A royal apple. That might be the trouble. They're hard to please."]],
  "Say something nice to him on your way past. It can't hurt."],
-8:["(Brother Paavo is brushing soil off his habit outside the church.) The first Sunday without a king. I'll sit at the back. The Apostles don't mind if I smell of compost, but the farmers do.",[
+8:["(Brother Paavo is brushing soil off his habit outside the church.) The first Sunday without a king. I'll sit at the back. The Apostles, my twelve cabbages, don't mind if I smell of compost, but the farmers do.",[
   ["Who's come up for the service?","Juniper and Pirkko from Eastbrook, the prince, and Hilda and Olaf from the farm. Olaf complained about the hill the whole way up. Hilda told him the hill was older than his knees."],
   ["What do you hope to hear?","Something simple. Seasons come round, things die, things grow back. Sermons are best when they sound like gardening."],
   ["You don't seem nervous.","Why would I be? I'm only listening. It's the one who's talking who should be nervous."]],
@@ -47,7 +47,7 @@ DAILY['Brother Paavo']={
   ["What else do you hear on the path?","Who's been up, who's going down happy, who's going down angry. The angry ones walk faster. The happy ones stop to look at the view."],
   ["Have you tried the cola?","It tastes of a beach that's been put in a bottle. The Apostles liked it, though. I poured one on the compost."]],
  "Keep your voice down near the wall. The path has ears, and they're mine."],
-14:["(Brother Paavo is sitting on an upturned bucket among the cabbages.) Everyone's gone down to the big day on the fourteenth. Me and the Prior are holding the fort. And the Apostles, of course.",[
+14:["(Brother Paavo is sitting on an upturned bucket among the cabbages.) Everyone's gone down to the big day on the fourteenth. Me and the Prior are holding the fort. And the Apostles, of course: my twelve cabbages.",[
   ["Not curious about it?","Curious, yes. But a crowd doesn't need me. A cabbage does. You'd be surprised how few things in life actually need you."],
   ["What will you do all day?","Dig. Talk to the Apostles. Listen to the Prior lighting candles. It's the quietest day the mountain will have all month."],
   ["What do the Apostles think of it all?","They think the frost is coming, and they're right. They're always right about the frost. They'd be wrong about everything else, but the frost's the thing that matters."]],
@@ -57,14 +57,15 @@ DAILY['Brother Paavo']={
   ["Does he talk about the crown?","Never. He talks about bees, and the weather, and once about his mother. People think he's thinking about the crown. I think he's thinking about everything but."],
   ["What would you tell him?","That roots matter more than branches. But he knows that. Everyone knows it. That's not the hard part."]],
  "Leave the bench clear, if you pass. He might need it today."],
-16:["(Brother Paavo is weeding, and a small radio on the garden wall is babbling about a debate.) The Prior left the wireless here. Anna and Erik are arguing. I'm letting the Apostles listen. They can decide for themselves.",[
+16:["(Brother Paavo is weeding, and a small radio on the garden wall is babbling about a debate.) The Prior left the wireless here. Anna and Erik are arguing. I'm letting the Apostles listen. My twelve cabbages. They can decide for themselves.",[
   ["Who would the cabbages vote for?","Whoever promises rain in June and no frost in August. Nobody's promised it yet. They're holding out."],
   ["What do you think of a vote, Brother?","Every spring I choose which seeds to plant, and every autumn the garden tells me if I was right. A vote's like that. You only find out at the harvest."],
   ["Turn it off, then.","(He does.) Ah. You're right. The worms were getting agitated."]],
  "If you vote, vote for whoever likes vegetables. They're rarer than you'd think."],
 17:["(Brother Paavo is on his knees in the warm corner, his hands flat on the earth.) The ground shook, and now there's steam coming off the soil. Just a breath. Like a cow on a cold morning.",[
   ["Is that dangerous?","For me? No. For the carrots, yes. They're half cooked in the row. I've never had to harvest a vegetable early because it was done."],
-  ["The worms knew, didn't they?","Five days ago. I should have listened. They've all gone deep now, or gone somewhere better. Worms are wiser than men; they don't hold opinions."],
+  ["The worms knew, didn't they?","Five days ago. I should have listened. They've all gone deep now, or gone somewhere better. Worms are wiser than men; they don't hold opinions.","Brother Paavo:12|Brother Paavo:16"],
+  ["Did anything warn you?","The worms. Five days ago they came up out of the soil, all of them. I should have listened. They've gone deep now. Worms are wiser than men; they don't hold opinions.","!Brother Paavo:12|Brother Paavo:16"],
   ["Will the garden survive?","Gardens always survive. It's only the gardeners who sometimes don't. I'm being gloomy. Ignore me; it's the steam."]],
  "Don't kneel there. It's hot."],
 18:["(Brother Paavo is leaning on his spade, looking down the path.) Something's been taken from the church in the night. The Prior is beside himself. And I heard nothing. Nothing on the path, all night. That's what troubles me. Even Old Stubborn, the apple tree, shook all night.",[
@@ -82,14 +83,15 @@ DAILY['Brother Paavo']={
   ["You've scratched yourself.","Juniper's a fighter. Like the lady in the clothes shop in Eastbrook. Lovely, and sharp, and she won't be picked till she's ready."],
   ["What else do you still need?","Yarrow from the gully. Then I'm done, and the loft is full, and the mountain can do as it likes."]],
  "Get home before dark. The sky looks wrong."],
-21:["(Ash is falling. Brother Paavo is dragging sacking over the cold frames, coughing.) The mountain's let go! Cover the glass, cover the glass, it'll crack in the heat. Mind the Apostles!",[
+21:["(Ash is falling. Brother Paavo is dragging sacking over the cold frames, coughing.) The mountain's let go! Cover the glass, cover the glass, it'll crack in the heat. Mind the Apostles! My cabbages!",[
   ["Are you all right?","My eyes are stinging and my lettuce is doomed. I'm fine. Help me with this corner. Pull."],
   ["Is everyone safe?","The Prior's counted us. All here. The lava's going north, away from us. The ash isn't going anywhere; it's coming here."],
   ["Forget the lettuce, Brother!","I can't. It's the only lettuce for fifty miles. You'd fight for it too, if you'd grown it."]],
  "Go! Tell them in the towns the monks are counted."],
-22:["(Brother Paavo is standing in a grey garden, a handful of ash running through his fingers.) The whole garden's under it. The Apostles look like old men. But you know what this is, in ten years? The best soil on the island.",[
+22:["(Brother Paavo is standing in a grey garden, a handful of ash running through his fingers.) The whole garden's under it. The Apostles, my twelve cabbages, look like old men. But you know what this is, in ten years? The best soil on the island.",[
   ["That's very optimistic.","It's very gardening. Everything that falls is food for something. Even ash. Even kings."],
-  ["Did the lettuce survive?","Two heads. Under the glass, looking at me like orphans. I'll give one to Brother Teodor and keep one for courage."],
+  ["Did the lettuce survive?","Two heads. Under the glass, looking at me like orphans. I'll give one to Brother Teodor and keep one for courage.","Brother Paavo:6|Brother Paavo:21"],
+  ["Is anything left growing?","Two heads of lettuce, under the glass, looking at me like orphans. The only lettuce for fifty miles. I'll give one to Brother Teodor and keep one for courage.","!Brother Paavo:6|Brother Paavo:21"],
   ["What will you plant in it?","Potatoes. The volcano's fed the ground. The ground will feed us. It's only polite."]],
  "Brush yourself off at the gate. It gets in everything."],
 23:["(Brother Paavo is standing in front of Old Stubborn, open-mouthed.) Look. Look at him. One blossom. One pink apple blossom. In September. In the ash.",[

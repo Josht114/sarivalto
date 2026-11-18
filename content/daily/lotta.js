@@ -132,7 +132,8 @@ DAILY['Lotta']={
 27:["(Lotta is folding napkins at speed.) A hundred swans for tomorrow. Ninety-eight done. Oskar did two. They look like geese that have been in a fight.",[
   ["Will you use his?","At the end of the table. Under the colonel. He'll never notice. Soldiers don't look at napkins."],
   ["Is everything ready?","The table, the swans, the silver, the second-best cloth with the darn to the wall. And me, with my best apron. I've ironed it twice."],
-  ["Oskar bowed to a tureen?","He did. Last night. I said it was the best bow I'd ever seen. He's been unbearable since. I like him unbearable."]],
+  ["Oskar bowed to a tureen?","He did. Last night. I said it was the best bow I'd ever seen. He's been unbearable since. I like him unbearable.","Lotta:23"],
+  ["Has Oskar been any help?","He bowed to a soup tureen last night. Practising for the foreign king. I said it was the best bow I'd ever seen. He's been unbearable since. I like him unbearable.","!Lotta:23"]],
  "Don't tell Oskar about the geese. Let him think they're swans."],
 28:["(Lotta is very upright, with white roses in her arms.) A king's here, and the whole island's out in the streets, and I've to hand him flowers without dropping a petal.",[
   ["You'll be wonderful.","I know. I practised with the wheelbarrow. The wheelbarrow said I was wonderful."],

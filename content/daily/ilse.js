@@ -78,7 +78,8 @@ DAILY['Ilse']={
 18:["(Ilse is looking at the mill boy, who is holding a sausage and staring at her nervously.) Dex sent another sausage. With a note. 'Eat it sitting down.' (She sits on a log and eats it.) There. Sitting down. Don't tell him it took three bites.",[
   ["Dex looks out for you.","Dex looks out for everyone in Eastbrook. Sausages are how he says it. Knut gets mustard. I get notes. I'm not sure which is worse."],
   ["What's the news?","Kelp Cola's mascot is ill. Jaana, who plays Kelpy at the museum. Elin from Kingsgrad rang the mill asking if anyone would fit in the cup. Knut tried. He got stuck at the shoulders."],
-  ["How's the truck fund?","Nearly. Nearly nearly. I counted it again last night. Then I counted it again. Then I put it under the other loose board."]],
+  ["How's the truck fund?","Nearly. Nearly nearly. I counted it again last night. Then I counted it again. Then I put it under the other loose board.","Ilse:7|Ilse:9|Ilse:12"],
+  ["What are you saving up for?","A truck of my own. I counted the money again last night. Then again. Then I put it under the other loose board. Nearly.","!Ilse:7|Ilse:9|Ilse:12"]],
  "If you see Dex, tell him I sat down."],
 19:["(The mill yard smells of eggs. Ilse is stuffing her savings tin into the inside pocket of her coat.) Steam on the mountain. The gulls have gone. I'm moving the tin into my coat. If the mountain goes, I'm not leaving the truck behind.",[
   ["Do you think it'll erupt?","Signe at the lighthouse thinks so. Knut thinks so. When Knut stops telling finger stories and starts filling sandbags, I listen."],
@@ -92,7 +93,8 @@ DAILY['Ilse']={
  "Keep your boots by the door tonight. And your coat on."],
 21:["(Ash is falling. Ilse is lying against a stack of grey logs, very tired, her cap over her eyes.) It went. The mountain. Everyone's alive. I carried three people to the Community Centre. Old Mrs Kallio twice, because she went back for her canary.",[
   ["Is the canary all right?","The canary's fine. Grey, and furious. Mrs Kallio's fine. I'm fine. My back's not speaking to me."],
-  ["Did you beat everyone at rummy?","Every hand. At three in the morning. Knut told the children a story to keep them from crying. A different one. A true one, he said. I was dealing. I didn't hear it all."],
+  ["Did you beat everyone at rummy?","Every hand. At three in the morning. Knut told the children a story to keep them from crying. A different one. A true one, he said. I was dealing. I didn't hear it all.","Ilse:19|Ilse:20"],
+  ["How did you get through the night?","Rummy. I said I'd beat everyone, and I did. Every hand, at three in the morning. Knut told the children a story to keep them from crying. I was dealing. I didn't hear it all.","!Ilse:19|Ilse:20"],
   ["How are you?",["(She pushes her cap back and looks at the grey sky.) I'm all right. I'm grey and I'm tired and I lifted everything that needed lifting. That's a good night, for me.",[
     ["You were very brave.","I was busy. People mistake busy for brave. Knut was brave. He talked all night so the children wouldn't hear the mountain."],
     ["Is your truck money safe?","(She pats her coat.) Every penny. Grey, but every penny. If the world ends, at least I'll have a truck."]]]]],
@@ -135,7 +137,8 @@ DAILY['Ilse']={
 29:["(Ilse is sitting on the finished stage, legs dangling, eating a sausage sitting down without being told.) It's built. It held. The whole of Eastbrook stood on it yesterday and the planks didn't creak once. Bjarne measured twice. Knut cut once.",[
   ["What happens tomorrow?","Tomorrow the island's settled. Whatever 'settled' means. I've done all I can. I lifted everything that needed lifting."],
   ["What do you hope for?","A guard on every saw. A fair day's pay. A truck, one day. And that Knut stops telling me different stories about his finger. I'd like the true one, once."],
-  ["How's the truck fund?","Short by a month. Because of the farm families. I'm not sorry. The truck can wait. I'm very good at waiting, when I've decided to."]],
+  ["How's the truck fund?","Short by a month. Because of the farm families. I'm not sorry. The truck can wait. I'm very good at waiting, when I've decided to.","Ilse:7|Ilse:9|Ilse:12|Ilse:18|Ilse:19|Ilse:21|Ilse:23"],
+  ["Will you get your truck now?","The one I've been saving for? Short by a month. Because of the farm families after the ash. I'm not sorry. The truck can wait. I'm very good at waiting, when I've decided to.","!Ilse:7|Ilse:9|Ilse:12|Ilse:18|Ilse:19|Ilse:21|Ilse:23"]],
  "Sit on the stage a minute. It's very good timber."],
 30:["(Ilse is at the mill, loading logs as if it's any other day, very steadily.) Last day. They're settling the island's future today. I'm loading logs. Whatever happens, there'll be timber to load tomorrow. Somebody has to.",[
   ["Aren't you nervous?","Very. That's why I'm working. Lifting things keeps my hands from shaking. My mother taught me that. She was a log loader too, before she married the fisherman."],

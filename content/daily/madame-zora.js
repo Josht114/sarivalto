@@ -80,7 +80,8 @@ DAILY['Madame Zora']={
   ["How's the troupe?","Buttons told jokes all night. Terrible ones. (She laughs.) I laughed at all of them. That's never happened. Igor held a canvas over us till dawn. Meg didn't sleep. Bruno made a speech to the ash."],
   ["Did the bead help?",["(She takes hers from her pocket. It's grey.) I held it all night. (She looks at it.) I don't know if it helped.",[
     ["It helped me.","(She closes your hand over yours.) Then it's magic. (She smiles.) That's how it works. It's only glass until somebody needs it."],
-    ["What now?","Now? (She looks at the grey camp.) Tea. Then sweeping. (She sighs.) The cards can wait. Everybody knows what happened. It's my favourite kind of day. Nobody needs a fortune teller."]]]]],
+    ["What now?","Now? (She looks at the grey camp.) Tea. Then sweeping. (She sighs.) The cards can wait. Everybody knows what happened. It's my favourite kind of day. Nobody needs a fortune teller."]]],"Madame Zora:20"],
+  ["What's that in your hand?","(She opens it. A small blue glass bead, gone grey.) I gave one to everyone last night, to stay calm. I held mine all night. (She looks at it.) I don't know if it helped.","!Madame Zora:20"]],
  "Keep the bead. It's yours now. Even grey."],
 22:["(Zora is sweeping the steps of her caravan with a silver-handled brush, and the crystal ball beside her is grey all the way through.) Look at it. (She points at the ball.) Grey. Inside and out. (She sweeps.) It's the first time I've ever seen the future properly. Jack from the fishing shop laughed when I said he'd land something big.",[
   ["What does it show?","Grey. (She sweeps.) Everyone the same colour. Party, palace, Church, oil. (She looks at the ball.) It won't last. But for a week, nobody can tell who's who. That's the future. A short one."],

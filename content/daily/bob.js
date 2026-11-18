@@ -144,7 +144,8 @@ DAILY['Bob']={
 27:["Helen's off to the pictures in Kingsgrad with the bottling-line girls. A Soviet film. I've packed her a sandwich so she's something to do with her hands.",[
   ["Will you go?","I'd fall asleep at the first tractor. I'll wait for STORMWING. Gunnar says there's a robot in it."],
   ["What sandwich?","Egg and cress. A quiet sandwich. You can't eat a crunchy one in a Soviet film; the whole row turns round."],
-  ["Any news of the cookbook?","Sam's corrected sixty covers. He's added an R to 'cod' on three of them. I've let it go."]],
+  ["Any news of the cookbook?","Sam's corrected sixty covers. He's added an R to 'cod' on three of them. I've let it go.","Bob:12|Bob:15|Bob:19|Bob:25"],
+  ["What's the Union selling now?","A cookbook, for the strike fund. Everyone's recipes, mine included. Sam's corrected sixty covers. He's added an R to 'cod' on three of them. I've let it go.","!Bob:12|Bob:15|Bob:19|Bob:25"]],
  "Off you go. I'll keep the egg and cress warm. Not literally."],
 28:["The twenty-eighth. Helen left before it was light, with a boiled egg in a tea towel. Whatever's going on today, she's in the middle of it.",[
   ["What's going on?","She won't tell me, and that's fair: I'd tell Kate, and Kate would tell the island."],

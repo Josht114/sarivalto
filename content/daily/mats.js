@@ -62,7 +62,8 @@ DAILY['Mats']={
  "Read twice, sign once. Write that in your notebook. It's the only advice I have."],
 13:["(Mats is eating a sandwich at his desk with a napkin tucked in his collar.) Elin brought home a crate of Kelp Cola from the free samples. We have rules about work at home. We have no rules about free cola.",[
   ["Is it good?","It's very sweet and very fizzy. I had two. Then I felt disloyal and had a glass of water."],
-  ["How's the agreement going?","Terribly. Last night she said Harald's been practising his speech in the lift. I said Magnus uses index cards. We've broken it every evening this week."],
+  ["How's the agreement going?","Terribly. Last night she said Harald's been practising his speech in the lift. I said Magnus uses index cards. We've broken it every evening this week.","Mats:3|Mats:9"],
+  ["Is it hard, working for rivals?","Elin and I have an agreement: we never talk about work at home. Terribly, this week. Last night she said Harald practises his speech in the lift. I said Magnus uses index cards.","!Mats:3|Mats:9"],
   ["Do you ever argue about the companies?","Once. About which company has the better pension scheme. Mine has. She won't accept the figures."]],
  "Don't tell anyone about the cola. It's a very small sin, but it's mine."],
 14:["(Mats has his good suit on again.) The big day, the whole island together. Elin and I have agreed to stand together. In public. For the first time.",[
@@ -134,7 +135,8 @@ DAILY['Mats']={
  "Twenty pages, in triplicate. History, filed."],
 27:["(Mats is in a cardigan, eating soup at his desk.) Elin's working late every night this week. Kelp Cola's going abroad, or something. I mustn't ask. I've stopped asking. It's killing me.",[
   ["What do you do while she works?","I file at home. I've done the spice rack again. By colour, this time. She'll notice."],
-  ["Is the agreement still holding?","It's holding the way ice holds in April. We both know what's under it."],
+  ["Is the agreement still holding?","It's holding the way ice holds in April. We both know what's under it.","Mats:3|Mats:9|Mats:13|Mats:20"],
+  ["Do you two talk about work?","We have an agreement not to. (He stirs his soup.) It's holding the way ice holds in April. We both know what's under it.","!Mats:3|Mats:9|Mats:13|Mats:20"],
   ["Are you going to the office party tomorrow?","I've been told I must. I'll stand near the milkshake machine and talk to nobody. It'll be lovely."]],
  "Cumin, coriander, curry. All yellow. It's perfect. She'll hate it."],
 28:["(Mats is holding a milkshake with both hands, standing very close to the wall.) The office party. Dario said everybody had to bowl at least once. I've bowled once. I hit the gutter, very precisely.",[

@@ -134,7 +134,7 @@ DAILY['Daphne']={
   ["Did you tell Leopold?","Of course not. I want to see his face when he finds out they want his face. It'll be the best face of the month."],
   ["The scenic route?","Past the portrait of Grandmother, who glares at everyone from Kelp Cola. She disliked fizzy drinks. She said they made people cheerful for no reason."]],
  "If they offer you a bottle, refuse it. You'll be signing something."],
-27:["(Daphne holds up a green silk scarf.) Grace made it in secret. I'm wearing it under Gloom for the state visit. Nobody will see it. I'll know.",[
+27:["(Daphne holds up a green silk scarf.) Grace made it in secret. I'm wearing it under Gloom, my mourning dress, for the state visit. Nobody will see it. I'll know.",[
   ["It's lovely.","It's Daddy's favourite colour. He'd have hated me wearing it to mourn him. That's partly the point."],
   ["Is everyone ready?","Edmund's counted the spoons twenty times. Marta's threatening the fish. Viktor's dusted every hedge. Leopold's rehearsing a speech to the mirror. I'm doing my nails."],
   ["Rebel.","(She winds it twice round her throat.) A very small rebel. A rebel you could fit in a drawer."]],
@@ -149,7 +149,7 @@ DAILY['Daphne']={
   ["Who do you want?","Whoever lets me keep the gardens and the Gazette. That's a short list and I haven't told anyone who's on it."],
   ["Are you nervous for them?","For Leopold, terribly. For Augustus, a bit. For the island? (She shrugs.) The island will be fine. It's survived us so far."]],
  "Walk with me tomorrow. Whatever happens, I'll want somebody to walk with."],
-30:["(Daphne is sitting on the edge of the cracked fountain, in Gloom, with the green scarf showing.) Last day of the month. Whatever happens, I'm going to the circus at the lake when it's over. Nobody stands up at a circus.",[
+30:["(Daphne is sitting on the edge of the cracked fountain, in Gloom, her black mourning dress, with the green scarf showing.) Last day of the month. Whatever happens, I'm going to the circus at the lake when it's over. Nobody stands up at a circus.",[
   ["Can I come?","You can hold my candyfloss. I've never had candyfloss. That's the sort of thing that happens to princesses."],
   ["What will you remember?","The ash. Gustavo's kiss on my hand. Augustus with a feather. Leopold on the steps. And a reporter who kept coming back."],
   ["What if everything changes?","Then I'll change too. I've been practising all month. I'm rather good at it now."]],

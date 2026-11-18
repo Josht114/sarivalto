@@ -106,7 +106,7 @@ DAILY['Leopold']={
   ["I walk into rooms like that daily.","Lucky you. Enjoy it. Order a drink, sit in a corner, listen to the band. Do it once for me."],
   ["You'd need a disguise.","(He looks at you, slightly too long.) A hat, perhaps. A dark coat. It's surprising how few people look past the coat."]],
  "Forget I said anything. Princes say all sorts of things at this time of year."],
-20:["(Leopold is at the window.) The steam's still coming off the mountain in the north. And the Kestrel's been hauled up the slip at Eastbrook for the winter. I never sailed her.",[
+20:["(Leopold is at the window.) The steam's still coming off the mountain in the north. And the Kestrel, my father's boat, has been hauled up the slip at Eastbrook for the winter. I never sailed her.",[
   ["There's always spring.","There is. A king can sail in spring. A prince could have sailed today. (He shrugs.) Spring, then."],
   ["Who hauled her out?","The harbour men, on my orders. I signed the paper myself. It's the first thing I've ever signed that I wish I hadn't."],
   ["Are you worried about the mountain?","Viktor says the birds have gone quiet. Viktor knows more than the island's geologists, of which there are none."]],

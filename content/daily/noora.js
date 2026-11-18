@@ -58,7 +58,8 @@ DAILY['Noora']={
 11:["Helen's off to the lumber mill in Eastbrook today, for the mill hands. She's left me her cat.",[
   ["Helen has a cat?","A big orange tomcat called Lenin. He sleeps on my records. I've had to move Ella."],
   ["Will you join the Union now?","I have! Petra came by the lab with a form. She said if I washed one more beaker without a card, she'd report me to herself."],
-  ["How's the revision?","Benzene rings. I dream about them. Last night one rolled down the stairs."]],
+  ["How's the revision?","Benzene rings. I dream about them. Last night one rolled down the stairs.","Noora:8"],
+  ["What do you do down here all day?","Records, and revision. I've a chemistry exam this month, for a place in Helsinki. Benzene rings. I dream about them. Last night one rolled down the stairs.","!Noora:8"]],
  "If you see an orange cat, don't feed him. He's on a Party diet."],
 12:["Have you heard? Ruby's sold the rarest record on the island, Midnight at the Aurora, to a buyer who won't give his name! And Lenin, Helen's cat, has moved into my room.",[
   ["Why is it so special?","Hardly any were pressed. I've never even heard it, and nor has anyone I know. Ruby's been sitting on it for years."],
@@ -73,7 +74,8 @@ DAILY['Noora']={
 14:["The big day. Everyone from my block's going together, under a red banner. I'm going with them, under a small umbrella, just in case.",[
   ["Are you a Communist now?","No! I'm a lab technician with Communist neighbours. It's like living in a beehive: you walk carefully."],
   ["What do you hope for?","That nobody shouts, and that there's room on the fish lorry home."],
-  ["Is the exam still on?","In a fortnight. Any day the island isn't busy making history, I revise."]],
+  ["Is the exam still on?","In a fortnight. Any day the island isn't busy making history, I revise.","Noora:2|Noora:7|Noora:11"],
+  ["Are you studying for something?","A chemistry exam, for the university in Helsinki. In a fortnight. Any day the island isn't busy making history, I revise.","!Noora:2|Noora:7|Noora:11"]],
  "If you see a small umbrella in a red crowd, that's me."],
 15:["I passed my practice paper! Saara wrote 'good' at the bottom. Not 'nearly'. Good!",[
   ["Congratulations!","I've told Sigrid. She took it calmly. She's kelp."],
@@ -92,12 +94,14 @@ DAILY['Noora']={
  "Stay away from the shelves. Everything's still wobbling."],
 18:["Jaana's ill, and everyone's hunting for somebody to be Kelpy. Elin rang down to ask if I'd fit. I'd fit, but I'd faint.",[
   ["Would you do it?","Wave at strangers all day in a cup with no air holes? I'd rather wash beakers. Which I am."],
-  ["How's the revision?","Ten days to the exam. I've drawn benzene rings on the bathroom mirror."],
+  ["How's the revision?","Ten days to the exam. I've drawn benzene rings on the bathroom mirror.","Noora:8|Noora:11"],
+  ["What are you studying?","Chemistry, for an exam in Helsinki. Ten days to go. I've drawn benzene rings on the bathroom mirror.","!Noora:8|Noora:11"],
   ["Any news of the mountain?","Saara's planning a trip up to take readings. She asked if I'd carry the flasks. I said yes before I'd thought about it."]],
  "If you end up in the cup, breathe through the straw."],
 19:["The Party's recruiting hard in Saltwick. Helen's got the whole block wearing red ribbons. I've got one on my lab coat, inside, where Phil can't see.",[
   ["So you've joined?","No! Helen pinned it on. You don't argue with Helen and a pin."],
-  ["Is Saara's trip still on?","Phil said no: insurance. Saara said yes. We're going soon. Don't tell Phil."],
+  ["Is Saara's trip still on?","Phil said no: insurance. Saara said yes. We're going soon. Don't tell Phil.","Noora:18"],
+  ["Is Saara going anywhere?","Up the mountain, to take readings. Phil said no: insurance. Saara said yes. We're going soon. Don't tell Phil.","!Noora:18"],
   ["Heard about the prince at the Midnight Note?","Kaisa says she saw a prince at the jazz club in a false moustache. Kaisa says a lot of things, at full volume."]],
  "Not a word about the ribbon. Or the trip."],
 20:["We went up the mountain to take readings! Saara and me, as far as the hot springs. Saga at the spa made us tea. Everything smelled of eggs.",[
@@ -113,7 +117,8 @@ DAILY['Noora']={
 22:["Everyone in the block's fine. Helen did have us in the cellar, singing. Anna sang bass. I never knew Anna sang.",[
   ["What did you sing?","The Internationale, then some Abba, then the Internationale again, because Anna noticed."],
   ["Is there ash in Saltwick too?","On everything. My records are in a suitcase under the bed, wrapped in tea towels."],
-  ["Is the exam still on?","I've written to Helsinki to ask. The post's full of ash."]],
+  ["Is the exam still on?","I've written to Helsinki to ask. The post's full of ash.","Noora:2|Noora:7|Noora:11|Noora:14|Noora:18"],
+  ["Is anything delayed by the ash?","My chemistry exam, maybe. The papers come from Helsinki. I've written to ask. The post's full of ash.","!Noora:2|Noora:7|Noora:11|Noora:14|Noora:18"]],
  "If you're going to Saltwick, wear a scarf over your mouth."],
 23:["The block's buzzing. Helen and Anna were whispering on the stairs, and they stopped when I came past. They never stop for me. I'm furniture to them.",[
   ["What are they planning?","I don't know, and I don't want to. I've a lab to wash and an exam to pass."],
@@ -133,7 +138,8 @@ DAILY['Noora']={
 26:["Phil's filming something upstairs, and we've been told to stay in the basement. So I've been in the basement. Which is where I always am.",[
   ["Who's being filmed?","I heard boots on the stairs. Very shiny ones. That's all I know."],
   ["Dario's buying the spa, I hear.","Saga's spa? After what we measured? I hope he likes his bath two degrees warmer."],
-  ["How's the revision?","Two days. I've stopped eating, so now Saara brings me a sandwich. Everything's turned upside down."]],
+  ["How's the revision?","Two days. I've stopped eating, so now Saara brings me a sandwich. Everything's turned upside down.","Noora:8|Noora:11|Noora:18"],
+  ["You look exhausted.","My chemistry exam's in two days. I've stopped eating, so now Saara brings me a sandwich. Everything's turned upside down.","!Noora:8|Noora:11|Noora:18"]],
  "Quiet on the stairs. They're filming."],
 27:["Exam tomorrow. Organic chemistry, part two. I know it. I know I know it. I don't feel as if I know it.",[
   ["Shall I test you?",["(She brightens.) Go on, then. Ask me anything.",[

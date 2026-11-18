@@ -44,7 +44,8 @@ DAILY['Raili']={
   ["Will you save Arto a place?","Right at the front. (She looks at the phone box.) He likes to nod. If someone promises work, he nods. (She smiles.) He's very good at nodding. He's had a lot of practice."]],
  "Come with me, if you like. There's room in the front. For now."],
 15:["(Raili has kicked off one shoe and is rubbing her heel on the bench.) That's the longest I've ever stood. (She rubs.) But I heard it all. Every speech. And a man in the fountain with a duck. (She laughs.) Arto slept through it. In the casino. On a bench.",[
-  ["How many stars did you give out?","(She opens the notebook.) None. (She shows it.) Six pages of promises. No stars. (She sighs.) The Party promised bread. The Democrats promised votes. The palace promised the king. (She closes it.) Nobody promised chambermaids."],
+  ["How many stars did you give out?","(She opens the notebook.) None. (She shows it.) Six pages of promises. No stars. (She sighs.) The Party promised bread. The Democrats promised votes. The palace promised the king. (She closes it.) Nobody promised chambermaids.","Raili:14"],
+  ["What did you write down?","(She opens the notebook.) Every promise, with a star for any about work. None. Six pages of promises. No stars. The Party promised bread. The Democrats promised votes. The palace promised the king.","!Raili:14"],
   ["Anything good?","A woman from the Party gave me a badge for Arto. 'Worker.' (She smiles.) He's wearing it. He hasn't taken it off. (A pause.) It's the first thing anyone's called him since June."],
   ["What was the best bit?","The music at the end. (She smiles.) Everyone stopped shouting. A man next to me was humming. (She puts her shoe back on.) Three thousand people. All quiet. (She looks at you.) For one song, nobody needed a job."]],
  "Sit, if you like. My feet need company."],
@@ -85,7 +86,7 @@ DAILY['Raili']={
   ["Is Arto in the queue?","(She points.) Third from the front. With a shovel. And an armband. (She grins.) He's got a job. Four dollars a day. (She pours.) He hasn't stopped smiling. It's very strange to see. I keep giving him extra sugar."],
   ["Does the urn have a name?","(She pats it.) Wobbles. (She laughs.) It shakes every time there's an aftershock. And the tea sloshes. (She looks at it fondly.) It's the least I could do. Name it."]],
  "Have a cup. You look grey. Everyone does."],
-23:["(Raili is walking up the boulevard very fast in a crisp Aurora uniform, carrying a bunch of flowers, her face blotchy from crying.) I've got my job back! (She stops.) Mr Lehto came to the urn this morning. He said 'Raili, I need you. The journalists.' (She wipes her eyes.) The hotel's full.",[
+23:["(Raili is walking up the boulevard very fast in a crisp Aurora uniform, carrying a bunch of flowers, her face blotchy from crying.) I've got my job back! (She stops.) Mr Lehto, the manager, came to the urn this morning. He said 'Raili, I need you. The journalists.' (She wipes her eyes.) The hotel's full.",[
   ["Congratulations!","Thank you. (She laughs and cries at once.) Towels. Forty journalists. All wanting towels. (She looks at the uniform.) It still fits. (She looks at the flowers.) And then these came."],
   ["Who are the flowers from?","The foreign businessman. (She looks at them.) From the Nordmart. Real ones. In all this ash. (She shakes her head.) I don't know how he knew. I don't know if he's a saint or very, very clever. Greta says both."],
   ["What will you do with your first wages?",["(She thinks.) Buy Arto a sandwich. Ham. Real ham. (She smiles.) And open an account. At Nordbank. With Agnes.",[
@@ -95,7 +96,8 @@ DAILY['Raili']={
 24:["(Raili is on her lunch break, sitting on the bench in her Aurora uniform with her feet up on a crate.) My feet. (She wiggles them.) I'd forgotten. Nine years of stairs. Four months off. (She smiles.) They remember. They're very cross. I bought my friend Arto a sandwich with my first wage.",[
   ["How's the hotel?","Full of journalists. (She rolls her eyes.) All writing about the volcano. All wanting towels. (She smiles.) One of them asked me what it was like. The night it went. (A pause.) I told him about Kaisa's song. He wrote it down."],
   ["Did you buy Arto his sandwich?","Ham. (She grins.) Real ham. He's making it last. (She looks down the boulevard.) He says it might be the best sandwich of his life. (She laughs.) It's a very ordinary sandwich. But I bought it. With my wage."],
-  ["Did you throw the cuttings?","Last night. (She smiles.) Off the harbour wall. Six cuttings. (She looks at the sea.) Ole the harbourmaster saw me. He said 'are you littering?' I said 'I'm celebrating.' He let me off."]],
+  ["Did you throw the cuttings?","Last night. (She smiles.) Off the harbour wall. Six cuttings. (She looks at the sea.) Ole the harbourmaster saw me. He said 'are you littering?' I said 'I'm celebrating.' He let me off.","Raili:11|Raili:20|Raili:23"],
+  ["Did you celebrate?","Last night. I'd kept six job cuttings, all the jobs I didn't get. I threw them off the harbour wall. Ole the harbourmaster said 'are you littering?' I said 'I'm celebrating.' He let me off.","!Raili:11|Raili:20|Raili:23"]],
  "Sit, if you like. My feet need company. Again."],
 25:["(Raili is on her way back to the Aurora, stopped to read a poster pasted on the phone box.) 'A Princess for Democracy.' (She tilts her head.) It's a bit of a mouthful. (She smiles.) Kaisa read it out on air last night and giggled. First time I've heard her laugh in a week.",[
   ["What do you think of the princess?","(She looks at the poster.) She's got a kind face. (She thinks.) Kind faces aren't always kind. (She looks at the Aurora.) But she came to the circus in a headscarf, they say. And laughed. (She smiles.) That's a good sign."],

@@ -120,7 +120,8 @@ DAILY['Harald']={
 25:["(Harald is reading a Democrat leaflet with a puzzled smile.) A princess for democracy. And the palace says a crown for everyone. Everyone's promising everything. And I'm promising kindness. It seems very small next to a princess.",[
   ["Small things matter.","(He looks at you, surprised.) That's what my mother says. You're the second person who's ever agreed with her. The first was me."],
   ["What do the Republicans think of the princess?","Half of them think she's charming. Half think she's dangerous. All of them think I should have an opinion. I haven't. I like her hat."],
-  ["How many mothers have you called?","Two hundred and twelve. All of them. Even the ones in Frostholm, finally. One of them asked after mine. I nearly cried."]],
+  ["How many mothers have you called?","Two hundred and twelve. All of them. Even the ones in Frostholm, finally. One of them asked after mine. I nearly cried.","Harald:4|Harald:12|Harald:14|Harald:18"],
+  ["How do you win a party, Harald?","I ring people's mothers. Every member's mother, to ask after her. Two hundred and twelve now. Even the ones in Frostholm. One of them asked after mine. I nearly cried.","!Harald:4|Harald:12|Harald:14|Harald:18"]],
  "If you see the princess, tell her I like her hat."],
 26:["(Harald looks pained.) Phil wants a famous face for the next advert. I suggested my own, as a joke. Phil said no. Very firmly. He's after somebody much grander. I'm a little hurt.",[
   ["Your face in a cola advert?","As a joke! Mostly. It would have been good for the campaign. Phil says it would have been bad for the cola. He's probably right."],

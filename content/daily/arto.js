@@ -104,7 +104,8 @@ DAILY['Arto']={
 26:["(Arto has a cola bottle, half full, and is holding it up to the light.) 'A Prince in Every Bottle', they're whispering. (He squints into it.) I've checked six. (He turns it.) No prince. Not even a little one. (He lowers it.) I think it's metaphorical.",[
   ["What's the news?","Toni's game's here! (He looks delighted.) Turbo Rally. Came off a boat this morning with ash on the box. (He grins.) She's setting it up. She says I can have the first go. After her. And the children."],
   ["Will you play?","(He looks at his shovel.) After my shift. (He grins.) I've never driven anything. Not even a bicycle. (He takes a sip of cola.) In Turbo Rally I can go faster than the tram. For ten cents."],
-  ["Is the council job ending?","Saturday. (He looks at the clean street.) Then the ash is gone. (He shrugs.) I'll miss it. It's the first thing I've been good at since the herring."]],
+  ["Is the council job ending?","Saturday. (He looks at the clean street.) Then the ash is gone. (He shrugs.) I'll miss it. It's the first thing I've been good at since the herring.","Arto:21|Arto:22|Arto:25"],
+  ["Are you still out of work?","Not this week. The council's paying me four dollars a day to shovel ash. It ends Saturday, when the ash does. (He shrugs.) Best thing I've been good at since the herring.","!Arto:21|Arto:22|Arto:25"]],
  "If you find a prince in a bottle, tell me. I'll stop checking."],
 27:["(Arto is standing by the door of Toni's arcade, very official, with a clipboard Toni's given him and a queue of children stretching up the boulevard.) One at a time! (He checks the clipboard.) Three minutes each! No pushing! (He looks at you.) I'm managing the queue. Toni says I'm very strict.",[
   ["You look happy.","(He looks surprised.) Do I? (He checks the clipboard.) I've got a list. And a job. And forty children who do what I say. (He grins.) It's not herring. But it's something."],

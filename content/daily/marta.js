@@ -146,7 +146,8 @@ DAILY['Marta']={
  "Sit, if you want. There's a second chair. Henning's. Nobody's sat in it in seven years. Go on."],
 30:["The last day of September. The bread's in, the soup's on and the island's deciding everything. I've told the kitchen to carry on as normal. That's the only way to carry on.",[
   ["What will you do tomorrow?","Cook breakfast. Whatever happens today, people want breakfast tomorrow. Kings, commissars, democrats. They all want eggs."],
-  ["Thank you for the buns, Marta.","(She snorts.) You took four. I count. I counted. Come back when you're hungry and I'll count again."],
+  ["Thank you for the buns, Marta.","(She snorts.) You took four. I count. I counted. Come back when you're hungry and I'll count again.","Marta:6|Marta:8|Marta:20"],
+  ["Thank you for the food, Marta.","(She snorts.) Everyone takes my buns. Oskar most of all. I count. I counted. Come back when you're hungry and I'll count again.","!Marta:6|Marta:8|Marta:20"],
   ["How will you feel, whatever happens?","Tired. Then hungry. Then I'll get up and cook. That's how you get through everything. Ask anyone who's lived through a winter here."]],
  "Close the door behind you. Whatever's going on out there, it's warm in here."],
 };

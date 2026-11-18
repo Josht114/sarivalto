@@ -37,7 +37,8 @@ DAILY['Sergeant Rask']={
 12:["(Rask is counting the blankets again, very slowly, with his lips moving.) One hundred and nine. Still. (He makes a mark.) I've searched all three blocks. Every bunk. Every footlocker. I've even searched the cook.",[
   ["Did you find anything?","Six adventure novels in Koski's greatcoat. A ham in Niemi's footlocker. A photograph of a girl under Aho's pillow. (He sniffs.) No blankets."],
   ["What's Niemi like?","Sings while he cooks. Can't shoot. Feeds forty-three men from one pot on a budget I wouldn't give a mouse. (A pause.) The food's terrible. The men would die for him."],
-  ["Is Aho homesick?","He writes to his mother every evening. Long letters. He's very young. (He looks at the blankets.) He's also the only man on the barracks who's never once been late. I've noted it."]],
+  ["Is Aho homesick?","He writes to his mother every evening. Long letters. He's very young. (He looks at the blankets.) He's also the only man on the barracks who's never once been late. I've noted it.","Sergeant Rask:9"],
+  ["Who's the youngest here?","Private Aho. Two months in. He writes to his mother every evening. Long letters. He's very young. (He looks at the blankets.) He's also the only man on the barracks who's never once been late. I've noted it.","!Sergeant Rask:9"]],
  "If you find three blankets, they're mine. I'll know them. They're army grey."],
 13:["(Rask is staring at a crate of free Kelp Cola outside the armoury.) A gift. From the cola company. The Colonel says the army can't accept gifts. (He makes a mark.) So I can't put it in the ledger. And I can't not put it in the ledger. I've been standing here an hour.",[
   ["What will you do?","(Corporal Niemi walks past with two bottles.) Niemi has taken two. For the stew. (He makes a mark.) 'Two bottles, cola, transferred to rations.' There. Now it exists."],

@@ -90,7 +90,8 @@ DAILY['Nico']={
 24:["Arto's paid. (Nico looks hurt.) All of it. The funeral bells bet. I gave him forty dollars and he gave me a hug. In public! A bookie doesn't get hugged. It's bad for business. Raili's next. I still owe her for the mountain bet.",[
   ["That's nice, Nico.","It's not nice, it's a precedent. Now everyone will want paying on time and hugging me. Raili's already looking."],
   ["What's the news in Frostholm?","People keep their voices down today. Something happened somewhere, something nobody's saying. In my experience, that's the loudest kind of news."],
-  ["How's the payment plan with Raili?","First fifty dollars, paid. She put it on the bar at the Midnight Note and bought everyone a drink. Including me. With my own money. Twice."]],
+  ["How's the payment plan with Raili?","First fifty dollars, paid. She put it on the bar at the Midnight Note and bought everyone a drink. Including me. With my own money. Twice.","Nico:23"],
+  ["Does anyone else owe you?","Raili. She's paying hers off in instalments. First fifty dollars, paid. She put it on the bar at the Midnight Note and bought everyone a drink. Including me. With my own money. Twice.","!Nico:23"]],
  "If you see Raili, say Nico's being very good about it."],
 25:["(Nico is studying a pack of cards with a magnifying glass.) Making sure Rosaria's cards for the tournament aren't marked. Gustavo sent them. Gustavo's cards wouldn't be marked. But I'm thorough.",[
   ["Thorough, or paranoid?","There's no difference at a card table. The paranoid man keeps his money. The trusting man buys everyone a drink with it."],

@@ -1,0 +1,291 @@
+agnes 27 reply: What are they spending it on?
+agnes 28 reply: Who's spending most?
+aili 22 opener: (Aili is sweeping grey ash out of the door, and it's blowing back in.) Ash on the counter, ash on the eggs, ash in the jukebox. Patsy Cline sounds like she's singing from under a blanket.
+aili 29 opener: (Aili is leaning on the counter, chin in her hand.) Tomorrow it's all settled, they say. I've heard that before. In Minnesota, every election, everything was settled. Then it snowed. Walt, my late husband, always had something to say about elections.
+aili 30 opener: (Aili is standing by the jukebox, which is playing Patsy Cline very softly.) The last day. The whole island's holding its breath. I've made a pot of coffee for everybody, whoever's left standing.
+aino 4 opener: (Aino is singing under her breath to the rhythm of the bottles.) Clink, clink, a bottle for the king, clink, clink. Oh! You heard that. Nobody's supposed to hear that.
+aino 30 reply: What's the last verse about?
+arto 8 opener: (Arto is sitting on the kerb by the phone box with a library book open on his knee, the spine cracked.) Whales. (He turns a page.) I've read about whales every day since June. (He looks up.) I know more about whales than anyone on the island who isn't a whale.
+arvid 18 opener: (Arvid is trying to cook, but keeps stopping to check the portrait is straight.) The ground's been moving all morning. Small ones. My soufflés won't rise. Soufflés hate earthquakes. Everyone knows that. At least His Majesty's happy. My sourdough starter. I named him after the king.
+arvid 20 opener: (It's Friday. Arvid has packed a pie, a very large one, and is staring at it.) Lemons came yesterday. Pie goes back today. But this pie... I've put everything in it. If the mountain goes tonight, I want her to have had the best pie of her life.
+arvid 21 opener: (Ash is falling. Arvid is sitting on the step of the Cedar Grill, grey to the elbows, holding a jar of grey bubbling dough.) It went. The mountain. I took His Majesty to the cellar. And the portrait. And Linnea. She's all right. We're all right.
+arvid 29 reply: How was the banquet?
+arvid 30 opener: (Arvid is in the kitchen, the king's portrait straight above the stove, His Majesty rising in his jar, a crate of lemons on the side.) Last day. They're settling the island's future today. I'm cooking. Whatever happens, people will be hungry tonight. Linnea brought the lemons again this morning. I wrote to Marta at the palace, too.
+augustus 15 opener: (Augustus has two letters on the reading table, side by side, and his hands flat between them.) The monastery wants an answer, and the family wants an answer, and they both want it today. I've been reading my grandmother's diaries again. Queen Astrid. She had the same choice once.
+bertil 23 opener: (The Bureau's open again. Bertil is at his desk with a fresh stack of forms, looking almost happy.) Damage reports. Six hundred of them. From all over the island. I've never been busier. I've never been more useful.
+bertil 24 opener: (Bertil has a small box on the desk and is looking at it nervously.) Sergeant Hanna's pencil. A new one. It's come through the Supplies Committee at last. I'm going to stamp the approval tomorrow. I'm almost excited.
+bjarne 13 reply: Why's the wood so knotted?
+bjarne 15 opener: (Bjarne is reading another letter, and frowning this time.) Annika, my daughter in Turku, has heard about the shaking ground in the papers in Turku. Already! Before we've had any. She wants me on the next boat.
+bjarne 17 opener: (The stacks of timber creak, and Bjarne puts out a big hand to steady one.) That's twice today. The ground. Stacks don't like it. I've had the lads re-stack the tall ones. A falling log's a bad way to go. My daughter Annika, on the mainland, writes every week.
+bjarne 20 opener: (Bjarne is sitting on a log with a cup of tea, staring at the trees in the forest beyond the yard.) The forest's quiet. No birds. Have you noticed? Birds always know before we do. My daughter Annika, on the mainland, writes every day now.
+bjarne 22 opener: (Bjarne is standing in the mill yard, grey with ash, looking at the logs.) Every log grey. Every roof grey. The saw's full of it. But everyone's alive. I've written to my daughter Annika to tell her. First thing.
+bjarne 24 opener: (Bjarne is at his desk, writing a letter in big careful handwriting.) To my daughter, Annika, in Turku. I'm telling her I'm staying, at least till the vote. And that I've built a stage. She'll think I've gone mad.
+bjarne 24 reply: Will you ever retire?
+bjarne 30 opener: (Bjarne is sweeping the empty mill, slowly, the way he does on Sundays.) The last day. I came in to sweep. I don't know what else to do with my hands. I've written to my daughter Annika, in Turku.
+bob 12 opener: (Bob is writing in a school exercise book, licking the pencil.) Recipes. The Union's doing a cookbook, to raise money for the strike fund. Guess who's writing it.
+bob 18 reply: Filleting and noticing are the same?
+britta 20 reply: Will you tell the bosses?
+britta 25 reply: Does he stop when you bang?
+brother-anselm 25 reply: Let me find you a plaster.
+brother-ilja 15 reply: Is that a hint?
+brother-ilja 18 reply: How's the Prior taking it?
+brother-ilja 28 opener: (Brother Ilja is at his desk, finishing a fresh copy of a few lines in a strange old script.) The words of the Herbal Rite. The Prior's book is falling apart, so I'm making him a new one. He'll read it today. He'll never admit it's easier.
+brother-mikael 10 reply: Who don't deserve prayers?
+brother-mikael 28 opener: (The church is full of herb smoke. Brother Mikael, in his choir robe, is breathing slowly, eyes shut.) The Herbal Rite. In an hour I sing. Brother Paavo's handing up the herbs, the Prior's reading the words, and I'm trying to remember how to breathe out.
+brother-mikael 28 reply: What does the chant say?
+brother-paavo 8 opener: (Brother Paavo is brushing soil off his habit outside the church.) The first Sunday without a king. I'll sit at the back. The Apostles, my twelve cabbages, don't mind if I smell of compost, but the farmers do.
+brother-paavo 14 opener: (Brother Paavo is sitting on an upturned bucket among the cabbages.) Everyone's gone down to the big day on the fourteenth. Me and the Prior are holding the fort. And the Apostles, of course: my twelve cabbages.
+brother-paavo 16 opener: (Brother Paavo is weeding, and a small radio on the garden wall is babbling about a debate.) The Prior left the wireless here. Anna and Erik are arguing. I'm letting the Apostles listen. My twelve cabbages. They can decide for themselves.
+brother-paavo 18 opener: (Brother Paavo is leaning on his spade, looking down the path.) Something's been taken from the church in the night. The Prior is beside himself. And I heard nothing. Nothing on the path, all night. That's what troubles me. Even Old Stubborn, the apple tree, shook all night.
+brother-paavo 19 reply: Are the herbs safe?
+brother-paavo 21 opener: (Ash is falling. Brother Paavo is dragging sacking over the cold frames, coughing.) The mountain's let go! Cover the glass, cover the glass, it'll crack in the heat. Mind the Apostles! My cabbages!
+brother-paavo 21 reply: Forget the lettuce, Brother!
+brother-paavo 22 opener: (Brother Paavo is standing in a grey garden, a handful of ash running through his fingers.) The whole garden's under it. The Apostles, my twelve cabbages, look like old men. But you know what this is, in ten years? The best soil on the island.
+brother-paavo 25 opener: (Brother Paavo is cutting cabbages and laying them in a barrow.) Back from the peaks, and the Apostles are coming in. Eleven of them. The twelfth I'm leaving in the ground a while longer. He's not ready.
+brother-paavo 27 opener: (The loft over the tool shed is crammed with herb bundles. Brother Paavo is counting them, his lips moving.) Forty-two bunches, and one extra of thyme. For tomorrow. The Herbal Rite. Everything's dry and ready, and the ash didn't get into a single leaf.
+brother-paavo 28 opener: (Brother Paavo is carrying an armful of dried herbs up the slope behind the church, smiling.) The Herbal Rite! Smell that. That's August, and June, and May, all in your nose at once.
+brother-teodor 30 reply: What will you bake?
+bruno 8 opener: (Bruno is sitting on the steps of his caravan in his shirtsleeves, eating a bun, with sugar on his moustache.) Sunday. No show. Bun day. (He brushes off the sugar.) From the coffee shop in Eastbrook. Maya's. Best buns in the Baltic. I have a slate.
+bruno 20 opener: (Bruno is in the big top, giving a speech to the animals, who are all lying down very quietly.) Friends. Tonight the mountain may speak. We have heard mountains before. We have heard Bergen. We are still here. (Duchess flicks an ear.) She's listening. It's working.
+bruno 22 opener: (Bruno is announcing to an audience of two grey seagulls.) Hear ye! The Greatest Little Circus in the Baltic will present a FREE SHOW! For the whole island! On Saturday! (The gulls leave.) They'll be back. Everyone comes back for free.
+bruno 22 reply: How's the camp?
+bruno 23 reply: How are the takings?
+buttons 22 reply: How's the camp?
+carlo 12 reply: What's the gossip at the party offices?
+carlo 16 opener: (Carlo has the debate on the wireless and is listening with great interest.) The Party and the Democrats. Margit offered us a debate too. Harald said yes. Magnus said yes. I said I'd prefer a quiet word with each member, privately. (He looks embarrassed.) The Don's idea.
+carlo 21 opener: (Ash is falling. Carlo is on the party office steps in a grey suit, very tired.) It went. The mountain. I was in the Don's cellar all night, with my friends and his brandy. At dawn I walked here through the ash. To see Margit and the box.
+carlo 22 opener: (Carlo is in shirtsleeves, sweeping ash off the party office steps, very badly.) I've never swept anything in my life. Margit's showing me. (He sweeps ash onto his own shoes.) I'm not good at it. I'm enjoying it enormously. The Colonel's dachshund, Brigadier, came to help. He didn't.
+carlo 29 opener: (Carlo is in the party hall, in a plain grey tie, very upright, as members file past Margit's ballot box. He looks at you.) The day. The members are voting. (He touches the tie.) The Don's tie. I put it on this morning. Then I put the blue one in my pocket.
+corporal-niemi 7 opener: (Niemi is chopping turnips at tremendous speed, still singing, and missing his own fingers by a whisker every time.) The roads are open! Four men off to help the snowploughs! (Chop.) Four fewer to feed! (Chop.) Four packed lunches! (Chop.) Turnip.
+corporal-niemi 26 opener: (Niemi is reading a letter from Turku, his face very soft.) My sister. She says my mother's recipe book's turned up, in a trunk. (He reads.) She's copying it out for me. (He looks at the Admiral.) I don't need it now. I'll read it anyway.
+corporal-niemi 27 reply: Will you be on the parade?
+daphne 27 opener: (Daphne holds up a green silk scarf.) Grace made it in secret. I'm wearing it under Gloom, my mourning dress, for the state visit. Nobody will see it. I'll know.
+daphne 30 opener: (Daphne is sitting on the edge of the cracked fountain, in Gloom, her black mourning dress, with the green scarf showing.) Last day of the month. Whatever happens, I'm going to the circus at the lake when it's over. Nobody stands up at a circus.
+dario 12 reply: Maybe she's a Democrat and you're an oilman.
+dario 26 opener: (Dario is straightening his tie, the silk one from New York.) Today I'm going up the mountain to talk about the spa. Man to man, owner to owner. One of us is going to be very happy.
+dex 22 reply: How's the plaza?
+dex 24 opener: (Dex is drawing on a napkin: a cart, with a little roof.) The Dogfather Two. I've got the plans. Bjarne says he'll build the frame from mill offcuts, if Dagny doesn't count them. Dagny counts everything. Rosa's cart won't know what hit it. Rosa's my rival, in Kingsgrad.
+doctor-lind 9 opener: (The doctor is writing a letter.) Knight to F-five. I've posted it. My chess game by post, with Doctor Salmi in Turku. Thirty-one years. Now I'm writing to him again to say I've changed my mind.
+doctor-lind 15 opener: (He's writing.) Two letters. One to Doctor Salmi in Turku, my chess partner by post, one to Harald. Salmi will answer. Harald won't.
+doctor-lind 22 opener: (He's listening to a fisherman's chest.) Breathe in. Out. (To you.) Ash cough. I'll hear it in my sleep. If I sleep. My chess by post with Doctor Salmi, in Turku, is the only thing keeping me sane.
+doctor-lind 23 opener: Margit's sent everyone a letter. The vote's still on, the twenty-ninth. I nearly forgot it existed. Then I remembered the hospital. And Doctor Salmi in Turku, my chess partner by post, has made me an offer.
+doctor-lind 23 reply: Will you take Salmi's draw?
+doctor-lind 30 opener: (He has the hospital plans on the desk, and the chessboard beside them.) Last day. Whatever happens to the island, I'll still be here, with two beds and a cabinet. And a move in the post to Doctor Salmi in Turku. Our chess game. Thirty-one years.
+edmund 5 opener: His Majesty had his habits. Whisky at ten. Kelp Cola at four. The shipping forecast at six, read aloud, whether anyone was listening or not.
+edmund 6 opener: (Edmund consults a pocket watch, then remembers it isn't wound.) A habit. His Majesty gave me this in 1963, on my tenth year. It's stopped with the others.
+edmund 10 opener: (Edmund is in full black, very still, his gloves immaculate.) Today we lay His Majesty in the crypt. I've served the household thirty-one years. Today I'll serve it as well as I ever have.
+edmund 19 opener: The Prince has asked me, very casually, whether I still have the old black overcoat from His Majesty's younger days. The one without the crest.
+edmund 22 reply: How's the household?
+edmund 25 opener: His Royal Highness asked me, at breakfast, what a butler would think of a king who answered to a parliament. Nobody's asked my opinion on anything since 1953.
+edmund 29 opener: (Edmund is winding His Majesty's watch, slowly.) The island is deciding who comes after him today. I've wound his watch. I thought he'd want to know the time.
+eila 20 reply: Fine stitching.
+einar 22 reply: What's below the waterline?
+einar 26 reply: How's the leaving fund?
+einar 27 reply: Is that accurate?
+elin 6 reply: What's he got you typing?
+elin 10 reply: Who sent the biggest wreath?
+elin 12 opener: (Elin's typing slows.) Mats was very quiet at breakfast. He read the financial pages twice and didn't say a word about New York.
+elin 28 reply: Has anyone tried to spoil it?
+elsa 21 reply: What about the laundry?
+elsa 27 opener: (Elsa is holding a shirt cuff up to the light, frowning at a spot of red.) Blood, this time. The prince. He cut himself on something. He said too late, princes bleed, apparently. I'll have to get it out of the cuff.
+erik 25 opener: (Erik is pacing up and down the long table, in his good jacket, for once without a clipboard.) Today's the day I find out if a princess can be a democrat. I've tidied the hall. I've hidden Bertha, the duplicating machine.
+erik 26 reply: What would a Democrat do differently?
+erik 30 opener: (Erik is sitting alone at the long table under the crooked banner, with Bertha, his duplicating machine, beside him, quiet for once.) The last day. Whatever's decided today, it'll be decided. Then I suppose I'll have to find out what I do on a Monday.
+frank 7 reply: How much ammunition do you keep, exactly?
+frank 9 reply: What's the plan for the season?
+frank 22 reply: Is the elk season off?
+freja 5 opener: (Freja is polishing the brass on a little cast-iron stove.) Fireplaces and stoves. The first frost on the windows and everybody remembers they're cold. I've sold three this week, and the winter hasn't even started.
+freja 21 reply: Is your stock ruined?
+freja 28 reply: Do sofas have politics?
+greta 18 opener: Something odd. Yuri came down at three in the morning, asked for a glass of milk and talked to me for an hour. About his mother. About Leningrad. About nothing.
+hannu 11 reply: What did you chalk this time?
+hannu 20 reply: What will you chalk if it does?
+harald 23 opener: (Harald has a pink-ink postcard and is reading it with tears in his eyes.) My mother heard about the mountain on the wireless in Tampere. She wrote: 'Did you wear a scarf?' That's all. 'Did you wear a scarf?'
+hekki 15 opener: (Hekki is sitting on the step with a grey cat on his knee.) This is Morse. He came with the shack. He doesn't like loudspeakers either.
+helmi 16 opener: (Helmi has the radio on low, and is darning a jumper in her lap.) The great debate. Helen and Erik. Olga's got hers on so loud I can hear it through the wall. We're listening to the same thing, a bit out of time. It's like an echo with opinions. My sister in Oulu knits the jumpers I sell. This one's come back with a hole in it.
+helmi 18 opener: (Helmi is filling a window with blankets and boots, very neatly.) Stockpiling. Everybody wants a blanket and a stout pair of boots, in case they have to walk somewhere fast. I've never sold so many boots in one day. My sister in Oulu wants me home, of course.
+hilda 11 reply: What's the news from the towns?
+hilda 13 reply: Is the kelp harvest good this year?
+hilda 18 opener: (Hilda is loading a cart with sacks, very fast, Olaf complaining beside her.) If the mountain goes, the potatoes go with us. And the seed. And Bertha. (She pats the pumpkin.) I'm not losing five years of Bertha to a mountain.
+hilda 18 reply: What's happening in the towns?
+hilda 30 opener: (Hilda is standing in the yard at dawn, looking at the farm: the new roof, the old barn still shut, the grey fields, Bertha in the corner, the goose at her feet.) Last day. They're settling the island today. And the cows still need milking. (She picks up a bucket.) That's farming.
+igor 15 opener: (Igor is sitting on the caravan step, looking very contented and a little guilty.) Four hot dogs. Yesterday. From the man with the leaflets. (He pats his stomach.) Very gentle sausages. I lifted an old man onto the fountain so he could see. He said I was a gentleman. Mrs Pettigrew, the wren on my step, will have missed me.
+igor 18 opener: (Igor is knitting something very small and grey, very carefully, on the caravan step.) It's for Mrs Pettigrew. (He holds it up. It's the size of a thimble.) A hat. In case of a cold snap. (He looks at the grey on the canvas.) Or ash.
+igor 20 opener: (Igor has a very large coat on and a very small bag in his hand.) Zora told me to pack. Just what I couldn't do without. (He opens the bag.) The scarf. Mrs Pettigrew's hat. The king's handkerchief. (He closes it.) That's all.
+igor 21 opener: (Ash is falling. Igor is standing by the lake, holding up one corner of a canvas over the sleeping troupe, with a child's cap in his other hand.) It went. (He doesn't move.) Everyone's here. I counted. Twice. I'm still holding this. In case. Mrs Pettigrew, my little wren, hasn't come.
+igor 22 opener: (Igor is shovelling ash from around the caravans, very neatly, into straight lines.) Paths. (He shovels.) If we have to move quickly, there'll be clear ways. It's easier than thinking. I like it. No wren on the step this morning. Mrs Pettigrew. My wren.
+igor 22 reply: How's the camp?
+igor 30 opener: (Igor is standing at the lake's edge, the big top half down behind him, with Mrs Pettigrew on his shoulder in her hat.) Last day. (He looks at the water.) They're settling the island today. We're folding the tent. I've carried most of it already.
+jaana 18 reply: Will they do the tour right?
+jaana 24 opener: (Kelpy is humming 'Autumn in Helsinki' through the grille, very softly, while waving.) Practising. Through the cup. The acoustics in here are terrible. If I can sing in a cup, I can sing anywhere.
+jack 13 opener: Free Kelp Cola all over town! I took two. One for me, one for the Admiral. My old pike, in the lake. He won't drink it.
+jack 17 opener: (The rods on the wall rattle gently.) There. Feel that? The ground's been doing it since breakfast. The Admiral will feel it first. The big pike in the lake.
+jack 18 opener: You know what makes a good fishing spot? Quiet. And the circus has pitched its big top right on the east shore of the lake. The Admiral, my old pike, hates noise.
+jonna 20 reply: Why not draw him?
+jonna 29 reply: Any regrets this month?
+juniper 28 opener: (The shop is full: Juniper is letting out a waistcoat, taking in a coat and hemming a dress, all at once.) Every faction's big push today. Everyone needs to look their best. I've done forty hems since dawn. My fingers are very Christian today.
+juniper 29 opener: (Juniper is sitting down for the first time in a week, her boots up on a stool.) The palace is arguing about who's next in line. Leopold. Augustus. Daphne. And the Republicans are choosing a leader. I'm resting my feet. In Texas.
+kaisa 12 reply: Can I make a request?
+kaisa 30 opener: (Kaisa is lowering a needle onto a record, very carefully.) The last day of September. The island settles its future today. I'm playing the late king's march first, then Ella, and then whatever the island needs after that.
+leopold 20 opener: (Leopold is at the window.) The steam's still coming off the mountain in the north. And the Kestrel, my father's boat, has been hauled up the slip at Eastbrook for the winter. I never sailed her.
+lisa 22 reply: Is the delivery boat coming?
+lucia 25 reply: What's all the fuss in Kingsgrad today?
+lucia 27 reply: Who'll keep the docks while you're gone?
+madame-zora 26 reply: How's the camp?
+margit 12 reply: Are the candidates all like that?
+margit 14 reply: Will the candidates be there?
+margit 22 reply: Did the candidates help with the ash?
+margit 27 reply: Are you ready for the twenty-ninth?
+margit 29 opener: (Margit stands at the podium in her best suit, the key at her throat, the hall filling.) Members, please form an orderly queue. You, not a member, by the wall, please.
+mario 25 opener: The detective solved it. (Mario holds up the Swedish novel, finished.) The banker in the lake was never dead. He ran off to Spain with the money and a better coat. I should have seen it.
+marjut 6 reply: A palace maid cleaning empty houses.
+marta 28 reply: How's the banquet going?
+mary 8 reply: Is the sermon changing?
+mary 12 opener: (Mary is reading a ledger with her lips pressed tight.) Somebody in the oil company's been buying every book I've got on accounting. Six in a fortnight. Either they're learning, or they're hiding something. (Her fat grey cat, Orwell, yawns on the counter.)
+mary 17 opener: (Mary is steadying a tall bookcase with one hand.) Did you feel the floor go? The whole shop shivered, and the Tolstoy fell over again. That's the second time this week.
+mary 19 opener: (Mary is on her knees surrounded by fallen books, and very cross.) The floor jumped again. Every shelf in the shop came down, and they were alphabetical. Arto helped me pick them up. Now Dickens is next to Dostoevsky, which is fine, and Agatha Christie is in poetry, which isn't. I send Mario, in the cells, two books a week.
+mary 21 opener: (Mary's shop is grey. Ash on the books, ash on the counter, ash on Orwell, her fat grey cat.) The mountain's gone up. I watched it from the step. Nobody's hurt, thank God, but look at my shop. It's in the paper. All of it.
+mary 30 opener: (Mary has the shop open, with the door wide, and Orwell, her fat grey cat, on the step in the cold sun.) The last day of September. Everything's decided today. I've opened anyway. If the world ends, I want to be found among my books.
+mats 12 reply: What's the strangest thing you've ever filed?
+mats 16 reply: Two pencils?
+mats 23 reply: What do Einar's reports say?
+maya 8 opener: (Maya is trying a spoonful of something brown in a cup, and grimacing.) Roasted barley. My grandmother's wartime trick, when there wasn't any coffee at all. It tastes like wartime.
+maya 9 reply: Jealous of Dex?
+maya 22 reply: What will this week's blend be?
+maya 27 reply: What's the blend for the rally?
+maya 28 reply: Is it nerves or caffeine?
+meg 12 reply: Why does she bite notebooks?
+meg 20 opener: (Meg is tying everything down: the wagons, the rigging, Duchess's halter.) If the mountain goes tonight, everything stays tied. The animals are going in the big top. The troupe's sleeping by the lake. Buttons is holding my hand. He doesn't know he's doing it.
+meg 22 reply: How's the camp?
+mike 4 opener: Anna wants me to sing the Internationale on the twenty-eighth. In front of the whole island. In Russian.
+mike 5 opener: Tom lent me the Gull for the morning. I caught more in her in two hours than I did in the Valborg all of August.
+mike 8 opener: I took the Gull out past the point. Tom's boat. It smells like a garage out there. There's a rainbow on the water, and not the nice kind.
+mike 21 opener: (Mike's face is grey with ash.) I was out in the Gull, Tom's boat, when it went. The whole north turned red. I've never rowed so fast, and I had an engine.
+mike 22 opener: The Valborg, my boat, is full of ash. Every crack, every seam. Even her stubbornness has gone grey.
+mike 23 opener: Dario's rig's pumping again, through all this. The men at Ray's say somebody ought to do something about it. The Valborg, my boat, came through it, at least.
+mike 25 opener: Kate asked me straight out if I'm in love. I sang the whole Internationale at her. She said that was a confession.
+nils 27 opener: (The televisions show a Swedish film.) Otto would hate this. Swedes in a kitchen, not talking. Very artistic.
+nils 28 reply: Who's got the best signal?
+noora 12 opener: Have you heard? Ruby's sold the rarest record on the island, Midnight at the Aurora, to a buyer who won't give his name! And Lenin, Helen's cat, has moved into my room.
+noora 16 opener: The whole block's crammed into Helen's flat to hear the debate on the wireless. I'm here, washing glassware and listening on Saara's set. It's much quieter. I haven't seen Lenin, Helen's cat, all day.
+noora 25 opener: Ruby sent the Billie Holiday over with Rosa, with a note: 'For the girl who knows who's on piano. Pay me when the ash settles.'
+noora 28 opener: (Noora sits at Saara's desk with a pen and a sealed envelope, and Saara stands guard by the stairs.) Exam day. Upstairs, foreign buyers. Downstairs, me and organic chemistry. We're all sweating.
+noora 28 reply: Reaction kinetics.
+olaf 12 opener: (Olaf is hovering near Bertha, the enormous pumpkin, looking jealous.) She talks to it. Every morning. Asks it how it slept. (He glares at the pumpkin.) Thirty years and she's never asked me how I slept.
+olaf 18 opener: (Olaf is loading sacks onto a cart, complaining loudly, very fast.) Seed potatoes. In case. Hilda says if the mountain goes, the seed goes with us. And Bertha. (He lifts the pumpkin onto the cart with a grunt.) I'm loading a pumpkin onto a cart in case of a volcano.
+otto 11 opener: (Otto is in the booth door, wiping his hands.) Bertha, the projector, ate another bulb. That's three this month. The bulbs come from Helsinki. Helsinki doesn't care.
+otto 14 reply: Who's the leading man?
+otto 17 opener: (Bertha, the projector, clanks above. The whole building shudders, and dust falls from the ceiling.) That wasn't Bertha.
+otto 22 opener: (Otto is cleaning the projector lenses with a soft cloth, very carefully.) Ash got into Bertha, the projector. I spent all night on her. She's cross with me.
+otto 29 reply: You look like a sheriff.
+paola 11 opener: (Paola has a pocket watch open on a cloth, and a screwdriver the size of a toothpick.) A spring. A hair's breadth out. Nobody would notice. I would. That's the whole of my profession, both of them. My chess game by post, with a man in Turin. Nine years.
+paola 15 opener: (Paola is setting up a chessboard on the Residences' lobby table, from a postcard.) Knight to e5. From Turin. He's attacking. (She studies the board.) He's never attacked in nine years. I don't know who he is, but he's in a hurry now.
+paola 15 reply: Who's your opponent?
+paola 16 opener: (Paola is mending Carlo's wristwatch while he waits beside her, very nervous.) The Don's candidate. His watch stopped this morning. Before the debate on the wireless. He thinks it's an omen.
+paola 18 opener: (Paola is reading a postcard, very still.) Turin. My chess partner, by post. Queen takes rook. (She sets it down.) He's winning. For the first time in nine years, he's winning. And there's a line at the bottom, in his hand: 'Forgive me. I'm ill. I'd like to finish.'
+paola 19 opener: (Paola is in an evening dress, very plain, black, putting on her gloves.) Thursday. The Midnight Note. The Don goes to hear Rita sing. I drive him. We sit at the back. (She checks her gloves.) She sings 'Stormy Weather' for him. He pretends not to notice. I've a move to send to Turin, too. My chess game.
+paola 20 opener: (Paola is moving bottles of brandy from the Club's shelves into crates lined with cushions.) The ground's moving every hour. The Don's taking his members down to the cellar tonight. With the brandy. And me. (She lays a bottle down very gently.) Mostly the brandy. Still no move from Turin. My chess.
+paola 22 opener: (Paola is sitting on the fountain's edge, which she never does, holding a telegram.) From Turin, my chess partner by post. 'Mate in three. You've found it. Well played. Thank you for nine years.' (She folds it very small.) I didn't play mate in three. He played it for me. He let me find it.
+paola 23 opener: (Paola is back in the Residences lobby, starting every clock again, one by one.) The building's been silent since the twentieth. I stopped them for the mountain. Now they all start again. (She sets a pendulum swinging.) Tick. I've written to Turin. My chess partner.
+paola 25 opener: (Paola is walking Brigadier, the Colonel's dachshund, on a very short lead, very slowly.) The Colonel's knee is bad. Since the mountain. He asked me to walk the dog. (Brigadier stops at every lamp post.) I think the dog's doing chess problems.
+paola 27 opener: (Paola is laying out a card table in the back room of the pizzeria in Kingsgrad, with a ruler, making sure every chair is exactly the same distance from the table.) The Don's game tonight. High stakes. Half the Republican members are coming. And Carlo. Everything must be precise.
+paola 28 opener: (Paola is in the Residences' lobby, with every clock ticking, reading a letter with an Italian stamp.) Turin. From my chess partner's sister. (She reads it again.) He read my two words. The day before. She says he smiled. (She folds it.) That's the end of the game.
+paola 29 opener: (Paola is in a dark coat at the back of the Republican hall in Frostholm, watching members file past Margit's ballot box, very still.) The vote. The Don's not here. He sent me. To watch. (She doesn't look at you.) Carlo's wearing the grey tie. The blue one's in his pocket.
+paola 30 opener: (Paola is standing by the fountain in Hope Springs at dawn, very still, with her mother's black gloves on.) Last day. They're settling the island today. The Don's at the Club, waiting. Carlo's walking the dog. (She looks at the gate.) And I'm standing here, because nobody's sent me anywhere.
+paolo 7 opener: (Paolo is reading a letter on thin blue paper.) My mother, from Genoa. She writes every week. 'Paolo, are you eating? Paolo, are you married? Paolo, it's twenty-six degrees here.' She means it as an insult.
+paolo 24 opener: (Paolo is pale, and has his hands in his pockets.) Don't ask me what kind of morning I've had. Some mornings a man hears things he shouldn't, and wishes he'd been born deaf, in Genoa. I'd rather talk about Maya at the coffee shop. Anything else.
+paolo 26 opener: (Paolo's at the bench in the square, reading the Gazette with interest.) Dario's buying the spa! In the ash, at the foot of a mountain that's just blown its top. I've a cousin in Genoa who bought a hotel on a cliff that fell in the sea. Dario's that man.
+pat 10 reply: A sentimental hobo?
+pat 20 opener: (Pat is quiet, looking at the sea.) That letter I found, from a sailor called Pyotr to his Galina, has got me thinking. About sorry. About Leena, my daughter.
+pat 30 opener: (Pat holds up a folded scrap of paper.) Finished it. My letter to Leena, my daughter. Four lines. It took me eleven years and a volcano.
+petra 18 reply: Any news on the heating?
+petra 28 reply: Will you unroll the banner?
+pirkko 7 opener: (Pirkko is kicking the side of the van, gently.) Bertta's heater's packed up again. Bertta's the van. My Pekka, God rest him, could fix her with a hairpin. I can only threaten her.
+pirkko 10 opener: (There's a black ribbon tied to the wing mirror of Bertta, her van, and the radio inside the van is playing the funeral, very low.) They're burying him now. I couldn't afford the morning off, so I'm listening.
+pirkko 14 opener: (Pirkko is loading the van with three times the usual sausages.) The fourteenth! I'm taking Bertta, the van, to the big day. Every soul on the island in one place, and all of them hungry.
+pirkko 17 opener: (The coffee in Pirkko's cups is shivering.) Did you feel that? The whole van rocked. I thought Bertta had finally died, and then the factory chimney swayed and I thought, no, it's the mountain.
+pirkko 19 opener: (Pirkko is beaming.) Clue number two! Brother Teodor sent down a note with the milk: 'a spoonful of something sour'. That's all. A spoonful of something sour! The man's a sphinx in an apron.
+pirkko 20 opener: (There's a candle burning on the dashboard of the van.) Five years ago today Pekka drove this van home, sat down in his chair and didn't get up again. I light a candle and sell pasties. He'd want the pasties. I've been after Brother Teodor's soup recipe for twenty years. Pekka loved that soup.
+pirkko 23 opener: (There's a fresh dent in the side of Bertta, her van, and Pirkko is glaring at it.) The aftershock threw the fryer basket clean through the window. Lucky I wasn't stood in front of it.
+private-aho 26 opener: (Aho has a pair of white gloves on his bunk and is looking at them as if they might bite.) White gloves. For the state visit. (He doesn't touch them.) The sergeant counted them out. Forty-one pairs. One spot of mud and he'll know. And Lumi, a girl from home, has been asking about me, my mother says.
+private-aho 30 opener: (Aho is sitting on his bunk with a fresh sheet of paper, not writing, just looking at it.) Last day. The island's being settled today. (He looks at the paper.) Whatever happens, I've still got twenty-two months. Same bunk. Same sergeant. I'm writing to my mother. And maybe to Lumi, from home.
+private-koski 7 opener: (Koski is in the sentry box, reading something hidden inside his greatcoat. He snaps it shut.) Halt! Who goes... oh. You. (He doesn't ask for papers.) Wait. (He sighs.) Papers, please. Rules.
+private-koski 11 opener: (Koski is reading behind his coat, looking very serious, and closes it as you come.) Halt. (He sees you.) Oh. Papers. (He takes them without looking.) Have you heard? Three blankets. Gone. From the store.
+private-koski 12 opener: (Koski is very still, facing the road, and his lips are moving. He's reading a page held flat inside the coat.) ...and Rook raised his cutlass... (He sees you.) Halt! (He snaps shut.) Who goes there. Papers.
+private-koski 19 opener: (Koski is at the gate, very alert, with no book in sight.) Halt! (He relaxes.) Oh. You. (He looks down the road.) Something happened last night. On the palace road. I saw it. I've written it in the book. In capitals.
+private-koski 26 reply: Will you be on the parade?
+raili 23 opener: (Raili is walking up the boulevard very fast in a crisp Aurora uniform, carrying a bunch of flowers, her face blotchy from crying.) I've got my job back! (She stops.) Mr Lehto, the manager, came to the urn this morning. He said 'Raili, I need you. The journalists.' (She wipes her eyes.) The hotel's full.
+rita 26 opener: (Rita is picking out songs on the piano with one finger.) Planning for Friday. The girl from Eastbrook. Jaana. I'm going to make her sing 'Autumn in Helsinki'. My song, now. If she can sing it in front of me, she can sing anywhere.
+rosaria 6 reply: This goat's cheese is strong.
+rosaria 15 opener: (Rosaria is peering into the starter bowl.) Nonna's not happy. Too cold this week. She's gone flat and grumpy. I had to sit her by the oven with a blanket, like a grandmother.
+rosaria 15 reply: A blanket for a bowl of dough?
+ruby 13 opener: (A Kelp Cola girl in a paper hat has left a free bottle on Ruby's counter. Ruby has put it on the turntable lid, as if it were a stranger.) They're giving it away in the street now. Nothing that free is ever free. I keep thinking about the Arvo Lind record. The one from the Aurora, in 1959.
+ruby 25 opener: (Ruby is humming along to Elvis.) A princess for democracy. That's what Erik's calling it, and he's practically skipping. He thinks Princess Daphne might come round to a vote.
+ruth 25 opener: (Ruth is wrapping a small parcel in brown paper.) It's for my cousin in America, the one who got my poster signed. Ash from the volcano, in a jar. She'll never believe it otherwise.
+ruth 28 reply: Who's winning on the lane?
+ruth 30 opener: (Ruth has the appointments book closed for once, with her hand flat on it.) The last day. Whatever's decided, it's decided today. I haven't written anybody in. I thought I'd leave the page empty and see who comes. I've always meant to see Wyoming.
+saara 13 reply: Did you get a free sample?
+saga 7 opener: (Saga is reading a postcard with a Helsinki stamp.) Mrs Valo. Asking if the water's still hot. It is. I'll write back. She'll write next month. Twenty years, the same two lines.
+saga 10 opener: (The spa is closed, a black ribbon on the door. Saga is sitting on the steps outside, looking towards Kingsgrad.) The funeral. I closed the spa. Mrs Valo, who owns the spa, would want me to. She knew the old king. Everyone did, a little.
+saga 14 opener: (The spa is empty, and Saga is sitting in the water herself, fully dressed except her shoes, feet dangling in.) Everybody's at the big gathering. I've got the spa to myself. First time in years. I'm not telling Mrs Valo, the owner.
+saga 16 reply: Are the bathers worried?
+saga 19 opener: (The air smells of eggs. Saga has closed the spa and is standing at the door with her coat on.) Closed. Mrs Valo, the owner, agreed by telegram from Helsinki. 'Keep the water, save yourself.' Six words. The most she's ever written.
+saga 24 opener: (Saga has a letter from the oil company on the desk, with a very large seal.) Dario. From Diversified Petroleum. He wants to buy the spa. He's written to me, because he knows Mrs Valo, the owner, won't answer him.
+saga 25 reply: A cottage? That's tempting.
+sally 16 opener: Another letter from my sister Kirsti, in Helsinki. (She reads aloud.) 'Dear Sally, the papers here say the island's tearing itself apart in public debates. Come home.' (She folds it up.) Debates are good for property.
+sally 21 reply: What happens to the market now?
+sally 29 opener: (Sally is writing a letter.) To my sister Kirsti, in Helsinki. I'm telling her that whatever happens tomorrow, I'm staying. The island's my home. You don't sell your home. You sell other people theirs.
+sergeant-hanna 26 reply: Is Mario's lawyer coming?
+sid 13 reply: Who books the back booths most?
+sid 21 reply: How's the piano?
+sid 24 reply: What's the back booth gossip?
+sid 27 opener: (Sid looks very happy.) The piano's tuned. Rita sang last night like she was sixteen. Leo cried. Mr Aalto cried. I cried. I've told everyone I had something in my eye.
+sid 28 reply: Who's booked the back booths?
+signe 22 opener: (Signe is cleaning ash off the lens with a soft brush, one tiny stroke at a time.) One stroke at a time. If I scratch it, there isn't another one in the Baltic. Paris won't make me a new one. The factory's gone.
+signe 24 opener: (Signe is out on the jetty, in the Kittiwake, rowing in a small circle and looking up at the lighthouse.) My afternoon off. First since the mountain. I'm looking at the light from the outside. It's still beautiful, even grey.
+signe 29 reply: How's the inspection going?
+sirpa 22 opener: (Sirpa is sweeping ash off the bench with her sleeve.) Everyone's sweeping. The whole village. It's the most work Saltwick's seen since June.
+solveig 14 reply: What will the headline be?
+solveig 21 reply: What's the headline?
+solveig 23 opener: (Solveig is threading a new ribbon into the typewriter.) Somebody's put a spanner in a machine somewhere, they say, and the oil men have divers going down at the rig. Two stories and no facts. On Fleet Street we called that a Tuesday.
+solveig 24 reply: Is that suspicious?
+solveig 28 reply: There's coffee on your proof.
+tiina 13 opener: (Tiina has an envelope in her lap, addressed in careful capitals.) I've written to the harbourmaster in Frostholm. Ole. I want the port log for the night the Lumikki went down. My husband Matti's boat.
+tiina 18 opener: (Tiina has another letter from her cousin.) Jussi again. Twice in one month. Something's wrong. He says the cows won't milk and the mountain's steaming like Hilda's kitchen.
+tiina 20 opener: (Tiina is holding a letter very still.) Ole wrote back. The log for the night of the Lumikki. Matti's boat logged out. Nothing else logged out. Not one other boat.
+tiina 29 opener: (Tiina looks at you, and nods.) I said yes to Tom. I start on his nets on Monday. In Matti's old shed. My shed, I suppose, now. Matti's boat was the Lumikki. I've still got the harbourmaster's letter about her.
+tom 23 reply: Can I help scrub?
+toni 3 reply: What's your high score?
+toni 7 opener: (Toni is behind the change counter at the arcade, under the pink neon, with a screwdriver in her belt.) Back! And look: someone's been at the Snake machine. Its screen's gone green on one side.
+toni 8 reply: Will you hold that high score too?
+toni 10 reply: What's the score?
+toni 11 opener: (Toni's head and shoulders are inside the Brick Breaker cabinet.) Mmph. Paddle's stuck. (She emerges.) The kids have been putting buttons in the coin slot again.
+toni 11 reply: Kids skipping school?
+toni 16 opener: The boss rang from Helsinki. The Turbo Rally's been loaded on a boat. It sails tomorrow. A week, maybe ten days, and it's here!
+toni 22 opener: (Toni is wiping ash off the Invaders screen.) Power's back. Every machine was full of ash. The Snake game's snake is grey. I think it'll stay grey. Saga next door hums through the wall most nights.
+toni 22 reply: Did all the scores reset?
+toni 23 opener: The Turbo Rally's boat's been held up in Helsinki because of the volcano. Nobody wants to sail to an island that's on fire. The boss says another week.
+toni 23 reply: What's the space by the door for now?
+toni 23 reply: Whose scores are on top now?
+toni 27 opener: (The Turbo Rally is running, screen bright, and a queue of children goes out of the door.) It works! Look at them! I set the record on the first lap and now every kid in Frostholm wants a go.
+toni 30 opener: (Toni is by the Turbo Rally, a screwdriver in her belt and her pink shirt on.) The last day. I've polished every screen. If the island's going to change, it's going to change with clean machines.
+tor 20 opener: (Tor is packing books into a box: Marx, Lenin, and four Inspector Halla mysteries.) If the mountain goes tonight, the books come with me. All of them. Even the bourgeois ones. Especially the bourgeois ones. I've not finished the last Halla.
+tor 22 reply: Isn't that surplus value?
+tor 23 reply: Are you rebuilding today?
+tor 25 reply: How's the rebuilding?
+tor 29 opener: (Tor is sitting on his fort of planks, reading Marx aloud to the timber, very calmly.) The Republicans are choosing a leader and the palace is arguing about who's next. So I'm reading Marx to the planks. To calm myself down. It's working, a bit.
+tor 30 opener: (Tor has a flat square parcel under his arm, wrapped in brown paper, and can't stop smiling.) Payday. Last day of the month. And I bought it. The Brubeck. 'Time Out'. Five-four. Ruby wrapped it herself and said 'Finally, comrade.'
+tove 11 reply: The strop already? That was quick.
+tove 24 reply: Will you put her name on the pole?
+veikko 13 opener: (Veikko is wincing.) Leg's bad today. Hely brought me a cola. She says the cola people mean to give a bottle to everyone on the island. I said what's the catch. She said 'you, drinking it'.
+veikko 24 opener: (Veikko winces at an aftershock.) Every time the ground shakes, my leg remembers January. It's not the pain. It's the noise. That crack.
+viktor 6 reply: Is the garden all frozen?
+viktor 21 reply: Is the garden ruined?
+viktor 23 reply: What's next for the garden?
+vince 23 opener: (Vince is pinning a new postcard to the cashier's window: Monte Carlo again, the harbour.) A second one. A tourist sent it from Monaco, he'd been through here last year. Says the sea's still warm.
+vince 30 opener: (Vince is at the desk, with the Monte Carlo postcards in his breast pocket.) The last day. Whatever they decide out there, I'll know by tonight whether to stay or pack.
+wilma 15 opener: (Wilma is dusting Mr Ekholm's bathtub, under the edge of its sheet: the founder's, where he brewed the first batch.) Yesterday went well. Kelpy only poked one person. A Party man. He's fine. He's sulking. (She coughs.) Jaana's coughing too. I'm worried.
+yuri 8 opener: (Yuri is writing a very long letter at a desk in the corner of the hotel bar, in tiny handwriting, three pages already.) My mother. In Leningrad. She likes to know everything. What I eat, who I meet, what they say. (He blots a page.) I'm a very dutiful son.
+yuri 17 opener: (The bottles behind the hotel bar rattle, and Yuri puts out a hand to steady his glass.) The ground. (He waits.) In Leningrad the ground never moves. The river floods, the Neva freezes, but the ground stays where it's told.
+yuri 26 opener: (Yuri is at the hotel bar with a crate of oranges, peeling one with great care, offering segments to anyone who passes.) Oranges. The last of the crate. (He hands you a segment.) Eat. Vitamins. Not for the revolution, this time. Just for you.
+yuri 27 opener: (Yuri is buttoning his coat, a cinema ticket and a bag of popcorn in his hands.) The Party's picture tonight, in Kingsgrad! Six tractors and a combine harvester. (He offers the popcorn.) I've seen it eleven times. In Leningrad. I cry every time at the harvester.

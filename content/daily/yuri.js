@@ -85,7 +85,8 @@ DAILY['Yuri']={
 22:["(Yuri has ash all over his good shoes and a broom leaning against the bar.) Anna had me sweeping Saltwick all morning. A timber man, with a broom. She says the Party sweeps with the people. My mother would not approve. I enjoyed it.",[
   ["Is Anna organising the clean-up?","The whole of Saltwick, street by street. Nobody arguing. (He looks at the broom.) This is how you win an island. Not with red flags. With brooms. I've told my mother. She hasn't answered."],
   ["What's the news?","The farms out east are grey. Kelp Cola has trouble at the farm, they say. (He picks up the broom.) The capitalists' kelp is grey. The workers' brooms are busy. It writes itself."],
-  ["Has the policewoman seen your passport?","(He pauses.) She has. She looked at it for a long time and handed it back. 'Very nice photograph,' she said. (He smiles.) It's a very nice photograph."]],
+  ["Has the policewoman seen your passport?","(He pauses.) She has. She looked at it for a long time and handed it back. 'Very nice photograph,' she said. (He smiles.) It's a very nice photograph.","Yuri:20"],
+  ["Has anyone asked for your papers?","The policewoman wanted my passport. (He pauses.) She's seen it. She looked at it for a long time and handed it back. 'Very nice photograph,' she said. (He smiles.) It's a very nice photograph.","!Yuri:20"]],
  "Take a broom. There's plenty of ash for everyone."],
 23:["(Yuri is in the hotel bar, reading a telegram, and his smile has gone completely.) My mother. (He folds it.) She wants things to move faster. The rig. The factory. Something must stop working, she says. Before the end of the month.",[
   ["What does that mean?","(He looks at you very carefully.) It means my mother is very impatient. (He puts the telegram in his pocket.) Something broken on the oil rig, they say, today. I didn't break it. I want you to know that."],

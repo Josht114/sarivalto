@@ -17,7 +17,7 @@ DAILY['Pirkko']={
   ["Who else do you feed?","Hely, Veikko's friend, when she'll let me. Pat on the beach, when I can get a bag down there. Anyone who stands near the hatch looking at the menu too long."],
   ["Doesn't it cost you?","Some. But Pekka, my husband, God rest him, always said a van that feeds nobody for free is just a kitchen with wheels."]],
  "There's always a bun for anyone who needs one. Remember that."],
-7:["(Pirkko is kicking the side of the van, gently.) Bertta's heater's packed up again. Pekka could fix her with a hairpin. I can only threaten her.",[
+7:["(Pirkko is kicking the side of the van, gently.) Bertta's heater's packed up again. Bertta's the van. My Pekka, God rest him, could fix her with a hairpin. I can only threaten her.",[
   ["Was this Pekka's van?","He drove her for the mill crews until his heart gave out, five winters back. I kept the van. I kept him in it, really."],
   ["Want me to have a look?","You're welcome to try. She's a Finnish van from nineteen sixty-four, and she doesn't respond to the English. Or to me."],
   ["Kicking it works on a jukebox.","(She kicks it again. The heater coughs into life.) Well, would you look at that. You can stay."]],
@@ -32,7 +32,7 @@ DAILY['Pirkko']={
   ["Does Kelp Cola treat its workers well?","They pay on Fridays and the canteen's terrible, which is good for me. The lads grumble, but they grumble about the weather too."],
   ["What would your perfect cola taste of?","Cardamom and a bit of salt. Like a Christmas bun that's been to sea. Don't tell them, they'll steal it."]],
  "Coffee's on the house if you bring me factory gossip."],
-10:["(There's a black ribbon tied to Bertta's wing mirror, and the radio inside the van is playing the funeral, very low.) They're burying him now. I couldn't afford the morning off, so I'm listening.",[
+10:["(There's a black ribbon tied to the wing mirror of Bertta, her van, and the radio inside the van is playing the funeral, very low.) They're burying him now. I couldn't afford the morning off, so I'm listening.",[
   ["Did you ever meet the king?","Once, at the Kelp Cola factory opening. He bought a pasty and didn't eat it. Pekka said it was the most honest thing a king had ever done."],
   ["Who's leading the service?","Father Thyme. Listen to him, he's struggling with his voice. Bless him. He'll get through it on pure stubbornness."],
   ["Should I turn it up?","Leave it low, love. Grief should be quiet. The lads in the queue have all taken their caps off. That's enough."]],
@@ -52,7 +52,7 @@ DAILY['Pirkko']={
   ["What's the point of it?","Phil wants everyone on the island to have a bottle in their hand before anyone else gets a word in. The cola's the vote, in a way. Clever. Bit much."],
   ["Want a free cola?","I've got forty in the van, love. Have one of mine."]],
  "Take a sample, they won't miss it."],
-14:["(Pirkko is loading the van with three times the usual sausages.) The fourteenth! I'm taking Bertta to the big day. Every soul on the island in one place, and all of them hungry.",[
+14:["(Pirkko is loading the van with three times the usual sausages.) The fourteenth! I'm taking Bertta, the van, to the big day. Every soul on the island in one place, and all of them hungry.",[
   ["How many are you expecting?","I've done four hundred hot dogs, and I'll run out by noon. Then they'll eat the buns. Then they'll eat each other."],
   ["What do you think will happen there?","A lot of men making speeches with cold hands. I'll be at the back with the mustard, which is where the real business happens."],
   ["Need a hand?","You can carry the urn. It weighs as much as a novice."]],
@@ -95,9 +95,10 @@ DAILY['Pirkko']={
 22:["(Pirkko is wiping grey dust off the van's windscreen with a wet rag.) Ash on everything. Ash in the buns. I've had to put a cloth over the mustard.",[
   ["How's business after the eruption?","Better than ever. Nobody wants to cook in a kitchen full of dust. They'll all eat out of a van for a week."],
   ["Did you go to East Farm for potatoes?","First thing. Hilda was out in the field in a scarf over her mouth, and Olaf was shouting at the sky. She said the cola men are coming out to the farm today, about something. She didn't say what."],
-  ["Bertta survived, then?","Bertta's survived two kings, a husband and a volcano. She'll see me out."]],
+  ["Bertta survived, then?","Bertta's survived two kings, a husband and a volcano. She'll see me out.","Pirkko:4|Pirkko:7|Pirkko:8|Pirkko:10|Pirkko:14|Pirkko:17"],
+  ["Is the van all right?","Bertta? That's the van. She's survived two kings, a husband and a volcano. She'll see me out.","!Pirkko:4|Pirkko:7|Pirkko:8|Pirkko:10|Pirkko:14|Pirkko:17"]],
  "Brush yourself down before you get in a tram, love."],
-23:["(There's a fresh dent in Bertta's side, and Pirkko is glaring at it.) The aftershock threw the fryer basket clean through the window. Lucky I wasn't stood in front of it.",[
+23:["(There's a fresh dent in the side of Bertta, her van, and Pirkko is glaring at it.) The aftershock threw the fryer basket clean through the window. Lucky I wasn't stood in front of it.",[
   ["Are you hurt?","A burn on my thumb, that's all. I put butter on it, which is wrong, but Pekka's mother did it, and she lived to ninety."],
   ["Can it be fixed?","Ask the factory mechanic. He fixes cola machines. A van's a cola machine that goes along, isn't it?"],
   ["What's the gossip at the factory?","The Party lads are very busy whispering, and the foremen are very busy pretending not to notice. Something's afoot. I keep my hatch shut and my ears open."]],

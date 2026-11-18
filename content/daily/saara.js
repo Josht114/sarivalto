@@ -57,7 +57,8 @@ DAILY['Saara']={
 12:["I've set Noora a mock exam. She's sitting it at the bench, and I'm pretending to read.",[
   ["How is she doing?","She chewed her pencil down to the lead at question three. Then she got it right."],
   ["Free samples tomorrow, I hear.","Phil wanted me to test a bottle from every crate. I said one in a hundred. We've compromised on one in a hundred."],
-  ["Any word from your professor?","He's written again, with a photograph of my old lab bench. It's emotional blackmail, and it's working a little."]],
+  ["Any word from your professor?","He's written again, with a photograph of my old lab bench. It's emotional blackmail, and it's working a little.","Saara:5"],
+  ["Do you ever miss Helsinki?","My old professor wants me back in his lab. He's written again, with a photograph of my old bench. It's emotional blackmail, and it's working a little.","!Saara:5"]],
  "Don't distract her. Question four's a monster."],
 13:["A man in a good coat came down here and stared at my blackboard. Noora chased him off with pine cola. The blackboard's no use to him: the secret isn't on it.",[
   ["Where is the secret, then?",["Not here. Every week Phil comes down with a little brown bottle and adds it to the base syrup himself, with the door shut. Even I don't know what's in it.",[
@@ -126,7 +127,8 @@ DAILY['Saara']={
 25:["They want the cola in Phil's new advert to fizz just so. I've added more carbon dioxide and asked it nicely.",[
   ["Who's in the advert?","I wasn't told. Whoever he is, I've made the bottles fizz towards him."],
   ["They say Princess Daphne's with the Democrats.","Chemistry is full of unlikely bonds. Some of them turn out to be stable."],
-  ["Did you answer your professor?","I've said no. I enclosed a bottle. He'll understand when he tastes it."]],
+  ["Did you answer your professor?","I've said no. I enclosed a bottle. He'll understand when he tastes it.","Saara:5|Saara:12"],
+  ["Will you stay on the island?","My old professor in Helsinki wanted me back. I've said no. I enclosed a bottle. He'll understand when he tastes it.","!Saara:5|Saara:12"]],
  "Shake nothing on your way out. Everything down here is under pressure."],
 26:["Dario's buying the hot springs spa. Two degrees warmer and rising, and he's buying it. I've sent my readings to Saga. She's keeping them in her drawer.",[
   ["Would you warn Dario?","I'd warn anyone who asked. He hasn't. Oil men believe in the ground; it's always paid them."],
@@ -136,7 +138,8 @@ DAILY['Saara']={
 27:["Kelp Cola Light is ready for the buyers. Less sugar, the tin's gone quiet, and it still tastes like us. I'm almost proud.",[
   ["Only almost?","A chemist is never proud. Satisfied, provisionally, pending further tests."],
   ["Could anyone spoil it?","I've locked the samples in my fridge, and the key's round my neck. Noora's the only other one who knows. Now you do. Don't."],
-  ["Noora's exam is tomorrow.","I'm invigilating. Strictly. I've practised my stern face in a beaker."]],
+  ["Noora's exam is tomorrow.","I'm invigilating. Strictly. I've practised my stern face in a beaker.","Saara:7|Saara:12|Saara:15|Saara:22"],
+  ["How's Noora?","Her chemistry exam is tomorrow, for Helsinki. I'm invigilating. Strictly. I've practised my stern face in a beaker.","!Saara:7|Saara:12|Saara:15|Saara:22"]],
  "You saw nothing round my neck."],
 28:["(Saara stands at the foot of the stairs, arms folded, guarding Noora's exam.) Upstairs, Phil is selling my cola to foreigners. Down here, Noora's on question four. I'm needed in both places, and I've chosen.",[
   ["Shouldn't you be upstairs?","Phil has the samples and a speech. Noora has me. The cola doesn't need a chemist today. The chemist does."],

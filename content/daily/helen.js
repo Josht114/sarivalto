@@ -146,7 +146,8 @@ DAILY['Helen']={
  "Don't tell Anna about the robot."],
 28:["The twenty-eighth. Every faction on the island's doing its biggest thing today. The Union's doing what it always does: turning up.",[
   ["What's the Party up to?","Ask Anna. If I told a reporter, she'd have me back gutting herring by Friday."],
-  ["Are your stewards ready?","Every one of them, waiting for a word. They might never get it. Being ready is the point."],
+  ["Are your stewards ready?","Every one of them, waiting for a word. They might never get it. Being ready is the point.","Helen:26"],
+  ["Who's with you today?","My shop stewards, all over the island. Every one of them waiting for a word. They might never get it. Being ready is the point.","!Helen:26"],
   ["Did Bob make breakfast?","Porridge and a boiled egg, wrapped in a tea towel to keep it warm. He says a big day needs protein."]],
  "Off you go. It's a long day for everybody."],
 29:["Erik's sent a crate of Eastbrook beer to the Union office, 'from one side of the island to the other'. Friendly rivals, says his note.",[

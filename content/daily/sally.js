@@ -76,7 +76,7 @@ DAILY['Sally']={
   ["What about church against crown?","It's Sunday, and they're fighting about princes. If it's Augustus, the market goes quiet and holy. If it's Leopold, it goes grand. Either way, there'll be houses."],
   ["Do you sleep?","Like a baby. A baby who's sure the market's about to boom."]],
  "Keep a brochure in your pocket. You never know."],
-16:["Another letter from Kirsti. (She reads aloud.) 'Dear Sally, the papers here say the island's tearing itself apart in public debates. Come home.' (She folds it up.) Debates are good for property.",[
+16:["Another letter from my sister Kirsti, in Helsinki. (She reads aloud.) 'Dear Sally, the papers here say the island's tearing itself apart in public debates. Come home.' (She folds it up.) Debates are good for property.",[
   ["How are debates good for property?","People talk about the future. Then they want to live in it. It's very simple."],
   ["Will you go to Helsinki?","Never. I'd have to sell my house, and I'd never sell to anyone who didn't love it. And then where would I live? In Kirsti's tram depot."],
   ["Did you watch the debate?","I listened from the back. Lovely voices, both sides. Erik used the word 'home' four times. I'd hire that man."]],
@@ -145,7 +145,7 @@ DAILY['Sally']={
   ["What's it like out there?","Flags, bands, speeches. Erik's in the square, the Party's marching, and the palace has visitors. Everybody's selling something. So am I."],
   ["Will you march?","In these shoes? I'll stand at the door and wave at everyone. People remember who waved."]],
  "Go and see it all! Wave back at me."],
-29:["(Sally is writing a letter.) To Kirsti. I'm telling her that whatever happens tomorrow, I'm staying. The island's my home. You don't sell your home. You sell other people theirs.",[
+29:["(Sally is writing a letter.) To my sister Kirsti, in Helsinki. I'm telling her that whatever happens tomorrow, I'm staying. The island's my home. You don't sell your home. You sell other people theirs.",[
   ["Is that what you're writing?","More or less. And I've put in a brochure for the Eastbrook house. In case she ever wants to visit. She won't, but it's nice to be asked."],
   ["What's your hope for tomorrow?","That people want to stay. If they stay, they need homes. If they go, they sell me their homes. Either way, I'll be here."],
   ["You never stop.","Neither does the island. That's why I love it."]],
@@ -153,6 +153,7 @@ DAILY['Sally']={
 30:["(Sally is in her best suit, with a fresh flower in the buttonhole.) The last day! Whatever happens today, the market opens tomorrow at nine. I've already put the coffee on.",[
   ["Are you nervous?","Not a bit. (Her hands shake a little on the cup.) Well. A bit. But it's the nervous before an auction. Something good comes after."],
   ["What will you do if the island changes?","Sell it a house. Every new island needs houses. And every new government needs offices. I'll draw them a brochure."],
-  ["Thank you for the brochures.","Thank you for taking them! You're the only person this month who took one and didn't light a stove with it. I hope."]],
+  ["Thank you for the brochures.","Thank you for taking them! You're the only person this month who took one and didn't light a stove with it. I hope.","Sally:8|Sally:13|Sally:14|Sally:15|Sally:20|Sally:27"],
+  ["Thank you, Sally.","(She beams.) For what? I gave you a brochure every time you came in! You're the only person this month who took one and didn't light a stove with it. I hope.","!Sally:8|Sally:13|Sally:14|Sally:15|Sally:20|Sally:27"]],
  "Good luck, darling. Your future starts here."],
 };

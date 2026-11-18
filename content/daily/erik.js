@@ -109,7 +109,7 @@ DAILY['Erik']={
   ["Would a royal ever back a vote?","Kings have done it before, in other countries. Given their crowns a sensible size. Daphne's clever, and she's not the one who'd be king. That gives her room to think."],
   ["Isn't that a bit cheeky?","It's terribly cheeky. (He seals the envelope.) I used to tell my pupils: the worst anyone can say is no. Then they'd say it, and I'd have to think of something else."]],
  "To the post box, and then to bed. Ash permitting."],
-25:["(Erik is pacing up and down the long table, in his good jacket, for once without a clipboard.) Today's the day I find out if a princess can be a democrat. I've tidied the hall. I've hidden Bertha.",[
+25:["(Erik is pacing up and down the long table, in his good jacket, for once without a clipboard.) Today's the day I find out if a princess can be a democrat. I've tidied the hall. I've hidden Bertha, the duplicating machine.",[
   ["What's your pitch to her?","That a vote doesn't throw her family out. It just lets the people choose to keep them, or not. It's honest. I don't know if honest works on royals."],
   ["Does the palace know?","The palace knows everything, eventually, from the maids. Leopold has his own plans today, I hear. A crown for everyone, whatever that means. Paper crowns, probably."],
   ["Why hide Bertha?","Because she clanks, and she'd embarrass me in front of royalty. (He pauses.) I've also hidden the egg-and-spoon trophy. A man has his pride."]],
@@ -134,7 +134,7 @@ DAILY['Erik']={
   ["What happens tomorrow?","Tomorrow the island decides. Or somebody decides for it. That's the difference between Helen and me, and between me and everyone else."],
   ["Are you proud of what you've done?","Ask me in a week. (He looks out of the window.) No. Ask me now. Yes. Whatever happens, Eastbrook stood up and asked to be asked."]],
  "Get some sleep. I won't. Somebody should."],
-30:["(Erik is sitting alone at the long table under the crooked banner, with Bertha beside him, quiet for once.) The last day. Whatever's decided today, it'll be decided. Then I suppose I'll have to find out what I do on a Monday.",[
+30:["(Erik is sitting alone at the long table under the crooked banner, with Bertha, his duplicating machine, beside him, quiet for once.) The last day. Whatever's decided today, it'll be decided. Then I suppose I'll have to find out what I do on a Monday.",[
   ["What will you do, after?","If we win the vote, I'll stand for it, and probably lose to someone with a better tie. If we don't, I'll go back to teaching and tell thirty children what we tried. Either way, I'll be marking."],
   ["Are you frightened?","A bit. Not for me. For the people who stood next to me. Knut and Ilse and Dex and Ruby. They believed me. I'd like to have been worth it."],
   ["Thank you, Erik.",["(He looks surprised, and pleased.) Thank you for listening to an old schoolteacher go on. You'd have been a good pupil. Asked too many questions.",[

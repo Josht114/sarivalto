@@ -104,7 +104,7 @@ DAILY['Pat']={
   ["Disappointed it isn't secrets?","No. Secrets are cheap on this island. A man saying sorry, that's rare. Worth more than any code."],
   ["Did he ever get home?","The letter doesn't say. That's the trouble with letters in bottles: they never get the reply."]],
  "I'll keep it. Pyotr's sorry ought to be somewhere safe."],
-20:["(Pat is quiet, looking at the sea.) Pyotr and his Galina have got me thinking. About sorry. About Leena.",[
+20:["(Pat is quiet, looking at the sea.) That letter I found, from a sailor called Pyotr to his Galina, has got me thinking. About sorry. About Leena, my daughter.",[
   ["Write to her.","With what? Pencil, I've got. Paper, I've got: the sea sends paper all the time. It's the words I haven't got."],
   ["What would you say?","'Your father's alive, he's sorry, he can still cook.' That's three things. Maybe it's enough."],
   ["She might not want to hear.","Might not. But Galina might not have wanted Pyotr's letter either. He sent it anyway."]],
@@ -154,7 +154,7 @@ DAILY['Pat']={
   ["Will you miss the old days?","Some of them. Not the ones I spent on the steamer, drunk. The ones before that, maybe."],
   ["Are you nervous?","Me? I've nothing to lose. That's the only good thing about having nothing: you sleep through history."]],
  "Get some rest yourself. Tomorrow's a long one."],
-30:["(Pat holds up a folded scrap of paper.) Finished it. My letter to Leena. Four lines. It took me eleven years and a volcano.",[
+30:["(Pat holds up a folded scrap of paper.) Finished it. My letter to Leena, my daughter. Four lines. It took me eleven years and a volcano.",[
   ["What does it say?","That's between her and me. But it ends with 'your father, who is sorry, and can still cook'. That's the bit I'm proud of."],
   ["Will you send it?","I'll send it. By post, mind. Not by bottle. I've learnt that much from Pyotr."],
   ["Big day for the island too.","The island will be settled by tonight, they say. Good. So will I. Some days everything comes in on the same tide."]],

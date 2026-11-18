@@ -100,7 +100,8 @@ DAILY['Brother Mikael']={
 24:["(Brother Mikael is in his mother's socks, a pack on his back, at the start of the ridge path.) The retreat to the peaks. Brother Anselm says up there I won't be able to see Kingsgrad. He looked very pleased about it.",[
   ["What will you look at instead?","The sky, the rock, the back of Brother Teodor. It'll be a nice change from roofs."],
   ["Will you tell the brothers your story?","Some of it, maybe. The Prior says a retreat's for setting things down. I've been carrying it six months. My arms are tired."],
-  ["Practise your chant up there.","I'm going to sing it from the top of the ridge, where nobody can hear me crack. Except God. He's used to it."]],
+  ["Practise your chant up there.","I'm going to sing it from the top of the ridge, where nobody can hear me crack. Except God. He's used to it.","Brother Mikael:7|Brother Mikael:13"],
+  ["Will you sing on the mountain?","The old chant for the Herbal Rite, at the end of the month. I'm going to sing it from the top of the ridge, where nobody can hear me crack. Except God. He's used to it.","!Brother Mikael:7|Brother Mikael:13"]],
  "Wish me straight paths and warm socks."],
 25:["(Brother Mikael is sitting on the warm steps, looking north, towards the black line of the lava, not south towards Kingsgrad.) We came down this morning. I told the brothers, on the rock, why I came here. All of it. And the sky didn't fall. It had already done that, I suppose.",[
   ["How did they take it?","Teodor gave me his last sausage. Paavo said I'd make a good gardener. Ilja wrote nothing down, which is the highest honour he has. The Prior said, 'I know.'"],

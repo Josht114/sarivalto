@@ -36,7 +36,8 @@ DAILY['Igor']={
 13:["(Igor is polishing a huge brass weight with his sleeve.) There's free cola in Kingsgrad, I hear. Bruno wants me to stand near the van and look strong. (He polishes.) He thinks I'd sell a lot of cola. I don't think strong sells cola. I think thirsty does.",[
   ["Will you go?","If Bruno asks. (He polishes.) He usually asks. He usually forgets why. Then he makes a speech, and I carry it home."],
   ["What's the heaviest thing you've lifted?","A piano. With a man on it. Playing. (He thinks.) In Gdansk. He didn't stop playing. That's the most professional thing I've ever seen."],
-  ["What are you knitting?","(He looks round, then pulls a red scarf from behind the weight.) Two feet. (He holds it up.) Bruno's very tall when he's making a speech. It'll need to be long."]],
+  ["What are you knitting?","(He looks round, then pulls a red scarf from behind the weight.) Two feet. (He holds it up.) Bruno's very tall when he's making a speech. It'll need to be long.","Igor:8"],
+  ["What's behind the weight?","(He looks round, then pulls out a red scarf and two tiny needles.) I knit. Don't tell anyone. A scarf for Bruno. Two feet so far. He's very tall when he's making a speech.","!Igor:8"]],
  "Don't tell Bruno about the scarf. Or the piano. He'll want one."],
 14:["(Igor is in his best leotard, standing at the back of the troupe, and looks like a lighthouse in it.) The big gathering. Bruno says lift something impressive. (He looks round.) I don't know what yet. I'm breathing in.",[
   ["What will you lift?","Something that needs lifting, I hope. A pram over a puddle. An old man onto a wall to see. (He thinks.) Bruno wants a cart. A cart is very impressive. A pram is more useful."],

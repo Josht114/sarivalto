@@ -60,7 +60,7 @@ DAILY['Jack']={
   ["Let me help.","(He hands you an end.) Pull when I say pull, not before. Not before! (He sighs.) Never mind. That's a new knot. That's yours, that one."],
   ["Why not just cut it?","Cut it? (He looks hurt.) Do you cut a jumper when it's got a hole in it?"]],
  "Leave it with me. Me and the pin, we'll get there."],
-13:["Free Kelp Cola all over town! I took two. One for me, one for the Admiral.",[
+13:["Free Kelp Cola all over town! I took two. One for me, one for the Admiral. My old pike, in the lake. He won't drink it.",[
   ["You're giving a pike a cola?","I'm going to drop it off the jetty in the bottle. Maybe he'll choke on the cap. A man's got to try new things."],
   ["Is Harald buying votes?","Of course he is. But I'd sell mine for a cut in the harbour tax, so I can't really talk."],
   ["Does it taste good?","Like seaweed that's been to a party. I've had worse. I've been a fisherman fifty years: I've had much worse."]],

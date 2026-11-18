@@ -107,7 +107,7 @@ DAILY['Mary']={
   ["What's happening at the palace?","Gossip says somebody's after something in there. Ingrid from the palace bought a book on locks a week ago. I didn't think anything of it then."],
   ["Is anyone at the Hotel Aurora?","A man in a heavy coat who reads Russian newspapers in the lobby. He came in and bought a map of the island. He paid in exact change, which no tourist ever has."]],
  "Bring a candle if you visit at night. The lights keep failing."],
-21:["(Mary's shop is grey. Ash on the books, ash on the counter, ash on Orwell.) The mountain's gone up. I watched it from the step. Nobody's hurt, thank God, but look at my shop. It's in the paper. All of it.",[
+21:["(Mary's shop is grey. Ash on the books, ash on the counter, ash on Orwell, her fat grey cat.) The mountain's gone up. I watched it from the step. Nobody's hurt, thank God, but look at my shop. It's in the paper. All of it.",[
   ["Can it be cleaned?","With a soft brush and patience. I've got the brush. Ask me about patience tomorrow."],
   ["Is Orwell all right?","He's furious. He's grey on grey now, and he's licking ash off his paws and giving me looks. He blames me personally."],
   ["Is everyone safe?","Kaisa's reading names on the radio, everyone who's rung in safe. I heard Frank's, and Grace's. I sat on the floor and cried. Then I fetched the brush."]],
@@ -154,7 +154,7 @@ DAILY['Mary']={
   ["How's Kingsgrad?","Holding its breath. Grace hasn't spoken all morning. Frank's polishing the same rifle for the third hour. Lisa's restocking soap nobody's buying."],
   ["Who do you think will win?","Whoever writes the history afterwards. That's always who wins, and it's my trade, so I know."]],
  "Read something before bed. It helps."],
-30:["(Mary has the shop open, with the door wide, and Orwell on the step in the cold sun.) The last day of September. Everything's decided today. I've opened anyway. If the world ends, I want to be found among my books.",[
+30:["(Mary has the shop open, with the door wide, and Orwell, her fat grey cat, on the step in the cold sun.) The last day of September. Everything's decided today. I've opened anyway. If the world ends, I want to be found among my books.",[
   ["Is the back shelf still hidden?","Under the floorboards. It'll stay there until I know. Then I'll dig it up and put it back in the window. Or I won't. We'll see."],
   ["What will you do whatever happens?","Open the shop tomorrow. Brush off the ash. Send Mario a murder. Read the next thing. That's what I've always done."],
   ["Thank you, Mary.","For what? I sold you nothing all month. (She pulls a thin book off the shelf and hands it to you.) There. The ghost stories. Take it, and come back and tell me if it frightened you."]],

@@ -72,13 +72,15 @@ DAILY['Nils']={
   ["Are you scared?","Frightened? (He thinks.) A bit. Mostly I want to see it on paper. That's the scientist in me. The rest of me wants to go to Stockholm."]],
  "If you're up north, look at the steam. Then come and tell my machine."],
 20:["(Nils is selling torches as fast as he can hand them over.) Everyone wants a torch. Everyone wants batteries. I've never been so popular.",[
-  ["What does the seismograph say?","It's gone off the paper. I had to put a bigger roll on. Even Birgit stopped in to look. She said, 'Is that bad?' I said yes. She bought two torches."],
+  ["What does the seismograph say?","It's gone off the paper. I had to put a bigger roll on. Even Birgit stopped in to look. She said, 'Is that bad?' I said yes. She bought two torches.","Nils:17|Nils:18"],
+  ["Is that a seismograph?","My own. It's gone off the paper. I had to put a bigger roll on. Even Birgit stopped in to look. She said, 'Is that bad?' I said yes. She bought two torches.","!Nils:17|Nils:18"],
   ["Who's that man at the Hotel Aurora?","The one in the grey coat? Upstairs, never comes out? I've seen his light on at three in the morning. And his aerial. A man doesn't need an aerial like that to listen to the Swedish weather."],
   ["Could I buy a torch?","Get in the queue. (He grins.) I'm joking. Nobody's queueing. They just look like they are."]],
  "Batteries in the torch, torch by the bed. Tonight of all nights."],
 21:["(The shop is dim, the windows grey with ash. Nils has a radio pressed to his ear.) It's gone. The mountain. The pen jumped off the paper altogether.",[
   ["Is anyone hurt?","Not that I hear. Kaisa's on the radio saying stay indoors, keep the windows shut. Lava's come down the north side, into the hills. Not near the farms, thank God."],
-  ["What did the seismograph do?","Drew a line straight up and then fell off the table. Best day of its life. (He picks up the pen.) I'll keep that roll forever."],
+  ["What did the seismograph do?","Drew a line straight up and then fell off the table. Best day of its life. (He picks up the pen.) I'll keep that roll forever.","Nils:17|Nils:18|Nils:20"],
+  ["Did any of your machines catch it?","My seismograph. Home-made. It drew a line straight up and then fell off the table. Best day of its life. (He picks up the pen.) I'll keep that roll forever.","!Nils:17|Nils:18|Nils:20"],
   ["Are you all right?","I'm shaking. Not from the ground. I've wanted to see something like this my whole life. I didn't think it would be this frightening."]],
  "Keep the windows shut. That ash gets into everything with a valve."],
 22:["(Nils is cleaning ash out of a television with a paintbrush.) Every set in Frostholm's full of grit. I've forty in the back. I'm going to be rich and very tired.",[
@@ -103,7 +105,8 @@ DAILY['Nils']={
  "If you see Magnus on the stairs, don't mention radios. He's touchy."],
 26:["(Nils is rewinding his tape from the fourteenth.) I listen to it every night. You hear more the third time.",[
   ["What do you hear?","Who clapped and who didn't. Who coughed when Anna spoke. Who laughed at the wrong bit. It's all there. You just have to listen."],
-  ["Did you find out who the click was?","(He lowers his voice.) Someone near the front. A good machine, very quiet. I'd say Russian, from the hum. I'd say the man at the hotel."],
+  ["Did you find out who the click was?","(He lowers his voice.) Someone near the front. A good machine, very quiet. I'd say Russian, from the hum. I'd say the man at the hotel.","Nils:7|Nils:12|Nils:15|Nils:24"],
+  ["Why record the gathering?","Somebody was listening. Every time I picked up my telephone this month: click. On the tape, the same click, near the front. A good machine. I'd say Russian, from the hum. I'd say the man at the hotel.","!Nils:7|Nils:12|Nils:15|Nils:24"],
   ["Isn't that a bit far-fetched?","Everything's far-fetched till it isn't. A month ago, a volcano was far-fetched."]],
  "Listen, the third time. You'll hear it."],
 27:["(The televisions show a Swedish film.) Otto would hate this. Swedes in a kitchen, not talking. Very artistic.",[

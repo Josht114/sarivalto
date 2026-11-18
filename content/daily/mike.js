@@ -40,7 +40,7 @@ DAILY['Mike']={
   ["Two lines for four vodkas?","One and a half. I made up the other half on the way home. I think it's about a horse."],
   ["Is Frostholm nice?","All glass and lights. I felt like a herring in a jeweller's."]],
  "Vstavai, proklyatyem zakleimyonny... That's the line. I think."],
-8:["I took the Gull out past the point. It smells like a garage out there. There's a rainbow on the water, and not the nice kind.",[
+8:["I took the Gull out past the point. Tom's boat. It smells like a garage out there. There's a rainbow on the water, and not the nice kind.",[
   ["Oil from the rig?","What else? Dario's men say 'routine maintenance'. Routine! There are dead gulls on the swell."],
   ["Will it reach the harbour?","If the wind turns. Then Kate will go out with a mop and murder somebody."],
   ["Fishing on a Sunday?","Fish don't keep Sundays. Nor does oil, it seems."]],
@@ -109,12 +109,12 @@ DAILY['Mike']={
   ["Does he ask a lot?","Who's in the Party, who isn't, who's thinking about it. I thought he was just friendly. Russians are very friendly."],
   ["Is the song finished?","Seven lines. One to go. It's the one about the last fight. Fitting."]],
  "Don't put the bit about the questions in your paper. Please."],
-21:["(Mike's face is grey with ash.) I was out in the Gull when it went. The whole north turned red. I've never rowed so fast, and I had an engine.",[
+21:["(Mike's face is grey with ash.) I was out in the Gull, Tom's boat, when it went. The whole north turned red. I've never rowed so fast, and I had an engine.",[
   ["Are you hurt?","No. Shaking. The sea went flat, then rough, then flat again. It was like the island took a breath."],
   ["Is everyone safe in the block?","Helen's counted everybody. I ran up every floor to check. Every floor. Every flat. Especially... every flat."],
   ["Did you sing to calm down?","I sang the whole thing, in Russian, all eight lines, without thinking. Perfect. Terror helps."]],
  "Get indoors. The sky's still coming down."],
-22:["The Valborg's full of ash. Every crack, every seam. Even her stubbornness has gone grey.",[
+22:["The Valborg, my boat, is full of ash. Every crack, every seam. Even her stubbornness has gone grey.",[
   ["Can she be cleaned?","With a brush and three days. I've got the brush. I'll steal the days from somewhere."],
   ["How's the harbour?","Dead fish along the tide line. Sam's out there picking them up one by one, like he's apologising to them."],
   ["Did anyone help you?","Somebody brought me a flask of coffee and didn't say a word. Best help there is. (He doesn't say who.)"]],

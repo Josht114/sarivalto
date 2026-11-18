@@ -84,7 +84,8 @@ DAILY['Frank']={
  "If either of them says 'gun', ring me."],
 17:["(A box rattles on the shelf. Frank steadies it with one hand.) Did you feel that? Second one today.",[
   ["Was that an earthquake?","Ground's shifting. My father said it did that in the fifties, before the mountain smoked. I didn't believe him. I'm starting to."],
-  ["Is your cabin safe?","It's up north, under the mountain. Four walls, a stove and my good rifle in a cupboard. If the ground opens up, the elk won't be the only thing running."],
+  ["Is your cabin safe?","It's up north, under the mountain. Four walls, a stove and my good rifle in a cupboard. If the ground opens up, the elk won't be the only thing running.","Frank:9"],
+  ["Where do you go to get away?","A cabin up north, past the lake, under the mountain. Four walls, a stove and my good rifle in a cupboard. If the ground opens up, the elk won't be the only thing running.","!Frank:9"],
   ["Heard anything about Dario?","Only that nobody can find him. Rich man goes missing, everybody looks. Poor man goes missing, nobody notices till the rent's due."]],
  "Don't stand under the shelf with the red tins. Not today."],
 18:["Duke wouldn't come out from under the counter this morning. Animals know before we do.",[
@@ -106,12 +107,14 @@ DAILY['Frank']={
  "Keep a torch by the bed. Go on, I'll sell you one."],
 21:["(Ash is falling past the window like grey snow.) Well. That's it, then. The mountain's gone up.",[
   ["Are you all right?","I'm fine. Duke's fine. He's under the counter and he's not coming out till Christmas. I can't say I blame him."],
-  ["What about your cabin?","Up north, under it all. I'll not know till the ash stops. Might be standing. Might be a very hot hole. (He looks out.) Forty years I've had that cabin."],
+  ["What about your cabin?","Up north, under it all. I'll not know till the ash stops. Might be standing. Might be a very hot hole. (He looks out.) Forty years I've had that cabin.","Frank:9|Frank:17"],
+  ["Do you have anything up north?","A cabin, past the lake, under it all. Forty years I've had it. I'll not know till the ash stops. Might be standing. Might be a very hot hole.","!Frank:9|Frank:17"],
   ["What are people saying?","That nobody's hurt, thank God. Doctor Lind's been up and down the street with a bag. And Hanna's telling everyone to stay indoors, which nobody is."]],
  "Cover your mouth with a scarf if you go out. That stuff gets in your chest."],
 22:["(Frank is sweeping ash off the counter with a paintbrush.) It's in everything. The barrels, the bolts, the cartridge boxes. I'll be cleaning guns till the spring.",[
   ["Can I help?","Hold that rifle steady. No, not like a broom. Like it's going to bite you. There. You'd make a terrible hunter."],
-  ["Any news of the cabin?","A farmer came down from up north. Said the road's grey as a gravestone but the woods by the lake are still standing. My cabin's past the lake. So, maybe."],
+  ["Any news of the cabin?","A farmer came down from up north. Said the road's grey as a gravestone but the woods by the lake are still standing. My cabin's past the lake. So, maybe.","Frank:9|Frank:17|Frank:21"],
+  ["Have you heard from up north?","A farmer came down. Said the road's grey as a gravestone but the woods by the lake are still standing. My cabin's past the lake. Forty years I've had it. So, maybe.","!Frank:9|Frank:17|Frank:21"],
   ["Is the elk season off?","The elk don't care about ash. They'll be hungry and they'll be cross. It'll be a hard season, if it's a season at all."]],
  "Brush your boots before you come in. I've only just done the floor."],
 23:["Margit telephoned. Wants to know if I'll still be coming to Frostholm on the twenty-ninth to vote. Volcano or no volcano.",[

@@ -184,7 +184,8 @@ conversations, with fewer branches. The Sonnet days are the ones to polish first
 // ---- Information: the conversations that change later ones (a reply that needs 'Name:day' heard, or not heard, and other
 // openers), grouped by the conversation they depend on, and how many conversations have a summary for the Information tab, day by day
 function infoBody(c){const who=n=>{const p=NPCS.find(x=>x.name==n);return p?npcA(c,p):esc(n)},day=d=>esc(qDate(+d)),need={};
-  const add=(k,o)=>{const m=/^(!?)(.+):(\d+)$/.exec(k);if(!m)return;(need[m[2]+':'+m[3]]??=[]).push({...o,not:!!m[1]})};
+  // (a need can join several conversations with |; it's listed under each)
+  const add=(k0,o)=>{const not=k0[0]=='!';for(const k of k0.replace(/^!/,'').split('|')){const m=/^(.+):(\d+)$/.exec(k);if(m)(need[m[1]+':'+m[2]]??=[]).push({...o,not})}};
   // every reply, however deep, that has a need
   const walk=(n,d,opts)=>(opts||[]).forEach(o=>{if(o[2])add(o[2],{n,d,kind:'reply',t:o[0]});if(Array.isArray(o[1]))walk(n,d,o[1][1])});
   for(const n in DAILY)for(const d in DAILY[n]){const D=DAILY[n][d];walk(n,d,D[1]);for(const k in D[4]||{})add(k,{n,d,kind:'opener',t:D[4][k]})}

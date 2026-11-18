@@ -113,7 +113,8 @@ DAILY['Agnes']={
 28:["(Agnes is sitting very straight behind the counter at an unusually early hour, with a long queue already out of the door.) Open since six. (She counts.) Notes in, notes out. (She stamps.) Cola, oil, Party, Church, palace. Every faction's making its big push. I've counted the lot.",[
   ["Who's spending most?","(She counts.) I couldn't possibly say. (She looks up.) But I'll tell you this. Somebody's spending money they don't have. (She stamps.) That's always the most expensive kind."],
   ["Are you tired?","Very. (She counts out notes.) My arm hasn't stopped since the mountain. (She hands them over.) But the numbers are all balancing. To the cent. (She looks almost surprised.) Even the six cents. I found them."],
-  ["Where were the six cents?","(She smiles, a real one.) Under the counter. Since the tremor. In the dust. (She stamps.) Three weeks. I knew I'd find them. I always find them."]],
+  ["Where were the six cents?","(She smiles, a real one.) Under the counter. Since the tremor. In the dust. (She stamps.) Three weeks. I knew I'd find them. I always find them.","Agnes:8"],
+  ["You look almost pleased.","(She smiles, a real one.) My books were six cents out at the start of the month. I found them this morning. Under the counter, in the dust, since the tremor. I always find them.","!Agnes:8"]],
  "Next, please. Today, everyone's next."],
 29:["(Agnes is counting the till at the end of a quiet morning, very slowly, as if it were the last time.) The Republicans are voting today. The palace is deciding who's next. (She counts.) And the bank is very quiet. (She looks at the door.) Everyone's spent everything. It's very restful.",[
   ["How's the vault?","Never been so full. (She looks at it.) Never been so empty. (She thinks.) Both at once. That's what happens when the whole island moves its money. Some of it ends up here. Most of it goes."],

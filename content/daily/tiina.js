@@ -44,7 +44,8 @@ DAILY['Tiina']={
  "Don't repeat the bit about the barn. Jussi's got a big mouth on paper."],
 8:["(Tiina is looking north-west, eyes narrowed.) Something's happened at the oil rig. The boats are all going that way and none of them are fishing.",[
   ["Do you know what happened?","No. And the oil company won't say. They never say anything. They didn't say anything last season, either."],
-  ["Last season?","Their supply boats run past the point in all weathers. Big engines. (She stops.) Never mind. I'm tired."],
+  ["Last season?","Their supply boats run past the point in all weathers. Big engines. (She stops.) Never mind. I'm tired.","Tiina:2|Tiina:3|Tiina:4"],
+  ["You don't like the oil company.","Their supply boats run past the point in all weathers. Big engines. Last season. (She stops.) Never mind. I'm tired.","!Tiina:2|Tiina:3|Tiina:4"],
   ["You don't trust the oil men.","I don't trust anyone with a boat bigger than a house who doesn't fish. That's not the same as having a reason."]],
  "Watch the sea today. It's got something to say."],
 9:["(Tiina has a ball of tarry net in her lap.) Tom brought me this off the beach. Oil in it. He says the sea's dirty all the way to the point.",[
@@ -67,7 +68,7 @@ DAILY['Tiina']={
   ["What was Matti's last day like?","(She looks at you a long time.) Ordinary. Porridge, an argument about the roof, a kiss at the door. He said 'back by dark'. That was the only lie he ever told me."],
   ["Nice to have the bench to yourself?","It's too quiet. You don't know how much someone talks until they stop."]],
  "She'll be back by noon, cross. She always is."],
-13:["(Tiina has an envelope in her lap, addressed in careful capitals.) I've written to the harbourmaster in Frostholm. Ole. I want the port log for the night the Lumikki went down.",[
+13:["(Tiina has an envelope in her lap, addressed in careful capitals.) I've written to the harbourmaster in Frostholm. Ole. I want the port log for the night the Lumikki went down. My husband Matti's boat.",[
   ["What do you hope to find?","Which boats were out. Which ones logged in and which didn't. If a big boat came in that night, someone wrote it down. Or someone didn't."],
   ["Why now?","Because the roads are open and the post goes to Frostholm again. And because you asked me about Matti, and I couldn't stop thinking."],
   ["Will Ole help?","Ole's a fair man, they say, and slow. Slow I can live with. I've waited a year."]],

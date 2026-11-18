@@ -56,7 +56,8 @@ DAILY['Augustus']={
 11:["(Augustus is sitting with a book closed on his knee.) The chapel's empty again. I went down to the crypt this morning and told him the readings went well.",[
   ["Did he answer?","No. He never did when I talked about the Bible. He'd change the subject to fishing."],
   ["Who did you see at the funeral?","Everyone. Gustavo kissed my sister's hand on the way in, and she let him. I didn't like it, and I'm ashamed of how much I didn't like it."],
-  ["Back to the saints?","Saint Monica today, who prayed for seventeen years for her son. I thought it might teach me patience with mine. I mean, with my brother."]],
+  ["Back to the saints?","Saint Monica today, who prayed for seventeen years for her son. I thought it might teach me patience with mine. I mean, with my brother.","Augustus:2|Augustus:3|Augustus:7"],
+  ["What are you reading these days?","The lives of the saints. Saint Monica today, who prayed for seventeen years for her son. I thought it might teach me patience with mine. I mean, with my brother.","!Augustus:2|Augustus:3|Augustus:7"]],
  "Light a candle in the chapel if you pass it. Any reason will do."],
 12:["(Augustus has the diary open.) It turns out my grandmother nearly became a nun. The year before she married. She'd packed her bag for the convent.",[
   ["What stopped her?","A letter from my grandfather, with a pressed flower in it. The flower's still between the pages. (He shows you: brown, flat, sixty years of patience.)"],
