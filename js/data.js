@@ -1466,7 +1466,8 @@ meetmonks:{title:'Meet the Monks',tested:true,giver:'Chuck',main:true,day:5,call
       b:{say:"A pious king the Church can steer. Not the worst outcome for us, so long as Moscow doesn't get to Augustus first. Good work. (Orthodox Church: +1 point.)"},
       c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work. (Orthodox Church: +1 point.)"}}}}],
   thanks:"Chuck has your report on the monastery."},
-meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',main:true,day:6,seq:true,
+// (you can only tell Chuck about Carlo if Gustavo told you: the flag carlo)
+meetsyndicate:{title:'Meet the Syndicate',tested:true,giver:'A stranger on the telephone',main:true,day:6,seq:true,
   ring:'Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone. My friend likes a game of cards.',
   // (Gustavo at the card table, with Paolo and Nico, the two bookies, sitting in: the three you play against)
   meet:[{name:'Gustavo',m:'pizzeria_in',x:9,y:2,dir:2},{name:'Paolo',m:'pizzeria_in',x:4,y:2,dir:3},{name:'Nico',m:'pizzeria_in',x:9,y:1,dir:2}],
@@ -1480,12 +1481,12 @@ meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',ma
       d:{say:"Then you'll have lost a little money to an old man, and learned something. Everyone should do that once. Sit. Three hands."}}}},
     {event:'pokerdon',count:3,what:'Play three hands of poker at the card table in the back room of the pizzeria in Kingsgrad',said:'Three hands played. The old man in the dark suit lays down his cards and looks at you properly for the first time.'},
     {talk:'Gustavo',what:'Talk to the man who called you, at the card table',chat:{start:'a',nodes:{
-      a:{say:"You play like a journalist: carefully, and you watch everyone's hands but your own. Gustavo. I run a few businesses on this island.",opts:[['Why did you call me?','b'],['What kind of businesses?','c']]},
+      a:{say:"You play like a journalist: carefully, and you watch everyone's hands but your own. Gustavo. I run a few businesses on this island.",opts:[['Why did you call me?','b'],['What kind of businesses?','c',()=>qFlag('meetsyndicate','carlo')]]},
       b:{say:"Because everyone else will, sooner or later. The Party, the palace, the cola men, the Americans. I like to be first. This island is going to change hands, and when it does, the man holding the cards is the one who knew who was at the table.",opts:[["And who's at the table?",'d']]},
       c:{say:"Pizza. Cards. Shipping. Whatever the island needs and can't get past the harbour master. Carlo is our candidate for the Republicans: a respectable man. Respectability is very good for business.",opts:[['Why tell me?','b']]},
       d:{say:"Today? You. Write what you like about the island. But if you ever need something brought in, or someone found, you know where the back room is. And Rosaria makes a very good pizza."}}}},
     {talk:'Chuck',points:{syndicate:1},what:'Report back to Chuck on the radio in the Hidden Radio Room',chat:{start:'a',nodes:{
-      a:{say:"NIGHTJAR. I hear you spent the day playing cards. Who with?",opts:[['Gustavo, the Don. He wanted to meet me before anyone else did.','b'],['The Syndicate are backing Carlo for the Republicans.','c']]},
+      a:{say:"NIGHTJAR. I hear you spent the day playing cards. Who with?",opts:[['Gustavo, the Don. He wanted to meet me before anyone else did.','b'],['The Syndicate are backing Carlo for the Republicans.','c',null,()=>!!qOf('meetsyndicate')?.flags?.carlo]]},
       b:{say:"The Don called you himself? Then he knows more about you than I'd like. Play his game, but don't ever owe him anything. Good work. (Crime Syndicate: +1 point.)"},
       c:{say:"Organised crime buying itself a political party. Ain't democracy grand. Keep in with them, carefully. Good work. (Crime Syndicate: +1 point.)"}}}}],
   thanks:"Chuck has your report on the Syndicate."},
