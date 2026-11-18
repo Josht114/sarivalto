@@ -1467,10 +1467,17 @@ meetmonks:{title:'Meet the Monks',tested:true,giver:'Chuck',main:true,day:5,call
       c:{say:"A Russian businessman up a mountain. That'll be our friend at the Hotel Aurora. Keep an eye on him. Good work. (Orthodox Church: +1 point.)"}}}}],
   thanks:"Chuck has your report on the monastery."},
 meetsyndicate:{title:'Meet the Syndicate',giver:'A stranger on the telephone',main:true,day:6,seq:true,
-  ring:'Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone.',
-  meet:{name:'Gustavo',m:'pizzeria_in',x:9,y:2,dir:2},
+  ring:'Good morning, journalist. A friend would like to meet you: the back room of the pizzeria in Kingsgrad. Bring some money of your own, and come alone. My friend likes a game of cards.',
+  // (Gustavo at the card table, with Paolo and Nico, the two bookies, sitting in: the three you play against)
+  meet:[{name:'Gustavo',m:'pizzeria_in',x:9,y:2,dir:2},{name:'Paolo',m:'pizzeria_in',x:4,y:2,dir:3},{name:'Nico',m:'pizzeria_in',x:9,y:1,dir:2}],
   text:'A stranger telephoned this morning: a friend would like to meet you in the back room of the pizzeria in Kingsgrad. Go, sit in at the card table, and play a few hands with whoever is waiting there. Then report back to Chuck.',
   done:[
+    // (he won't talk until you've played: three hands, first)
+    {talk:'Gustavo',what:'Talk to the man waiting at the card table, in the back room of the pizzeria in Kingsgrad',said:'He wants a game first: three hands of poker, with your own money. Sit down at the card table.',chat:{start:'a',nodes:{
+      a:{say:"(An old man in a dark suit is shuffling a deck at the card table, and doesn't look up.) Sit down, journalist. We don't talk before we've played. Three hands of poker, with your own money. Then we'll see what kind of person you are.",opts:[['What are the stakes?','b'],['Who are your friends?','c'],['And if I lose?','d']]},
+      b:{say:"Small. I'm not interested in your money. I'm interested in how you hold your cards. Sit, and deal yourself in."},
+      c:{say:"(He nods at the two men at the table.) Paolo and Nico. They take bets for a living, so they'll know what you're holding before you do. Sit down. Three hands."},
+      d:{say:"Then you'll have lost a little money to an old man, and learned something. Everyone should do that once. Sit. Three hands."}}}},
     {event:'pokerdon',count:3,what:'Play three hands of poker at the card table in the back room of the pizzeria in Kingsgrad',said:'Three hands played. The old man in the dark suit lays down his cards and looks at you properly for the first time.'},
     {talk:'Gustavo',what:'Talk to the man who called you, at the card table',chat:{start:'a',nodes:{
       a:{say:"You play like a journalist: carefully, and you watch everyone's hands but your own. Gustavo. I run a few businesses on this island.",opts:[['Why did you call me?','b'],['What kind of businesses?','c']]},
