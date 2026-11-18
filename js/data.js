@@ -1958,7 +1958,7 @@ alms:{title:'Alms for the Poor',giver:'Father Thyme',main:true,day:11,seq:true,c
     {if:'house',talk:'Pat',ok:q=>q.choice=='house',points:{church:5},chat:ALMS_GIFT,note:'Pat lives in the house from then on',
       what:'Buy a house from Sally, the estate agent in Kingsgrad, and give Pat the keys'}],
   thanks:"Pat has had the Church's alms, one way or another."},
-tattoo:{title:"Jonna's First Customer",giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
+tattoo:{title:"Jonna's First Customer",tested:true,giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
 beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says Maya at the Coffee Roasters in Eastbrook can\'t get decent coffee beans since the harbour master started taxing imports. Ask Chuck to have some brought in; they come the next day, and Hekki will give them to you. Then take them to Maya.',
