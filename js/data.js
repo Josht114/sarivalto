@@ -1433,7 +1433,7 @@ meetdems:{title:'Meet the Democrats',tested:true,giver:'Chuck',main:true,day:4,c
       b:{say:"Ha! Cheapest friendship we'll ever buy. If you need the beans brought in, call me: the diplomatic pouch has room. Good work. (Democratic Party: +1 point.)"},
       c:{say:"Then he's our man, or near enough. Help him out, and he'll help us when it counts. And if you need anything brought in, call me. Good work. (Democratic Party: +1 point.)"}}}}],
   thanks:"Chuck has your report on Erik and the Democrats."},
-meetmonks:{title:'Meet the Monks',giver:'Chuck',main:true,day:5,call:true,text:'The road to the north-east is open. Chuck wants you to go up to the Mountain-Top Monastery and talk to Father Thyme, the Abbot, and each of his monks, then report back.',
+meetmonks:{title:'Meet the Monks',tested:true,giver:'Chuck',main:true,day:5,call:true,text:'The road to the north-east is open. Chuck wants you to go up to the Mountain-Top Monastery and talk to Father Thyme, the Abbot, and each of his monks, then report back.',
   offer:"Morning, NIGHTJAR. The north-east's open, and that means the monastery. Up on the mountain. Don't let the chanting fool you: Father Thyme heads the whole Orthodox Church on this island, and the Church has a lot of say over who sits on the throne. Talk to him, and to every one of his monks. Find out who they'd crown.",
   accept:"Good. Mind the climb, and mind your manners.",wait:"Still up the mountain? Father Thyme and every one of his monks. The quarters, the church, the garden.",
   done:[
@@ -1967,7 +1967,7 @@ alms:{title:'Alms for the Poor',giver:'Father Thyme',main:true,day:11,seq:true,c
 tattoo:{title:"Jonna's First Customer",tested:true,giver:'Erik',given:true,text:"Erik says Jonna at the tattoo shop in Eastbrook (INK AND PINE) hasn't had a customer since the snow came. Ask her for a tattoo, by day in her shop, and get one done.",
   done:[{event:'tattoo',what:"Get a tattoo at Jonna's tattoo shop in Eastbrook"}],
   thanks:'"Not bad for a first-timer. Tell your friends!" Jonna says.'},
-beans:{title:'Beans for Maya',giver:'Erik',given:true,seq:true,text:'Erik says Maya at the Coffee Roasters in Eastbrook can\'t get decent coffee beans since the harbour master started taxing imports. Ask Chuck to have some brought in; they come the next day, and Hekki will give them to you. Then take them to Maya.',
+beans:{title:'Beans for Maya',tested:true,giver:'Erik',given:true,seq:true,text:'Erik says Maya at the Coffee Roasters in Eastbrook can\'t get decent coffee beans since the harbour master started taxing imports. Ask Chuck to have some brought in; they come the next day, and Hekki will give them to you. Then take them to Maya.',
   done:[
     {talk:'Chuck',what:'Ask Chuck on the radio to have some coffee beans brought in',chat:{start:'a',nodes:{
       a:{say:"The coffee beans for Erik's friend? Sure, the diplomatic pouch has room. Who are they for, exactly?",opts:[["Maya, at the Coffee Roasters. A Democrat.",'b']]},
