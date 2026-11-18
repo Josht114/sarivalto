@@ -399,11 +399,9 @@ function update(dt){
 // a padlocked building (BLD locked: what it says): walking up into its front says so
 function lockedFront(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.locked&&y==fy+h-1&&x>=fx&&x<fx+w);return f?BLD[f[6]].locked:null}
 // stairs go one way: up from the bottom (walking up into them), down from the top (walking down into them); from any other side
-// they say which way they go. Stairs down set against the back wall (nothing above them to come from) are taken from below
-// instead, walking up into them (Kelp Cola HQ's stairs down to the lab)
+// they say which way they go
 function stairsWay(x,y,d){if(MAPS[P.m][y]?.[x]!='z')return null;const f=FL[P.m].find(([fx,fy,w,h,c])=>c=='z'&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h),up=/up/i.test(f?.[5]||'');
-  const way=up||MAPS[P.m][y-1]?.[x]=='W'?-1:1;
-  return DIR[d][1]==way?null:up?'These stairs go up: climb them from the bottom.':'These stairs go down: take them from the top.'}
+  return DIR[d][1]==(up?-1:1)?null:up?'These stairs go up: climb them from the bottom.':'These stairs go down: take them from the top.'}
 function bigDoor(x,y,d){if(DIR[d][1]!=-1)return null;const f=FL[P.m].find(([fx,fy,w,h,,,st])=>BLD[st]?.deco=='whs'&&y==fy+h-1&&x>=fx&&x<fx+w);if(!f)return null;
   const[fx,fy,w,h]=f,bx=(w*16>>1)-12,i=x-fx;if(i*16+15<bx||i*16>bx+24)return null;
   const e=EX[P.m].find(e=>e.y==fy+h-1&&e.x>=fx&&e.x<fx+w&&L[e.to]?.[3]=='interior');return e&&!shut(e.to)?e:null}
