@@ -947,7 +947,7 @@ const GLIGHT={glamp:[4,36,'255,170,80'],brazier:[4,42,'255,110,40','fire'],shrin
 // The lighting pass: darkness over the whole view, cut away around each light (which flickers), a warm glow added on top,
 // and banks of fog drifting through.
 let LIGHTC=null;
-function gothLight(S,cx,cy,t,o={dark:'rgba(5,5,14,.8)',fog:'140,150,185',fogA:.13}){const vw=cv.width,vh=cv.height;if(!LIGHTC||LIGHTC.width!=vw||LIGHTC.height!=vh)LIGHTC=cnv(vw,vh);const g=LIGHTC.getContext('2d');
+function gothLight(S,cx,cy,t,o={dark:'rgba(5,5,14,.8)',fog:'140,150,185',fogA:.13}){const vw=LW(),vh=LH();if(!LIGHTC||LIGHTC.width!=vw||LIGHTC.height!=vh)LIGHTC=cnv(vw,vh);const g=LIGHTC.getContext('2d');
   g.globalCompositeOperation='source-over';g.clearRect(0,0,vw,vh);g.fillStyle=o.dark;g.fillRect(0,0,vw,vh);g.globalCompositeOperation='destination-out';
   const ls=S.lights.concat([{x:P.rx*16+8,y:P.ry*16+6,r:26}]),fl=l=>l.f?1+Math.sin(t/110+l.x)*.05+(hash(l.x|0,t/140|0,l.y|0)-.5)*.1:1;
   for(const l of ls){const X=l.x-cx,Y=l.y-cy,R=l.r*fl(l);if(X<-R||Y<-R||X>vw+R||Y>vh+R)continue;const gr=g.createRadialGradient(X,Y,0,X,Y,R);
@@ -1355,8 +1355,17 @@ function lookChar(d,fr,lk){if(CLOTHES[lk.top]?.style=='cup')return costume('cup'
     if(ht.style=='souwester'){r(c,4,0,8,3);r(shade(c,.25),5,0,3,1);r(shade(c,-.25),2,3,12,1);if(d==1)r(c,3,4,10,3);else if(side)r(c,9,3,5,4);else{r(c,2,3,2,2);r(c,12,3,2,2)}}
     if(ht.style=='stetson'){r(c,5,0,6,2);r(shade(c,-.2),7,0,2,1);r('#4a2e1a',5,2,6,1);r(c,1,3,14,1);r(c,1,2,1,1);r(c,14,2,1,1);r(shade(c,.2),6,0,1,1)}
     if(ht.style=='beret'){r(c,3,1,9,2);r(c,4,0,6,1);r(shade(c,-.3),4,3,8,1);r(shade(c,.25),5,1,2,1)}})}
+// ---- The player's ready-made art (assets/player/, made in PixelLab at twice the detail: 32x40 for a 16x20 figure), for the outfit
+// you arrive in (PLAYER.look), standing, one picture per direction: south.png, north.png, west.png, east.png (east, if it's
+// missing, is west mirrored). Any direction it doesn't have yet is drawn in code.
+const PART={};for(const[d,f]of[[0,'south'],[1,'north'],[2,'west'],[3,'east']]){const im=new Image();im.onerror=()=>{im.bad=true};im.src='assets/player/'+f+'.png';PART[d]=im}
+const artLook=lk=>['hair','hairCol','beard','hat','top','legs','shoes'].every(k=>lk[k]==PLAYER.look[k]),artOk=im=>im&&!im.bad&&im.complete&&im.naturalWidth>0;
 // (in the Kelpy costume, the player is drawn as the cup, as Jaana is)
-function dressed(px,py,d,fr,lk){if(CLOTHES[lk.top]?.style=='cup'){costumed(px,py,d,'cup',performance.now());return}ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
+function dressed(px,py,d,fr,lk){if(CLOTHES[lk.top]?.style=='cup'){costumed(px,py,d,'cup',performance.now());return}
+  const flip=d==3&&!artOk(PART[3])&&artOk(PART[2]),im=flip?PART[2]:PART[d];
+  if(artOk(im)&&artLook(lk)){ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);
+    if(flip){ctx.save();ctx.translate(px+16,0);ctx.scale(-1,1);ctx.drawImage(im,0,py-4,16,20);ctx.restore()}else ctx.drawImage(im,px,py-4,16,20);return}
+  ctx.fillStyle='rgba(20,30,55,.28)';ctx.fillRect(px+3,py+14,10,3);ctx.fillRect(px+4,py+13,8,5);ctx.drawImage(lookChar(d,fr,lk),px-1,py-5)}
 // Costumes: someone in a giant Kelp Cola cup (kind 'cup'), seen from the front, side or back. 16x26, cached.
 const COST={};
 function costume(kind,d,fr){const key=kind+d+fr;if(COST[key])return COST[key];const side=d>1,back=d==1,f=d==3?(x,w=1)=>16-x-w:(x)=>x;
@@ -2228,7 +2237,7 @@ function sceneOf(m,wx){
 let FLAKES=null;  // built on first use, because hash() lives in game.js which loads after this file
 const flakes=()=>FLAKES??=Array.from({length:80},(_,i)=>({x:hash(i,1,77),y:hash(i,2,77),sp:.006+hash(i,3,77)*.01,big:hash(i,4,77)>.82,ph:hash(i,5,77)*6}));
 let VIG=null;
-function vignette(){if(VIG&&VIG.width==cv.width&&VIG.height==cv.height)return VIG;VIG=cnv(cv.width,cv.height);const g=VIG.getContext('2d'),w=cv.width,h=cv.height,
+function vignette(){if(VIG&&VIG.width==LW()&&VIG.height==LH())return VIG;VIG=cnv(LW(),LH());const g=VIG.getContext('2d'),w=LW(),h=LH(),
   gr=g.createRadialGradient(w/2,h/2,h*.45,w/2,h/2,w*.75);gr.addColorStop(0,'rgba(15,25,50,0)');gr.addColorStop(1,'rgba(15,25,50,.38)');g.fillStyle=gr;g.fillRect(0,0,w,h);return VIG}
 
 // The tram at each stop: TRAMS[map] = {ph: 'arrive' | 'wait' | 'leave', t0: when that phase began}. No entry means no tram there.
@@ -2249,7 +2258,7 @@ function tramsOn(m,t){if(L[m][3]=='interior')return[];const MW=MAPS[m][0].length
     return st&&{y,x:st.ph=='arrive'?inX+(stop-inX)*(1-(1-st.u)**2):st.ph=='wait'?stop:stop+(outX-stop)*st.u*st.u}}).filter(Boolean)}
 // The ride between stops: the tram glides along its track past snowy pines and overhead-wire poles, with the scenery
 // scrolling by (u: 0..1 through the ride, which eases in and out).
-function drawRide(t,u){const vw=cv.width,vh=cv.height,px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
+function drawRide(t,u){const vw=LW(),vh=LH(),px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
   const sp=u<.25?(u/.25)**2:u>.75?((1-u)/.25)**2:1,s=t*.22*Math.max(.15,sp),gy=vh-44;
   const sky=ctx.createLinearGradient(0,0,0,gy);sky.addColorStop(0,'#9cb8d0');sky.addColorStop(1,'#dfe9f1');ctx.fillStyle=sky;ctx.fillRect(0,0,vw,gy);
   for(let x=0;x<vw;x++){const X=x+s*.15,hh=18+Math.sin(X/37)*7+Math.sin(X/13)*3;px('#b9c8d6',x,gy-hh-14,1,hh+14)}
@@ -2277,7 +2286,7 @@ function spillFx(m,cx,cy,t,px){if(m!='oilrig'||typeof qOf!='function')return;con
   if(today&&fl.fired){water((X,Y,x,y)=>{px('rgba(30,14,8,.8)',X,Y,16,16);for(let k=0;k<4;k++){const h=hash(x*5+k,y,(t/120|0)%7),fx=X+(h*14|0),fh=4+(h*9|0);px('#ff8a3a',fx,Y+14-fh,2,fh);px('#ffd23a',fx,Y+15-fh/2,1,fh/2)}
       if(hash(x,y,(t/600|0)%9)>.8)px('rgba(60,60,64,.45)',X+4,Y-6-((t/80)%10),8,6)})}}
 function drawWorld2(m,cx,cy,t,frame){
-  const S=scene(m),M=MAPS[m],mh=M.length,mw=M[0].length,vw=cv.width,vh=cv.height,wf=WATER[(t/200|0)%8],px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
+  const S=scene(m),M=MAPS[m],mh=M.length,mw=M[0].length,vw=LW(),vh=LH(),wf=WATER[(t/200|0)%8],px=(c,x,y,w=1,h=1)=>{ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h)};
   if(!S.inside){const x0=Math.max(0,Math.floor(cx/16)),x1=Math.min(mw-1,Math.floor((cx+vw)/16)),y0=Math.max(0,Math.floor(cy/16)),y1=Math.min(mh-1,Math.floor((cy+vh)/16));
     for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++)if(CLS(M[y][x])=='w')ctx.drawImage(wf,(x*16)&63,(y*16)&63,16,16,x*16-cx,y*16-cy,16,16)}
   ctx.drawImage(S.c,-cx,-cy-S.top);

@@ -1,5 +1,8 @@
 const T=16,VW=15,VH=10;
-const cv=document.getElementById('c'),ctx=cv.getContext('2d');cv.width=VW*T;cv.height=VH*T;
+// the canvas has HI pixels for every game pixel, so art made at twice the detail (the player's) keeps it; everything else is
+// drawn scaled up by HI, exactly as before. LW and LH: the view's size in game pixels
+const HI=2;
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');cv.width=VW*T*HI;cv.height=VH*T*HI;const LW=()=>cv.width/HI,LH=()=>cv.height/HI;
 const hash=(x,y,s=0)=>{let h=Math.imul(x,374761393)^Math.imul(y,668265263)^Math.imul(s+1,2147483647);h=Math.imul(h^(h>>>13),1274126177);return((h^(h>>>16))>>>0)/4294967296};
 
 
@@ -48,7 +51,7 @@ stage.style.setProperty('--ar',cv.width/cv.height);fsb.hidden=!(document.fullscr
 const inFS=()=>(document.fullscreenElement||document.webkitFullscreenElement)==stage;
 // in full screen the game picture is widened to the screen's shape (above the objective strip), so it fills the screen with no
 // black bars: you see more of the island to each side, at the same size. Back to its usual 15 by 10 tiles outside full screen.
-function fitView(){const w=innerWidth,h=innerHeight-56;cv.width=inFS()&&h>0?Math.max(VW*T,Math.round(VH*T*w/h)):VW*T;cv.height=VH*T;stage.style.setProperty('--ar',cv.width/cv.height)}
+function fitView(){const w=innerWidth,h=innerHeight-56;cv.width=(inFS()&&h>0?Math.max(VW*T,Math.round(VH*T*w/h)):VW*T)*HI;cv.height=VH*T*HI;stage.style.setProperty('--ar',cv.width/cv.height)}
 addEventListener('resize',()=>{if(inFS())fitView()});
 function toggleFS(){if(inFS())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else(stage.requestFullscreen||stage.webkitRequestFullscreen).call(stage)}
 fsb.onclick=()=>{toggleFS();fsb.blur()};
@@ -737,7 +740,7 @@ const rr=(x,y,w,h,r)=>{og.beginPath();og.moveTo(x+r,y);og.arcTo(x+w,y,x+w,y+h,r)
 function drawLabels(){
   const r=cv.getBoundingClientRect(),d=globalThis.devicePixelRatio||1,w=Math.round(r.width*d),h=Math.round(r.height*d);
   if(ov.width!=w||ov.height!=h){ov.width=w;ov.height=h}
-  og.clearRect(0,0,w,h);const f=w/cv.width;og.lineJoin='round';og.textBaseline='middle';og.textAlign='left';
+  og.clearRect(0,0,w,h);const f=w/LW();og.lineJoin='round';og.textBaseline='middle';og.textAlign='left';
   for(const[s,x,y,al,k]of LB){const fs=Math.round((k=='h'?14:12)*d);og.font='bold '+fs+'px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif';
     const m=og.measureText(s).width,pad=5*d,Y=y*f-fs*.4,X=x*f;let x0=al=='left'?X:al=='right'?X-m:X-m/2;x0=Math.max(pad+1,Math.min(w-m-pad-1,x0));
     if(k=='s'){og.lineWidth=3.5*d;og.strokeStyle='rgba(11,18,10,.9)';og.strokeText(s,x0,Y);og.fillStyle='#ffffff';og.fillText(s,x0,Y);continue}
@@ -751,13 +754,13 @@ function drawLabels(){
     og.fillStyle=k=='x'?'rgba(11,26,43,.9)':'rgba(11,18,10,.82)';rr(x0-pad,Y-fs*.68,m+pad*2,fs*1.36,fs*.5);og.fill();
     og.fillStyle=k=='x'?'#9fe870':k=='n'?'#ffe9a8':'#ffffff';og.fillText(s,x0,Y)}
   LB=[]}
-function draw(t){
-  if(RIDE){const u=Math.min(1,(t-RIDE.t0)/RIDE_DUR);drawRide(t,u);tx('Next stop: '+NM[RIDE.to],cv.width/2,16,'center','h');drawLabels();return}
+function draw(t){ctx.setTransform(HI,0,0,HI,0,0);ctx.imageSmoothingEnabled=false;
+  if(RIDE){const u=Math.min(1,(t-RIDE.t0)/RIDE_DUR);drawRide(t,u);tx('Next stop: '+NM[RIDE.to],LW()/2,16,'center','h');drawLabels();return}
   const M=MAPS[P.m],mh=M.length,mw=M[0].length;
-  ctx.fillStyle='#0b120a';ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.fillStyle='#0b120a';ctx.fillRect(0,0,LW(),LH());
   // interiors have a taller back wall reaching WU pixels above the map; let the camera show it
   const top=L[P.m][3]=='interior'?WU:0;
-  const cx=cam(P.rx*T+T/2-cv.width/2,mw*T,cv.width),cy=cam(P.ry*T+T/2-cv.height/2+top,mh*T+top,cv.height)-top;
+  const cx=cam(P.rx*T+T/2-LW()/2,mw*T,LW()),cy=cam(P.ry*T+T/2-LH()/2+top,mh*T+top,LH())-top;
   drawWorld2(P.m,cx,cy,t,P.mv?1+P.par:0);
   NPCS.filter(n=>n.m==P.m).forEach(n=>tx(n.name,n.x*T-cx+8,n.y*T-cy-7,'center','n'));
   // (a building whose picture sign stands on its roof has its label above the picture)
@@ -766,7 +769,7 @@ function draw(t){
     tx(lb,s=='L'?ix*T-cx:s=='R'?(ix+1)*T-cx:(ix+.5)*T-cx,iy*T-cy+10,s=='L'?'left':s=='R'?'right':'center','x')});
   if(L[P.m][3]=='interior')EX[P.m].filter(e=>e.s=='O'&&L[e.to][3]=='interior'&&MAPS[P.m][e.y][e.x]=='m').forEach(e=>tx(NM[e.to],(e.x+.5)*T-cx,e.y*T-cy+(e.y==0?-8:8),'center','x'));
   const hint=tramHint();if(hint)tx(hint,P.rx*T-cx+8,P.ry*T-cy-12,'center','x');
-  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,cv.width/2,cv.height-12-QN_OFF,'center','h');
+  if(MSG&&t-MSG.t<MSG.d)tx(MSG.s,LW()/2,LH()-12-QN_OFF,'center','h');
   tx(NM[P.m]+'  ('+P.x+','+P.y+')',3,15,'left','h');drawLabels();
 }
 // On opening the game, carry on from the most recent save (if there is one). Starting with ?new in the address starts a new game

@@ -10,13 +10,14 @@ and hairstyles can follow the same recipe (see `docs/player-art-prompt.md` for t
 - **Size:** 32 px wide and 40 px tall if PixelLab allows a custom canvas. If it only offers squares, use **48×48**, keep the
   character about 32 px wide and 40 px tall, standing on the bottom of the canvas, and crop afterwards.
 - **Outline:** a thin dark outline. **Shading:** basic or medium. **Detail:** medium (it's small).
-- **Background:** transparent.
+- **Background:** transparent (turn on PixelLab's no-background or transparent option). Don't mention snow, ground or
+  scenery in the description: it draws them in. The game draws the ground; the sprite must be only the man.
 - **Colours:** if it takes a palette or reference colours, give it the hex codes below.
 
 ## The description (paste this)
 
 ```
-A man in his thirties, a British newspaper reporter in the early 1980s, on a snowy Nordic island.
+A man in his thirties, a British newspaper reporter in the early 1980s.
 Short brown hair, clean-shaven, friendly and alert face.
 Yellow knitted beanie with a turned-up cuff.
 Blue padded winter parka with a cream fur trim at the collar, zipped up.
@@ -25,7 +26,7 @@ Plain standing pose, arms at his sides.
 Cold muted palette, crisp pixels, light from the upper left, no shadow on the ground, transparent background.
 ```
 
-**Negative (if it has a field for it):** `blurry, anti-aliasing, gradient, background, ground shadow, text, weapon, bag, hat brim, modern clothes`
+**Negative (if it has a field for it):** `blurry, anti-aliasing, gradient, background, scenery, snow, ground, floor, ground shadow, text, weapon, bag, hat brim, modern clothes`
 
 **Colours:**
 
