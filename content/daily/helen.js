@@ -41,7 +41,7 @@ DAILY['Helen']={
   ["That's generous.","Very generous. Generous people want something. I just haven't found out what yet."],
   ["What will you do with them?","Give them to the children in the block. Kaisa's going to announce it on the radio: 'Oranges, courtesy of the workers.'"],
   ["He's Anna's friend, isn't he?","He's everybody's friend. That seems to be his trade. The timber's a hobby."]],
- "Take an orange. Go on, they're for the people."],
+ "Take an orange. Go on, they're for the people. [+orange]"],
 8:["Sunday. Bob's roasting a fish the length of my arm, and I'm writing to the Kelp Cola board. Neither of us is going to church.",[
   ["What are you writing?","A list of demands. A break every four hours and a stool for every woman on the line. Revolutionary stuff."],
   ["What sort of fish?","Cod. Bob says the cod's thinner this year. He blames the oil rig."],
@@ -128,7 +128,7 @@ DAILY['Helen']={
   ["Ash icing?","Icing sugar, really. He dusted it grey with cocoa to make me laugh. I did, the first time all week."],
   ["What's the occasion?","Six years in the flat together. Neither of us remembered. Kate did. Kate remembers everything about everybody."],
   ["Is he a good cook?","The best in Saltwick, and he'll never admit it, because then he'd have to cook for the whole Party."]],
- "Take a slice for the road."],
+ "Take a slice for the road. [+cake]"],
 25:["Everyone's courting somebody this week. The Democrats court the princess, and suddenly the Kelp Cola board's courting the Union, with a letter about stools.",[
   ["Stools?","For the bottling line. My letter from the eighth. Now they say yes, when they're frightened of losing the island. Funny timing."],
   ["What does the Union give back?","Nothing. A stool isn't a favour. It's a right with legs."],

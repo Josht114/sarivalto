@@ -17,7 +17,7 @@ DAILY['Igor']={
   ["Do you like it?","It's very fizzy. (He takes a tiny sip.) Fizz is like applause. Too much and you can't hear yourself. (He puts it down.) I'll give it to Buttons. Buttons likes everything."],
   ["What's the news by the lake?","The Party's been round with leaflets. One said 'workers of the world'. (He thinks.) I'm a worker. I lift. Bruno says the circus is its own country. I don't know which flag I've got."],
   ["Do you swim in the lake?","Every morning. Six o'clock. (He looks at the lake.) It's very cold. The fishermen don't like it. They say I frighten the perch. (He looks sorry.) I try to swim quietly."]],
- "Take the cola if you like. It's a very sweet thunderstorm."],
+ "Take the cola if you like. It's a very sweet thunderstorm. [+cola]"],
 10:["(Igor has a black band round his great arm, and has stopped lifting anything.) No show today. The king's funeral. (He sits on an upturned bucket.) I carried the black cloth for the big top. It's very quiet when you're a strongman and there's nothing to lift.",[
   ["Did you know the king?","He came to the circus once. Years ago, on our first visit. (He looks at his hands.) He asked to feel my arm. Then he said 'remarkable' and gave me his handkerchief. I've still got it."],
   ["What will you do today?","Sit. (He looks at the lake.) Sometimes the strongest thing is to sit still. Meg says that. Meg says all the true things. Bruno says the long things."],

@@ -29,11 +29,11 @@ DAILY['Madame Zora']={
   ["Who comes to you, mostly?","This week? Mill girls. (She gathers the cards.) They want to know if they'll strike. I tell them to ask Mary at the Union. The cards don't know about wages. Mary does."]],
  "Cross the cat's palm on your way out. He prefers sardines."],
 12:["(Zora is reading a woman's palm across the table. The woman leaves, smiling. Zora wipes her hands.) A man has lost a record, and a woman has lost a lot more. (She turns to you.) I gave her a remedy. Camomile and patience.",[
-  ["Are you a doctor too?","No. (She smiles.) Doctor Lind says I'm a menace. I say I'm cheaper. (She pours tea.) I send anyone who's really ill to her. Everyone else gets camomile and a good listen. It cures more than you'd think."],
+  ["Are you a doctor too?","No. (She smiles.) Doctor Lind says I'm a menace. I say I'm cheaper. (She pours tea.) I send anyone who's really ill to her. Everyone else gets camomile and a good listen. It cures more than you'd think. [+tea]"],
   ["What did her palm say?","That she works with her hands and worries with her heart. (She sips.) Anyone could see that. She had flour on her sleeve and three letters in her pocket she hadn't opened."],
   ["Will you read mine?",["(She takes your hand and turns it over, slowly.) Hm. (She traces a line.) You write a great deal. (She looks up.) And you listen even more than you write.",[
     ["That's my job.","(She lets go.) Is it? (She smiles.) Then it's a very good job for you. Not everybody's hands agree with what they do."],
-    ["What else?","(She looks at you a moment longer.) That you're further from home than you say. (She pours tea.) Everyone is. Drink this."]]]]],
+    ["What else?","(She looks at you a moment longer.) That you're further from home than you say. (She pours tea.) Everyone is. Drink this. [+tea]"]]]]],
  "Come back when your hands have something new to say."],
 13:["(Zora has a basket of coloured scarves and is pulling them out one at a time.) There's free cola in Kingsgrad tomorrow, I hear. (She pulls a red scarf.) A thing's only free if you don't ask what it's for. I'd advise caution.",[
   ["What's it for?","(She pulls a blue scarf.) Votes, mostly. (She pulls a purple one.) Or love. Or both. Everybody wants to be loved by an island. It's very hard. Islands are mostly rock."],
@@ -109,7 +109,7 @@ DAILY['Madame Zora']={
   ["Is it true?","(She holds a bottle up to the light.) No prince in this one. (She sets it down.) Rumours are like fortunes. Nobody checks. They just like hearing them."],
   ["How's the camp?","Buttons is teaching the Eastbrook girl to juggle. Four in a row. (She smiles.) Meg's watching from the step and pretending not to. Bruno's watching Meg pretend. Everybody's watching everybody. It's a family."],
   ["Will you be in the show?","I'll read for the crowd. In the interval. (She shuffles.) One fortune each. Short ones. 'You'll be surprised.' 'You'll be home by ten.' (She smiles.) Both will come true."]],
- "Take a bottle. If you find a prince, bring him to me. I'll read for him."],
+ "Take a bottle. If you find a prince, bring him to me. I'll read for him. [+cola]"],
 27:["(Zora is in the big top, laying out a tablecloth embroidered with stars on a small table by the ring.) For tomorrow. The interval. (She smooths it.) The whole island in one tent. Every faction. (She looks round.) I'll need a lot of fortunes.",[
   ["What will you tell them?","Each one something a little better than what they came in to hear. (She sets out the cards.) A Party man will hear he'll be famous. A palace lady will hear she'll be free. (She smiles.) Both will be pleased."],
   ["Isn't that dishonest?","It's tailoring. (She smooths the cloth.) Everyone's future is a little better than they think. That's not a lie. That's the only thing I've ever been sure of."],

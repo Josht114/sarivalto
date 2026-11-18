@@ -16,7 +16,7 @@ const common=new Set([...dataSrc.matchAll(/name:'([^']+)'/g)].map(m=>m[1].toLowe
 const STOP=new Set(('september sunday monday tuesday wednesday thursday friday saturday morning evening night island sarivalto king prince princess '+
   'party church cola oil vote mountain volcano ash snow funeral gathering tremor eruption today tomorrow yesterday').split(' '));
 // the words of a line, stage directions included (they're on screen too); a word ends its possessive
-const words=t=>((t||'').toLowerCase().match(/[a-z][a-z'-]{3,}/g)||[]).map(w=>w.replace(/'s$|s'$/,''));
+const words=t=>((t||'').replace(/\[\+\w+\]/g,'').toLowerCase().match(/[a-z][a-z'-]{3,}/g)||[]).map(w=>w.replace(/'s$|s'$/,''));
 // how many people's files use each word: a word most of the cast uses is ordinary English, not a running thread
 const all=fs.readdirSync(dir).filter(f=>f.endsWith('.js')),DF={};
 for(const f of all)for(const w of new Set(words(fs.readFileSync(path.join(dir,f),'utf8'))))DF[w]=(DF[w]||0)+1;

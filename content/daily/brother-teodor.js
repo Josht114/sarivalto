@@ -6,7 +6,7 @@ DAILY['Brother Teodor']={
   ["Do you feed everyone who comes up?","Everyone who comes through that door. Party men, oil men, reporters. A man with a full stomach can't hate anyone properly. I've tested it."],
   ["What's the secret of the soup?","Ha! Love, patience and a thing in a jar. The jar is the part I'm not telling. Pirkko from Eastbrook has been after it for twenty years."],
   ["Three wobbles?","Four, if you lean back. Don't lean back. Brother Anselm leaned back in nineteen seventy-four and has never been the same."]],
- "Take some bread for the walk down. Take two."],
+ "Take some bread for the walk down. Take two. [+bread]"],
 6:["(Brother Teodor is rubbing his knees and groaning.) I've been down to the forest below, for the last chanterelles before the snow takes them. Two hours down, three hours up, and my knees have written to the Abbot to complain.",[
   ["Did you find many?","A basket and a half. Golden ones, like little trumpets. In a week they'll be gone till next year. That's mushrooms for you: they come when they like."],
   ["Isn't it dangerous, picking mushrooms?","Only if you don't know them. I know them. I've known them since I was six. My grandmother could tell a good one from a bad one by smell, and so can I."],
@@ -16,7 +16,7 @@ DAILY['Brother Teodor']={
   ["Who ate the four?","A cook must test everything that comes into his kitchen. For safety. Four times."],
   ["What did Brother Anselm say?","He said gluttony was a deadly sin. I said so was waste, and the buns were going stale. We are not speaking, except about buns."],
   ["Are they good?","They're superb. Cardamom, butter and a little pinch of salt. She thinks if she bakes well enough I'll give her the soup recipe. I'll keep eating until she's sure."]],
- "Take a bun. Then there's seven, and nobody can blame me."],
+ "Take a bun. Then there's seven, and nobody can blame me. [+bun]"],
 8:["(The monks' kitchen is full of steam and the smell of onions.) Sunday! After the service, everyone comes to the refectory, and Teodor feeds them. Farmers, shopkeepers, a prince. Soup doesn't care who's royal.",[
   ["How many are you cooking for?","Forty, if Olaf comes. Thirty-five otherwise. Olaf eats three bowls and complains about the price of every vegetable in them."],
   ["Do you listen to the sermon?","From the back, with one ear on the soup. God understands. He gave me the soup."],
@@ -71,7 +71,7 @@ DAILY['Brother Teodor']={
   ["He's just being careful.","I know. I know. He has to ask. It's his job. But I've cooked for that man every day for twenty years, and he looked at me like a stranger."],
   ["Where were you last night?","Asleep in the kitchen chair, with a cloth on my face, snoring. The novices can tell you. They put a spoon in my mouth for a joke."],
   ["Do you know who took it?","If I knew, I'd have made them a meal and asked for it back. Nobody steals from a cook who's just fed them. That's the oldest rule there is."]],
- "Have a biscuit. I need someone to have a biscuit."],
+ "Have a biscuit. I need someone to have a biscuit. [+biscuit]"],
 19:["(The pot on the stove holds a soup so thin you can see the bottom.) The Prior's declared a fast. Three days, for the relic and the mountain. This is fast soup. It's water that's heard of vegetables. I've been teasing Pirkko with the van, a clue at a time. She wants my soup recipe.",[
   ["You look miserable.","I am a cook in a fast. I'm a painter with no colours. A singer with a sore throat. A... I'll stop. I'm hungry."],
   ["Is it really just water?","(He lowers his voice.) There's a stock cube in it. One. Hidden in the bottom. God sees it, but He's merciful."],
@@ -86,7 +86,7 @@ DAILY['Brother Teodor']={
   ["What can I do?","Carry! Bowls to the refectory, bread to the gate. Anyone who comes through that door gets fed. Anyone. I don't care if it's the Russian."],
   ["Are you all right?","I've ash in my eyebrows and my hands are shaking, and I've never been so useful. A cook in a disaster is the only rich man in the world."],
   ["Is everyone safe?","Every brother counted, the Prior says. Thanks be to God. Now let's make sure every brother is fed, too. Two different miracles. Both necessary."]],
- "Take a bowl before you go. Don't argue with a cook today."],
+ "Take a bowl before you go. Don't argue with a cook today. [+soup]"],
 22:["(Brother Teodor is shaking flour through a fine sieve, and grey grit is coming out.) Ash in the flour. Ash in the salt. Ash in my beard. And Hilda's cows are off their milk, so there's no butter. Bread without butter. We are being tested.",[
   ["Can you still bake?","I'll bake if I have to sieve every grain by hand. Bread is the one thing on this mountain I'll not give up. Not for a volcano."],
   ["How do you cook without butter?","With oil, and sorrow. And a little lard I'd been keeping for Christmas. Don't tell the Prior about the lard."],

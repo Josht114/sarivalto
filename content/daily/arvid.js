@@ -84,7 +84,7 @@ DAILY['Arvid']={
   ["Can you still cook?","I can cook through anything. I cooked through the stove exploding in 1974. I'll cook through a mountain. But I'll complain."],
   ["Are people frightened?","Very. They're sitting in here for hours, not eating. Just being together. I keep bringing bread. Bread helps."],
   ["What's Linnea doing?","She's sent a crate of lemons, a day early. With a note: 'Just in case.' Just in case of what? She didn't say. I'm afraid to ask."]],
- "Take some bread on your way. Just in case."],
+ "Take some bread on your way. Just in case. [+bread]"],
 20:["(It's Friday. Arvid has packed a pie, a very large one, and is staring at it.) Lemons came yesterday. Pie goes back today. But this pie... I've put everything in it. If the mountain goes tonight, I want her to have had the best pie of her life.",[
   ["Are you going to take it yourself?","(He looks at the door, then at the pie, then at the portrait.) I've never taken it myself. Twelve weeks. Always the boy. Today... maybe."],
   ["Do you think it'll erupt?","The ground's shaking every hour. The gulls have gone. My soufflés have given up completely. Yes. I think so."],

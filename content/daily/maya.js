@@ -4,7 +4,7 @@
 DAILY['Maya']={
 4:["(Maya is shaking a tray of beans and sniffing them, unhappily.) Eastbrook's open, and you've come in for coffee. Good. I warn you, it's strong. It has to be. It's covering for a lot.",[
   ["Covering for what?","For the beans. Ordinary, dusty, tax-paid beans, the only kind I can get since Ole the harbourmaster put a duty on everything that floats. I roast them dark so you can't taste their feelings."],
-  ["One coffee, please.","(She pours a cup so black it seems to absorb the light.) There. That's the strongest coffee on the island. Erik drinks four a day and he can hear colours."],
+  ["One coffee, please.","(She pours a cup so black it seems to absorb the light.) There. That's the strongest coffee on the island. Erik drinks four a day and he can hear colours. [+coffee]"],
   ["You're a Democrat too?","Of course. In a free vote, I'd vote out Ole. In a free market, I'd buy beans from Colombia. Same thing, really. Freedom smells of coffee."]],
  "Drink it while it's hot. It's worse when it's cold."],
 5:["(Maya is writing on a blackboard behind the counter: THIS WEEK'S BLEND: SNOWMELT.) Every week I name a blend. It's the same beans, roasted differently. Mostly it's the same beans, roasted angrily. I'm angrier than usual. Ole the harbourmaster's put the duty on beans up again.",[
@@ -82,7 +82,7 @@ DAILY['Maya']={
 19:["(Maya is wrapping cardamom buns in paper, a dozen at a time.) The circus up at Lake Ilmari ordered three dozen buns. The strongman came down for them himself. He was so polite I gave him two extra.",[
   ["The strongman? Igor?","That's him. Shoulders like a door frame, voice like a cat. He asked me if the buns had nuts, because the jester's allergic. He worries about everyone."],
   ["Do you sell much to the circus?","More than I'd expect. Bruno, the ringmaster, has a sweet tooth and a slate he never pays off. Meg the acrobat comes and pays it off for him, quietly."],
-  ["Can I have one?","(She hands you a bun.) The thirty-seventh. It's the best one. It's always the extra one that's best."]],
+  ["Can I have one?","(She hands you a bun.) The thirty-seventh. It's the best one. It's always the extra one that's best. [+bun]"]],
  "Tell Igor I said hello. And to keep the nuts away from the jester."],
 20:["(Maya is pouring coffee into a cup for someone who's just left, and looking after them, puzzled.) A man in very good shoes. Russian, I think. Ordered black, no sugar, drank half and asked me who comes in here every day.",[
   ["What did you tell him?","That everyone comes in every day, because it's the only coffee in town. Which is true, and tells him nothing. (She frowns.) Ruby says he asked her the same thing."],
@@ -93,7 +93,7 @@ DAILY['Maya']={
   ["Is everyone safe?","Erik's got people at the Community Centre. Dex is making soup. Ruby's packing records. And I'm making coffee. Everyone's doing the thing they know."],
   ["Shouldn't you close the shop?","And go where? Into a cellar, with no coffee? (She hands you a flask.) Take this to the Community Centre. They'll be cold."],
   ["Can I help?","You're holding a flask. That's helping. Hold it a bit more firmly. The ground's moving."]],
- "Go on. Get inside somewhere safe. Take the coffee."],
+ "Go on. Get inside somewhere safe. Take the coffee. [+coffee]"],
 22:["(There's ash on the windowsill, and Maya is wiping her roaster with a cloth, very gently, as if it were a horse.) It got into the roaster. Grey dust in every crack. If I roast anything now it'll taste like a chimney.",[
   ["Is the roaster ruined?","No. I'm taking it apart, one screw at a time. I've done it before, when a sack of beans had a stone in it. It took two days and I swore in four languages."],
   ["How's Eastbrook?","Grey and tired and alive. Nobody hurt. Everyone's sweeping. Dex keeps bringing me hot dogs and telling me it'll be all right."],
@@ -137,6 +137,6 @@ DAILY['Maya']={
 30:["(Maya is roasting very slowly, with the door shut, and the shop smells wonderful.) The last day. Whatever's decided, I wanted the shop to smell good for it. Some things deserve a proper roast.",[
   ["What do you hope for?","A vote. A harbourmaster who answers to someone. And a cup of coffee, a real one, that nobody's taxed into the ground."],
   ["Are you nervous?","Terrified. But I've roasted through snow, a funeral and a volcano. I can roast through a new government. Coffee doesn't care who's in charge."],
-  ["Thank you for all the coffee.","(She smiles, and pours you a cup.) Thank you for drinking it. A roaster's nothing without someone to drink the coffee. This one's on the house."]],
+  ["Thank you for all the coffee.","(She smiles, and pours you a cup.) Thank you for drinking it. A roaster's nothing without someone to drink the coffee. This one's on the house. [+coffee]"]],
  "Come back tomorrow. I'll still be here. Coffee doesn't stop."],
 };

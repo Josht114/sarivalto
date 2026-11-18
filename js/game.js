@@ -136,7 +136,7 @@ function useItem(a){const id=ME.items[ME.sel].id,nm=ITEMS[id].name.toLowerCase()
       :a=='Equip'?`You take the ${nm} in your hand${was?`, putting away the ${was.name.toLowerCase()}`:''}.`:`You put the ${nm} away.`;renderStart();return}
   const gone=v=>()=>(take(id),`You ${v} the ${nm}.`+(typeof eat=='function'?eat(id):'')),R={
   beer:{Drink:gone('drink')},whisky:{Drink:gone('drink')},cola:{Drink:gone('drink')},coffee:{Drink:gone('drink')},cigarettes:{Smoke:()=>smoke()},
-  burger:{Eat:gone('eat')},crisps:{Eat:gone('eat')},candybar:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},
+  burger:{Eat:gone('eat')},crisps:{Eat:gone('eat')},candybar:{Eat:gone('eat')},pizza:{Eat:gone('eat')},wine:{Drink:gone('drink')},bun:{Eat:gone('eat')},meal:{Eat:gone('eat')},smokedfish:{Eat:gone('eat')},bread:{Eat:gone('eat')},hotdog:{Eat:gone('eat')},soup:{Eat:gone('eat')},tea:{Drink:gone('drink')},sandwich:{Eat:gone('eat')},biscuit:{Eat:gone('eat')},roll:{Eat:gone('eat')},orange:{Eat:gone('eat')},milkshake:{Drink:gone('drink')},pasty:{Eat:gone('eat')},cake:{Eat:gone('eat')},
   newspaper:{Read:()=>`The headline: ${HEADLINES[((DAY-1)%HEADLINES.length+HEADLINES.length)%HEADLINES.length]}.`},book:{Read:'You read a chapter. The hero gets away again.'},
   islandmap:{'Look at':()=>{START='map';return''}},souvenir:{'Look at':'Kelpy grins back at you.'},record:{'Look at':'You need a record player to hear it.'},rarerecord:{'Look at':'A woman in a white dress at a microphone, and behind her a young pianist with his eyes shut. Midnight at the Aurora. Keep it flat.'},
   samplecrate:{'Look at':()=>{const n=SAMPLE_FACS.length-sampleGiven(qOf('samples')).length;return`${n} green bottle${n==1?'':'s'} left in the straw.`},
@@ -654,12 +654,15 @@ function serviceOpts(n){const o=[];if(SHOPS[n.name]&&n.m==n.loc){o.push(['Show m
 // a quest topic (QUEST_TOPICS) on a quest of yours that isn't finished: an extra reply, with its answer as a node of its own
 function topicOpts(n,nodes,end){return Object.entries(typeof QUEST_TOPICS!='undefined'?QUEST_TOPICS:{}).filter(([id,t])=>t.people[n.name]&&ME.quests.some(q=>q.id==id&&!q.done))
   .map(([id,t])=>{nodes['t_'+id]={say:t.people[n.name],opts:end};return[t.label,'t_'+id]})}
+// a line that hands you something: [+id] in its text (one or more), taken out before it's shown; you get the item when the
+// line is shown, once a day from each person (ME.gifted)
+const giftsIn=t=>[...(t||'').matchAll(/\[\+(\w+)\]/g)].map(m=>m[1]),unmark=t=>(t||'').replace(/\s*\[\+\w+\]/g,'');
 function dailyConvo(n){if(DAY<1)return null;const D=typeof DAILY!='undefined'&&DAILY[n.name]?.[DAY];
   const svc=serviceOpts(n),end=svc.length?[...svc,['Goodbye',null]]:undefined,tn={},tp=topicOpts(n,tn,end),plus=o=>{if(!tp.length)return o;const bye=!o||o.some(x=>x[0]=='Goodbye');return[...(o||[]).filter(x=>x[0]!='Goodbye'),...tp,...(bye?[['Goodbye',null]]:[])]};
   if(!D)return SERVICE[n.name]||SHOPS[n.name]&&n.m==n.loc?null:{start:'a',nodes:{a:{say:`My name is ${n.name}.`,opts:plus()},...tn}};
-  if((ME.talked??={})[n.name]==DAY)return{start:'a',nodes:{a:{say:D[2],opts:plus(end)},...tn}};
+  if((ME.talked??={})[n.name]==DAY)return{start:'a',nodes:{a:{say:unmark(D[2]),gift:giftsIn(D[2]),opts:plus(end)},...tn}};
   const nodes={},done=()=>{ME.talked[n.name]=DAY};let k=0,alt=D[4]&&Object.keys(D[4]).find(knows);learn(n);
-  const build=(say,opts)=>{const id='n'+k++;nodes[id]={say};opts=opts?.filter(o=>!o[2]||knows(o[2]));
+  const build=(say,opts)=>{const id='n'+k++;nodes[id]={say:unmark(say),gift:giftsIn(say)};opts=opts?.filter(o=>!o[2]||knows(o[2]));
     nodes[id].opts=opts?.length?opts.map(([t,r])=>{const[rs,ro]=Array.isArray(r)?r:[r];return[t,build(rs,ro),ro?.length?null:done]}):end;return id};
   const st=build(alt?D[4][alt]:D[0],D[1]);if(tp.length)nodes[st].opts=plus(nodes[st].opts==end?end:nodes[st].opts);return{start:st,nodes:{...nodes,...tn}}}
 // ---- Information (the Information tab): every day's conversation you've heard, ME.info['Name:day'] = {d: the day, n: who,
@@ -670,18 +673,21 @@ function learn(n){const a=POS[P.m]?P.m:areaOf(P.m);(ME.info??={})[n.name+':'+DAY
 // its line: the summary written for it, or else what you asked them (from the journal), or failing that what they opened with
 function infoLine(v){const D=typeof DAILY!='undefined'&&DAILY[v.n]?.[v.d];if(D?.[3])return D[3];
   const asked=(ME.journal||[]).filter(j=>j.d==v.d&&j.n==v.n).flatMap(j=>j.l.filter(([w])=>w=='You').map(([,t])=>t));
-  return asked.length?'You asked: '+[...new Set(asked)].join(' / '):D?'"'+D[0].replace(/^\([^)]*\)\s*/,'')+'"':'You talked.'}
+  return asked.length?'You asked: '+[...new Set(asked)].join(' / '):D?'"'+unmark(D[0]).replace(/^\([^)]*\)\s*/,'')+'"':'You talked.'}
 // (a save from before the Information tab: what's in its journal counts as heard, where the journal's first line is a daily opener)
 function infoFromJournal(){const I={};for(const j of ME.journal||[]){const D=typeof DAILY!='undefined'&&DAILY[j.n]?.[j.d];
-  if(D&&(j.l[0]?.[1]==D[0]||D[4]&&Object.values(D[4]).includes(j.l[0]?.[1])))I[j.n+':'+j.d]??={d:j.d,n:j.n,w:'',night:j.night}}return I}
+  if(D&&(j.l[0]?.[1]==unmark(D[0])||D[4]&&Object.values(D[4]).map(unmark).includes(j.l[0]?.[1])))I[j.n+':'+j.d]??={d:j.d,n:j.n,w:'',night:j.night}}return I}
 let IDAY=null;
 addEventListener('click',e=>{const b=e.target.closest?.('[data-id]');if(!b||START!='info')return;const days=[...new Set(Object.values(ME.info||{}).map(v=>v.d))].sort((a,b)=>a-b);
   IDAY=days[Math.max(0,Math.min(days.length-1,days.indexOf(IDAY)+ +b.dataset.id))];renderStart()});
 // what a quest left someone saying that still comes first: a hint while the quest is yours, or anything on the day it's done
 const afNow=n=>ME.quests.flatMap(q=>(QUESTS[q.id].aftermath||[]).filter(a=>a.name==n.name&&a.say&&q.flags?.[a.flag]&&(!q.done||q.day==DAY&&!a.open)))[0];
 const replies=()=>(CONVO.c.nodes[CONVO.at].opts||[['End the conversation',null]]).filter(o=>!o[3]||o[3]());
+// (a line that hands you something gives it the first time it's shown today, and says so under the line)
 function renderConvo(){const nd=CONVO.c.nodes[CONVO.at];
-  cvEl.querySelector('.said').innerHTML=`<b>${esc(CONVO.n.name)}</b><p>"${esc(nd.say)}"</p>`;
+  if(nd.gift?.length&&!nd.got){nd.got=[];for(const id of nd.gift){const k=CONVO.n.name+':'+DAY+':'+id;if(!ITEMS[id]||(ME.gifted??={})[k])continue;ME.gifted[k]=1;give(id);nd.got.push(id)}}
+  const got=nd.got?.length?`<p class="gift">(You get ${nd.got.map(id=>{const nm=ITEMS[id].name.toLowerCase();return(/^[aeiou]/.test(nm)?'an ':'a ')+nm}).join(' and ')}.)</p>`:'';
+  cvEl.querySelector('.said').innerHTML=`<b>${esc(CONVO.n.name)}</b><p>"${esc(nd.say)}"</p>${got}`;
   cvEl.querySelector('.opts').innerHTML=replies().map(([t],i)=>`<button data-o="${i}" aria-pressed="${i==CONVO.sel}"><span>${i+1}.</span> ${esc(t)}</button>`).join('');
   cvEl.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>reply(+b.dataset.o))}
 function reply(i){const o=replies()[i];if(!o)return;jot(o,CONVO);if(o[1]==null){endConvo();o[2]?.();return}o[2]?.();CONVO.at=o[1];CONVO.sel=0;renderConvo()}

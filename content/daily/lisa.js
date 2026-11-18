@@ -64,7 +64,7 @@ DAILY['Lisa']={
   ["Is it good for business?","It's lovely. Everyone's smiling. They come in for a free bottle and leave with bread, butter and a cake. Harald's paying for my wages, really."],
   ["Who's the most cola anyone's taken?","Toni from the arcade. He came through the till four times in four different hats. I knew it was him. I said nothing. He looked so happy."],
   ["Are you voting for Harald?","I can't vote. I'm not a Republican. I'm a supermarket. (She laughs.) If I could, I'd vote for whoever gives everyone free things. Wouldn't you?"]],
- "One free bottle with every loaf. Have a loaf."],
+ "One free bottle with every loaf. Have a loaf. [+bread]"],
 14:["(Lisa is taking off her apron.) The manager's closing for the big day. Everyone's going. You'll be there? With your notebook?",[
   ["What are you hoping for?","Something exciting. Something that makes the island interesting, so I don't have to go to London to have a life. (She thinks.) I'd still go."],
   ["Are you nervous?","Of crowds? No. I see the whole of Kingsgrad every week at the till. I know who owes who. It's a family, really. A big, loud, nosy family."],

@@ -55,7 +55,7 @@ DAILY['Dagny']={
   ["Will you drink it?","When the ledger balances. Which will be the thirty-first of December. It'll be flat. That's the price of a balanced ledger."],
   ["Why's Kelp Cola giving it away?","Because tomorrow's the big day and they want to be liked. I've never needed to be liked. I've needed to be paid on time."],
   ["Will you go to the gathering?","I'll stand at the back with the other owners. Phil, Dario, Gustavo. We'll pretend we don't see each other. It's very restful."]],
- "Take the cola if you like. I've already written it off."],
+ "Take the cola if you like. I've already written it off. [+cola]"],
 14:["(Dagny is putting on her overcoat and her father's old watch.) The big gathering. I'm going. At the back. Bjarne's driving the mill lads in the cart. Ilse's leading them. She's got a list. I've seen the list. I'm on it.",[
   ["What's on Ilse's list about you?","'Do not heckle Dagny.' Underlined twice. I don't know whether to be flattered or worried. Both."],
   ["What do you hope happens?","That nobody promises anything the island can't pay for. And that the oil company doesn't use the crowd to buy my forest while I'm not looking."],

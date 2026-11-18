@@ -47,7 +47,7 @@ DAILY['Mary']={
   ["What do you think they want?","Your loyalty, in a bottle. People will vote for anyone who gives them a sweet drink. It's the oldest trick there is."],
   ["Will you sell cola in the shop?","Over my dead body, and over Orwell's. Sticky fingers and paper don't mix."],
   ["What are you reading?","A novel about a man who wakes up as an insect. I've had mornings like that. Orwell has them daily."]],
- "Take the cola, if you want it. Somebody should enjoy it."],
+ "Take the cola, if you want it. Somebody should enjoy it. [+cola]"],
 10:["(Mary is in a black coat, back from the Royal Chapel, and very quiet.) They've buried the king. The whole of Kingsgrad stood in the street. I'd sold out of black ribbon by nine.",[
   ["How was the funeral?","Long and cold and beautiful. Prince Leopold read a poem. I'd sold him the book. I didn't know that was why."],
   ["Did the king read?","Every month, a parcel to the palace: history, and one thriller he pretended was for the staff. I'll miss that parcel more than I can say."],

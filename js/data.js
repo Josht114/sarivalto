@@ -682,6 +682,12 @@ wine:{name:'Bottle of wine',desc:'A bottle of red wine.',actions:['Drink']},
 capacitor:{name:'Industrial capacitor',desc:'A capacitor the size of a coffee tin, stolen from the back of the electronics store in Frostholm. Fed into a machine\'s drive, it would short out everything.',actions:[]},
 weed:{name:'Bag of weed',desc:'A sandwich bag of cannabis buds, pinched from the grow beds in the old barn at East Farm. It smells like a skunk.',actions:[]},
 hotdog:{name:'Hot dog',desc:'A hot dog with mustard.',actions:['Eat']},
+// food and drink people hand you in conversation (a [+id] in their line)
+soup:{name:'Bowl of soup',desc:'A bowl of hot soup, somebody\'s own recipe.',actions:['Eat']},tea:{name:'Cup of tea',desc:'A cup of strong tea.',actions:['Drink']},
+sandwich:{name:'Sandwich',desc:'A sandwich wrapped in paper.',actions:['Eat']},biscuit:{name:'Biscuit',desc:'A plain biscuit, a little hard.',actions:['Eat']},
+roll:{name:'Bread roll',desc:'A white bread roll, still warm.',actions:['Eat']},orange:{name:'Orange',desc:'A bright orange, a long way from home.',actions:['Eat']},
+milkshake:{name:'Milkshake',desc:'A tall milkshake with a straw.',actions:['Drink']},pasty:{name:'Pasty',desc:'A hot meat pasty from Pirkko\'s van.',actions:['Eat']},
+cake:{name:'Slice of cake',desc:'A slice of home-made cake, wrapped in a napkin.',actions:['Eat']},
 };
 // ---- Cassettes (js/tape.js plays them on the cassette player): the album, the band, its six songs (three a side), the label's
 // colour on the sprite, and its sound (style, in js/tape.js). Each is also an item, sold at Ruby's record shop.
@@ -718,7 +724,7 @@ const FISH_BUYER='Olga';
 // ---- How much each thing you eat or drink fills your hunger (out of 100; js/needs.js)
 // ---- How drunk each drink makes you (the alcohol meter goes up by this, out of 100)
 const ALCOHOL={beer:15,wine:25,whisky:20};
-const FOOD={candybar:12,crisps:10,meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
+const FOOD={soup:30,tea:3,sandwich:25,biscuit:8,roll:12,orange:10,milkshake:12,pasty:30,cake:15,candybar:12,crisps:10,meal:55,smokedfish:35,burger:35,pizza:30,bread:25,hotdog:25,bun:15,cola:5,coffee:5,beer:5,wine:5,whisky:2};
 // ---- Places with somewhere to sit and wait for the evening: face one of their tables (or the hotel lobby's seats) and press E.
 const WAIT_AT=['diner_in','bar','citybar','tavern','burgerbar','cafe','cedargrill','hotel_lobby','casino','hekki_room'];
 // ---- Conversations, by the name of the person you talk with: the node it starts at, and its nodes. Each node is what they say

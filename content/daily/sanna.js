@@ -122,6 +122,6 @@ DAILY['Sanna']={
 30:["(Sanna has the grill on and a burger sizzling, though there's nobody in.) The last day. They'll decide the island today. I've put a burger on anyway. Whoever wins, they'll be hungry after. Everybody's always hungry after.",[
   ["Are you open?", "I'm always open. People get hungry when they're nervous. And when they're happy. And when they're sad. That's the secret of burgers. It's not the sauce."],
   ["How's Sven?", "He came in this morning in the scarf and asked if I'd stand with him today too. I said yes. I've got good at saying yes."],
-  ["Thank you, Sanna.", "(She hands you a burger in a paper bag.) For the road. Square, with the sauce. Tell London about it. Tell them it's the best on the island. It's true."]],
+  ["Thank you, Sanna.", "(She hands you a burger in a paper bag.) For the road. Square, with the sauce. Tell London about it. Tell them it's the best on the island. It's true. [+burger]"]],
  "Sit. Eat. Then go and see what happens."],
 };

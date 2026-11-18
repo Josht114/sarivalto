@@ -28,8 +28,8 @@ DAILY['Hekki']={
   ["Eastbrook's open. Anything from there?","The Democrats meet at the community centre and argue about the chairs. Erik wants them in a circle. Everyone else wants to see the biscuits."],
   ["What if I need something brought in?","The night drop. A boat with no lights, off the rocks below the tower, at two in the morning. Chuck puts things in a pouch, I fish them out of the sea, and I don't ask what they are. Mostly."]],
  "I'll be on the rocks, if anyone wants me. Nobody does."],
-5:["(Hekki is wrapping both hands round a mug and shivering.) I've been out on the rocks half the night. If a parcel came for you, it's on the table in your room. I didn't open anything. I smelled one.",[
-  ["What did it smell of?","Coffee. Very good coffee. (He sighs.) I don't know who you're buttering up, but they're lucky."],
+5:["(Hekki is wrapping both hands round a mug and shivering.) I've been out on the rocks half the night. The wind turned the aerial round again. I had to turn it back by hand.",[
+  ["What does the wind turn it towards?","Helsinki. Every time. (He sighs.) Chuck doesn't want to talk to Helsinki, and Helsinki doesn't want to talk to Chuck."],
   ["Do you ever go up to the monastery?","Once, to fix their bell. It wasn't broken: Brother Anselm wanted someone to tell him so. I told him. He gave me a loaf."],
   ["You look frozen.","The sea's colder than it looks, and it looks very cold. I'll thaw by Sunday."]],
  "Go on. I'll thaw."],

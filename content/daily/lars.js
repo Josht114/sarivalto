@@ -114,7 +114,7 @@ DAILY['Lars']={
   ["Any luck with the second go?","Four pins. Magnus clapped. Magnus! He's undone a button. Everyone's gone mad."],
   ["Heard anything interesting?","The bosses talk when they've had a drink. I'm only a rig hand. I just hear 'Lars, get the ice.'"],
   ["The whole island's out today.","Every faction pushing all at once. And here we are with milkshakes. I'm on the right side."]],
- "Have a strawberry milkshake. It's the only one Dario doesn't hover over."],
+ "Have a strawberry milkshake. It's the only one Dario doesn't hover over. [+milkshake]"],
 29:["(Lars is in his work clothes again, rubbing his arm.) Back on the rig. Sore arm from bowling. The Republicans are voting today in Frostholm. Magnus is up for it. The lads have a bet on.",[
   ["Who've the lads got their money on?","Half on Magnus, out of loyalty. Half on Carlo, out of fear. Nobody's on Harald. Nobody out here drinks his cola in public."],
   ["Did you bet?","No. I really didn't. I've got eighty-four dollars in the bank. I'm a saver now. It's very boring."],

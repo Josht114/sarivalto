@@ -160,7 +160,9 @@ turns the music and place sounds off and on, and the volume is set on the Option
       g[p].sort((a,b)=>(a==p?-1:b==p?1:L[a][0].localeCompare(L[b][0]))).map(id=>`<tr data-s="${esc((L[id][0]+' '+L[p][0]+' '+(here(id)||'none')).toLowerCase())}"><td>${A(c,'locations',id,L[id][0])}</td><td data-v="${esc(here(id)||'~')}">${here(id)?esc(here(id)):'<small>None</small>'}</td></tr>`).join('')}</tbody></table></div></section>`).join('')}
 // ---- Dialogue: who wrote each person's daily conversations (content/daily/authors.json: 'opus', 'sonnet', or {model: [first day,
 // last day]} for someone written by both), with how many conversations each model wrote, from js/daily.js
-const DAILY=(()=>{const b={};vm.createContext(b);try{vm.runInContext(fs.readFileSync(path.join(root,'js/daily.js'),'utf8')+';this.D=DAILY',b);return b.D}catch(e){return{}}})();
+// (without the [+id] markers for what a line hands the player)
+const DAILY=(()=>{const b={};vm.createContext(b);try{vm.runInContext(fs.readFileSync(path.join(root,'js/daily.js'),'utf8')+';this.D=DAILY',b);
+  const un=x=>typeof x=='string'?x.replace(/\s*\[\+\w+\]/g,''):Array.isArray(x)?x.map(un):x&&typeof x=='object'?Object.fromEntries(Object.entries(x).map(([k,v])=>[k,un(v)])):x;return un(b.D)}catch(e){return{}}})();
 const AUTHORS=(()=>{try{return JSON.parse(fs.readFileSync(path.join(root,'content/daily/authors.json'),'utf8'))}catch(e){return{}}})();
 const MODEL={opus:['Opus','#7d3c98'],sonnet:['Sonnet','#2e86c1']};
 function dialogueBody(c){const days=n=>Object.keys(DAILY[n]||{}).map(Number),byDay=(n,d)=>{const a=AUTHORS[n];if(!a)return null;if(typeof a=='string')return a;return Object.keys(a).find(m=>d>=a[m][0]&&d<=a[m][1])||null};

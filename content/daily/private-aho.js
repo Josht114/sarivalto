@@ -44,12 +44,12 @@ DAILY['Private Aho']={
   ["Is it good?","It's very good. It's like being little. Like sweets for dinner. (He eats.) I'm going to tell my mother. She won't believe it. She'll think the army's gone mad."],
   ["Has the sergeant found the blankets?","Not yet. (He eats faster.) He's stopped counting every hour. Now he counts every two hours. (A pause.) That's worse. It means he's thinking."],
   ["How are the farms?","(He lowers his voice.) The old woman's stove's mended. A man came from the village. The widow said I'm a good boy. (He looks into his stew.) My mother says that. It was nice to hear it from someone else."]],
- "Have some stew. It's the best strange thing."],
+ "Have some stew. It's the best strange thing. [+soup]"],
 14:["(Aho is in his dress uniform, standing at the mess hall door with a huge basket of sandwiches.) The gathering. We're keeping order at the edges. (He shifts the basket.) And carrying sandwiches. Four hundred. I've got a hundred. My arms are already shaking. My mother would've loved to see it.",[
   ["What does keeping order mean?","Standing in a line. Not moving. Looking stern. (He tries to look stern.) The sergeant says I look like a lost lamb trying to look stern. He's right. I'm practising."],
   ["Who do you hope wins?","I don't know enough. (He thinks.) My mother says whoever's kind. I don't know which one's kind. They all shout. Kind people don't shout. Except the sergeant. Maybe."],
   ["Is your mother coming?","She can't. It's too far. Nine miles. (He shifts the basket.) I'll write her everything tonight. Every speech. Every sandwich. It'll be a very long letter."]],
- "Take a sandwich. Please. It's lighter if you take one."],
+ "Take a sandwich. Please. It's lighter if you take one. [+sandwich]"],
 15:["(Aho is writing a letter at the mess table, very fast, with ink on his fingers.) Fourteen pages. (He writes.) The gathering. The fountain. A man fell in with a duck. I'm writing the duck. My mother will love the duck.",[
   ["How did it go?","Nobody fought. I stood at the edge. A little girl gave me a flower. (He shows you a squashed flower.) The sergeant saw. He didn't say anything. (A pause.) I think that means he didn't mind."],
   ["Will the sergeant post all fourteen pages?","He'll weigh them. And frown. And post them. (He writes.) He always posts them. Even the very long ones."],

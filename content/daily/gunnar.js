@@ -70,7 +70,7 @@ DAILY['Gunnar']={
   ["Is it better than the Party's?","Like a feather bed is better than a sack of nails. Don't tell Anna. She'll say I've been corrupted by capital."],
   ["Have you been corrupted?","Daily. By sandwiches, mostly. But one free cola won't turn a Union man."],
   ["Who's giving it away?","Kelp Cola. They want everyone to love them before the big day. It's working on me. I'm cheap."]],
- "Take a bottle. There's a crate that's lost."],
+ "Take a bottle. There's a crate that's lost. [+cola]"],
 14:["(The dock is deserted except for Gunnar, who is mending a net with huge, careful hands.) Everyone's gone to the big gathering. I stayed. Somebody has to mind the boats, and the boats can't mind themselves.",[
   ["Didn't you want to go?","Crowds and speeches? I'd sooner mend nets. Nets don't promise you anything. They just catch fish, or don't."],
   ["What do you expect to come of it?","Talk. Then the boats will still need emptying on Monday. That's my whole philosophy."],

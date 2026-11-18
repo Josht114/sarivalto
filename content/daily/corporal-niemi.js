@@ -22,7 +22,7 @@ DAILY['Corporal Niemi']={
   ["Will you use it?","In a soup. Beetroot belongs in soup. (He tips a bowlful into the Admiral.) There. Now it's borscht. That's a Party soup. Everyone's happy."],
   ["What's the Party like, at the barracks?","There are three Party men in the barracks. They eat the borscht and look very pleased. (He stirs.) The rest of the men eat it and look very confused. It's a very political soup."],
   ["Don't you have to stay out of politics?","The army stays out of politics. The cook stays in the kitchen. (He tastes.) The soup has no opinion. It's very good, though. I'll say that."]],
- "Have a bowl. It's borscht. It's political. It's delicious."],
+ "Have a bowl. It's borscht. It's political. It's delicious. [+soup]"],
 10:["(Niemi is not singing. He's making something very quietly in a smaller pot.) The funeral. No singing today. (He stirs.) I'm making the king's favourite. Fish soup. My mother's. For the men, when they come back from the salute.",[
   ["Was it really the king's favourite?","He came to the barracks in 1968 and had a bowl. He said, 'Corporal, that is the best soup on the island.' (He looks at the pot.) My mother cried when I wrote to her. She said the king had good taste."],
   ["Is it the real recipe?","(He sighs.) Almost. It's missing her secret. I'll never know what it is. She took it with her. (He stirs.) But it's close. It's the closest I've ever got."],
@@ -47,7 +47,7 @@ DAILY['Corporal Niemi']={
   ["Four hundred sandwiches for forty-one men?","Some are for the crowd. People at the edges get hungry. (He packs.) Rask counted the bread. I made it go further. That's a cook's real job: making things go further."],
   ["Will you sing at the gathering?","If anyone starts singing. (He looks hopeful.) Nobody ever starts singing. I might start. Rask will stop me. The Colonel might let me."],
   ["What do you hope happens?","That everyone eats something. Hungry people make bad decisions. That's not politics. That's lunch."]],
- "Take a sandwich. Turnip. The ham ones are for emergencies."],
+ "Take a sandwich. Turnip. The ham ones are for emergencies. [+sandwich]"],
 15:["(Niemi is very cheerful, washing out the sandwich basket.) Every sandwich gone! Four hundred! (He scrubs.) A man fell in the fountain with a duck. I gave him a ham sandwich. The duck ate half.",[
   ["How did the army do?","Order at the edges. Rask counted the crowd. Three thousand one hundred and four. (He laughs.) The Colonel stood very straight. I sang once. Rask stopped me. The Colonel didn't."],
   ["What's the news today?","The palace and the Church are arguing over the prince's brother. (He scrubs.) The Church fasts. The palace feasts. The prince's brother looks like he needs a good soup. I'd make him one."],
@@ -114,7 +114,7 @@ DAILY['Corporal Niemi']={
   ["What's happening tonight?","A Party picture at the cinema, they say. And the Don's card game. (He kneads.) The barracks is having an early night. Rask's orders. I'm baking all night. Rask's orders, also. He doesn't sleep before a parade either."],
   ["Will you be on the parade?","At the end of the line. With white gloves. (He looks at his floury hands.) If I get flour on the gloves, Rask will count every speck. I'm going to wash my hands eleven times."],
   ["Are you nervous?","About the bread? No. About the gloves? Terrified. (He kneads.) About the foreign king? I've never fed a king. I hope he doesn't come to the barracks. The Admiral's not ready."]],
- "Take a roll on your way out. Don't drop crumbs. Rask's counting those too."],
+ "Take a roll on your way out. Don't drop crumbs. Rask's counting those too. [+roll]"],
 28:["(Niemi is in dress uniform with white gloves, washing his hands for the eleventh time, at the mess hall door.) The state visit. One hour. (He dries his hands.) The line's forming at the gate. Every faction's making its big push, they say. The army's making a straight line. And I'm at the end of it.",[
   ["Are your gloves clean?","(He holds them up.) Spotless. Rask counted them. Nine times. (He pulls them on.) I've never been so clean. I don't recognise myself."],
   ["Will you sing?","(He looks horrified.) On parade? Rask would court-martial me. (A pause.) I might hum. Very quietly. When the band plays. Just the turnip one."],
@@ -124,12 +124,12 @@ DAILY['Corporal Niemi']={
   ["Did you hum?","The turnip song. When the band played. (He grins.) The man next to me started humming too. Then the next. By the time the king passed, half the line was humming. Rask's furious. The Colonel smiled."],
   ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next. (He tastes.) And the Admiral's making turnip and herring. Some things don't change. That's very comforting."],
   ["Are you tired?","Very. I baked all night and stood all day. (He stirs.) But the Admiral's full, and the men are fed, and the king didn't come to the barracks. A very good day."]],
- "Have a bowl. Turnip and herring. Back to normal."],
+ "Have a bowl. Turnip and herring. Back to normal. [+soup]"],
 30:["(Niemi is standing beside the Admiral with his ladle, not stirring, just looking at it.) Last day. They're settling the island today. (He pats the pot.) Whatever happens, tomorrow there'll be forty-one men to feed. And the Admiral will be ready.",[
   ["What do you hope happens?","That whoever runs the island gives the army a proper kitchen budget. Eggs. Butter. Cream. (He smiles.) And that nobody ever needs four hundred bowls of soup again. Once was enough. Once was wonderful."],
   ["Will you remember this month?",["(He looks into the Admiral.) The mountain. Four hundred and twelve bowls. Finding my mother in the soup. Yes. Every day.",[
     ["And me?","The visitor who carried bowls on the night before the mountain. You're in the army. Unofficially. (He grins.) Rask doesn't know. Yet."],
     ["What will you do tomorrow?","Make soup. Sing the turnip song. Miss the target at the range. Same as always. (He pats the pot.) The Admiral and me. Forty years."]]]],
-  ["Can I have a bowl?","(He fills one to the brim, with herring on top.) Always. That's the army's promise. Nobody leaves the barracks hungry."]],
+  ["Can I have a bowl?","(He fills one to the brim, with herring on top.) Always. That's the army's promise. Nobody leaves the barracks hungry. [+soup]"]],
  "Come back at noon. I'll put a bit of herring in yours. Don't tell Rask."],
 };

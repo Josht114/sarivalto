@@ -90,13 +90,13 @@ DAILY['Dex']={
 21:["(Dex has a huge pot balanced on his hot plate and is ladling soup into tin cups.) The mountain's blown! Ash coming down from the north! I'm making soup! Hot dog soup! Don't ask what's in it!",[
   ["Is everybody safe?","Erik's got the Community Centre open. Nobody's hurt, that we've heard. Monks coming down from the mountain with blankets. Even Paolo's helping, carrying old ladies across the plaza."],
   ["What's in the soup?","Sausages, potatoes, onions, a bit of mustard. And love. Mostly sausages."],
-  ["Shouldn't you get inside?","In a minute. People are cold and frightened, and soup's the one thing I can do. (He hands you a cup.) Drink. Then go."]],
+  ["Shouldn't you get inside?","In a minute. People are cold and frightened, and soup's the one thing I can do. (He hands you a cup.) Drink. Then go. [+soup]"]],
  "Soup and then shelter. Go on."],
 22:["(Dex's cart is grey with ash, and he's scraping it with a spatula.) Everything's grey. My buns. My mustard. Me. But we're all here. Nobody hurt, on the whole island. I've checked with everyone. That's the gossip today. The best gossip I've ever had.",[
   ["What about the north?","The farms got it worst. Lava down the hillside, the roads gone in places. But no people hurt. Animals got out. Even the farm cat."],
   ["How's the plaza?","Grey and full. Everybody's out sweeping and borrowing brooms and lending sugar. It's the friendliest Eastbrook's been since the war."],
   ["Free hot dogs?","For anyone with a broom. That's the rule this week. I've given away sixty. Erik says I'm bankrupting the movement. I say I'm feeding it."]],
- "Got a broom? Have a hot dog."],
+ "Got a broom? Have a hot dog. [+hotdog]"],
 23:["(Dex is working with a fresh set of tongs, and keeps glancing at the sky.) Still grey up north. Steam. The aftershocks come every few hours. I've stopped jumping. Mostly.",[
   ["Any gossip from the clean-up?","The Communists say somebody's been sabotaging something at Kelp Cola. And Dario's got men out at the oil rig, mending something deep down. Everyone's mending. Even the crooks."],
   ["How's business?","Never better. Frightened people eat. Tired people eat. People sweeping ash eat twice. I'm going to need a second cart."],

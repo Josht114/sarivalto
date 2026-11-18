@@ -154,6 +154,6 @@ DAILY['Olga']={
 30:["(Olga is in her apron, with the shop wide open and every fish on the slab gleaming.) The last day of September. They'll settle the island today, one way or another. I've laid out every fish I've got. If it's the end of the world, it'll be a well-fed end.",[
   ["Are you frightened?","A bit. But I've been frightened of the mountain, of Lucia, of my sister's debts and of Hannu's spelling. I'm out of practice at being frightened of only one thing."],
   ["What will you do tomorrow?","Shout at Helmi. Correct Hannu. Buy from Tom. Smoke the herring for three days, not two. Same as always."],
-  ["Thank you, Olga.","(She presses a parcel of smoked herring into your hands.) There. Take it to London. Tell them that's what a Saltwick fish tastes like. Then they'll know."]],
+  ["Thank you, Olga.","(She presses a parcel of smoked herring into your hands.) There. Take it to London. Tell them that's what a Saltwick fish tastes like. Then they'll know. [+smokedfish]"]],
  "Before noon it's cheaper. After noon, today, it's free."],
 };

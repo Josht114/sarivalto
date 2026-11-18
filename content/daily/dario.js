@@ -45,7 +45,7 @@ DAILY['Dario']={
   ["Generous?","Desperate. Generous is a word desperate men use about themselves."],
   ["Have you tried it?","I tried it in 1971. I still remember it. That's not praise."],
   ["You could give away free oil.","(He laughs.) Now there's an idea. Pour it on the street outside Phil's office and let him slip on it."]],
- "Take the bottle. I don't want it on my desk."],
+ "Take the bottle. I don't want it on my desk. [+cola]"],
 14:["(Dario has a new tie on, and he keeps checking it in the glass of the trophy case.) Big day, journalist. The whole island in one place, and every one of them wondering who's going to run it.",[
   ["Are you nervous?","I haven't been nervous since 1958. I'm attentive. There's a difference, and it's about two bourbons."],
   ["What do you expect from it?","Speeches. Hats. A lot of people being very sure of themselves. I'll stand at the back and count who's actually got money."],
@@ -133,6 +133,6 @@ DAILY['Dario']={
   ["What will you do if it goes against you?","Drill somewhere else. The world's round, and most of it's on top of something."],
   ["You seem far away.",["(He sets the ball down.) I was thinking about somebody who'd have liked to see this island again. She never got to.",[
     ["Who?","Somebody who sang. That's all you get. It's more than anybody else got."],
-    ["I'm sorry.","Don't be. Sorry's no use to anyone. Have a milkshake instead."]]]]],
+    ["I'm sorry.","Don't be. Sorry's no use to anyone. Have a milkshake instead. [+milkshake]"]]]]],
  "Whatever happens today, journalist, you were more interesting than most."],
 };

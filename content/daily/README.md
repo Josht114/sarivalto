@@ -57,6 +57,17 @@ Every conversation the player hears goes into the menu's Information tab, under 
   Join several with `|` for "any of these" (`'Kurt:2|Kurt:6'`), or, after `!`, "none of these" (`'!Kurt:2|Kurt:6'`).
   Pair them so there are always at least three replies. Use it whenever a reply mentions something from another day.
 
+## Handing the player something
+
+When a line has someone give the player food or drink ("Have a bowl.", "(She hands you a bun.)"), put the item's id in square
+brackets with a plus at the end of that line: `"Take a sandwich. Turnip. [+sandwich]"`. The marker isn't shown. The player gets
+the item when the line appears, once a day from each person, and the conversation says so under it ("(You get a sandwich.)").
+
+- It works in an opener, an answer (however deep) or a closing line. The id must be one of the `ITEMS` in `js/data.js`:
+  `coffee`, `tea`, `soup`, `bun`, `roll`, `bread`, `sandwich`, `biscuit`, `cake`, `pasty`, `orange`, `cola`, `milkshake`,
+  `hotdog`, `burger`, `pizza`, `smokedfish`, `beer`, `whisky` and so on. `node tools/build-daily.js` checks it.
+- Only when the player is actually given it, not when it's on sale or someone else gets it.
+
 ## Every day stands on its own
 
 A player won't talk to everyone every day. So no conversation may rely on an earlier one having been heard:

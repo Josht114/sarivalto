@@ -46,7 +46,7 @@ DAILY['Pirkko']={
   ["Pine needles?","I thought that! Then I thought, no, he'd never. Then I thought, he absolutely would. I'm trying it tonight."],
   ["Why not just ask him straight out?","I did, for twenty years. Then I tried buns. Buns work better than asking. Remember that, if you're ever a reporter. Oh, you are."],
   ["What other news from Eastbrook?","Juniper's got cowboy boots in the window, of all things. Some supplier's mistake. She's furious and she can't stop looking at them."]],
- "Try the pasty. It's got a secret too, and I'm not telling."],
+ "Try the pasty. It's got a secret too, and I'm not telling. [+pasty]"],
 13:["(The factory gate is piled with crates, and a man in a Kelpy hat is pressing bottles on everyone who walks past.) Free samples! They're giving away their own cola to their own workers. The lads are using them as doorstops.",[
   ["Has it hurt your trade?","Never. You can't eat a cola. Though one of the lads tried dipping a hot dog in it. I've asked God to forgive him."],
   ["What's the point of it?","Phil wants everyone on the island to have a bottle in their hand before anyone else gets a word in. The cola's the vote, in a way. Clever. Bit much."],
@@ -86,7 +86,7 @@ DAILY['Pirkko']={
   ["I'm sorry, Pirkko.","Don't be, love. He had a good life and a bad heart. I still talk to him in the van, when the queue's quiet. He disagrees with me about mustard."],
   ["What was he like?","Big, slow, kind. Fixed anything. Laughed at his own jokes before he'd finished them. Couldn't make soup to save his life."],
   ["Is that why you want Teodor's recipe?","(She smiles.) Pekka always said if he could have one bowl of the monks' soup a week, he'd live for ever. I'd like to make it once, for him. Daft, really."]],
- "Have a pasty on Pekka. He always gave one away on a hard day."],
+ "Have a pasty on Pekka. He always gave one away on a hard day. [+pasty]"],
 21:["(Ash is falling on the factory yard. Pirkko has the hatch open and a huge pot on the stove.) Soup! Free soup, for anyone! Don't stand there gawping at the mountain, love, come and get something hot inside you.",[
   ["Is everyone all right?","The factory's shut and the lads are all accounted for. The ash is in everything. I've just served Bjarne a coffee with a crust on it."],
   ["Shouldn't you get to shelter?","Where's safer than a hot van with a full pot? People are frightened. Frightened people need feeding. That's the whole of my theology."],
@@ -112,7 +112,7 @@ DAILY['Pirkko']={
   ["What was she like?","Sharp as a knife and twice as funny. She ate the hot dog walking, like a factory lad. I liked her very much."],
   ["Would she make a good queen?","She'd make a good anything. Whether she'd want it is the thing. You can't make a girl like that wear a crown if she doesn't fancy it."],
   ["Did she pay?","She paid double and told me not to tell her brother. I haven't. Until now. Oh dear."]],
- "Forget what I said about the princess, love. Have a bun."],
+ "Forget what I said about the princess, love. Have a bun. [+bun]"],
 26:["(A crate of Kelp Cola is going past on a trolley, and Pirkko stares at it.) The lads say Phil wants a prince's face on every bottle. A royal on the cola! Pekka would've laughed himself silly. Brother Teodor's still sending me clues to his soup, a word at a time.",[
   ["Would you drink it?","I'd drink it and feel bad about it, which is how I feel about most things from that factory."],
   ["And Dario's buying the spa, they say.","Let him. I've never been in a spa. I've got a bucket of hot water and a stool in the kitchen. That's my spa."],
@@ -137,5 +137,5 @@ DAILY['Pirkko']={
   ["Why open, today of all days?","Because people will be frightened, or happy, or drunk, and all three get hungry. Bread doesn't care who's king."],
   ["Did Teodor answer about the soup?","(She pulls a note from her apron.) One word, love. 'Yes.' Twenty years. I cried into the mustard."],
   ["What do you hope for?","That whoever wins remembers the people at the back of the queue. And that Bertta starts tomorrow. Both would be miracles."]],
- "Have a bun on me. Whatever happens, it's still a good bun."],
+ "Have a bun on me. Whatever happens, it's still a good bun. [+bun]"],
 };

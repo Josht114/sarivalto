@@ -38,7 +38,7 @@ DAILY['Ole']={
   ["Will you charge yourself duty?","I have to, now. Liv's set the standard. (He writes in the ledger.) Four cents. The harbour board will be delighted. It's the first duty they've ever had from me."],
   ["Is the free cola coming through the harbour?","Crates of it. All duty-paid by Kelp Cola. They paid without complaint. That's how I know they're frightened of something. Nobody pays without complaining."],
   ["Are you going to the gathering tomorrow?","I'll stand at the back. Every shopkeeper on the island will be there. Every one of them hates me. I'll wear a hat."]],
- "Take a bottle. Duty's paid. I checked."],
+ "Take a bottle. Duty's paid. I checked. [+cola]"],
 14:["(Ole is in his best uniform and a very large hat, pulled low.) The big gathering. I'm going. Incognito. (He adjusts the hat.) Maya will be there. And the grocers. And Hannu with his chalkboard. Every one of them wants my moustache on a stick.",[
   ["Will the hat help?","No. Everyone knows the moustache. It's famous. It's on Hannu's chalkboard. But a man should try."],
   ["What do you hope happens?","That someone mentions the harbour wall. Anyone. A prince, a priest, a Party woman. The wall's holding back the sea for all of them. Nobody notices a wall until it falls."],

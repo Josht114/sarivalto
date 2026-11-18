@@ -29,7 +29,7 @@ DAILY['Eddie']={
 6:["The road south to Hope Springs is open. All the big villas'll come into town in their furs now, and they'll want cocktails. I don't do cocktails.",[
   ["What do you do instead?","Whisky, beer, aquavit and my opinion of anyone who orders a cocktail, which I keep to myself."],
   ["Who comes in from Hope Springs?","Nobody comes in. They send someone to buy a bottle. Once, Gustavo's man came in and asked for 'the usual'. I'd never seen him before. I gave him the usual. He seemed happy."],
-  ["One aquavit, please.","(She pours one, with a slice of something dark on the rim.) Rye bread. You eat it after. My grandmother's rules."]],
+  ["One aquavit, please.","(She pours one, with a slice of something dark on the rim.) Rye bread. You eat it after. My grandmother's rules. [+whisky]"]],
  "Next time, bring an appetite. The rye's homemade."],
 7:["(Eddie is chalking up the board.) Jack's pike: three feet, four inches now. He measured it with his hands last night and knocked Bertil's glass over.",[
   ["Does Jack own the fishing shop?","Owns it, sits in it, sells three hooks a week and tells pike stories to the rest of Kingsgrad. He's happy. That's more than most."],
@@ -130,7 +130,7 @@ DAILY['Eddie']={
 25:["(Eila and Marjut are arguing at their table, in whispers.) They've been at it an hour. Marjut's going to Helsinki or she isn't, and Eila says she's a traitor either way.",[
   ["What does Eila want?","For her to stay. Eila won't say it, so she calls her a traitor. That's how friends talk in Kingsgrad."],
   ["When's Marjut leaving?","She hasn't said she's leaving. She's bought a suitcase. Those aren't the same thing."],
-  ["Should I talk to them?","Not unless you want to be called a traitor too. Have a whisky and look at the board."]],
+  ["Should I talk to them?","Not unless you want to be called a traitor too. Have a whisky and look at the board. [+whisky]"]],
  "Go on. They'll sort it before closing."],
 26:["(Eddie stands back to admire the chalk board.) Frank's bear's now nine feet and was blown out of the woodshed by the volcano. Jack's pike: six feet even. I've had to make the board bigger.",[
   ["What's the most-told story this year?","Frank's bear: twenty-two times. Otto's films, eighteen. Jack's pike, sixteen. The volcano story's catching up fast: everyone's got one."],

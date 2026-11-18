@@ -58,7 +58,7 @@ DAILY['Ruby']={
   ["Free samples are nice, though.","A free song on the radio's nice. A free cola's a fishhook with sugar on it. Next month it's ten pence, and the month after you can't remember life without it."],
   ["Still thinking about the Arvo Lind record?","(She glances under the counter.) I keep thinking about the Aurora in 1959. All those people in their good coats, not knowing they'd be the only ones who ever heard it live. Whatever happens to a record, the night happened."],
   ["Want me to drink it for you?","Be my guest. (She slides it across.) Tell me if it tastes of kelp. I've always suspected."]],
- "Take the cola with you. It's spoiling the look of the shop."],
+ "Take the cola with you. It's spoiling the look of the shop. [+cola]"],
 14:["(The shop's empty, and Ruby has her coat on over her jumper.) The fourteenth. Everyone on the island's talking about it like it's the last day of school. I'm closing at noon whether there's a crowd in here or not.",[
   ["What are you expecting?","Speeches. Lots of them. I've packed a flask and a pair of earmuffs."],
   ["What do Eastbrook people want from it?","To be asked. That's all most people here want, about anything. Erik's been ironing his shirt since breakfast."],

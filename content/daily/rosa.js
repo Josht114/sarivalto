@@ -54,7 +54,7 @@ DAILY['Rosa']={
  "Go gently. Everyone is, today."],
 11:["(Rosa is whispering, which she rarely does.) Elin. From the cola offices. She came for her lunch and her hands were shaking. I gave her extra mustard. She knows what that means.",[
   ["What does extra mustard mean?","It means I know, and I'm not telling. She's got a secret. A nice one, with a sad edge. If Phil knew, he'd faint. If the oil company knew, someone would be sacked."],
-  ["Is it a love affair?","(She hands you a napkin and says nothing.) Eat your sausage. You'll get mustard on your notes."],
+  ["Is it a love affair?","(She hands you a napkin and says nothing.) Eat your sausage. You'll get mustard on your notes. [+hotdog]"],
   ["Will you tell me?","Not for all the mustard in Finland. A secret told at a hot dog cart is a secret that never sells another hot dog."]],
  "If you see Elin, be kind. She's got more on her plate than you know."],
 12:["(Rosa is folding a page of crossword squares into a small square and slipping it into her apron.) Ville threw this one in the bin. I fished it out. Don't tell him. I've got a plan.",[
@@ -66,7 +66,7 @@ DAILY['Rosa']={
   ["Why are they giving it away?","Because everyone's going to vote for something soon, and Kelp Cola wants everyone's mouth full of Kelp Cola when they do."],
   ["Did you get paid for handing them out?","In cola. Which is like being paid in rain. But they gave me a new apron with Kelpy on it, so I'm wearing it, out of pity."],
   ["Is the Party cola any good?","The Party woman brought a bottle round. It tastes of beetroot and hope. Hope's nice. Beetroot isn't."]],
- "Take a bottle. Everybody's got one. It's like a uniform today."],
+ "Take a bottle. Everybody's got one. It's like a uniform today. [+cola]"],
 14:["(The square is empty, and Rosa is closing her cart.) Everyone's going to the big gathering, so I'm going too. First time in fifteen years I've left my cart in the day. Ville's minding it. He doesn't know how the stove works.",[
   ["Why go now?","Because everyone will be there, and I want to see their faces. You learn more from one face at a big moment than from a year of lunches."],
   ["Will Ville be all right?","He'll sit on my stool and be very important. He'll sell nothing, and he'll tell everyone it was quiet. It won't have been."],
@@ -81,7 +81,7 @@ DAILY['Rosa']={
   ["Who's winning?","Neither. They agree on more than they think. They both want the island for the people. They just disagree about which people."],
   ["Do you have a side?","I've got a cart. A cart doesn't have a side. A cart's got a front and a back, and everyone who's hungry comes to the front."],
   ["Will you watch the real debate?","I'll hear it word for word from everyone who comes back hungry. That's the best way. You get every side, with mustard on it."]],
- "Take your bun. They've forgotten theirs. Somebody should eat."],
+ "Take your bun. They've forgotten theirs. Somebody should eat. [+hotdog]"],
 17:["(The sausages on Rosa's grill roll gently to one side, then back.) Did you see that? The ground moved. The sausages felt it first. They always know.",[
   ["Was it an earthquake?","A little one, the Gazette says. The Gazette also said my hot dogs were 'adequate' in 1974. I don't trust the Gazette."],
   ["Is anything else going on?","Dario's gone missing, the oil men say. His boy didn't come for his lunch. Nobody knows where he is. The boy ate both sausages, out of worry."],

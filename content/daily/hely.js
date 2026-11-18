@@ -125,7 +125,7 @@ DAILY['Hely']={
   ["What are your plans?","Pay Paolo. Join the circus for the winter tour. Write to Veikko every week. Come back in the spring and pay Linnea's tab. In instalments. Juggled."],
   ["Is the circus going on tour?","After the month, Bruno says. Round the island, every town, then over to Finland for the winter. If Meg says yes, I'm going with them. In a caravan. With a hat."],
   ["What does Linnea think?","(Linnea pours the tea.) Linnea thinks I'll be the best thing that's happened to that circus since the bear. There was a bear, once. It's retired."]],
- "Drink some tea with us. Linnea's made a pot for three. She knew."],
+ "Drink some tea with us. Linnea's made a pot for three. She knew. [+tea]"],
 28:["(Hely is holding a fat envelope, and her hands are shaking.) I've paid Paolo. All of it. Every krone. From programme money. He counted it, put it in his book, and drew a line under my name. A real line. Then he shook my hand. Now I've asked Meg if I can join the circus.",[
   ["How does it feel?","Like taking off a coat I've been wearing for two years. In summer. I'm so light I might float up to Meg's wire."],
   ["What's happening today?","Every faction's big push. Flags everywhere. Erik's rally on the stage Bjarne built. I'm going. I'm going to stand at the front and cheer for everything. I'm not betting on any of it. I'm just cheering."],

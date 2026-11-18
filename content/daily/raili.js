@@ -85,7 +85,7 @@ DAILY['Raili']={
   ["You're not paid?","No. (She pours.) I don't care. (She hands a cup to a man with a shovel.) Look at them. Grey, cold, shovelling. (She smiles.) They need tea. I make very good tea. Nine years of room service."],
   ["Is Arto in the queue?","(She points.) Third from the front. With a shovel. And an armband. (She grins.) He's got a job. Four dollars a day. (She pours.) He hasn't stopped smiling. It's very strange to see. I keep giving him extra sugar."],
   ["Does the urn have a name?","(She pats it.) Wobbles. (She laughs.) It shakes every time there's an aftershock. And the tea sloshes. (She looks at it fondly.) It's the least I could do. Name it."]],
- "Have a cup. You look grey. Everyone does."],
+ "Have a cup. You look grey. Everyone does. [+tea]"],
 23:["(Raili is walking up the boulevard very fast in a crisp Aurora uniform, carrying a bunch of flowers, her face blotchy from crying.) I've got my job back! (She stops.) Mr Lehto, the manager, came to the urn this morning. He said 'Raili, I need you. The journalists.' (She wipes her eyes.) The hotel's full.",[
   ["Congratulations!","Thank you. (She laughs and cries at once.) Towels. Forty journalists. All wanting towels. (She looks at the uniform.) It still fits. (She looks at the flowers.) And then these came."],
   ["Who are the flowers from?","The foreign businessman. (She looks at them.) From the Nordmart. Real ones. In all this ash. (She shakes her head.) I don't know how he knew. I don't know if he's a saint or very, very clever. Greta says both."],

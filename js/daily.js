@@ -136,7 +136,7 @@ DAILY['Agnes']={
 // her regulars (the fishermen at dawn, Anna and Helen in booth two, Sirpa and Tiina and their one coffee, Pat, fed for nothing),
 // and not sleeping, which is why she never closes. She calls everyone "hon".
 DAILY['Aili']={
-1:["(Aili is pouring coffee before you've sat down.) Sit anywhere, hon. Anywhere that isn't wet. The roof's got opinions. You're the reporter, off the boat? You look like you came in on the boat.",[
+1:["(Aili is pouring coffee before you've sat down.) Sit anywhere, hon. Anywhere that isn't wet. The roof's got opinions. You're the reporter, off the boat? You look like you came in on the boat. [+coffee]",[
   ["I did. Is it always this cold?","Till May. Then it's damp till September. Drink your coffee, it's the warmest thing on the island."],
   ["Nice place.",["Bless you. It's falling down, but it's falling down with the lights on. Twenty years I ran a diner in Duluth, Minnesota. Came home, and built another one. Habit.",[
     ["Why come back?","My husband passed, and Duluth was full of him. Saltwick was full of nobody I knew any more. That seemed easier."],
@@ -843,7 +843,7 @@ DAILY['Arvid']={
   ["Can you still cook?","I can cook through anything. I cooked through the stove exploding in 1974. I'll cook through a mountain. But I'll complain."],
   ["Are people frightened?","Very. They're sitting in here for hours, not eating. Just being together. I keep bringing bread. Bread helps."],
   ["What's Linnea doing?","She's sent a crate of lemons, a day early. With a note: 'Just in case.' Just in case of what? She didn't say. I'm afraid to ask."]],
- "Take some bread on your way. Just in case."],
+ "Take some bread on your way. Just in case. [+bread]"],
 20:["(It's Friday. Arvid has packed a pie, a very large one, and is staring at it.) Lemons came yesterday. Pie goes back today. But this pie... I've put everything in it. If the mountain goes tonight, I want her to have had the best pie of her life.",[
   ["Are you going to take it yourself?","(He looks at the door, then at the pie, then at the portrait.) I've never taken it myself. Twelve weeks. Always the boy. Today... maybe."],
   ["Do you think it'll erupt?","The ground's shaking every hour. The gulls have gone. My soufflés have given up completely. Yes. I think so."],
@@ -1631,7 +1631,7 @@ DAILY['Bob']={
   ["Is everyone all right?","Frightened and coughing, but here. Helen's counting heads, I'm counting bowls. Between us we'll get everybody."],
   ["What kind of soup?","Whatever was in the cupboards. Potato, cabbage, a smoked haddock and Kaisa's onions. It's surprisingly good."],
   ["Did you see it go up?","From the roof. A red line up north and the whole sky going grey. I've never seen anything like it, and I don't want to again."]],
- "Take a bowl. You look like you need one."],
+ "Take a bowl. You look like you need one. [+soup]"],
 22:["The plant's shut while they get the ash out of the water tanks. My first weekday off since 1970, and I've no idea what to do with my hands.",[
   ["Cook?","I am cooking. I've cooked everything in the flat twice. I've started on Kate's cupboards."],
   ["Will you get paid?","Hardship money from the Union's biscuit tin. Helen won't let me take mine; she says I'll only spend it on onions. She's right."],
@@ -2372,7 +2372,7 @@ DAILY['Brother Teodor']={
   ["Do you feed everyone who comes up?","Everyone who comes through that door. Party men, oil men, reporters. A man with a full stomach can't hate anyone properly. I've tested it."],
   ["What's the secret of the soup?","Ha! Love, patience and a thing in a jar. The jar is the part I'm not telling. Pirkko from Eastbrook has been after it for twenty years."],
   ["Three wobbles?","Four, if you lean back. Don't lean back. Brother Anselm leaned back in nineteen seventy-four and has never been the same."]],
- "Take some bread for the walk down. Take two."],
+ "Take some bread for the walk down. Take two. [+bread]"],
 6:["(Brother Teodor is rubbing his knees and groaning.) I've been down to the forest below, for the last chanterelles before the snow takes them. Two hours down, three hours up, and my knees have written to the Abbot to complain.",[
   ["Did you find many?","A basket and a half. Golden ones, like little trumpets. In a week they'll be gone till next year. That's mushrooms for you: they come when they like."],
   ["Isn't it dangerous, picking mushrooms?","Only if you don't know them. I know them. I've known them since I was six. My grandmother could tell a good one from a bad one by smell, and so can I."],
@@ -2382,7 +2382,7 @@ DAILY['Brother Teodor']={
   ["Who ate the four?","A cook must test everything that comes into his kitchen. For safety. Four times."],
   ["What did Brother Anselm say?","He said gluttony was a deadly sin. I said so was waste, and the buns were going stale. We are not speaking, except about buns."],
   ["Are they good?","They're superb. Cardamom, butter and a little pinch of salt. She thinks if she bakes well enough I'll give her the soup recipe. I'll keep eating until she's sure."]],
- "Take a bun. Then there's seven, and nobody can blame me."],
+ "Take a bun. Then there's seven, and nobody can blame me. [+bun]"],
 8:["(The monks' kitchen is full of steam and the smell of onions.) Sunday! After the service, everyone comes to the refectory, and Teodor feeds them. Farmers, shopkeepers, a prince. Soup doesn't care who's royal.",[
   ["How many are you cooking for?","Forty, if Olaf comes. Thirty-five otherwise. Olaf eats three bowls and complains about the price of every vegetable in them."],
   ["Do you listen to the sermon?","From the back, with one ear on the soup. God understands. He gave me the soup."],
@@ -2437,7 +2437,7 @@ DAILY['Brother Teodor']={
   ["He's just being careful.","I know. I know. He has to ask. It's his job. But I've cooked for that man every day for twenty years, and he looked at me like a stranger."],
   ["Where were you last night?","Asleep in the kitchen chair, with a cloth on my face, snoring. The novices can tell you. They put a spoon in my mouth for a joke."],
   ["Do you know who took it?","If I knew, I'd have made them a meal and asked for it back. Nobody steals from a cook who's just fed them. That's the oldest rule there is."]],
- "Have a biscuit. I need someone to have a biscuit."],
+ "Have a biscuit. I need someone to have a biscuit. [+biscuit]"],
 19:["(The pot on the stove holds a soup so thin you can see the bottom.) The Prior's declared a fast. Three days, for the relic and the mountain. This is fast soup. It's water that's heard of vegetables. I've been teasing Pirkko with the van, a clue at a time. She wants my soup recipe.",[
   ["You look miserable.","I am a cook in a fast. I'm a painter with no colours. A singer with a sore throat. A... I'll stop. I'm hungry."],
   ["Is it really just water?","(He lowers his voice.) There's a stock cube in it. One. Hidden in the bottom. God sees it, but He's merciful."],
@@ -2452,7 +2452,7 @@ DAILY['Brother Teodor']={
   ["What can I do?","Carry! Bowls to the refectory, bread to the gate. Anyone who comes through that door gets fed. Anyone. I don't care if it's the Russian."],
   ["Are you all right?","I've ash in my eyebrows and my hands are shaking, and I've never been so useful. A cook in a disaster is the only rich man in the world."],
   ["Is everyone safe?","Every brother counted, the Prior says. Thanks be to God. Now let's make sure every brother is fed, too. Two different miracles. Both necessary."]],
- "Take a bowl before you go. Don't argue with a cook today."],
+ "Take a bowl before you go. Don't argue with a cook today. [+soup]"],
 22:["(Brother Teodor is shaking flour through a fine sieve, and grey grit is coming out.) Ash in the flour. Ash in the salt. Ash in my beard. And Hilda's cows are off their milk, so there's no butter. Bread without butter. We are being tested.",[
   ["Can you still bake?","I'll bake if I have to sieve every grain by hand. Bread is the one thing on this mountain I'll not give up. Not for a volcano."],
   ["How do you cook without butter?","With oil, and sorrow. And a little lard I'd been keeping for Christmas. Don't tell the Prior about the lard."],
@@ -2816,7 +2816,7 @@ DAILY['Carlo']={
   ["What will you hand out?","Nothing. My friends say giving things is crude. They prefer people to know what they'd lose. (He looks unhappy.) I'd rather hand out cola. People like cola."],
   ["Are you going to the gathering tomorrow?","All three candidates will be there. Harald with a smile, Magnus with a speech, and me with friends. (He sighs.) Margit's watching the friends. Everyone's watching the friends."],
   ["Do you like Harald?","(He considers.) Yes. Annoyingly. He's kind. Kind men are very difficult to run against. You can't frighten them. They just smile and ask about your mother."]],
- "Take the cola. Tell Harald I didn't drink it. He'll be hurt. He's very easy to hurt."],
+ "Take the cola. Tell Harald I didn't drink it. He'll be hurt. He's very easy to hurt. [+cola]"],
 14:["(Carlo is in a new suit, very sharp, flexing his right hand.) The big day. Everyone's there. My friends are there. The Don's watching. I've done four hundred handshakes already, and I'm going back for more.",[
   ["Is your hand all right?","Numb. I practised on the Don's waiter at the Club. He's very patient. He's also very strong. I think he was practising on me."],
   ["What do you hope happens?","That someone in the crowd chooses me. Not because my friends are behind them. Because they want to. (He flexes the hand.) Just one person. I'd like to meet them."],
@@ -3070,7 +3070,7 @@ DAILY['Corporal Niemi']={
   ["Will you use it?","In a soup. Beetroot belongs in soup. (He tips a bowlful into the Admiral.) There. Now it's borscht. That's a Party soup. Everyone's happy."],
   ["What's the Party like, at the barracks?","There are three Party men in the barracks. They eat the borscht and look very pleased. (He stirs.) The rest of the men eat it and look very confused. It's a very political soup."],
   ["Don't you have to stay out of politics?","The army stays out of politics. The cook stays in the kitchen. (He tastes.) The soup has no opinion. It's very good, though. I'll say that."]],
- "Have a bowl. It's borscht. It's political. It's delicious."],
+ "Have a bowl. It's borscht. It's political. It's delicious. [+soup]"],
 10:["(Niemi is not singing. He's making something very quietly in a smaller pot.) The funeral. No singing today. (He stirs.) I'm making the king's favourite. Fish soup. My mother's. For the men, when they come back from the salute.",[
   ["Was it really the king's favourite?","He came to the barracks in 1968 and had a bowl. He said, 'Corporal, that is the best soup on the island.' (He looks at the pot.) My mother cried when I wrote to her. She said the king had good taste."],
   ["Is it the real recipe?","(He sighs.) Almost. It's missing her secret. I'll never know what it is. She took it with her. (He stirs.) But it's close. It's the closest I've ever got."],
@@ -3095,7 +3095,7 @@ DAILY['Corporal Niemi']={
   ["Four hundred sandwiches for forty-one men?","Some are for the crowd. People at the edges get hungry. (He packs.) Rask counted the bread. I made it go further. That's a cook's real job: making things go further."],
   ["Will you sing at the gathering?","If anyone starts singing. (He looks hopeful.) Nobody ever starts singing. I might start. Rask will stop me. The Colonel might let me."],
   ["What do you hope happens?","That everyone eats something. Hungry people make bad decisions. That's not politics. That's lunch."]],
- "Take a sandwich. Turnip. The ham ones are for emergencies."],
+ "Take a sandwich. Turnip. The ham ones are for emergencies. [+sandwich]"],
 15:["(Niemi is very cheerful, washing out the sandwich basket.) Every sandwich gone! Four hundred! (He scrubs.) A man fell in the fountain with a duck. I gave him a ham sandwich. The duck ate half.",[
   ["How did the army do?","Order at the edges. Rask counted the crowd. Three thousand one hundred and four. (He laughs.) The Colonel stood very straight. I sang once. Rask stopped me. The Colonel didn't."],
   ["What's the news today?","The palace and the Church are arguing over the prince's brother. (He scrubs.) The Church fasts. The palace feasts. The prince's brother looks like he needs a good soup. I'd make him one."],
@@ -3162,7 +3162,7 @@ DAILY['Corporal Niemi']={
   ["What's happening tonight?","A Party picture at the cinema, they say. And the Don's card game. (He kneads.) The barracks is having an early night. Rask's orders. I'm baking all night. Rask's orders, also. He doesn't sleep before a parade either."],
   ["Will you be on the parade?","At the end of the line. With white gloves. (He looks at his floury hands.) If I get flour on the gloves, Rask will count every speck. I'm going to wash my hands eleven times."],
   ["Are you nervous?","About the bread? No. About the gloves? Terrified. (He kneads.) About the foreign king? I've never fed a king. I hope he doesn't come to the barracks. The Admiral's not ready."]],
- "Take a roll on your way out. Don't drop crumbs. Rask's counting those too."],
+ "Take a roll on your way out. Don't drop crumbs. Rask's counting those too. [+roll]"],
 28:["(Niemi is in dress uniform with white gloves, washing his hands for the eleventh time, at the mess hall door.) The state visit. One hour. (He dries his hands.) The line's forming at the gate. Every faction's making its big push, they say. The army's making a straight line. And I'm at the end of it.",[
   ["Are your gloves clean?","(He holds them up.) Spotless. Rask counted them. Nine times. (He pulls them on.) I've never been so clean. I don't recognise myself."],
   ["Will you sing?","(He looks horrified.) On parade? Rask would court-martial me. (A pause.) I might hum. Very quietly. When the band plays. Just the turnip one."],
@@ -3172,13 +3172,13 @@ DAILY['Corporal Niemi']={
   ["Did you hum?","The turnip song. When the band played. (He grins.) The man next to me started humming too. Then the next. By the time the king passed, half the line was humming. Rask's furious. The Colonel smiled."],
   ["What's happening today?","The Republicans are choosing a leader. The palace is arguing about who's next. (He tastes.) And the Admiral's making turnip and herring. Some things don't change. That's very comforting."],
   ["Are you tired?","Very. I baked all night and stood all day. (He stirs.) But the Admiral's full, and the men are fed, and the king didn't come to the barracks. A very good day."]],
- "Have a bowl. Turnip and herring. Back to normal."],
+ "Have a bowl. Turnip and herring. Back to normal. [+soup]"],
 30:["(Niemi is standing beside the Admiral with his ladle, not stirring, just looking at it.) Last day. They're settling the island today. (He pats the pot.) Whatever happens, tomorrow there'll be forty-one men to feed. And the Admiral will be ready.",[
   ["What do you hope happens?","That whoever runs the island gives the army a proper kitchen budget. Eggs. Butter. Cream. (He smiles.) And that nobody ever needs four hundred bowls of soup again. Once was enough. Once was wonderful."],
   ["Will you remember this month?",["(He looks into the Admiral.) The mountain. Four hundred and twelve bowls. Finding my mother in the soup. Yes. Every day.",[
     ["And me?","The visitor who carried bowls on the night before the mountain. You're in the army. Unofficially. (He grins.) Rask doesn't know. Yet."],
     ["What will you do tomorrow?","Make soup. Sing the turnip song. Miss the target at the range. Same as always. (He pats the pot.) The Admiral and me. Forty years."]]]],
-  ["Can I have a bowl?","(He fills one to the brim, with herring on top.) Always. That's the army's promise. Nobody leaves the barracks hungry."]],
+  ["Can I have a bowl?","(He fills one to the brim, with herring on top.) Always. That's the army's promise. Nobody leaves the barracks hungry. [+soup]"]],
  "Come back at noon. I'll put a bit of herring in yours. Don't tell Rask."],
 };
 // Dagny, owner of the Eastbrook Lumber Company, on the mill floor most days (the Proprietors). Threads: counting the timber and every
@@ -3238,7 +3238,7 @@ DAILY['Dagny']={
   ["Will you drink it?","When the ledger balances. Which will be the thirty-first of December. It'll be flat. That's the price of a balanced ledger."],
   ["Why's Kelp Cola giving it away?","Because tomorrow's the big day and they want to be liked. I've never needed to be liked. I've needed to be paid on time."],
   ["Will you go to the gathering?","I'll stand at the back with the other owners. Phil, Dario, Gustavo. We'll pretend we don't see each other. It's very restful."]],
- "Take the cola if you like. I've already written it off."],
+ "Take the cola if you like. I've already written it off. [+cola]"],
 14:["(Dagny is putting on her overcoat and her father's old watch.) The big gathering. I'm going. At the back. Bjarne's driving the mill lads in the cart. Ilse's leading them. She's got a list. I've seen the list. I'm on it.",[
   ["What's on Ilse's list about you?","'Do not heckle Dagny.' Underlined twice. I don't know whether to be flattered or worried. Both."],
   ["What do you hope happens?","That nobody promises anything the island can't pay for. And that the oil company doesn't use the crowd to buy my forest while I'm not looking."],
@@ -3535,7 +3535,7 @@ DAILY['Dario']={
   ["Generous?","Desperate. Generous is a word desperate men use about themselves."],
   ["Have you tried it?","I tried it in 1971. I still remember it. That's not praise."],
   ["You could give away free oil.","(He laughs.) Now there's an idea. Pour it on the street outside Phil's office and let him slip on it."]],
- "Take the bottle. I don't want it on my desk."],
+ "Take the bottle. I don't want it on my desk. [+cola]"],
 14:["(Dario has a new tie on, and he keeps checking it in the glass of the trophy case.) Big day, journalist. The whole island in one place, and every one of them wondering who's going to run it.",[
   ["Are you nervous?","I haven't been nervous since 1958. I'm attentive. There's a difference, and it's about two bourbons."],
   ["What do you expect from it?","Speeches. Hats. A lot of people being very sure of themselves. I'll stand at the back and count who's actually got money."],
@@ -3623,7 +3623,7 @@ DAILY['Dario']={
   ["What will you do if it goes against you?","Drill somewhere else. The world's round, and most of it's on top of something."],
   ["You seem far away.",["(He sets the ball down.) I was thinking about somebody who'd have liked to see this island again. She never got to.",[
     ["Who?","Somebody who sang. That's all you get. It's more than anybody else got."],
-    ["I'm sorry.","Don't be. Sorry's no use to anyone. Have a milkshake instead."]]]]],
+    ["I'm sorry.","Don't be. Sorry's no use to anyone. Have a milkshake instead. [+milkshake]"]]]]],
  "Whatever happens today, journalist, you were more interesting than most."],
 };
 // Dex, who runs the hot dog cart (The Dogfather) on Eastbrook's food-cart plaza (Democratic Party). Threads: the island's gossip by
@@ -3718,13 +3718,13 @@ DAILY['Dex']={
 21:["(Dex has a huge pot balanced on his hot plate and is ladling soup into tin cups.) The mountain's blown! Ash coming down from the north! I'm making soup! Hot dog soup! Don't ask what's in it!",[
   ["Is everybody safe?","Erik's got the Community Centre open. Nobody's hurt, that we've heard. Monks coming down from the mountain with blankets. Even Paolo's helping, carrying old ladies across the plaza."],
   ["What's in the soup?","Sausages, potatoes, onions, a bit of mustard. And love. Mostly sausages."],
-  ["Shouldn't you get inside?","In a minute. People are cold and frightened, and soup's the one thing I can do. (He hands you a cup.) Drink. Then go."]],
+  ["Shouldn't you get inside?","In a minute. People are cold and frightened, and soup's the one thing I can do. (He hands you a cup.) Drink. Then go. [+soup]"]],
  "Soup and then shelter. Go on."],
 22:["(Dex's cart is grey with ash, and he's scraping it with a spatula.) Everything's grey. My buns. My mustard. Me. But we're all here. Nobody hurt, on the whole island. I've checked with everyone. That's the gossip today. The best gossip I've ever had.",[
   ["What about the north?","The farms got it worst. Lava down the hillside, the roads gone in places. But no people hurt. Animals got out. Even the farm cat."],
   ["How's the plaza?","Grey and full. Everybody's out sweeping and borrowing brooms and lending sugar. It's the friendliest Eastbrook's been since the war."],
   ["Free hot dogs?","For anyone with a broom. That's the rule this week. I've given away sixty. Erik says I'm bankrupting the movement. I say I'm feeding it."]],
- "Got a broom? Have a hot dog."],
+ "Got a broom? Have a hot dog. [+hotdog]"],
 23:["(Dex is working with a fresh set of tongs, and keeps glancing at the sky.) Still grey up north. Steam. The aftershocks come every few hours. I've stopped jumping. Mostly.",[
   ["Any gossip from the clean-up?","The Communists say somebody's been sabotaging something at Kelp Cola. And Dario's got men out at the oil rig, mending something deep down. Everyone's mending. Even the crooks."],
   ["How's business?","Never better. Frightened people eat. Tired people eat. People sweeping ash eat twice. I'm going to need a second cart."],
@@ -3951,7 +3951,7 @@ DAILY['Eddie']={
 6:["The road south to Hope Springs is open. All the big villas'll come into town in their furs now, and they'll want cocktails. I don't do cocktails.",[
   ["What do you do instead?","Whisky, beer, aquavit and my opinion of anyone who orders a cocktail, which I keep to myself."],
   ["Who comes in from Hope Springs?","Nobody comes in. They send someone to buy a bottle. Once, Gustavo's man came in and asked for 'the usual'. I'd never seen him before. I gave him the usual. He seemed happy."],
-  ["One aquavit, please.","(She pours one, with a slice of something dark on the rim.) Rye bread. You eat it after. My grandmother's rules."]],
+  ["One aquavit, please.","(She pours one, with a slice of something dark on the rim.) Rye bread. You eat it after. My grandmother's rules. [+whisky]"]],
  "Next time, bring an appetite. The rye's homemade."],
 7:["(Eddie is chalking up the board.) Jack's pike: three feet, four inches now. He measured it with his hands last night and knocked Bertil's glass over.",[
   ["Does Jack own the fishing shop?","Owns it, sits in it, sells three hooks a week and tells pike stories to the rest of Kingsgrad. He's happy. That's more than most."],
@@ -4052,7 +4052,7 @@ DAILY['Eddie']={
 25:["(Eila and Marjut are arguing at their table, in whispers.) They've been at it an hour. Marjut's going to Helsinki or she isn't, and Eila says she's a traitor either way.",[
   ["What does Eila want?","For her to stay. Eila won't say it, so she calls her a traitor. That's how friends talk in Kingsgrad."],
   ["When's Marjut leaving?","She hasn't said she's leaving. She's bought a suitcase. Those aren't the same thing."],
-  ["Should I talk to them?","Not unless you want to be called a traitor too. Have a whisky and look at the board."]],
+  ["Should I talk to them?","Not unless you want to be called a traitor too. Have a whisky and look at the board. [+whisky]"]],
  "Go on. They'll sort it before closing."],
 26:["(Eddie stands back to admire the chalk board.) Frank's bear's now nine feet and was blown out of the woodshed by the volcano. Jack's pike: six feet even. I've had to make the board bigger.",[
   ["What's the most-told story this year?","Frank's bear: twenty-two times. Otto's films, eighteen. Jack's pike, sixteen. The volcano story's catching up fast: everyone's got one."],
@@ -5031,7 +5031,7 @@ DAILY['Father Thyme']={
   ["What will you do with them?","Brother Teodor is boiling one down into a glaze for the carrots. The rest are under the altar steps until Brother Anselm decides whether they're a sin."],
   ["Have you tried it?","Once, in nineteen sixty. It tasted of the sea and of someone trying to sell me the sea. I don't suppose it's changed."],
   ["That's the island's business now, isn't it? Gifts.","Everyone is giving everyone something this month. When the gifts stop, look to see who's still smiling. That is who expected to win."]],
- "Take a bottle down with you, if you like. Save us from temptation."],
+ "Take a bottle down with you, if you like. Save us from temptation. [+cola]"],
 14:["(Father Thyme is wrapped in a heavy coat, his breath white.) The fourteenth. The whole island in one place, all at once, all of them sure they're right. I've lived long enough to be frightened of that.",[
   ["What do you expect from today?","A great deal of shouting, and a few quiet words that matter more. It is always the quiet ones. Listen for those."],
   ["Will the Church have its say?","The Church always has its say. Whether anyone hears it over the brass band is another matter."],
@@ -5100,7 +5100,7 @@ DAILY['Father Thyme']={
   ["What do you make of it?","Six hundred years of crowns, and now a king you can buy for a few coins and throw in the bin. Phil is a clever man. I'm not sure that's a compliment."],
   ["Is Augustus on a bottle too?","Not yet. Augustus would rather be on a lamppost. He'd be on the label apologising."],
   ["And Diversified Petroleum's buying the spa, I hear.","Dario wants to own the hot water now. Next he'll be selling us the snow. Forgive me, that was uncharitable. True, but uncharitable."]],
- "Take the bottle. I'd rather not drink a family I've baptised."],
+ "Take the bottle. I'd rather not drink a family I've baptised. [+cola]"],
 27:["(The chessboard is out. Father Thyme moves a piece, then moves it back.) Augustus is three moves from mate. I can see it, and he can see it, and his last letter asks after my health in a very sorry hand.",[
   ["Will you resign?","I'll play it out. You don't stop a game because you're losing. You stop it when it's over. There's a sermon in that, if I had the voice."],
   ["Do you think he'll be king?","I think he'll be what God and the island make of him, and I think he'll apologise either way. That's all I'll say, even to a reporter. Especially to a reporter."],
@@ -5793,7 +5793,7 @@ DAILY['Gunnar']={
   ["Is it better than the Party's?","Like a feather bed is better than a sack of nails. Don't tell Anna. She'll say I've been corrupted by capital."],
   ["Have you been corrupted?","Daily. By sandwiches, mostly. But one free cola won't turn a Union man."],
   ["Who's giving it away?","Kelp Cola. They want everyone to love them before the big day. It's working on me. I'm cheap."]],
- "Take a bottle. There's a crate that's lost."],
+ "Take a bottle. There's a crate that's lost. [+cola]"],
 14:["(The dock is deserted except for Gunnar, who is mending a net with huge, careful hands.) Everyone's gone to the big gathering. I stayed. Somebody has to mind the boats, and the boats can't mind themselves.",[
   ["Didn't you want to go?","Crowds and speeches? I'd sooner mend nets. Nets don't promise you anything. They just catch fish, or don't."],
   ["What do you expect to come of it?","Talk. Then the boats will still need emptying on Monday. That's my whole philosophy."],
@@ -6362,8 +6362,8 @@ DAILY['Hekki']={
   ["Eastbrook's open. Anything from there?","The Democrats meet at the community centre and argue about the chairs. Erik wants them in a circle. Everyone else wants to see the biscuits."],
   ["What if I need something brought in?","The night drop. A boat with no lights, off the rocks below the tower, at two in the morning. Chuck puts things in a pouch, I fish them out of the sea, and I don't ask what they are. Mostly."]],
  "I'll be on the rocks, if anyone wants me. Nobody does."],
-5:["(Hekki is wrapping both hands round a mug and shivering.) I've been out on the rocks half the night. If a parcel came for you, it's on the table in your room. I didn't open anything. I smelled one.",[
-  ["What did it smell of?","Coffee. Very good coffee. (He sighs.) I don't know who you're buttering up, but they're lucky."],
+5:["(Hekki is wrapping both hands round a mug and shivering.) I've been out on the rocks half the night. The wind turned the aerial round again. I had to turn it back by hand.",[
+  ["What does the wind turn it towards?","Helsinki. Every time. (He sighs.) Chuck doesn't want to talk to Helsinki, and Helsinki doesn't want to talk to Chuck."],
   ["Do you ever go up to the monastery?","Once, to fix their bell. It wasn't broken: Brother Anselm wanted someone to tell him so. I told him. He gave me a loaf."],
   ["You look frozen.","The sea's colder than it looks, and it looks very cold. I'll thaw by Sunday."]],
  "Go on. I'll thaw."],
@@ -6550,7 +6550,7 @@ DAILY['Helen']={
   ["That's generous.","Very generous. Generous people want something. I just haven't found out what yet."],
   ["What will you do with them?","Give them to the children in the block. Kaisa's going to announce it on the radio: 'Oranges, courtesy of the workers.'"],
   ["He's Anna's friend, isn't he?","He's everybody's friend. That seems to be his trade. The timber's a hobby."]],
- "Take an orange. Go on, they're for the people."],
+ "Take an orange. Go on, they're for the people. [+orange]"],
 8:["Sunday. Bob's roasting a fish the length of my arm, and I'm writing to the Kelp Cola board. Neither of us is going to church.",[
   ["What are you writing?","A list of demands. A break every four hours and a stool for every woman on the line. Revolutionary stuff."],
   ["What sort of fish?","Cod. Bob says the cod's thinner this year. He blames the oil rig."],
@@ -6637,7 +6637,7 @@ DAILY['Helen']={
   ["Ash icing?","Icing sugar, really. He dusted it grey with cocoa to make me laugh. I did, the first time all week."],
   ["What's the occasion?","Six years in the flat together. Neither of us remembered. Kate did. Kate remembers everything about everybody."],
   ["Is he a good cook?","The best in Saltwick, and he'll never admit it, because then he'd have to cook for the whole Party."]],
- "Take a slice for the road."],
+ "Take a slice for the road. [+cake]"],
 25:["Everyone's courting somebody this week. The Democrats court the princess, and suddenly the Kelp Cola board's courting the Union, with a letter about stools.",[
   ["Stools?","For the bottling line. My letter from the eighth. Now they say yes, when they're frightened of losing the island. Funny timing."],
   ["What does the Union give back?","Nothing. A stool isn't a favour. It's a right with legs."],
@@ -6956,7 +6956,7 @@ DAILY['Hely']={
   ["What are your plans?","Pay Paolo. Join the circus for the winter tour. Write to Veikko every week. Come back in the spring and pay Linnea's tab. In instalments. Juggled."],
   ["Is the circus going on tour?","After the month, Bruno says. Round the island, every town, then over to Finland for the winter. If Meg says yes, I'm going with them. In a caravan. With a hat."],
   ["What does Linnea think?","(Linnea pours the tea.) Linnea thinks I'll be the best thing that's happened to that circus since the bear. There was a bear, once. It's retired."]],
- "Drink some tea with us. Linnea's made a pot for three. She knew."],
+ "Drink some tea with us. Linnea's made a pot for three. She knew. [+tea]"],
 28:["(Hely is holding a fat envelope, and her hands are shaking.) I've paid Paolo. All of it. Every krone. From programme money. He counted it, put it in his book, and drew a line under my name. A real line. Then he shook my hand. Now I've asked Meg if I can join the circus.",[
   ["How does it feel?","Like taking off a coat I've been wearing for two years. In summer. I'm so light I might float up to Meg's wire."],
   ["What's happening today?","Every faction's big push. Flags everywhere. Erik's rally on the stage Bjarne built. I'm going. I'm going to stand at the front and cheer for everything. I'm not betting on any of it. I'm just cheering."],
@@ -7163,7 +7163,7 @@ DAILY['Hilda']={
   ["Will you open it today?","Olaf's hidden the crowbar. He thinks I don't know where. It's behind the milk churns. (She smiles grimly.) Soon."]],
  "If you hear humming at night, don't come and look. That's my job."],
 13:["(Hilda has a free bottle of Kelp Cola in her hand and is looking at it with deep suspicion.) A young man from the company left a crate. 'Free samples.' Free. Made with my kelp. They're giving away my kelp and calling it generous.",[
-  ["Will you drink it?","Olaf will. In the byre. In secret. He'll think I don't know. (She hands the bottle to you.) You have it. You're a guest. Guests get the free things."],
+  ["Will you drink it?","Olaf will. In the byre. In secret. He'll think I don't know. (She hands the bottle to you.) You have it. You're a guest. Guests get the free things. [+cola]"],
   ["Is the kelp harvest good this year?","Thinner than last. The sea's warmer. The kelp doesn't like warm. Neither do I. Something's wrong with the sea this month."],
   ["Will you go to the gathering tomorrow?","Somebody has to milk the cows. Olaf's going. He'll stand at the back and complain to anyone who'll listen. He'll have a lovely time."]],
  "Drink it slowly. It's my kelp."],
@@ -7181,7 +7181,7 @@ DAILY['Hilda']={
   ["Who would you vote for?","Whoever says 'farm' first. And then I'd want to see them milk a cow. Words are cheap. Milk's at four in the morning."],
   ["Does Olaf have an opinion?","Olaf has all the opinions. He's shouting at the wireless from the byre. The cows are very confused."],
   ["What's the bread for?","Olaf. He's been shouting so long he'll be hungry. (She punches it again.) This is the Party. (And again.) This is the Democrats. Makes very good bread."]],
- "Take a loaf when it's done. You look like you need feeding."],
+ "Take a loaf when it's done. You look like you need feeding. [+bread]"],
 17:["(Hilda is standing in the yard with a hen under each arm, looking north.) The ground moved this morning. The hens stopped laying. Every one. The cows won't settle. There's steam on the mountain.",[
   ["Is it the volcano?","I've lived under that mountain fifty-two years. It's never steamed. It's steaming now. I don't need a scientist to tell me what that means."],
   ["What will you do?","Tie everything down. Count the animals. Pray. Frank at the gun shop came by. I asked him if guns could stop lava. He said no. He didn't laugh. That frightened me more."],
@@ -7252,7 +7252,7 @@ DAILY['Hilda']={
   ["How's the farm?","Milking again. Laying again. Grey, but growing. The kelp's coming back in the shore beds. The Kelp Cola men rang to say thank you. Thank you! First time in thirty years."],
   ["How's Olaf?","(Olaf grunts.) He's got a list of complaints for the new government, whoever it is. Weather, prices, politicians. He's added a new one: 'Not enough geese as pets.'"],
   ["What do you hope happens tomorrow?","That whoever runs the island comes and milks a cow. Once. Just once. Then they'll understand everything."]],
- "Have some tea. The goose doesn't share, but we do."],
+ "Have some tea. The goose doesn't share, but we do. [+tea]"],
 30:["(Hilda is standing in the yard at dawn, looking at the farm: the new roof, the old barn still shut, the grey fields, Bertha in the corner, the goose at her feet.) Last day. They're settling the island today. And the cows still need milking. (She picks up a bucket.) That's farming.",[
   ["What do you hope happens?","That it's still an island where people grow things. Where the towns remember the farms. Where a mill lad brings a farmer timber in the ash. That's all."],
   ["Will you go to hear the news?","Olaf will. In his Sunday coat. He'll come back and tell me the faces. He notices faces. He thinks he doesn't."],
@@ -7280,7 +7280,7 @@ DAILY['Igor']={
   ["Do you like it?","It's very fizzy. (He takes a tiny sip.) Fizz is like applause. Too much and you can't hear yourself. (He puts it down.) I'll give it to Buttons. Buttons likes everything."],
   ["What's the news by the lake?","The Party's been round with leaflets. One said 'workers of the world'. (He thinks.) I'm a worker. I lift. Bruno says the circus is its own country. I don't know which flag I've got."],
   ["Do you swim in the lake?","Every morning. Six o'clock. (He looks at the lake.) It's very cold. The fishermen don't like it. They say I frighten the perch. (He looks sorry.) I try to swim quietly."]],
- "Take the cola if you like. It's a very sweet thunderstorm."],
+ "Take the cola if you like. It's a very sweet thunderstorm. [+cola]"],
 10:["(Igor has a black band round his great arm, and has stopped lifting anything.) No show today. The king's funeral. (He sits on an upturned bucket.) I carried the black cloth for the big top. It's very quiet when you're a strongman and there's nothing to lift.",[
   ["Did you know the king?","He came to the circus once. Years ago, on our first visit. (He looks at his hands.) He asked to feel my arm. Then he said 'remarkable' and gave me his handkerchief. I've still got it."],
   ["What will you do today?","Sit. (He looks at the lake.) Sometimes the strongest thing is to sit still. Meg says that. Meg says all the true things. Bruno says the long things."],
@@ -9057,7 +9057,7 @@ DAILY['Lars']={
   ["Any luck with the second go?","Four pins. Magnus clapped. Magnus! He's undone a button. Everyone's gone mad."],
   ["Heard anything interesting?","The bosses talk when they've had a drink. I'm only a rig hand. I just hear 'Lars, get the ice.'"],
   ["The whole island's out today.","Every faction pushing all at once. And here we are with milkshakes. I'm on the right side."]],
- "Have a strawberry milkshake. It's the only one Dario doesn't hover over."],
+ "Have a strawberry milkshake. It's the only one Dario doesn't hover over. [+milkshake]"],
 29:["(Lars is in his work clothes again, rubbing his arm.) Back on the rig. Sore arm from bowling. The Republicans are voting today in Frostholm. Magnus is up for it. The lads have a bet on.",[
   ["Who've the lads got their money on?","Half on Magnus, out of loyalty. Half on Carlo, out of fear. Nobody's on Harald. Nobody out here drinks his cola in public."],
   ["Did you bet?","No. I really didn't. I've got eighty-four dollars in the bank. I'm a saver now. It's very boring."],
@@ -9579,7 +9579,7 @@ DAILY['Lisa']={
   ["Is it good for business?","It's lovely. Everyone's smiling. They come in for a free bottle and leave with bread, butter and a cake. Harald's paying for my wages, really."],
   ["Who's the most cola anyone's taken?","Toni from the arcade. He came through the till four times in four different hats. I knew it was him. I said nothing. He looked so happy."],
   ["Are you voting for Harald?","I can't vote. I'm not a Republican. I'm a supermarket. (She laughs.) If I could, I'd vote for whoever gives everyone free things. Wouldn't you?"]],
- "One free bottle with every loaf. Have a loaf."],
+ "One free bottle with every loaf. Have a loaf. [+bread]"],
 14:["(Lisa is taking off her apron.) The manager's closing for the big day. Everyone's going. You'll be there? With your notebook?",[
   ["What are you hoping for?","Something exciting. Something that makes the island interesting, so I don't have to go to London to have a life. (She thinks.) I'd still go."],
   ["Are you nervous?","Of crowds? No. I see the whole of Kingsgrad every week at the till. I know who owes who. It's a family, really. A big, loud, nosy family."],
@@ -10158,11 +10158,11 @@ DAILY['Madame Zora']={
   ["Who comes to you, mostly?","This week? Mill girls. (She gathers the cards.) They want to know if they'll strike. I tell them to ask Mary at the Union. The cards don't know about wages. Mary does."]],
  "Cross the cat's palm on your way out. He prefers sardines."],
 12:["(Zora is reading a woman's palm across the table. The woman leaves, smiling. Zora wipes her hands.) A man has lost a record, and a woman has lost a lot more. (She turns to you.) I gave her a remedy. Camomile and patience.",[
-  ["Are you a doctor too?","No. (She smiles.) Doctor Lind says I'm a menace. I say I'm cheaper. (She pours tea.) I send anyone who's really ill to her. Everyone else gets camomile and a good listen. It cures more than you'd think."],
+  ["Are you a doctor too?","No. (She smiles.) Doctor Lind says I'm a menace. I say I'm cheaper. (She pours tea.) I send anyone who's really ill to her. Everyone else gets camomile and a good listen. It cures more than you'd think. [+tea]"],
   ["What did her palm say?","That she works with her hands and worries with her heart. (She sips.) Anyone could see that. She had flour on her sleeve and three letters in her pocket she hadn't opened."],
   ["Will you read mine?",["(She takes your hand and turns it over, slowly.) Hm. (She traces a line.) You write a great deal. (She looks up.) And you listen even more than you write.",[
     ["That's my job.","(She lets go.) Is it? (She smiles.) Then it's a very good job for you. Not everybody's hands agree with what they do."],
-    ["What else?","(She looks at you a moment longer.) That you're further from home than you say. (She pours tea.) Everyone is. Drink this."]]]]],
+    ["What else?","(She looks at you a moment longer.) That you're further from home than you say. (She pours tea.) Everyone is. Drink this. [+tea]"]]]]],
  "Come back when your hands have something new to say."],
 13:["(Zora has a basket of coloured scarves and is pulling them out one at a time.) There's free cola in Kingsgrad tomorrow, I hear. (She pulls a red scarf.) A thing's only free if you don't ask what it's for. I'd advise caution.",[
   ["What's it for?","(She pulls a blue scarf.) Votes, mostly. (She pulls a purple one.) Or love. Or both. Everybody wants to be loved by an island. It's very hard. Islands are mostly rock."],
@@ -10238,7 +10238,7 @@ DAILY['Madame Zora']={
   ["Is it true?","(She holds a bottle up to the light.) No prince in this one. (She sets it down.) Rumours are like fortunes. Nobody checks. They just like hearing them."],
   ["How's the camp?","Buttons is teaching the Eastbrook girl to juggle. Four in a row. (She smiles.) Meg's watching from the step and pretending not to. Bruno's watching Meg pretend. Everybody's watching everybody. It's a family."],
   ["Will you be in the show?","I'll read for the crowd. In the interval. (She shuffles.) One fortune each. Short ones. 'You'll be surprised.' 'You'll be home by ten.' (She smiles.) Both will come true."]],
- "Take a bottle. If you find a prince, bring him to me. I'll read for him."],
+ "Take a bottle. If you find a prince, bring him to me. I'll read for him. [+cola]"],
 27:["(Zora is in the big top, laying out a tablecloth embroidered with stars on a small table by the ring.) For tomorrow. The interval. (She smooths it.) The whole island in one tent. Every faction. (She looks round.) I'll need a lot of fortunes.",[
   ["What will you tell them?","Each one something a little better than what they came in to hear. (She sets out the cards.) A Party man will hear he'll be famous. A palace lady will hear she'll be free. (She smiles.) Both will be pleased."],
   ["Isn't that dishonest?","It's tailoring. (She smooths the cloth.) Everyone's future is a little better than they think. That's not a lie. That's the only thing I've ever been sure of."],
@@ -10854,7 +10854,7 @@ DAILY['Marta']={
   ["Will you tell him off?","No. I make twenty-five now. He gets one, I get the satisfaction, and he gets a fright every time I look at him."],
   ["He's young, he's hungry.","He's young, he's hungry and he stands out in the cold all day like a lamp post. If he wasn't stealing buns I'd be worried."],
   ["What kind of buns?","Cardamom. My mother's. Don't write it down. If I see it in a newspaper I'll know who to blame."]],
- "Take a bun. Go on. Then I'll know where the twenty-fourth went."],
+ "Take a bun. Go on. Then I'll know where the twenty-fourth went. [+bun]"],
 7:["Prince Augustus is fasting for a saint I'd never heard of. So I sent up soup with a note that said 'Saints eat'. Oskar ate it.",[
   ["Did you scold Oskar?","I gave him another bowl. Pea and ham doesn't keep. And the boy looked like he'd stolen from the altar. Punishment enough."],
   ["Will Augustus ever eat?","When the saints let him. There's a great many saints this month. I've started keeping a calendar of them on the larder door."],
@@ -10929,7 +10929,7 @@ DAILY['Marta']={
   ["Who's been coming?","Every servant, the postman, two soldiers, a woman from Kingsgrad with a baby. I've put the baby in the bread basket by the stove. It's the warmest place."],
   ["Is everyone safe?","Nobody hurt, Oskar says. He ran to town and back. I gave him two mugs and a bun. He didn't even have to steal it."],
   ["Can I help?","Hand out mugs. Smile. And don't let anyone take the ladle. It was my mother's."]],
- "Take some soup with you. Pour it into anyone who looks cold."],
+ "Take some soup with you. Pour it into anyone who looks cold. [+soup]"],
 22:["Ash in the flour. Ash in the sugar. Ash in the butter, if you leave it a minute. I've covered everything in cloths. My kitchen looks like a ward.",[
   ["Can you still cook?","I cooked through the winter of '62 with the snow up to the windows. I'll cook through this. It'll just be grey."],
   ["How's the family eating?","Prince Augustus is eating, thank God. Daphne's eating nothing, as usual. The prince ate standing up in here at midnight, like his father."],
@@ -11026,7 +11026,7 @@ DAILY['Mary']={
   ["What do you think they want?","Your loyalty, in a bottle. People will vote for anyone who gives them a sweet drink. It's the oldest trick there is."],
   ["Will you sell cola in the shop?","Over my dead body, and over Orwell's. Sticky fingers and paper don't mix."],
   ["What are you reading?","A novel about a man who wakes up as an insect. I've had mornings like that. Orwell has them daily."]],
- "Take the cola, if you want it. Somebody should enjoy it."],
+ "Take the cola, if you want it. Somebody should enjoy it. [+cola]"],
 10:["(Mary is in a black coat, back from the Royal Chapel, and very quiet.) They've buried the king. The whole of Kingsgrad stood in the street. I'd sold out of black ribbon by nine.",[
   ["How was the funeral?","Long and cold and beautiful. Prince Leopold read a poem. I'd sold him the book. I didn't know that was why."],
   ["Did the king read?","Every month, a parcel to the palace: history, and one thriller he pretended was for the staff. I'll miss that parcel more than I can say."],
@@ -11302,7 +11302,7 @@ DAILY['Mats']={
 DAILY['Maya']={
 4:["(Maya is shaking a tray of beans and sniffing them, unhappily.) Eastbrook's open, and you've come in for coffee. Good. I warn you, it's strong. It has to be. It's covering for a lot.",[
   ["Covering for what?","For the beans. Ordinary, dusty, tax-paid beans, the only kind I can get since Ole the harbourmaster put a duty on everything that floats. I roast them dark so you can't taste their feelings."],
-  ["One coffee, please.","(She pours a cup so black it seems to absorb the light.) There. That's the strongest coffee on the island. Erik drinks four a day and he can hear colours."],
+  ["One coffee, please.","(She pours a cup so black it seems to absorb the light.) There. That's the strongest coffee on the island. Erik drinks four a day and he can hear colours. [+coffee]"],
   ["You're a Democrat too?","Of course. In a free vote, I'd vote out Ole. In a free market, I'd buy beans from Colombia. Same thing, really. Freedom smells of coffee."]],
  "Drink it while it's hot. It's worse when it's cold."],
 5:["(Maya is writing on a blackboard behind the counter: THIS WEEK'S BLEND: SNOWMELT.) Every week I name a blend. It's the same beans, roasted differently. Mostly it's the same beans, roasted angrily. I'm angrier than usual. Ole the harbourmaster's put the duty on beans up again.",[
@@ -11380,7 +11380,7 @@ DAILY['Maya']={
 19:["(Maya is wrapping cardamom buns in paper, a dozen at a time.) The circus up at Lake Ilmari ordered three dozen buns. The strongman came down for them himself. He was so polite I gave him two extra.",[
   ["The strongman? Igor?","That's him. Shoulders like a door frame, voice like a cat. He asked me if the buns had nuts, because the jester's allergic. He worries about everyone."],
   ["Do you sell much to the circus?","More than I'd expect. Bruno, the ringmaster, has a sweet tooth and a slate he never pays off. Meg the acrobat comes and pays it off for him, quietly."],
-  ["Can I have one?","(She hands you a bun.) The thirty-seventh. It's the best one. It's always the extra one that's best."]],
+  ["Can I have one?","(She hands you a bun.) The thirty-seventh. It's the best one. It's always the extra one that's best. [+bun]"]],
  "Tell Igor I said hello. And to keep the nuts away from the jester."],
 20:["(Maya is pouring coffee into a cup for someone who's just left, and looking after them, puzzled.) A man in very good shoes. Russian, I think. Ordered black, no sugar, drank half and asked me who comes in here every day.",[
   ["What did you tell him?","That everyone comes in every day, because it's the only coffee in town. Which is true, and tells him nothing. (She frowns.) Ruby says he asked her the same thing."],
@@ -11391,7 +11391,7 @@ DAILY['Maya']={
   ["Is everyone safe?","Erik's got people at the Community Centre. Dex is making soup. Ruby's packing records. And I'm making coffee. Everyone's doing the thing they know."],
   ["Shouldn't you close the shop?","And go where? Into a cellar, with no coffee? (She hands you a flask.) Take this to the Community Centre. They'll be cold."],
   ["Can I help?","You're holding a flask. That's helping. Hold it a bit more firmly. The ground's moving."]],
- "Go on. Get inside somewhere safe. Take the coffee."],
+ "Go on. Get inside somewhere safe. Take the coffee. [+coffee]"],
 22:["(There's ash on the windowsill, and Maya is wiping her roaster with a cloth, very gently, as if it were a horse.) It got into the roaster. Grey dust in every crack. If I roast anything now it'll taste like a chimney.",[
   ["Is the roaster ruined?","No. I'm taking it apart, one screw at a time. I've done it before, when a sack of beans had a stone in it. It took two days and I swore in four languages."],
   ["How's Eastbrook?","Grey and tired and alive. Nobody hurt. Everyone's sweeping. Dex keeps bringing me hot dogs and telling me it'll be all right."],
@@ -11435,7 +11435,7 @@ DAILY['Maya']={
 30:["(Maya is roasting very slowly, with the door shut, and the shop smells wonderful.) The last day. Whatever's decided, I wanted the shop to smell good for it. Some things deserve a proper roast.",[
   ["What do you hope for?","A vote. A harbourmaster who answers to someone. And a cup of coffee, a real one, that nobody's taxed into the ground."],
   ["Are you nervous?","Terrified. But I've roasted through snow, a funeral and a volcano. I can roast through a new government. Coffee doesn't care who's in charge."],
-  ["Thank you for all the coffee.","(She smiles, and pours you a cup.) Thank you for drinking it. A roaster's nothing without someone to drink the coffee. This one's on the house."]],
+  ["Thank you for all the coffee.","(She smiles, and pours you a cup.) Thank you for drinking it. A roaster's nothing without someone to drink the coffee. This one's on the house. [+coffee]"]],
  "Come back tomorrow. I'll still be here. Coffee doesn't stop."],
 };
 // Meg, acrobat of the circus camped at Lake Ilmari (the Circus), partner of Buttons. Threads: her ropes and rigging, checked every
@@ -12438,7 +12438,7 @@ DAILY['Olaf']={
   ["What's on your list for the new government?","Weather, prices, politicians. (He thinks.) And a new one. 'Not enough geese as pets.' Hilda says it's not a policy. I say it should be."],
   ["Did the cola men ring?","To say thank you. For the kelp. First time in thirty years. (He looks at Hilda.) She nearly dropped the telephone. Then she said 'about time.' Then she hung up."],
   ["How do you feel?","Tired. Grey. Very lucky. (He looks at Hilda.) I carried her a mile. She held the ladder for my grandfather's billhook, in a way. We're even."]],
- "Have some tea. The goose doesn't share. We do."],
+ "Have some tea. The goose doesn't share. We do. [+tea]"],
 30:["(Olaf is in his Sunday coat at the gate, looking back at the farm: the new roof, the grey fields, the old barn still shut, Hilda in the yard with a bucket.) Last day. They're settling the island today. I'm going in to hear the news. Hilda says tell her the faces.",[
   ["What faces will you look for?","Whoever looks like they'll remember the farms. That's all. (He looks at Hilda.) And whoever's next to their wife. That's a good face. I'd vote for that face."],
   ["What do you hope happens?","Good weather. Fair prices. Politicians who've milked a cow. (He considers.) That's my whole list, said as a hope instead of a complaint. Strange. It sounds better."],
@@ -12487,7 +12487,7 @@ DAILY['Ole']={
   ["Will you charge yourself duty?","I have to, now. Liv's set the standard. (He writes in the ledger.) Four cents. The harbour board will be delighted. It's the first duty they've ever had from me."],
   ["Is the free cola coming through the harbour?","Crates of it. All duty-paid by Kelp Cola. They paid without complaint. That's how I know they're frightened of something. Nobody pays without complaining."],
   ["Are you going to the gathering tomorrow?","I'll stand at the back. Every shopkeeper on the island will be there. Every one of them hates me. I'll wear a hat."]],
- "Take a bottle. Duty's paid. I checked."],
+ "Take a bottle. Duty's paid. I checked. [+cola]"],
 14:["(Ole is in his best uniform and a very large hat, pulled low.) The big gathering. I'm going. Incognito. (He adjusts the hat.) Maya will be there. And the grocers. And Hannu with his chalkboard. Every one of them wants my moustache on a stick.",[
   ["Will the hat help?","No. Everyone knows the moustache. It's famous. It's on Hannu's chalkboard. But a man should try."],
   ["What do you hope happens?","That someone mentions the harbour wall. Anyone. A prince, a priest, a Party woman. The wall's holding back the sea for all of them. Nobody notices a wall until it falls."],
@@ -12736,7 +12736,7 @@ DAILY['Olga']={
 30:["(Olga is in her apron, with the shop wide open and every fish on the slab gleaming.) The last day of September. They'll settle the island today, one way or another. I've laid out every fish I've got. If it's the end of the world, it'll be a well-fed end.",[
   ["Are you frightened?","A bit. But I've been frightened of the mountain, of Lucia, of my sister's debts and of Hannu's spelling. I'm out of practice at being frightened of only one thing."],
   ["What will you do tomorrow?","Shout at Helmi. Correct Hannu. Buy from Tom. Smoke the herring for three days, not two. Same as always."],
-  ["Thank you, Olga.","(She presses a parcel of smoked herring into your hands.) There. Take it to London. Tell them that's what a Saltwick fish tastes like. Then they'll know."]],
+  ["Thank you, Olga.","(She presses a parcel of smoked herring into your hands.) There. Take it to London. Tell them that's what a Saltwick fish tastes like. Then they'll know. [+smokedfish]"]],
  "Before noon it's cheaper. After noon, today, it's free."],
 };
 // Oskar, the palace footman, on the door of the Royal Palace (Royal Family). Threads: the cold on the door and the fur-lined
@@ -13840,7 +13840,7 @@ DAILY['Pirkko']={
   ["Pine needles?","I thought that! Then I thought, no, he'd never. Then I thought, he absolutely would. I'm trying it tonight."],
   ["Why not just ask him straight out?","I did, for twenty years. Then I tried buns. Buns work better than asking. Remember that, if you're ever a reporter. Oh, you are."],
   ["What other news from Eastbrook?","Juniper's got cowboy boots in the window, of all things. Some supplier's mistake. She's furious and she can't stop looking at them."]],
- "Try the pasty. It's got a secret too, and I'm not telling."],
+ "Try the pasty. It's got a secret too, and I'm not telling. [+pasty]"],
 13:["(The factory gate is piled with crates, and a man in a Kelpy hat is pressing bottles on everyone who walks past.) Free samples! They're giving away their own cola to their own workers. The lads are using them as doorstops.",[
   ["Has it hurt your trade?","Never. You can't eat a cola. Though one of the lads tried dipping a hot dog in it. I've asked God to forgive him."],
   ["What's the point of it?","Phil wants everyone on the island to have a bottle in their hand before anyone else gets a word in. The cola's the vote, in a way. Clever. Bit much."],
@@ -13880,7 +13880,7 @@ DAILY['Pirkko']={
   ["I'm sorry, Pirkko.","Don't be, love. He had a good life and a bad heart. I still talk to him in the van, when the queue's quiet. He disagrees with me about mustard."],
   ["What was he like?","Big, slow, kind. Fixed anything. Laughed at his own jokes before he'd finished them. Couldn't make soup to save his life."],
   ["Is that why you want Teodor's recipe?","(She smiles.) Pekka always said if he could have one bowl of the monks' soup a week, he'd live for ever. I'd like to make it once, for him. Daft, really."]],
- "Have a pasty on Pekka. He always gave one away on a hard day."],
+ "Have a pasty on Pekka. He always gave one away on a hard day. [+pasty]"],
 21:["(Ash is falling on the factory yard. Pirkko has the hatch open and a huge pot on the stove.) Soup! Free soup, for anyone! Don't stand there gawping at the mountain, love, come and get something hot inside you.",[
   ["Is everyone all right?","The factory's shut and the lads are all accounted for. The ash is in everything. I've just served Bjarne a coffee with a crust on it."],
   ["Shouldn't you get to shelter?","Where's safer than a hot van with a full pot? People are frightened. Frightened people need feeding. That's the whole of my theology."],
@@ -13906,7 +13906,7 @@ DAILY['Pirkko']={
   ["What was she like?","Sharp as a knife and twice as funny. She ate the hot dog walking, like a factory lad. I liked her very much."],
   ["Would she make a good queen?","She'd make a good anything. Whether she'd want it is the thing. You can't make a girl like that wear a crown if she doesn't fancy it."],
   ["Did she pay?","She paid double and told me not to tell her brother. I haven't. Until now. Oh dear."]],
- "Forget what I said about the princess, love. Have a bun."],
+ "Forget what I said about the princess, love. Have a bun. [+bun]"],
 26:["(A crate of Kelp Cola is going past on a trolley, and Pirkko stares at it.) The lads say Phil wants a prince's face on every bottle. A royal on the cola! Pekka would've laughed himself silly. Brother Teodor's still sending me clues to his soup, a word at a time.",[
   ["Would you drink it?","I'd drink it and feel bad about it, which is how I feel about most things from that factory."],
   ["And Dario's buying the spa, they say.","Let him. I've never been in a spa. I've got a bucket of hot water and a stool in the kitchen. That's my spa."],
@@ -13931,7 +13931,7 @@ DAILY['Pirkko']={
   ["Why open, today of all days?","Because people will be frightened, or happy, or drunk, and all three get hungry. Bread doesn't care who's king."],
   ["Did Teodor answer about the soup?","(She pulls a note from her apron.) One word, love. 'Yes.' Twenty years. I cried into the mustard."],
   ["What do you hope for?","That whoever wins remembers the people at the back of the queue. And that Bertta starts tomorrow. Both would be miracles."]],
- "Have a bun on me. Whatever happens, it's still a good bun."],
+ "Have a bun on me. Whatever happens, it's still a good bun. [+bun]"],
 };
 // Private Aho, a young soldier in Block A (the Army), two months into his service. Threads: his terror of Sergeant Rask; the long letter he
 // writes his mother every evening (Rask posts them, and adds a line of his own Aho never sees); the photograph of Lumi from home under his
@@ -13979,12 +13979,12 @@ DAILY['Private Aho']={
   ["Is it good?","It's very good. It's like being little. Like sweets for dinner. (He eats.) I'm going to tell my mother. She won't believe it. She'll think the army's gone mad."],
   ["Has the sergeant found the blankets?","Not yet. (He eats faster.) He's stopped counting every hour. Now he counts every two hours. (A pause.) That's worse. It means he's thinking."],
   ["How are the farms?","(He lowers his voice.) The old woman's stove's mended. A man came from the village. The widow said I'm a good boy. (He looks into his stew.) My mother says that. It was nice to hear it from someone else."]],
- "Have some stew. It's the best strange thing."],
+ "Have some stew. It's the best strange thing. [+soup]"],
 14:["(Aho is in his dress uniform, standing at the mess hall door with a huge basket of sandwiches.) The gathering. We're keeping order at the edges. (He shifts the basket.) And carrying sandwiches. Four hundred. I've got a hundred. My arms are already shaking. My mother would've loved to see it.",[
   ["What does keeping order mean?","Standing in a line. Not moving. Looking stern. (He tries to look stern.) The sergeant says I look like a lost lamb trying to look stern. He's right. I'm practising."],
   ["Who do you hope wins?","I don't know enough. (He thinks.) My mother says whoever's kind. I don't know which one's kind. They all shout. Kind people don't shout. Except the sergeant. Maybe."],
   ["Is your mother coming?","She can't. It's too far. Nine miles. (He shifts the basket.) I'll write her everything tonight. Every speech. Every sandwich. It'll be a very long letter."]],
- "Take a sandwich. Please. It's lighter if you take one."],
+ "Take a sandwich. Please. It's lighter if you take one. [+sandwich]"],
 15:["(Aho is writing a letter at the mess table, very fast, with ink on his fingers.) Fourteen pages. (He writes.) The gathering. The fountain. A man fell in with a duck. I'm writing the duck. My mother will love the duck.",[
   ["How did it go?","Nobody fought. I stood at the edge. A little girl gave me a flower. (He shows you a squashed flower.) The sergeant saw. He didn't say anything. (A pause.) I think that means he didn't mind."],
   ["Will the sergeant post all fourteen pages?","He'll weigh them. And frown. And post them. (He writes.) He always posts them. Even the very long ones."],
@@ -14300,7 +14300,7 @@ DAILY['Raili']={
   ["You're not paid?","No. (She pours.) I don't care. (She hands a cup to a man with a shovel.) Look at them. Grey, cold, shovelling. (She smiles.) They need tea. I make very good tea. Nine years of room service."],
   ["Is Arto in the queue?","(She points.) Third from the front. With a shovel. And an armband. (She grins.) He's got a job. Four dollars a day. (She pours.) He hasn't stopped smiling. It's very strange to see. I keep giving him extra sugar."],
   ["Does the urn have a name?","(She pats it.) Wobbles. (She laughs.) It shakes every time there's an aftershock. And the tea sloshes. (She looks at it fondly.) It's the least I could do. Name it."]],
- "Have a cup. You look grey. Everyone does."],
+ "Have a cup. You look grey. Everyone does. [+tea]"],
 23:["(Raili is walking up the boulevard very fast in a crisp Aurora uniform, carrying a bunch of flowers, her face blotchy from crying.) I've got my job back! (She stops.) Mr Lehto, the manager, came to the urn this morning. He said 'Raili, I need you. The journalists.' (She wipes her eyes.) The hotel's full.",[
   ["Congratulations!","Thank you. (She laughs and cries at once.) Towels. Forty journalists. All wanting towels. (She looks at the uniform.) It still fits. (She looks at the flowers.) And then these came."],
   ["Who are the flowers from?","The foreign businessman. (She looks at them.) From the Nordmart. Real ones. In all this ash. (She shakes her head.) I don't know how he knew. I don't know if he's a saint or very, very clever. Greta says both."],
@@ -14361,7 +14361,7 @@ DAILY['Ray']={
   ["Do you always stare at people like that?","My father did. He ran this bar for thirty years and never once had to raise his voice. I'm working on it."]],
  "Mind the ice on the steps. Half of Saltwick's gone down them this winter.",
  "Ray runs the bar in Saltwick, with one rule: no politics at the bar."],
-2:["(Ray looks you up and down, and puts a glass on the bar.) A new face. Either you've heard about my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace. My father kept this bar before me.",[
+2:["(Ray looks you up and down, and puts a glass on the bar.) A new face. Either you've heard about my whisky, or there's nowhere else open. (She pours.) Kingsgrad's road cleared, I hear. You'll be off to see the palace. My father kept this bar before me. [+whisky]",[
   ["Your whisky's fine.","Fine's all it is. The good bottles went on the king's wake, and the beer boat from Frostholm's still iced in."],
   ["Who drinks here, mostly?","Fishermen from the West Harbour, dockers, the girls from the fish plant. And Sirpa and Tiina, at that table, from opening to closing, on one coffee each."],
   ["What did your father think of the king?","He kept a picture of him over the till, and darts holes in it from a bad night in 1971. Both things are true. That's Saltwick for you."]],
@@ -14707,7 +14707,7 @@ DAILY['Rosa']={
  "Go gently. Everyone is, today."],
 11:["(Rosa is whispering, which she rarely does.) Elin. From the cola offices. She came for her lunch and her hands were shaking. I gave her extra mustard. She knows what that means.",[
   ["What does extra mustard mean?","It means I know, and I'm not telling. She's got a secret. A nice one, with a sad edge. If Phil knew, he'd faint. If the oil company knew, someone would be sacked."],
-  ["Is it a love affair?","(She hands you a napkin and says nothing.) Eat your sausage. You'll get mustard on your notes."],
+  ["Is it a love affair?","(She hands you a napkin and says nothing.) Eat your sausage. You'll get mustard on your notes. [+hotdog]"],
   ["Will you tell me?","Not for all the mustard in Finland. A secret told at a hot dog cart is a secret that never sells another hot dog."]],
  "If you see Elin, be kind. She's got more on her plate than you know."],
 12:["(Rosa is folding a page of crossword squares into a small square and slipping it into her apron.) Ville threw this one in the bin. I fished it out. Don't tell him. I've got a plan.",[
@@ -14719,7 +14719,7 @@ DAILY['Rosa']={
   ["Why are they giving it away?","Because everyone's going to vote for something soon, and Kelp Cola wants everyone's mouth full of Kelp Cola when they do."],
   ["Did you get paid for handing them out?","In cola. Which is like being paid in rain. But they gave me a new apron with Kelpy on it, so I'm wearing it, out of pity."],
   ["Is the Party cola any good?","The Party woman brought a bottle round. It tastes of beetroot and hope. Hope's nice. Beetroot isn't."]],
- "Take a bottle. Everybody's got one. It's like a uniform today."],
+ "Take a bottle. Everybody's got one. It's like a uniform today. [+cola]"],
 14:["(The square is empty, and Rosa is closing her cart.) Everyone's going to the big gathering, so I'm going too. First time in fifteen years I've left my cart in the day. Ville's minding it. He doesn't know how the stove works.",[
   ["Why go now?","Because everyone will be there, and I want to see their faces. You learn more from one face at a big moment than from a year of lunches."],
   ["Will Ville be all right?","He'll sit on my stool and be very important. He'll sell nothing, and he'll tell everyone it was quiet. It won't have been."],
@@ -14734,7 +14734,7 @@ DAILY['Rosa']={
   ["Who's winning?","Neither. They agree on more than they think. They both want the island for the people. They just disagree about which people."],
   ["Do you have a side?","I've got a cart. A cart doesn't have a side. A cart's got a front and a back, and everyone who's hungry comes to the front."],
   ["Will you watch the real debate?","I'll hear it word for word from everyone who comes back hungry. That's the best way. You get every side, with mustard on it."]],
- "Take your bun. They've forgotten theirs. Somebody should eat."],
+ "Take your bun. They've forgotten theirs. Somebody should eat. [+hotdog]"],
 17:["(The sausages on Rosa's grill roll gently to one side, then back.) Did you see that? The ground moved. The sausages felt it first. They always know.",[
   ["Was it an earthquake?","A little one, the Gazette says. The Gazette also said my hot dogs were 'adequate' in 1974. I don't trust the Gazette."],
   ["Is anything else going on?","Dario's gone missing, the oil men say. His boy didn't come for his lunch. Nobody knows where he is. The boy ate both sausages, out of worry."],
@@ -14837,7 +14837,7 @@ DAILY['Rosaria']={
   ["Pizza without cheese? Sacrilege.","Marinara. No cheese, just tomato, garlic, oregano. The sailors in Naples ate it. It's older than your country's parliament."]],
  "Come and try the goat's cheese. Be honest, but not too honest."],
 6:["(The back room door is shut, and the sound of chips clicking comes through it.) Busy morning. Some men came early for cards. I gave them coffee and closed the door. Sit, have a slice.",[
-  ["Who's in the back room?","Friends. (She hands you a slice.) The cheese is from Hilda's. Tell me what you think."],
+  ["Who's in the back room?","Friends. (She hands you a slice.) The cheese is from Hilda's. Tell me what you think. [+pizza]"],
   ["Do you ever play cards yourself?","Scopa, with my sister, at Christmas, by letter. It takes until Easter. Poker is a game for men who like to lie with their faces."],
   ["This goat's cheese is strong.","Strong is good. Strong means it's alive. Sergeant Hanna said it tastes like a barn. She had three slices."]],
  "Mind the step on your way out: it's iced again."],
@@ -14861,7 +14861,7 @@ DAILY['Rosaria']={
   ["The back room's busy today.","Is it? I've been in the kitchen all morning. The dough doesn't wait for anyone. Not even kings. Not even Gustavo."],
   ["A candle by the oven?","In Naples we light a candle for the dead where the warmth is. The church is too cold for a soul to stay in."]],
  "Go gently. It's a sad day, even for people who didn't know him."],
-11:["The Sarivalto pizza, first attempt. (Rosaria puts a slice in front of you with great ceremony.) Herring, lingonberry, goat's cheese. Eat. Then lie to me kindly.",[
+11:["The Sarivalto pizza, first attempt. (Rosaria puts a slice in front of you with great ceremony.) Herring, lingonberry, goat's cheese. Eat. Then lie to me kindly. [+pizza]",[
   ["It's actually rather good.","Don't sound so surprised! (She beams.) Too many berries? The berries are fighting the herring. I'll make peace between them."],
   ["The herring's a bit loud.","Everything about herring is loud. It's a fish that shouts. Next time I'll smoke it less. Thank you for not being polite."],
   ["What did Mario think?","He ate it all and asked for a normal one. That's not a review, that's a man in prison. I don't count it."]],
@@ -14886,7 +14886,7 @@ DAILY['Rosaria']={
   ["What's the gossip from the palace?","The prince and the abbot are fighting over which brother wears the crown. Marta from the palace kitchen buys flour from me. She says the soup's gone salty from worry."],
   ["A blanket for a bowl of dough?","You laugh. She's older than you. Have some respect."]],
  "Don't slam the door. Nonna's resting."],
-16:["Sarivalto pizza, version two. (She slides a slice across.) Less berries, more dill, the herring smoked only a little. And a drop of the sea buckthorn oil Pirkko sells from her van.",[
+16:["Sarivalto pizza, version two. (She slides a slice across.) Less berries, more dill, the herring smoked only a little. And a drop of the sea buckthorn oil Pirkko sells from her van. [+pizza]",[
   ["Better than the first.","Much better. You're too polite to say so, but the first one was a fight on a plate. This one's a conversation."],
   ["Did you hear the debate?","On the radio, yes. Anna and Erik, shouting about the people. The people were all here, eating pizza, not listening. I could have told them."],
   ["Who else has tried it?","Sergeant Hanna, Eila, Marjut, and a monk who came down for flour. He said it was 'a blessing upon the herring'. I'll put it on the menu."]],
@@ -14925,9 +14925,9 @@ DAILY['Rosaria']={
   ["What's in it?","Beans, onions, stale bread, anything left over. Everyone's soup is different in a bad week. That's how you know you've had a bad week."],
   ["How are people coping?","People are tired. Eila slept in the back room last night, on the crates, because her flat has no window. Don't tell anyone. She was too proud to ask."],
   ["The oven needs a rest?","The ground shook it again in the night. One brick is loose. I talked to it. Ovens listen, if you're polite."]],
- "Take a bowl. Don't argue."],
+ "Take a bowl. Don't argue. [+soup]"],
 24:["Paola came in this morning, early, and asked for an empty sack of flour and a strong coffee. (Rosaria shrugs.) She didn't say why. She never does.",[
-  ["What would she want a flour sack for?","Maybe she's baking. (She looks at you steadily.) I don't ask, journalist. Neither should you. Have a coffee."],
+  ["What would she want a flour sack for?","Maybe she's baking. (She looks at you steadily.) I don't ask, journalist. Neither should you. Have a coffee. [+coffee]"],
   ["Is the oven fixed?","A man from the gun shop, Frank, came and mortared the brick. He charged me two pizzas. A good trade. He's a Republican, but his hands are honest."],
   ["Do you like Paola?","Paola once fixed my clock without asking, while she waited for her coffee. She's a precise woman. I trust precise people. Mostly."]],
  "Drink the coffee. You look like you need it."],
@@ -15022,7 +15022,7 @@ DAILY['Ruby']={
   ["Free samples are nice, though.","A free song on the radio's nice. A free cola's a fishhook with sugar on it. Next month it's ten pence, and the month after you can't remember life without it."],
   ["Still thinking about the Arvo Lind record?","(She glances under the counter.) I keep thinking about the Aurora in 1959. All those people in their good coats, not knowing they'd be the only ones who ever heard it live. Whatever happens to a record, the night happened."],
   ["Want me to drink it for you?","Be my guest. (She slides it across.) Tell me if it tastes of kelp. I've always suspected."]],
- "Take the cola with you. It's spoiling the look of the shop."],
+ "Take the cola with you. It's spoiling the look of the shop. [+cola]"],
 14:["(The shop's empty, and Ruby has her coat on over her jumper.) The fourteenth. Everyone on the island's talking about it like it's the last day of school. I'm closing at noon whether there's a crowd in here or not.",[
   ["What are you expecting?","Speeches. Lots of them. I've packed a flask and a pair of earmuffs."],
   ["What do Eastbrook people want from it?","To be asked. That's all most people here want, about anything. Erik's been ironing his shirt since breakfast."],
@@ -15225,7 +15225,7 @@ DAILY['Ruth']={
   ["Who's winning on the lane?","Me. Lars bowled the ball backwards. Magnus undid a button. It's been quite an afternoon."],
   ["Heard anything interesting?","At a party? Everything. Drink loosens tongues, and milkshakes loosen the rest. I've filled four pages in the book."],
   ["Nice bandana.","Thank you. Britta said I look like a train robber. That's the nicest thing she's ever said."]],
- "Take a milkshake. Strawberry. It's the safest."],
+ "Take a milkshake. Strawberry. It's the safest. [+milkshake]"],
 29:["(Ruth is sitting very straight with her hands folded on the appointments book.) The Republican vote's today, at the party HQ. Magnus left in his best suit at eight, with a rubber band round forty cards.",[
   ["Do you want him to win?","I want the building to be quiet afterwards. If he wins, Dario sulks. If he loses, Magnus sulks. I'm planning for sulking."],
   ["What's the gossip?","Margit's counting, and Margit's honest, so nobody can guess. That's very unusual round here. Everyone's on edge."],
@@ -16006,7 +16006,7 @@ DAILY['Sanna']={
 30:["(Sanna has the grill on and a burger sizzling, though there's nobody in.) The last day. They'll decide the island today. I've put a burger on anyway. Whoever wins, they'll be hungry after. Everybody's always hungry after.",[
   ["Are you open?", "I'm always open. People get hungry when they're nervous. And when they're happy. And when they're sad. That's the secret of burgers. It's not the sauce."],
   ["How's Sven?", "He came in this morning in the scarf and asked if I'd stand with him today too. I said yes. I've got good at saying yes."],
-  ["Thank you, Sanna.", "(She hands you a burger in a paper bag.) For the road. Square, with the sauce. Tell London about it. Tell them it's the best on the island. It's true."]],
+  ["Thank you, Sanna.", "(She hands you a burger in a paper bag.) For the road. Square, with the sauce. Tell London about it. Tell them it's the best on the island. It's true. [+burger]"]],
  "Sit. Eat. Then go and see what happens."],
 };
 // Sergeant Hanna, desk sergeant at Kingsgrad Police Station (the Police). Threads: being the whole police force since the old chief
@@ -18598,7 +18598,7 @@ DAILY['Yuri']={
   ["Where did you get oranges?","A friend of a friend, on a boat. (He winks.) Timber men know a great many boats."],
   ["What do you think of the Party's cola?","(He tastes it, and his smile stays perfectly steady.) Excellent. Revolutionary. Beetroot is the drink of the future. (He sets it down very gently.) In Leningrad we have better beetroot."],
   ["Does Anna like the oranges?","Anna says thank you, and then asks me what I want for them. (He laughs.) She's very suspicious. She's quite right. I want the Party to succeed. That's all. Quickly."]],
- "Take another orange. For your health. And remember who gave it to you."],
+ "Take another orange. For your health. And remember who gave it to you. [+orange]"],
 10:["(Yuri is in a black suit with a black tie, at the hotel bar, with an untouched glass in front of him.) The funeral. I'm not going. It's not my king. (He turns the glass.) But I'm not drinking today. A man should respect another country's grief.",[
   ["Did you know the king?","I met him once, in 1976, at a timber fair in Helsinki. He asked me about birch. I talked about birch for ten minutes. He listened to every word. Very few people listen to me about birch."],
   ["What happens to the island now?","Everyone is asking. Everyone has an answer. (He looks at the glass.) My mother has an answer too. She's very sure. I'm less sure than I used to be."],
@@ -18618,7 +18618,7 @@ DAILY['Yuri']={
   ["What's coming?","The big day. Tomorrow. Everyone on the island in one place. (He finishes the cola.) My mother is very interested in tomorrow."],
   ["Will you go?","At the back. With the Party. Anna says I may stand with them as a friend. Not a member. A friend. (He smiles.) Anna chooses her words very carefully."],
   ["Does Anna trust you?","Anna trusts nobody. That's why she's still leading the Party after ten years. (He sets down the bottle.) I respect her enormously. She's a very difficult woman to hurry."]],
- "Drink your free cola. Enjoy capitalism while it's free."],
+ "Drink your free cola. Enjoy capitalism while it's free. [+cola]"],
 14:["(Yuri is at the back of the gathering, behind the Party, in a grey coat, watching everything with a pleasant smile.) The whole island! In one place! (He looks around.) Wonderful. My mother will want to know every face.",[
   ["Who's interesting?","The palace, nervous. The oil men, counting. The cola men, smiling too much. The Democrats, very sure. (He nods at Anna.) And the Party. Waiting. Anna's very good at waiting. Too good."],
   ["Too good?","Waiting is a luxury, comrade. (He catches himself.) Friend. History moves fast. A Party that waits may find history has gone without it."],
@@ -18681,12 +18681,12 @@ DAILY['Yuri']={
   ["Which will the island choose?","(He thinks.) The one it trusts. Not the loudest. Anna knows that. It took me a month and a mountain to learn it."],
   ["Has your mother answered?","(He touches his pocket.) A telegram. One word. 'Push.' (He takes it out and tears it in half, very calmly.) I'm thinking about it. Very slowly. Like Anna."],
   ["Will you push?","I'll do what a timber man does. Buy rounds. Bring oranges. Listen. (He puts the halves in the ashtray.) And let Anna lead. She knows where she's going. I only know where I've been told to go."]],
- "Take an orange. I've still got a crate. They're very good for thinking."],
+ "Take an orange. I've still got a crate. They're very good for thinking. [+orange]"],
 26:["(Yuri is at the hotel bar with a crate of oranges, peeling one with great care, offering segments to anyone who passes.) Oranges. The last of the crate. (He hands you a segment.) Eat. Vitamins. Not for the revolution, this time. Just for you.",[
   ["What's changed?","(He eats a segment.) Nothing. Everything. I've stopped counting who eats my oranges. (He smiles.) My mother would be horrified."],
   ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. (He laughs.) Capitalism, buying hot water with milkshakes. In Leningrad we'd nationalise the volcano."],
   ["Is the Party ready for the end of the month?","Anna says the Party's ready to be the Party. Whatever happens. (He looks at the orange peel.) That's either very wise or very foolish. I've decided it's wise."]],
- "Take the last orange. For the road. From a timber man."],
+ "Take the last orange. For the road. From a timber man. [+orange]"],
 27:["(Yuri is buttoning his coat, a cinema ticket and a bag of popcorn in his hands.) The Party's picture tonight, in Kingsgrad! Six tractors and a combine harvester. (He offers the popcorn.) I've seen it eleven times. In Leningrad. I cry every time at the harvester.",[
   ["You've seen it before?","Every Soviet citizen has. (He catches himself.) Every timber man who's spent time in Leningrad. (He eats popcorn.) It's very moving. The girl on the harvester was a real tractor driver."],
   ["Is there going to be trouble tonight?","The Syndicate would like a brawl, the Democrats say. A woman from the mill will be standing at the back with her arms folded, they say. Nobody brawls near her."],
@@ -18710,5 +18710,5 @@ DAILY['Yuri']={
   ["Will you remember this month?",["(He picks up his suitcase.) The mountain, the cellar, the broom, and a woman who wouldn't be hurried. Yes. Every day of it.",[
     ["And me?","The British reporter who wouldn't drink at noon. (He smiles.) My mother knows all about you. Every word. (A pause.) I left out the good parts. Those are mine."],
     ["What will you do tomorrow?","Get on a boat. Write a very short letter. Go home. (He looks at the island.) And never quite be a timber man again. Something's changed. I don't know what to call it."]]]]],
- "Have an orange, if you find one. Think of a timber man. And don't drink at noon."],
+ "Have an orange, if you find one. Think of a timber man. And don't drink at noon. [+orange]"],
 };

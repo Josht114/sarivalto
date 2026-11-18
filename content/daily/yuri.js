@@ -19,7 +19,7 @@ DAILY['Yuri']={
   ["Where did you get oranges?","A friend of a friend, on a boat. (He winks.) Timber men know a great many boats."],
   ["What do you think of the Party's cola?","(He tastes it, and his smile stays perfectly steady.) Excellent. Revolutionary. Beetroot is the drink of the future. (He sets it down very gently.) In Leningrad we have better beetroot."],
   ["Does Anna like the oranges?","Anna says thank you, and then asks me what I want for them. (He laughs.) She's very suspicious. She's quite right. I want the Party to succeed. That's all. Quickly."]],
- "Take another orange. For your health. And remember who gave it to you."],
+ "Take another orange. For your health. And remember who gave it to you. [+orange]"],
 10:["(Yuri is in a black suit with a black tie, at the hotel bar, with an untouched glass in front of him.) The funeral. I'm not going. It's not my king. (He turns the glass.) But I'm not drinking today. A man should respect another country's grief.",[
   ["Did you know the king?","I met him once, in 1976, at a timber fair in Helsinki. He asked me about birch. I talked about birch for ten minutes. He listened to every word. Very few people listen to me about birch."],
   ["What happens to the island now?","Everyone is asking. Everyone has an answer. (He looks at the glass.) My mother has an answer too. She's very sure. I'm less sure than I used to be."],
@@ -39,7 +39,7 @@ DAILY['Yuri']={
   ["What's coming?","The big day. Tomorrow. Everyone on the island in one place. (He finishes the cola.) My mother is very interested in tomorrow."],
   ["Will you go?","At the back. With the Party. Anna says I may stand with them as a friend. Not a member. A friend. (He smiles.) Anna chooses her words very carefully."],
   ["Does Anna trust you?","Anna trusts nobody. That's why she's still leading the Party after ten years. (He sets down the bottle.) I respect her enormously. She's a very difficult woman to hurry."]],
- "Drink your free cola. Enjoy capitalism while it's free."],
+ "Drink your free cola. Enjoy capitalism while it's free. [+cola]"],
 14:["(Yuri is at the back of the gathering, behind the Party, in a grey coat, watching everything with a pleasant smile.) The whole island! In one place! (He looks around.) Wonderful. My mother will want to know every face.",[
   ["Who's interesting?","The palace, nervous. The oil men, counting. The cola men, smiling too much. The Democrats, very sure. (He nods at Anna.) And the Party. Waiting. Anna's very good at waiting. Too good."],
   ["Too good?","Waiting is a luxury, comrade. (He catches himself.) Friend. History moves fast. A Party that waits may find history has gone without it."],
@@ -102,12 +102,12 @@ DAILY['Yuri']={
   ["Which will the island choose?","(He thinks.) The one it trusts. Not the loudest. Anna knows that. It took me a month and a mountain to learn it."],
   ["Has your mother answered?","(He touches his pocket.) A telegram. One word. 'Push.' (He takes it out and tears it in half, very calmly.) I'm thinking about it. Very slowly. Like Anna."],
   ["Will you push?","I'll do what a timber man does. Buy rounds. Bring oranges. Listen. (He puts the halves in the ashtray.) And let Anna lead. She knows where she's going. I only know where I've been told to go."]],
- "Take an orange. I've still got a crate. They're very good for thinking."],
+ "Take an orange. I've still got a crate. They're very good for thinking. [+orange]"],
 26:["(Yuri is at the hotel bar with a crate of oranges, peeling one with great care, offering segments to anyone who passes.) Oranges. The last of the crate. (He hands you a segment.) Eat. Vitamins. Not for the revolution, this time. Just for you.",[
   ["What's changed?","(He eats a segment.) Nothing. Everything. I've stopped counting who eats my oranges. (He smiles.) My mother would be horrified."],
   ["What's the news?","The oil company's buying the spa, they say. Dario's offered a milkshake machine. (He laughs.) Capitalism, buying hot water with milkshakes. In Leningrad we'd nationalise the volcano."],
   ["Is the Party ready for the end of the month?","Anna says the Party's ready to be the Party. Whatever happens. (He looks at the orange peel.) That's either very wise or very foolish. I've decided it's wise."]],
- "Take the last orange. For the road. From a timber man."],
+ "Take the last orange. For the road. From a timber man. [+orange]"],
 27:["(Yuri is buttoning his coat, a cinema ticket and a bag of popcorn in his hands.) The Party's picture tonight, in Kingsgrad! Six tractors and a combine harvester. (He offers the popcorn.) I've seen it eleven times. In Leningrad. I cry every time at the harvester.",[
   ["You've seen it before?","Every Soviet citizen has. (He catches himself.) Every timber man who's spent time in Leningrad. (He eats popcorn.) It's very moving. The girl on the harvester was a real tractor driver."],
   ["Is there going to be trouble tonight?","The Syndicate would like a brawl, the Democrats say. A woman from the mill will be standing at the back with her arms folded, they say. Nobody brawls near her."],
@@ -131,5 +131,5 @@ DAILY['Yuri']={
   ["Will you remember this month?",["(He picks up his suitcase.) The mountain, the cellar, the broom, and a woman who wouldn't be hurried. Yes. Every day of it.",[
     ["And me?","The British reporter who wouldn't drink at noon. (He smiles.) My mother knows all about you. Every word. (A pause.) I left out the good parts. Those are mine."],
     ["What will you do tomorrow?","Get on a boat. Write a very short letter. Go home. (He looks at the island.) And never quite be a timber man again. Something's changed. I don't know what to call it."]]]]],
- "Have an orange, if you find one. Think of a timber man. And don't drink at noon."],
+ "Have an orange, if you find one. Think of a timber man. And don't drink at noon. [+orange]"],
 };

@@ -113,7 +113,7 @@ DAILY['Ruth']={
   ["Who's winning on the lane?","Me. Lars bowled the ball backwards. Magnus undid a button. It's been quite an afternoon."],
   ["Heard anything interesting?","At a party? Everything. Drink loosens tongues, and milkshakes loosen the rest. I've filled four pages in the book."],
   ["Nice bandana.","Thank you. Britta said I look like a train robber. That's the nicest thing she's ever said."]],
- "Take a milkshake. Strawberry. It's the safest."],
+ "Take a milkshake. Strawberry. It's the safest. [+milkshake]"],
 29:["(Ruth is sitting very straight with her hands folded on the appointments book.) The Republican vote's today, at the party HQ. Magnus left in his best suit at eight, with a rubber band round forty cards.",[
   ["Do you want him to win?","I want the building to be quiet afterwards. If he wins, Dario sulks. If he loses, Magnus sulks. I'm planning for sulking."],
   ["What's the gossip?","Margit's counting, and Margit's honest, so nobody can guess. That's very unusual round here. Everyone's on edge."],

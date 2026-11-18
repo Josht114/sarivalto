@@ -25,7 +25,7 @@ DAILY['Rosaria']={
   ["Pizza without cheese? Sacrilege.","Marinara. No cheese, just tomato, garlic, oregano. The sailors in Naples ate it. It's older than your country's parliament."]],
  "Come and try the goat's cheese. Be honest, but not too honest."],
 6:["(The back room door is shut, and the sound of chips clicking comes through it.) Busy morning. Some men came early for cards. I gave them coffee and closed the door. Sit, have a slice.",[
-  ["Who's in the back room?","Friends. (She hands you a slice.) The cheese is from Hilda's. Tell me what you think."],
+  ["Who's in the back room?","Friends. (She hands you a slice.) The cheese is from Hilda's. Tell me what you think. [+pizza]"],
   ["Do you ever play cards yourself?","Scopa, with my sister, at Christmas, by letter. It takes until Easter. Poker is a game for men who like to lie with their faces."],
   ["This goat's cheese is strong.","Strong is good. Strong means it's alive. Sergeant Hanna said it tastes like a barn. She had three slices."]],
  "Mind the step on your way out: it's iced again."],
@@ -49,7 +49,7 @@ DAILY['Rosaria']={
   ["The back room's busy today.","Is it? I've been in the kitchen all morning. The dough doesn't wait for anyone. Not even kings. Not even Gustavo."],
   ["A candle by the oven?","In Naples we light a candle for the dead where the warmth is. The church is too cold for a soul to stay in."]],
  "Go gently. It's a sad day, even for people who didn't know him."],
-11:["The Sarivalto pizza, first attempt. (Rosaria puts a slice in front of you with great ceremony.) Herring, lingonberry, goat's cheese. Eat. Then lie to me kindly.",[
+11:["The Sarivalto pizza, first attempt. (Rosaria puts a slice in front of you with great ceremony.) Herring, lingonberry, goat's cheese. Eat. Then lie to me kindly. [+pizza]",[
   ["It's actually rather good.","Don't sound so surprised! (She beams.) Too many berries? The berries are fighting the herring. I'll make peace between them."],
   ["The herring's a bit loud.","Everything about herring is loud. It's a fish that shouts. Next time I'll smoke it less. Thank you for not being polite."],
   ["What did Mario think?","He ate it all and asked for a normal one. That's not a review, that's a man in prison. I don't count it."]],
@@ -74,7 +74,7 @@ DAILY['Rosaria']={
   ["What's the gossip from the palace?","The prince and the abbot are fighting over which brother wears the crown. Marta from the palace kitchen buys flour from me. She says the soup's gone salty from worry."],
   ["A blanket for a bowl of dough?","You laugh. She's older than you. Have some respect."]],
  "Don't slam the door. Nonna's resting."],
-16:["Sarivalto pizza, version two. (She slides a slice across.) Less berries, more dill, the herring smoked only a little. And a drop of the sea buckthorn oil Pirkko sells from her van.",[
+16:["Sarivalto pizza, version two. (She slides a slice across.) Less berries, more dill, the herring smoked only a little. And a drop of the sea buckthorn oil Pirkko sells from her van. [+pizza]",[
   ["Better than the first.","Much better. You're too polite to say so, but the first one was a fight on a plate. This one's a conversation."],
   ["Did you hear the debate?","On the radio, yes. Anna and Erik, shouting about the people. The people were all here, eating pizza, not listening. I could have told them."],
   ["Who else has tried it?","Sergeant Hanna, Eila, Marjut, and a monk who came down for flour. He said it was 'a blessing upon the herring'. I'll put it on the menu."]],
@@ -113,9 +113,9 @@ DAILY['Rosaria']={
   ["What's in it?","Beans, onions, stale bread, anything left over. Everyone's soup is different in a bad week. That's how you know you've had a bad week."],
   ["How are people coping?","People are tired. Eila slept in the back room last night, on the crates, because her flat has no window. Don't tell anyone. She was too proud to ask."],
   ["The oven needs a rest?","The ground shook it again in the night. One brick is loose. I talked to it. Ovens listen, if you're polite."]],
- "Take a bowl. Don't argue."],
+ "Take a bowl. Don't argue. [+soup]"],
 24:["Paola came in this morning, early, and asked for an empty sack of flour and a strong coffee. (Rosaria shrugs.) She didn't say why. She never does.",[
-  ["What would she want a flour sack for?","Maybe she's baking. (She looks at you steadily.) I don't ask, journalist. Neither should you. Have a coffee."],
+  ["What would she want a flour sack for?","Maybe she's baking. (She looks at you steadily.) I don't ask, journalist. Neither should you. Have a coffee. [+coffee]"],
   ["Is the oven fixed?","A man from the gun shop, Frank, came and mortared the brick. He charged me two pizzas. A good trade. He's a Republican, but his hands are honest."],
   ["Do you like Paola?","Paola once fixed my clock without asking, while she waited for her coffee. She's a precise woman. I trust precise people. Mostly."]],
  "Drink the coffee. You look like you need it."],

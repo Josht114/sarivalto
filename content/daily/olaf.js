@@ -134,7 +134,7 @@ DAILY['Olaf']={
   ["What's on your list for the new government?","Weather, prices, politicians. (He thinks.) And a new one. 'Not enough geese as pets.' Hilda says it's not a policy. I say it should be."],
   ["Did the cola men ring?","To say thank you. For the kelp. First time in thirty years. (He looks at Hilda.) She nearly dropped the telephone. Then she said 'about time.' Then she hung up."],
   ["How do you feel?","Tired. Grey. Very lucky. (He looks at Hilda.) I carried her a mile. She held the ladder for my grandfather's billhook, in a way. We're even."]],
- "Have some tea. The goose doesn't share. We do."],
+ "Have some tea. The goose doesn't share. We do. [+tea]"],
 30:["(Olaf is in his Sunday coat at the gate, looking back at the farm: the new roof, the grey fields, the old barn still shut, Hilda in the yard with a bucket.) Last day. They're settling the island today. I'm going in to hear the news. Hilda says tell her the faces.",[
   ["What faces will you look for?","Whoever looks like they'll remember the farms. That's all. (He looks at Hilda.) And whoever's next to their wife. That's a good face. I'd vote for that face."],
   ["What do you hope happens?","Good weather. Fair prices. Politicians who've milked a cow. (He considers.) That's my whole list, said as a hope instead of a complaint. Strange. It sounds better."],

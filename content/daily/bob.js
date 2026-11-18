@@ -113,7 +113,7 @@ DAILY['Bob']={
   ["Is everyone all right?","Frightened and coughing, but here. Helen's counting heads, I'm counting bowls. Between us we'll get everybody."],
   ["What kind of soup?","Whatever was in the cupboards. Potato, cabbage, a smoked haddock and Kaisa's onions. It's surprisingly good."],
   ["Did you see it go up?","From the roof. A red line up north and the whole sky going grey. I've never seen anything like it, and I don't want to again."]],
- "Take a bowl. You look like you need one."],
+ "Take a bowl. You look like you need one. [+soup]"],
 22:["The plant's shut while they get the ash out of the water tanks. My first weekday off since 1970, and I've no idea what to do with my hands.",[
   ["Cook?","I am cooking. I've cooked everything in the flat twice. I've started on Kate's cupboards."],
   ["Will you get paid?","Hardship money from the Union's biscuit tin. Helen won't let me take mine; she says I'll only spend it on onions. She's right."],

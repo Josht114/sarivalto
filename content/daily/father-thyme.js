@@ -48,7 +48,7 @@ DAILY['Father Thyme']={
   ["What will you do with them?","Brother Teodor is boiling one down into a glaze for the carrots. The rest are under the altar steps until Brother Anselm decides whether they're a sin."],
   ["Have you tried it?","Once, in nineteen sixty. It tasted of the sea and of someone trying to sell me the sea. I don't suppose it's changed."],
   ["That's the island's business now, isn't it? Gifts.","Everyone is giving everyone something this month. When the gifts stop, look to see who's still smiling. That is who expected to win."]],
- "Take a bottle down with you, if you like. Save us from temptation."],
+ "Take a bottle down with you, if you like. Save us from temptation. [+cola]"],
 14:["(Father Thyme is wrapped in a heavy coat, his breath white.) The fourteenth. The whole island in one place, all at once, all of them sure they're right. I've lived long enough to be frightened of that.",[
   ["What do you expect from today?","A great deal of shouting, and a few quiet words that matter more. It is always the quiet ones. Listen for those."],
   ["Will the Church have its say?","The Church always has its say. Whether anyone hears it over the brass band is another matter."],
@@ -117,7 +117,7 @@ DAILY['Father Thyme']={
   ["What do you make of it?","Six hundred years of crowns, and now a king you can buy for a few coins and throw in the bin. Phil is a clever man. I'm not sure that's a compliment."],
   ["Is Augustus on a bottle too?","Not yet. Augustus would rather be on a lamppost. He'd be on the label apologising."],
   ["And Diversified Petroleum's buying the spa, I hear.","Dario wants to own the hot water now. Next he'll be selling us the snow. Forgive me, that was uncharitable. True, but uncharitable."]],
- "Take the bottle. I'd rather not drink a family I've baptised."],
+ "Take the bottle. I'd rather not drink a family I've baptised. [+cola]"],
 27:["(The chessboard is out. Father Thyme moves a piece, then moves it back.) Augustus is three moves from mate. I can see it, and he can see it, and his last letter asks after my health in a very sorry hand.",[
   ["Will you resign?","I'll play it out. You don't stop a game because you're losing. You stop it when it's over. There's a sermon in that, if I had the voice."],
   ["Do you think he'll be king?","I think he'll be what God and the island make of him, and I think he'll apologise either way. That's all I'll say, even to a reporter. Especially to a reporter."],

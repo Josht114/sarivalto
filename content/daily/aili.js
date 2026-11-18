@@ -3,7 +3,7 @@
 // her regulars (the fishermen at dawn, Anna and Helen in booth two, Sirpa and Tiina and their one coffee, Pat, fed for nothing),
 // and not sleeping, which is why she never closes. She calls everyone "hon".
 DAILY['Aili']={
-1:["(Aili is pouring coffee before you've sat down.) Sit anywhere, hon. Anywhere that isn't wet. The roof's got opinions. You're the reporter, off the boat? You look like you came in on the boat.",[
+1:["(Aili is pouring coffee before you've sat down.) Sit anywhere, hon. Anywhere that isn't wet. The roof's got opinions. You're the reporter, off the boat? You look like you came in on the boat. [+coffee]",[
   ["I did. Is it always this cold?","Till May. Then it's damp till September. Drink your coffee, it's the warmest thing on the island."],
   ["Nice place.",["Bless you. It's falling down, but it's falling down with the lights on. Twenty years I ran a diner in Duluth, Minnesota. Came home, and built another one. Habit.",[
     ["Why come back?","My husband passed, and Duluth was full of him. Saltwick was full of nobody I knew any more. That seemed easier."],

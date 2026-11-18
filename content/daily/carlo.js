@@ -44,7 +44,7 @@ DAILY['Carlo']={
   ["What will you hand out?","Nothing. My friends say giving things is crude. They prefer people to know what they'd lose. (He looks unhappy.) I'd rather hand out cola. People like cola."],
   ["Are you going to the gathering tomorrow?","All three candidates will be there. Harald with a smile, Magnus with a speech, and me with friends. (He sighs.) Margit's watching the friends. Everyone's watching the friends."],
   ["Do you like Harald?","(He considers.) Yes. Annoyingly. He's kind. Kind men are very difficult to run against. You can't frighten them. They just smile and ask about your mother."]],
- "Take the cola. Tell Harald I didn't drink it. He'll be hurt. He's very easy to hurt."],
+ "Take the cola. Tell Harald I didn't drink it. He'll be hurt. He's very easy to hurt. [+cola]"],
 14:["(Carlo is in a new suit, very sharp, flexing his right hand.) The big day. Everyone's there. My friends are there. The Don's watching. I've done four hundred handshakes already, and I'm going back for more.",[
   ["Is your hand all right?","Numb. I practised on the Don's waiter at the Club. He's very patient. He's also very strong. I think he was practising on me."],
   ["What do you hope happens?","That someone in the crowd chooses me. Not because my friends are behind them. Because they want to. (He flexes the hand.) Just one person. I'd like to meet them."],

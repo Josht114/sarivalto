@@ -28,7 +28,7 @@ DAILY['Marta']={
   ["Will you tell him off?","No. I make twenty-five now. He gets one, I get the satisfaction, and he gets a fright every time I look at him."],
   ["He's young, he's hungry.","He's young, he's hungry and he stands out in the cold all day like a lamp post. If he wasn't stealing buns I'd be worried."],
   ["What kind of buns?","Cardamom. My mother's. Don't write it down. If I see it in a newspaper I'll know who to blame."]],
- "Take a bun. Go on. Then I'll know where the twenty-fourth went."],
+ "Take a bun. Go on. Then I'll know where the twenty-fourth went. [+bun]"],
 7:["Prince Augustus is fasting for a saint I'd never heard of. So I sent up soup with a note that said 'Saints eat'. Oskar ate it.",[
   ["Did you scold Oskar?","I gave him another bowl. Pea and ham doesn't keep. And the boy looked like he'd stolen from the altar. Punishment enough."],
   ["Will Augustus ever eat?","When the saints let him. There's a great many saints this month. I've started keeping a calendar of them on the larder door."],
@@ -103,7 +103,7 @@ DAILY['Marta']={
   ["Who's been coming?","Every servant, the postman, two soldiers, a woman from Kingsgrad with a baby. I've put the baby in the bread basket by the stove. It's the warmest place."],
   ["Is everyone safe?","Nobody hurt, Oskar says. He ran to town and back. I gave him two mugs and a bun. He didn't even have to steal it."],
   ["Can I help?","Hand out mugs. Smile. And don't let anyone take the ladle. It was my mother's."]],
- "Take some soup with you. Pour it into anyone who looks cold."],
+ "Take some soup with you. Pour it into anyone who looks cold. [+soup]"],
 22:["Ash in the flour. Ash in the sugar. Ash in the butter, if you leave it a minute. I've covered everything in cloths. My kitchen looks like a ward.",[
   ["Can you still cook?","I cooked through the winter of '62 with the snow up to the windows. I'll cook through this. It'll just be grey."],
   ["How's the family eating?","Prince Augustus is eating, thank God. Daphne's eating nothing, as usual. The prince ate standing up in here at midnight, like his father."],

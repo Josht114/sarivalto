@@ -45,7 +45,7 @@ DAILY['Hilda']={
   ["Will you open it today?","Olaf's hidden the crowbar. He thinks I don't know where. It's behind the milk churns. (She smiles grimly.) Soon."]],
  "If you hear humming at night, don't come and look. That's my job."],
 13:["(Hilda has a free bottle of Kelp Cola in her hand and is looking at it with deep suspicion.) A young man from the company left a crate. 'Free samples.' Free. Made with my kelp. They're giving away my kelp and calling it generous.",[
-  ["Will you drink it?","Olaf will. In the byre. In secret. He'll think I don't know. (She hands the bottle to you.) You have it. You're a guest. Guests get the free things."],
+  ["Will you drink it?","Olaf will. In the byre. In secret. He'll think I don't know. (She hands the bottle to you.) You have it. You're a guest. Guests get the free things. [+cola]"],
   ["Is the kelp harvest good this year?","Thinner than last. The sea's warmer. The kelp doesn't like warm. Neither do I. Something's wrong with the sea this month."],
   ["Will you go to the gathering tomorrow?","Somebody has to milk the cows. Olaf's going. He'll stand at the back and complain to anyone who'll listen. He'll have a lovely time."]],
  "Drink it slowly. It's my kelp."],
@@ -63,7 +63,7 @@ DAILY['Hilda']={
   ["Who would you vote for?","Whoever says 'farm' first. And then I'd want to see them milk a cow. Words are cheap. Milk's at four in the morning."],
   ["Does Olaf have an opinion?","Olaf has all the opinions. He's shouting at the wireless from the byre. The cows are very confused."],
   ["What's the bread for?","Olaf. He's been shouting so long he'll be hungry. (She punches it again.) This is the Party. (And again.) This is the Democrats. Makes very good bread."]],
- "Take a loaf when it's done. You look like you need feeding."],
+ "Take a loaf when it's done. You look like you need feeding. [+bread]"],
 17:["(Hilda is standing in the yard with a hen under each arm, looking north.) The ground moved this morning. The hens stopped laying. Every one. The cows won't settle. There's steam on the mountain.",[
   ["Is it the volcano?","I've lived under that mountain fifty-two years. It's never steamed. It's steaming now. I don't need a scientist to tell me what that means."],
   ["What will you do?","Tie everything down. Count the animals. Pray. Frank at the gun shop came by. I asked him if guns could stop lava. He said no. He didn't laugh. That frightened me more."],
@@ -134,7 +134,7 @@ DAILY['Hilda']={
   ["How's the farm?","Milking again. Laying again. Grey, but growing. The kelp's coming back in the shore beds. The Kelp Cola men rang to say thank you. Thank you! First time in thirty years."],
   ["How's Olaf?","(Olaf grunts.) He's got a list of complaints for the new government, whoever it is. Weather, prices, politicians. He's added a new one: 'Not enough geese as pets.'"],
   ["What do you hope happens tomorrow?","That whoever runs the island comes and milks a cow. Once. Just once. Then they'll understand everything."]],
- "Have some tea. The goose doesn't share, but we do."],
+ "Have some tea. The goose doesn't share, but we do. [+tea]"],
 30:["(Hilda is standing in the yard at dawn, looking at the farm: the new roof, the old barn still shut, the grey fields, Bertha in the corner, the goose at her feet.) Last day. They're settling the island today. And the cows still need milking. (She picks up a bucket.) That's farming.",[
   ["What do you hope happens?","That it's still an island where people grow things. Where the towns remember the farms. Where a mill lad brings a farmer timber in the ash. That's all."],
   ["Will you go to hear the news?","Olaf will. In his Sunday coat. He'll come back and tell me the faces. He notices faces. He thinks he doesn't."],
