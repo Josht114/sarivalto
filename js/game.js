@@ -420,8 +420,8 @@ const npcAhead=()=>{const[dx,dy]=DIR[P.dir];let x=P.x+dx,y=P.y+dy;
   for(let i=0;i<3;i++){const n=NPCS.find(n=>n.m==P.m&&n.x==x&&n.y==y);if(n)return n;if(MAPS[P.m][y]?.[x]!='c'&&!barsAt(x,y)&&!deskAt(x,y))return;x+=dx;y+=dy}};
 // cell bars (a feature labelled as bars): you can talk to someone through them, as across a counter
 const barsAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/bars/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
-// a desk (any feature labelled a desk): you can talk to whoever sits behind it, as across a counter
-const deskAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/desk/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
+// a desk or a table (any feature labelled as one, like Erik's meeting table): you can talk to whoever sits behind it, as across a counter
+const deskAt=(x,y)=>FL[P.m].some(([fx,fy,w,h,,l])=>/desk|table/i.test(l||'')&&x>=fx&&x<fx+w&&y>=fy&&y<fy+h);
 const line=n=>`"My name is ${n.name}. I work at ${NM[n.loc]||'nowhere in particular'}. I like ${n.faction=='none'?'no faction in particular':FACTIONS[n.faction][0]}."`;
 // your own bed (in the living space behind the Hidden Radio Room) is the tile you're facing
 // your home: the Hidden Radio Room, until you buy a home of your own and move your things into it (js/homes.js); you can sleep in
